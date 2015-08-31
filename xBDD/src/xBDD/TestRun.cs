@@ -27,24 +27,24 @@ namespace xBDD
             this.factory = factory;
         }
 
-        public ITestCase AddTestCase()
+        public IScenario AddScenario()
         {
-            IMethod method = factory.GetMethodRetriever().GetTestCaseMethod();
-            return AddTestCase(null, method);
+            IMethod method = factory.GetMethodRetriever().GetScenarioMethod();
+            return AddScenario(null, method);
         }
 
-        public ITestCase AddTestCase(string testName)
+        public IScenario AddScenario(string testName)
         {
-            IMethod method = factory.GetMethodRetriever().GetTestCaseMethod();
-            return AddTestCase(testName, method);
+            IMethod method = factory.GetMethodRetriever().GetScenarioMethod();
+            return AddScenario(testName, method);
         }
 
-        public ITestCase AddTestCase(string testName, IMethod method)
+        public IScenario AddScenario(string testName, IMethod method)
         {
-            var test = factory.CreateTestCase();
-            test.Name = factory.GetTestNameReader().ReadTestName(testName, method);
-            test.ClassName = method.GetClassName(); 
-            test.Namespace = method.GetNameSpace();
+            var test = factory.CreateFeature();
+            test.Name = factory.GetScenarioNameReader().ReadScenarioName(testName, method);
+            test.FeatureName = factory.GetFeatureNameReader().ReadFeatureName(method);
+            test.AreaPath = method.GetNameSpace();
             return test;
         }
     }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace xBDD
+﻿namespace xBDD
 {
     public enum ActionType
     {

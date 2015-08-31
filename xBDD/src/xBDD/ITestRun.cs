@@ -7,7 +7,7 @@ namespace xBDD
 {
     public interface ITestRun
     {
-        ITestCase AddTestCase();
-        ITestCase AddTestCase(string testCaseName);
+        IScenario AddScenario();
+        IScenario AddScenario(string scenarioName);
     }
 }

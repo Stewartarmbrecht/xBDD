@@ -2,9 +2,9 @@
 
 namespace xBDD
 {
-    public class TestStep : ITestStep
+    public class Step : IStep
     {
-        public Action<ITestStep> Action { get; set; }
+        public Action<IStep> Action { get; set; }
         public ActionType ActionType { get; set; }
         public string Name { get; set; }
     }

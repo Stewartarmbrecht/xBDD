@@ -36,5 +36,15 @@ namespace xBDD
         {
             return methodBase.DeclaringType.Namespace;
         }
+
+        public IEnumerable<IAttribute> GetDeclaringTypeCustomAttributesData()
+        {
+            List<IAttribute> attr = new List<IAttribute>();
+            methodBase.DeclaringType.GetCustomAttributesData().ToList().ForEach(data =>
+            {
+                attr.Add(this.factory.CreateAttribute(data));
+            });
+            return attr;
+        }
     }
 }

@@ -3,11 +3,11 @@
 namespace xBDD
 {
     [AttributeUsage(System.AttributeTargets.Class | AttributeTargets.Method)]
-    public class StepNameAttribute : Attribute
+    public class ScenarioNameAttribute : Attribute
     {
         public string Name { get; set; }
 
-        public StepNameAttribute(string name)
+        public ScenarioNameAttribute(string name)
         {
             this.Name = name;
         }

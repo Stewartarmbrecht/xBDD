@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace xBDD
 {
-    public interface ITestStep
+    public interface IFeature
     {
-        Action<ITestStep> Action { get; set; }
-        ActionType ActionType { get; set; }
         string Name { get; set; }
+        IArea Area { get; set; }
+        List<IScenario> Scenarios { get; set; }
     }
 }

@@ -4,7 +4,7 @@ namespace xBDD
 {
     public interface IMethodRetriever
     {
-        IMethod GetStepMethod(Action<ITestStep> stepAction);
-        IMethod GetTestCaseMethod();
+        IMethod GetStepMethod(Action<IStep> stepAction);
+        IMethod GetScenarioMethod();
     }
 }

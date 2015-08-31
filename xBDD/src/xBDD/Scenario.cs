@@ -5,65 +5,65 @@ using System.Text.RegularExpressions;
 
 namespace xBDD
 {
-    public class TestCase : ITestCase
+    public class Scenario : IScenario
     {
         IFactory factory;
 
-        private List<ITestStep> steps;
+        private List<IStep> steps;
 
         public string Name { get; set; }
 
-        public List<ITestStep> Steps { get { return steps; } }
+        public List<IStep> Steps { get { return steps; } }
 
-        public string ClassName { get; set; }
-        public string Namespace { get; set; }
+        public string FeatureName { get; set; }
+        public string AreaPath { get; set; }
 
-        public TestCase(IFactory factory)
+        public Scenario(IFactory factory)
         {
             this.factory = factory;
-            steps = new List<ITestStep>();
+            steps = new List<IStep>();
         }
 
 
-        public ITestCase Given(string name, Action<ITestStep> stepAction)
+        public IScenario Given(string name, Action<IStep> stepAction)
         {
             return Action(name, stepAction, ActionType.Given);
         }
-        public ITestCase Given(Action<ITestStep> stepAction)
+        public IScenario Given(Action<IStep> stepAction)
         {
             return Action(stepAction, ActionType.Given);
         }
-        public ITestCase When(string name, Action<ITestStep> stepAction)
+        public IScenario When(string name, Action<IStep> stepAction)
         {
             return Action(name, stepAction, ActionType.When);
         }
-        public ITestCase When(Action<ITestStep> stepAction)
+        public IScenario When(Action<IStep> stepAction)
         {
             return Action(stepAction, ActionType.When);
         }
-        public ITestCase Then(string name, Action<ITestStep> stepAction)
+        public IScenario Then(string name, Action<IStep> stepAction)
         {
             return Action(name, stepAction, ActionType.Then);
         }
-        public ITestCase Then(Action<ITestStep> stepAction)
+        public IScenario Then(Action<IStep> stepAction)
         {
             return Action(stepAction, ActionType.Then);
         }
-        public ITestCase And(string name, Action<ITestStep> stepAction)
+        public IScenario And(string name, Action<IStep> stepAction)
         {
             return Action(name, stepAction, ActionType.And);
         }
-        public ITestCase And(Action<ITestStep> stepAction)
+        public IScenario And(Action<IStep> stepAction)
         {
             return Action(stepAction, ActionType.And);
         }
-        ITestCase Action(Action<ITestStep> stepAction, ActionType type)
+        IScenario Action(Action<IStep> stepAction, ActionType type)
         {
             return Action(null, stepAction, type);
         }
-        ITestCase Action(string name, Action<ITestStep> stepAction, ActionType type)
+        IScenario Action(string name, Action<IStep> stepAction, ActionType type)
         {
-            var step = factory.CreateTestStep();
+            var step = factory.CreateStep();
             var method = factory.GetMethodRetriever().GetStepMethod(stepAction);
             step.Name = factory.GetStepNameReader().ReadStepName(name, method);
             step.ActionType = type;

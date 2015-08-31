@@ -13,7 +13,7 @@ namespace xBDD
         {
             this.factory = factory;
         }
-        public IMethod GetTestCaseMethod()
+        public IMethod GetScenarioMethod()
         {
             StackFrame stackFrame = new StackFrame(2);
             if (stackFrame.GetMethod().Name == "MoveNext")
@@ -22,7 +22,7 @@ namespace xBDD
 
         }
 
-        public IMethod GetStepMethod(Action<ITestStep> action)
+        public IMethod GetStepMethod(Action<IStep> action)
         {
             return factory.CreateMethod(action.Method);
         }

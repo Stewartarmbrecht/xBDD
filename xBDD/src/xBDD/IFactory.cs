@@ -8,13 +8,14 @@ namespace xBDD
 {
     public interface IFactory
     {
-        ITestNameReader GetTestNameReader();
+        IScenarioNameReader GetScenarioNameReader();
         IStepNameReader GetStepNameReader();
         IMethodRetriever GetMethodRetriever();
-        ITestCase CreateTestCase();
-        ITestStep CreateTestStep();
+        IScenario CreateFeature();
+        IStep CreateStep();
 
         IMethod CreateMethod(MethodBase methodBase);
         IAttribute CreateAttribute(CustomAttributeData data);
+        IFeatureNameReader GetFeatureNameReader();
     }
 }

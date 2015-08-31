@@ -7,27 +7,25 @@ using System.Threading.Tasks;
 
 namespace xBDD
 {
-    public class TestNameReader : ITestNameReader
+    public class FeatureNameReader : IFeatureNameReader
     {
-        public string ReadTestName(string testName, IMethod method)
+        public string ReadFeatureName(IMethod method)
         {
-            if (testName == null)
+            var name = ReadAttribute(method);
+            if(name == null)
             {
-                testName = ReadAttribute(method);
-                if (testName == null)
-                    testName = method.Name.AddSpacesToSentence(true);
+                name = method.GetClassName();
             }
-
-            return testName;
+            return name;
         }
 
         string ReadAttribute(IMethod method)
         {
             string name = null;
-            foreach (var data in method.GetCustomAttributesData())
+            foreach (var data in method.GetDeclaringTypeCustomAttributesData())
             { 
             
-                if (data.AttributeType == typeof(TestNameAttribute))
+                if (data.AttributeType == typeof(FeatureNameAttribute))
                 {
                     var args = data.ConstructorArguments;
                     name = args[0];

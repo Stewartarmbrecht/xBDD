@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace xBDD
 {
     public class Factory : IFactory
     {
-        public ITestCase CreateTestCase()
+        public IScenario CreateFeature()
         {
-            return new TestCase(this);
+            return new Scenario(this);
         }
 
-        public ITestStep CreateTestStep()
+        public IStep CreateStep()
         {
-            return new TestStep();
+            return new Step();
         }
 
-        public ITestNameReader GetTestNameReader()
+        public IScenarioNameReader GetScenarioNameReader()
         {
-            return new TestNameReader();
+            return new ScenarioNameReader();
         }
 
         public IStepNameReader GetStepNameReader()
@@ -41,6 +38,11 @@ namespace xBDD
         public IAttribute CreateAttribute(CustomAttributeData data)
         {
             return new AttributeWrapper(data);
+        }
+
+        public IFeatureNameReader GetFeatureNameReader()
+        {
+            return new FeatureNameReader();
         }
     }
 }
