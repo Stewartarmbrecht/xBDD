@@ -9,13 +9,15 @@ namespace xBDD
 {
     public class FeatureNameReader : IFeatureNameReader
     {
-        public string ReadFeatureName(IMethod method)
+        public string ReadFeatureName(string name, IMethod method)
         {
-            var name = ReadAttribute(method);
-            if(name == null)
+            if (name == null)
             {
-                name = method.GetClassName();
+                name = ReadAttribute(method);
+                if (name == null)
+                    name = method.GetClassName().AddSpacesToSentence(true);
             }
+
             return name;
         }
 
@@ -23,8 +25,8 @@ namespace xBDD
         {
             string name = null;
             foreach (var data in method.GetDeclaringTypeCustomAttributesData())
-            { 
-            
+            {
+
                 if (data.AttributeType == typeof(FeatureNameAttribute))
                 {
                     var args = data.ConstructorArguments;

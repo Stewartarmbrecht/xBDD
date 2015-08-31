@@ -4,6 +4,6 @@ namespace xBDD
 {
     public interface IFeatureNameReader
     {
-        string ReadFeatureName(IMethod method);
+        string ReadFeatureName(string featureName, IMethod method);
     }
 }

@@ -15,5 +15,12 @@ namespace xBDD.Test.Stories
             var scenario = TestRun.Current.AddScenario();
             Assert.Equal("Override Feature Name - Overridden", scenario.FeatureName);
         }
+        [Fact]
+        public void WhenAddingScenario()
+        {
+            var featureName = "New Feature Name";
+            var scenario = TestRun.Current.AddScenario(null, featureName);
+            Assert.Equal(featureName, scenario.FeatureName);
+        }
     }
 }

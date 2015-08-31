@@ -11,7 +11,7 @@ namespace xBDD.Test.Stories
         [Fact]
         public void WhenAddingScenario()
         {
-            var scenarioName = "Create Test With Name";
+            var scenarioName = "Create Scenario With Name";
             var scenario = TestRun.Current.AddScenario(scenarioName);
             Assert.Equal(scenarioName, scenario.Name);
         }
