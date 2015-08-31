@@ -1,32 +1,50 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace xBDD
 {
-    public class TestRun
+    public class TestRun : ITestRun
     {
-        static TestRun testRun;
-        public static TestRun Current
+        static ITestRun testRun;
+        public static ITestRun Current
         {
             get
             {
                 if (testRun == null)
-                    testRun = new TestRun();
+                {
+                    IFactory factory = new Factory();
+                    testRun = new TestRun(factory);
+                }
                 return testRun;
             }
         }
 
-        TestRun()
+        IFactory factory;
+        TestRun(IFactory factory)
         {
-
+            this.factory = factory;
         }
 
-        public TestCase AddTestCase([CallerMemberName]string name = null)
+        public ITestCase AddTestCase()
         {
-            TestCase test = new TestCase();
-            name = Regex.Replace(name, "(\\B[A-Z])", " $1");
-            test.Name = name;
+            IMethod method = factory.GetMethodRetriever().GetTestCaseMethod();
+            return AddTestCase(null, method);
+        }
+
+        public ITestCase AddTestCase(string testName)
+        {
+            IMethod method = factory.GetMethodRetriever().GetTestCaseMethod();
+            return AddTestCase(testName, method);
+        }
+
+        public ITestCase AddTestCase(string testName, IMethod method)
+        {
+            var test = factory.CreateTestCase();
+            test.Name = factory.GetTestNameReader().ReadTestName(testName, method);
+            test.ClassName = method.GetClassName(); 
+            test.Namespace = method.GetNameSpace();
             return test;
         }
     }

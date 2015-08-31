@@ -1,60 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace xBDD
 {
-    public class TestCase
+    public class TestCase : ITestCase
     {
-        private List<TestStep> steps;
+        IFactory factory;
 
-        public string Name { get; internal set; }
-        public List<TestStep> Steps { get { return steps; } }
+        private List<ITestStep> steps;
 
-        public TestCase()
+        public string Name { get; set; }
+
+        public List<ITestStep> Steps { get { return steps; } }
+
+        public string ClassName { get; set; }
+        public string Namespace { get; set; }
+
+        public TestCase(IFactory factory)
         {
-            steps = new List<TestStep>();
+            this.factory = factory;
+            steps = new List<ITestStep>();
         }
 
-        public TestCase Given(string name, Action<TestStep> stepAction)
+
+        public ITestCase Given(string name, Action<ITestStep> stepAction)
         {
             return Action(name, stepAction, ActionType.Given);
         }
-        public TestCase Given(Action<TestStep> stepAction)
+        public ITestCase Given(Action<ITestStep> stepAction)
         {
             return Action(stepAction, ActionType.Given);
         }
-        public TestCase When(string name, Action<TestStep> stepAction)
+        public ITestCase When(string name, Action<ITestStep> stepAction)
         {
             return Action(name, stepAction, ActionType.When);
         }
-        public TestCase When(Action<TestStep> stepAction)
+        public ITestCase When(Action<ITestStep> stepAction)
         {
             return Action(stepAction, ActionType.When);
         }
-        public TestCase Then(string name, Action<TestStep> stepAction)
+        public ITestCase Then(string name, Action<ITestStep> stepAction)
         {
             return Action(name, stepAction, ActionType.Then);
         }
-        public TestCase Then(Action<TestStep> stepAction)
+        public ITestCase Then(Action<ITestStep> stepAction)
         {
             return Action(stepAction, ActionType.Then);
         }
-        public TestCase And(string name, Action<TestStep> stepAction)
+        public ITestCase And(string name, Action<ITestStep> stepAction)
         {
             return Action(name, stepAction, ActionType.And);
         }
-        public TestCase And(Action<TestStep> stepAction)
+        public ITestCase And(Action<ITestStep> stepAction)
         {
             return Action(stepAction, ActionType.And);
         }
-        public TestCase Action(Action<TestStep> stepAction, ActionType type)
+        ITestCase Action(Action<ITestStep> stepAction, ActionType type)
         {
             return Action(null, stepAction, type);
         }
-        public TestCase Action(string name, Action<TestStep> stepAction, ActionType type)
+        ITestCase Action(string name, Action<ITestStep> stepAction, ActionType type)
         {
-            TestStep step = new TestStep();
-            step.Name = name;
+            var step = factory.CreateTestStep();
+            var method = factory.GetMethodRetriever().GetStepMethod(stepAction);
+            step.Name = factory.GetStepNameReader().ReadStepName(name, method);
             step.ActionType = type;
             step.Action = stepAction;
             this.steps.Add(step);
