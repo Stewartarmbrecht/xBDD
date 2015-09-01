@@ -24,7 +24,7 @@ namespace xBDD.Test.Stories
             Assert.Equal("When step 2", scenario.Steps[1].Name);
             Assert.Equal("Then step 3", scenario.Steps[2].Name);
             Assert.Equal("And step 4", scenario.Steps[3].Name);
-            Assert.Equal(4, (int)scenario.State["Counter"]);
+            Assert.Equal(4, scenario.State.Counter);
         }
         [Fact]
         public void FailingTest()

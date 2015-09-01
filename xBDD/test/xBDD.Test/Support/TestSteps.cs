@@ -26,25 +26,19 @@ namespace xBDD.Test.Support
         }
         public static void Step_1(IStep step)
         {
-            step.Scenario.State["Counter"] = 1;
+            step.Scenario.State.Counter = 1;
         }
         public static void Step_2(IStep step)
         {
-            int counter = (int)step.Scenario.State["Counter"];
-            counter++;
-            step.Scenario.State["Counter"] = counter;
+            step.Scenario.State.Counter++;
         }
         public static void Step_3(IStep step)
         {
-            int counter = (int)step.Scenario.State["Counter"];
-            counter++;
-            step.Scenario.State["Counter"] = counter;
+            step.Scenario.State.Counter++;
         }
         public static void Step_4(IStep step)
         {
-            int counter = (int)step.Scenario.State["Counter"];
-            counter++;
-            step.Scenario.State["Counter"] = counter;
+            step.Scenario.State.Counter++;
         }
 
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 
 namespace xBDD.Core
 {
@@ -17,13 +18,13 @@ namespace xBDD.Core
         public string FeatureName { get; set; }
         public string AreaPath { get; set; }
 
-        public Dictionary<string, object> State { get; private set; }
+        public dynamic State { get; private set; }
 
         public Scenario(IFactory factory, ITestRun testRun)
         {
             this.factory = factory;
             this.testRun = testRun;
-            State = new Dictionary<string, object>();
+            State = new ExpandoObject();
             steps = new List<IStep>();
         }
 
