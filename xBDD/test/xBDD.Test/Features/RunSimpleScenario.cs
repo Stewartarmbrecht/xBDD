@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using xBDD.Test.Support;
 using Xunit;
 
 namespace xBDD.Test.Stories
@@ -10,19 +11,19 @@ namespace xBDD.Test.Stories
         public void PassingTest()
         {
             var scenario = xBDD.CurrentRun.AddScenario();
-            scenario.Given(Step1);
-            scenario.When(Step2);
-            scenario.Then(Step3);
-            scenario.And(Step4);
+            scenario.Given(TestSteps.Step_1);
+            scenario.When(TestSteps.Step_2);
+            scenario.Then(TestSteps.Step_3);
+            scenario.And(TestSteps.Step_4);
             scenario.Run();
             Assert.Equal("Passing Test", scenario.Name);
             Assert.Equal("Run Simple Test", scenario.FeatureName);
             Assert.Equal("xBDD.Test.Stories", scenario.AreaPath);
             Assert.Equal(4, scenario.Steps.Count);
-            Assert.Equal("Step 1", scenario.Steps[0].Name);
-            Assert.Equal("Step 2", scenario.Steps[1].Name);
-            Assert.Equal("Step 3", scenario.Steps[2].Name);
-            Assert.Equal("Step 4", scenario.Steps[3].Name);
+            Assert.Equal("Given step 1", scenario.Steps[0].Name);
+            Assert.Equal("When step 2", scenario.Steps[1].Name);
+            Assert.Equal("Then step 3", scenario.Steps[2].Name);
+            Assert.Equal("And step 4", scenario.Steps[3].Name);
             Assert.Equal(4, (int)scenario.State["Counter"]);
         }
         [Fact]
@@ -43,45 +44,23 @@ namespace xBDD.Test.Stories
 
             Assert.Equal(exceptionMessage, thrownMessage);
         }
-        void Step1(IStep step)
-        {
-            step.Scenario.State["Counter"] = 1;
-        }
-        void Step2(IStep step)
-        {
-            int counter = (int)step.Scenario.State["Counter"];
-            counter++;
-            step.Scenario.State["Counter"] = counter;
-        }
-        void Step3(IStep step)
-        {
-            int counter = (int)step.Scenario.State["Counter"];
-            counter++;
-            step.Scenario.State["Counter"] = counter;
-        }
-        void Step4(IStep step)
-        {
-            int counter = (int)step.Scenario.State["Counter"];
-            counter++;
-            step.Scenario.State["Counter"] = counter;
-        }
         [Fact]
         public async Task PassingTestAsync()
         {
             var scenario = xBDD.CurrentRun.AddScenario();
-            scenario.Given(Step1);
-            scenario.When(Step2);
-            scenario.Then(Step3);
-            scenario.And(Step4);
+            scenario.Given(TestSteps.Step_1);
+            scenario.When(TestSteps.Step_2);
+            scenario.Then(TestSteps.Step_3);
+            scenario.And(TestSteps.Step_4);
             scenario.Run();
             Assert.Equal("Passing Test Async", scenario.Name);
             Assert.Equal("Run Simple Test", scenario.FeatureName);
             Assert.Equal("xBDD.Test.Stories", scenario.AreaPath);
             Assert.Equal(4, scenario.Steps.Count);
-            Assert.Equal("Step 1", scenario.Steps[0].Name);
-            Assert.Equal("Step 2", scenario.Steps[1].Name);
-            Assert.Equal("Step 3", scenario.Steps[2].Name);
-            Assert.Equal("Step 4", scenario.Steps[3].Name);
+            Assert.Equal("Given step 1", scenario.Steps[0].Name);
+            Assert.Equal("When step 2", scenario.Steps[1].Name);
+            Assert.Equal("Then step 3", scenario.Steps[2].Name);
+            Assert.Equal("And step 4", scenario.Steps[3].Name);
         }
         [Fact]
         public async Task FailingTestAsync()

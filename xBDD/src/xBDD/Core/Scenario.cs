@@ -68,9 +68,9 @@ namespace xBDD.Core
         {
             var step = factory.CreateStep(testRun, this);
             var method = factory.GetMethodRetriever().GetStepMethod(stepAction);
-            step.Name = factory.GetStepNameReader().ReadStepName(name, method);
             step.ActionType = type;
             step.Action = stepAction;
+            step.SetName(factory.GetStepNameReader().ReadStepName(step, name, method));
             this.steps.Add(step);
             return this;
         }

@@ -14,23 +14,23 @@ namespace xBDD.Test.Stories
             var stepName = "My Step";
             var scenario = xBDD.CurrentRun.AddScenario();
             scenario.Given(stepName, step => { });
-            Assert.Equal(stepName, scenario.Steps[0].Name);
+            Assert.Equal("Given My Step", scenario.Steps[0].Name);
         }
         [Fact]
         public void InsideStepMethod()
         {
             var stepName = "My Step";
             var scenario = xBDD.CurrentRun.AddScenario();
-            scenario.Given(step => { step.Name = stepName; });
+            scenario.Given(step => { step.SetName(stepName); });
             scenario.Run();
-            Assert.Equal(stepName, scenario.Steps[0].Name);
+            Assert.Equal("Given My Step", scenario.Steps[0].Name);
         }
         [Fact]
         public void WithAttributeOnStepMethod()
         {
             var scenario = xBDD.CurrentRun.AddScenario();
             scenario.Given(MyStep);
-            Assert.Equal("My Overridden Step Name", scenario.Steps[0].Name);
+            Assert.Equal("Given My Overridden Step Name", scenario.Steps[0].Name);
         }
 
         [StepName("My Overridden Step Name")]

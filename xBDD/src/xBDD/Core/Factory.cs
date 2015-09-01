@@ -17,7 +17,7 @@ namespace xBDD.Core
 
         public IStep CreateStep(ITestRun testRun, IScenario scenario)
         {
-            var step = new Step(scenario);
+            var step = new Step(scenario, this);
             testRun.Steps.Add(step);
             return step;
         }
