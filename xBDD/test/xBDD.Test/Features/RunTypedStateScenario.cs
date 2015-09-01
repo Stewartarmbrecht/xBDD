@@ -5,7 +5,7 @@ using Xunit;
 
 namespace xBDD.Test.Stories
 {
-    public class RunStatefulScenario
+    public class RunTypedStateScenario
     {
         [Fact]
         public void PassingScenario()
@@ -26,7 +26,7 @@ namespace xBDD.Test.Stories
             scenario.Run();
 
             Assert.Equal("Passing Scenario", scenario.Name);
-            Assert.Equal("Run Stateful Scenario", scenario.FeatureName);
+            Assert.Equal("Run Typed State Scenario", scenario.FeatureName);
             Assert.Equal("xBDD.Test.Stories", scenario.AreaPath);
             Assert.Equal(4, scenario.Steps.Count);
             Assert.Equal("Given the user successfully logs in after 5 failed attempts", scenario.Steps[0].Name);
@@ -34,16 +34,27 @@ namespace xBDD.Test.Stories
             Assert.Equal("Then the loaded page should have a title of Home", scenario.Steps[2].Name);
             Assert.Equal("And the loaded page should have a message of 'There were 5 failed login attempts since the last login!'", scenario.Steps[3].Name);
         }
-        [Fact(Skip = "Implementing Next")]
-        public void FailingTest()
+        [Fact]
+        public void FailingScenario()
         {
+            Page page = new Page()
+            {
+                PageName = "Home"
+            };
+            var count = 5;
+            var expectedMessage = "There were " + count + " failed login attempts since the last login!";
+            var title = "Home";
             string exceptionMessage = "My Failure";
-            var test = xBDD.CurrentRun.AddScenario();
-            test.Given(step => { throw new System.Exception(exceptionMessage); });
+            var scenario = xBDD.CurrentRun.AddScenario();
+            scenario.Given(step => { TestSteps.TheUserSuccessfullyLogsInAfterXFailedAttempts(step, count); });
+            scenario.When(step => { TestSteps.TheUserNavigatesToTheXPage(step, page); });
+            scenario.And("the step fails", step => { throw new Exception(exceptionMessage); });
+            scenario.Then(step => { TestSteps.TheLoadedPageShouldHaveATitleOfX(step, page, title); });
+            scenario.And(step => { TestSteps.TheLoadedPageShouldHaveAMessageOfX(step, page, expectedMessage); });
             var thrownMessage = "";
             try
             {
-                test.Run();
+                scenario.Run();
             }
             catch (Exception ex)
             {
@@ -51,6 +62,15 @@ namespace xBDD.Test.Stories
             }
 
             Assert.Equal(exceptionMessage, thrownMessage);
+            Assert.Equal("Failing Scenario", scenario.Name);
+            Assert.Equal("Run Typed State Scenario", scenario.FeatureName);
+            Assert.Equal("xBDD.Test.Stories", scenario.AreaPath);
+            Assert.Equal(5, scenario.Steps.Count);
+            Assert.Equal("Given the user successfully logs in after 5 failed attempts", scenario.Steps[0].Name);
+            Assert.Equal("When the user navigates to the Home page", scenario.Steps[1].Name);
+            Assert.Equal("And the step fails", scenario.Steps[2].Name);
+            Assert.Equal("Then ", scenario.Steps[3].Name);
+            Assert.Equal("And ", scenario.Steps[4].Name);
         }
 
         [Fact(Skip = "Implementing Next")]
