@@ -9,5 +9,6 @@ namespace xBDD.Core
         public string Name { get; set; }
         public DateTime EndTime { get; set; }
         public DateTime StartTime { get; set; }
+        public Outcome Outcome { get; set; }
     }
 }

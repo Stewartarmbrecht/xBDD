@@ -79,10 +79,12 @@ namespace xBDD.Core
                 {
                     step.Action(step);
                     step.EndTime = DateTime.Now;
+                    step.Outcome = Outcome.Passed;
                 }
                 catch(Exception ex)
                 {
                     step.EndTime = DateTime.Now;
+                    step.Outcome = Outcome.Failed;
                     throw;
                 }
             }

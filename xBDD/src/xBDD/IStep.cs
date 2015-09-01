@@ -9,6 +9,6 @@ namespace xBDD
         string Name { get; set; }
         DateTime StartTime { get; set; }
         DateTime EndTime { get; set; }
-
+        Outcome Outcome { get; set; }
     }
 }
