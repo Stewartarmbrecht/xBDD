@@ -4,6 +4,7 @@ namespace xBDD
 {
     public interface IStep
     {
+        IScenario Scenario { get; }
         Action<IStep> Action { get; set; }
         ActionType ActionType { get; set; }
         string Name { get; set; }

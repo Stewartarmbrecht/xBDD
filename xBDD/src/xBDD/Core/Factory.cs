@@ -1,18 +1,25 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
+using xBDD.Reporting;
+using xBDD.Stats;
 using xBDD.Utility;
 
 namespace xBDD.Core
 {
     public class Factory : IFactory
     {
-        public IScenario CreateFeature()
+        public IScenario CreateScenario(ITestRun testRun)
         {
-            return new Scenario(this);
+            var scenario = new Scenario(this, testRun);
+            testRun.Scenarios.Add(scenario);
+            return scenario;
         }
 
-        public IStep CreateStep()
+        public IStep CreateStep(ITestRun testRun, IScenario scenario)
         {
-            return new Step();
+            var step = new Step(scenario);
+            testRun.Steps.Add(step);
+            return step;
         }
 
         public IScenarioNameReader GetScenarioNameReader()
@@ -48,6 +55,21 @@ namespace xBDD.Core
         public IAreaPathReader GetAreaPathReader()
         {
             return new AreaPathReader();
+        }
+
+        public ITestRun CreateTestRun()
+        {
+            return new TestRun(this);
+        }
+
+        public IReportFactory CreateReportFactory()
+        {
+            return new ReportFactory();
+        }
+
+        public IStatsCompiler CreateStatsCompiler()
+        {
+            return new StatsCompiler();
         }
     }
 }

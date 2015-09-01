@@ -11,5 +11,7 @@ namespace xBDD
         IScenario AddScenario(string scenarioName);
         IScenario AddScenario(string scenarioName, string featureName);
         IScenario AddScenario(string scenarioName, string featureName, string areaPath);
+        ICollection<IScenario> Scenarios { get; }
+        ICollection<IStep> Steps { get; }
     }
 }

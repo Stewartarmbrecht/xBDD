@@ -4,9 +4,9 @@ using Xunit;
 
 namespace xBDD.Test.Stories
 {
-    public class RunSimpleTest
+    public class RunStatefulScenario
     {
-        [Fact]
+        [Fact(Skip = "Implementing Next")]
         public void PassingTest()
         {
             var scenario = xBDD.CurrentRun.AddScenario();
@@ -23,9 +23,8 @@ namespace xBDD.Test.Stories
             Assert.Equal("Step 2", scenario.Steps[1].Name);
             Assert.Equal("Step 3", scenario.Steps[2].Name);
             Assert.Equal("Step 4", scenario.Steps[3].Name);
-            Assert.Equal(4, (int)scenario.State["Counter"]);
         }
-        [Fact]
+        [Fact(Skip = "Implementing Next")]
         public void FailingTest()
         {
             string exceptionMessage = "My Failure";
@@ -36,7 +35,7 @@ namespace xBDD.Test.Stories
             {
                 test.Run();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 thrownMessage = ex.Message;
             }
@@ -45,27 +44,21 @@ namespace xBDD.Test.Stories
         }
         void Step1(IStep step)
         {
-            step.Scenario.State["Counter"] = 1;
+
         }
         void Step2(IStep step)
         {
-            int counter = (int)step.Scenario.State["Counter"];
-            counter++;
-            step.Scenario.State["Counter"] = counter;
+
         }
         void Step3(IStep step)
         {
-            int counter = (int)step.Scenario.State["Counter"];
-            counter++;
-            step.Scenario.State["Counter"] = counter;
+
         }
         void Step4(IStep step)
         {
-            int counter = (int)step.Scenario.State["Counter"];
-            counter++;
-            step.Scenario.State["Counter"] = counter;
+
         }
-        [Fact]
+        [Fact(Skip = "Implementing Next")]
         public async Task PassingTestAsync()
         {
             var scenario = xBDD.CurrentRun.AddScenario();

@@ -10,6 +10,7 @@ namespace xBDD
         string FeatureName { get; set; }
         string AreaPath { get; set; }
         string Name { get; set; }
+        Dictionary<string, object> State { get; }
         List<IStep> Steps { get; }
 
         IScenario Given(Action<IStep> stepAction);

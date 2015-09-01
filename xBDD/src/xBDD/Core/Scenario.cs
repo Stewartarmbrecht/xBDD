@@ -6,6 +6,7 @@ namespace xBDD.Core
     public class Scenario : IScenario
     {
         IFactory factory;
+        ITestRun testRun;
 
         private List<IStep> steps;
 
@@ -16,9 +17,13 @@ namespace xBDD.Core
         public string FeatureName { get; set; }
         public string AreaPath { get; set; }
 
-        public Scenario(IFactory factory)
+        public Dictionary<string, object> State { get; private set; }
+
+        public Scenario(IFactory factory, ITestRun testRun)
         {
             this.factory = factory;
+            this.testRun = testRun;
+            State = new Dictionary<string, object>();
             steps = new List<IStep>();
         }
 
@@ -61,7 +66,7 @@ namespace xBDD.Core
         }
         IScenario Action(string name, Action<IStep> stepAction, ActionType type)
         {
-            var step = factory.CreateStep();
+            var step = factory.CreateStep(testRun, this);
             var method = factory.GetMethodRetriever().GetStepMethod(stepAction);
             step.Name = factory.GetStepNameReader().ReadStepName(name, method);
             step.ActionType = type;
