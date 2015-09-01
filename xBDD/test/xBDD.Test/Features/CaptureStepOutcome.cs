@@ -42,6 +42,7 @@ namespace xBDD.Test.Features
             catch(Exception ex)
             {
                 hit = true;
+                Assert.Equal("Deliberate", ex.Message);
                 Assert.True(scenario.Steps[0].Outcome == Outcome.Failed);
             }
             Assert.True(hit);

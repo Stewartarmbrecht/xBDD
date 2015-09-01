@@ -43,6 +43,7 @@ namespace xBDD.Test.Features
             catch(Exception ex)
             {
                 hit = true;
+                Assert.Equal("Deliberate", ex.Message);
                 Assert.True(scenario.Steps[0].StartTime < capturedTime);
                 Assert.True(scenario.Steps[0].EndTime > capturedTime);
             }
