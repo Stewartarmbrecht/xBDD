@@ -44,5 +44,10 @@ namespace xBDD
         {
             return new FeatureNameReader();
         }
+
+        public IAreaPathReader GetAreaPathReader()
+        {
+            return new AreaPathReader();
+        }
     }
 }

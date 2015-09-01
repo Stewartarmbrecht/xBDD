@@ -17,5 +17,6 @@ namespace xBDD
         IMethod CreateMethod(MethodBase methodBase);
         IAttribute CreateAttribute(CustomAttributeData data);
         IFeatureNameReader GetFeatureNameReader();
+        IAreaPathReader GetAreaPathReader();
     }
 }

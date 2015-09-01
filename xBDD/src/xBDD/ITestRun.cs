@@ -9,6 +9,7 @@ namespace xBDD
     {
         IScenario AddScenario();
         IScenario AddScenario(string scenarioName);
-        IScenario AddScenario(string featureName, string scenarioName);
+        IScenario AddScenario(string scenarioName, string featureName);
+        IScenario AddScenario(string scenarioName, string featureName, string areaPath);
     }
 }

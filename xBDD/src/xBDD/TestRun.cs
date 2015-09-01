@@ -30,33 +30,33 @@ namespace xBDD
         public IScenario AddScenario()
         {
             IMethod method = factory.GetMethodRetriever().GetScenarioMethod();
-            return AddScenario(null, null, null, method);
+            return AddScenario(method, null, null, null);
         }
 
         public IScenario AddScenario(string scenarioName)
         {
             IMethod method = factory.GetMethodRetriever().GetScenarioMethod();
-            return AddScenario(null, null, scenarioName, method);
+            return AddScenario(method, scenarioName, null, null);
         }
 
         public IScenario AddScenario(string scenarioName, string featureName)
         {
             IMethod method = factory.GetMethodRetriever().GetScenarioMethod();
-            return AddScenario(null, featureName, scenarioName, method);
+            return AddScenario(method, scenarioName, featureName, null);
         }
 
         public IScenario AddScenario(string scenarioName, string featureName, string areaPath)
         {
             IMethod method = factory.GetMethodRetriever().GetScenarioMethod();
-            return AddScenario(areaPath, featureName, scenarioName, method);
+            return AddScenario(method, scenarioName, featureName, areaPath);
         }
 
-        public IScenario AddScenario(string areaPath, string featureName, string scenarioName, IMethod method)
+        public IScenario AddScenario(IMethod method, string scenarioName, string featureName, string areaPath)
         {
             var test = factory.CreateFeature();
             test.Name = factory.GetScenarioNameReader().ReadScenarioName(scenarioName, method);
             test.FeatureName = factory.GetFeatureNameReader().ReadFeatureName(featureName, method);
-            test.AreaPath = method.GetNameSpace();
+            test.AreaPath = factory.GetAreaPathReader().ReadAreaPath(areaPath, method);
             return test;
         }
     }
