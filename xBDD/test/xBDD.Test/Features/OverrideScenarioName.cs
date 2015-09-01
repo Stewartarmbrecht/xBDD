@@ -12,14 +12,14 @@ namespace xBDD.Test.Stories
         public void WhenAddingScenario()
         {
             var scenarioName = "Create Scenario With Name";
-            var scenario = TestRun.Current.AddScenario(scenarioName);
+            var scenario = xBDD.CurrentRun.AddScenario(scenarioName);
             Assert.Equal(scenarioName, scenario.Name);
         }
         [Fact]
         [ScenarioName("With A Scenario Name Attribute")]
         public void WithScenarioNameAttribute()
         {
-            var scenario = TestRun.Current.AddScenario();
+            var scenario = xBDD.CurrentRun.AddScenario();
             Assert.Equal("With A Scenario Name Attribute", scenario.Name);
         }
     }

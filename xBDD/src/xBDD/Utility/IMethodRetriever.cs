@@ -1,6 +1,7 @@
 ﻿using System;
+using xBDD.Core;
 
-namespace xBDD
+namespace xBDD.Utility
 {
     public interface IMethodRetriever
     {

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
+using xBDD.Utility;
 
-namespace xBDD
+namespace xBDD.Core
 {
     public class Factory : IFactory
     {

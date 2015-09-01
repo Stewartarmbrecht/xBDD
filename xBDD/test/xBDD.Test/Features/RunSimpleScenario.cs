@@ -9,7 +9,7 @@ namespace xBDD.Test.Stories
         [Fact]
         public void PassingTest()
         {
-            var scenario = TestRun.Current.AddScenario();
+            var scenario = xBDD.CurrentRun.AddScenario();
             scenario.Given(Step1);
             scenario.When(Step2);
             scenario.Then(Step3);
@@ -28,7 +28,7 @@ namespace xBDD.Test.Stories
         public void FailingTest()
         {
             string exceptionMessage = "My Failure";
-            var test = TestRun.Current.AddScenario();
+            var test = xBDD.CurrentRun.AddScenario();
             test.Given(step => { throw new System.Exception(exceptionMessage); });
             var thrownMessage = "";
             try
@@ -61,7 +61,7 @@ namespace xBDD.Test.Stories
         [Fact]
         public async Task PassingTestAsync()
         {
-            var scenario = TestRun.Current.AddScenario();
+            var scenario = xBDD.CurrentRun.AddScenario();
             scenario.Given(Step1);
             scenario.When(Step2);
             scenario.Then(Step3);
@@ -80,7 +80,7 @@ namespace xBDD.Test.Stories
         public async Task FailingTestAsync()
         {
             string exceptionMessage = "My Failure";
-            var scenario = TestRun.Current.AddScenario();
+            var scenario = xBDD.CurrentRun.AddScenario();
             scenario.Given(step => { throw new System.Exception(exceptionMessage); });
             var thrownMessage = "";
             try

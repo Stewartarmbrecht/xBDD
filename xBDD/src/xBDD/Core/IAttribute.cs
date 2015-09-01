@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace xBDD
+namespace xBDD.Core
 {
     public interface IAttribute
     {

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using xBDD.Core;
 
-namespace xBDD
+namespace xBDD.Utility
 {
     public class StepNameReader : IStepNameReader
     {

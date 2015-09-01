@@ -10,7 +10,6 @@ namespace xBDD
         string Name { get; set; }
         IArea Parent { get; set; }
         List<IArea> Areas { get; set; }
-
         List<IFeature> Features { get; set; }
     }
 }

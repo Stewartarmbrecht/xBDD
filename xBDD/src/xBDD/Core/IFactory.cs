@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using System.Reflection;
+using xBDD.Utility;
 
-namespace xBDD
+namespace xBDD.Core
 {
     public interface IFactory
     {

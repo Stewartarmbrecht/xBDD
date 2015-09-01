@@ -1,28 +1,9 @@
-﻿using System;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
-
-namespace xBDD
+﻿namespace xBDD.Core
 {
     public class TestRun : ITestRun
     {
-        static ITestRun testRun;
-        public static ITestRun Current
-        {
-            get
-            {
-                if (testRun == null)
-                {
-                    IFactory factory = new Factory();
-                    testRun = new TestRun(factory);
-                }
-                return testRun;
-            }
-        }
-
         IFactory factory;
-        TestRun(IFactory factory)
+        public TestRun(IFactory factory)
         {
             this.factory = factory;
         }

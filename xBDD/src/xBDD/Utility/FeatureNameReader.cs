@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using xBDD.Core;
 
-namespace xBDD
+namespace xBDD.Utility
 {
-    public class AreaPathReader : IAreaPathReader
+    public class FeatureNameReader : IFeatureNameReader
     {
-        public string ReadAreaPath(string name, IMethod method)
+        public string ReadFeatureName(string name, IMethod method)
         {
             if (name == null)
             {
                 name = ReadAttribute(method);
                 if (name == null)
-                    name = method.GetNameSpace();
+                    name = method.GetClassName().AddSpacesToSentence(true);
             }
 
             return name;
@@ -27,7 +22,7 @@ namespace xBDD
             foreach (var data in method.GetDeclaringTypeCustomAttributesData())
             {
 
-                if (data.AttributeType == typeof(AreaPathAttribute))
+                if (data.AttributeType == typeof(FeatureNameAttribute))
                 {
                     var args = data.ConstructorArguments;
                     name = args[0];

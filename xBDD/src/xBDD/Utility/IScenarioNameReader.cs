@@ -1,6 +1,6 @@
-﻿using System.Reflection;
+﻿using xBDD.Core;
 
-namespace xBDD
+namespace xBDD.Utility
 {
     public interface IScenarioNameReader
     {

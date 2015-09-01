@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using xBDD.Core;
 
-namespace xBDD
+namespace xBDD.Utility
 {
     public class AttributeWrapper : IAttribute
     {
