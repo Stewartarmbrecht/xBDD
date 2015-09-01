@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace xBDD.Reporting.Html
+namespace xBDD
 {
-    public interface IHtmlReportWriter : IReportWriter
+    public interface IReportFactory
     {
+        IReportWriter GetHtmlReportWriter();
     }
 }

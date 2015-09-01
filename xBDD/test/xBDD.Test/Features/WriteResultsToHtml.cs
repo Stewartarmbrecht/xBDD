@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace xBDD.Test.Features
+﻿namespace xBDD.Test.Features
 {
     public class WriteResultsToHtml
     {
         public void WriteSimpleTestRun()
         {
             BuildAndExecuteTestRun();
-            //HtmlReportWriter writer = new JsonWriter();
-            //writer.WriterToFile(TestRun.Current);
+            IReportWriter writer = xBDD.ReportFactory.GetHtmlReportWriter();
+            writer.WriteReport(xBDD.CurrentRun);
         }
 
         private void BuildAndExecuteTestRun()

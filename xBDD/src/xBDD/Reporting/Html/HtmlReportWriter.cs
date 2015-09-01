@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace xBDD.Reporting.Html
 {
-    public class HtmlReportWriter
+    public class HtmlReportWriter : IReportWriter
     {
         IHtmlReportWriterFactory factory;
         public HtmlReportWriter(IHtmlReportWriterFactory factory)
@@ -14,7 +14,7 @@ namespace xBDD.Reporting.Html
             this.factory = factory;
         }
         StringBuilder sb = new StringBuilder();
-        public void WriteToFile(ITestRun testRun)
+        public void WriteReport(ITestRun testRun)
         {
             WriteTestRunSummary(testRun);
             WriteAreas(testRun);
@@ -37,5 +37,6 @@ namespace xBDD.Reporting.Html
             //WriteStepStats(testRun);
             //WriteSectionEnd();
         }
+
     }
 }

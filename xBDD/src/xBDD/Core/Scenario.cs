@@ -74,7 +74,17 @@ namespace xBDD.Core
         {
             foreach(var step in Steps)
             {
-                step.Action(step);
+                step.StartTime = DateTime.Now;
+                try
+                {
+                    step.Action(step);
+                    step.EndTime = DateTime.Now;
+                }
+                catch(Exception ex)
+                {
+                    step.EndTime = DateTime.Now;
+                    throw;
+                }
             }
         }
     }
