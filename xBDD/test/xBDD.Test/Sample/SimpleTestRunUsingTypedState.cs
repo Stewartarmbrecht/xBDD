@@ -6,7 +6,7 @@ namespace xBDD.Test.Sample
     public class SimpleTestRunUsingTypedState : ISimpleTestRun
     {
         internal ITestRun testRun = new TestRun(new Factory());
-        public IScenario Scenario { get; set; }
+        public virtual IScenario Scenario { get; set; }
 
         //[Fact]
         public virtual void PassingScenario()
@@ -25,7 +25,7 @@ namespace xBDD.Test.Sample
         }
 
         //[Fact]
-        public async Task PassingScenarioAsync()
+        public virtual async Task PassingScenarioAsync()
         {
             var s = new SampleStepsWithTypedState();
             var scenario = testRun.AddScenario();
@@ -40,7 +40,7 @@ namespace xBDD.Test.Sample
             await scenario.RunAsync();
         }
 
-        public void FailingScenarioWithFailingTimeCapturingStep()
+        public virtual void FailingScenarioWithFailingTimeCapturingStep()
         {
             var s = new SampleStepsWithTypedState();
             var scenario = testRun.AddScenario();
@@ -57,7 +57,7 @@ namespace xBDD.Test.Sample
             scenario.Run();
         }
 
-        public void PassingScenarioWithTimeCapturingStep()
+        public virtual void PassingScenarioWithTimeCapturingStep()
         {
             var s = new SampleStepsWithTypedState();
             var scenario = testRun.AddScenario();
@@ -75,7 +75,7 @@ namespace xBDD.Test.Sample
         }
 
         //[Fact]
-        public void FailingScenario()
+        public virtual void FailingScenario()
         {
             var s = new SampleStepsWithTypedState();
             var scenario = testRun.AddScenario();
@@ -93,7 +93,7 @@ namespace xBDD.Test.Sample
         }
 
         //[Fact]
-        public async Task FailingScenarioAsync()
+        public virtual async Task FailingScenarioAsync()
         {
             var s = new SampleStepsWithTypedState();
             var scenario = testRun.AddScenario();

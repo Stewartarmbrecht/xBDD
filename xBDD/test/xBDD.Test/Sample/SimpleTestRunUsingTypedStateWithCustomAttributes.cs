@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 namespace xBDD.Test.Sample
 {
     [AreaPath("My.New.Area.Path")]
-    public class SimpleTestRunUsingTypedStateWithCustomAreaAttribute : SimpleTestRunUsingTypedState
+    [FeatureName("My New Feature Name")]
+    public class SimpleTestRunUsingTypedStateWithCustomAttributes : SimpleTestRunUsingTypedState
     {
+        [ScenarioName("My New Scenario Name")]
         public override void PassingScenario()
         {
             var s = new SampleStepsWithTypedState();
