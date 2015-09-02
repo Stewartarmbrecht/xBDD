@@ -21,5 +21,16 @@ namespace xBDD.Test.Features.OverridingNames
         {
             Assert.Equal(ExpectedAreaPath, SimpleTestRun.Scenario.AreaPath);
         }
+
+        internal void a_simple_passing_scenario_with_an_area_path_set_when_adding_the_scenario(IStep obj)
+        {
+            SimpleTestRun = new SimpleTestRunUsingTypedStateWithCustomAreaSetAtAdd();
+            SimpleTestRun.PassingScenario();
+        }
+
+        internal void the_area_path_should_match_the_string_value_used(IStep obj)
+        {
+            Assert.Equal(ExpectedAreaPath, SimpleTestRun.Scenario.AreaPath);
+        }
     }
 }

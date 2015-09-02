@@ -18,9 +18,12 @@ namespace xBDD.Test.Features.OverridingNames
         [Fact]
         public void WhenAddingScenario()
         {
-            var areaPath = "Custom.Area";
-            var scenario = xBDD.CurrentRun.AddScenario(null, null, areaPath);
-            Assert.Equal(areaPath, scenario.AreaPath);
+            var s = new OverridingNamesSteps();
+            s.ExpectedAreaPath = "My.Explicitly.Set.Area";
+            xBDD.CurrentRun.AddScenario()
+                .When(s.a_simple_passing_scenario_with_an_area_path_set_when_adding_the_scenario)
+                .Then(s.the_area_path_should_match_the_string_value_used)
+                .Run();
         }
     }
 }
