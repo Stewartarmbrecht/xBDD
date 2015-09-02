@@ -2,7 +2,6 @@
 
 namespace xBDD.Test.Features.OverridingNames
 {
-    [FeatureName("Override Feature Name - Overridden")]
     public class OverrideFeatureName
     {
         [Fact]

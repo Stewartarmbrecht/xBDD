@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using xBDD.Test.Sample;
-using Xunit;
+﻿using Xunit;
 
 namespace xBDD.Test.Features.RunningScenarios
 {
