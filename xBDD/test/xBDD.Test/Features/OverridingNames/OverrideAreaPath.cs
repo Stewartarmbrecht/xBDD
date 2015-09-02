@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 
-namespace xBDD.Test.Stories
+namespace xBDD.Test.Features.OverridingNames
 {
     [AreaPath("My.Custom.Path")]
     public class OverrideAreaPath

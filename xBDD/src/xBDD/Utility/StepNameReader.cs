@@ -28,10 +28,7 @@ namespace xBDD.Utility
 
                 name = name.Replace(key, pair.Value);
             }
-            if (name != null)
-                return name.AddSpacesToSentence(true);
-            else
-                return name;
+            return name;
         }
 
         string ReadAttribute(IMethod method)

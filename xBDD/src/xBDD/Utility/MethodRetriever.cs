@@ -12,12 +12,27 @@ namespace xBDD.Utility
             this.factory = factory;
         }
 
-        public IMethod GetCallingMethod()
+        public IMethod GetCallingStepMethod()
         {
-            StackFrame stackFrame = new StackFrame(2);
-            if (stackFrame.GetMethod().Name == "MoveNext")
-                stackFrame = new StackFrame(4);
+            StackFrame stackFrame = GetStepStackFrame();
             return factory.CreateMethod(stackFrame.GetMethod());
+        }
+
+        private StackFrame GetStepStackFrame()
+        {
+            bool found = false;
+            int stackLocation = 1;
+            StackFrame sf = null;
+            while(!found)
+            {
+                sf = new StackFrame(stackLocation);
+                var method = sf.GetMethod();
+                if (method.DeclaringType != null && (method.IsStep() || method.DeclaringType.IsStepLibrary()))
+                    found = true;
+                else
+                    stackLocation++;
+            }
+            return sf;
         }
 
         public IMethod GetScenarioMethod()

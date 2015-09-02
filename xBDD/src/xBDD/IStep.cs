@@ -12,6 +12,7 @@ namespace xBDD
         DateTime StartTime { get; set; }
         DateTime EndTime { get; set; }
         Outcome Outcome { get; set; }
+        dynamic State { get; }
 
         void SetNameWithReplacement(string key, string value);
     }

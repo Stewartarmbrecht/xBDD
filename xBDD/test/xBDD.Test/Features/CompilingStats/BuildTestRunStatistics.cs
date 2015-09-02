@@ -4,7 +4,7 @@ using xBDD.Stats;
 using xBDD.Test.Utilities;
 using Xunit;
 
-namespace xBDD.Test.Features
+namespace xBDD.Test.Features.Stats
 {
     public class BuildTestRunStatistics
     {

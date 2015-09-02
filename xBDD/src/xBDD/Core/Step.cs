@@ -23,11 +23,19 @@ namespace xBDD.Core
         public DateTime StartTime { get; set; }
         public Outcome Outcome { get; set; }
 
+        public dynamic State
+        {
+            get
+            {
+                return Scenario.State;
+            }
+        }
+
         public void SetNameWithReplacement(string key, string value)
         {
             var replacements = new Dictionary<string, string>();
             replacements.Add(key, value);
-            var method = factory.GetMethodRetriever().GetCallingMethod();
+            var method = factory.GetMethodRetriever().GetCallingStepMethod();
             SetName(factory.GetStepNameReader().ReadStepNameWithReplacement(this, null, method, replacements));
         }
     }

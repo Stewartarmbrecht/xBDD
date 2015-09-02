@@ -7,6 +7,6 @@ namespace xBDD.Utility
     {
         IMethod GetStepMethod(Action<IStep> stepAction);
         IMethod GetScenarioMethod();
-        IMethod GetCallingMethod();
+        IMethod GetCallingStepMethod();
     }
 }

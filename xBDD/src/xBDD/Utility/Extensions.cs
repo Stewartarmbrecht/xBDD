@@ -1,9 +1,28 @@
-﻿using System.Text;
+﻿using System;
+using System.Reflection;
+using System.Text;
 
 namespace xBDD.Utility
 {
-    public static class StringExtensions
+    public static class Extensions
     {
+        public static bool IsStepLibrary(this Type type)
+        {
+            var stepLibraryAttribute = type.GetCustomAttribute<StepLibraryAttribute>();
+            if (stepLibraryAttribute == null)
+                return false;
+            else
+                return true;
+        }
+        public static bool IsStep(this MethodBase method)
+        {
+            var stepAttribute = method.GetCustomAttribute<StepLibraryAttribute>();
+            if (stepAttribute == null)
+                return false;
+            else
+                return true;
+        }
+
         public static string AddSpacesToSentence(this string text, bool preserveAcronyms)
         {
             text = text.Replace('_', ' ');
