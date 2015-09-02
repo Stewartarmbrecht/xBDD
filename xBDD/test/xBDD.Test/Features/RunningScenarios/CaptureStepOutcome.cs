@@ -23,5 +23,16 @@ namespace xBDD.Test.Features.RunningScenarios
                 .Then(s.the_step_outcome_should_show_failed)
                 .Run();
         }
+
+        //[Fact]
+        //public void WhenNotImplementedRun()
+        //{
+        //    var s = new RunningScenariosSteps();
+        //    xBDD.CurrentRun.AddScenario()
+        //        .When(s.a_simple_scenario_with_a_not_implemented_step_is_run)
+        //        .Then(s.the_step_outcome_should_show_not_implemented)
+        //        .Run();
+        //}
+
     }
 }
