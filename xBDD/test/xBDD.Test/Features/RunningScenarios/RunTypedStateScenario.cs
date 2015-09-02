@@ -11,8 +11,8 @@ namespace xBDD.Test.Features.RunningScenarios
         {
             var s = new RunningScenariosSteps();
             var scenario = xBDD.CurrentRun.AddScenario();
-            scenario.Given(s.a_simple_passing_scenario_with_typed_state)
-                .When(s.the_scenario_is_run)
+            scenario
+                .When(s.a_simple_passing_scenario_with_typed_state_is_run)
                 .Then(s.the_scenario_name_should_come_from_the_fact_method_name)
                 .And(s.the_feature_name_should_come_from_the_class_name)
                 .And(s.the_area_path_should_come_from_the_namespace)

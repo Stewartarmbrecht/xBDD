@@ -5,11 +5,11 @@ namespace xBDD.Test.Sample
 {
     public class SimpleTestRunUsingTypedState : ISimpleTestRun
     {
-        ITestRun testRun = new TestRun(new Factory());
+        internal ITestRun testRun = new TestRun(new Factory());
         public IScenario Scenario { get; set; }
 
         //[Fact]
-        public void PassingScenario()
+        public virtual void PassingScenario()
         {
             var s = new SampleStepsWithTypedState();
             var scenario = testRun.AddScenario();

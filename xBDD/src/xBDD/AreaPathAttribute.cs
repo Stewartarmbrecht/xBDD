@@ -2,7 +2,7 @@
 
 namespace xBDD
 {
-    [AttributeUsage(System.AttributeTargets.Class | AttributeTargets.Method)]
+    [AttributeUsage(System.AttributeTargets.Class)]
     public class AreaPathAttribute : Attribute
     {
         public string Path { get; set; }

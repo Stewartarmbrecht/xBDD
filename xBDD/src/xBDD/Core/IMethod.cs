@@ -7,7 +7,7 @@ namespace xBDD.Core
         string Name { get; }
 
         IEnumerable<IAttribute> GetCustomAttributesData();
-        IEnumerable<IAttribute> GetDeclaringTypeCustomAttributesData();
+        IEnumerable<IAttribute> GetReflectedTypeCustomAttributesData();
         string GetClassName();
         string GetNameSpace();
     }

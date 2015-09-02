@@ -18,7 +18,7 @@ namespace xBDD.Core
 
         public string GetClassName()
         {
-            return methodBase.DeclaringType.Name.AddSpacesToSentence(true);
+            return methodBase.ReflectedType.Name.AddSpacesToSentence(true);
         }
 
         public IEnumerable<IAttribute> GetCustomAttributesData()
@@ -33,13 +33,13 @@ namespace xBDD.Core
 
         public string GetNameSpace()
         {
-            return methodBase.DeclaringType.Namespace;
+            return methodBase.ReflectedType.Namespace;
         }
 
-        public IEnumerable<IAttribute> GetDeclaringTypeCustomAttributesData()
+        public IEnumerable<IAttribute> GetReflectedTypeCustomAttributesData()
         {
             List<IAttribute> attr = new List<IAttribute>();
-            methodBase.DeclaringType.GetCustomAttributesData().ToList().ForEach(data =>
+            methodBase.ReflectedType.GetCustomAttributesData().ToList().ForEach(data =>
             {
                 attr.Add(this.factory.CreateAttribute(data));
             });

@@ -3,14 +3,17 @@ using Xunit;
 
 namespace xBDD.Test.Features.OverridingNames
 {
-    [AreaPath("My.Custom.Path")]
     public class OverrideAreaPath
     {
         [Fact]
         public void WithAreaPathAttribute()
         {
-            var scenario = xBDD.CurrentRun.AddScenario();
-            Assert.Equal("My.Custom.Path", scenario.AreaPath);
+            var s = new OverridingNamesSteps();
+            s.ExpectedAreaPath = "My.New.Area.Path";
+            xBDD.CurrentRun.AddScenario()
+                .When(s.a_simple_passing_scenario_with_an_area_path_attribute_is_run)
+                .Then(s.the_area_path_should_match_the_area_path_attribute_setting)
+                .Run();
         }
         [Fact]
         public void WhenAddingScenario()

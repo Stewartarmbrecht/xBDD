@@ -19,7 +19,7 @@ namespace xBDD.Utility
         string ReadAttribute(IMethod method)
         {
             string name = null;
-            foreach (var data in method.GetDeclaringTypeCustomAttributesData())
+            foreach (var data in method.GetReflectedTypeCustomAttributesData())
             {
 
                 if (data.AttributeType == typeof(AreaPathAttribute))

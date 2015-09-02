@@ -11,8 +11,7 @@ namespace xBDD.Test.Features.RunningScenarios
             var s = new RunningScenariosSteps();
             var scenario = xBDD.CurrentRun.AddScenario();
             scenario
-                .Given(s.a_simple_passing_scenario)
-                .When(s.the_scenario_is_run)
+                .When(s.a_simple_passing_scenario_is_run)
                 .Then(s.the_step_outcome_should_show_passed);
             scenario.Run();
         }
@@ -23,8 +22,7 @@ namespace xBDD.Test.Features.RunningScenarios
             var s = new RunningScenariosSteps();
             var scenario = xBDD.CurrentRun.AddScenario();
             scenario
-                .Given(s.a_simple_failing_scenario)
-                .When(s.the_scenario_is_run_and_the_exception_caught)
+                .When(s.a_simple_failing_scenario_is_run_and_the_exception_caught)
                 .Then(s.the_step_outcome_should_show_failed);
             scenario.Run();
         }
