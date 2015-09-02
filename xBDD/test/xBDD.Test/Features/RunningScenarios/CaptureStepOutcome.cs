@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Xunit;
 
 namespace xBDD.Test.Features.RunningScenarios
@@ -9,47 +6,27 @@ namespace xBDD.Test.Features.RunningScenarios
     public class CaptureStepOutcome
     {
         [Fact]
-        public async Task WhenPassingRun()
+        public void WhenPassingRun()
         {
-            DateTime capturedTime = DateTime.Now;
+            var s = new RunningScenariosSteps();
             var scenario = xBDD.CurrentRun.AddScenario();
-            scenario.GivenAsync(step => {
-                return Task.Run(() => {
-                    System.Threading.Thread.Sleep(10);
-                    capturedTime = DateTime.Now;
-                    System.Threading.Thread.Sleep(10);
-                });
-            });
-            await scenario.RunAsync();
-            Assert.True(scenario.Steps[0].Outcome == Outcome.Passed);
+            scenario
+                .Given(s.a_simple_passing_scenario)
+                .When(s.the_scenario_is_run)
+                .Then(s.the_step_outcome_should_show_passed);
+            scenario.Run();
         }
 
         [Fact]
-        public async Task WhenFailingRun()
+        public void WhenFailingRun()
         {
-            DateTime capturedTime = DateTime.Now;
+            var s = new RunningScenariosSteps();
             var scenario = xBDD.CurrentRun.AddScenario();
-            scenario.GivenAsync(step => 
-            {
-                return Task.Run(() => {
-                    System.Threading.Thread.Sleep(10);
-                    capturedTime = DateTime.Now;
-                    System.Threading.Thread.Sleep(10);
-                    throw new Exception("Deliberate");
-                });
-            });
-            var hit = false;
-            try
-            {
-                await scenario.RunAsync();
-            }
-            catch(Exception ex)
-            {
-                hit = true;
-                Assert.Equal("Deliberate", ex.Message);
-                Assert.True(scenario.Steps[0].Outcome == Outcome.Failed);
-            }
-            Assert.True(hit);
+            scenario
+                .Given(s.a_simple_failing_scenario)
+                .When(s.the_scenario_is_run_and_the_exception_caught)
+                .Then(s.the_step_outcome_should_show_failed);
+            scenario.Run();
         }
     }
 }

@@ -11,43 +11,27 @@ namespace xBDD.Test.Features.RunningScenarios
         [Fact]
         public void WhenPassingRun()
         {
-            DateTime capturedTime = DateTime.Now;
+            var s = new RunningScenariosSteps();
             var scenario = xBDD.CurrentRun.AddScenario();
-            scenario.Given(step => {
-                System.Threading.Thread.Sleep(10);
-                capturedTime = DateTime.Now;
-                System.Threading.Thread.Sleep(10);
-            });
+            scenario
+                .Given(s.a_simple_passing_scenario_with_a_time_capturing_step)
+                .When(s.the_scenario_is_run)
+                .Then(s.the_step_start_date_should_be_before_the_step_captured_time)
+                .And(s.the_step_end_date_should_be_after_the_step_captured_time);
             scenario.Run();
-            Assert.True(scenario.Steps[0].StartTime < capturedTime);
-            Assert.True(scenario.Steps[0].EndTime > capturedTime);
         }
 
         [Fact]
         public void WhenFailingRun()
         {
-            DateTime capturedTime = DateTime.Now;
+            var s = new RunningScenariosSteps();
             var scenario = xBDD.CurrentRun.AddScenario();
-            scenario.Given(step => 
-            {
-                System.Threading.Thread.Sleep(10);
-                capturedTime = DateTime.Now;
-                System.Threading.Thread.Sleep(10);
-                throw new Exception("Deliberate");
-            });
-            var hit = false;
-            try
-            {
-                scenario.Run();
-            }
-            catch(Exception ex)
-            {
-                hit = true;
-                Assert.Equal("Deliberate", ex.Message);
-                Assert.True(scenario.Steps[0].StartTime < capturedTime);
-                Assert.True(scenario.Steps[0].EndTime > capturedTime);
-            }
-            Assert.True(hit);
+            scenario
+                .Given(s.a_simple_failing_scenario_with_a_failing_time_capturing_step)
+                .When(s.the_scenario_is_run_and_the_exception_caught)
+                .Then(s.the_step_start_date_should_be_before_the_step_captured_time)
+                .And(s.the_step_end_date_should_be_after_the_step_captured_time);
+            scenario.Run();
         }
     }
 }

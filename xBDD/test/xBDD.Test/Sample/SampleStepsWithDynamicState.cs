@@ -1,18 +1,13 @@
 ﻿using xBDD;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 
 namespace xBDD.Test.Sample
 {
     [StepLibrary]
-    public class SampleSteps
+    public class SampleStepsWithDynamicState
     {
-        public int FailAttempts { get; set; }
-        public string PageName { get; set; }
-        public string Response { get; set; }
-        public string Title { get; set; }
-        public string Message { get; set; }
-
         /// <summary>
         /// Requires:
         /// UserName - string
@@ -49,6 +44,22 @@ namespace xBDD.Test.Sample
                 throw new System.Exception("Page load failed.");
             step.State.Response = "Here you go!";
         }
+
+        internal void the_time_is_captured_and_the_step_fails(IStep step)
+        {
+            System.Threading.Thread.Sleep(10);
+            step.State.CapturedTime = DateTime.Now;
+            System.Threading.Thread.Sleep(10);
+            throw new Exception("Deliberate");
+        }
+
+        internal void the_time_is_captured(IStep step)
+        {
+            System.Threading.Thread.Sleep(10);
+            step.State.CapturedTime = DateTime.Now;
+            System.Threading.Thread.Sleep(10);
+        }
+
         /// <summary>
         /// Requires:
         /// PageName - string
@@ -85,24 +96,6 @@ namespace xBDD.Test.Sample
             string header = step.State.Header;
             step.SetNameWithReplacement("X", header.Quote());
             await Task.Run(() => { });
-        }
-
-        public void the_user_successfully_logs_in_after_x_failed_attempts(IStep step)
-        {
-            step.SetNameWithReplacement("X", FailAttempts.ToString());
-        }
-        public void the_user_navigates_to_the_x_page(IStep step)
-        {
-            step.SetNameWithReplacement("X", PageName.Quote());
-            Response = "Here you go!";
-        }
-        public void the_loaded_page_should_have_a_title_of_x(IStep step)
-        {
-            step.SetNameWithReplacement("X", Title.Quote());
-        }
-        public void the_loaded_page_should_have_a_message_of_x(IStep step)
-        {
-            step.SetNameWithReplacement("X", Message.Quote());
         }
     }
 }

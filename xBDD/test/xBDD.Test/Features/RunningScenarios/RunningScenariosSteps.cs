@@ -9,7 +9,8 @@ namespace xBDD.Test.Features.RunningScenarios
     [StepLibrary]
     public class RunningScenariosSteps
     {
-        public SimpleTestRunUsingDynamicState SimpleTestRun { get; set; }
+        public ISimpleTestRun SimpleTestRun { get; set; }
+        public ISimpleTestRun SimpleTestRunWithTypedState { get; private set; }
         public string ExpectedScenarioName { get; set; }
         public string ExpectedFeatureName { get; set; }
         public string ExpectedAreaPath { get; set; }
@@ -18,12 +19,31 @@ namespace xBDD.Test.Features.RunningScenarios
         public string ExpectedStep3Name { get; set; }
         public Action ScenarioToRun { get; set; }
         public string ExpectedExceptionMessage { get; set; }
+
         public Func<Task> ScenarioToRunAsync { get; private set; }
 
         public void a_simple_passing_scenario(IStep step)
         {
             SimpleTestRun = new SimpleTestRunUsingDynamicState();
             ScenarioToRun = SimpleTestRun.PassingScenario;
+        }
+
+        internal void a_simple_passing_scenario_with_typed_state(IStep obj)
+        {
+            SimpleTestRunWithTypedState = new SimpleTestRunUsingTypedState();
+            ScenarioToRun = SimpleTestRunWithTypedState.PassingScenario;
+        }
+
+        internal void a_simple_failing_scenario_with_a_failing_time_capturing_step(IStep obj)
+        {
+            SimpleTestRun = new SimpleTestRunUsingDynamicState();
+            ScenarioToRun = SimpleTestRun.FailingScenarioWithFailingTimeCapturingStep;
+        }
+
+        internal void a_simple_passing_scenario_with_a_time_capturing_step(IStep step)
+        {
+            SimpleTestRun = new SimpleTestRunUsingDynamicState();
+            ScenarioToRun = SimpleTestRun.PassingScenarioWithTimeCapturingStep;
         }
 
         public void the_scenario_is_run(IStep step)
@@ -104,5 +124,26 @@ namespace xBDD.Test.Features.RunningScenarios
                 step.State.Exception = ex;
             }
         }
+        internal void the_step_outcome_should_show_failed(IStep step)
+        {
+            Assert.Equal(Outcome.Failed, SimpleTestRun.Scenario.Steps[1].Outcome);
+        }
+
+        internal void the_step_outcome_should_show_passed(IStep step)
+        {
+            Assert.Equal(Outcome.Passed, SimpleTestRun.Scenario.Steps[0].Outcome);
+        }
+
+
+        internal void the_step_start_date_should_be_before_the_step_captured_time(IStep step)
+        {
+            Assert.True(SimpleTestRun.Scenario.State.CapturedTime > SimpleTestRun.Scenario.Steps[2].StartTime);
+        }
+
+        internal void the_step_end_date_should_be_after_the_step_captured_time(IStep step)
+        {
+            Assert.True(SimpleTestRun.Scenario.State.CapturedTime < SimpleTestRun.Scenario.Steps[2].EndTime);
+        }
+
     }
 }
