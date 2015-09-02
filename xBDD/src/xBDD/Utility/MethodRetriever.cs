@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using xBDD.Core;
 
 namespace xBDD.Utility
@@ -45,6 +46,10 @@ namespace xBDD.Utility
         }
 
         public IMethod GetStepMethod(Action<IStep> action)
+        {
+            return factory.CreateMethod(action.Method);
+        }
+        public IMethod GetStepMethod(Func<IStep, Task> action)
         {
             return factory.CreateMethod(action.Method);
         }

@@ -76,16 +76,33 @@ namespace xBDD.Test.Features.RunningScenarios
             Assert.Equal(ExpectedAreaPath, SimpleTestRun.Scenario.AreaPath);
         }
 
-        internal void a_simple_passing_async_scenario(IStep obj)
+        internal void a_simple_passing_async_scenario(IStep step)
         {
             SimpleTestRun = new SimpleTestRunUsingDynamicState();
             ScenarioToRunAsync = SimpleTestRun.PassingScenarioAsync;
         }
 
-        internal void the_async_scenario_is_run(IStep obj)
+        internal async Task the_async_scenario_is_run(IStep step)
         {
-            Task task = ScenarioToRunAsync();
-            task.Wait();
+            await ScenarioToRunAsync();
+        }
+
+        internal void a_simple_failing_async_scenario(IStep step)
+        {
+            SimpleTestRun = new SimpleTestRunUsingDynamicState();
+            ScenarioToRunAsync = SimpleTestRun.FailingScenarioAsync;
+        }
+
+        internal async Task the_scenario_is_run_async_and_the_exception_caught(IStep step)
+        {
+            try
+            {
+                await ScenarioToRunAsync();
+            }
+            catch (Exception ex)
+            {
+                step.State.Exception = ex;
+            }
         }
     }
 }

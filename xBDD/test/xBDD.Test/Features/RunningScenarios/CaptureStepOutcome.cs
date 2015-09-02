@@ -13,12 +13,14 @@ namespace xBDD.Test.Features.RunningScenarios
         {
             DateTime capturedTime = DateTime.Now;
             var scenario = xBDD.CurrentRun.AddScenario();
-            scenario.Given(step => {
-                System.Threading.Thread.Sleep(10);
-                capturedTime = DateTime.Now;
-                System.Threading.Thread.Sleep(10);
+            scenario.GivenAsync(step => {
+                return Task.Run(() => {
+                    System.Threading.Thread.Sleep(10);
+                    capturedTime = DateTime.Now;
+                    System.Threading.Thread.Sleep(10);
+                });
             });
-            scenario.Run();
+            await scenario.RunAsync();
             Assert.True(scenario.Steps[0].Outcome == Outcome.Passed);
         }
 
@@ -27,17 +29,19 @@ namespace xBDD.Test.Features.RunningScenarios
         {
             DateTime capturedTime = DateTime.Now;
             var scenario = xBDD.CurrentRun.AddScenario();
-            scenario.Given(step => 
+            scenario.GivenAsync(step => 
             {
-                System.Threading.Thread.Sleep(10);
-                capturedTime = DateTime.Now;
-                System.Threading.Thread.Sleep(10);
-                throw new Exception("Deliberate");
+                return Task.Run(() => {
+                    System.Threading.Thread.Sleep(10);
+                    capturedTime = DateTime.Now;
+                    System.Threading.Thread.Sleep(10);
+                    throw new Exception("Deliberate");
+                });
             });
             var hit = false;
             try
             {
-                scenario.Run();
+                await scenario.RunAsync();
             }
             catch(Exception ex)
             {

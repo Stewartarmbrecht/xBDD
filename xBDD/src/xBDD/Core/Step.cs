@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace xBDD.Core
 {
@@ -13,10 +14,13 @@ namespace xBDD.Core
         }
         public IScenario Scenario { get; private set; }
         public Action<IStep> Action { get; set; }
+        public Func<IStep, Task> ActionAsync { get; set; }
         public ActionType ActionType { get; set; }
         public string Name { get; private set; }
         public void SetName(string name)
         {
+            if (name != null && name.EndsWith(" async"))
+                name = name.Substring(0, name.Length - 6);
             Name = Enum.GetName(typeof(ActionType), ActionType) + " " + name;
         }
         public DateTime EndTime { get; set; }

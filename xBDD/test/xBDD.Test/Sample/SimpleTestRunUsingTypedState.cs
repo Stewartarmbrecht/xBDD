@@ -19,7 +19,7 @@ namespace xBDD.Test.Sample
             s.When(ts.the_user_navigates_to_the_x_page);
             s.Then(ts.the_loaded_page_should_have_a_title_of_x);
             s.And(ts.the_loaded_page_should_have_a_message_of_x);
-            s.Run();
+            s.RunAsync();
         }
     }
 }

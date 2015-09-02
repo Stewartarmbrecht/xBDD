@@ -40,7 +40,7 @@ namespace xBDD.Test.Utilities
                 scenario.And("Condition 2", step => { });
                 scenario.When("Action 1", step => { });
                 scenario.Then("Validation 1", step => { });
-                scenario.Run();
+                scenario.RunAsync();
             }
         }
     }

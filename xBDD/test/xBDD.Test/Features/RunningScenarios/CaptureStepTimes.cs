@@ -9,7 +9,7 @@ namespace xBDD.Test.Features.RunningScenarios
     public class CaptureStepTimes
     {
         [Fact]
-        public async Task WhenPassingRun()
+        public void WhenPassingRun()
         {
             DateTime capturedTime = DateTime.Now;
             var scenario = xBDD.CurrentRun.AddScenario();
@@ -24,7 +24,7 @@ namespace xBDD.Test.Features.RunningScenarios
         }
 
         [Fact]
-        public async Task WhenFailingRun()
+        public void WhenFailingRun()
         {
             DateTime capturedTime = DateTime.Now;
             var scenario = xBDD.CurrentRun.AddScenario();

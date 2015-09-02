@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace xBDD
 {
@@ -6,6 +7,7 @@ namespace xBDD
     {
         IScenario Scenario { get; }
         Action<IStep> Action { get; set; }
+        Func<IStep, Task> ActionAsync { get; set; }
         ActionType ActionType { get; set; }
         string Name { get; }
         void SetName(string stepName);
