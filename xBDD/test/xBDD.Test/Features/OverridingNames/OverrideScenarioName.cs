@@ -7,16 +7,23 @@ namespace xBDD.Test.Features.OverridingNames
         [Fact]
         public void WhenAddingScenario()
         {
-            var scenarioName = "Create Scenario With Name";
-            var scenario = xBDD.CurrentRun.AddScenario(scenarioName);
-            Assert.Equal(scenarioName, scenario.Name);
+            var s = new OverridingNamesSteps();
+            s.ExpectedScenarioName = "My New Scenario Name";
+            xBDD.CurrentRun.AddScenario()
+                .When(s.a_simple_passing_scenario_with_an_scenario_name_attribute_is_run)
+                .Then(s.the_scenario_name_should_match_the_scenario_name_attribute_setting)
+                .Run();
         }
         [Fact]
         [ScenarioName("With A Scenario Name Attribute")]
         public void WithScenarioNameAttribute()
         {
-            var scenario = xBDD.CurrentRun.AddScenario();
-            Assert.Equal("With A Scenario Name Attribute", scenario.Name);
+            var s = new OverridingNamesSteps();
+            s.ExpectedScenarioName = "My Explicitly Set Scenario Name";
+            xBDD.CurrentRun.AddScenario()
+                .When(s.a_simple_passing_scenario_with_a_scenario_name_set_when_adding_the_scenario)
+                .Then(s.the_scenario_name_should_match_the_string_value_used)
+                .Run();
         }
     }
 }
