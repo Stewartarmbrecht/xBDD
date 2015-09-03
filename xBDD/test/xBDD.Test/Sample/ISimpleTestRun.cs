@@ -15,5 +15,6 @@ namespace xBDD.Test.Sample
         Task PassingScenarioAsync();
         void FailingScenarioWithFailingTimeCapturingStep();
         void PassingScenarioWithTimeCapturingStep();
+        void SkippedScenario();
     }
 }

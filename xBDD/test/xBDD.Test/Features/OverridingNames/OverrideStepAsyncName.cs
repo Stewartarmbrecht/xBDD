@@ -5,7 +5,7 @@ namespace xBDD.Test.Features.OverridingNames
 {
     public class OverrideAsyncStepName
     {
-        [Fact]
+        [ScenarioFact]
         public void WhenAddingStep()
         {
             var stepName = "My Step";
@@ -13,7 +13,7 @@ namespace xBDD.Test.Features.OverridingNames
             scenario.GivenAsync(stepName, step => { return Task.Run(() => { }); });
             Assert.Equal("Given My Step", scenario.Steps[0].Name);
         }
-        [Fact]
+        [ScenarioFact]
         public async Task InsideStepMethod()
         {
             var stepName = "My Step";
@@ -22,7 +22,7 @@ namespace xBDD.Test.Features.OverridingNames
             await scenario.RunAsync();
             Assert.Equal("Given My Step", scenario.Steps[0].Name);
         }
-        [Fact]
+        [ScenarioFact]
         public void WithAttributeOnStepMethod()
         {
             var scenario = xBDD.CurrentRun.AddScenario();

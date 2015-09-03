@@ -4,7 +4,7 @@ namespace xBDD.Test.Features.RunningScenarios
 {
     public class CaptureStepTimes
     {
-        [Fact]
+        [ScenarioFact]
         public void WhenPassingRun()
         {
             var s = new RunningScenariosSteps();
@@ -15,7 +15,7 @@ namespace xBDD.Test.Features.RunningScenarios
                 .Run();
         }
 
-        [Fact]
+        [ScenarioFact]
         public void WhenFailingRun()
         {
             var s = new RunningScenariosSteps();

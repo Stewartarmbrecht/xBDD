@@ -26,6 +26,7 @@ namespace xBDD.Core
         public DateTime EndTime { get; set; }
         public DateTime StartTime { get; set; }
         public Outcome Outcome { get; set; }
+        public string Reason { get; set; }
 
         public dynamic State
         {
@@ -34,6 +35,8 @@ namespace xBDD.Core
                 return Scenario.State;
             }
         }
+
+        public Exception Exception { get; set; }
 
         public void SetNameWithReplacement(string key, string value)
         {

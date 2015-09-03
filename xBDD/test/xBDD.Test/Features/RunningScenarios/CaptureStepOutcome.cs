@@ -4,7 +4,7 @@ namespace xBDD.Test.Features.RunningScenarios
 {
     public class CaptureStepOutcome
     {
-        [Fact]
+        [ScenarioFact]
         public void WhenPassingRun()
         {
             var s = new RunningScenariosSteps();
@@ -14,7 +14,7 @@ namespace xBDD.Test.Features.RunningScenarios
                 .Run();
         }
 
-        [Fact]
+        [ScenarioFact]
         public void WhenFailingRun()
         {
             var s = new RunningScenariosSteps();
@@ -24,15 +24,17 @@ namespace xBDD.Test.Features.RunningScenarios
                 .Run();
         }
 
-        //[Fact]
-        //public void WhenNotImplementedRun()
-        //{
-        //    var s = new RunningScenariosSteps();
-        //    xBDD.CurrentRun.AddScenario()
-        //        .When(s.a_simple_scenario_with_a_not_implemented_step_is_run)
-        //        .Then(s.the_step_outcome_should_show_not_implemented)
-        //        .Run();
-        //}
+        [ScenarioFact]
+        public void WhenSkippedRun()
+        {
+            var s = new RunningScenariosSteps();
+            s.ExpectedReason = "Not Implemented.";
+            xBDD.CurrentRun.AddScenario()
+                .When(s.a_simple_scenario_with_a_skipped_step_is_run_and_the_exception_is_caught)
+                .Then(s.the_step_outcome_should_show_skipped)
+                .And(s.the_step_reason_should_be_ExpectedReason)
+                .Run();
+        }
 
     }
 }

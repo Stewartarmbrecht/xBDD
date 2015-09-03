@@ -4,7 +4,7 @@ namespace xBDD.Test.Features.OverridingNames
 {
     public class OverrideScenarioName
     {
-        [Fact]
+        [ScenarioFact]
         public void WhenAddingScenario()
         {
             var s = new OverridingNamesSteps();
@@ -14,7 +14,7 @@ namespace xBDD.Test.Features.OverridingNames
                 .Then(s.the_scenario_name_should_match_the_scenario_name_attribute_setting)
                 .Run();
         }
-        [Fact]
+        [ScenarioFact]
         [ScenarioName("With A Scenario Name Attribute")]
         public void WithScenarioNameAttribute()
         {

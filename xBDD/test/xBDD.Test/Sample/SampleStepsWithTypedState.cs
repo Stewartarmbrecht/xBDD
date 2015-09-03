@@ -14,6 +14,8 @@ namespace xBDD.Test.Sample
         public string Response { get; set; }
         public DateTime CapturedTime { get; set; }
         public string Header { get; set; }
+        public bool PageLoadShouldSkip { get; internal set; }
+
         /// <summary>
         /// Requires:
         /// UserName - string
@@ -45,6 +47,8 @@ namespace xBDD.Test.Sample
             step.SetNameWithReplacement("X", PageName.Quote());
             if (PageLoadShouldFail)
                 throw new System.Exception("Page load failed.");
+            if (PageLoadShouldSkip)
+                throw new SkipStepException("Not Implemented.");
             Response = "Here you go!";
         }
 

@@ -4,7 +4,7 @@ namespace xBDD.Test.Features.OverridingNames
 {
     public class OverrideAreaPath
     {
-        [Fact]
+        [ScenarioFact]
         public void WithAreaPathAttribute()
         {
             var s = new OverridingNamesSteps();
@@ -14,7 +14,7 @@ namespace xBDD.Test.Features.OverridingNames
                 .Then(s.the_area_path_should_match_the_area_path_attribute_setting)
                 .Run();
         }
-        [Fact]
+        [ScenarioFact]
         public void WhenAddingScenario()
         {
             var s = new OverridingNamesSteps();

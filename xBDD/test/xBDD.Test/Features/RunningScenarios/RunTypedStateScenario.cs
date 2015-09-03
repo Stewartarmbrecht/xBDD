@@ -4,7 +4,7 @@ namespace xBDD.Test.Features.RunningScenarios
 {
     public class RunTypedStateScenario
     {
-        [Fact]
+        [ScenarioFact]
         public void PassingScenario()
         {
             var s = new RunningScenariosSteps();

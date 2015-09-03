@@ -10,17 +10,18 @@ namespace xBDD.Test.Features.Stats
     {
         ITestRun testRun;
         ITestRunStats testRunStats;
-        [Fact(Skip = "Not Ready to Write")]
+        [ScenarioFact]
         public void SimpleTestRunTime()
         {
-            var s = xBDD.CurrentRun.AddScenario();
-            s.Given(SimpleTestRunCompleted);
-            s.When(StatsAreCompiled);
-            s.Then(TheRootAreaStartTimeShouldBeEqualToTheEarliestStepStartTimeForTheTestRun);
-            s.And(TheRootAreaEndTimeShouldBeEqualToTheLatestStepEndTimeForTheTestRun);
-            s.And(TheRootAreaDurationShouldBeTheDifferenceBetweenTheStartTimeAndEndTime);
-            s.And(TheRootAreaTimeShouldBeTheAggregateOfAllStepDurations);
-            s.RunAsync();
+            throw new SkipStepException("Not Implemented");
+            //var s = xBDD.CurrentRun.AddScenario();
+            //s.Given(SimpleTestRunCompleted);
+            //s.When(StatsAreCompiled);
+            //s.Then(TheRootAreaStartTimeShouldBeEqualToTheEarliestStepStartTimeForTheTestRun);
+            //s.And(TheRootAreaEndTimeShouldBeEqualToTheLatestStepEndTimeForTheTestRun);
+            //s.And(TheRootAreaDurationShouldBeTheDifferenceBetweenTheStartTimeAndEndTime);
+            //s.And(TheRootAreaTimeShouldBeTheAggregateOfAllStepDurations);
+            //s.RunAsync();
         }
 
         private void TheRootAreaTimeShouldBeTheAggregateOfAllStepDurations(IStep obj)

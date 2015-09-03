@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace xBDD
@@ -15,6 +16,8 @@ namespace xBDD
         DateTime EndTime { get; set; }
         Outcome Outcome { get; set; }
         dynamic State { get; }
+        string Reason { get; set; }
+        Exception Exception { get; set; }
 
         void SetNameWithReplacement(string key, string value);
     }

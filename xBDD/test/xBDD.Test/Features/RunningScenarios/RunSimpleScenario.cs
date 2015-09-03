@@ -5,7 +5,7 @@ namespace xBDD.Test.Features.RunningScenarios
 {
     public class RunSimpleScenario
     {
-        [Fact]
+        [ScenarioFact]
         public void PassingScenario()
         {
             var s = new RunningScenariosSteps();
@@ -26,7 +26,7 @@ namespace xBDD.Test.Features.RunningScenarios
                 .Run();
         }
 
-        [Fact]
+        [ScenarioFact]
         public void FailingScenario()
         {
             var s = new RunningScenariosSteps();
@@ -47,7 +47,7 @@ namespace xBDD.Test.Features.RunningScenarios
                 .And(s.the_step_exception_shoul_have_a_message_of_x)
                 .Run();
         }
-        [Fact]
+        [ScenarioFact]
         public async Task PassingScenarioAsync()
         {
             var s = new RunningScenariosSteps();
@@ -66,7 +66,7 @@ namespace xBDD.Test.Features.RunningScenarios
                 .And(s.the_step_name_should_come_from_the_method_name)
                 .RunAsync();
         }
-        [Fact]
+        [ScenarioFact]
         public async Task FailingScenarioAsync()
         {
             var s = new RunningScenariosSteps();

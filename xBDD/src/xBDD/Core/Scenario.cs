@@ -140,13 +140,16 @@ namespace xBDD.Core
                 try
                 {
                     step.Action(step);
-                    step.EndTime = DateTime.Now;
-                    step.Outcome = Outcome.Passed;
+                    PostExecution(step);
                 }
-                catch
+                catch(SkipStepException ssex)
                 {
-                    step.EndTime = DateTime.Now;
-                    step.Outcome = Outcome.Failed;
+                    ProcessSkipException(step, ssex);
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    ProcessException(step, ex);
                     throw;
                 }
             }
@@ -167,16 +170,40 @@ namespace xBDD.Core
                     {
                         await step.ActionAsync(step);
                     }
-                    step.EndTime = DateTime.Now;
-                    step.Outcome = Outcome.Passed;
+                    PostExecution(step);
                 }
-                catch
+                catch(SkipStepException ssex)
                 {
-                    step.EndTime = DateTime.Now;
-                    step.Outcome = Outcome.Failed;
+                    ProcessSkipException(step, ssex);
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    ProcessException(step, ex);
                     throw;
                 }
             }
         }
+
+        private static void PostExecution(IStep step)
+        {
+            step.EndTime = DateTime.Now;
+            step.Outcome = Outcome.Passed;
+        }
+        private static void ProcessSkipException(IStep step, SkipStepException ssex)
+        {
+            step.EndTime = DateTime.Now;
+            step.Outcome = Outcome.Skipped;
+            step.Reason = ssex.Message;
+            step.Exception = ssex;
+        }
+        private static void ProcessException(IStep step, Exception ex)
+        {
+            step.EndTime = DateTime.Now;
+            step.Outcome = Outcome.Failed;
+            step.Reason = ex.Message;
+            step.Exception = ex;
+        }
+
     }
 }

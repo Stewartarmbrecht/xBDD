@@ -42,6 +42,8 @@ namespace xBDD.Test.Sample
             step.SetNameWithReplacement("X", pageName.Quote());
             if (((IDictionary<string, object>)step.State).ContainsKey("PageLoadShouldFail") && step.State.PageLoadShouldFail)
                 throw new System.Exception("Page load failed.");
+            if (((IDictionary<string, object>)step.State).ContainsKey("PageLoadShouldSkip") && step.State.PageLoadShouldSkip)
+                throw new System.Exception("Not Implemented.");
             step.State.Response = "Here you go!";
         }
 

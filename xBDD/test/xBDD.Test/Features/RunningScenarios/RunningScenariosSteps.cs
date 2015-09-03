@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
 namespace xBDD.Test.Features.RunningScenarios
 {
@@ -13,6 +14,7 @@ namespace xBDD.Test.Features.RunningScenarios
         public string ExpectedStep2Name { get; set; }
         public string ExpectedStep3Name { get; set; }
         public string ExpectedExceptionMessage { get; set; }
+        public string ExpectedReason { get; set; }
 
         public void the_scenario_name_should_come_from_the_fact_method_name(IStep step)
         {
@@ -29,6 +31,17 @@ namespace xBDD.Test.Features.RunningScenarios
             Assert.Equal(ExpectedStep1Name, SimpleTestRun.Scenario.Steps[0].Name);
             Assert.Equal(ExpectedStep2Name, SimpleTestRun.Scenario.Steps[1].Name);
             Assert.Equal(ExpectedStep3Name, SimpleTestRun.Scenario.Steps[2].Name);
+        }
+
+        internal void the_step_reason_should_be_ExpectedReason(IStep step)
+        {
+            step.SetNameWithReplacement("ExpectedReason", ExpectedReason.Quote());
+            Assert.Equal(ExpectedReason, SimpleTestRun.Scenario.Steps[1].Reason);
+        }
+
+        internal void the_step_outcome_should_show_skipped(IStep step)
+        {
+            Assert.Equal(Outcome.Skipped, SimpleTestRun.Scenario.Steps[1].Outcome);
         }
 
         public void the_step_exception_shoul_have_a_message_of_x(IStep step)

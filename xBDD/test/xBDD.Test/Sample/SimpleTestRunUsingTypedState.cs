@@ -8,7 +8,6 @@ namespace xBDD.Test.Sample
         internal ITestRun testRun = new TestRun(new Factory());
         public virtual IScenario Scenario { get; set; }
 
-        //[Fact]
         public virtual void PassingScenario()
         {
             var s = new SampleStepsWithTypedState();
@@ -24,7 +23,6 @@ namespace xBDD.Test.Sample
             Scenario.Run();
         }
 
-        //[Fact]
         public virtual async Task PassingScenarioAsync()
         {
             var s = new SampleStepsWithTypedState();
@@ -103,6 +101,21 @@ namespace xBDD.Test.Sample
                 .Then(s.the_loaded_page_should_have_a_header_of_x);
 
             await Scenario.RunAsync();
+        }
+        public virtual void SkippedScenario()
+        {
+            var s = new SampleStepsWithTypedState();
+            s.UserName = "test.user@tococms.com";
+            s.PageName = "Home - ToCo CMS";
+            s.Header = "ToCo CMS";
+            s.PageLoadShouldSkip = true;
+
+            Scenario = testRun.AddScenario()
+                .Given(s.the_user_logs_in_as_x)
+                .When(s.the_user_loads_the_x_page)
+                .Then(s.the_loaded_page_should_have_a_header_of_x);
+
+            Scenario.Run();
         }
     }
 }
