@@ -1,7 +1,7 @@
 ﻿using xBDD.Test.Sample;
 using Xunit;
 
-namespace xBDD.Test.Features.OverridingNames
+namespace xBDD.Test.Features.OverrideNames
 {
     public class OverridingNamesSteps : CommonSteps
     {
