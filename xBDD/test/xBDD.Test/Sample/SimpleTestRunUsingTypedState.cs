@@ -16,9 +16,9 @@ namespace xBDD.Test.Sample
             s.Header = "ToCo CMS";
 
             Scenario = testRun.AddScenario()
-                .Given(s.the_user_logs_in_as_x)
-                .When(s.the_user_loads_the_x_page)
-                .Then(s.the_loaded_page_should_have_a_header_of_x);
+                .Given(s.the_user_logs_in_as_UserName)
+                .When(s.the_user_loads_the_PageName_page)
+                .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
 
             Scenario.Run();
         }
@@ -30,9 +30,9 @@ namespace xBDD.Test.Sample
             s.PageName = "Home - ToCo CMS";
             s.Header = "ToCo CMS";
             Scenario = testRun.AddScenario()
-                .GivenAsync(s.the_user_logs_in_as_x_async)
-                .WhenAsync(s.the_user_loads_the_x_page_async)
-                .Then(s.the_loaded_page_should_have_a_header_of_x);
+                .GivenAsync(s.the_user_logs_in_as_UserName_async)
+                .WhenAsync(s.the_user_loads_the_PageName_page_async)
+                .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
 
             await Scenario.RunAsync();
         }
@@ -45,10 +45,10 @@ namespace xBDD.Test.Sample
             s.Header = "ToCo CMS";
 
             Scenario = testRun.AddScenario()
-                .Given(s.the_user_logs_in_as_x)
-                .When(s.the_user_loads_the_x_page)
+                .Given(s.the_user_logs_in_as_UserName)
+                .When(s.the_user_loads_the_PageName_page)
                 .And(s.the_time_is_captured_and_the_step_fails)
-                .Then(s.the_loaded_page_should_have_a_header_of_x);
+                .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
 
             Scenario.Run();
         }
@@ -61,10 +61,10 @@ namespace xBDD.Test.Sample
             s.Header = "ToCo CMS";
 
             Scenario = testRun.AddScenario()
-                .Given(s.the_user_logs_in_as_x)
-                .When(s.the_user_loads_the_x_page)
+                .Given(s.the_user_logs_in_as_UserName)
+                .When(s.the_user_loads_the_PageName_page)
                 .And(s.the_time_is_captured)
-                .Then(s.the_loaded_page_should_have_a_header_of_x);
+                .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
 
             Scenario.Run();
         }
@@ -79,9 +79,9 @@ namespace xBDD.Test.Sample
             s.Header = "ToCo CMS";
 
             Scenario = testRun.AddScenario()
-                .Given(s.the_user_logs_in_as_x)
-                .When(s.the_user_loads_the_x_page)
-                .Then(s.the_loaded_page_should_have_a_header_of_x);
+                .Given(s.the_user_logs_in_as_UserName)
+                .When(s.the_user_loads_the_PageName_page)
+                .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
 
             Scenario.Run();
         }
@@ -96,9 +96,9 @@ namespace xBDD.Test.Sample
             s.Header = "ToCo CMS";
 
             Scenario = testRun.AddScenario()
-                .GivenAsync(s.the_user_logs_in_as_x_async)
-                .WhenAsync(s.the_user_loads_the_x_page_async)
-                .Then(s.the_loaded_page_should_have_a_header_of_x);
+                .GivenAsync(s.the_user_logs_in_as_UserName_async)
+                .WhenAsync(s.the_user_loads_the_PageName_page_async)
+                .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
 
             await Scenario.RunAsync();
         }
@@ -111,9 +111,9 @@ namespace xBDD.Test.Sample
             s.PageLoadShouldSkip = true;
 
             Scenario = testRun.AddScenario()
-                .Given(s.the_user_logs_in_as_x)
-                .When(s.the_user_loads_the_x_page)
-                .Then(s.the_loaded_page_should_have_a_header_of_x);
+                .Given(s.the_user_logs_in_as_UserName)
+                .When(s.the_user_loads_the_PageName_page)
+                .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
 
             Scenario.Run();
         }

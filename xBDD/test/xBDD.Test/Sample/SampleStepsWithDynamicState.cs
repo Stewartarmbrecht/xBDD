@@ -13,20 +13,20 @@ namespace xBDD.Test.Sample
         /// UserName - string
         /// </summary>
         /// <param name="step"></param>
-        public void the_user_logs_in_as_x(IStep step)
+        public void the_user_logs_in_as_UserName(IStep step)
         {
             string userName = step.State.UserName;
-            step.SetNameWithReplacement("X", userName.Quote());
+            step.SetNameWithReplacement("UserName", userName.Quote());
         }
         /// <summary>
         /// Requires:
         /// UserName - string
         /// </summary>
         /// <param name="step"></param>
-        public async Task the_user_logs_in_as_x_async(IStep step)
+        public async Task the_user_logs_in_as_UserName_async(IStep step)
         {
             string userName = step.State.UserName;
-            step.SetNameWithReplacement("X", userName.Quote());
+            step.SetNameWithReplacement("UserName", userName.Quote());
             await Task.Run(() => { });
         }
         /// <summary>
@@ -36,10 +36,10 @@ namespace xBDD.Test.Sample
         /// Response - string - Body of the page that was retrived.
         /// </summary>
         /// <param name="step"></param>
-        public void the_user_loads_the_x_page(IStep step)
+        public void the_user_loads_the_PageName_page(IStep step)
         {
             string pageName = step.State.PageName;
-            step.SetNameWithReplacement("X", pageName.Quote());
+            step.SetNameWithReplacement("PageName", pageName.Quote());
             if (((IDictionary<string, object>)step.State).ContainsKey("PageLoadShouldFail") && step.State.PageLoadShouldFail)
                 throw new System.Exception("Page load failed.");
             if (((IDictionary<string, object>)step.State).ContainsKey("PageLoadShouldSkip") && step.State.PageLoadShouldSkip)
@@ -69,10 +69,10 @@ namespace xBDD.Test.Sample
         /// Response - string - Body of the page that was retrived.
         /// </summary>
         /// <param name="step"></param>
-        public async Task the_user_loads_the_x_page_async(IStep step)
+        public async Task the_user_loads_the_PageName_page_async(IStep step)
         {
             string pageName = step.State.PageName;
-            step.SetNameWithReplacement("X", pageName.Quote());
+            step.SetNameWithReplacement("PageName", pageName.Quote());
             await Task.Run(() => {
                 if (((IDictionary<string, object>)step.State).ContainsKey("PageLoadShouldFail") && step.State.PageLoadShouldFail)
                     throw new System.Exception("Page load failed.");
@@ -83,20 +83,20 @@ namespace xBDD.Test.Sample
         /// Requires: Header - string - Class name to find header.
         /// </summary>
         /// <param name="step"></param>
-        public void the_loaded_page_should_have_a_header_of_x(IStep step)
+        public void the_loaded_page_should_have_a_header_of_ExpectedHeader(IStep step)
         {
             string header = step.State.Header;
-            step.SetNameWithReplacement("X", header.Quote());
+            step.SetNameWithReplacement("ExpectedHeader", header.Quote());
         }
 
         /// <summary>
         /// Requires: Header - string - Class name to find header.
         /// </summary>
         /// <param name="step"></param>
-        public async Task the_loaded_page_should_have_a_header_of_x_async(IStep step)
+        public async Task the_loaded_page_should_have_a_header_of_ExpectedHeader_async(IStep step)
         {
             string header = step.State.Header;
-            step.SetNameWithReplacement("X", header.Quote());
+            step.SetNameWithReplacement("ExpectedHeader", header.Quote());
             await Task.Run(() => { });
         }
     }

@@ -57,5 +57,9 @@ namespace xBDD.Utility
             return newText.ToString();
         }
 
+        public static string ReplaceUnderscores(this string text)
+        {
+            return text.Replace('_', ' ');
+        }
     }
 }

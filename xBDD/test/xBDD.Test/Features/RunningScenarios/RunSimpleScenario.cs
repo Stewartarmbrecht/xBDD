@@ -35,7 +35,7 @@ namespace xBDD.Test.Features.RunningScenarios
             s.ExpectedScenarioName = "Failing Scenario";
             s.ExpectedStep1Name = "Given the user logs in as 'test.user@tococms.com'";
             s.ExpectedStep2Name = "When the user loads the 'Home - ToCo CMS' page";
-            s.ExpectedStep3Name = "Then the loaded page should have a header of x";
+            s.ExpectedStep3Name = "Then the loaded page should have a header of ExpectedHeader";
             s.ExpectedExceptionMessage = "Page load failed.";
 
             xBDD.CurrentRun.AddScenario()
@@ -44,7 +44,7 @@ namespace xBDD.Test.Features.RunningScenarios
                 .And(s.the_feature_name_should_come_from_the_class_name)
                 .And(s.the_area_path_should_come_from_the_namespace)
                 .And(s.the_step_name_should_come_from_the_method_name)
-                .And(s.the_step_exception_shoul_have_a_message_of_x)
+                .And(s.the_step_exception_shoul_have_a_message_of_ExpectedExceptionMessage)
                 .Run();
         }
         [ScenarioFact]
@@ -75,7 +75,7 @@ namespace xBDD.Test.Features.RunningScenarios
             s.ExpectedScenarioName = "Failing Scenario Async";
             s.ExpectedStep1Name = "Given the user logs in as 'test.user@tococms.com'";
             s.ExpectedStep2Name = "When the user loads the 'Home - ToCo CMS' page";
-            s.ExpectedStep3Name = "Then the loaded page should have a header of x";
+            s.ExpectedStep3Name = "Then the loaded page should have a header of ExpectedHeader";
             s.ExpectedExceptionMessage = "Page load failed.";
 
             await xBDD.CurrentRun.AddScenario()
@@ -84,7 +84,7 @@ namespace xBDD.Test.Features.RunningScenarios
                 .And(s.the_feature_name_should_come_from_the_class_name)
                 .And(s.the_area_path_should_come_from_the_namespace)
                 .And(s.the_step_name_should_come_from_the_method_name)
-                .And(s.the_step_exception_shoul_have_a_message_of_x)
+                .And(s.the_step_exception_shoul_have_a_message_of_ExpectedExceptionMessage)
                 .RunAsync();
         }
     }

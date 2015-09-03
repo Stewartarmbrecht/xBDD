@@ -21,18 +21,18 @@ namespace xBDD.Test.Sample
         /// UserName - string
         /// </summary>
         /// <param name="step"></param>
-        public void the_user_logs_in_as_x(IStep step)
+        public void the_user_logs_in_as_UserName(IStep step)
         {
-            step.SetNameWithReplacement("X", UserName.Quote());
+            step.SetNameWithReplacement("UserName", UserName.Quote());
         }
         /// <summary>
         /// Requires:
         /// UserName - string
         /// </summary>
         /// <param name="step"></param>
-        public async Task the_user_logs_in_as_x_async(IStep step)
+        public async Task the_user_logs_in_as_UserName_async(IStep step)
         {
-            step.SetNameWithReplacement("X", UserName.Quote());
+            step.SetNameWithReplacement("UserName", UserName.Quote());
             await Task.Run(() => { });
         }
         /// <summary>
@@ -42,9 +42,9 @@ namespace xBDD.Test.Sample
         /// Response - string - Body of the page that was retrived.
         /// </summary>
         /// <param name="step"></param>
-        public void the_user_loads_the_x_page(IStep step)
+        public void the_user_loads_the_PageName_page(IStep step)
         {
-            step.SetNameWithReplacement("X", PageName.Quote());
+            step.SetNameWithReplacement("PageName", PageName.Quote());
             if (PageLoadShouldFail)
                 throw new System.Exception("Page load failed.");
             if (PageLoadShouldSkip)
@@ -74,9 +74,9 @@ namespace xBDD.Test.Sample
         /// Response - string - Body of the page that was retrived.
         /// </summary>
         /// <param name="step"></param>
-        public async Task the_user_loads_the_x_page_async(IStep step)
+        public async Task the_user_loads_the_PageName_page_async(IStep step)
         {
-            step.SetNameWithReplacement("X", PageName.Quote());
+            step.SetNameWithReplacement("PageName", PageName.Quote());
             await Task.Run(() => {
                 if (PageLoadShouldFail)
                     throw new System.Exception("Page load failed.");
@@ -87,18 +87,18 @@ namespace xBDD.Test.Sample
         /// Requires: Header - string - Class name to find header.
         /// </summary>
         /// <param name="step"></param>
-        public void the_loaded_page_should_have_a_header_of_x(IStep step)
+        public void the_loaded_page_should_have_a_header_of_ExpectedHeader(IStep step)
         {
-            step.SetNameWithReplacement("X", Header.Quote());
+            step.SetNameWithReplacement("ExpectedHeader", Header.Quote());
         }
 
         /// <summary>
         /// Requires: Header - string - Class name to find header.
         /// </summary>
         /// <param name="step"></param>
-        public async Task the_loaded_page_should_have_a_header_of_x_async(IStep step)
+        public async Task the_loaded_page_should_have_a_header_of_ExpectedHeader_async(IStep step)
         {
-            step.SetNameWithReplacement("X", Header.Quote());
+            step.SetNameWithReplacement("ExpectedHeader", Header.Quote());
             await Task.Run(() => { });
         }
     }

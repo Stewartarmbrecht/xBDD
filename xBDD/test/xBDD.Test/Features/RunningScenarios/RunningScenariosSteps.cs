@@ -44,8 +44,9 @@ namespace xBDD.Test.Features.RunningScenarios
             Assert.Equal(Outcome.Skipped, SimpleTestRun.Scenario.Steps[1].Outcome);
         }
 
-        public void the_step_exception_shoul_have_a_message_of_x(IStep step)
+        public void the_step_exception_shoul_have_a_message_of_ExpectedExceptionMessage(IStep step)
         {
+            step.SetNameWithReplacement("ExpectedExceptionMessage", ExpectedExceptionMessage);
             Assert.Equal(ExpectedExceptionMessage, CaughtException.Message);
         }
 

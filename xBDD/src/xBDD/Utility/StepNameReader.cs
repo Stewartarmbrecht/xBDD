@@ -13,7 +13,7 @@ namespace xBDD.Utility
                 name = ReadAttribute(method);
                 if (name == null)
                 {
-                    name = method.Name.AddSpacesToSentence(true).ToLower();
+                    name = method.Name.ReplaceUnderscores();
                 }
             }
             return name;
@@ -24,7 +24,7 @@ namespace xBDD.Utility
             foreach(var pair in replacements)
             {
                 //if the name came from the method name then it was cast to lower case and the key should be as well.
-                var key = (stepName == null ? pair.Key.AddSpacesToSentence(true).ToLower() : pair.Key);
+                var key = (stepName == null ? pair.Key.ReplaceUnderscores() : pair.Key);
 
                 name = name.Replace(key, pair.Value);
             }
