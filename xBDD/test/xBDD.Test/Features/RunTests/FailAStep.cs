@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace xBDD.Test.Features.DefineAScenario
+namespace xBDD.Test.Features.RunTests
 {
-    public class OrganizeSteps
+    public class FailAStep
     {
         [ScenarioFact]
-        public void InAStepLibrary()
+        public void Sync()
         {
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
-        public void InAStepLibrarySharedAcrossAreas()
+        public void Async()
         {
             throw new SkipStepException("Not Implemented");
         }

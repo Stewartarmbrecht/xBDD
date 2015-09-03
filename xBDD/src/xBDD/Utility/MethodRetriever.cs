@@ -28,6 +28,10 @@ namespace xBDD.Utility
             {
                 sf = new StackFrame(stackLocation);
                 var method = sf.GetMethod();
+                if (method == null)
+                {
+                    throw new StepMethodNotFoundException();
+                }
                 if (method.DeclaringType != null && (method.IsStep() || method.DeclaringType.IsStepLibrary()))
                     found = true;
                 else

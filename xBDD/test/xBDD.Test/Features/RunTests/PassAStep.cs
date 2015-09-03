@@ -3,22 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace xBDD.Test.Features.CompilingStats
+namespace xBDD.Test.Features.RunTests
 {
-    public class CompileTestRunResults
+    public class PassAStep
     {
         [ScenarioFact]
-        public void CompletedTestRun()
+        public void Sync()
         {
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
-        public void WithAreaPathSpecified()
-        {
-            throw new SkipStepException("Not Implemented");
-        }
-        [ScenarioFact]
-        public void EmptyTestRun()
+        public void Async()
         {
             throw new SkipStepException("Not Implemented");
         }

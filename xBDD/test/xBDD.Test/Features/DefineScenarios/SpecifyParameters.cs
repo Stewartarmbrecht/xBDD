@@ -1,26 +1,27 @@
-﻿namespace xBDD.Test.Features.DefineAScenario
+﻿namespace xBDD.Test.Features.DefineScenarios
 {
-    public class AddAScenario
+    public class SpecifyParameters
     {
         [ScenarioFact]
-        public void WithAFact()
+        public void InlineWithTypedState()
         {
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
-        public void WithAnAsyncFact()
+        public void InlineWithDynamicState()
         {
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
-        public void WithATheroy()
+        public void MultilineParameter()
         {
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
-        public void WithAnAsyncTheory()
+        public void TableParameter()
         {
             throw new SkipStepException("Not Implemented");
         }
+
     }
 }

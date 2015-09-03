@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace xBDD.Test.Features.RunATest
+namespace xBDD.Test.Features.RunTests
 {
-    public class RunAScenario
+    public class SkipAStep
     {
         [ScenarioFact]
         public void Sync()

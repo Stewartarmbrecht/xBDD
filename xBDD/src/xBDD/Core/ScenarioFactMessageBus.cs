@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
@@ -23,7 +24,7 @@ namespace xBDD.Core
             if (testFailed != null)
             {
                 var exceptionType = testFailed.ExceptionTypes.FirstOrDefault();
-                if (exceptionType == typeof(SkipStepException).FullName)
+                if (exceptionType == typeof(SkipStepException).FullName || exceptionType == typeof(NotImplementedException).FullName)
                 {
                     DynamicallySkippedTestCount++;
                     return innerBus.QueueMessage(new TestSkipped(testFailed.Test, testFailed.Messages.FirstOrDefault()));

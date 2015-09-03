@@ -1,47 +1,53 @@
-﻿namespace xBDD.Test.Features.DefineAScenario
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace xBDD.Test.Features.CompileStats
 {
-    public class AddAStep
+    public class ViewScenarioStats
     {
         [ScenarioFact]
-        public void Given()
+        public void Outcome()
         {
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
-        public void GivenAsync()
+        public void StepTotalCount()
         {
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
-        public void When()
+        public void StepPassedCount()
         {
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
-        public void WhenAsync()
+        public void StepFailedCount()
         {
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
-        public void Then()
+        public void StepSkippedCount()
         {
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
-        public void ThenAsync()
+        public void StartTime()
         {
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
-        public void And()
+        public void EndTime()
         {
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
-        public void AndAsync()
+        public void Duration()
         {
             throw new SkipStepException("Not Implemented");
         }
+
 
     }
 }

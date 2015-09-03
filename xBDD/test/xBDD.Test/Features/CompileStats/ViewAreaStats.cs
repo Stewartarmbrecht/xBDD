@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace xBDD.Test.Features.CompilingStats
+namespace xBDD.Test.Features.CompileStats
 {
     public class ViewAreaStats
     {
