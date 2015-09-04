@@ -2,8 +2,7 @@ Param([string]$conn="")
 
 if($conn -ne "")
 {
-	$env:Data:DefaultConnection:ConnectionSrting=$conn
-	$env:Data:DefaultConnection:ConnectionSrting
+	$env:Data:DefaultConnection:ConnectionString=$conn
 }
 
 dnu restore
