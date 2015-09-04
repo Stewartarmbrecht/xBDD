@@ -10,16 +10,19 @@ namespace xBDD.Test.Features.CompileStats
         [ScenarioFact]
         public void CompletedTestRun()
         {
+            xBDD.CurrentRun.AddScenario();
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
         public void WithAreaPathSpecified()
         {
+            xBDD.CurrentRun.AddScenario();
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
         public void EmptyTestRun()
         {
+            xBDD.CurrentRun.AddScenario();
             throw new SkipStepException("Not Implemented");
         }
 

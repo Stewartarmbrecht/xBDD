@@ -10,13 +10,14 @@ namespace xBDD.Test.Features.ShareState
         [ScenarioFact]
         public void Sync()
         {
+            xBDD.CurrentRun.AddScenario();
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
         public void Async()
         {
+            xBDD.CurrentRun.AddScenario();
             throw new SkipStepException("Not Implemented");
         }
-
     }
 }

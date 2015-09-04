@@ -7,11 +7,13 @@ namespace xBDD.Test.Features.OverrideNames
         [ScenarioFact]
         public void WhenAdding()
         {
+            xBDD.CurrentRun.AddScenario();
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
         public void WithAnAttribute()
         {
+            xBDD.CurrentRun.AddScenario();
             throw new SkipStepException("Not Implemented");
         }
 

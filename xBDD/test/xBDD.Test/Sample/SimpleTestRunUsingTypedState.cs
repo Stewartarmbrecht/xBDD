@@ -5,6 +5,10 @@ namespace xBDD.Test.Sample
 {
     public class SimpleTestRunUsingTypedState : ISimpleTestRun
     {
+        public int SaveToDatabase(string connectionName)
+        {
+            return testRun.SaveToDatabase(connectionName);
+        }
         internal ITestRun testRun = new TestRun(new Factory());
         public virtual IScenario Scenario { get; set; }
 

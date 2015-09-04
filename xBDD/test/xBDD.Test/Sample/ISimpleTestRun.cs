@@ -16,5 +16,6 @@ namespace xBDD.Test.Sample
         void FailingScenarioWithFailingTimeCapturingStep();
         void PassingScenarioWithTimeCapturingStep();
         void SkippedScenario();
+        int SaveToDatabase(string connectionName);
     }
 }

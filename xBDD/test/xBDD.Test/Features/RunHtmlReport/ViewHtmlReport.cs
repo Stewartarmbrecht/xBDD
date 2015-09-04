@@ -10,16 +10,19 @@ namespace xBDD.Test.Features.RunHtmlReport
         [ScenarioFact]
         public void ViewName()
         {
+            xBDD.CurrentRun.AddScenario();
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
         public void RunDate()
         {
+            xBDD.CurrentRun.AddScenario();
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
         public void ViewRootArea()
         {
+            xBDD.CurrentRun.AddScenario();
             throw new SkipStepException("Not Implemented");
         }
     }

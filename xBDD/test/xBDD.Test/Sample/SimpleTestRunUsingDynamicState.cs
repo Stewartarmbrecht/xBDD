@@ -6,6 +6,10 @@ namespace xBDD.Test.Sample
 {
     public class SimpleTestRunUsingDynamicState : ISimpleTestRun
     {
+        public int SaveToDatabase(string connectionName)
+        {
+            return testRun.SaveToDatabase(connectionName);
+        }
         ITestRun testRun = new TestRun(new Factory());
         public IScenario Scenario { get; set; }
 

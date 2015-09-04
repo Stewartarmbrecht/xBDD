@@ -1,18 +1,23 @@
-﻿{
-  "version": "1.0.0-*",
-  "description": "xBDD Class Library",
-  "authors": [ "stearm01" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
+{
+    "version": "1.0.0-*",
+    "description": "xBDD Class Library",
+    "authors": [ "stearm01" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
 
-  "dependencies": {
-    "Microsoft.Framework.Runtime": "1.0.0-beta5",
-    "xunit.extensibility.core": "2.1.0-beta3-build3029",
-    "xunit.extensibility.execution": "2.1.0-beta3-build3029"
-  },
+    "dependencies": {
+        "Microsoft.Framework.Runtime": "1.0.0-beta5",
+        "Microsoft.Framework.Configuration": "1.0.0-beta5",
+        "Microsoft.Framework.Configuration.Json": "1.0.0-beta5",
+        "xunit.extensibility.core": "2.1.0-beta3-build3029",
+        "xunit.extensibility.execution": "2.1.0-beta3-build3029",
+        "EntityFramework.SqlServer": "7.0.0-beta6",
+        "EntityFramework.Commands": "7.0.0-beta6",
+        "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta5"
+    },
 
-  "frameworks": {
-    "dnx451": { }
-  }
+    "frameworks": {
+        "dnx451": { }
+    }
 }

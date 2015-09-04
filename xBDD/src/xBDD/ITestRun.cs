@@ -13,5 +13,8 @@ namespace xBDD
         IScenario AddScenario(string scenarioName, string featureName, string areaPath);
         ICollection<IScenario> Scenarios { get; }
         ICollection<IStep> Steps { get; }
+        string Name { get; set; }
+
+        int SaveToDatabase(string connectionName);
     }
 }

@@ -10,13 +10,14 @@ namespace xBDD.Test.Features.DefineScenarios
         [ScenarioFact]
         public void InAStepLibrary()
         {
+            xBDD.CurrentRun.AddScenario();
             throw new SkipStepException("Not Implemented");
         }
         [ScenarioFact]
         public void InAStepLibrarySharedAcrossAreas()
         {
+            xBDD.CurrentRun.AddScenario();
             throw new SkipStepException("Not Implemented");
         }
-
     }
 }

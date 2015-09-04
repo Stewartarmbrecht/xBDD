@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using xBDD.Database;
 
 namespace xBDD.Core
 {
@@ -8,6 +9,7 @@ namespace xBDD.Core
         IFactory factory;
         List<IScenario> scenarios;
         List<IStep> steps;
+        public string Name { get; set; }
         public TestRun(IFactory factory)
         {
             this.factory = factory;
@@ -62,6 +64,12 @@ namespace xBDD.Core
             test.FeatureName = factory.GetFeatureNameReader().ReadFeatureName(featureName, method);
             test.AreaPath = factory.GetAreaPathReader().ReadAreaPath(areaPath, method);
             return test;
+        }
+
+        public int SaveToDatabase(string connectionName)
+        {
+            ITestRunDatabaseSaver saver = factory.CreateTestRunDatabaseSaver(connectionName);
+            return saver.SaveTestRun(this);
         }
     }
 }

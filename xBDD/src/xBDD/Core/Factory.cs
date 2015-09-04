@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using xBDD.Database;
 using xBDD.Reporting;
 using xBDD.Stats;
 using xBDD.Utility;
@@ -70,6 +71,27 @@ namespace xBDD.Core
         public IStatsCompiler CreateStatsCompiler()
         {
             return new StatsCompiler();
+        }
+
+        public IxBDDDbContext CreatexBDDDbContext(string connectionName)
+        {
+            return new xBDDDbContext(connectionName);
+        }
+
+        public IDatabaseObjectBuilder CreateDatabaseObjectBuilder(IxBDDDbContext dbContext)
+        {
+            IDatabaseFactory dbFactory = CreateDatabaseFactory();
+            return new DabaseObjectBuilder(dbContext, dbFactory);
+        }
+
+        public IDatabaseFactory CreateDatabaseFactory()
+        {
+            return new DatabaseFactory();
+        }
+
+        public ITestRunDatabaseSaver CreateTestRunDatabaseSaver(string connectionName)
+        {
+            return new TestRunDatabaseSaver(this, connectionName);
         }
     }
 }

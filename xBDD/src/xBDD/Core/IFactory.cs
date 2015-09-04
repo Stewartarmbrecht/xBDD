@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using xBDD.Database;
 using xBDD.Stats;
 using xBDD.Utility;
 
@@ -13,11 +14,15 @@ namespace xBDD.Core
         IStep CreateStep(ITestRun testRun, IScenario scenario);
 
         IMethod CreateMethod(MethodBase methodBase);
+        IxBDDDbContext CreatexBDDDbContext(string connectionName);
+        IDatabaseObjectBuilder CreateDatabaseObjectBuilder(IxBDDDbContext dbContext);
+        IDatabaseFactory CreateDatabaseFactory();
         IAttribute CreateAttribute(CustomAttributeData data);
         ITestRun CreateTestRun();
         IFeatureNameReader GetFeatureNameReader();
         IAreaPathReader GetAreaPathReader();
         IReportFactory CreateReportFactory();
         IStatsCompiler CreateStatsCompiler();
+        ITestRunDatabaseSaver CreateTestRunDatabaseSaver(string connectionName);
     }
 }
