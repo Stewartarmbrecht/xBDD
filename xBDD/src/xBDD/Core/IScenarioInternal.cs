@@ -16,7 +16,7 @@ namespace xBDD.Core
         new DateTime StartTime { get; set; }
         new DateTime EndTime { get; set; }
         new TimeSpan Time { get; set; }
-        new StepException FirstStepException { get; set; }
+        new Exception FirstStepException { get; set; }
 
     }
 }

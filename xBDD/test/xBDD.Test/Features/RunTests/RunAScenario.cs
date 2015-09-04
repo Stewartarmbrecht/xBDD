@@ -8,18 +8,51 @@ namespace xBDD.Test.Features.RunTests
     public class RunAScenario
     {
         [ScenarioFact]
-        public void Sync()
+        public void RunSync()
         {
             var s = new Steps();
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            s.ExpectedOutcome = Outcome.Passed;
+            xBDD.CurrentRun.AddScenario()
+                .When(s.a_scenario_with_all_passing_steps_is_run)
+                .Then(s.the_scenario_outcome_should_be_ExpectedOutcome)
+                .And(s.the_start_time_should_match_the_start_time_of_the_first_step)
+                .And(s.the_end_time_should_match_the_end_time_of_the_last_step)
+                .And(s.the_time_should_match_the_summation_of_the_durations_of_all_child_steps)
+                .Run();
         }
         [ScenarioFact]
-        public void Async()
+        public void RunAsync()
         {
             var s = new Steps();
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
+        }
+        [ScenarioFact]
+        public void Skip()
+        {
+            var s = new Steps();
+            s.ExpectedOutcome = Outcome.Skipped;
+            xBDD.CurrentRun.AddScenario()
+                .When(s.a_scenario_is_skipped_using_the_Skip_method_and_all_methods_call_ReturnIfPreviousError)
+                .Then(s.the_scenario_outcome_should_be_ExpectedOutcome)
+                .And(s.the_start_time_should_match_the_start_time_of_the_first_step)
+                .And(s.the_end_time_should_match_the_end_time_of_the_last_step)
+                .And(s.the_time_should_match_the_summation_of_the_durations_of_all_child_steps)
+                .And(s.all_steps_should_be_marked_as_skipped)
+                .Run();
+        }
+        [ScenarioFact]
+        public async Task SkipAsync()
+        {
+            var s = new Steps();
+            s.ExpectedOutcome = Outcome.Skipped;
+            await xBDD.CurrentRun.AddScenario()
+                .WhenAsync(s.a_scenario_is_skipped_using_the_SkipAsync_method_and_all_methods_call_ReturnIfPreviousError)
+                .Then(s.the_scenario_outcome_should_be_ExpectedOutcome)
+                .And(s.the_start_time_should_match_the_start_time_of_the_first_step)
+                .And(s.the_end_time_should_match_the_end_time_of_the_last_step)
+                .And(s.the_time_should_match_the_summation_of_the_durations_of_all_child_steps)
+                .And(s.all_steps_should_be_marked_as_skipped)
+                .RunAsync();
         }
         [ScenarioFact]
         public void WithAllPassingSteps()

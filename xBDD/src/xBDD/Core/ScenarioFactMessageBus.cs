@@ -24,7 +24,7 @@ namespace xBDD.Core
             if (testFailed != null)
             {
                 var exceptionType = testFailed.ExceptionTypes.FirstOrDefault();
-                if (exceptionType == typeof(SkipStepException).FullName || exceptionType == typeof(NotImplementedException).FullName)
+                if (exceptionType == typeof(SkipStepException).FullName || exceptionType == typeof(NotImplementedException).FullName || exceptionType == typeof(SkipScenarioException).FullName)
                 {
                     DynamicallySkippedTestCount++;
                     return innerBus.QueueMessage(new TestSkipped(testFailed.Test, testFailed.Messages.FirstOrDefault()));

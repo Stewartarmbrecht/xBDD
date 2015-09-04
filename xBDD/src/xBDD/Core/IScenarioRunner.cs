@@ -6,5 +6,7 @@ namespace xBDD.Core
     {
         void Run();
         Task RunAsync();
+        void Skip();
+        Task SkipAsync();
     }
 }

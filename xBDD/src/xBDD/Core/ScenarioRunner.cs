@@ -52,6 +52,8 @@ namespace xBDD.Core
             foreach (var step in scenario.Steps)
             {
                 step.StartTime = DateTime.Now;
+                if (step == scenario.Steps[0])
+                    scenario.StartTime = step.StartTime;
                 try
                 {
                     if (step.ActionAsync == null && step.Action != null)
@@ -91,7 +93,7 @@ namespace xBDD.Core
         {
             if (scenario.FirstStepException == null)
             {
-                scenario.FirstStepException = new StepException(ex, step.Name);
+                scenario.FirstStepException = new SkipScenarioException(step.Name, ex);
             }
             SetEndTimes(step);
             step.Outcome = Outcome.Skipped;
@@ -103,7 +105,7 @@ namespace xBDD.Core
         {
             if (scenario.FirstStepException == null)
             {
-                scenario.FirstStepException = new StepException(ex, step.Name);
+                scenario.FirstStepException = new SkipScenarioException(step.Name, ex);
             }
             SetEndTimes(step);
             step.Outcome = Outcome.Skipped;
@@ -115,7 +117,7 @@ namespace xBDD.Core
         {
             if (scenario.FirstStepException == null)
             {
-                scenario.FirstStepException = new StepException(ex, step.Name);
+                scenario.FirstStepException = new StepException(step.Name, ex);
             }
             SetEndTimes(step);
             step.Outcome = Outcome.Failed;
@@ -131,5 +133,17 @@ namespace xBDD.Core
                 scenario.EndTime = step.EndTime;
         }
 
+        public void Skip()
+        {
+            scenario.Outcome = Outcome.Skipped;
+            scenario.FirstStepException = new SkipScenarioException("Scenario Skipped", new SkipStepException("Scenario Skipped"));
+            Run();
+        }
+        public async Task SkipAsync()
+        {
+            scenario.Outcome = Outcome.Skipped;
+            scenario.FirstStepException = new SkipScenarioException("Scenario Skipped", new SkipStepException("Scenario Skipped"));
+            await RunAsync();
+        }
     }
 }

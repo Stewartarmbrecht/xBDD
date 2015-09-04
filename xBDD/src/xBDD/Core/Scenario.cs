@@ -30,7 +30,7 @@ namespace xBDD.Core
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public TimeSpan Time { get; set; }
-        public StepException FirstStepException { get; set; }
+        public Exception FirstStepException { get; set; }
 
         public Scenario(IFactory factory, ITestRun testRun)
         {
@@ -131,6 +131,16 @@ namespace xBDD.Core
         public IScenario And(string name, Action<IStep> stepAction)
         {
             return builder.And(name, stepAction);
+        }
+
+        public void Skip()
+        {
+            runner.Skip();
+        }
+
+        public async Task SkipAsync()
+        {
+            await runner.SkipAsync();
         }
     }
 }

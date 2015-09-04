@@ -10,8 +10,7 @@ namespace xBDD.Test.Features.ViewProperties
         [ScenarioFact]
         public void Name()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void Outcome()
@@ -52,26 +51,22 @@ namespace xBDD.Test.Features.ViewProperties
         [ScenarioFact]
         public void FeatureName()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void AreaPath()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void State()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void Steps()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
     }
 }

@@ -46,20 +46,17 @@ namespace xBDD.Test.Features.DefineScenarios
         [ScenarioFact]
         public void InAScenarioTheroy()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void InAnAsyncScenarioTheory()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void InARegularMethodNoScenarioFactOrTheory()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
     }
 }

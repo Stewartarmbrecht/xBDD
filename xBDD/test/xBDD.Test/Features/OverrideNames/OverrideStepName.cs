@@ -7,32 +7,27 @@ namespace xBDD.Test.Features.OverrideNames
         [ScenarioFact]
         public void WhenAdding()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void WithAnAttribute()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void AtRunTime()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void WithParameterReplacement()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void WithParameterQuotes()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
 
         //[ScenarioFact]

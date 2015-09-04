@@ -11,44 +11,38 @@ namespace xBDD.Test.Features.RunTests
         public void PassSync()
         {
             var s = new Steps();
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void PassAsync()
         {
             var s = new Steps();
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void FailSync()
         {
             var s = new Steps();
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void FailAsync()
         {
             var s = new Steps();
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
 
         [ScenarioFact]
         public void SkipSync()
         {
             var s = new Steps();
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
         public void SkipAsync()
         {
             var s = new Steps();
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
 
         [ScenarioFact]
@@ -68,8 +62,7 @@ namespace xBDD.Test.Features.RunTests
         public void SkipBecauseOfPreviousSkipAsync()
         {
             var s = new Steps();
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
 
     }

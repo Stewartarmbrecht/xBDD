@@ -14,10 +14,11 @@
         "xunit.extensibility.execution": "2.1.0-beta3-build3029",
         "EntityFramework.SqlServer": "7.0.0-beta6",
         "EntityFramework.Commands": "7.0.0-beta6",
-        "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta5"
+        "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta5",
+        "System.Linq.Parallel": "4.0.0-beta-23019"
     },
     "commands": {
-      "ef": "EntityFramework.Commands"
+        "ef": "EntityFramework.Commands"
     },
     "userSecretsId": "xBDD",
     "frameworks": {

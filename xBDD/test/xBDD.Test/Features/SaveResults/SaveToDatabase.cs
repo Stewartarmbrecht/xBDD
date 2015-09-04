@@ -24,15 +24,13 @@ namespace xBDD.Test.Features.SaveResults
         [ScenarioFact]
         public void SaveTestResultsToExistingDatabase()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
 
         [ScenarioFact]
         public void GetTestResults()
         {
-            xBDD.CurrentRun.AddScenario();
-            throw new SkipStepException("Not Implemented");
+            xBDD.CurrentRun.AddScenario().Skip();
         }
     }
 }

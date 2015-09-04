@@ -34,6 +34,50 @@ namespace xBDD.Test.Features.RunTests
             Assert.Equal(ExpectedOutcome, Scenario.Outcome);
         }
 
+        internal void all_steps_should_be_marked_as_skipped(IStep obj)
+        {
+            foreach(var step in Scenario.Steps)
+            {
+                Assert.Equal(Outcome.Skipped, step.Outcome);
+            }
+        }
+
+        internal void a_scenario_is_skipped_using_the_Skip_method_and_all_methods_call_ReturnIfPreviousError(IStep obj)
+        {
+            var testRun = new TestRun(new Factory());
+            Scenario = testRun.AddScenario("My Scenario")
+                .Given("my condition", s => { s.ReturnIfPreviousError(); System.Threading.Thread.Sleep(5); })
+                .When("my action", s => { s.ReturnIfPreviousError(); System.Threading.Thread.Sleep(5); })
+                .Then("my expectation", s => { s.ReturnIfPreviousError(); System.Threading.Thread.Sleep(5); });
+            try
+            {
+                Scenario.Skip();
+            }
+            catch (Exception ex)
+            {
+                if (!(ex.InnerException is SkipStepException))
+                    throw;
+            }
+        }
+
+        internal async Task a_scenario_is_skipped_using_the_SkipAsync_method_and_all_methods_call_ReturnIfPreviousError(IStep obj)
+        {
+            var testRun = new TestRun(new Factory());
+            Scenario = testRun.AddScenario("My Scenario")
+                .GivenAsync("my condition", s => { return Task.Run(() => { s.ReturnIfPreviousError(); System.Threading.Thread.Sleep(5); }); })
+                .WhenAsync("my action", s => { return Task.Run(() => { s.ReturnIfPreviousError(); System.Threading.Thread.Sleep(5); }); })
+                .ThenAsync("my expectation", s => { return Task.Run(() => { s.ReturnIfPreviousError(); System.Threading.Thread.Sleep(5); }); });
+            try
+            {
+                await Scenario.SkipAsync();
+            }
+            catch (Exception ex)
+            {
+                if (!(ex.InnerException is SkipStepException))
+                    throw;
+            }
+        }
+
         internal void the_start_time_should_match_the_start_time_of_the_first_step(IStep step)
         {
             Assert.Equal(Scenario.Steps[0].StartTime, Scenario.StartTime);
