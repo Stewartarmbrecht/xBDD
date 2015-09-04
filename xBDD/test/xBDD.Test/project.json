@@ -1,25 +1,32 @@
 {
-    "version": "1.0.0-*",
-    "description": "xBDD.Test Class Library",
-    "authors": [ "stearm01" ],
-    "tags": [ "" ],
-    "projectUrl": "",
-    "licenseUrl": "",
+  "version": "1.0.0-*",
+  "description": "xBDD.Test Class Library",
+  "authors": [ "stearm01" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
 
-    "dependencies": {
-        "System.Text.RegularExpressions": "4.0.10",
-        "System.Reflection": "4.0.10",
-        "xunit": "2.1.0-beta3-build3029",
-        "xunit.runner.dnx": "2.1.0-beta3-build99",
-        "EntityFramework.SqlServer": "7.0.0-beta6",
-        "EntityFramework.Commands": "7.0.0-beta6",
-        "xBDD": "1.0.0-*"
-    },
-    "commands": {
-        "test": "xunit.runner.dnx -xml TestResults.xml"
-    },
-    "frameworks": {
-        "dnx451": { }
-    },
-    "userSecretsId": "xBDD.Test"
+  "dependencies": {
+    "System.Text.RegularExpressions": "4.0.10",
+    "System.Reflection": "4.0.10",
+    "xunit": "2.1.0-beta3-build3029",
+    "xunit.runner.dnx": "2.1.0-beta3-build99",
+    "EntityFramework.SqlServer": "7.0.0-beta6",
+    "EntityFramework.Commands": "7.0.0-beta6",
+    "xBDD": "1.0.0-*"
+  },
+  "commands": {
+    "test": "xunit.runner.dnx -xml TestResults.xml"
+  },
+  "frameworks": {
+    "dnx451": { }
+  },
+  "userSecretsId": "xBDD.Test",
+  "configurations": {
+    "Publish": {
+      "compilationOptions": {
+        "define": ["PUBLISH"]
+      }
+    }
+  }
 }

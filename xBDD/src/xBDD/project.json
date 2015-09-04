@@ -19,5 +19,8 @@
 
     "frameworks": {
         "dnx451": { }
+    },
+    "configurations": {
+        "Publish": { }
     }
 }

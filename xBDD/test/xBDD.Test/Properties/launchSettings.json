@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "test": {
+      "commandName": "test",
+      "environmentVariables": {
+        "Environment": "LocalDevelopment"
+      }
+    },
+    "publish": {
+      "environmentVariables": {
+        "Environment": "Publish"
+      }
+    }
+  }
+}

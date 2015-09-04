@@ -9,13 +9,7 @@ namespace xBDD.Test.Features.SaveResults
     [Collection("TestRunCollection")]
     public class SaveToDatabase
     {
-        TestRunFixture fixture;
-        public SaveToDatabase(TestRunFixture fixture)
-        {
-            this.fixture = fixture;
-        }
         [ScenarioFact]
-        [Trait("Sprint", "1")]
         public void SaveTestResultsToNewDatabase()
         {
             var s = new Steps();
