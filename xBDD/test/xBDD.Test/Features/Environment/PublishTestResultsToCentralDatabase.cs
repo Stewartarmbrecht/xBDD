@@ -14,5 +14,18 @@ namespace xBDD.Test.Features.Environment
                 .Then(s.it_should_publish_the_test_results_to_that_database)
                 .Run();
         }
+        [ScenarioFact]
+        public void PublishAfterCITestRun()
+        {
+            var s = new Steps();
+            xBDD.CurrentRun.AddScenario()
+                .When(s.a_developer_pushes_a_commit_to_the_GitHub_repository)
+                .Then(s.a_visual_studio_online_build_should_trigger)
+                .And(s.build_the_projects)
+                .And(s.run_the_tests)
+                .And(s.publish_the_xBDD_test_restults_to_an_azure_database)
+                .And(s.publish_the_xUnit_test_restults_to_visual_studio_online)
+                .Run();
+        }
     }
 }

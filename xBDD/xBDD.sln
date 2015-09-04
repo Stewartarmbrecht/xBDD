@@ -8,7 +8,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8795FF38-F7AA-4A54-88DD-CEC6B2D12E3D}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		NUnitXml.xslt = NUnitXml.xslt
+		Prebuild.ps1 = Prebuild.ps1
 		..\README.md = ..\README.md
+		RunTests.ps1 = RunTests.ps1
+		xsltproc.ps1 = xsltproc.ps1
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "xBDD", "src\xBDD\xBDD.xproj", "{AF18B199-AC2B-42B9-BA23-DBC4E03225B0}"

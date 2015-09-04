@@ -21,5 +21,24 @@ namespace xBDD.Test.Features.Environment
         {
             obj.SetNameWithReplacement("ConfigurationSetting", "Data:DefaultConnection:ConnectionString".Quote());
         }
+
+        internal void a_developer_pushes_a_commit_to_the_GitHub_repository(IStep obj) { }
+
+        internal void a_visual_studio_online_build_should_trigger(IStep obj) { }
+
+        internal void publish_the_xBDD_test_restults_to_an_azure_database(IStep obj) { }
+
+        internal void publish_the_xUnit_test_restults_to_visual_studio_online(IStep obj) { }
+
+
+        internal void run_the_tests(IStep obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void build_the_projects(IStep obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
