@@ -12,6 +12,10 @@ namespace xBDD
         string Name { get; set; }
         dynamic State { get; }
         List<IStep> Steps { get; }
+        Outcome Outcome { get; }
+        DateTime StartTime { get; }
+        DateTime EndTime { get; }
+        TimeSpan Time { get; }
 
         IScenario GivenAsync(string stepName, Func<IStep, Task> stepAction);
         IScenario GivenAsync(Func<IStep,Task> stepAction);

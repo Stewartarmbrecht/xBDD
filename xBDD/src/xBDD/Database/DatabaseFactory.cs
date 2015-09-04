@@ -12,7 +12,10 @@ namespace xBDD.Database
                 AreaPath = scenario.AreaPath,
                 FeatureName = scenario.FeatureName,
                 Name = scenario.Name,
-                TestRun = testRun
+                Outcome = scenario.Outcome,
+                EndTime = scenario.EndTime,
+                TestRun = testRun,
+                StartTime = scenario.StartTime
             };
         }
 

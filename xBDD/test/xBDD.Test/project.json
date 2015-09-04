@@ -16,7 +16,8 @@
     "xBDD": "1.0.0-*"
   },
   "commands": {
-    "test": "xunit.runner.dnx -xml TestResults.xml"
+    "test": "xunit.runner.dnx -xml TestResults.xml",
+    "ef": "EntityFramework.Commands"
   },
   "frameworks": {
     "dnx451": { }

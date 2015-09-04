@@ -13,6 +13,10 @@ namespace xBDD.Database
         public string Name { get; set; }
         public string FeatureName { get; set; }
         public string AreaPath { get; set; }
+        public Outcome Outcome { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public TimeSpan Time { get; set; }
         public virtual ICollection<Step> Steps { get; set; }
     }
 }

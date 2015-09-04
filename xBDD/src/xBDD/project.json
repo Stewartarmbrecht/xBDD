@@ -16,7 +16,10 @@
         "EntityFramework.Commands": "7.0.0-beta6",
         "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta5"
     },
-
+    "commands": {
+      "ef": "EntityFramework.Commands"
+    },
+    "userSecretsId": "xBDD",
     "frameworks": {
         "dnx451": { }
     },

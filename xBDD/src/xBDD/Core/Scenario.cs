@@ -21,6 +21,11 @@ namespace xBDD.Core
 
         public dynamic State { get; private set; }
 
+        public Outcome Outcome { get; private set; }
+        public DateTime StartTime { get; private set; }
+        public DateTime EndTime { get; private set; }
+        public TimeSpan Time { get; private set; }
+
         public Scenario(IFactory factory, ITestRun testRun)
         {
             this.factory = factory;
