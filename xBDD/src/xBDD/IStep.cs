@@ -20,5 +20,6 @@ namespace xBDD
         Exception Exception { get; set; }
 
         void SetNameWithReplacement(string key, string value);
+        void ReturnIfPreviousError();
     }
 }

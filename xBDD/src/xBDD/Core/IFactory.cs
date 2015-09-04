@@ -11,7 +11,7 @@ namespace xBDD.Core
         IStepNameReader GetStepNameReader();
         IMethodRetriever GetMethodRetriever();
         IScenario CreateScenario(ITestRun testRun);
-        IStep CreateStep(ITestRun testRun, IScenario scenario);
+        IStep CreateStep(IScenarioInternal scenario);
 
         IMethod CreateMethod(MethodBase methodBase);
         IxBDDDbContext CreatexBDDDbContext(string connectionName);
@@ -24,5 +24,8 @@ namespace xBDD.Core
         IReportFactory CreateReportFactory();
         IStatsCompiler CreateStatsCompiler();
         ITestRunDatabaseSaver CreateTestRunDatabaseSaver(string connectionName);
+        IOutcomeAggregator CreateOutcomeAggregator();
+        IScenarioRunner CreateScenarioRunner(IScenarioInternal scenario);
+        IScenarioBuilder CreateScenarioBuilder(IScenarioInternal scenario);
     }
 }

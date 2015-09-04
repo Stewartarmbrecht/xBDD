@@ -16,10 +16,10 @@ namespace xBDD.Core
             return scenario;
         }
 
-        public IStep CreateStep(ITestRun testRun, IScenario scenario)
+        public IStep CreateStep(IScenarioInternal scenario)
         {
             var step = new Step(scenario, this);
-            testRun.Steps.Add(step);
+            scenario.TestRun.Steps.Add(step);
             return step;
         }
 
@@ -92,6 +92,21 @@ namespace xBDD.Core
         public ITestRunDatabaseSaver CreateTestRunDatabaseSaver(string connectionName)
         {
             return new TestRunDatabaseSaver(this, connectionName);
+        }
+
+        public IOutcomeAggregator CreateOutcomeAggregator()
+        {
+            return new OutcomeAggregator();
+        }
+
+        public IScenarioRunner CreateScenarioRunner(IScenarioInternal scenario)
+        {
+            return new ScenarioRunner(scenario, this);
+        }
+
+        public IScenarioBuilder CreateScenarioBuilder(IScenarioInternal scenario)
+        {
+            return new ScenarioBuilder(scenario, this);
         }
     }
 }

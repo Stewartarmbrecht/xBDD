@@ -45,5 +45,11 @@ namespace xBDD.Core
             var method = factory.GetMethodRetriever().GetCallingStepMethod();
             SetName(factory.GetStepNameReader().ReadStepNameWithReplacement(this, null, method, replacements));
         }
+
+        public void ReturnIfPreviousError()
+        {
+            if(Scenario.Outcome == Outcome.Skipped || Scenario.Outcome == Outcome.Failed)
+                throw new SkipStepException("Previous Error");
+        }
     }
 }
