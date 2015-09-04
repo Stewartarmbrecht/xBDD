@@ -31,14 +31,11 @@ namespace xBDD.Test.Features.Environment
         internal void publish_the_xUnit_test_restults_to_visual_studio_online(IStep obj) { }
 
 
-        internal void run_the_tests(IStep obj)
-        {
-            throw new NotImplementedException();
-        }
+        internal void run_the_tests(IStep obj) { }
 
         internal void build_the_projects(IStep obj)
         {
-            throw new NotImplementedException();
+            throw new SkipStepException("Not implemented.");
         }
     }
 }

@@ -147,6 +147,11 @@ namespace xBDD.Core
                     ProcessSkipException(step, ssex);
                     throw;
                 }
+                catch (NotImplementedException niex)
+                {
+                    ProcessNotImplementedException(step, niex);
+                    throw;
+                }
                 catch (Exception ex)
                 {
                     ProcessException(step, ex);
@@ -175,6 +180,10 @@ namespace xBDD.Core
                 catch(SkipStepException ssex)
                 {
                     ProcessSkipException(step, ssex);
+                }
+                catch (NotImplementedException niex)
+                {
+                    ProcessNotImplementedException(step, niex);
                     throw;
                 }
                 catch (Exception ex)
@@ -196,6 +205,13 @@ namespace xBDD.Core
             step.Outcome = Outcome.Skipped;
             step.Reason = ssex.Message;
             step.Exception = ssex;
+        }
+        private static void ProcessNotImplementedException(IStep step, NotImplementedException niex)
+        {
+            step.EndTime = DateTime.Now;
+            step.Outcome = Outcome.Skipped;
+            step.Reason = "Not Implemented";
+            step.Exception = niex;
         }
         private static void ProcessException(IStep step, Exception ex)
         {
