@@ -4,6 +4,7 @@ using System;
 using Xunit;
 using Microsoft.Framework.Runtime;
 using Microsoft.AspNet.Hosting;
+using Microsoft.Framework.Configuration;
 
 namespace xBDD.Test
 {
@@ -38,8 +39,21 @@ namespace xBDD.Test
             ShouldPublish = true;
 #endif
 
-            Startup startup = new Startup(hostEnv, ApplicationEnvironment);
+            var builder = new ConfigurationBuilder(ApplicationEnvironment.ApplicationBasePath)
+                .AddJsonFile("config.json")
+                .AddJsonFile($"config.{hostEnv.EnvironmentName}.json", optional: true);
+
+            builder.AddUserSecrets();
+            //if (env.IsDevelopment())
+            //{
+            //    // This reads the configuration keys from the secret store.
+            //    // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
+            //    builder.AddUserSecrets();
+            //}
+            builder.AddEnvironmentVariables();
+            Configuration = builder.Build();
         }
+        public static IConfiguration Configuration { get; set; }
         public void Dispose()
         {
             if(ShouldPublish)

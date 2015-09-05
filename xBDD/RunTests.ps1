@@ -14,7 +14,7 @@ else
 
 dnu restore
 
-dnx $PSScriptRoot\src\xBDD\ ef migration apply
+dnx $PSScriptRoot\src\xBDD.Database\ ef migration apply
 
 if(Test-Path $PSScriptRoot\TestResults.xml)
 {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using xBDD.Core;
+using xBDD.Database;
 
 namespace xBDD.Test.Sample
 {

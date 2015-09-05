@@ -1,0 +1,22 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "Provides test run reporting for the xBDD testing framework.",
+  "authors": [ "Stewart Armbrecht" ],
+  "tags": [ "BDD", "xBDD", "xUnit", "UnitTest", "DNX" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "dependencies": {
+    "Microsoft.Framework.Runtime": "1.0.0-beta5",
+    "Microsoft.Framework.Configuration": "1.0.0-beta6",
+    "Microsoft.Framework.Configuration.Json": "1.0.0-beta5",
+    "xBDD.Core": "1.0.0-*"
+  },
+  "userSecretsId": "xBDD",
+  "frameworks": {
+    "dnx451": { }
+  },
+  "configurations": {
+    "Publish": { }
+  }
+}

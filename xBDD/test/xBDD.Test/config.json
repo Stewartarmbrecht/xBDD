@@ -5,9 +5,6 @@
 		},
 		"TestingConnection": {
 			"ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=xBDDTesting;Trusted_Connection=True;"
-		},
-		"PublishingConnection": {
-			"ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=xBDDTestResults;Trusted_Connection=True;"
 		}
 	}
 }

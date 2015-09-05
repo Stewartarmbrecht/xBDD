@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using xBDD.Database;
+using xBDD.Database.Core;
 using xBDD.Test.Sample;
 using Xunit;
 
@@ -22,7 +23,7 @@ namespace xBDD.Test.Features.SaveResults
 
         internal void an_empty_test_results_database(IStep step)
         {
-            xBDDDbContext context = new xBDDDbContext(connectionName);
+            DatabaseContext context = new DatabaseContext(connectionName);
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
         }
