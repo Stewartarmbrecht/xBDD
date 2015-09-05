@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using xBDD.Stats;
 using xBDD.Utility;
 
@@ -78,6 +79,16 @@ namespace xBDD.Core
         public IScenarioBuilder CreateScenarioBuilder(IScenarioInternal scenario)
         {
             return new ScenarioBuilder(scenario, this);
+        }
+
+        public IStepExceptionHandler CreateStepExceptionHandler(IScenarioInternal scenario)
+        {
+            return new StepExceptionHandler(scenario, this);
+        }
+
+        public IStepExecutor CreateStepExecutor(IScenarioInternal scenario)
+        {
+            return new StepExecutor(scenario, this);
         }
     }
 }

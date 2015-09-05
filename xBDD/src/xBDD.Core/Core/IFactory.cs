@@ -14,9 +14,11 @@ namespace xBDD.Core
         IMethod CreateMethod(MethodBase methodBase);
         IAttributeWrapper CreateAttribute(CustomAttributeData data);
         ITestRun CreateTestRun();
+        IStepExecutor CreateStepExecutor(IScenarioInternal scenario);
         IFeatureNameReader GetFeatureNameReader();
         IAreaPathReader GetAreaPathReader();
         IStatsCompiler CreateStatsCompiler();
+        IStepExceptionHandler CreateStepExceptionHandler(IScenarioInternal scenario);
         IOutcomeAggregator CreateOutcomeAggregator();
         IScenarioRunner CreateScenarioRunner(IScenarioInternal scenario);
         IScenarioBuilder CreateScenarioBuilder(IScenarioInternal scenario);
