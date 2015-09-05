@@ -21,6 +21,22 @@ namespace xBDD.Test.Features.RunTests
                 .Run();
         }
         [ScenarioFact]
+        public void RunNoSteps()
+        {
+            var s = new Steps();
+            s.ExpectedOutcome = Outcome.Passed;
+            s.Time1 = DateTime.Now;
+            xBDD.CurrentRun.AddScenario()
+                .When(s.a_scenario_with_no_steps_is_run)
+                .And("then_Time2_is_set", step => { s.Time2 = DateTime.Now; })
+                .Then(s.the_scenario_outcome_should_be_ExpectedOutcome)
+                .And(s.the_start_time_should_be_after_or_equal_to_Time1)
+                .And(s.the_end_time_should_match_the_start_time)
+                .And(s.the_end_time_should_be_before_or_equal_Time2)
+                .And(s.the_time_should_be_less_than_5_milliseconds)
+                .Run();
+        }
+        [ScenarioFact]
         public void RunAsync()
         {
             var s = new Steps();

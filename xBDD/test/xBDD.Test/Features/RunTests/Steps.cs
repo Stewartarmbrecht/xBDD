@@ -17,6 +17,8 @@ namespace xBDD.Test.Features.RunTests
         public bool CodeExecutedThatShould { get; private set; }
         public bool CodeExecutedThatShouldnt { get; private set; }
         public Exception ThrownException { get; private set; }
+        public DateTime Time1 { get; internal set; }
+        public DateTime Time2 { get; internal set; }
 
         internal void a_scenario_with_all_passing_steps_is_run(IStep step)
         {
@@ -26,6 +28,33 @@ namespace xBDD.Test.Features.RunTests
                 .When("my action", s => { System.Threading.Thread.Sleep(5); })
                 .Then("my expectation", s => { System.Threading.Thread.Sleep(5); });
             Scenario.Run();
+        }
+
+        internal void a_scenario_with_no_steps_is_run(IStep obj)
+        {
+            var testRun = new TestRun(new Factory());
+            Scenario = testRun.AddScenario("My Empty Scenario");
+            Scenario.Run();
+        }
+
+        internal void the_end_time_should_be_before_or_equal_Time2(IStep obj)
+        {
+            Assert.True(Scenario.EndTime <= Time2);
+        }
+
+        internal void the_time_should_be_less_than_5_milliseconds(IStep obj)
+        {
+            Assert.True(Scenario.Time.Milliseconds < 5);
+        }
+
+        internal void the_end_time_should_match_the_start_time(IStep obj)
+        {
+            Assert.True(Scenario.EndTime.Equals(Scenario.StartTime));
+        }
+
+        internal void the_start_time_should_be_after_or_equal_to_Time1(IStep obj)
+        {
+            Assert.True(Scenario.StartTime >= Time1);
         }
 
         internal void the_scenario_outcome_should_be_ExpectedOutcome(IStep step)

@@ -21,27 +21,38 @@ namespace xBDD.Core
 
         public void Run()
         {
-            foreach (var step in scenario.Steps)
+            if (scenario.Steps.Count() == 0)
             {
-                step.StartTime = DateTime.Now;
-                if (step == scenario.Steps[0])
-                    scenario.StartTime = step.StartTime;
-                try
+                scenario.StartTime = DateTime.Now;
+                scenario.EndTime = scenario.StartTime;
+                scenario.Time = new TimeSpan();
+                if (scenario.Outcome == Outcome.NotRun)
+                    scenario.Outcome = Outcome.Passed;
+            }
+            else
+            {
+                foreach (var step in scenario.Steps)
                 {
-                    step.Action(step);
-                    PostExecution(step);
-                }
-                catch (SkipStepException ssex)
-                {
-                    ProcessSkipException(step, ssex);
-                }
-                catch (NotImplementedException niex)
-                {
-                    ProcessNotImplementedException(step, niex);
-                }
-                catch (Exception ex)
-                {
-                    ProcessException(step, ex);
+                    step.StartTime = DateTime.Now;
+                    if (step == scenario.Steps[0])
+                        scenario.StartTime = step.StartTime;
+                    try
+                    {
+                        step.Action(step);
+                        PostExecution(step);
+                    }
+                    catch (SkipStepException ssex)
+                    {
+                        ProcessSkipException(step, ssex);
+                    }
+                    catch (NotImplementedException niex)
+                    {
+                        ProcessNotImplementedException(step, niex);
+                    }
+                    catch (Exception ex)
+                    {
+                        ProcessException(step, ex);
+                    }
                 }
             }
             if (scenario.FirstStepException != null)
@@ -49,34 +60,45 @@ namespace xBDD.Core
         }
         public async Task RunAsync()
         {
-            foreach (var step in scenario.Steps)
+            if (scenario.Steps.Count() == 0)
             {
-                step.StartTime = DateTime.Now;
-                if (step == scenario.Steps[0])
-                    scenario.StartTime = step.StartTime;
-                try
+                scenario.StartTime = DateTime.Now;
+                scenario.EndTime = scenario.StartTime;
+                scenario.Time = new TimeSpan();
+                if(scenario.Outcome == Outcome.NotRun)
+                    scenario.Outcome = Outcome.Passed;
+            }
+            else
+            {
+                foreach (var step in scenario.Steps)
                 {
-                    if (step.ActionAsync == null && step.Action != null)
+                    step.StartTime = DateTime.Now;
+                    if (step == scenario.Steps[0])
+                        scenario.StartTime = step.StartTime;
+                    try
                     {
-                        await Task.Run(() => { step.Action(step); });
+                        if (step.ActionAsync == null && step.Action != null)
+                        {
+                            await Task.Run(() => { step.Action(step); });
+                        }
+                        else
+                        {
+                            await step.ActionAsync(step);
+                        }
+                        PostExecution(step);
                     }
-                    else
+                    catch (SkipStepException ssex)
                     {
-                        await step.ActionAsync(step);
+                        ProcessSkipException(step, ssex);
                     }
-                    PostExecution(step);
-                }
-                catch (SkipStepException ssex)
-                {
-                    ProcessSkipException(step, ssex);
-                }
-                catch (NotImplementedException niex)
-                {
-                    ProcessNotImplementedException(step, niex);
-                }
-                catch (Exception ex)
-                {
-                    ProcessException(step, ex);
+                    catch (NotImplementedException niex)
+                    {
+                        ProcessNotImplementedException(step, niex);
+                    }
+                    catch (Exception ex)
+                    {
+                        ProcessException(step, ex);
+                    }
                 }
             }
             if (scenario.FirstStepException != null)
