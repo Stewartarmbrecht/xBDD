@@ -78,7 +78,23 @@ namespace xBDD.Test.Features.RunTests
         public void FailAsync()
         {
             var s = new Steps();
-            xBDD.CurrentRun.AddScenario().Skip();
+            s.CapturedStartTime = new DateTime();
+            s.CapturedEndTime = new DateTime();
+            s.ExpectedOutcome = Outcome.Failed;
+            s.ExpectedException = new Exception("My Exception");
+            s.ExpectedReason = "My Exception";
+            xBDD.CurrentRun.AddScenario()
+                .Given(s.a_scenario)
+                .And(s.an_async_step_that_throws_an_exception)
+                .And(s.the_current_time_is_captured_as_CapturedStartTime)
+                .WhenAsync(s.the_parent_scenario_is_run_async_and_the_exception_caught)
+                .And(s.the_current_time_is_captured_as_CapturedEndTime)
+                .Then(s.the_step_outcome_should_be_ExpectedOutcome)
+                .And(s.the_start_time_should_be_after_the_CapturedStartTime_and_before_the_step_end_time)
+                .And(s.the_end_time_should_be_before_the_CapturedEndTime_and_after_the_start_time)
+                .And(s.the_step_reason_should_be_ExpectedReason)
+                .And(s.the_step_exception_should_be_ExpectedException)
+                .RunAsync();
         }
 
         [ScenarioFact]

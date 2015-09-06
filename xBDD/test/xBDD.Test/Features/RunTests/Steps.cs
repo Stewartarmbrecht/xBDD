@@ -81,6 +81,18 @@ namespace xBDD.Test.Features.RunTests
             }
         }
 
+        internal async Task the_parent_scenario_is_run_async_and_the_exception_caught(IStep obj)
+        {
+            try
+            {
+                await Scenario.RunAsync();
+            }
+            catch (Exception ex)
+            {
+                CaughtException = ex;
+            }
+        }
+
         internal void the_step_outcome_should_be_ExpectedOutcome(IStep step)
         {
             step.SetNameWithReplacement("ExpectedOutcome", Enum.GetName(typeof(Outcome), ExpectedOutcome));
@@ -112,6 +124,12 @@ namespace xBDD.Test.Features.RunTests
         internal void the_start_time_should_be_after_the_CapturedStartTime_and_before_the_step_end_time(IStep step)
         {
             Assert.True(Step.StartTime >= CapturedStartTime && Step.StartTime <= CapturedEndTime);
+        }
+
+        internal void an_async_step_that_throws_an_exception(IStep obj)
+        {
+            Scenario.WhenAsync("my step", stepTarget => { return Task.Run(() => { throw ExpectedException; }); });
+            Step = Scenario.Steps[0];
         }
 
         internal void a_scenario_with_all_passing_steps_is_run(IStep step)
