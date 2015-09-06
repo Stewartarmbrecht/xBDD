@@ -83,7 +83,14 @@ namespace xBDD.Test.Features.RunTests
 
         internal void the_step_outcome_should_be_ExpectedOutcome(IStep step)
         {
+            step.SetNameWithReplacement("ExpectedOutcome", Enum.GetName(typeof(Outcome), ExpectedOutcome));
             Assert.Equal(ExpectedOutcome, Step.Outcome);
+        }
+
+        internal void a_step_that_throws_an_exception(IStep obj)
+        {
+            Scenario.When("my step", stepTarget => { throw ExpectedException; });
+            Step = Scenario.Steps[0];
         }
 
         internal void the_end_time_should_be_before_the_CapturedEndTime_and_after_the_start_time(IStep step)
@@ -98,6 +105,7 @@ namespace xBDD.Test.Features.RunTests
 
         internal void the_step_reason_should_be_ExpectedReason(IStep step)
         {
+            step.SetNameWithReplacement("ExpectedReason", ExpectedReason.Quote());
             Assert.Equal(ExpectedReason, Step.Reason);
         }
 
