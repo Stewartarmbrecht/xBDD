@@ -149,6 +149,12 @@ namespace xBDD.Test.Features.RunTests
             Scenario.Run();
         }
 
+        internal void a_step_that_throws_a_skip_exception(IStep obj)
+        {
+            Scenario.When("my step", stepTarget => { throw ExpectedException; });
+            Step = Scenario.Steps[0];
+        }
+
         internal void the_end_time_should_be_before_or_equal_Time2(IStep step)
         {
             Assert.True(Scenario.EndTime <= Time2);
