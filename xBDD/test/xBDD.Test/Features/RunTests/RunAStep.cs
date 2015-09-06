@@ -146,6 +146,8 @@ namespace xBDD.Test.Features.RunTests
         public void SkipBecauseOfPreviousSkipSync()
         {
             var s = new Steps();
+            s.ExpectedReason = "Previous Error";
+            s.ExpectedExceptionType = typeof(SkipStepException);
             xBDD.CurrentRun.AddScenario()
                 .Given(s.a_scenario_with_one_skipped_step)
                 .And(s.the_last_step_includes_ReturnIfPreviousError_line)
@@ -153,13 +155,26 @@ namespace xBDD.Test.Features.RunTests
                 .Then(s.code_in_the_last_step_after_the_ReturnIfPreviousError_line_should_not_execute)
                 .And(s.code_in_the_last_step_before_the_ReturnIfPreviousError_line_should_execute)
                 .And(s.the_last_step_should_have_a_skipped_outcome)
+                .And(s.the_step_reason_should_be_ExpectedReason)
+                .And(s.the_step_exception_type_should_be_ExpectedExceptionType)
                 .Run();
         }
         [ScenarioFact]
         public void SkipBecauseOfPreviousSkipAsync()
         {
             var s = new Steps();
-            xBDD.CurrentRun.AddScenario().Skip();
+            s.ExpectedReason = "Previous Error";
+            s.ExpectedExceptionType = typeof(SkipStepException);
+            xBDD.CurrentRun.AddScenario()
+                .Given(s.a_scenario_with_one_skipped_async_step)
+                .And(s.the_last_step_includes_ReturnIfPreviousError_line)
+                .WhenAsync(s.the_parent_scenario_is_run_async_and_the_exception_caught)
+                .Then(s.code_in_the_last_step_after_the_ReturnIfPreviousError_line_should_not_execute)
+                .And(s.code_in_the_last_step_before_the_ReturnIfPreviousError_line_should_execute)
+                .And(s.the_last_step_should_have_a_skipped_outcome)
+                .And(s.the_step_reason_should_be_ExpectedReason)
+                .And(s.the_step_exception_type_should_be_ExpectedExceptionType)
+                .RunAsync();
         }
 
     }

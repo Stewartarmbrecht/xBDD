@@ -25,6 +25,7 @@ namespace xBDD.Test.Features.RunTests
         public string ExpectedReason { get; internal set; }
         public Exception ExpectedException { get; internal set; }
         public string ExceptionMessage { get; internal set; }
+        public Type ExpectedExceptionType { get; internal set; }
 
         public void the_current_time_is_captured_as_CapturedEndTime(IStep step)
         {
@@ -231,6 +232,37 @@ namespace xBDD.Test.Features.RunTests
             }
         }
 
+        internal void a_scenario_with_one_skipped_async_step(IStep obj)
+        {
+            var testRun = new TestRun(new CoreFactory());
+            Scenario = testRun.AddScenario("My Scenario")
+                .GivenAsync("my condition", s => { return Task.Run(() => { System.Threading.Thread.Sleep(5); }); })
+                .WhenAsync("my action", s => { return Task.Run(() => { System.Threading.Thread.Sleep(5); throw new SkipStepException("Test"); }); })
+                .ThenAsync("my expectation", s => {
+                    return Task.Run(() => {
+                        CodeExecutedThatShould = true;
+                        s.ReturnIfPreviousError();
+                        CodeExecutedThatShouldnt = true;
+                    });
+                });
+            Step = Scenario.Steps[2];
+        }
+
+        internal void the_step_exception_type_should_be_ExpectedExceptionType(IStep obj)
+        {
+            var ex = Step.Exception;
+            Assert.Equal(ExpectedExceptionType, ex.GetType());
+        }
+
+        internal void an_async_step_that_checks_for_a_previous_exception(IStep obj)
+        {
+            Scenario.WhenAsync("my step that checks", stepTarget => {
+                return Task.Run(() => {
+                    stepTarget.ReturnIfPreviousError();
+                });
+            });
+        }
+
         internal void the_start_time_should_match_the_start_time_of_the_first_step(IStep step)
         {
             Assert.Equal(Scenario.Steps[0].StartTime, Scenario.StartTime);
@@ -393,6 +425,7 @@ namespace xBDD.Test.Features.RunTests
                     s.ReturnIfPreviousError();
                     CodeExecutedThatShouldnt = true;
                 });
+            Step = Scenario.Steps[2];
         }
 
         internal void all_steps_after_the_skipped_step_should_be_marked_as_skipped(IStep step)
