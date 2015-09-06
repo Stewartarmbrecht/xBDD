@@ -43,6 +43,18 @@ namespace xBDD.Test.Features.RunTests
             xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
+        public void RunSyncWithAsyncStep()
+        {
+            var s = new Steps();
+            s.ExceptionMessage = "The child step, 'When my test async step' is an asynchronous step and you are trying to run the scenario synchronously.";
+            xBDD.CurrentRun.AddScenario()
+                .Given(s.a_scenario)
+                .And(s.an_async_step_that_does_not_thwow_an_exception)
+                .When(s.the_parent_scenario_is_run_and_the_exception_caught)
+                .Then(s.the_exception_should_have_the_message_ExceptionMessage)
+                .Run();
+        }
+        [ScenarioFact]
         public void Skip()
         {
             var s = new Steps();

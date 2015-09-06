@@ -26,6 +26,8 @@ namespace xBDD.Core
             {
                 foreach (var step in scenario.Steps)
                 {
+                    if (step.Action == null)
+                        throw new AsyncStepInSyncScenarioException(step.Name);
                     stepExecutor.ExecuteStep(step);
                 }
             }

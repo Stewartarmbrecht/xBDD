@@ -14,11 +14,97 @@ namespace xBDD.Test.Features.RunTests
 
         public Outcome ExpectedOutcome { get; internal set; }
         public IScenario Scenario { get; set; }
+        public IStep Step { get; set; }
         public bool CodeExecutedThatShould { get; private set; }
         public bool CodeExecutedThatShouldnt { get; private set; }
         public Exception ThrownException { get; private set; }
         public DateTime Time1 { get; internal set; }
         public DateTime Time2 { get; internal set; }
+        public DateTime CapturedStartTime { get; internal set; }
+        public DateTime CapturedEndTime { get; internal set; }
+        public string ExpectedReason { get; internal set; }
+        public Exception ExpectedException { get; internal set; }
+        public string ExceptionMessage { get; internal set; }
+
+        public void the_current_time_is_captured_as_CapturedEndTime(IStep step)
+        {
+            CapturedEndTime = DateTime.Now;
+        }
+
+        public void the_parent_scenario_is_run(IStep step)
+        {
+            Scenario.Run();
+        }
+        public async Task the_parent_scenario_is_run_async(IStep step)
+        {
+            await Scenario.RunAsync();
+        }
+
+        public void the_current_time_is_captured_as_CapturedStartTime(IStep step)
+        {
+            CapturedStartTime = DateTime.Now;
+        }
+
+        public void a_scenario(IStep step)
+        {
+            var coreFactory = new CoreFactory();
+            var testRun = new TestRun(coreFactory);
+            Scenario = testRun.AddScenario();
+        }
+
+        public void a_step_that_does_not_thwow_an_exception(IStep step)
+        {
+            Scenario.When("my test step", stepTarget => { return; });
+            Step = Scenario.Steps[0];
+        }
+
+        internal void an_async_step_that_does_not_thwow_an_exception(IStep step)
+        {
+            Scenario.WhenAsync("my test async step", stepTarget => { return Task.Run(() => { return; }); });
+            Step = Scenario.Steps[0];
+        }
+
+        internal void the_exception_should_have_the_message_ExceptionMessage(IStep obj)
+        {
+            Assert.Equal(ExceptionMessage, CaughtException.Message);
+        }
+
+        internal void the_parent_scenario_is_run_and_the_exception_caught(IStep obj)
+        {
+            try
+            {
+                Scenario.Run();
+            }
+            catch(Exception ex)
+            {
+                CaughtException = ex;
+            }
+        }
+
+        internal void the_step_outcome_should_be_ExpectedOutcome(IStep step)
+        {
+            Assert.Equal(ExpectedOutcome, Step.Outcome);
+        }
+
+        internal void the_end_time_should_be_before_the_CapturedEndTime_and_after_the_start_time(IStep step)
+        {
+            Assert.True(Step.EndTime <= CapturedEndTime && Step.EndTime >= CapturedStartTime);
+        }
+
+        internal void the_step_exception_should_be_ExpectedException(IStep step)
+        {
+            Assert.Equal(ExpectedException, Step.Exception);
+        }
+
+        internal void the_step_reason_should_be_ExpectedReason(IStep step)
+        {
+            Assert.Equal(ExpectedReason, Step.Reason);
+        }
+
+        internal void the_start_time_should_be_after_the_CapturedStartTime_and_before_the_step_end_time(IStep step)
+        {
+            Assert.True(Step.StartTime >= CapturedStartTime && Step.StartTime <= CapturedEndTime);
+        }
 
         internal void a_scenario_with_all_passing_steps_is_run(IStep step)
         {
@@ -30,29 +116,29 @@ namespace xBDD.Test.Features.RunTests
             Scenario.Run();
         }
 
-        internal void a_scenario_with_no_steps_is_run(IStep obj)
+        internal void a_scenario_with_no_steps_is_run(IStep step)
         {
             var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Empty Scenario");
             Scenario.Run();
         }
 
-        internal void the_end_time_should_be_before_or_equal_Time2(IStep obj)
+        internal void the_end_time_should_be_before_or_equal_Time2(IStep step)
         {
             Assert.True(Scenario.EndTime <= Time2);
         }
 
-        internal void the_time_should_be_less_than_5_milliseconds(IStep obj)
+        internal void the_time_should_be_less_than_5_milliseconds(IStep step)
         {
             Assert.True(Scenario.Time.Milliseconds < 5);
         }
 
-        internal void the_end_time_should_match_the_start_time(IStep obj)
+        internal void the_end_time_should_match_the_start_time(IStep step)
         {
             Assert.True(Scenario.EndTime.Equals(Scenario.StartTime));
         }
 
-        internal void the_start_time_should_be_after_or_equal_to_Time1(IStep obj)
+        internal void the_start_time_should_be_after_or_equal_to_Time1(IStep step)
         {
             Assert.True(Scenario.StartTime >= Time1);
         }
@@ -63,15 +149,15 @@ namespace xBDD.Test.Features.RunTests
             Assert.Equal(ExpectedOutcome, Scenario.Outcome);
         }
 
-        internal void all_steps_should_be_marked_as_skipped(IStep obj)
+        internal void all_steps_should_be_marked_as_skipped(IStep step)
         {
-            foreach(var step in Scenario.Steps)
+            foreach(var stepTarget in Scenario.Steps)
             {
-                Assert.Equal(Outcome.Skipped, step.Outcome);
+                Assert.Equal(Outcome.Skipped, stepTarget.Outcome);
             }
         }
 
-        internal void a_scenario_is_skipped_using_the_Skip_method_and_all_methods_call_ReturnIfPreviousError(IStep obj)
+        internal void a_scenario_is_skipped_using_the_Skip_method_and_all_methods_call_ReturnIfPreviousError(IStep step)
         {
             var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
@@ -89,7 +175,7 @@ namespace xBDD.Test.Features.RunTests
             }
         }
 
-        internal async Task a_scenario_is_skipped_using_the_SkipAsync_method_and_all_methods_call_ReturnIfPreviousError(IStep obj)
+        internal async Task a_scenario_is_skipped_using_the_SkipAsync_method_and_all_methods_call_ReturnIfPreviousError(IStep step)
         {
             var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
@@ -160,7 +246,7 @@ namespace xBDD.Test.Features.RunTests
             }
         }
 
-        internal void a_scenario_with_one_not_implemented_steps_is_run(IStep obj)
+        internal void a_scenario_with_one_not_implemented_steps_is_run(IStep step)
         {
             var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
@@ -178,7 +264,7 @@ namespace xBDD.Test.Features.RunTests
             }
         }
 
-        internal void a_scenario_with_one_middle_failing_steps_is_run(IStep obj)
+        internal void a_scenario_with_one_middle_failing_steps_is_run(IStep step)
         {
             var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
@@ -196,17 +282,17 @@ namespace xBDD.Test.Features.RunTests
             }
         }
 
-        internal void the_last_step_should_be_passed(IStep obj)
+        internal void the_last_step_should_be_passed(IStep step)
         {
             Assert.Equal(Outcome.Passed, Scenario.Steps[2].Outcome);
         }
 
-        internal void the_first_step_should_be_skipped(IStep obj)
+        internal void the_first_step_should_be_skipped(IStep step)
         {
             Assert.Equal(Outcome.Skipped, Scenario.Steps[0].Outcome);
         }
 
-        internal void a_scenario_with_the_first_step_skipped_and_the_middle_step_failing_is_run(IStep obj)
+        internal void a_scenario_with_the_first_step_skipped_and_the_middle_step_failing_is_run(IStep step)
         {
             var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
