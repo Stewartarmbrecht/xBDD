@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace xBDD.Utility
+﻿namespace xBDD.Utility
 {
     public class OutcomeAggregator : IOutcomeAggregator
     {

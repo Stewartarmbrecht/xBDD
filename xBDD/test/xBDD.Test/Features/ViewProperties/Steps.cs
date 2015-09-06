@@ -12,7 +12,7 @@ namespace xBDD.Test.Features.ViewProperties
         IScenario scenarioAdded;
         internal void a_step_is_added_to_a_scenario(IStep obj)
         {
-            var factory = new Factory();
+            var factory = new CoreFactory();
             var testRun = new TestRun(factory);
             scenarioAdded = testRun.AddScenario("Test Scenario");
         }

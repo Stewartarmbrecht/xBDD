@@ -22,7 +22,6 @@ namespace xBDD.Utility
             else
                 return true;
         }
-
         public static string AddSpacesToSentence(this string text, bool preserveAcronyms)
         {
             text = text.Replace('_', ' ');
@@ -56,7 +55,6 @@ namespace xBDD.Utility
             }
             return newText.ToString();
         }
-
         public static string ReplaceUnderscores(this string text)
         {
             return text.Replace('_', ' ');

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace xBDD.Core
+namespace xBDD.Utility
 {
     public interface IAttributeWrapper
     {

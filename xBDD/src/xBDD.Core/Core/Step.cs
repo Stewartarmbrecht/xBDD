@@ -6,8 +6,8 @@ namespace xBDD.Core
 {
     public class Step : IStep
     {
-        IFactory factory;
-        public Step(IScenario scenario, IFactory factory)
+        ICoreFactory factory;
+        public Step(IScenario scenario, ICoreFactory factory)
         {
             this.Scenario = scenario;
             this.factory = factory;
@@ -42,8 +42,8 @@ namespace xBDD.Core
         {
             var replacements = new Dictionary<string, string>();
             replacements.Add(key, value);
-            var method = factory.GetMethodRetriever().GetCallingStepMethod();
-            SetName(factory.GetStepNameReader().ReadStepNameWithReplacement(this, null, method, replacements));
+            var method = factory.UtilityFactory.GetMethodRetriever().GetCallingStepMethod();
+            SetName(factory.UtilityFactory.GetStepNameReader().ReadStepNameWithReplacement(this, null, method, replacements));
         }
 
         public void ReturnIfPreviousError()

@@ -7,9 +7,9 @@ namespace xBDD.Core
     internal class ScenarioRunner : IScenarioRunner
     {
         IScenarioInternal scenario;
-        IFactory factory;
+        ICoreFactory factory;
         IStepExecutor stepExecutor;
-        internal ScenarioRunner(IScenarioInternal scenario, IFactory factory)
+        internal ScenarioRunner(IScenarioInternal scenario, ICoreFactory factory)
         {
             this.scenario = scenario;
             this.factory = factory;

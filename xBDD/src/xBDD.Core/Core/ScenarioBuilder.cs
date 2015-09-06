@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace xBDD.Core
 {
     public class ScenarioBuilder : IScenarioBuilder
     {
-        IFactory factory;
+        ICoreFactory factory;
         IScenarioInternal scenario;
-        public ScenarioBuilder(IScenarioInternal scenario, IFactory factory)
+
+        public ScenarioBuilder(IScenarioInternal scenario, ICoreFactory factory)
         {
             this.factory = factory;
             this.scenario = scenario;
         }
+
         #region Given
         public IScenario Given(string name, Action<IStep> stepAction)
         {
@@ -86,7 +86,7 @@ namespace xBDD.Core
             return Action(name, stepAction, ActionType.And);
         }
         #endregion And
-
+        #region Action
         IScenario Action(Action<IStep> stepAction, ActionType type)
         {
             return Action(null, stepAction, type);
@@ -98,24 +98,24 @@ namespace xBDD.Core
         IScenario Action(string name, Action<IStep> stepAction, ActionType type)
         {
             var step = factory.CreateStep(scenario);
-            var method = factory.GetMethodRetriever().GetStepMethod(stepAction);
+            var method = factory.UtilityFactory.GetMethodRetriever().GetStepMethod(stepAction);
             step.ActionType = type;
             step.Action = stepAction;
-            step.SetName(factory.GetStepNameReader().ReadStepName(step, name, method));
+            step.SetName(factory.UtilityFactory.GetStepNameReader().ReadStepName(step, name, method));
             scenario.Steps.Add(step);
             return scenario;
         }
-
         IScenario Action(string name, Func<IStep, Task> stepAction, ActionType type)
         {
             var step = factory.CreateStep(scenario);
-            var method = factory.GetMethodRetriever().GetStepMethod(stepAction);
+            var method = factory.UtilityFactory.GetMethodRetriever().GetStepMethod(stepAction);
             step.ActionType = type;
             step.ActionAsync = stepAction;
-            step.SetName(factory.GetStepNameReader().ReadStepName(step, name, method));
+            step.SetName(factory.UtilityFactory.GetStepNameReader().ReadStepName(step, name, method));
             scenario.Steps.Add(step);
             return scenario;
         }
+        #endregion Action
 
     }
 }

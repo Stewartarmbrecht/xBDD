@@ -5,7 +5,7 @@ namespace xBDD
 {
     public partial class xBDD
     {
-        static IFactory factory;
+        static ICoreFactory factory;
         static ITestRun testRun;
         public static ITestRun CurrentRun
         {
@@ -22,18 +22,7 @@ namespace xBDD
         static void EnsureFactory()
         {
             if (factory == null)
-                factory = new Factory();
-        }
-        static IStatsCompiler statsCompiler;
-        public static IStatsCompiler StatsCompiler
-        {
-            get
-            {
-                EnsureFactory();
-                if (statsCompiler == null)
-                    statsCompiler = factory.CreateStatsCompiler();
-                return statsCompiler;
-            }
+                factory = new CoreFactory();
         }
     }
 }

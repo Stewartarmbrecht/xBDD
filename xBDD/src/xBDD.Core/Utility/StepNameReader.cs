@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using xBDD.Core;
+﻿using System.Collections.Generic;
 
 namespace xBDD.Utility
 {
@@ -18,6 +16,7 @@ namespace xBDD.Utility
             }
             return name;
         }
+
         public string ReadStepNameWithReplacement(IStep step, string stepName, IMethod method, Dictionary<string, string> replacements)
         {
             string name = ReadStepName(step, stepName, method);

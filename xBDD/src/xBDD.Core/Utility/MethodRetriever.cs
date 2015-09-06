@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using xBDD.Core;
 
 namespace xBDD.Utility
 {
     public class MethodRetriever : IMethodRetriever
     {
-        IFactory factory;
-        public MethodRetriever(IFactory factory)
+        IUtilityFactory factory;
+        public MethodRetriever(IUtilityFactory factory)
         {
             this.factory = factory;
         }
@@ -18,8 +17,24 @@ namespace xBDD.Utility
             StackFrame stackFrame = GetStepStackFrame();
             return factory.CreateMethod(stackFrame.GetMethod());
         }
+        public IMethod GetScenarioMethod()
+        {
+            StackFrame stackFrame = new StackFrame(2);
+            if (stackFrame.GetMethod().Name == "MoveNext")
+                stackFrame = new StackFrame(4);
+            return factory.CreateMethod(stackFrame.GetMethod());
 
-        private StackFrame GetStepStackFrame()
+        }
+        public IMethod GetStepMethod(Action<IStep> action)
+        {
+            return factory.CreateMethod(action.Method);
+        }
+        public IMethod GetStepMethod(Func<IStep, Task> action)
+        {
+            return factory.CreateMethod(action.Method);
+        }
+
+        StackFrame GetStepStackFrame()
         {
             bool found = false;
             int stackLocation = 1;
@@ -40,22 +55,5 @@ namespace xBDD.Utility
             return sf;
         }
 
-        public IMethod GetScenarioMethod()
-        {
-            StackFrame stackFrame = new StackFrame(2);
-            if (stackFrame.GetMethod().Name == "MoveNext")
-                stackFrame = new StackFrame(4);
-            return factory.CreateMethod(stackFrame.GetMethod());
-
-        }
-
-        public IMethod GetStepMethod(Action<IStep> action)
-        {
-            return factory.CreateMethod(action.Method);
-        }
-        public IMethod GetStepMethod(Func<IStep, Task> action)
-        {
-            return factory.CreateMethod(action.Method);
-        }
     }
 }

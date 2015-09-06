@@ -11,7 +11,7 @@ namespace xBDD.Test.Sample
         {
             return testRun.SaveToDatabase(connectionName);
         }
-        ITestRun testRun = new TestRun(new Factory());
+        ITestRun testRun = new TestRun(new CoreFactory());
         public IScenario Scenario { get; set; }
 
         public void PassingScenario()

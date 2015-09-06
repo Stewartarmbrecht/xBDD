@@ -7,10 +7,11 @@ namespace xBDD.Core
     {
         IScenarioInternal scenario;
         IOutcomeAggregator outcomeAggregator;
-        public StepExceptionHandler(IScenarioInternal scenario, IFactory factory)
+
+        public StepExceptionHandler(IScenarioInternal scenario, ICoreFactory factory)
         {
             this.scenario = scenario;
-            outcomeAggregator = factory.CreateOutcomeAggregator();
+            outcomeAggregator = factory.UtilityFactory.CreateOutcomeAggregator();
         }
 
         public void HandleException(IStepExecutor stepExecutor, IStep step, Exception ex)
@@ -28,6 +29,7 @@ namespace xBDD.Core
                 ProcessException(stepExecutor, step, ex);
             }
         }
+
         void ProcessSkipException(IStepExecutor stepExecutor, IStep step, SkipStepException ex)
         {
             if (scenario.FirstStepException == null)

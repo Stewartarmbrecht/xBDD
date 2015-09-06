@@ -22,7 +22,7 @@ namespace xBDD.Test.Features.RunTests
 
         internal void a_scenario_with_all_passing_steps_is_run(IStep step)
         {
-            var testRun = new TestRun(new Factory());
+            var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
                 .Given("my condition", s => { System.Threading.Thread.Sleep(5); })
                 .When("my action", s => { System.Threading.Thread.Sleep(5); })
@@ -32,7 +32,7 @@ namespace xBDD.Test.Features.RunTests
 
         internal void a_scenario_with_no_steps_is_run(IStep obj)
         {
-            var testRun = new TestRun(new Factory());
+            var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Empty Scenario");
             Scenario.Run();
         }
@@ -73,7 +73,7 @@ namespace xBDD.Test.Features.RunTests
 
         internal void a_scenario_is_skipped_using_the_Skip_method_and_all_methods_call_ReturnIfPreviousError(IStep obj)
         {
-            var testRun = new TestRun(new Factory());
+            var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
                 .Given("my condition", s => { s.ReturnIfPreviousError(); System.Threading.Thread.Sleep(5); })
                 .When("my action", s => { s.ReturnIfPreviousError(); System.Threading.Thread.Sleep(5); })
@@ -91,7 +91,7 @@ namespace xBDD.Test.Features.RunTests
 
         internal async Task a_scenario_is_skipped_using_the_SkipAsync_method_and_all_methods_call_ReturnIfPreviousError(IStep obj)
         {
-            var testRun = new TestRun(new Factory());
+            var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
                 .GivenAsync("my condition", s => { return Task.Run(() => { s.ReturnIfPreviousError(); System.Threading.Thread.Sleep(5); }); })
                 .WhenAsync("my action", s => { return Task.Run(() => { s.ReturnIfPreviousError(); System.Threading.Thread.Sleep(5); }); })
@@ -119,7 +119,7 @@ namespace xBDD.Test.Features.RunTests
 
         internal void a_scenario_with_all_skipped_steps_is_run(IStep step)
         {
-            var testRun = new TestRun(new Factory());
+            var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
                 .Given("my condition", s => {
                     System.Threading.Thread.Sleep(5); throw new SkipStepException("Not Implemented"); })
@@ -144,7 +144,7 @@ namespace xBDD.Test.Features.RunTests
 
         internal void a_scenario_with_one_skipped_steps_is_run(IStep step)
         {
-            var testRun = new TestRun(new Factory());
+            var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
                 .Given("my condition", s => { System.Threading.Thread.Sleep(5); })
                 .When("my action", s => { System.Threading.Thread.Sleep(5); throw new SkipStepException("Test"); })
@@ -162,7 +162,7 @@ namespace xBDD.Test.Features.RunTests
 
         internal void a_scenario_with_one_not_implemented_steps_is_run(IStep obj)
         {
-            var testRun = new TestRun(new Factory());
+            var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
                 .Given("my condition", s => { System.Threading.Thread.Sleep(5); })
                 .When("my action", s => { System.Threading.Thread.Sleep(5); throw new NotImplementedException(); })
@@ -180,7 +180,7 @@ namespace xBDD.Test.Features.RunTests
 
         internal void a_scenario_with_one_middle_failing_steps_is_run(IStep obj)
         {
-            var testRun = new TestRun(new Factory());
+            var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
                 .Given("my condition", s => { System.Threading.Thread.Sleep(5); })
                 .When("my action", s => { System.Threading.Thread.Sleep(5); throw new Exception("My Error"); })
@@ -208,7 +208,7 @@ namespace xBDD.Test.Features.RunTests
 
         internal void a_scenario_with_the_first_step_skipped_and_the_middle_step_failing_is_run(IStep obj)
         {
-            var testRun = new TestRun(new Factory());
+            var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
                 .Given("my condition", s => { System.Threading.Thread.Sleep(5); throw new SkipStepException("Not Implemented"); })
                 .When("my action", s => { System.Threading.Thread.Sleep(5); throw new Exception("My Error"); })
@@ -260,7 +260,7 @@ namespace xBDD.Test.Features.RunTests
 
         internal void a_scenario_with_one_skipped_step(IStep step)
         {
-            var testRun = new TestRun(new Factory());
+            var testRun = new TestRun(new CoreFactory());
             Scenario = testRun.AddScenario("My Scenario")
                 .Given("my condition", s => { System.Threading.Thread.Sleep(5); })
                 .When("my action", s => { System.Threading.Thread.Sleep(5); throw new SkipStepException("Test"); })

@@ -9,10 +9,10 @@ namespace xBDD.Core
         IStepExceptionHandler stepExceptionHandler;
         IScenarioInternal scenario;
         IOutcomeAggregator outcomeAggregator;
-        public StepExecutor(IScenarioInternal scenario, IFactory factory)
+        public StepExecutor(IScenarioInternal scenario, ICoreFactory factory)
         {
             stepExceptionHandler = factory.CreateStepExceptionHandler(scenario);
-            outcomeAggregator = factory.CreateOutcomeAggregator();
+            outcomeAggregator = factory.UtilityFactory.CreateOutcomeAggregator();
             this.scenario = scenario;
         }
         public async Task ExecuteStepAsync(IStep step)

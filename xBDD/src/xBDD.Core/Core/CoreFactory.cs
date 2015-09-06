@@ -1,14 +1,18 @@
-﻿using System;
-using System.Reflection;
-using xBDD.Stats;
+﻿using System.Reflection;
 using xBDD.Utility;
 
 namespace xBDD.Core
 {
-    public class Factory : IFactory
+    public class CoreFactory : ICoreFactory
     {
+        public CoreFactory()
+        {
+            UtilityFactory = new UtilityFactory();
+        }
+        public IUtilityFactory UtilityFactory { get; private set; }
         public IScenario CreateScenario(ITestRun testRun)
         {
+            UtilityFactory = new UtilityFactory();
             var scenario = new Scenario(this, testRun);
             testRun.Scenarios.Add(scenario);
             return scenario;
@@ -21,54 +25,9 @@ namespace xBDD.Core
             return step;
         }
 
-        public IScenarioNameReader GetScenarioNameReader()
-        {
-            return new ScenarioNameReader();
-        }
-
-        public IStepNameReader GetStepNameReader()
-        {
-            return new StepNameReader();
-        }
-
-        public IMethodRetriever GetMethodRetriever()
-        {
-            return new MethodRetriever(this);
-        }
-
-        public IMethod CreateMethod(MethodBase methodBase)
-        {
-            return new Method(methodBase, this);
-        }
-
-        public IAttributeWrapper CreateAttribute(CustomAttributeData data)
-        {
-            return new AttributeWrapper(data);
-        }
-
-        public IFeatureNameReader GetFeatureNameReader()
-        {
-            return new FeatureNameReader();
-        }
-
-        public IAreaPathReader GetAreaPathReader()
-        {
-            return new AreaPathReader();
-        }
-
         public ITestRun CreateTestRun()
         {
             return new TestRun(this);
-        }
-
-        public IStatsCompiler CreateStatsCompiler()
-        {
-            return new StatsCompiler();
-        }
-
-        public IOutcomeAggregator CreateOutcomeAggregator()
-        {
-            return new OutcomeAggregator();
         }
 
         public IScenarioRunner CreateScenarioRunner(IScenarioInternal scenario)

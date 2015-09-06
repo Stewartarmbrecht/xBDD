@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace xBDD.Core
+namespace xBDD.Utility
 {
     public interface IMethod
     {

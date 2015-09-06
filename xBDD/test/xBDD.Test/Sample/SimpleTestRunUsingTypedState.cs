@@ -9,7 +9,7 @@ namespace xBDD.Test.Sample
         {
             return testRun.SaveToDatabase(connectionName);
         }
-        internal ITestRun testRun = new TestRun(new Factory());
+        internal ITestRun testRun = new TestRun(new CoreFactory());
         public virtual IScenario Scenario { get; set; }
 
         public virtual void PassingScenario()
