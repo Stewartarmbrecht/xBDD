@@ -181,6 +181,12 @@ namespace xBDD.Test.Features.RunTests
             Assert.Equal(ExpectedOutcome, Scenario.Outcome);
         }
 
+        internal void an_async_step_that_throws_a_skip_exception(IStep obj)
+        {
+            Scenario.WhenAsync("my step", s => { return Task.Run(() => { throw ExpectedException; }); });
+            Step = Scenario.Steps[0];
+        }
+
         internal void all_steps_should_be_marked_as_skipped(IStep step)
         {
             foreach(var stepTarget in Scenario.Steps)
