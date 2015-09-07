@@ -143,6 +143,16 @@ namespace xBDD.Test.Features.RunTests
             Scenario.Run();
         }
 
+        internal async Task a_scenario_with_all_passing_steps_is_run_async(IStep step)
+        {
+            var testRun = new TestRun(new CoreFactory());
+            Scenario = testRun.AddScenario("My Scenario")
+                .GivenAsync("my condition", s => { return Task.Run(() => { System.Threading.Thread.Sleep(5); }); })
+                .WhenAsync("my action", s => { return Task.Run(() => { System.Threading.Thread.Sleep(5); }); })
+                .ThenAsync("my validation", s => { return Task.Run(() => { System.Threading.Thread.Sleep(5); }); });
+            await Scenario.RunAsync();
+        }
+
         internal void a_scenario_with_no_steps_is_run(IStep step)
         {
             var testRun = new TestRun(new CoreFactory());

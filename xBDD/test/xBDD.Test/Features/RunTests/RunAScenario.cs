@@ -28,7 +28,7 @@ namespace xBDD.Test.Features.RunTests
             s.Time1 = DateTime.Now;
             xBDD.CurrentRun.AddScenario()
                 .When(s.a_scenario_with_no_steps_is_run)
-                .And("then_Time2_is_set", step => { s.Time2 = DateTime.Now; })
+                .And("then Time2 is set", step => { s.Time2 = DateTime.Now; })
                 .Then(s.the_scenario_outcome_should_be_ExpectedOutcome)
                 .And(s.the_start_time_should_be_after_or_equal_to_Time1)
                 .And(s.the_end_time_should_match_the_start_time)
@@ -40,7 +40,14 @@ namespace xBDD.Test.Features.RunTests
         public void RunAsync()
         {
             var s = new Steps();
-            xBDD.CurrentRun.AddScenario().Skip();
+            s.ExpectedOutcome = Outcome.Passed;
+            xBDD.CurrentRun.AddScenario()
+                .WhenAsync(s.a_scenario_with_all_passing_steps_is_run_async)
+                .Then(s.the_scenario_outcome_should_be_ExpectedOutcome)
+                .And(s.the_start_time_should_match_the_start_time_of_the_first_step)
+                .And(s.the_end_time_should_match_the_end_time_of_the_last_step)
+                .And(s.the_time_should_match_the_summation_of_the_durations_of_all_child_steps)
+                .RunAsync();
         }
         [ScenarioFact]
         public void RunSyncWithAsyncStep()
