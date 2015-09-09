@@ -6,13 +6,13 @@
         public void Given()
         {
             Steps s = new Steps();
-            s.StepType = "Given";
-            s.StepName = "my step";
-            s.AddedStepName = "Given my step";
+            s.State.StepType = "Given";
+            s.State.StepName = "my step";
+            s.State.AddedStepName = "Given my step";
             xBDD.CurrentRun.AddScenario()
-                .Given(s.a_scenario)
-                .When(s.a_StepType_step_is_added_to_a_scenario_with_a_name_of_StepName)
-                .Then(s.the_added_step_name_should_be_AddedStepName);
+                .Given(s.Given.a_scenario)
+                .When(s.When.a_StepType_step_is_added_to_a_scenario_with_a_name_of_StepName)
+                .Then(s.Then.the_added_step_name_should_be_AddedStepName);
         }
         [ScenarioFact]
         public void GivenAsync()

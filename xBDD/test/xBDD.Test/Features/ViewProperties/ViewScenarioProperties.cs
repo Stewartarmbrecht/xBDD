@@ -17,8 +17,8 @@ namespace xBDD.Test.Features.ViewProperties
         {
             var s = new Steps();
             xBDD.CurrentRun.AddScenario()
-                .When(s.a_step_is_added_to_a_scenario)
-                .Then(s.you_can_get_not_set_the_Outcome_property)
+                .When(s.When.a_scenario_is_added_to_a_test_run)
+                .Then(s.Then.you_can_get_not_set_the_Outcome_property)
                 .Run();
         }
         [ScenarioFact]
@@ -26,8 +26,8 @@ namespace xBDD.Test.Features.ViewProperties
         {
             var s = new Steps();
             xBDD.CurrentRun.AddScenario()
-                .When(s.a_step_is_added_to_a_scenario)
-                .Then(s.you_can_get_not_set_the_StartTime_property)
+                .When(s.When.a_scenario_is_added_to_a_test_run)
+                .Then(s.Then.you_can_get_not_set_the_StartTime_property)
                 .Run();
         }
         [ScenarioFact]
@@ -35,8 +35,8 @@ namespace xBDD.Test.Features.ViewProperties
         {
             var s = new Steps();
             xBDD.CurrentRun.AddScenario()
-                .When(s.a_step_is_added_to_a_scenario)
-                .Then(s.you_can_get_not_set_the_EndTime_property)
+                .When(s.When.a_scenario_is_added_to_a_test_run)
+                .Then(s.Then.you_can_get_not_set_the_EndTime_property)
                 .Run();
         }
         [ScenarioFact]
@@ -44,8 +44,8 @@ namespace xBDD.Test.Features.ViewProperties
         {
             var s = new Steps();
             xBDD.CurrentRun.AddScenario()
-                .When(s.a_step_is_added_to_a_scenario)
-                .Then(s.you_can_get_not_set_the_TotalTime_property)
+                .When(s.When.a_scenario_is_added_to_a_test_run)
+                .Then(s.Then.you_can_get_not_set_the_TotalTime_property)
                 .Run();
         }
         [ScenarioFact]

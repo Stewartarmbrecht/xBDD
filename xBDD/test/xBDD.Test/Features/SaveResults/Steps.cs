@@ -9,33 +9,76 @@ using Xunit;
 
 namespace xBDD.Test.Features.SaveResults
 {
-    [StepLibrary]
     public class Steps
     {
-        string connectionName = "Data:TestingConnection:ConnectionString";
-        int saveChangesCount;
-        ISimpleTestRun testRun;
+        public StepsState State { get; set; }
+        public GivenSteps Given { get; set; }
+        public WhenSteps When { get; set; }
+        public ThenSteps Then { get; set; }
+        public Steps()
+        {
+            State = new StepsState();
+            Given = new GivenSteps(State);
+            When = new WhenSteps(State);
+            Then = new ThenSteps(State);
+        }
+    }
+    public class StepsState : CommonState
+    {
+        public string ConnectionName = "Data:TestingConnection:ConnectionString";
+        public int SaveChangesCount { get; set; }
+        public ISimpleTestRun TestRun { get; set; }
+    }
+
+    [StepLibrary]
+    public class GivenSteps : CommonGivenSteps
+    {
+        StepsState state;
+        public GivenSteps(StepsState state)
+            : base(state)
+        {
+            this.state = state;
+        }
         internal void a_completed_test_run(IStep step)
         {
-            testRun = new SimpleTestRunUsingTypedState();
-            testRun.PassingScenario();
+            state.TestRun = new SimpleTestRunUsingTypedState();
+            state.TestRun.PassingScenario();
         }
-
         internal void an_empty_test_results_database(IStep step)
         {
-            DatabaseContext context = new DatabaseContext(connectionName);
+            DatabaseContext context = new DatabaseContext(state.ConnectionName);
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
         }
 
+    }
+    [StepLibrary]
+    public class WhenSteps : CommonWhenSteps
+    {
+        StepsState state;
+        public WhenSteps(StepsState state)
+            : base(state)
+        {
+            this.state = state;
+        }
         internal void SaveChanges_is_called_on_the_test_run(IStep step)
         {
-            saveChangesCount = testRun.SaveToDatabase(connectionName); 
-        }
-
-        internal void all_test_run_results_should_be_saved_to_a_new_database(IStep step)
-        {
-            Assert.Equal(5, saveChangesCount);
+            state.SaveChangesCount = state.TestRun.SaveToDatabase(state.ConnectionName);
         }
     }
+    [StepLibrary]
+    public class ThenSteps : CommonThenSteps
+    {
+        StepsState state;
+        public ThenSteps(StepsState state)
+            : base(state)
+        {
+            this.state = state;
+        }
+        internal void all_test_run_results_should_be_saved_to_a_new_database(IStep step)
+        {
+            Assert.Equal(5, state.SaveChangesCount);
+        }
+    }
+
 }
