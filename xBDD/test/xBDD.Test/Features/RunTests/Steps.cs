@@ -12,9 +12,6 @@ namespace xBDD.Test.Features.RunTests
     {
         private const string ReturnIfPreviousError = "step.ReturnIfPreviousError();";
 
-        public Outcome ExpectedOutcome { get; internal set; }
-        public IScenario Scenario { get; set; }
-        public IStep Step { get; set; }
         public bool CodeExecutedThatShould { get; private set; }
         public bool CodeExecutedThatShouldnt { get; private set; }
         public Exception ThrownException { get; private set; }
@@ -44,13 +41,6 @@ namespace xBDD.Test.Features.RunTests
         public void the_current_time_is_captured_as_CapturedStartTime(IStep step)
         {
             CapturedStartTime = DateTime.Now;
-        }
-
-        public void a_scenario(IStep step)
-        {
-            var coreFactory = new CoreFactory();
-            var testRun = new TestRun(coreFactory);
-            Scenario = testRun.AddScenario();
         }
 
         public void a_step_that_does_not_thwow_an_exception(IStep step)

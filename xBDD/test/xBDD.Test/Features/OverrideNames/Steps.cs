@@ -1,4 +1,5 @@
-﻿using xBDD.Test.Sample;
+﻿using System;
+using xBDD.Test.Sample;
 using Xunit;
 
 namespace xBDD.Test.Features.OverrideNames
@@ -9,70 +10,27 @@ namespace xBDD.Test.Features.OverrideNames
         public string ExpectedAreaPath { get; internal set; }
         public string ExpectedFeatureName { get; internal set; }
         public string ExpectedScenarioName { get; internal set; }
+        public string StepName { get; internal set; }
+        public string PageName { get; internal set; }
+        public string ParameterReplacementCall { get; internal set; }
+        public string NewStepName { get; internal set; }
 
-
-        internal void a_simple_passing_scenario_with_an_scenario_name_attribute_is_run(IStep step)
+        internal void the_step_name_should_be_NewStepName(IStep obj)
         {
-            SimpleTestRun = new SimpleTestRunUsingTypedStateWithCustomAttributes();
-            SimpleTestRun.PassingScenario();
-        }
-        internal void the_scenario_name_should_match_the_scenario_name_attribute_setting(IStep step)
-        {
-            Assert.Equal(ExpectedScenarioName, SimpleTestRun.Scenario.Name);
-        }
-        internal void a_simple_passing_scenario_with_a_scenario_name_set_when_adding_the_scenario(IStep step)
-        {
-            SimpleTestRun = new SimpleTestRunUsingTypedStateWithCustomAreaSetAtAdd();
-            SimpleTestRun.PassingScenarioWithTimeCapturingStep();
-        }
-        internal void the_scenario_name_should_match_the_string_value_used(IStep step)
-        {
-            Assert.Equal(ExpectedScenarioName, SimpleTestRun.Scenario.Name);
+            throw new NotImplementedException();
         }
 
-        internal void a_simple_passing_scenario_with_an_area_path_attribute_is_run(IStep step)
+        internal void the_step_calls_to_replace_the_parameters_in_its_name_with_ParameterReplacementCall(IStep obj)
         {
-            SimpleTestRun = new SimpleTestRunUsingTypedStateWithCustomAttributes();
-            SimpleTestRun.PassingScenario();
-        }
-        internal void the_area_path_should_match_the_area_path_attribute_setting(IStep step)
-        {
-            Assert.Equal(ExpectedAreaPath, SimpleTestRun.Scenario.AreaPath);
-        }
-        internal void a_simple_passing_scenario_with_an_area_path_set_when_adding_the_scenario(IStep step)
-        {
-            SimpleTestRun = new SimpleTestRunUsingTypedStateWithCustomAreaSetAtAdd();
-            SimpleTestRun.PassingScenario();
-        }
-        internal void the_area_path_should_match_the_string_value_used(IStep step)
-        {
-            Assert.Equal(ExpectedAreaPath, SimpleTestRun.Scenario.AreaPath);
         }
 
-        internal void a_simple_passing_scenario_with_an_feature_name_attribute_is_run(IStep step)
+        #region Given
+        internal void the_scenario_has_a_step_with_the_name_StepName(IStep obj)
         {
-            SimpleTestRun = new SimpleTestRunUsingTypedStateWithCustomAttributes();
-            SimpleTestRun.PassingScenario();
+            Scenario.Given(StepName, st => { });
+            Step = Scenario.Steps[0];
         }
-        internal void the_feature_name_should_match_the_feature_name_attribute_setting(IStep step)
-        {
-            Assert.Equal(ExpectedFeatureName, SimpleTestRun.Scenario.FeatureName);
-        }
-        internal void a_simple_passing_scenario_with_a_feature_name_set_when_adding_the_scenario(IStep step)
-        {
-            SimpleTestRun = new SimpleTestRunUsingTypedStateWithCustomAreaSetAtAdd();
-            try
-            {
-                SimpleTestRun.FailingScenario();
-            }
-            catch
-            {
-                return;
-            }
-        }
-        internal void the_feature_name_should_match_the_string_value_used(IStep step)
-        {
-            Assert.Equal(ExpectedFeatureName, SimpleTestRun.Scenario.FeatureName);
-        }
+
+        #endregion 
     }
 }

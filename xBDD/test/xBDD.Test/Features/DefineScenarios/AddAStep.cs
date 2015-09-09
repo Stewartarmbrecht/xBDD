@@ -5,7 +5,14 @@
         [ScenarioFact]
         public void Given()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            Steps s = new Steps();
+            s.StepType = "Given";
+            s.StepName = "my step";
+            s.AddedStepName = "Given my step";
+            xBDD.CurrentRun.AddScenario()
+                .Given(s.a_scenario)
+                .When(s.a_StepType_step_is_added_to_a_scenario_with_a_name_of_StepName)
+                .Then(s.the_added_step_name_should_be_AddedStepName);
         }
         [ScenarioFact]
         public void GivenAsync()

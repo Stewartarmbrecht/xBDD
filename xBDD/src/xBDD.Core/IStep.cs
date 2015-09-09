@@ -20,6 +20,7 @@ namespace xBDD
         Exception Exception { get; set; }
 
         void SetNameWithReplacement(string key, string value);
+        void SetNameWithReplacement(params string[] keyValue);
         void ReturnIfPreviousError();
     }
 }

@@ -25,6 +25,22 @@ namespace xBDD.Test.Features.OverrideNames
             xBDD.CurrentRun.AddScenario().Skip();
         }
         [ScenarioFact]
+        public void WithMultipleParameterReplacement()
+        {
+            Steps s = new Steps();
+            s.StepName = "the user UserName navigates to the PageName page";
+            s.PageName = "Home";
+            s.ParameterReplacementCall = "step.SetNameWithReplacement(\"UserName\",\"JohnDoe\"\"PageName\",\"Home\")";
+            s.NewStepName = "the user JohnDoe navigates to the Home page";
+            xBDD.CurrentRun.AddScenario()
+                .Given(s.a_scenario)
+                .And(s.the_scenario_has_a_step_with_the_name_StepName)
+                .When(s.the_step_calls_to_replace_the_parameters_in_its_name_with_ParameterReplacementCall)
+                .Then(s.the_step_name_should_be_NewStepName)
+                .Run();
+
+        }
+        [ScenarioFact]
         public void WithParameterQuotes()
         {
             xBDD.CurrentRun.AddScenario().Skip();

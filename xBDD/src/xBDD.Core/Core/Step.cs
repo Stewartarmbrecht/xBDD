@@ -45,11 +45,31 @@ namespace xBDD.Core
             var method = factory.UtilityFactory.GetMethodRetriever().GetCallingStepMethod();
             SetName(factory.UtilityFactory.GetStepNameReader().ReadStepNameWithReplacement(this, null, method, replacements));
         }
+        public void SetNameWithReplacement(params string[] keyValue)
+        {
+            var replacements = new Dictionary<string, string>();
+            string key = null;
+            foreach(string param in keyValue)
+            {
+                if (key == null)
+                {
+                    key = param;
+                }
+                else
+                {
+                    replacements.Add(key, param);
+                    key = null;
+                }
+            }
+            var method = factory.UtilityFactory.GetMethodRetriever().GetCallingStepMethod();
+            SetName(factory.UtilityFactory.GetStepNameReader().ReadStepNameWithReplacement(this, null, method, replacements));
+        }
 
         public void ReturnIfPreviousError()
         {
             if(Scenario.Outcome == Outcome.Skipped || Scenario.Outcome == Outcome.Failed)
                 throw new SkipStepException("Previous Error");
         }
+
     }
 }
