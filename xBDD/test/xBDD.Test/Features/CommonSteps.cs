@@ -86,11 +86,16 @@ namespace xBDD.Test.Features
             state.Scenario.Given(state.StepName, stepTarget => { });
             state.Step = state.Scenario.Steps[state.Scenario.Steps.Count -1];
         }
-        internal void the_scenario_is_set_to_write_its_output(IStep obj)
+        internal void the_scenario_is_set_to_write_its_output(IStep step)
         {
-            obj.SetMultilineParameter("scenario.SetOutputWriter(outputWriter);");
+            step.SetMultilineParameter("scenario.SetOutputWriter(outputWriter);");
             state.OutputWriter = new MockOutputWriter();
             state.Scenario.SetOutputWriter(state.OutputWriter);
+        }
+        internal void the_step_has_a_multiline_parameter_of(IStep step)
+        {
+            step.SetMultilineParameter(state.MultilineParameter);
+            state.Step.SetMultilineParameter(state.MultilineParameter);
         }
     }
 

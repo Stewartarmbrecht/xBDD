@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace xBDD.Core
@@ -27,7 +28,16 @@ namespace xBDD.Core
         {
             outputWriter.WriteLine("    " + step.Name);
             if (step.MultilineParameter != null)
-                outputWriter.WriteLine("        " + step.MultilineParameter);
+            {
+                string[] lines = Regex.Split(step.MultilineParameter, "\r\n");
+                for(int i =0; i < lines.Length; i++)
+                {
+                    if (i == lines.Length - 1 && lines[i].Length == 0)
+                        return;
+                    else
+                        outputWriter.WriteLine((lines[i].Length > 0? "        ": "") + lines[i]);
+                }
+            }
         }
     }
 }

@@ -216,5 +216,32 @@ namespace xBDD.Test.Features.RunTests
                 .Then(s.Then.the_scenario_should_write_the_following_output)
                 .Run();
         }
+        [ScenarioFact]
+        public void WriteScenarioWithMultilineParamterToOutput()
+        {
+            var s = new Steps();
+            s.State.ScenarioName = "My Scenario";
+            s.State.StepName = "my step";
+            StringBuilder mp = new StringBuilder();
+            mp.AppendLine("That does this");
+            mp.AppendLine("Then does this");
+            s.State.MultilineParameter = mp.ToString();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("My Scenario");
+            sb.AppendLine("    Given my step");
+            sb.AppendLine("        That does this");
+            sb.AppendLine("        Then does this");
+            s.State.Output = sb.ToString();
+            xBDD.CurrentRun.AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Given(s.Given.a_test_run)
+                .Given(s.Given.a_scenario_with_the_name_ScenarioName)
+                .And(s.Given.a_given_step_with_the_name_StepName)
+                .And(s.Given.the_step_has_a_multiline_parameter_of)
+                .And(s.Given.the_scenario_is_set_to_write_its_output)
+                .When(s.When.the_scenario_is_run)
+                .Then(s.Then.the_scenario_should_write_the_following_output)
+                .Run();
+        }
     }
 }
