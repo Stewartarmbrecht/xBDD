@@ -1,49 +1,82 @@
 ﻿using System.Text;
+using xBDD.xUnit;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace xBDD.Test.Features.OverrideNames
 {
     public class OverrideStepName
     {
+        private readonly IOutputWriter outputWriter;
+
+        public OverrideStepName(ITestOutputHelper output)
+        {
+            outputWriter = new OutputWriter(output);
+        }
+
         [ScenarioFact]
         public void WhenAdding()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void WhenAddingWithGivenStart()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void WhenAddingWithWhenStart()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void WhenAddingWithThenStart()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void WhenAddingWithAndStart()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void WithAnAttribute()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void AtRunTime()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void WithParameterReplacement()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void WithMultipleParameterReplacement()
@@ -53,7 +86,9 @@ namespace xBDD.Test.Features.OverrideNames
             s.State.PageName = "Home";
             s.State.MethodCall = "step.ReplaceNameParameters(\"UserName\",\"JohnDoe\"\"PageName\",\"Home\")";
             s.State.NewStepName = "the user JohnDoe navigates to the Home page";
-            xBDD.CurrentRun.AddScenario()
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_scenario)
                 .And(s.Given.the_scenario_has_a_step_with_the_name_StepName)
                 .And(s.Given.the_step_calls_to_replace_the_parameters_in_its_name_with_ParameterReplacementCall)
@@ -65,7 +100,10 @@ namespace xBDD.Test.Features.OverrideNames
         [ScenarioFact]
         public void WithParameterQuotes()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
 
         [ScenarioFact]
@@ -78,7 +116,9 @@ namespace xBDD.Test.Features.OverrideNames
             sb.AppendLine("We are happy to have you visit our site.");
             s.State.MultilineParameter = sb.ToString();
             s.State.MethodCall = "step.SetMultilineParameter(parameterValue);";
-            xBDD.CurrentRun.AddScenario()
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_scenario)
                 .And(s.Given.the_scenario_has_a_step_with_the_name_StepName)
                 .And(s.Given.the_step_calls_to_set_the_multiline_parameter_with_MethodCall)

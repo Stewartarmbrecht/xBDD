@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit.Abstractions;
 
-namespace xBDD.Core
+namespace xBDD.xUnit
 {
     public class OutputWriter : IOutputWriter
     {
@@ -16,6 +17,7 @@ namespace xBDD.Core
         public void WriteLine(string text)
         {
             testOutputHelper.WriteLine(text);
+            Trace.WriteLine(text);
         }
     }
 }

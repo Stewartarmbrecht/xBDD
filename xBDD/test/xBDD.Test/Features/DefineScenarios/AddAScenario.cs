@@ -1,11 +1,20 @@
 ﻿using System.Diagnostics;
 using System.Threading.Tasks;
+using xBDD.xUnit;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace xBDD.Test.Features.DefineScenarios
 {
     public class AddAScenario
     {
+
+        private readonly IOutputWriter outputWriter;
+
+        public AddAScenario(ITestOutputHelper output)
+        {
+            outputWriter = new OutputWriter(output);
+        }
 
         [ScenarioFact]
         public void InAScenarioFact()
@@ -17,7 +26,9 @@ namespace xBDD.Test.Features.DefineScenarios
             s.State.ExpectedFeatureName = "Add A Scenario";
             s.State.ExpectedAreaPath = "xBDD.Test.Features.DefineScenarios";
             s.State.MethodCall = "xBDD.CurrentRun.AddScenario();";
-            s.State.Scenario = xBDD.CurrentRun.AddScenario()
+            s.State.Scenario = xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_method_with_the_xBDD_ScenarioFact_attribute_named_MethodName)
                 .When(s.When.the_first_call_is_made_to_MethodCall)
                 .Then(s.Then.a_scenario_will_be_created)
@@ -36,7 +47,9 @@ namespace xBDD.Test.Features.DefineScenarios
             s.State.ExpectedFeatureName = "Add A Scenario";
             s.State.ExpectedAreaPath = "xBDD.Test.Features.DefineScenarios";
             s.State.MethodCall = "xBDD.CurrentRun.AddScenario();";
-            s.State.Scenario = xBDD.CurrentRun.AddScenario()
+            s.State.Scenario = xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_method_with_the_xBDD_ScenarioFact_attribute_named_MethodName)
                 .When(s.When.the_first_call_is_made_to_MethodCall)
                 .Then(s.Then.a_scenario_will_be_created)
@@ -59,7 +72,9 @@ namespace xBDD.Test.Features.DefineScenarios
             s.State.MethodCall = "xBDD.CurrentRun.AddScenario();";
             s.State.X = x;
             s.State.Y = y;
-            s.State.Scenario = xBDD.CurrentRun.AddScenario("In A Scenario Theory With Parameter X As " + x.ToString() + " And Y As " + y.ToString())
+            s.State.Scenario = xBDD.CurrentRun
+                .AddScenario("In A Scenario Theory With Parameter X As " + x.ToString() + " And Y As " + y.ToString())
+                .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_method_with_the_xBDD_ScenarioTheory_attribute_named_MethodName)
                 .When(s.When.the_first_call_is_made_to_MethodCall)
                 .Then(s.Then.a_scenario_will_be_created)
@@ -71,12 +86,18 @@ namespace xBDD.Test.Features.DefineScenarios
         [ScenarioFact]
         public void InAnAsyncScenarioTheory()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void InARegularMethodNoScenarioFactOrTheory()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
     }
 }

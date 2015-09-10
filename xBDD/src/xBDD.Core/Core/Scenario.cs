@@ -12,7 +12,6 @@ namespace xBDD.Core
         IOutcomeAggregator outcomeAggregator;
         IScenarioRunner runner;
         IScenarioBuilder builder;
-
         public Scenario(ICoreFactory factory, ITestRun testRun)
         {
             this.factory = factory;
@@ -37,6 +36,7 @@ namespace xBDD.Core
         public ITestRun TestRun { get; set; }
 
         public List<IStep> Steps { get; private set; }
+
 
         public void Run()
         {
@@ -70,7 +70,7 @@ namespace xBDD.Core
         }
         public IScenario Given(string name, Action<IStep> stepAction)
         {
-            return builder.Given(stepAction);
+            return builder.Given(name, stepAction);
         }
         #endregion Given
         #region When
@@ -125,6 +125,12 @@ namespace xBDD.Core
         public IScenario And(string name, Action<IStep> stepAction)
         {
             return builder.And(name, stepAction);
+        }
+
+        public IScenario SetOutputWriter(IOutputWriter outputWriter)
+        {
+            runner.SetOutputWriter(outputWriter);
+            return this;
         }
         #endregion And
     }

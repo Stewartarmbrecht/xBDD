@@ -1,18 +1,32 @@
-﻿using Xunit;
+﻿using xBDD.xUnit;
+using Xunit.Abstractions;
 
 namespace xBDD.Test.Features.OverrideNames
 {
     public class OverrideFeatureName
     {
+        private readonly IOutputWriter outputWriter;
+
+        public OverrideFeatureName(ITestOutputHelper output)
+        {
+            outputWriter = new OutputWriter(output);
+        }
+
         [ScenarioFact]
         public void WhenAdding()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void WithAnAttribute()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
 
         //[ScenarioFact]

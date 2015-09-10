@@ -9,6 +9,7 @@ namespace xBDD.Core
         IScenarioInternal scenario;
         ICoreFactory factory;
         IStepExecutor stepExecutor;
+        IScenarioOutputWriter outputWriter;
         internal ScenarioRunner(IScenarioInternal scenario, ICoreFactory factory)
         {
             this.scenario = scenario;
@@ -31,6 +32,8 @@ namespace xBDD.Core
                     stepExecutor.ExecuteStep(step);
                 }
             }
+            if (outputWriter != null)
+                outputWriter.WriteOutput();
             if (scenario.FirstStepException != null)
                 throw scenario.FirstStepException;
         }
@@ -57,6 +60,8 @@ namespace xBDD.Core
                     await stepExecutor.ExecuteStepAsync(step);
                 }
             }
+            if(outputWriter != null)
+                outputWriter.WriteOutput();
             if (scenario.FirstStepException != null)
                 throw scenario.FirstStepException;
         }
@@ -65,13 +70,22 @@ namespace xBDD.Core
         {
             scenario.Outcome = Outcome.Skipped;
             scenario.FirstStepException = new SkipScenarioException("Scenario Skipped", new SkipStepException("Scenario Skipped"));
+            if (outputWriter != null)
+                outputWriter.WriteOutput();
             Run();
         }
         public async Task SkipAsync()
         {
             scenario.Outcome = Outcome.Skipped;
             scenario.FirstStepException = new SkipScenarioException("Scenario Skipped", new SkipStepException("Scenario Skipped"));
+            if (outputWriter != null)
+                outputWriter.WriteOutput();
             await RunAsync();
+        }
+
+        public void SetOutputWriter(IOutputWriter outputWriter)
+        {
+            this.outputWriter = factory.CreateScenarioOutputWriter(scenario, outputWriter);
         }
     }
 }

@@ -13,5 +13,6 @@ namespace xBDD.Core
         IStep CreateStep(IScenarioInternal scenario);
         IStepExecutor CreateStepExecutor(IScenarioInternal scenario);
         IStepExceptionHandler CreateStepExceptionHandler(IScenarioInternal scenario);
+        IScenarioOutputWriter CreateScenarioOutputWriter(IScenarioInternal scenario, IOutputWriter outputWriter);
     }
 }

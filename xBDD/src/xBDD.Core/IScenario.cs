@@ -17,7 +17,6 @@ namespace xBDD
         DateTime EndTime { get; }
         TimeSpan Time { get; }
         Exception FirstStepException { get; }
-        //IOutputWriter OutputWriter { get; }
 
         IScenario GivenAsync(string stepName, Func<IStep, Task> stepAction);
         IScenario GivenAsync(Func<IStep,Task> stepAction);
@@ -39,7 +38,7 @@ namespace xBDD
         IScenario And(Action<IStep> stepAction);
         IScenario And(string name, Action<IStep> stepAction);
 
-        //IScenario SetOutputWriter(IOutputWriter outputWriter);
+        IScenario SetOutputWriter(IOutputWriter outputWriter);
 
         void Run();
         Task RunAsync();

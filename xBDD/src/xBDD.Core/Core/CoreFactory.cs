@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using xBDD.Utility;
 
 namespace xBDD.Core
@@ -48,6 +49,11 @@ namespace xBDD.Core
         public IStepExecutor CreateStepExecutor(IScenarioInternal scenario)
         {
             return new StepExecutor(scenario, this);
+        }
+
+        public IScenarioOutputWriter CreateScenarioOutputWriter(IScenarioInternal scenario, IOutputWriter outputWriter)
+        {
+            return new ScenarioOutputWriter(scenario, outputWriter);
         }
     }
 }

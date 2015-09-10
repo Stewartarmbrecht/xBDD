@@ -26,7 +26,6 @@ namespace xBDD.Test.Features.RunTests
         public string ReturnIfPreviousError = "step.ReturnIfPreviousError();";
         public bool CodeExecutedThatShould { get; set; }
         public bool CodeExecutedThatShouldnt { get; set; }
-        public Exception ThrownException { get; set; }
         public DateTime Time1 { get; internal set; }
         public DateTime Time2 { get; internal set; }
         public DateTime CapturedStartTime { get; internal set; }
@@ -35,7 +34,6 @@ namespace xBDD.Test.Features.RunTests
         public Exception ExpectedException { get; internal set; }
         public string ExceptionMessage { get; internal set; }
         public Type ExpectedExceptionType { get; internal set; }
-
     }
 
     [StepLibrary]
@@ -138,17 +136,6 @@ namespace xBDD.Test.Features.RunTests
         public async Task the_parent_scenario_is_run_async(IStep step)
         {
             await state.Scenario.RunAsync();
-        }
-        internal void the_scenario_is_run(IStep step)
-        {
-            try
-            {
-                state.Scenario.Run();
-            }
-            catch (Exception ex)
-            {
-                state.ThrownException = ex;
-            }
         }
         internal void a_scenario_with_the_first_step_skipped_and_the_middle_step_failing_is_run(IStep step)
         {

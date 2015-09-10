@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Text;
 using System.Threading.Tasks;
 using xBDD.Core;
+using xBDD.Test.Mocks;
 using xBDD.Test.Sample;
+using Xunit;
 
 namespace xBDD.Test.Features
 {
@@ -28,6 +31,11 @@ namespace xBDD.Test.Features
         public Exception CaughtException { get; set; }
         public string MultilineParameter { get; internal set; }
         public string MethodCall { get; internal set; }
+        public TestRun TestRun { get; internal set; }
+        public string ScenarioName { get; internal set; }
+        public string StepName { get; internal set; }
+        public MockOutputWriter OutputWriter { get; internal set; }
+        public string Output { get; internal set; }
     }
     [StepLibrary]
     public class CommonGivenSteps
@@ -37,11 +45,52 @@ namespace xBDD.Test.Features
         {
             this.state = state;
         }
+        internal void a_test_run(IStep step)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("var factory = new CoreFactory();");
+            sb.AppendLine("var testRun = new TestRun(factory);");
+            step.SetMultilineParameter(sb.ToString());
+            var factory = new CoreFactory();
+            state.TestRun = new TestRun(factory);
+        }
         internal void a_scenario(IStep step)
         {
-            var factory = new CoreFactory();
-            var testRun = new TestRun(factory);
-            state.Scenario = testRun.AddScenario();
+            if(state.TestRun == null)
+            {
+                var factory = new CoreFactory();
+                state.TestRun = new TestRun(factory);
+            }
+            state.Scenario = state.TestRun.AddScenario();
+        }
+        internal void a_scenario_with_the_name_ScenarioName(IStep step)
+        {
+            step.ReplaceNameParameters("ScenarioName", state.ScenarioName.Quote());
+            step.SetMultilineParameter("testRun.AddScenario(\"" + state.ScenarioName + "\");");
+            if (state.TestRun == null)
+            {
+                var factory = new CoreFactory();
+                state.TestRun = new TestRun(factory);
+            }
+            state.Scenario = state.TestRun.AddScenario(state.ScenarioName);
+        }
+        internal void a_given_step_with_the_name_StepName(IStep step)
+        {
+            step.ReplaceNameParameters("StepName", state.StepName.Quote());
+            step.SetMultilineParameter("scenario.Given(\""+state.StepName+"\", step => {});");
+            if (state.TestRun == null)
+            {
+                var factory = new CoreFactory();
+                state.TestRun = new TestRun(factory);
+            }
+            state.Scenario.Given(state.StepName, stepTarget => { });
+            state.Step = state.Scenario.Steps[state.Scenario.Steps.Count -1];
+        }
+        internal void the_scenario_is_set_to_write_its_output(IStep obj)
+        {
+            obj.SetMultilineParameter("scenario.SetOutputWriter(outputWriter);");
+            state.OutputWriter = new MockOutputWriter();
+            state.Scenario.SetOutputWriter(state.OutputWriter);
         }
     }
 
@@ -57,6 +106,17 @@ namespace xBDD.Test.Features
         {
             state.Scenario.Run();
         }
+        internal void the_scenario_is_run_and_the_exception_caught(IStep step)
+        {
+            try
+            {
+                state.Scenario.Run();
+            }
+            catch (Exception ex)
+            {
+                state.CaughtException = ex;
+            }
+        }
     }
 
     [StepLibrary]
@@ -66,6 +126,10 @@ namespace xBDD.Test.Features
         public CommonThenSteps(CommonState state)
         {
             this.state = state;
+        }
+        internal void the_scenario_should_write_the_following_output(IStep obj)
+        {
+            Assert.Equal(state.Output, state.OutputWriter.Output);
         }
     }
 

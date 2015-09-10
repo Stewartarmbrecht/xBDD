@@ -1,26 +1,48 @@
-﻿namespace xBDD.Test.Features.DefineScenarios
+﻿using xBDD.xUnit;
+using Xunit.Abstractions;
+
+namespace xBDD.Test.Features.DefineScenarios
 {
     public class SpecifyParameters
     {
+        private readonly IOutputWriter outputWriter;
+
+        public SpecifyParameters(ITestOutputHelper output)
+        {
+            outputWriter = new OutputWriter(output);
+        }
+
         [ScenarioFact]
         public void InlineWithTypedState()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void InlineWithDynamicState()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void MultilineParameter()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
         [ScenarioFact]
         public void TableParameter()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Skip();
         }
     }
 }

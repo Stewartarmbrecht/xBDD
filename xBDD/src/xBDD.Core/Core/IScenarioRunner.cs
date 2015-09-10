@@ -8,5 +8,6 @@ namespace xBDD.Core
         Task RunAsync();
         void Skip();
         Task SkipAsync();
+        void SetOutputWriter(IOutputWriter outputWriter);
     }
 }
