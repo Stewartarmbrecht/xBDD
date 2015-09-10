@@ -28,13 +28,13 @@ namespace xBDD.Test.Features.DefineScenarios
         public string ExpectedScenarioName { get; set; }
         public string ExpectedAreaPath { get; set; }
         public string ExpectedFeatureName { get; set; }
-        public string MethodCall { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
         public string StepType { get; set; }
         public string StepName { get; set; }
         public string AddedStepName { get; set; }
-
+        public ITestRun CurrentTestRun { get; internal set; }
+        public ITestRun NextCurrentTestRun { get; internal set; }
     }
 
     [StepLibrary]
@@ -49,11 +49,11 @@ namespace xBDD.Test.Features.DefineScenarios
 
         internal void a_method_with_the_xBDD_ScenarioFact_attribute_named_MethodName(IStep step)
         {
-            step.SetNameWithReplacement("MethodName", state.MethodName.Quote());
+            step.ReplaceNameParameters("MethodName", state.MethodName.Quote());
         }
         internal void a_method_with_the_xBDD_ScenarioTheory_attribute_named_MethodName(IStep step)
         {
-            step.SetNameWithReplacement("MethodName", state.MethodName.Quote());
+            step.ReplaceNameParameters("MethodName", state.MethodName.Quote());
         }
     }
     [StepLibrary]
@@ -68,13 +68,24 @@ namespace xBDD.Test.Features.DefineScenarios
 
         internal void a_StepType_step_is_added_to_a_scenario_with_a_name_of_StepName(IStep step)
         {
-            step.SetNameWithReplacement("StepType", state.StepType, "StepName", state.StepName);
+            step.ReplaceNameParameters("StepType", state.StepType, "StepName", state.StepName);
             state.Scenario
                 .Given(state.StepName, stepTarget => { });
         }
-        internal void a_call_is_made_to_MethodCall(IStep step)
+        internal void the_first_call_is_made_to_MethodCall(IStep step)
         {
-            step.SetNameWithReplacement("MethodCall", state.MethodCall.Quote());
+            step.ReplaceNameParameters("MethodCall", state.MethodCall.Quote());
+            state.CurrentTestRun = xBDD.CurrentRun;
+        }
+        internal void a_second_call_is_made_to_MethodCall(IStep step)
+        {
+            step.ReplaceNameParameters("MethodCall", state.MethodCall.Quote());
+            state.NextCurrentTestRun = xBDD.CurrentRun;
+        }
+
+        internal void the_following_code_is_executed(IStep step)
+        {
+            //step.SetMultilineParameter(state.MethodCall);
         }
     }
     [StepLibrary]
@@ -97,18 +108,33 @@ namespace xBDD.Test.Features.DefineScenarios
         }
         internal void the_scenario_name_will_match_the_method_name_with_the_underscores_replaced_with_spaces_like_ExpectedScenarioName(IStep step)
         {
-            step.SetNameWithReplacement("ExpectedScenarioName", state.ExpectedScenarioName.Quote());
+            step.ReplaceNameParameters("ExpectedScenarioName", state.ExpectedScenarioName.Quote());
             Assert.Equal(state.ExpectedScenarioName, state.Scenario.Name);
         }
         internal void the_area_path_will_match_the_namespace_like_ExpectedAreaPath(IStep step)
         {
-            step.SetNameWithReplacement("ExpectedAreaPath", state.ExpectedAreaPath.Quote());
+            step.ReplaceNameParameters("ExpectedAreaPath", state.ExpectedAreaPath.Quote());
             Assert.Equal(state.ExpectedAreaPath, state.Scenario.AreaPath);
         }
         internal void the_feature_name_will_match_the_class_name_with_spaces_added_where_there_are_capital_letters_like_ExpectedFeatureName(IStep step)
         {
-            step.SetNameWithReplacement("ExpectedFeatureName", state.ExpectedFeatureName.Quote());
+            step.ReplaceNameParameters("ExpectedFeatureName", state.ExpectedFeatureName.Quote());
             Assert.Equal(state.ExpectedFeatureName, state.Scenario.FeatureName);
+        }
+
+        internal void the_system_should_create_a_new_test_run(IStep obj)
+        {
+            Assert.NotNull(state.CurrentTestRun);
+        }
+
+        internal void the_system_should_return_the_same_test_run_from_the_first_call_as_the_second_call(IStep obj)
+        {
+            Assert.Equal(state.CurrentTestRun, state.NextCurrentTestRun);
+        }
+
+        internal void the_system_should_set_the_testRun_variable_with_a_new_test_run(IStep obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }

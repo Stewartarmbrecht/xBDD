@@ -19,9 +19,13 @@ namespace xBDD.Core
         public string Name { get; private set; }
         public void SetName(string name)
         {
-            if (name != null && name.EndsWith(" async"))
+            var lowerName = name.ToLower();
+            if (name != null && lowerName.EndsWith(" async"))
                 name = name.Substring(0, name.Length - 6);
-            Name = Enum.GetName(typeof(ActionType), ActionType) + " " + name;
+            if(!lowerName.StartsWith("given") && !lowerName.StartsWith("when") && !lowerName.StartsWith("then") && !lowerName.StartsWith("and"))
+            {
+                Name = Enum.GetName(typeof(ActionType), ActionType) + " " + name;
+            }
         }
         public DateTime EndTime { get; set; }
         public DateTime StartTime { get; set; }
@@ -37,16 +41,15 @@ namespace xBDD.Core
         }
 
         public Exception Exception { get; set; }
+        public string MultilineParameter { get; private set; }
 
-        public void SetNameWithReplacement(string key, string value)
+        public void ReplaceNameParameters(params string[] keyValue)
         {
-            var replacements = new Dictionary<string, string>();
-            replacements.Add(key, value);
-            var method = factory.UtilityFactory.GetMethodRetriever().GetCallingStepMethod();
-            SetName(factory.UtilityFactory.GetStepNameReader().ReadStepNameWithReplacement(this, null, method, replacements));
-        }
-        public void SetNameWithReplacement(params string[] keyValue)
-        {
+            if(Name == null)
+            {
+                var method = factory.UtilityFactory.GetMethodRetriever().GetCallingStepMethod();
+                SetName(factory.UtilityFactory.GetStepNameReader().ReadStepName(method));
+            }
             var replacements = new Dictionary<string, string>();
             string key = null;
             foreach(string param in keyValue)
@@ -61,8 +64,11 @@ namespace xBDD.Core
                     key = null;
                 }
             }
-            var method = factory.UtilityFactory.GetMethodRetriever().GetCallingStepMethod();
-            SetName(factory.UtilityFactory.GetStepNameReader().ReadStepNameWithReplacement(this, null, method, replacements));
+
+            foreach(var pair in replacements)
+            {
+                Name = Name.Replace(pair.Key, pair.Value);
+            }
         }
 
         public void ReturnIfPreviousError()
@@ -71,5 +77,9 @@ namespace xBDD.Core
                 throw new SkipStepException("Previous Error");
         }
 
+        public void SetMultilineParameter(string multilineParameter)
+        {
+            MultilineParameter = multilineParameter;
+        }
     }
 }

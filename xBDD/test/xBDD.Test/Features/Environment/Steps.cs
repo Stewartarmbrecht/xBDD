@@ -36,7 +36,7 @@ namespace xBDD.Test.Features.Environment
         internal void the_solution_is_set_to_the_Publish_configuration(IStep obj) { }
         internal void there_is_a_valid_connection_string_set_for_the_ConfigurationSetting_setting(IStep obj)
         {
-            obj.SetNameWithReplacement("ConfigurationSetting", "Data:DefaultConnection:ConnectionString".Quote());
+            obj.ReplaceNameParameters("ConfigurationSetting", "Data:DefaultConnection:ConnectionString".Quote());
         }
     }
     [StepLibrary]

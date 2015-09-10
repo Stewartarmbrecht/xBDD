@@ -62,7 +62,7 @@ namespace xBDD.Test.Features.RunTests
         }
         internal void the_last_step_includes_ReturnIfPreviousError_line(IStep step)
         {
-            step.SetNameWithReplacement("ReturnIfPreviousError", state.ReturnIfPreviousError.Quote());
+            step.ReplaceNameParameters("ReturnIfPreviousError", state.ReturnIfPreviousError.Quote());
         }
         public void the_current_time_is_captured_as_CapturedStartTime(IStep step)
         {
@@ -353,12 +353,12 @@ namespace xBDD.Test.Features.RunTests
         }
         internal void code_in_the_last_step_before_the_ReturnIfPreviousError_line_should_execute(IStep step)
         {
-            step.SetNameWithReplacement("ReturnIfPreviousError", state.ReturnIfPreviousError.Quote());
+            step.ReplaceNameParameters("ReturnIfPreviousError", state.ReturnIfPreviousError.Quote());
             Assert.True(state.CodeExecutedThatShould);
         }
         internal void code_in_the_last_step_after_the_ReturnIfPreviousError_line_should_not_execute(IStep step)
         {
-            step.SetNameWithReplacement("ReturnIfPreviousError", state.ReturnIfPreviousError.Quote());
+            step.ReplaceNameParameters("ReturnIfPreviousError", state.ReturnIfPreviousError.Quote());
             Assert.False(state.CodeExecutedThatShouldnt);
         }
         internal void the_last_step_should_be_passed(IStep step)
@@ -392,7 +392,7 @@ namespace xBDD.Test.Features.RunTests
         }
         internal void the_scenario_outcome_should_be_ExpectedOutcome(IStep step)
         {
-            step.SetNameWithReplacement("ExpectedOutcome", Enum.GetName(typeof(Outcome), state.ExpectedOutcome).Quote());
+            step.ReplaceNameParameters("ExpectedOutcome", Enum.GetName(typeof(Outcome), state.ExpectedOutcome).Quote());
             Assert.Equal(state.ExpectedOutcome, state.Scenario.Outcome);
         }
         internal void the_end_time_should_be_before_or_equal_Time2(IStep step)
@@ -425,12 +425,12 @@ namespace xBDD.Test.Features.RunTests
         }
         internal void the_step_reason_should_be_ExpectedReason(IStep step)
         {
-            step.SetNameWithReplacement("ExpectedReason", state.ExpectedReason.Quote());
+            step.ReplaceNameParameters("ExpectedReason", state.ExpectedReason.Quote());
             Assert.Equal(state.ExpectedReason, state.Step.Reason);
         }
         internal void the_step_outcome_should_be_ExpectedOutcome(IStep step)
         {
-            step.SetNameWithReplacement("ExpectedOutcome", Enum.GetName(typeof(Outcome), state.ExpectedOutcome));
+            step.ReplaceNameParameters("ExpectedOutcome", Enum.GetName(typeof(Outcome), state.ExpectedOutcome));
             Assert.Equal(state.ExpectedOutcome, state.Step.Outcome);
         }
         internal void the_exception_should_have_the_message_ExceptionMessage(IStep obj)

@@ -26,7 +26,8 @@ namespace xBDD.Test.Features
         public IScenario Scenario { get; set; }
         public IStep Step { get; set; }
         public Exception CaughtException { get; set; }
-
+        public string MultilineParameter { get; internal set; }
+        public string MethodCall { get; internal set; }
     }
     [StepLibrary]
     public class CommonGivenSteps
@@ -51,6 +52,10 @@ namespace xBDD.Test.Features
         public CommonWhenSteps(CommonState state)
         {
             this.state = state;
+        }
+        internal void the_scenario_is_run(IStep obj)
+        {
+            state.Scenario.Run();
         }
     }
 

@@ -18,9 +18,10 @@ namespace xBDD
         dynamic State { get; }
         string Reason { get; set; }
         Exception Exception { get; set; }
+        string MultilineParameter { get; }
 
-        void SetNameWithReplacement(string key, string value);
-        void SetNameWithReplacement(params string[] keyValue);
+        void ReplaceNameParameters(params string[] keyValue);
         void ReturnIfPreviousError();
+        void SetMultilineParameter(string multilineParameter);
     }
 }

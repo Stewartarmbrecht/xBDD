@@ -29,7 +29,8 @@ namespace xBDD.Database.Core
                 Outcome = step.Outcome,
                 Reason = step.Reason,
                 Scenario = scenario,
-                StartTime = step.StartTime
+                StartTime = step.StartTime,
+                MultilineParameter = step.MultilineParameter
             };
         }
 

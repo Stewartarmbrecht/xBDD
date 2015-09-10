@@ -19,7 +19,7 @@ namespace xBDD.Test.Features.DefineScenarios
             s.State.MethodCall = "xBDD.CurrentRun.AddScenario();";
             s.State.Scenario = xBDD.CurrentRun.AddScenario()
                 .Given(s.Given.a_method_with_the_xBDD_ScenarioFact_attribute_named_MethodName)
-                .When(s.When.a_call_is_made_to_MethodCall)
+                .When(s.When.the_first_call_is_made_to_MethodCall)
                 .Then(s.Then.a_scenario_will_be_created)
                 .And(s.Then.the_scenario_name_will_match_the_method_name_with_the_underscores_replaced_with_spaces_like_ExpectedScenarioName)
                 .And(s.Then.the_feature_name_will_match_the_class_name_with_spaces_added_where_there_are_capital_letters_like_ExpectedFeatureName)
@@ -38,7 +38,7 @@ namespace xBDD.Test.Features.DefineScenarios
             s.State.MethodCall = "xBDD.CurrentRun.AddScenario();";
             s.State.Scenario = xBDD.CurrentRun.AddScenario()
                 .Given(s.Given.a_method_with_the_xBDD_ScenarioFact_attribute_named_MethodName)
-                .When(s.When.a_call_is_made_to_MethodCall)
+                .When(s.When.the_first_call_is_made_to_MethodCall)
                 .Then(s.Then.a_scenario_will_be_created)
                 .And(s.Then.the_scenario_name_will_match_the_method_name_with_the_underscores_replaced_with_spaces_like_ExpectedScenarioName)
                 .And(s.Then.the_feature_name_will_match_the_class_name_with_spaces_added_where_there_are_capital_letters_like_ExpectedFeatureName)
@@ -61,7 +61,7 @@ namespace xBDD.Test.Features.DefineScenarios
             s.State.Y = y;
             s.State.Scenario = xBDD.CurrentRun.AddScenario("In A Scenario Theory With Parameter X As " + x.ToString() + " And Y As " + y.ToString())
                 .Given(s.Given.a_method_with_the_xBDD_ScenarioTheory_attribute_named_MethodName)
-                .When(s.When.a_call_is_made_to_MethodCall)
+                .When(s.When.the_first_call_is_made_to_MethodCall)
                 .Then(s.Then.a_scenario_will_be_created)
                 .And(s.Then.the_scenario_name_will_match_the_method_name_with_the_underscores_replaced_with_spaces_like_ExpectedScenarioName)
                 .And(s.Then.the_feature_name_will_match_the_class_name_with_spaces_added_where_there_are_capital_letters_like_ExpectedFeatureName)

@@ -26,9 +26,7 @@ namespace xBDD.Test.Features.OverrideNames
         public string ExpectedScenarioName { get; internal set; }
         public string StepName { get; internal set; }
         public string PageName { get; internal set; }
-        public string ParameterReplacementCall { get; internal set; }
         public string NewStepName { get; internal set; }
-
     }
 
     [StepLibrary]
@@ -40,12 +38,23 @@ namespace xBDD.Test.Features.OverrideNames
         {
             this.state = state;
         }
-        internal void the_scenario_has_a_step_with_the_name_StepName(IStep obj)
+        internal void the_scenario_has_a_step_with_the_name_StepName(IStep step)
         {
+            step.ReplaceNameParameters("StepName", state.StepName.Quote());
             state.Scenario.Given(state.StepName, st => { });
             state.Step = state.Scenario.Steps[0];
         }
+        internal void the_step_calls_to_replace_the_parameters_in_its_name_with_ParameterReplacementCall(IStep step)
+        {
+            step.ReplaceNameParameters("ParameterReplacementCall", state.MethodCall.Quote());
+            state.Step.Action = stepTarget => { stepTarget.ReplaceNameParameters("UserName", "JohnDoe", "PageName", "Home"); };
+        }
 
+        internal void the_step_calls_to_set_the_multiline_parameter_with_MethodCall(IStep step)
+        {
+            step.ReplaceNameParameters("MethodCall", state.MethodCall);
+            state.Step.Action = stepTarget => { stepTarget.SetMultilineParameter(state.MultilineParameter); };
+        }
     }
     [StepLibrary]
     public class WhenSteps : CommonWhenSteps
@@ -56,10 +65,6 @@ namespace xBDD.Test.Features.OverrideNames
         {
             this.state = state;
         }
-        internal void the_step_calls_to_replace_the_parameters_in_its_name_with_ParameterReplacementCall(IStep obj)
-        {
-        }
-
     }
     [StepLibrary]
     public class ThenSteps : CommonThenSteps
@@ -75,6 +80,10 @@ namespace xBDD.Test.Features.OverrideNames
             throw new NotImplementedException();
         }
 
+        internal void the_step_multiline_parameter_value_should_be_MultilineParameter(IStep obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

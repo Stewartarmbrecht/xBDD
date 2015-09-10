@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Xunit.Abstractions;
 
 namespace xBDD.Test.Features.RunTests
 {
     public class RunAScenario
     {
+        private readonly ITestOutputHelper output;
+
+        public RunAScenario(ITestOutputHelper output)
+        {
+            this.output = output;
+        }
+
         [ScenarioFact]
         public void RunSync()
         {
@@ -172,6 +180,19 @@ namespace xBDD.Test.Features.RunTests
                 .And(s.Then.the_time_should_match_the_summation_of_the_durations_of_all_child_steps)
                 .And(s.Then.the_first_step_should_be_skipped)
                 .And(s.Then.the_last_step_should_be_passed)
+                .Run();
+        }
+        [ScenarioFact]
+        public void WriteScenarioToOutput()
+        {
+            var s = new Steps();
+            s.State.ExpectedOutcome = Outcome.Passed;
+            xBDD.CurrentRun.AddScenario()
+                .When(s.When.a_scenario_with_all_passing_steps_is_run)
+                .Then(s.Then.the_scenario_outcome_should_be_ExpectedOutcome)
+                .And(s.Then.the_start_time_should_match_the_start_time_of_the_first_step)
+                .And(s.Then.the_end_time_should_match_the_end_time_of_the_last_step)
+                .And(s.Then.the_time_should_match_the_summation_of_the_durations_of_all_child_steps)
                 .Run();
         }
     }

@@ -13,5 +13,6 @@ namespace xBDD.Database.Core
         public Outcome Outcome { get; set; }
         public string Reason { get; set; }
         public string Exception { get; set; }
+        public string MultilineParameter { get; set; }
     }
 }

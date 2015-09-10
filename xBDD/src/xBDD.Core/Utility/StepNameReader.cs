@@ -4,28 +4,12 @@ namespace xBDD.Utility
 {
     public class StepNameReader : IStepNameReader
     {
-        public string ReadStepName(IStep step, string name, IMethod method)
+        public string ReadStepName(IMethod method)
         {
-            if (name == null & !method.Name.StartsWith("<"))
+            var name = ReadAttribute(method);
+            if (name == null)
             {
-                name = ReadAttribute(method);
-                if (name == null)
-                {
-                    name = method.Name.ReplaceUnderscores();
-                }
-            }
-            return name;
-        }
-
-        public string ReadStepNameWithReplacement(IStep step, string stepName, IMethod method, Dictionary<string, string> replacements)
-        {
-            string name = ReadStepName(step, stepName, method);
-            foreach(var pair in replacements)
-            {
-                //if the name came from the method name then it was cast to lower case and the key should be as well.
-                var key = (stepName == null ? pair.Key.ReplaceUnderscores() : pair.Key);
-
-                name = name.Replace(key, pair.Value);
+                name = method.Name.ReplaceUnderscores();
             }
             return name;
         }

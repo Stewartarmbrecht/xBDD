@@ -23,7 +23,7 @@ namespace xBDD.Test.Sample
         /// <param name="step"></param>
         public void the_user_logs_in_as_UserName(IStep step)
         {
-            step.SetNameWithReplacement("UserName", UserName.Quote());
+            step.ReplaceNameParameters("UserName", UserName.Quote());
         }
         /// <summary>
         /// Requires:
@@ -32,7 +32,7 @@ namespace xBDD.Test.Sample
         /// <param name="step"></param>
         public async Task the_user_logs_in_as_UserName_async(IStep step)
         {
-            step.SetNameWithReplacement("UserName", UserName.Quote());
+            step.ReplaceNameParameters("UserName", UserName.Quote());
             await Task.Run(() => { });
         }
         /// <summary>
@@ -44,7 +44,7 @@ namespace xBDD.Test.Sample
         /// <param name="step"></param>
         public void the_user_loads_the_PageName_page(IStep step)
         {
-            step.SetNameWithReplacement("PageName", PageName.Quote());
+            step.ReplaceNameParameters("PageName", PageName.Quote());
             if (PageLoadShouldFail)
                 throw new System.Exception("Page load failed.");
             if (PageLoadShouldSkip)
@@ -76,7 +76,7 @@ namespace xBDD.Test.Sample
         /// <param name="step"></param>
         public async Task the_user_loads_the_PageName_page_async(IStep step)
         {
-            step.SetNameWithReplacement("PageName", PageName.Quote());
+            step.ReplaceNameParameters("PageName", PageName.Quote());
             await Task.Run(() => {
                 if (PageLoadShouldFail)
                     throw new System.Exception("Page load failed.");
@@ -89,7 +89,7 @@ namespace xBDD.Test.Sample
         /// <param name="step"></param>
         public void the_loaded_page_should_have_a_header_of_ExpectedHeader(IStep step)
         {
-            step.SetNameWithReplacement("ExpectedHeader", Header.Quote());
+            step.ReplaceNameParameters("ExpectedHeader", Header.Quote());
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace xBDD.Test.Sample
         /// <param name="step"></param>
         public async Task the_loaded_page_should_have_a_header_of_ExpectedHeader_async(IStep step)
         {
-            step.SetNameWithReplacement("ExpectedHeader", Header.Quote());
+            step.ReplaceNameParameters("ExpectedHeader", Header.Quote());
             await Task.Run(() => { });
         }
     }

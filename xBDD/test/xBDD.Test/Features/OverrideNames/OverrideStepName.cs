@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System.Text;
+using Xunit;
 
 namespace xBDD.Test.Features.OverrideNames
 {
@@ -6,6 +7,26 @@ namespace xBDD.Test.Features.OverrideNames
     {
         [ScenarioFact]
         public void WhenAdding()
+        {
+            xBDD.CurrentRun.AddScenario().Skip();
+        }
+        [ScenarioFact]
+        public void WhenAddingWithGivenStart()
+        {
+            xBDD.CurrentRun.AddScenario().Skip();
+        }
+        [ScenarioFact]
+        public void WhenAddingWithWhenStart()
+        {
+            xBDD.CurrentRun.AddScenario().Skip();
+        }
+        [ScenarioFact]
+        public void WhenAddingWithThenStart()
+        {
+            xBDD.CurrentRun.AddScenario().Skip();
+        }
+        [ScenarioFact]
+        public void WhenAddingWithAndStart()
         {
             xBDD.CurrentRun.AddScenario().Skip();
         }
@@ -30,12 +51,13 @@ namespace xBDD.Test.Features.OverrideNames
             Steps s = new Steps();
             s.State.StepName = "the user UserName navigates to the PageName page";
             s.State.PageName = "Home";
-            s.State.ParameterReplacementCall = "step.SetNameWithReplacement(\"UserName\",\"JohnDoe\"\"PageName\",\"Home\")";
+            s.State.MethodCall = "step.ReplaceNameParameters(\"UserName\",\"JohnDoe\"\"PageName\",\"Home\")";
             s.State.NewStepName = "the user JohnDoe navigates to the Home page";
             xBDD.CurrentRun.AddScenario()
                 .Given(s.Given.a_scenario)
                 .And(s.Given.the_scenario_has_a_step_with_the_name_StepName)
-                .When(s.When.the_step_calls_to_replace_the_parameters_in_its_name_with_ParameterReplacementCall)
+                .And(s.Given.the_step_calls_to_replace_the_parameters_in_its_name_with_ParameterReplacementCall)
+                .When(s.When.the_scenario_is_run)
                 .Then(s.Then.the_step_name_should_be_NewStepName)
                 .Run();
 
@@ -44,6 +66,26 @@ namespace xBDD.Test.Features.OverrideNames
         public void WithParameterQuotes()
         {
             xBDD.CurrentRun.AddScenario().Skip();
+        }
+
+        [ScenarioFact]
+        public void WithMultilineParameterParameter()
+        {
+            Steps s = new Steps();
+            s.State.StepName = "the following message should be displayed";
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Welcome!");
+            sb.AppendLine("We are happy to have you visit our site.");
+            s.State.MultilineParameter = sb.ToString();
+            s.State.MethodCall = "step.SetMultilineParameter(parameterValue);";
+            xBDD.CurrentRun.AddScenario()
+                .Given(s.Given.a_scenario)
+                .And(s.Given.the_scenario_has_a_step_with_the_name_StepName)
+                .And(s.Given.the_step_calls_to_set_the_multiline_parameter_with_MethodCall)
+                .When(s.When.the_scenario_is_run)
+                .Then(s.Then.the_step_multiline_parameter_value_should_be_MultilineParameter)
+                .Run();
+
         }
 
         //[ScenarioFact]

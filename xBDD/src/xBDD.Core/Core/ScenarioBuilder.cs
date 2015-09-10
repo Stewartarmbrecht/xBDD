@@ -101,7 +101,10 @@ namespace xBDD.Core
             var method = factory.UtilityFactory.GetMethodRetriever().GetStepMethod(stepAction);
             step.ActionType = type;
             step.Action = stepAction;
-            step.SetName(factory.UtilityFactory.GetStepNameReader().ReadStepName(step, name, method));
+            if (name != null)
+                step.SetName(name);
+            else
+                step.SetName(factory.UtilityFactory.GetStepNameReader().ReadStepName(method));
             scenario.Steps.Add(step);
             return scenario;
         }
@@ -111,7 +114,10 @@ namespace xBDD.Core
             var method = factory.UtilityFactory.GetMethodRetriever().GetStepMethod(stepAction);
             step.ActionType = type;
             step.ActionAsync = stepAction;
-            step.SetName(factory.UtilityFactory.GetStepNameReader().ReadStepName(step, name, method));
+            if (name != null)
+                step.SetName(name);
+            else
+                step.SetName(factory.UtilityFactory.GetStepNameReader().ReadStepName(method));
             scenario.Steps.Add(step);
             return scenario;
         }

@@ -28,6 +28,12 @@ namespace xBDD.Test.Features.SaveResults
         }
 
         [ScenarioFact]
+        public void SaveTestResultsToExistingDatabaseFails()
+        {
+            xBDD.CurrentRun.AddScenario().Skip();
+        }
+
+        [ScenarioFact]
         public void GetTestResults()
         {
             xBDD.CurrentRun.AddScenario().Skip();
