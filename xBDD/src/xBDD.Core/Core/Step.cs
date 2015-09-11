@@ -73,8 +73,11 @@ namespace xBDD.Core
 
         public void ReturnIfPreviousError()
         {
-            if(Scenario.Outcome == Outcome.Skipped || Scenario.Outcome == Outcome.Failed)
-                throw new SkipStepException("Previous Error");
+            if (Scenario.Outcome == Outcome.Skipped || Scenario.Outcome == Outcome.Failed)
+                if (Scenario.Outcome == Outcome.Skipped)
+                    throw new SkipStepException("Scenario Skipped");
+                else
+                    throw new SkipStepException("Previous Error");
         }
 
         public void SetMultilineParameter(string multilineParameter)

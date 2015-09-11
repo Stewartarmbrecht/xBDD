@@ -119,6 +119,7 @@ namespace xBDD.Test.Features.RunTests
             state.Scenario.WhenAsync("my step", s => { return Task.Run(() => { throw state.ExpectedException; }); });
             state.Step = state.Scenario.Steps[0];
         }
+
     }
     [StepLibrary]
     public class WhenSteps : CommonWhenSteps
@@ -233,7 +234,7 @@ namespace xBDD.Test.Features.RunTests
                 .ThenAsync("my expectation", s => { return Task.Run(() => { s.ReturnIfPreviousError(); System.Threading.Thread.Sleep(5); }); });
             try
             {
-                await state.Scenario.SkipAsync();
+                await state.Scenario.SkipAsync("Not Started");
             }
             catch (Exception ex)
             {
@@ -250,7 +251,7 @@ namespace xBDD.Test.Features.RunTests
                 .Then("my expectation", s => { s.ReturnIfPreviousError(); System.Threading.Thread.Sleep(5); });
             try
             {
-                state.Scenario.Skip();
+                state.Scenario.Skip("Not Started");
             }
             catch (Exception ex)
             {
@@ -318,7 +319,7 @@ namespace xBDD.Test.Features.RunTests
         {
             this.state = state;
         }
-        internal void the_time_should_match_the_summation_of_the_durations_of_all_child_steps(IStep step)
+        internal void the_scenario_time_should_match_the_summation_of_the_durations_of_all_child_steps(IStep step)
         {
             TimeSpan time = new TimeSpan();
             state.Scenario.Steps.ForEach(stepTest => {
@@ -357,11 +358,11 @@ namespace xBDD.Test.Features.RunTests
             Assert.Equal(Outcome.Passed, state.Scenario.Steps[0].Outcome);
             Assert.Equal(Outcome.Passed, state.Scenario.Steps[2].Outcome);
         }
-        internal void the_start_time_should_match_the_start_time_of_the_first_step(IStep step)
+        internal void the_scenario_start_time_should_match_the_start_time_of_the_first_step(IStep step)
         {
             Assert.Equal(state.Scenario.Steps[0].StartTime, state.Scenario.StartTime);
         }
-        internal void the_end_time_should_match_the_end_time_of_the_last_step(IStep step)
+        internal void the_scenario_end_time_should_match_the_end_time_of_the_last_step(IStep step)
         {
             Assert.Equal(state.Scenario.Steps[2].EndTime, state.Scenario.EndTime);
         }
@@ -370,7 +371,7 @@ namespace xBDD.Test.Features.RunTests
             var ex = state.Step.Exception;
             Assert.Equal(state.ExpectedExceptionType, ex.GetType());
         }
-        internal void all_steps_should_be_marked_as_skipped(IStep step)
+        internal void all_scenario_steps_should_be_marked_as_skipped(IStep step)
         {
             foreach (var stepTarget in state.Scenario.Steps)
             {
@@ -428,5 +429,14 @@ namespace xBDD.Test.Features.RunTests
         {
             Assert.Equal(Outcome.Skipped, state.Scenario.Steps[0].Outcome);
         }
+
+        internal void all_scenario_steps_should_have_a_reason_of_SkipReason(IStep step)
+        {
+            foreach (var stepTarget in state.Scenario.Steps)
+            {
+                Assert.Equal(state.SkipReason, stepTarget.Reason);
+            }
+        }
+
     }
 }

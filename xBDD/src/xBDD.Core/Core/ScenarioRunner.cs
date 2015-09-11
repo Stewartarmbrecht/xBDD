@@ -66,20 +66,22 @@ namespace xBDD.Core
                 throw scenario.FirstStepException;
         }
 
-        public void Skip()
+        public void Skip(string reason)
         {
+            if (reason == null)
+                throw new ArgumentNullException("reason");
             scenario.Outcome = Outcome.Skipped;
-            scenario.FirstStepException = new SkipScenarioException("Scenario Skipped", new SkipStepException("Scenario Skipped"));
-            if (outputWriter != null)
-                outputWriter.WriteOutput();
+            scenario.Reason = reason;
+            scenario.FirstStepException = new SkipScenarioException(reason);
             Run();
         }
-        public async Task SkipAsync()
+        public async Task SkipAsync(string reason)
         {
+            if (reason == null)
+                throw new ArgumentNullException("reason");
             scenario.Outcome = Outcome.Skipped;
-            scenario.FirstStepException = new SkipScenarioException("Scenario Skipped", new SkipStepException("Scenario Skipped"));
-            if (outputWriter != null)
-                outputWriter.WriteOutput();
+            scenario.Reason = reason;
+            scenario.FirstStepException = new SkipScenarioException(reason);
             await RunAsync();
         }
 

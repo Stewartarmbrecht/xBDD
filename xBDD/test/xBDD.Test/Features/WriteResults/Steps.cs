@@ -32,7 +32,6 @@ namespace xBDD.Test.Features.SaveResults
         public string FileName { get; internal set; }
         public int SaveChangesCount { get; set; }
         public ISimpleTestRun SimpleTestRun { get; set; }
-        public string SkipReason { get; internal set; }
     }
 
     [StepLibrary]
@@ -55,14 +54,6 @@ namespace xBDD.Test.Features.SaveResults
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
         }
-
-        internal void the_scenario_has_three_passing_steps(IStep step)
-        {
-            state.Scenario.Given("my starting condition", st => { });
-            state.Scenario.When("my action", st => { });
-            state.Scenario.Then("my ending condition", st => { });
-        }
-
         internal void one_of_the_steps_throws_a_SkipStepException_with_a_reason_of_SkipReason(IStep step)
         {
             step.ReplaceNameParameters("SkipReason", state.SkipReason);

@@ -37,6 +37,7 @@ namespace xBDD.Core
 
         public List<IStep> Steps { get; private set; }
 
+        public string Reason { get; set; }
 
         public void Run()
         {
@@ -46,13 +47,13 @@ namespace xBDD.Core
         {
             await runner.RunAsync();
         }
-        public void Skip()
+        public void Skip(string reason)
         {
-            runner.Skip();
+            runner.Skip(reason);
         }
-        public async Task SkipAsync()
+        public async Task SkipAsync(string reason)
         {
-            await runner.SkipAsync();
+            await runner.SkipAsync(reason);
         }
 
         #region Given
@@ -126,12 +127,12 @@ namespace xBDD.Core
         {
             return builder.And(name, stepAction);
         }
+        #endregion And
 
         public IScenario SetOutputWriter(IOutputWriter outputWriter)
         {
             runner.SetOutputWriter(outputWriter);
             return this;
         }
-        #endregion And
     }
 }

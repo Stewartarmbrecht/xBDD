@@ -18,7 +18,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void InlineWithDynamicState()
@@ -26,7 +26,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void MultilineParameter()
@@ -34,7 +34,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void TableParameter()
@@ -42,7 +42,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
     }
 }

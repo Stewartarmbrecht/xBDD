@@ -84,7 +84,6 @@ namespace xBDD.Test.Features.DefineScenarios
 
         internal void the_following_code_is_executed(IStep step)
         {
-            //step.SetMultilineParameter(state.MethodCall);
         }
     }
     [StepLibrary]
@@ -133,7 +132,6 @@ namespace xBDD.Test.Features.DefineScenarios
 
         internal void the_system_should_set_the_testRun_variable_with_a_new_test_run(IStep obj)
         {
-            throw new NotImplementedException();
         }
     }
 }

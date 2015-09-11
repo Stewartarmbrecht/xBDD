@@ -19,7 +19,6 @@ namespace xBDD
         string Reason { get; set; }
         Exception Exception { get; set; }
         string MultilineParameter { get; }
-
         void ReplaceNameParameters(params string[] keyValue);
         void ReturnIfPreviousError();
         void SetMultilineParameter(string multilineParameter);

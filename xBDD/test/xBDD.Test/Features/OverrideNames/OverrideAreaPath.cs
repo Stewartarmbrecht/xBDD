@@ -19,7 +19,7 @@ namespace xBDD.Test.Features.OverrideNames
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void WithAnAttribute()
@@ -27,7 +27,7 @@ namespace xBDD.Test.Features.OverrideNames
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
 
         //[ScenarioFact]

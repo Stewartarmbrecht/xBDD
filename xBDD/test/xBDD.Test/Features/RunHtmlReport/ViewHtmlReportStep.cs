@@ -19,7 +19,7 @@ namespace xBDD.Test.Features.RunHtmlReport
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void ViewMultilineParameter()
@@ -27,7 +27,7 @@ namespace xBDD.Test.Features.RunHtmlReport
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void ViewTableParameter()
@@ -35,7 +35,7 @@ namespace xBDD.Test.Features.RunHtmlReport
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void ViewOutcomeWhenPassing()
@@ -43,7 +43,7 @@ namespace xBDD.Test.Features.RunHtmlReport
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void ViewOutcomeWhenFailing()
@@ -51,7 +51,7 @@ namespace xBDD.Test.Features.RunHtmlReport
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void ViewOutcomeWhenSkipped()
@@ -59,7 +59,7 @@ namespace xBDD.Test.Features.RunHtmlReport
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
     }
 }

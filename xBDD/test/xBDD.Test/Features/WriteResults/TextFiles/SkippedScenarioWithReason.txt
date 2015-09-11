@@ -2,7 +2,7 @@
 
 My.Area.Path
 	My Feature
-		My Scenario [Skipped - Deferred]
+		My Scenario [Skipped - Not Started]
 			Given my starting condition
 			When my action
 			Then my ending condition

@@ -20,7 +20,7 @@ namespace xBDD.Test.Features.OverrideNames
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void WhenAddingWithGivenStart()
@@ -28,7 +28,7 @@ namespace xBDD.Test.Features.OverrideNames
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void WhenAddingWithWhenStart()
@@ -36,7 +36,7 @@ namespace xBDD.Test.Features.OverrideNames
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void WhenAddingWithThenStart()
@@ -44,7 +44,7 @@ namespace xBDD.Test.Features.OverrideNames
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void WhenAddingWithAndStart()
@@ -52,7 +52,7 @@ namespace xBDD.Test.Features.OverrideNames
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void WithAnAttribute()
@@ -60,7 +60,7 @@ namespace xBDD.Test.Features.OverrideNames
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void AtRunTime()
@@ -68,7 +68,7 @@ namespace xBDD.Test.Features.OverrideNames
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void WithParameterReplacement()
@@ -112,7 +112,7 @@ namespace xBDD.Test.Features.OverrideNames
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
 
         [ScenarioFact]

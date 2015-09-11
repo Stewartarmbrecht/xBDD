@@ -17,6 +17,7 @@ namespace xBDD
         DateTime EndTime { get; }
         TimeSpan Time { get; }
         Exception FirstStepException { get; }
+        string Reason { get; set; }
 
         IScenario GivenAsync(string stepName, Func<IStep, Task> stepAction);
         IScenario GivenAsync(Func<IStep,Task> stepAction);
@@ -42,7 +43,7 @@ namespace xBDD
 
         void Run();
         Task RunAsync();
-        void Skip();
-        Task SkipAsync();
+        void Skip(string reason);
+        Task SkipAsync(string reason);
     }
 }

@@ -89,7 +89,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void InARegularMethodNoScenarioFactOrTheory()
@@ -97,7 +97,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
     }
 }

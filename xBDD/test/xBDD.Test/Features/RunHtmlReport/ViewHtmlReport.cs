@@ -22,7 +22,7 @@ namespace xBDD.Test.Features.RunHtmlReport
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void RunDate()
@@ -30,7 +30,7 @@ namespace xBDD.Test.Features.RunHtmlReport
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void ViewRootArea()
@@ -38,7 +38,7 @@ namespace xBDD.Test.Features.RunHtmlReport
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
     }
 }

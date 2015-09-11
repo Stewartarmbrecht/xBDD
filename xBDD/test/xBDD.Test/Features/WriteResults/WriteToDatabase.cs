@@ -34,7 +34,7 @@ namespace xBDD.Test.Features.SaveResults
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
 
         [ScenarioFact]
@@ -43,7 +43,7 @@ namespace xBDD.Test.Features.SaveResults
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
 
         [ScenarioFact]
@@ -52,7 +52,7 @@ namespace xBDD.Test.Features.SaveResults
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
     }
 }

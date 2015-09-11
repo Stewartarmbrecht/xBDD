@@ -13,10 +13,10 @@
                     switch (currentParentOutcome)
                     {
                         case Outcome.NotRun:
-                            newOutcome = Outcome.Skipped;
+                            newOutcome = Outcome.Failed;
                             break;
                         case Outcome.Passed:
-                            newOutcome = Outcome.Skipped;
+                            newOutcome = Outcome.Failed;
                             break;
                     }
                     break;

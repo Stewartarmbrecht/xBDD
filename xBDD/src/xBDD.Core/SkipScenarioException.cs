@@ -7,12 +7,8 @@ namespace xBDD
 {
     public class SkipScenarioException : Exception
     {
-        public SkipScenarioException(string stepName, SkipStepException ex)
-            : base("The child step, '"+stepName+"' was skippped because '" + ex.Message + "'. See the inner exception for details.", ex)
-        {
-        }
-        public SkipScenarioException(string stepName, NotImplementedException ex)
-            : base("The child step, '" + stepName + "' was not implemented. Message: '" + ex.Message + "'. See the inner exception for details.", ex)
+        public SkipScenarioException(string reason)
+            : base("The scenario was skippped because '" + reason + "'")
         {
         }
     }

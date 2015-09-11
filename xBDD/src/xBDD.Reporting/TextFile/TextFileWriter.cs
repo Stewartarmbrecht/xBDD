@@ -24,10 +24,22 @@ namespace xBDD.Reporting.TextFile
         private void WriteScenario(IScenario scenario, StringBuilder sb)
         {
             sb.AppendLine(scenario.AreaPath);
-            sb.AppendLine("\t" + scenario.FeatureName);
-            sb.Append("\t\t" + scenario.Name);
+            sb.Append("\t");
+            sb.AppendLine(scenario.FeatureName);
+            sb.Append("\t\t");
+            sb.Append(scenario.Name);
             if (scenario.Outcome != Outcome.Passed)
-                sb.AppendLine(" [" + Enum.GetName(typeof(Outcome), scenario.Outcome) + "]");
+            {
+                sb.Append(" [");
+                sb.Append(Enum.GetName(typeof(Outcome), scenario.Outcome));
+                if (scenario.Reason != null)
+                {
+                    sb.Append(" - ");
+                    sb.Append(scenario.Reason);
+                }
+                sb.AppendLine("]");
+
+            }
             else
                 sb.AppendLine();
             foreach(var step in scenario.Steps)
@@ -39,12 +51,17 @@ namespace xBDD.Reporting.TextFile
         private void WriteStep(IStep step, StringBuilder sb)
         {
             sb.Append("\t\t\t" + step.Name);
-            if (step.Outcome != Outcome.Passed)
+            if(step.Scenario.Outcome == Outcome.Failed)
             {
-                sb.Append(" [" + Enum.GetName(typeof(Outcome), step.Outcome));
-                if (step.Reason != null)
-                    sb.Append(" - " + step.Reason);
-                sb.AppendLine("]");
+                if (step.Outcome != Outcome.Passed)
+                {
+                    sb.Append(" [" + Enum.GetName(typeof(Outcome), step.Outcome));
+                    if (step.Reason != null)
+                        sb.Append(" - " + step.Reason);
+                    sb.AppendLine("]");
+                }
+                else
+                    sb.AppendLine();
             }
             else
                 sb.AppendLine();

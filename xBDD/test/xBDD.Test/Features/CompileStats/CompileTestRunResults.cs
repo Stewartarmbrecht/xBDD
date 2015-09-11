@@ -22,7 +22,7 @@ namespace xBDD.Test.Features.CompileStats
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void WithAreaPathSpecified()
@@ -30,7 +30,7 @@ namespace xBDD.Test.Features.CompileStats
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void EmptyTestRun()
@@ -38,8 +38,7 @@ namespace xBDD.Test.Features.CompileStats
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
-
     }
 }

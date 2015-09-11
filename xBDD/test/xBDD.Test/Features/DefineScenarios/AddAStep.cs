@@ -32,7 +32,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void When()
@@ -40,7 +40,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void WhenAsync()
@@ -48,7 +48,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void Then()
@@ -56,7 +56,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void ThenAsync()
@@ -64,7 +64,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void And()
@@ -72,7 +72,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void AndAsync()
@@ -80,7 +80,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
     }
 }

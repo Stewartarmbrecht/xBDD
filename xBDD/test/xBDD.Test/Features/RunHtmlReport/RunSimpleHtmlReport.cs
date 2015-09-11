@@ -21,7 +21,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         {
             xBDD.CurrentRun.AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
 
     }

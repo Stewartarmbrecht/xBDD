@@ -22,7 +22,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void InAStepLibrarySharedAcrossAreas()
@@ -30,7 +30,7 @@ namespace xBDD.Test.Features.DefineScenarios
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
     }
 }

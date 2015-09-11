@@ -12,7 +12,7 @@ namespace xBDD.Test.Features.ViewProperties
         [ScenarioFact]
         public void Name()
         {
-            xBDD.CurrentRun.AddScenario().Skip();
+            xBDD.CurrentRun.AddScenario().Skip("Not Started");
         }
         [ScenarioFact]
         public void Outcome()
@@ -64,7 +64,7 @@ namespace xBDD.Test.Features.ViewProperties
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void AreaPath()
@@ -72,7 +72,7 @@ namespace xBDD.Test.Features.ViewProperties
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void State()
@@ -80,7 +80,7 @@ namespace xBDD.Test.Features.ViewProperties
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
         [ScenarioFact]
         public void Steps()
@@ -88,7 +88,7 @@ namespace xBDD.Test.Features.ViewProperties
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Skip("Not Started");
         }
     }
 }

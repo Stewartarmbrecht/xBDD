@@ -29,30 +29,31 @@ namespace xBDD.Core
                 ProcessException(stepExecutor, step, ex);
             }
         }
-
         void ProcessSkipException(IStepExecutor stepExecutor, IStep step, SkipStepException ex)
         {
-            if (scenario.FirstStepException == null)
-            {
-                scenario.FirstStepException = new SkipScenarioException(step.Name, ex);
-            }
             stepExecutor.SetEndTimes(step);
             step.Outcome = Outcome.Skipped;
             step.Reason = ex.Message;
-            step.Exception = ex;
             scenario.Outcome = outcomeAggregator.GetNewParentOutcome(scenario.Outcome, step.Outcome);
+            if(scenario.Reason == null)
+                scenario.Reason = "Step Skipped";
+            if (scenario.FirstStepException == null)
+                scenario.FirstStepException = new StepException(step.Name, ex);
+            step.Exception = ex;
         }
         void ProcessNotImplementedException(IStepExecutor stepExecutor, IStep step, NotImplementedException ex)
         {
             if (scenario.FirstStepException == null)
             {
-                scenario.FirstStepException = new SkipScenarioException(step.Name, ex);
+                scenario.FirstStepException = new StepNotImplementedException(step.Name, ex);
             }
             stepExecutor.SetEndTimes(step);
             step.Outcome = Outcome.Skipped;
             step.Reason = "Not Implemented";
             step.Exception = ex;
             scenario.Outcome = outcomeAggregator.GetNewParentOutcome(scenario.Outcome, step.Outcome);
+            if (scenario.Reason == null)
+                scenario.Reason = "Step Not Implemented";
         }
         void ProcessException(IStepExecutor stepExecutor, IStep step, Exception ex)
         {
@@ -65,6 +66,8 @@ namespace xBDD.Core
             step.Reason = ex.Message;
             step.Exception = ex;
             scenario.Outcome = outcomeAggregator.GetNewParentOutcome(scenario.Outcome, step.Outcome);
+            if (scenario.Reason == null)
+                scenario.Reason = "Failed Step";
         }
     }
 }
