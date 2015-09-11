@@ -54,7 +54,6 @@ namespace xBDD.Test.Features.SaveResults
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
         }
-
     }
     [StepLibrary]
     public class WhenSteps : CommonWhenSteps

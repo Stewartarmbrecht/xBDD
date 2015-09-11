@@ -39,12 +39,28 @@ namespace xBDD.Test.Features.SaveResults
         }
 
         [ScenarioFact]
-        public void ToExistingDatabase()
+        public void WriteEmptyScenario()
         {
+            var s = new Steps();
+            s.State.TestRunName = "My Test Run";
+            s.State.FeatureName = "My Feature";
+            s.State.AreaPath = "My.Area.Path";
+            s.State.ScenarioName = "My Scenario";
+            s.State.FileName = "MyTestRun.xml";
+            var provider = CallContextServiceLocator.Locator.ServiceProvider;
+            var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
+
+            s.State.ExpectedFileText = File.ReadAllText(appEnv.ApplicationBasePath + "\\Features\\WriteResults\\TextFiles\\EmptyScenarioRun.txt");
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Given(s.Given.a_test_run_with_name_TestRunName)
+                .And("the xBDD.Reporting package is referenced", step => { })
+                .And(s.Given.a_scenario_AreaPath_FeatureName_ScenarioName)
+                .When(s.When.the_scenario_is_skipped)
+                .And(s.When.the_WriteToFile_method_is_called_on_the_test_run)
+                .Then(s.Then.the_file_writen_will_match_the_following)
+                .Run();
         }
 
         [ScenarioFact]

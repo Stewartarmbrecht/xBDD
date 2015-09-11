@@ -37,6 +37,8 @@ namespace xBDD.Test.Features
         public string StepName { get; internal set; }
         public MockOutputWriter OutputWriter { get; internal set; }
         public string Output { get; internal set; }
+        public string FeatureName { get; internal set; }
+        public string AreaPath { get; internal set; }
     }
     [StepLibrary]
     public class CommonGivenSteps
@@ -87,6 +89,14 @@ namespace xBDD.Test.Features
             }
             state.Scenario = state.TestRun.AddScenario(state.ScenarioName);
         }
+        internal void a_scenario_AreaPath_FeatureName_ScenarioName(IStep step)
+        {
+            step.ReplaceNameParameters(
+                "AreaPath", state.AreaPath, 
+                "FeatureName", state.FeatureName,
+                "ScenarioName", state.ScenarioName);
+            state.Scenario = state.TestRun.AddScenario(state.ScenarioName, state.FeatureName, state.AreaPath);
+        }
         internal void a_given_step_with_the_name_StepName(IStep step)
         {
             step.ReplaceNameParameters("StepName", state.StepName.Quote());
@@ -129,6 +139,17 @@ namespace xBDD.Test.Features
             try
             {
                 state.Scenario.Run();
+            }
+            catch (Exception ex)
+            {
+                state.CaughtException = ex;
+            }
+        }
+        internal void the_scenario_is_skipped(IStep obj)
+        {
+            try
+            {
+                state.Scenario.Skip();
             }
             catch (Exception ex)
             {
