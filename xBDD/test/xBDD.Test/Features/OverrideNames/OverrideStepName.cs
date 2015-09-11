@@ -73,10 +73,19 @@ namespace xBDD.Test.Features.OverrideNames
         [ScenarioFact]
         public void WithParameterReplacement()
         {
+            Steps s = new Steps();
+            s.State.StepName = "the user UserName navigates to the last page";
+            s.State.MethodCall = "step.ReplaceNameParameters(\"UserName\",\"JohnDoe\")";
+            s.State.NewStepName = "Given the user JohnDoe navigates to the last page";
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Given(s.Given.a_scenario)
+                .And(s.Given.a_given_step_with_the_name_StepName)
+                .And(s.Given.the_step_calls_to_replace_one_parameter_in_its_name_with_ParameterReplacementCall)
+                .When(s.When.the_scenario_is_run)
+                .Then(s.Then.the_step_name_should_be_NewStepName)
+                .Run();
         }
         [ScenarioFact]
         public void WithMultipleParameterReplacement()
@@ -91,7 +100,7 @@ namespace xBDD.Test.Features.OverrideNames
                 .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_scenario)
                 .And(s.Given.a_given_step_with_the_name_StepName)
-                .And(s.Given.the_step_calls_to_replace_the_parameters_in_its_name_with_ParameterReplacementCall)
+                .And(s.Given.the_step_calls_to_replace_two_parameters_in_its_name_with_ParameterReplacementCall)
                 .When(s.When.the_scenario_is_run)
                 .Then(s.Then.the_step_name_should_be_NewStepName)
                 .Run();

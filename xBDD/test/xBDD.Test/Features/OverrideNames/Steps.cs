@@ -37,7 +37,7 @@ namespace xBDD.Test.Features.OverrideNames
         {
             this.state = state;
         }
-        internal void the_step_calls_to_replace_the_parameters_in_its_name_with_ParameterReplacementCall(IStep step)
+        internal void the_step_calls_to_replace_two_parameters_in_its_name_with_ParameterReplacementCall(IStep step)
         {
             step.ReplaceNameParameters("ParameterReplacementCall", state.MethodCall.Quote());
             state.Step.Action = stepTarget => { stepTarget.ReplaceNameParameters("UserName", "JohnDoe", "PageName", "Home"); };
@@ -47,6 +47,12 @@ namespace xBDD.Test.Features.OverrideNames
         {
             step.ReplaceNameParameters("MethodCall", state.MethodCall.Quote());
             state.Step.Action = stepTarget => { stepTarget.SetMultilineParameter(state.MultilineParameter); };
+        }
+
+        internal void the_step_calls_to_replace_one_parameter_in_its_name_with_ParameterReplacementCall(IStep step)
+        {
+            step.ReplaceNameParameters("ParameterReplacementCall", state.MethodCall.Quote());
+            state.Step.Action = stepTarget => { stepTarget.ReplaceNameParameters("UserName", "JohnDoe"); };
         }
     }
     [StepLibrary]
