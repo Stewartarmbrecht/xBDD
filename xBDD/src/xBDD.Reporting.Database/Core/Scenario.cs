@@ -12,6 +12,7 @@ namespace xBDD.Reporting.Database.Core
         public string FeatureName { get; set; }
         public string AreaPath { get; set; }
         public Outcome Outcome { get; set; }
+        public string Reason { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public TimeSpan Time { get; set; }

@@ -10,6 +10,7 @@
                 FeatureName = scenario.FeatureName,
                 Name = scenario.Name,
                 Outcome = scenario.Outcome,
+                Reason = scenario.Reason,
                 EndTime = scenario.EndTime,
                 TestRun = testRun,
                 StartTime = scenario.StartTime
