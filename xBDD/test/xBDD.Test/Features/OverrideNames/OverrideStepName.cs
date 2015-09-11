@@ -85,12 +85,12 @@ namespace xBDD.Test.Features.OverrideNames
             s.State.StepName = "the user UserName navigates to the PageName page";
             s.State.PageName = "Home";
             s.State.MethodCall = "step.ReplaceNameParameters(\"UserName\",\"JohnDoe\"\"PageName\",\"Home\")";
-            s.State.NewStepName = "the user JohnDoe navigates to the Home page";
+            s.State.NewStepName = "Given the user JohnDoe navigates to the Home page";
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_scenario)
-                .And(s.Given.the_scenario_has_a_step_with_the_name_StepName)
+                .And(s.Given.a_given_step_with_the_name_StepName)
                 .And(s.Given.the_step_calls_to_replace_the_parameters_in_its_name_with_ParameterReplacementCall)
                 .When(s.When.the_scenario_is_run)
                 .Then(s.Then.the_step_name_should_be_NewStepName)
@@ -107,7 +107,7 @@ namespace xBDD.Test.Features.OverrideNames
         }
 
         [ScenarioFact]
-        public void WithMultilineParameterParameter()
+        public void WithMultilineParameterSet()
         {
             Steps s = new Steps();
             s.State.StepName = "the following message should be displayed";
@@ -120,7 +120,7 @@ namespace xBDD.Test.Features.OverrideNames
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_scenario)
-                .And(s.Given.the_scenario_has_a_step_with_the_name_StepName)
+                .And(s.Given.a_given_step_with_the_name_StepName)
                 .And(s.Given.the_step_calls_to_set_the_multiline_parameter_with_MethodCall)
                 .When(s.When.the_scenario_is_run)
                 .Then(s.Then.the_step_multiline_parameter_value_should_be_MultilineParameter)

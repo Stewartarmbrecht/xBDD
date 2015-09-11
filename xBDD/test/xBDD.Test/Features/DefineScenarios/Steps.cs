@@ -31,7 +31,6 @@ namespace xBDD.Test.Features.DefineScenarios
         public int X { get; set; }
         public int Y { get; set; }
         public string StepType { get; set; }
-        public string StepName { get; set; }
         public string AddedStepName { get; set; }
         public ITestRun CurrentTestRun { get; internal set; }
         public ITestRun NextCurrentTestRun { get; internal set; }

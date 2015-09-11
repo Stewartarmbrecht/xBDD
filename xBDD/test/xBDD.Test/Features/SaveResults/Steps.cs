@@ -27,7 +27,7 @@ namespace xBDD.Test.Features.SaveResults
     {
         public string ConnectionName = "Data:TestingConnection:ConnectionString";
         public int SaveChangesCount { get; set; }
-        public ISimpleTestRun TestRun { get; set; }
+        public ISimpleTestRun SimpleTestRun { get; set; }
     }
 
     [StepLibrary]
@@ -41,8 +41,8 @@ namespace xBDD.Test.Features.SaveResults
         }
         internal void a_completed_test_run(IStep step)
         {
-            state.TestRun = new SimpleTestRunUsingTypedState();
-            state.TestRun.PassingScenario();
+            state.SimpleTestRun = new SimpleTestRunUsingTypedState();
+            state.SimpleTestRun.PassingScenario();
         }
         internal void an_empty_test_results_database(IStep step)
         {
@@ -63,7 +63,7 @@ namespace xBDD.Test.Features.SaveResults
         }
         internal void SaveChanges_is_called_on_the_test_run(IStep step)
         {
-            state.SaveChangesCount = state.TestRun.SaveToDatabase(state.ConnectionName);
+            state.SaveChangesCount = state.SimpleTestRun.SaveToDatabase(state.ConnectionName);
         }
     }
     [StepLibrary]

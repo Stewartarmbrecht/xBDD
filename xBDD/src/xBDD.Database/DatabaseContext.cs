@@ -55,5 +55,21 @@ namespace xBDD.Database.Core
         public DbSet<TestRun> TestRuns { get; set; }
         public DbSet<Scenario> Scenarios { get; set; }
         public DbSet<Step> Steps { get; set; }
+
+        public string ServerName
+        {
+            get
+            {
+                return Database.GetDbConnection().DataSource;
+            }
+        }
+
+        public string DatabaseName
+        {
+            get
+            {
+                return Database.GetDbConnection().Database;
+            }
+        }
     }
 }

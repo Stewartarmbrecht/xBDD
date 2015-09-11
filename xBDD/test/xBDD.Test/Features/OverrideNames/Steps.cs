@@ -24,7 +24,6 @@ namespace xBDD.Test.Features.OverrideNames
         public string ExpectedAreaPath { get; internal set; }
         public string ExpectedFeatureName { get; internal set; }
         public string ExpectedScenarioName { get; internal set; }
-        public string StepName { get; internal set; }
         public string PageName { get; internal set; }
         public string NewStepName { get; internal set; }
     }
@@ -38,12 +37,6 @@ namespace xBDD.Test.Features.OverrideNames
         {
             this.state = state;
         }
-        internal void the_scenario_has_a_step_with_the_name_StepName(IStep step)
-        {
-            step.ReplaceNameParameters("StepName", state.StepName.Quote());
-            state.Scenario.Given(state.StepName, st => { });
-            state.Step = state.Scenario.Steps[0];
-        }
         internal void the_step_calls_to_replace_the_parameters_in_its_name_with_ParameterReplacementCall(IStep step)
         {
             step.ReplaceNameParameters("ParameterReplacementCall", state.MethodCall.Quote());
@@ -52,7 +45,7 @@ namespace xBDD.Test.Features.OverrideNames
 
         internal void the_step_calls_to_set_the_multiline_parameter_with_MethodCall(IStep step)
         {
-            step.ReplaceNameParameters("MethodCall", state.MethodCall);
+            step.ReplaceNameParameters("MethodCall", state.MethodCall.Quote());
             state.Step.Action = stepTarget => { stepTarget.SetMultilineParameter(state.MultilineParameter); };
         }
     }
@@ -75,14 +68,14 @@ namespace xBDD.Test.Features.OverrideNames
         {
             this.state = state;
         }
-        internal void the_step_name_should_be_NewStepName(IStep obj)
+        internal void the_step_name_should_be_NewStepName(IStep step)
         {
-            throw new NotImplementedException();
+            Assert.Equal(state.NewStepName, state.Step.Name);
         }
 
-        internal void the_step_multiline_parameter_value_should_be_MultilineParameter(IStep obj)
+        internal void the_step_multiline_parameter_value_should_be_MultilineParameter(IStep step)
         {
-            throw new NotImplementedException();
+            Assert.Equal(state.MultilineParameter, state.Step.MultilineParameter);
         }
     }
 

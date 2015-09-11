@@ -62,7 +62,6 @@ namespace xBDD.Test
                 {
                     Console.WriteLine("Saving to the databse.");
                     var count = xBDD.CurrentRun.SaveToDatabase(null);
-                    Console.WriteLine("There were " + count + " objects writtent to the database.");
                 }
                 catch (Exception ex)
                 {

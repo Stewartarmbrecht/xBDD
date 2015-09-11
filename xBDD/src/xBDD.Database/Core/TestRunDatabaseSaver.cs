@@ -1,4 +1,6 @@
-﻿namespace xBDD.Database.Core
+﻿using System;
+
+namespace xBDD.Database.Core
 {
     public class TestRunDatabaseSaver : ITestRunDatabaseSaver
     {
@@ -15,7 +17,9 @@
             IDatabaseObjectBuilder dbObjectBuilder = factory.CreateDatabaseObjectBuilder(dbContext);
             TestRun testRunDb = dbObjectBuilder.BuildTestRun(testRun);
             dbContext.EnsureDatabase();
-            return dbContext.SaveChanges();
+            var count = dbContext.SaveChanges();
+            Console.WriteLine("There were " + count + " entries written to the " + dbContext.DatabaseName + " on the " + dbContext.ServerName);
+            return count;
 
         }
     }
