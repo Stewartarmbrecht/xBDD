@@ -39,7 +39,7 @@ namespace xBDD.Test.Features.SaveResults
         }
 
         [ScenarioFact]
-        public void WriteEmptyScenario()
+        public void WriteSkippedEmptyScenario()
         {
             var s = new Steps();
             s.State.TestRunName = "My Test Run";
@@ -50,7 +50,7 @@ namespace xBDD.Test.Features.SaveResults
             var provider = CallContextServiceLocator.Locator.ServiceProvider;
             var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
 
-            s.State.ExpectedFileText = File.ReadAllText(appEnv.ApplicationBasePath + "\\Features\\WriteResults\\TextFiles\\EmptyScenarioRun.txt");
+            s.State.ExpectedFileText = File.ReadAllText(appEnv.ApplicationBasePath + "\\Features\\WriteResults\\TextFiles\\SkippedEmptyScenario.txt");
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
@@ -64,21 +64,107 @@ namespace xBDD.Test.Features.SaveResults
         }
 
         [ScenarioFact]
-        public void ToExistingDatabaseFails()
+        public void WriteRunEmptyScenario()
         {
+            var s = new Steps();
+            s.State.TestRunName = "My Test Run";
+            s.State.FeatureName = "My Feature";
+            s.State.AreaPath = "My.Area.Path";
+            s.State.ScenarioName = "My Scenario";
+            s.State.FileName = "MyTestRun.xml";
+            var provider = CallContextServiceLocator.Locator.ServiceProvider;
+            var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
+
+            s.State.ExpectedFileText = File.ReadAllText(appEnv.ApplicationBasePath + "\\Features\\WriteResults\\TextFiles\\RunEmptyScenario.txt");
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Given(s.Given.a_test_run_with_name_TestRunName)
+                .And("the xBDD.Reporting package is referenced", step => { })
+                .And(s.Given.a_scenario_AreaPath_FeatureName_ScenarioName)
+                .When(s.When.the_scenario_is_run)
+                .And(s.When.the_WriteToFile_method_is_called_on_the_test_run)
+                .Then(s.Then.the_file_writen_will_match_the_following)
+                .Run();
         }
 
         [ScenarioFact]
-        public void GetTestResults()
+        public void WriteSkippedScenarioWithSteps()
         {
+            var s = new Steps();
+            s.State.TestRunName = "My Test Run";
+            s.State.FeatureName = "My Feature";
+            s.State.AreaPath = "My.Area.Path";
+            s.State.ScenarioName = "My Scenario";
+            s.State.FileName = "MyTestRun.xml";
+            var provider = CallContextServiceLocator.Locator.ServiceProvider;
+            var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
+
+            s.State.ExpectedFileText = File.ReadAllText(appEnv.ApplicationBasePath + "\\Features\\WriteResults\\TextFiles\\SkippedScenarioWithSteps.txt");
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Skip();
+                .Given(s.Given.a_test_run_with_name_TestRunName)
+                .And("the xBDD.Reporting package is referenced", step => { })
+                .And(s.Given.a_scenario_AreaPath_FeatureName_ScenarioName)
+                .And(s.Given.the_scenario_has_three_passing_steps)
+                .When(s.When.the_scenario_is_skipped)
+                .And(s.When.the_WriteToFile_method_is_called_on_the_test_run)
+                .Then(s.Then.the_file_writen_will_match_the_following)
+                .Run();
+        }
+        [ScenarioFact]
+        public void WriteRunScenarioWithSteps()
+        {
+            var s = new Steps();
+            s.State.TestRunName = "My Test Run";
+            s.State.FeatureName = "My Feature";
+            s.State.AreaPath = "My.Area.Path";
+            s.State.ScenarioName = "My Scenario";
+            s.State.FileName = "MyTestRun.xml";
+            var provider = CallContextServiceLocator.Locator.ServiceProvider;
+            var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
+
+            s.State.ExpectedFileText = File.ReadAllText(appEnv.ApplicationBasePath + "\\Features\\WriteResults\\TextFiles\\RunScenarioWithSteps.txt");
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Given(s.Given.a_test_run_with_name_TestRunName)
+                .And("the xBDD.Reporting package is referenced", step => { })
+                .And(s.Given.a_scenario_AreaPath_FeatureName_ScenarioName)
+                .And(s.Given.the_scenario_has_three_passing_steps)
+                .When(s.When.the_scenario_is_run)
+                .And(s.When.the_WriteToFile_method_is_called_on_the_test_run)
+                .Then(s.Then.the_file_writen_will_match_the_following)
+                .Run();
+        }
+
+        [ScenarioFact]
+        public void WriteRunScenarioWithSkippedStep()
+        {
+            var s = new Steps();
+            s.State.TestRunName = "My Test Run";
+            s.State.FeatureName = "My Feature";
+            s.State.AreaPath = "My.Area.Path";
+            s.State.ScenarioName = "My Scenario";
+            s.State.FileName = "MyTestRun.xml";
+            s.State.SkipReason = "Deferred";
+            var provider = CallContextServiceLocator.Locator.ServiceProvider;
+            var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
+
+            s.State.ExpectedFileText = File.ReadAllText(appEnv.ApplicationBasePath + "\\Features\\WriteResults\\TextFiles\\RunScenarioWithSkippedStep.txt");
+            xBDD.CurrentRun
+                .AddScenario()
+                .SetOutputWriter(outputWriter)
+                .Given(s.Given.a_test_run_with_name_TestRunName)
+                .And("the xBDD.Reporting package is referenced", step => { })
+                .And(s.Given.a_scenario_AreaPath_FeatureName_ScenarioName)
+                .And(s.Given.the_scenario_has_three_passing_steps)
+                .And(s.Given.one_of_the_steps_throws_a_SkipStepException_with_a_reason_of_SkipReason)
+                .When(s.When.the_scenario_is_run_and_the_exception_caught)
+                .And(s.When.the_WriteToFile_method_is_called_on_the_test_run)
+                .Then(s.Then.the_file_writen_will_match_the_following)
+                .Run();
         }
     }
 }
