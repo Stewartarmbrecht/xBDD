@@ -1,9 +1,8 @@
-﻿
-using Microsoft.AspNet.Hosting;
+﻿using Microsoft.AspNet.Hosting;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.Runtime;
 
-namespace xBDD.Database
+namespace xBDD.Reporting.Database
 {
     public class Startup
     {

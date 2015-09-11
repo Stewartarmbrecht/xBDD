@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace xBDD.Database.Core
+namespace xBDD.Reporting.Database.Core
 {
     public class Step
     {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.IO;
 using xBDD.xUnit;
 using Xunit;
 using Xunit.Abstractions;
@@ -9,31 +6,34 @@ using Xunit.Abstractions;
 namespace xBDD.Test.Features.SaveResults
 {
     [Collection("TestRunCollection")]
-    public class SaveToDatabase
+    public class WriteToFile
     {
         private readonly IOutputWriter outputWriter;
 
-        public SaveToDatabase(ITestOutputHelper output)
+        public WriteToFile(ITestOutputHelper output)
         {
             outputWriter = new OutputWriter(output);
         }
 
         [ScenarioFact]
-        public void SaveTestResultsToNewDatabase()
+        public void WriteEmtpyTestRun()
         {
             var s = new Steps();
+            s.State.TestRunName = "My Test Run";
+            s.State.FileName = "EmptyTestRun.xml";
+            s.State.ExpectedFileText = File.ReadAllText(".\\Features\\WriteResults\\TextFiles\\EmptyTestRun.txt");
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
-                .Given(s.Given.a_completed_test_run)
-                .And(s.Given.an_empty_test_results_database)
-                .When(s.When.SaveChanges_is_called_on_the_test_run)
-                .Then(s.Then.all_test_run_results_should_be_saved_to_a_new_database)
+                .Given(s.Given.a_test_run_with_name_TestRunName)
+                .And("the xBDD.Reporting package is referenced", step => { })
+                .When(s.When.the_WriteToFile_method_is_called_on_the_test_run)
+                .Then(s.Then.the_file_writen_will_match_the_following)
                 .Run();
         }
 
         [ScenarioFact]
-        public void SaveTestResultsToExistingDatabase()
+        public void ToExistingDatabase()
         {
             xBDD.CurrentRun
                 .AddScenario()
@@ -42,7 +42,7 @@ namespace xBDD.Test.Features.SaveResults
         }
 
         [ScenarioFact]
-        public void SaveTestResultsToExistingDatabaseFails()
+        public void ToExistingDatabaseFails()
         {
             xBDD.CurrentRun
                 .AddScenario()

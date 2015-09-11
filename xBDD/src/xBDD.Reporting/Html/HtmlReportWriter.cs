@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace xBDD.Reporting.Html
 {
-    public class HtmlReportWriter : IReportWriter
+    public class HtmlReportWriter
     {
         IHtmlReportWriterFactory factory;
         public HtmlReportWriter(IHtmlReportWriterFactory factory)

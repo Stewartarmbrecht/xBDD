@@ -1,4 +1,4 @@
-﻿namespace xBDD.Database.Core
+﻿namespace xBDD.Reporting.Database.Core
 {
     public interface ITestRunDatabaseSaver
     {

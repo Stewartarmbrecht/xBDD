@@ -62,6 +62,5 @@ namespace xBDD.Core
             test.AreaPath = factory.UtilityFactory.GetAreaPathReader().ReadAreaPath(areaPath, method);
             return test;
         }
-
     }
 }

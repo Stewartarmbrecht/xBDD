@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using xBDD.Database;
-using xBDD.Database.Core;
+using xBDD.Reporting.Database;
+using xBDD.Reporting.Database.Core;
 using xBDD.Test.Sample;
 using Xunit;
 
@@ -26,6 +27,9 @@ namespace xBDD.Test.Features.SaveResults
     public class StepsState : CommonState
     {
         public string ConnectionName = "Data:TestingConnection:ConnectionString";
+
+        public string ExpectedFileText { get; internal set; }
+        public string FileName { get; internal set; }
         public int SaveChangesCount { get; set; }
         public ISimpleTestRun SimpleTestRun { get; set; }
     }
@@ -65,6 +69,11 @@ namespace xBDD.Test.Features.SaveResults
         {
             state.SaveChangesCount = state.SimpleTestRun.SaveToDatabase(state.ConnectionName);
         }
+
+        internal void the_WriteToFile_method_is_called_on_the_test_run(IStep obj)
+        {
+            state.TestRun.WriteToFile(state.FileName);
+        }
     }
     [StepLibrary]
     public class ThenSteps : CommonThenSteps
@@ -78,6 +87,12 @@ namespace xBDD.Test.Features.SaveResults
         internal void all_test_run_results_should_be_saved_to_a_new_database(IStep step)
         {
             Assert.Equal(5, state.SaveChangesCount);
+        }
+
+        internal void the_file_writen_will_match_the_following(IStep obj)
+        {
+            var textFile = File.ReadAllText(state.FileName);
+            Assert.Equal(state.ExpectedFileText, textFile);
         }
     }
 

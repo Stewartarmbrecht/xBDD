@@ -1,7 +1,4 @@
-﻿using System;
-using xBDD.Database;
-
-namespace xBDD.Database.Core
+﻿namespace xBDD.Reporting.Database.Core
 {
     public class DabaseObjectBuilder : IDatabaseObjectBuilder
     {

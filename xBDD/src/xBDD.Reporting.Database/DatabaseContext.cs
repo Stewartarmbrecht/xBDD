@@ -1,12 +1,11 @@
 ﻿using Microsoft.Data.Entity;
-using System.Collections.Generic;
 using System;
 using Microsoft.Framework.Runtime.Infrastructure;
 using Microsoft.Framework.Runtime;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.AspNet.Hosting;
 
-namespace xBDD.Database.Core
+namespace xBDD.Reporting.Database.Core
 {
     public class DatabaseContext : DbContext, IDatabaseContext
     {

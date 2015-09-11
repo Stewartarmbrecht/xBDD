@@ -32,6 +32,7 @@ namespace xBDD.Test.Features
         public string MultilineParameter { get; internal set; }
         public string MethodCall { get; internal set; }
         public TestRun TestRun { get; internal set; }
+        public string TestRunName { get; internal set; }
         public string ScenarioName { get; internal set; }
         public string StepName { get; internal set; }
         public MockOutputWriter OutputWriter { get; internal set; }
@@ -53,6 +54,18 @@ namespace xBDD.Test.Features
             step.SetMultilineParameter(sb.ToString());
             var factory = new CoreFactory();
             state.TestRun = new TestRun(factory);
+        }
+        internal void a_test_run_with_name_TestRunName(IStep step)
+        {
+            step.ReplaceNameParameters("TestRunName", state.TestRunName.Quote());
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("var factory = new CoreFactory();");
+            sb.AppendLine("var testRun = new TestRun(factory);");
+            sb.AppendLine("var testRun.Name = name;");
+            step.SetMultilineParameter(sb.ToString());
+            var factory = new CoreFactory();
+            state.TestRun = new TestRun(factory);
+            state.TestRun.Name = state.TestRunName;
         }
         internal void a_scenario(IStep step)
         {

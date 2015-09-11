@@ -1,21 +1,30 @@
 using System;
 using Microsoft.Data.Entity;
-using Microsoft.Data.Entity.Metadata;
 using Microsoft.Data.Entity.Migrations.Infrastructure;
-using xBDD.Database.Core;
+using xBDD.Reporting.Database.Core;
 
 namespace xBDDMigrations
 {
     [ContextType(typeof(DatabaseContext))]
-    partial class xBDDDbContextModelSnapshot : ModelSnapshot
+    partial class ScenarioTrackingFields
     {
-        public override void BuildModel(ModelBuilder builder)
+        public override string Id
+        {
+            get { return "20150904163932_ScenarioTrackingFields"; }
+        }
+
+        public override string ProductVersion
+        {
+            get { return "7.0.0-beta6-13815"; }
+        }
+
+        public override void BuildTargetModel(ModelBuilder builder)
         {
             builder
                 .Annotation("ProductVersion", "7.0.0-beta6-13815")
                 .Annotation("SqlServer:ValueGenerationStrategy", "IdentityColumn");
 
-            builder.Entity("xBDD.Database.Core.Scenario", b =>
+            builder.Entity("xBDD.Database.Scenario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -39,7 +48,7 @@ namespace xBDDMigrations
                     b.Key("Id");
                 });
 
-            builder.Entity("xBDD.Database.Core.Step", b =>
+            builder.Entity("xBDD.Database.Step", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -47,8 +56,6 @@ namespace xBDDMigrations
                     b.Property<DateTime>("EndTime");
 
                     b.Property<string>("Exception");
-
-                    b.Property<string>("MultilineParameter");
 
                     b.Property<string>("Name");
 
@@ -63,7 +70,7 @@ namespace xBDDMigrations
                     b.Key("Id");
                 });
 
-            builder.Entity("xBDD.Database.Core.TestRun", b =>
+            builder.Entity("xBDD.Database.TestRun", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -73,16 +80,16 @@ namespace xBDDMigrations
                     b.Key("Id");
                 });
 
-            builder.Entity("xBDD.Database.Core.Scenario", b =>
+            builder.Entity("xBDD.Database.Scenario", b =>
                 {
-                    b.Reference("xBDD.Database.Core.TestRun")
+                    b.Reference("xBDD.Database.TestRun")
                         .InverseCollection()
                         .ForeignKey("TestRunId");
                 });
 
-            builder.Entity("xBDD.Database.Core.Step", b =>
+            builder.Entity("xBDD.Database.Step", b =>
                 {
-                    b.Reference("xBDD.Database.Core.Scenario")
+                    b.Reference("xBDD.Database.Scenario")
                         .InverseCollection()
                         .ForeignKey("ScenarioId");
                 });
