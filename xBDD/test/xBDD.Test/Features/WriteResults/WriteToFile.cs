@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using Microsoft.Framework.Runtime;
+using Microsoft.Framework.Runtime.Infrastructure;
+using Microsoft.Framework.DependencyInjection;
+using System.IO;
 using xBDD.xUnit;
 using Xunit;
 using Xunit.Abstractions;
@@ -21,7 +24,10 @@ namespace xBDD.Test.Features.SaveResults
             var s = new Steps();
             s.State.TestRunName = "My Test Run";
             s.State.FileName = "EmptyTestRun.xml";
-            s.State.ExpectedFileText = File.ReadAllText(".\\Features\\WriteResults\\TextFiles\\EmptyTestRun.txt");
+            var provider = CallContextServiceLocator.Locator.ServiceProvider;
+            var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
+
+            s.State.ExpectedFileText = File.ReadAllText(appEnv.ApplicationBasePath + "\\Features\\WriteResults\\TextFiles\\EmptyTestRun.txt");
             xBDD.CurrentRun
                 .AddScenario()
                 .SetOutputWriter(outputWriter)
