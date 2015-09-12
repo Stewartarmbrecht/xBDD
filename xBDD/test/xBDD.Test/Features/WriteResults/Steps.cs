@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using xBDD.Reporting.Database;
 using xBDD.Reporting.Database.Core;
@@ -96,7 +97,7 @@ namespace xBDD.Test.Features.SaveResults
         internal void the_file_writen_will_match_the_following(IStep obj)
         {
             var textFile = File.ReadAllText(state.FileName);
-            Assert.Equal(state.ExpectedFileText, textFile);
+            Assert.True(Regex.Match(textFile, state.ExpectedFileText).Success);
         }
     }
 

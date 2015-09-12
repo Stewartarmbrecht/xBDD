@@ -26,7 +26,6 @@ namespace xBDD.Test.Features
     }
     public class CommonState
     {
-        public Outcome ExpectedOutcome { get; internal set; }
         public IScenario Scenario { get; set; }
         public IStep Step { get; set; }
         public Exception CaughtException { get; set; }
@@ -46,6 +45,10 @@ namespace xBDD.Test.Features
         public Exception StepException { get; internal set; }
         public string ScenarioExceptionType { get; internal set; }
         public string ScenarioExceptionMessage { get; internal set; }
+        public Outcome StepOutcome { get; internal set; }
+        public string StepReason { get; internal set; }
+        public Outcome ScenarioOutcome { get; internal set; }
+        public string StepExceptionMessage { get; internal set; }
     }
     [StepLibrary]
     public class CommonGivenSteps
@@ -157,6 +160,13 @@ namespace xBDD.Test.Features
                 throw state.StepException;
             };
         }
+        public void a_when_step_with_the_name_StepName(IStep step)
+        {
+            step.ReplaceNameParameters("StepName", state.StepName);
+            step.SetMultilineParameter("scenario.When(stepName, st => { step.ReturnIfPreviousError(); });");
+            state.Scenario.When(state.StepName, stepTarget => { step.ReturnIfPreviousError(); });
+            state.Step = state.Scenario.Steps[state.Scenario.Steps.Count - 1];
+        }
     }
 
     [StepLibrary]
@@ -184,29 +194,9 @@ namespace xBDD.Test.Features
                 state.CaughtException = ex;
             }
         }
-        internal void the_scenario_is_skipped(IStep step)
+        internal async Task the_scenario_is_run_asynchronously(IStep obj)
         {
-            step.ReturnIfPreviousError();
-            try
-            {
-                state.Scenario.Skip(state.ScenarioReason);
-            }
-            catch (Exception ex)
-            {
-                state.CaughtException = ex;
-            }
-        }
-        internal async Task the_scenario_is_skipped_asynchronously(IStep step)
-        {
-            step.ReturnIfPreviousError();
-            try
-            {
-                await state.Scenario.SkipAsync(state.ScenarioReason);
-            }
-            catch (Exception ex)
-            {
-                state.CaughtException = ex;
-            }
+            await state.Scenario.RunAsync();
         }
         internal void the_scenario_is_skipped_with_reason_of_ScenarioReason(IStep step)
         {
@@ -215,6 +205,19 @@ namespace xBDD.Test.Features
             try
             {
                 state.Scenario.Skip(state.ScenarioReason);
+            }
+            catch (Exception ex)
+            {
+                state.CaughtException = ex;
+            }
+        }
+        internal async Task the_scenario_is_skipped_asynchronously_with_reason_of_ScenarioReason(IStep step)
+        {
+            step.ReplaceNameParameters("ScenarioReason", state.ScenarioReason);
+            step.ReturnIfPreviousError();
+            try
+            {
+                await state.Scenario.SkipAsync(state.ScenarioReason);
             }
             catch (Exception ex)
             {
@@ -252,6 +255,25 @@ namespace xBDD.Test.Features
             step.ReplaceNameParameters("ScenarioExceptionMessage", state.ScenarioExceptionMessage);
             step.ReturnIfPreviousError();
             Assert.Equal(state.ScenarioExceptionMessage, state.CaughtException.Message);
+        }
+        internal void the_step_outcome_should_be_StepOutcome(IStep step)
+        {
+            step.ReplaceNameParameters("StepOutcome", Enum.GetName(typeof(Outcome), state.StepOutcome));
+            Assert.Equal(state.StepOutcome, state.Step.Outcome);
+        }
+        internal void the_step_reason_should_be_StepReason(IStep step)
+        {
+            step.ReplaceNameParameters("StepReason", state.StepReason.Quote());
+            Assert.Equal(state.StepReason, state.Step.Reason);
+        }
+        internal void the_step_exception_message_should_be_StepExceptionMessage(IStep step)
+        {
+            step.ReplaceNameParameters("StepExceptionMessage", state.StepExceptionMessage);
+            Assert.Equal(state.StepExceptionMessage, state.Step.Exception.Message);
+        }
+        internal void the_step_exception_should_be_the_exception_thrown(IStep step)
+        {
+            Assert.Equal(state.StepException, state.Step.Exception);
         }
     }
 

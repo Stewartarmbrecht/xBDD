@@ -30,8 +30,6 @@ namespace xBDD.Test.Features.RunTests
         public DateTime Time2 { get; internal set; }
         public DateTime CapturedStartTime { get; internal set; }
         public DateTime CapturedEndTime { get; internal set; }
-        public string ExpectedReason { get; internal set; }
-        public Exception ExpectedException { get; internal set; }
         public string ExceptionMessage { get; internal set; }
         public Type ExpectedExceptionType { get; internal set; }
     }
@@ -66,11 +64,6 @@ namespace xBDD.Test.Features.RunTests
         {
             state.CapturedStartTime = DateTime.Now;
         }
-        public void a_step_that_does_not_thwow_an_exception(IStep step)
-        {
-            state.Scenario.When("my test step", stepTarget => { return; });
-            state.Step = state.Scenario.Steps[0];
-        }
         internal void an_async_step_that_checks_for_a_previous_exception(IStep obj)
         {
             state.Scenario.WhenAsync("my step that checks", stepTarget => {
@@ -101,22 +94,22 @@ namespace xBDD.Test.Features.RunTests
         }
         internal void a_step_that_throws_an_exception(IStep obj)
         {
-            state.Scenario.When("my step", stepTarget => { throw state.ExpectedException; });
+            state.Scenario.When("my step", stepTarget => { throw state.StepException; });
             state.Step = state.Scenario.Steps[0];
         }
         internal void an_async_step_that_throws_an_exception(IStep obj)
         {
-            state.Scenario.WhenAsync("my step", stepTarget => { return Task.Run(() => { throw state.ExpectedException; }); });
+            state.Scenario.WhenAsync("my step", stepTarget => { return Task.Run(() => { throw state.StepException; }); });
             state.Step = state.Scenario.Steps[0];
         }
         internal void a_step_that_throws_a_skip_exception(IStep obj)
         {
-            state.Scenario.When("my step", stepTarget => { throw state.ExpectedException; });
+            state.Scenario.When("my step", stepTarget => { throw state.StepException; });
             state.Step = state.Scenario.Steps[0];
         }
         internal void an_async_step_that_throws_a_skip_exception(IStep obj)
         {
-            state.Scenario.WhenAsync("my step", s => { return Task.Run(() => { throw state.ExpectedException; }); });
+            state.Scenario.WhenAsync("my step", s => { return Task.Run(() => { throw state.StepException; }); });
             state.Step = state.Scenario.Steps[0];
         }
 
@@ -309,6 +302,7 @@ namespace xBDD.Test.Features.RunTests
         {
             state.CapturedEndTime = DateTime.Now;
         }
+
     }
     [StepLibrary]
     public class ThenSteps : CommonThenSteps
@@ -378,10 +372,10 @@ namespace xBDD.Test.Features.RunTests
                 Assert.Equal(Outcome.Skipped, stepTarget.Outcome);
             }
         }
-        internal void the_scenario_outcome_should_be_ExpectedOutcome(IStep step)
+        internal void the_scenario_outcome_should_be_ScenarioOutcome(IStep step)
         {
-            step.ReplaceNameParameters("ExpectedOutcome", Enum.GetName(typeof(Outcome), state.ExpectedOutcome).Quote());
-            Assert.Equal(state.ExpectedOutcome, state.Scenario.Outcome);
+            step.ReplaceNameParameters("ScenarioOutcome", Enum.GetName(typeof(Outcome), state.ScenarioOutcome).Quote());
+            Assert.Equal(state.ScenarioOutcome, state.Scenario.Outcome);
         }
         internal void the_end_time_should_be_before_or_equal_Time2(IStep step)
         {
@@ -399,27 +393,13 @@ namespace xBDD.Test.Features.RunTests
         {
             Assert.True(state.Scenario.StartTime >= state.Time1);
         }
-        internal void the_start_time_should_be_after_the_CapturedStartTime_and_before_the_step_end_time(IStep step)
+        internal void the_step_start_time_should_be_after_the_CapturedStartTime_and_before_the_step_end_time(IStep step)
         {
             Assert.True(state.Step.StartTime >= state.CapturedStartTime && state.Step.StartTime <= state.CapturedEndTime);
         }
-        internal void the_end_time_should_be_before_the_CapturedEndTime_and_after_the_start_time(IStep step)
+        internal void the_step_end_time_should_be_before_the_CapturedEndTime_and_after_the_step_start_time(IStep step)
         {
             Assert.True(state.Step.EndTime <= state.CapturedEndTime && state.Step.EndTime >= state.CapturedStartTime);
-        }
-        internal void the_step_exception_should_be_ExpectedException(IStep step)
-        {
-            Assert.Equal(state.ExpectedException, state.Step.Exception);
-        }
-        internal void the_step_reason_should_be_ExpectedReason(IStep step)
-        {
-            step.ReplaceNameParameters("ExpectedReason", state.ExpectedReason.Quote());
-            Assert.Equal(state.ExpectedReason, state.Step.Reason);
-        }
-        internal void the_step_outcome_should_be_ExpectedOutcome(IStep step)
-        {
-            step.ReplaceNameParameters("ExpectedOutcome", Enum.GetName(typeof(Outcome), state.ExpectedOutcome));
-            Assert.Equal(state.ExpectedOutcome, state.Step.Outcome);
         }
         internal void the_exception_should_have_the_message_ExceptionMessage(IStep obj)
         {

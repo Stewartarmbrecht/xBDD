@@ -22,14 +22,14 @@ namespace xBDD.Test.Features.RunTests
         public void RunSync()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Passed;
+            s.State.ScenarioOutcome = Outcome.Passed;
             xBDD.CurrentRun.AddScenario()
                 .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_test_run)
                 .And(s.Given.a_scenario)
                 .And(s.Given.the_scenario_has_three_steps)
                 .When(s.When.the_scenario_is_run)
-                .Then(s.Then.the_scenario_outcome_should_be_ExpectedOutcome)
+                .Then(s.Then.the_scenario_outcome_should_be_ScenarioOutcome)
                 .And(s.Then.the_scenario_start_time_should_match_the_start_time_of_the_first_step)
                 .And(s.Then.the_scenario_end_time_should_match_the_end_time_of_the_last_step)
                 .And(s.Then.the_scenario_time_should_match_the_summation_of_the_durations_of_all_child_steps)
@@ -48,16 +48,16 @@ namespace xBDD.Test.Features.RunTests
         public void RunNoSteps()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Passed;
+            s.State.ScenarioOutcome = Outcome.Passed;
             s.State.Time1 = DateTime.Now;
-            xBDD.CurrentRun.AddScenario()
+            xBDD.CurrentRun
+                .AddScenario()
                 .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_test_run)
                 .And(s.Given.a_scenario)
-                .And(s.Given.the_scenario_has_three_steps)
                 .When(s.When.the_scenario_is_run)
                 .And("then Time2 is set", step => { s.State.Time2 = DateTime.Now; })
-                .Then(s.Then.the_scenario_outcome_should_be_ExpectedOutcome)
+                .Then(s.Then.the_scenario_outcome_should_be_ScenarioOutcome)
                 .And(s.Then.the_start_time_should_be_after_or_equal_to_Time1)
                 .And(s.Then.the_end_time_should_match_the_start_time)
                 .And(s.Then.the_end_time_should_be_before_or_equal_Time2)
@@ -69,15 +69,27 @@ namespace xBDD.Test.Features.RunTests
         public async Task RunAsync()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Passed;
-            var scenario = xBDD.CurrentRun.AddScenario()
+            s.State.ScenarioOutcome = Outcome.Passed;
+            await xBDD.CurrentRun.AddScenario()
                 .SetOutputWriter(outputWriter)
-                .WhenAsync(s.When.a_scenario_with_all_passing_steps_is_run_async)
-                .Then(s.Then.the_scenario_outcome_should_be_ExpectedOutcome)
+                .Given(s.Given.a_test_run)
+                .And(s.Given.a_scenario)
+                .And(s.Given.the_scenario_has_three_steps)
+                .WhenAsync(s.When.the_scenario_is_run_asynchronously)
+                .Then(s.Then.the_scenario_outcome_should_be_ScenarioOutcome)
                 .And(s.Then.the_scenario_start_time_should_match_the_start_time_of_the_first_step)
                 .And(s.Then.the_scenario_end_time_should_match_the_end_time_of_the_last_step)
-                .And(s.Then.the_scenario_time_should_match_the_summation_of_the_durations_of_all_child_steps);
-            await scenario.RunAsync();
+                .And(s.Then.the_scenario_time_should_match_the_summation_of_the_durations_of_all_child_steps)
+                .And("step 1 should be passed", st => {
+                    Assert.Equal(Outcome.Passed, s.State.Scenario.Steps[0].Outcome);
+                })
+                .And("step 2 should be passed", st => {
+                    Assert.Equal(Outcome.Passed, s.State.Scenario.Steps[1].Outcome);
+                })
+                .And("step 3 should be passed", st => {
+                    Assert.Equal(Outcome.Passed, s.State.Scenario.Steps[2].Outcome);
+                })
+                .RunAsync();
         }
         [ScenarioFact]
         public void RunSyncWithAsyncStep()
@@ -97,15 +109,15 @@ namespace xBDD.Test.Features.RunTests
         public void Skip()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Skipped;
+            s.State.ScenarioOutcome = Outcome.Skipped;
             s.State.ScenarioReason = "Scenario Skipped";
             xBDD.CurrentRun.AddScenario()
                 .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_test_run)
                 .And(s.Given.a_scenario)
                 .And(s.Given.the_scenario_has_three_steps)
-                .When(s.When.the_scenario_is_skipped)
-                .Then(s.Then.the_scenario_outcome_should_be_ExpectedOutcome)
+                .When(s.When.the_scenario_is_skipped_with_reason_of_ScenarioReason)
+                .Then(s.Then.the_scenario_outcome_should_be_ScenarioOutcome)
                 .And(s.Then.the_scenario_start_time_should_match_the_start_time_of_the_first_step)
                 .And(s.Then.the_scenario_end_time_should_match_the_end_time_of_the_last_step)
                 .And(s.Then.the_scenario_time_should_match_the_summation_of_the_durations_of_all_child_steps)
@@ -117,7 +129,7 @@ namespace xBDD.Test.Features.RunTests
         public void SkipNullReason()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Failed;
+            s.State.ScenarioOutcome = Outcome.Failed;
             s.State.ScenarioExceptionType = "ArgumentNullException";
             s.State.ScenarioExceptionMessage = "Value cannot be null.\r\nParameter name: reason";
             xBDD.CurrentRun.AddScenario()
@@ -125,7 +137,7 @@ namespace xBDD.Test.Features.RunTests
                 .Given(s.Given.a_test_run)
                 .And(s.Given.a_scenario)
                 .And(s.Given.the_scenario_has_three_steps)
-                .When(s.When.the_scenario_is_skipped)
+                .When(s.When.the_scenario_is_skipped_with_reason_of_ScenarioReason)
                 .And(s.Then.the_caught_scenario_exception_should_be_of_type_ScenarioExceptionType)
                 .And(s.Then.the_caught_scenario_exception_should_have_a_message_of_ScenarioExceptionMessage)
                 .Run();
@@ -134,15 +146,15 @@ namespace xBDD.Test.Features.RunTests
         public async Task SkipAsync()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Skipped;
+            s.State.ScenarioOutcome = Outcome.Skipped;
             s.State.ScenarioReason = "Scenario Skipped";
             await xBDD.CurrentRun.AddScenario()
                 .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_test_run)
                 .And(s.Given.a_scenario)
                 .And(s.Given.the_scenario_has_three_steps)
-                .WhenAsync(s.When.the_scenario_is_skipped_asynchronously)
-                .Then(s.Then.the_scenario_outcome_should_be_ExpectedOutcome)
+                .WhenAsync(s.When.the_scenario_is_skipped_asynchronously_with_reason_of_ScenarioReason)
+                .Then(s.Then.the_scenario_outcome_should_be_ScenarioOutcome)
                 .And(s.Then.the_scenario_start_time_should_match_the_start_time_of_the_first_step)
                 .And(s.Then.the_scenario_end_time_should_match_the_end_time_of_the_last_step)
                 .And(s.Then.the_scenario_time_should_match_the_summation_of_the_durations_of_all_child_steps)
@@ -154,15 +166,16 @@ namespace xBDD.Test.Features.RunTests
         public async Task SkipAsyncNullReason()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Failed;
+            s.State.ScenarioOutcome = Outcome.Failed;
             s.State.ScenarioExceptionType = "ArgumentNullException";
             s.State.ScenarioExceptionMessage = "Value cannot be null.\r\nParameter name: reason";
+            s.State.ScenarioReason = null;
             await xBDD.CurrentRun.AddScenario()
                 .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_test_run)
                 .And(s.Given.a_scenario)
                 .And(s.Given.the_scenario_has_three_steps)
-                .WhenAsync(s.When.the_scenario_is_skipped_asynchronously)
+                .WhenAsync(s.When.the_scenario_is_skipped_asynchronously_with_reason_of_ScenarioReason)
                 .And(s.Then.the_caught_scenario_exception_should_be_of_type_ScenarioExceptionType)
                 .And(s.Then.the_caught_scenario_exception_should_have_a_message_of_ScenarioExceptionMessage)
                 .RunAsync();
@@ -171,14 +184,14 @@ namespace xBDD.Test.Features.RunTests
         public void WithAllPassingSteps()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Passed;
+            s.State.ScenarioOutcome = Outcome.Passed;
             xBDD.CurrentRun.AddScenario()
                 .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_test_run)
                 .And(s.Given.a_scenario)
                 .And(s.Given.the_scenario_has_three_steps)
                 .When(s.When.the_scenario_is_run)
-                .Then(s.Then.the_scenario_outcome_should_be_ExpectedOutcome)
+                .Then(s.Then.the_scenario_outcome_should_be_ScenarioOutcome)
                 .And(s.Then.the_scenario_start_time_should_match_the_start_time_of_the_first_step)
                 .And(s.Then.the_scenario_end_time_should_match_the_end_time_of_the_last_step)
                 .And(s.Then.the_scenario_time_should_match_the_summation_of_the_durations_of_all_child_steps)
@@ -198,7 +211,7 @@ namespace xBDD.Test.Features.RunTests
         public void WithAllSkippedSteps()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Failed;
+            s.State.ScenarioOutcome = Outcome.Failed;
             s.State.ScenarioReason = "Step Skipped";
             s.State.ScenarioExceptionMessage = "The step 'Given my starting condition' threw a 'SkipStepException' exception with a message: 'Not Started'. See the inner exception for details.";
             s.State.ScenarioExceptionType = "StepException";
@@ -209,7 +222,7 @@ namespace xBDD.Test.Features.RunTests
                 .And(s.Given.the_scenario_has_three_steps)
                 .And(s.Given.all_steps_are_set_to_skip)
                 .When(s.When.the_scenario_is_run_and_the_exception_caught)
-                .Then(s.Then.the_scenario_outcome_should_be_ExpectedOutcome)
+                .Then(s.Then.the_scenario_outcome_should_be_ScenarioOutcome)
                 .And(s.Then.the_scenario_start_time_should_match_the_start_time_of_the_first_step)
                 .And(s.Then.the_scenario_end_time_should_match_the_end_time_of_the_last_step)
                 .And(s.Then.the_scenario_time_should_match_the_summation_of_the_durations_of_all_child_steps)
@@ -222,7 +235,7 @@ namespace xBDD.Test.Features.RunTests
         public void WithOneMiddleSkippedStepAndTheRestPassing()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Failed;
+            s.State.ScenarioOutcome = Outcome.Failed;
             s.State.ExceptionStepIndex = 1;
             s.State.StepException = new SkipStepException("Not Started");
             s.State.ScenarioReason = "Step Skipped";
@@ -235,7 +248,7 @@ namespace xBDD.Test.Features.RunTests
                 .And(s.Given.the_scenario_has_three_steps)
                 .And(s.Given.the_ExceptionStepIndex_step_throws_a_ExceptionType_exception)
                 .When(s.When.the_scenario_is_run_and_the_exception_caught)
-                .Then(s.Then.the_scenario_outcome_should_be_ExpectedOutcome)
+                .Then(s.Then.the_scenario_outcome_should_be_ScenarioOutcome)
                 .And(s.Then.the_scenario_start_time_should_match_the_start_time_of_the_first_step)
                 .And(s.Then.the_scenario_end_time_should_match_the_end_time_of_the_last_step)
                 .And(s.Then.the_scenario_time_should_match_the_summation_of_the_durations_of_all_child_steps)
@@ -254,7 +267,7 @@ namespace xBDD.Test.Features.RunTests
         public void WithOneMiddleNotImplementedStepAndTheRestPassing()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Failed;
+            s.State.ScenarioOutcome = Outcome.Failed;
             s.State.ExceptionStepIndex = 1;
             s.State.StepException = new NotImplementedException();
             s.State.ScenarioReason = "Step Not Implemented";
@@ -267,7 +280,7 @@ namespace xBDD.Test.Features.RunTests
                 .And(s.Given.the_scenario_has_three_steps)
                 .And(s.Given.the_ExceptionStepIndex_step_throws_a_ExceptionType_exception)
                 .When(s.When.the_scenario_is_run_and_the_exception_caught)
-                .Then(s.Then.the_scenario_outcome_should_be_ExpectedOutcome)
+                .Then(s.Then.the_scenario_outcome_should_be_ScenarioOutcome)
                 .And(s.Then.the_scenario_start_time_should_match_the_start_time_of_the_first_step)
                 .And(s.Then.the_scenario_end_time_should_match_the_end_time_of_the_last_step)
                 .And(s.Then.the_scenario_time_should_match_the_summation_of_the_durations_of_all_child_steps)
@@ -286,11 +299,11 @@ namespace xBDD.Test.Features.RunTests
         public void WithOneMiddleFailingStepAndTheRestPassing()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Failed;
+            s.State.ScenarioOutcome = Outcome.Failed;
             xBDD.CurrentRun.AddScenario()
                 .SetOutputWriter(outputWriter)
                 .When(s.When.a_scenario_with_one_middle_failing_steps_is_run)
-                .Then(s.Then.the_scenario_outcome_should_be_ExpectedOutcome)
+                .Then(s.Then.the_scenario_outcome_should_be_ScenarioOutcome)
                 .And(s.Then.the_scenario_start_time_should_match_the_start_time_of_the_first_step)
                 .And(s.Then.the_scenario_end_time_should_match_the_end_time_of_the_last_step)
                 .And(s.Then.the_scenario_time_should_match_the_summation_of_the_durations_of_all_child_steps)
@@ -301,11 +314,11 @@ namespace xBDD.Test.Features.RunTests
         public void WithOneFailingStepAndPreceedingPassingSteps()
         {
             var s = new Steps();
-            s.State.ExpectedOutcome = Outcome.Failed;
+            s.State.ScenarioOutcome = Outcome.Failed;
             xBDD.CurrentRun.AddScenario()
                 .SetOutputWriter(outputWriter)
                 .When(s.When.a_scenario_with_the_first_step_skipped_and_the_middle_step_failing_is_run)
-                .Then(s.Then.the_scenario_outcome_should_be_ExpectedOutcome)
+                .Then(s.Then.the_scenario_outcome_should_be_ScenarioOutcome)
                 .And(s.Then.the_scenario_start_time_should_match_the_start_time_of_the_first_step)
                 .And(s.Then.the_scenario_end_time_should_match_the_end_time_of_the_last_step)
                 .And(s.Then.the_scenario_time_should_match_the_summation_of_the_durations_of_all_child_steps)

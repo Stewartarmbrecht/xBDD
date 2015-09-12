@@ -48,7 +48,7 @@ namespace xBDD.Core
                 scenario.FirstStepException = new StepNotImplementedException(step.Name, ex);
             }
             stepExecutor.SetEndTimes(step);
-            step.Outcome = Outcome.Skipped;
+            step.Outcome = Outcome.Failed;
             step.Reason = "Not Implemented";
             step.Exception = ex;
             scenario.Outcome = outcomeAggregator.GetNewParentOutcome(scenario.Outcome, step.Outcome);
