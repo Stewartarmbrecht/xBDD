@@ -4,26 +4,18 @@ using System.Reflection;
 
 namespace xBDD.Utility
 {
-    public class AttributeWrapper : IAttributeWrapper
+    internal class AttributeWrapper
     {
-        CustomAttributeData cad;
-        public AttributeWrapper(CustomAttributeData customAttributeData)
+        Attribute cad;
+        internal AttributeWrapper(Attribute customAttributeData)
         {
             cad = customAttributeData;
         }
-        public Type AttributeType
+        internal Type AttributeType
         {
             get
             {
-                return cad.AttributeType;
-            }
-        }
-
-        public string[] ConstructorArguments
-        {
-            get
-            {
-                return cad.ConstructorArguments.Select(x => x.Value.ToString()).ToArray<string>();
+                return cad.GetType();
             }
         }
     }

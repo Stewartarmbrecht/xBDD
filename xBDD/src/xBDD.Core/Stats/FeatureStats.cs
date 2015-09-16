@@ -1,6 +1,6 @@
 ﻿namespace xBDD.Stats
 {
-    public interface IFeatureStats
+    internal class FeatureStats
     {
     }
 }

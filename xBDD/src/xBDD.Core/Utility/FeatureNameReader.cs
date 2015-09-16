@@ -1,8 +1,8 @@
 ﻿namespace xBDD.Utility
 {
-    public class FeatureNameReader : IFeatureNameReader
+    internal class FeatureNameReader
     {
-        public string ReadFeatureName(string name, IMethod method)
+        internal string ReadFeatureName(string name, Method method)
         {
             if (name == null)
             {
@@ -14,17 +14,12 @@
             return name;
         }
 
-        string ReadAttribute(IMethod method)
+        string ReadAttribute(Method method)
         {
             string name = null;
-            foreach (var data in method.GetReflectedTypeCustomAttributesData())
+            foreach (var data in method.GetAttributes<FeatureNameAttribute>())
             {
-
-                if (data.AttributeType == typeof(FeatureNameAttribute))
-                {
-                    var args = data.ConstructorArguments;
-                    name = args[0];
-                }
+                name = data.Name;
             }
             return name;
         }

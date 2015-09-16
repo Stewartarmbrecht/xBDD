@@ -1,8 +1,8 @@
 ﻿namespace xBDD.Utility
 {
-    public class AreaPathReader : IAreaPathReader
+    internal class AreaPathReader
     {
-        public string ReadAreaPath(string name, IMethod method)
+        internal string ReadAreaPath(string name, Method method)
         {
             if (name == null)
             {
@@ -14,17 +14,12 @@
             return name;
         }
 
-        string ReadAttribute(IMethod method)
+        string ReadAttribute(Method method)
         {
             string name = null;
-            foreach (var data in method.GetReflectedTypeCustomAttributesData())
+            foreach (var data in method.GetAttributes<AreaPathAttribute>())
             {
-
-                if (data.AttributeType == typeof(AreaPathAttribute))
-                {
-                    var args = data.ConstructorArguments;
-                    name = args[0];
-                }
+                name = data.Path;
             }
             return name;
         }

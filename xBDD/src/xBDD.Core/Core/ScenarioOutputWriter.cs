@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace xBDD.Core
 {
-    public class ScenarioOutputWriter : IScenarioOutputWriter
+    public class ScenarioOutputWriter
     {
-        IScenarioInternal scenario;
+        Scenario scenario;
         IOutputWriter outputWriter;
-        public ScenarioOutputWriter(IScenarioInternal scenario, IOutputWriter outputWriter)
+        public ScenarioOutputWriter(Scenario scenario, IOutputWriter outputWriter)
         {
             this.scenario = scenario;
             this.outputWriter = outputWriter;
@@ -24,7 +24,7 @@ namespace xBDD.Core
             }
         }
 
-        private void WriteStep(IStep step)
+        private void WriteStep(Step step)
         {
             outputWriter.WriteLine("    " + step.Name);
             if (step.MultilineParameter != null)

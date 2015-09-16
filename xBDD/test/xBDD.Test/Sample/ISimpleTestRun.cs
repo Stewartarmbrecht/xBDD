@@ -7,7 +7,7 @@ namespace xBDD.Test.Sample
 {
     public interface ISimpleTestRun
     {
-        IScenario Scenario { get; set; }
+        Scenario Scenario { get; set; }
 
         void FailingScenario();
         Task FailingScenarioAsync();

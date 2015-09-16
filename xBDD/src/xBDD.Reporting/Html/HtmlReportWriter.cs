@@ -8,26 +8,26 @@ namespace xBDD.Reporting.Html
 {
     public class HtmlReportWriter
     {
-        IHtmlReportWriterFactory factory;
-        public HtmlReportWriter(IHtmlReportWriterFactory factory)
+        HtmlReportWriterFactory factory;
+        public HtmlReportWriter(HtmlReportWriterFactory factory)
         {
             this.factory = factory;
         }
         StringBuilder sb = new StringBuilder();
-        public void WriteReport(ITestRun testRun)
+        public void WriteReport(TestRun testRun)
         {
             WriteTestRunSummary(testRun);
             WriteAreas(testRun);
         }
 
-        private void WriteAreas(ITestRun testRun)
+        private void WriteAreas(TestRun testRun)
         {
             //WriteSectionStart();
             //foreach(var area in testRun.Areas)
             //WriteSectionEnd();
         }
 
-        private void WriteTestRunSummary(ITestRun testRun)
+        private void WriteTestRunSummary(TestRun testRun)
         {
             //WriteSectionStart();
             //WriteTitle(testRun);

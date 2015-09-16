@@ -1,8 +1,8 @@
 ﻿namespace xBDD.Utility
 {
-    public class ScenarioNameReader : IScenarioNameReader
+    internal class ScenarioNameReader
     {
-        public string ReadScenarioName(string scenarioName, IMethod method)
+        internal string ReadScenarioName(string scenarioName, Method method)
         {
             if (scenarioName == null)
             {
@@ -14,17 +14,12 @@
             return scenarioName;
         }
 
-        string ReadAttribute(IMethod method)
+        string ReadAttribute(Method method)
         {
             string name = null;
-            foreach (var data in method.GetCustomAttributesData())
-            { 
-            
-                if (data.AttributeType == typeof(ScenarioNameAttribute))
-                {
-                    var args = data.ConstructorArguments;
-                    name = args[0];
-                }
+            foreach (var data in method.GetAttributes<ScenarioNameAttribute>())
+            {
+                name = data.Name;
             }
             return name;
         }

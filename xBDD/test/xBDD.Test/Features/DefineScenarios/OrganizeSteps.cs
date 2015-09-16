@@ -9,7 +9,7 @@ namespace xBDD.Test.Features.DefineScenarios
 {
     public class OrganizeSteps
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public OrganizeSteps(ITestOutputHelper output)
         {
@@ -20,7 +20,7 @@ namespace xBDD.Test.Features.DefineScenarios
         public void InAStepLibrary()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -28,7 +28,7 @@ namespace xBDD.Test.Features.DefineScenarios
         public void InAStepLibrarySharedAcrossAreas()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }

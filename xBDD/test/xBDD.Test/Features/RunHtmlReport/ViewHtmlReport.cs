@@ -9,7 +9,7 @@ namespace xBDD.Test.Features.RunHtmlReport
 {
     public class ViewHtmlReport
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public ViewHtmlReport(ITestOutputHelper output)
         {
@@ -20,7 +20,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewName()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -28,7 +28,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void RunDate()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -36,7 +36,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewRootArea()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }

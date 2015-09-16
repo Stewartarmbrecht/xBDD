@@ -1,13 +1,14 @@
-﻿using xBDD.Core;
+﻿using System.Runtime.CompilerServices;
+using xBDD.Core;
 using xBDD.Stats;
 
 namespace xBDD
 {
     public partial class xBDD
     {
-        static ICoreFactory factory;
-        static ITestRun testRun;
-        public static ITestRun CurrentRun
+        static CoreFactory factory;
+        static TestRun testRun;
+        public static TestRun CurrentRun
         {
             get
             {

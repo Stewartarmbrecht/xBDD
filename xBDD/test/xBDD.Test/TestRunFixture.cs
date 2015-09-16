@@ -1,8 +1,8 @@
-﻿using Microsoft.Framework.Runtime.Infrastructure;
+﻿using Microsoft.Dnx.Runtime.Infrastructure;
 using Microsoft.Framework.DependencyInjection;
 using System;
 using Xunit;
-using Microsoft.Framework.Runtime;
+using Microsoft.Dnx.Runtime;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Framework.Configuration;
 
@@ -21,11 +21,6 @@ namespace xBDD.Test
             var hostEnv = new HostingEnvironment();
             Console.WriteLine("Writing command line arguments");
             var environment = Environment.GetEnvironmentVariable("Environment");
-            var args = Environment.GetCommandLineArgs();
-            foreach(var arg in args)
-            {
-                Console.WriteLine(arg);
-            }
 
             if (environment == null)
                 hostEnv.EnvironmentName = "Development";

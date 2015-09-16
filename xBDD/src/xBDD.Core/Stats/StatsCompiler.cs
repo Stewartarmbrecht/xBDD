@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace xBDD.Stats
 {
-    public class StatsCompiler : IStatsCompiler
+    internal class StatsCompiler
     {
-        public ITestRunStats CompileStats(ITestRun testRun)
+        internal TestRunStats CompileStats(TestRun testRun)
         {
             throw new NotImplementedException();
         }

@@ -10,8 +10,8 @@ namespace xBDD.Test.Sample
             return testRun.SaveToDatabase(connectionName);
         }
 
-        internal ITestRun testRun = new TestRun(new CoreFactory());
-        public virtual IScenario Scenario { get; set; }
+        internal TestRun testRun = new TestRun(new CoreFactory());
+        public virtual Scenario Scenario { get; set; }
 
         public virtual void PassingScenario()
         {
@@ -20,7 +20,7 @@ namespace xBDD.Test.Sample
             s.PageName = "Home - ToCo CMS";
             s.Header = "ToCo CMS";
 
-            Scenario = testRun.AddScenario()
+            Scenario = testRun.AddScenario(this)
                 .Given(s.the_user_logs_in_as_UserName)
                 .When(s.the_user_loads_the_PageName_page)
                 .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
@@ -34,7 +34,7 @@ namespace xBDD.Test.Sample
             s.UserName = "test.user@tococms.com";
             s.PageName = "Home - ToCo CMS";
             s.Header = "ToCo CMS";
-            Scenario = testRun.AddScenario()
+            Scenario = testRun.AddScenario(this)
                 .GivenAsync(s.the_user_logs_in_as_UserName_async)
                 .WhenAsync(s.the_user_loads_the_PageName_page_async)
                 .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
@@ -49,7 +49,7 @@ namespace xBDD.Test.Sample
             s.PageName = "Home - ToCo CMS";
             s.Header = "ToCo CMS";
 
-            Scenario = testRun.AddScenario()
+            Scenario = testRun.AddScenario(this)
                 .Given(s.the_user_logs_in_as_UserName)
                 .When(s.the_user_loads_the_PageName_page)
                 .And(s.the_time_is_captured_and_the_step_fails)
@@ -65,7 +65,7 @@ namespace xBDD.Test.Sample
             s.PageName = "Home - ToCo CMS";
             s.Header = "ToCo CMS";
 
-            Scenario = testRun.AddScenario()
+            Scenario = testRun.AddScenario(this)
                 .Given(s.the_user_logs_in_as_UserName)
                 .When(s.the_user_loads_the_PageName_page)
                 .And(s.the_time_is_captured)
@@ -83,7 +83,7 @@ namespace xBDD.Test.Sample
             s.PageName = "Home - ToCo CMS";
             s.Header = "ToCo CMS";
 
-            Scenario = testRun.AddScenario()
+            Scenario = testRun.AddScenario(this)
                 .Given(s.the_user_logs_in_as_UserName)
                 .When(s.the_user_loads_the_PageName_page)
                 .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
@@ -100,7 +100,7 @@ namespace xBDD.Test.Sample
             s.PageName = "Home - ToCo CMS";
             s.Header = "ToCo CMS";
 
-            Scenario = testRun.AddScenario()
+            Scenario = testRun.AddScenario(this)
                 .GivenAsync(s.the_user_logs_in_as_UserName_async)
                 .WhenAsync(s.the_user_loads_the_PageName_page_async)
                 .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
@@ -115,7 +115,7 @@ namespace xBDD.Test.Sample
             s.Header = "ToCo CMS";
             s.PageLoadShouldSkip = true;
 
-            Scenario = testRun.AddScenario()
+            Scenario = testRun.AddScenario(this)
                 .Given(s.the_user_logs_in_as_UserName)
                 .When(s.the_user_loads_the_PageName_page)
                 .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);

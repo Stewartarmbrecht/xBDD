@@ -4,18 +4,18 @@ using xBDD.Utility;
 
 namespace xBDD.Core
 {
-    public class StepExecutor : IStepExecutor
+    public class StepExecutor
     {
-        IStepExceptionHandler stepExceptionHandler;
-        IScenarioInternal scenario;
-        IOutcomeAggregator outcomeAggregator;
-        public StepExecutor(IScenarioInternal scenario, ICoreFactory factory)
+        StepExceptionHandler stepExceptionHandler;
+        Scenario scenario;
+        OutcomeAggregator outcomeAggregator;
+        public StepExecutor(Scenario scenario, CoreFactory factory)
         {
             stepExceptionHandler = factory.CreateStepExceptionHandler(scenario);
             outcomeAggregator = factory.UtilityFactory.CreateOutcomeAggregator();
             this.scenario = scenario;
         }
-        public async Task ExecuteStepAsync(IStep step)
+        public async Task ExecuteStepAsync(Step step)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace xBDD.Core
             }
         }
 
-        public void ExecuteStep(IStep step)
+        public void ExecuteStep(Step step)
         {
             try
             {
@@ -49,20 +49,20 @@ namespace xBDD.Core
                 stepExceptionHandler.HandleException(this, step, ex);
             }
         }
-        private void PreExecution(IStep step)
+        private void PreExecution(Step step)
         {
             step.StartTime = DateTime.Now;
             if (step == scenario.Steps[0])
                 scenario.StartTime = step.StartTime;
         }
 
-        void PostExecution(IStep step)
+        void PostExecution(Step step)
         {
             SetEndTimes(step);
             step.Outcome = Outcome.Passed;
             scenario.Outcome = outcomeAggregator.GetNewParentOutcome(scenario.Outcome, step.Outcome);
         }
-        public void SetEndTimes(IStep step)
+        public void SetEndTimes(Step step)
         {
             step.EndTime = DateTime.Now;
             scenario.Time = scenario.Time.Add(step.EndTime.Subtract(step.StartTime));

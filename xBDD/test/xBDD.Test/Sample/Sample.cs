@@ -12,7 +12,7 @@
 //            s.Password = "mypassword";
 //            s.ExpectedMessage = "Welcome to the site!";
 //            s.PageTitle = "Home";
-//            xBDD.CurrentRun.AddScenario()
+//            xBDD.CurrentRun.AddScenario(this)
 //                .When(s.the_user_logs_in_with_UserName_and_Password)
 //                .Then(s.the_user_should_see_a_message_of_ExpectedMessage)
 //                .And(s.the_page_title_should_be_PageTitle)
@@ -27,7 +27,7 @@
 //            s.Password = "wrongpassword";
 //            s.ExpectedMessage = "A user with password does not exist!";
 //            s.PageTitle = "Log In";
-//            xBDD.CurrentRun.AddScenario()
+//            xBDD.CurrentRun.AddScenario(this)
 //                .When(s.the_user_logs_in_with_UserName_and_Password)
 //                .Then(s.the_user_should_see_a_message_of_ExpectedMessage)
 //                .And(s.the_page_title_should_be_PageTitle)
@@ -43,7 +43,7 @@
 //        public string PageTitle { get; internal set; }
 
 //        IBaseWebPage landingPage;
-//        internal void the_user_logs_in_with_UserName_and_Password(IStep step)
+//        internal void the_user_logs_in_with_UserName_and_Password(Step step)
 //        {
 //            step.SetNameWithReplacement("UserName", UserName.Quote(), "Password", Password.Quote());
 //            var logInPage = LogInPage.NavigateTo();
@@ -52,13 +52,13 @@
 //            landingPage = logInPage.Submit();
 //        }
 
-//        internal void the_user_should_see_a_message_of_ExpectedMessage(IStep obj)
+//        internal void the_user_should_see_a_message_of_ExpectedMessage(Step obj)
 //        {
 //            obj.SetNameWithReplacement("ExpectedMessage", ExpectedMessage);
 //            Assert.Equal(ExpectedMessage, landingPage.MainMessage);
 //        }
 
-//        internal void the_page_title_should_be_PageTitle(IStep obj)
+//        internal void the_page_title_should_be_PageTitle(Step obj)
 //        {
 //            obj.SetNameWithReplacement("PageTitle", PageTitle);
 //            Assert.Equal(PageTitle, landingPage.Title);

@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 
 namespace xBDD.Core
 {
-    internal class ScenarioRunner : IScenarioRunner
+    internal class ScenarioRunner
     {
-        IScenarioInternal scenario;
-        ICoreFactory factory;
-        IStepExecutor stepExecutor;
-        IScenarioOutputWriter outputWriter;
-        internal ScenarioRunner(IScenarioInternal scenario, ICoreFactory factory)
+        Scenario scenario;
+        CoreFactory factory;
+        StepExecutor stepExecutor;
+        ScenarioOutputWriter outputWriter;
+        internal ScenarioRunner(Scenario scenario, CoreFactory factory)
         {
             this.scenario = scenario;
             this.factory = factory;

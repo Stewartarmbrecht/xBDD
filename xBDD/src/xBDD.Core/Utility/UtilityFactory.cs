@@ -1,45 +1,46 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 namespace xBDD.Utility
 {
-    public class UtilityFactory : IUtilityFactory
+    internal class UtilityFactory
     {
-        public IScenarioNameReader GetScenarioNameReader()
+        internal ScenarioNameReader GetScenarioNameReader()
         {
             return new ScenarioNameReader();
         }
 
-        public IStepNameReader GetStepNameReader()
+        internal StepNameReader GetStepNameReader()
         {
             return new StepNameReader();
         }
 
-        public IMethodRetriever GetMethodRetriever()
+        internal MethodRetriever GetMethodRetriever()
         {
             return new MethodRetriever(this);
         }
 
-        public IMethod CreateMethod(MethodBase methodBase)
+        internal Method CreateMethod(MethodBase methodBase)
         {
             return new Method(methodBase, this);
         }
 
-        public IAttributeWrapper CreateAttribute(CustomAttributeData data)
+        internal AttributeWrapper CreateAttribute(Attribute attr)
         {
-            return new AttributeWrapper(data);
+            return new AttributeWrapper(attr);
         }
 
-        public IFeatureNameReader GetFeatureNameReader()
+        internal FeatureNameReader GetFeatureNameReader()
         {
             return new FeatureNameReader();
         }
 
-        public IAreaPathReader GetAreaPathReader()
+        internal AreaPathReader GetAreaPathReader()
         {
             return new AreaPathReader();
         }
 
-        public IOutcomeAggregator CreateOutcomeAggregator()
+        internal OutcomeAggregator CreateOutcomeAggregator()
         {
             return new OutcomeAggregator();
         }

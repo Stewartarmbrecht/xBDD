@@ -4,10 +4,10 @@ namespace xBDD
 {
     public static class xBDDExtensions
     {
-        public static int SaveToDatabase(this ITestRun testRun, string connectionName)
+        public static int SaveToDatabase(this TestRun testRun, string connectionName)
         {
-            IDatabaseFactory factory = new DatabaseFactory();
-            ITestRunDatabaseSaver saver = factory.CreateTestRunDatabaseSaver(connectionName);
+            DatabaseFactory factory = new DatabaseFactory();
+            TestRunDatabaseSaver saver = factory.CreateTestRunDatabaseSaver(connectionName);
             return saver.SaveTestRun(testRun);
         }
     }

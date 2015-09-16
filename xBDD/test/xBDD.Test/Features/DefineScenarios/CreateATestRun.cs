@@ -6,7 +6,7 @@ namespace xBDD.Test.Features.DefineScenarios
 {
     public class CreateATestRun
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public CreateATestRun(ITestOutputHelper output)
         {
@@ -17,9 +17,9 @@ namespace xBDD.Test.Features.DefineScenarios
         [ScenarioFact]
         public void ThroughxBDDCurrentTestRun()
         {
-            s.State.MethodCall = "xBDD.CurrentRun";
+            s.c.State.MethodCall = "xBDD.CurrentRun";
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .When(s.When.the_first_call_is_made_to_MethodCall)
                 .Then(s.Then.the_system_should_create_a_new_test_run)
@@ -28,9 +28,9 @@ namespace xBDD.Test.Features.DefineScenarios
         [ScenarioFact]
         public void ThroughxBDDCurrentTestRun2Times()
         {
-            s.State.MethodCall = "xBDD.CurrentRun";
+            s.c.State.MethodCall = "xBDD.CurrentRun";
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .When(s.When.the_first_call_is_made_to_MethodCall)
                 .And(s.When.a_second_call_is_made_to_MethodCall)
@@ -43,9 +43,9 @@ namespace xBDD.Test.Features.DefineScenarios
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("var factory = new CoreFactory();");
             sb.AppendLine("var testRun = new TestRun(factory);");
-            s.State.MethodCall = sb.ToString();
+            s.c.State.MethodCall = sb.ToString();
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .When(s.When.the_following_code_is_executed)
                 .And(s.Then.the_system_should_set_the_testRun_variable_with_a_new_test_run)

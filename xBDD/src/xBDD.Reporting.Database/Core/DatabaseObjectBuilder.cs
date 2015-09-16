@@ -1,17 +1,20 @@
-﻿namespace xBDD.Reporting.Database.Core
-{
-    public class DabaseObjectBuilder : IDatabaseObjectBuilder
-    {
-        private IDatabaseContext dbContext;
-        private IDatabaseFactory factory;
+﻿using System.Runtime;
+using xb = xBDD;
 
-        public DabaseObjectBuilder(IDatabaseContext dbContext, IDatabaseFactory factory)
+namespace xBDD.Reporting.Database.Core
+{
+    public class DatabaseObjectBuilder
+    {
+        private DatabaseContext dbContext;
+        private DatabaseFactory factory;
+
+        public DatabaseObjectBuilder(DatabaseContext dbContext, DatabaseFactory factory)
         {
             this.dbContext = dbContext;
             this.factory = factory;
         }
 
-        public TestRun BuildTestRun(ITestRun testRun)
+        public TestRun BuildTestRun(xb.TestRun testRun)
         {
             var testRunDb = factory.CreateTestRun(testRun);
             dbContext.TestRuns.Add(testRunDb);
@@ -19,9 +22,9 @@
             return testRunDb;
         }
 
-        private void BuildScenarios(ITestRun testRun, TestRun testRunDb)
+        private void BuildScenarios(xb.TestRun testRun, TestRun testRunDb)
         {
-            foreach(var scenario in testRun.Scenarios)
+            foreach(xb.Scenario scenario in testRun.Scenarios)
             {
                 Scenario scenarioDb = factory.CreateScenario(scenario, testRunDb);
                 scenarioDb.TestRun = testRunDb;
@@ -30,7 +33,7 @@
             }
         }
 
-        private void BuildSteps(IScenario scenario, Scenario scenarioDb)
+        private void BuildSteps(xb.Scenario scenario, Scenario scenarioDb)
         {
             foreach(var step in scenario.Steps)
             {

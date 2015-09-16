@@ -7,7 +7,7 @@ namespace xBDD.Test.Features.SaveResults
     [Collection("TestRunCollection")]
     public class WriteToDatabase
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public WriteToDatabase(ITestOutputHelper output)
         {
@@ -19,7 +19,7 @@ namespace xBDD.Test.Features.SaveResults
         {
             var s = new Steps();
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(s.Given.a_completed_test_run)
                 .And(s.Given.an_empty_test_results_database)
@@ -32,7 +32,7 @@ namespace xBDD.Test.Features.SaveResults
         public void ToExistingDatabase()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -41,7 +41,7 @@ namespace xBDD.Test.Features.SaveResults
         public void ToExistingDatabaseFails()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -50,7 +50,7 @@ namespace xBDD.Test.Features.SaveResults
         public void GetTestResults()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }

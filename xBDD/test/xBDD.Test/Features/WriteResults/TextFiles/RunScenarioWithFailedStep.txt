@@ -2,11 +2,11 @@
 
 My.Area.Path
 	My Feature
-		My Scenario \[Failed\]
+		My Scenario [Failed]
 			Given my starting condition
-			When my action \[Failed\]
+			When my action [Failed]
 				Error Type: Exception
 				   Message: My Error
-				     Stack: [.*]
-[.*]
-			Then my ending condition \[Skipped - Previous Error\]
+{{				     Stack\: .*}}
+{{.*}}/rl
+			Then my ending condition [Skipped - Previous Error]

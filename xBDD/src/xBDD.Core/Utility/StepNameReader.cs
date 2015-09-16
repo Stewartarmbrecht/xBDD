@@ -2,9 +2,9 @@
 
 namespace xBDD.Utility
 {
-    public class StepNameReader : IStepNameReader
+    internal class StepNameReader
     {
-        public string ReadStepName(IMethod method)
+        internal string ReadStepName(Method method)
         {
             var name = ReadAttribute(method);
             if (name == null)
@@ -14,17 +14,12 @@ namespace xBDD.Utility
             return name;
         }
 
-        string ReadAttribute(IMethod method)
+        string ReadAttribute(Method method)
         {
             string name = null;
-            foreach (var data in method.GetCustomAttributesData())
-            { 
-            
-                if (data.AttributeType == typeof(StepNameAttribute))
-                {
-                    var args = data.ConstructorArguments;
-                    name = args[0];
-                }
+            foreach (var data in method.GetAttributes<StepNameAttribute>())
+            {
+                name = data.Name;
             }
             return name;
         }

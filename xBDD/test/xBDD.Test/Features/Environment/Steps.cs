@@ -20,53 +20,53 @@ namespace xBDD.Test.Features.Environment
             Then = new ThenSteps(State);
         }
     }
-    public class StepsState : CommonState
+    public class StepsState
     {
     }
 
     [StepLibrary]
-    public class GivenSteps : CommonGivenSteps
+    public class GivenSteps
     {
         StepsState state;
         public GivenSteps(StepsState state)
-            : base(state)
+
         {
             this.state = state;
         }
-        internal void the_solution_is_set_to_the_Publish_configuration(IStep obj) { }
-        internal void there_is_a_valid_connection_string_set_for_the_ConfigurationSetting_setting(IStep obj)
+        internal void the_solution_is_set_to_the_Publish_configuration(Step obj) { }
+        internal void there_is_a_valid_connection_string_set_for_the_ConfigurationSetting_setting(Step obj)
         {
             obj.ReplaceNameParameters("ConfigurationSetting", "Data:DefaultConnection:ConnectionString".Quote());
         }
     }
     [StepLibrary]
-    public class WhenSteps : CommonWhenSteps
+    public class WhenSteps
     {
         StepsState state;
         public WhenSteps(StepsState state)
-            : base(state)
+
         {
             this.state = state;
         }
-        internal void a_developer_pushes_a_commit_to_the_GitHub_repository(IStep obj) { }
+        internal void a_developer_pushes_a_commit_to_the_GitHub_repository(Step obj) { }
 
-        internal void the_tests_are_run(IStep obj) { }
+        internal void the_tests_are_run(Step obj) { }
     }
     [StepLibrary]
-    public class ThenSteps : CommonThenSteps
+    public class ThenSteps
     {
         StepsState state;
         public ThenSteps(StepsState state)
-            : base(state)
+
         {
             this.state = state;
         }
-        internal void a_visual_studio_online_build_should_trigger(IStep obj) { }
-        internal void it_should_publish_the_test_results_to_that_database(IStep obj) { }
-        internal void publish_the_xBDD_test_restults_to_an_azure_database(IStep obj) { }
-        internal void publish_the_xUnit_test_restults_to_visual_studio_online(IStep obj) { }
-        internal void run_the_tests(IStep obj) { }
-        internal void build_the_projects(IStep obj) { }
+        internal void a_visual_studio_online_build_should_trigger(Step obj) { }
+        internal void it_should_publish_the_test_results_to_that_database(Step obj) { }
+        internal void publish_the_xBDD_test_restults_to_an_azure_database(Step obj) { }
+        internal void publish_the_xUnit_test_restults_to_visual_studio_online(Step obj) { }
+        internal void run_the_tests(Step obj) { }
+        internal void build_the_projects(Step obj) { }
     }
 
 }

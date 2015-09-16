@@ -7,16 +7,27 @@
   "licenseUrl": "",
 
   "dependencies": {
-    "Microsoft.Framework.Runtime": "1.0.0-beta5",
-    "Microsoft.Framework.Configuration": "1.0.0-beta6",
-    "Microsoft.Framework.Configuration.Json": "1.0.0-beta5",
-    "xunit.extensibility.core": "2.1.0-beta3-build3029",
-    "xunit.extensibility.execution": "2.1.0-beta3-build3029",
-    "xBDD.Core": "1.0.0-*"
+    "xBDD.Core": "1.0.0-*",
+    "xunit.extensibility.core": "2.1.0-rc1-build3168",
+    "xunit.extensibility.execution": "2.1.0-rc1-build3168"
   },
-  "userSecretsId": "xBDD",
   "frameworks": {
-    "dnx451": { }
+    "dnx451": {
+      "frameworkAssemblies": {
+        "System": "4.0.0.0",
+        "System.Runtime": "4.0.10.0",
+        "System.Threading.Tasks": "4.0.0.0"
+      },
+      "dependencies": {
+      }
+    },
+    "dnxcore50": {
+      "dependencies": {
+        "System.Runtime": "4.0.20",
+        "System.Runtime.Extensions": "4.0.10",
+        "System.Threading": "4.0.10"
+      }
+    }
   },
   "configurations": {
     "Publish": { }

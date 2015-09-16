@@ -1,17 +1,18 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Runtime.CompilerServices;
 using xBDD.Utility;
+
+[assembly: InternalsVisibleTo("xBDD.Test")]
 
 namespace xBDD.Core
 {
-    public class CoreFactory : ICoreFactory
+    public class CoreFactory
     {
-        public CoreFactory()
+        internal CoreFactory()
         {
             UtilityFactory = new UtilityFactory();
         }
-        public IUtilityFactory UtilityFactory { get; private set; }
-        public IScenario CreateScenario(ITestRun testRun)
+        internal UtilityFactory UtilityFactory { get; private set; }
+        internal Scenario CreateScenario(TestRun testRun)
         {
             UtilityFactory = new UtilityFactory();
             var scenario = new Scenario(this, testRun);
@@ -19,39 +20,39 @@ namespace xBDD.Core
             return scenario;
         }
 
-        public IStep CreateStep(IScenarioInternal scenario)
+        internal Step CreateStep(Scenario scenario)
         {
             var step = new Step(scenario, this);
             scenario.TestRun.Steps.Add(step);
             return step;
         }
 
-        public ITestRun CreateTestRun()
+        internal TestRun CreateTestRun()
         {
             return new TestRun(this);
         }
 
-        public IScenarioRunner CreateScenarioRunner(IScenarioInternal scenario)
+        internal ScenarioRunner CreateScenarioRunner(Scenario scenario)
         {
             return new ScenarioRunner(scenario, this);
         }
 
-        public IScenarioBuilder CreateScenarioBuilder(IScenarioInternal scenario)
+        internal ScenarioBuilder CreateScenarioBuilder(Scenario scenario)
         {
             return new ScenarioBuilder(scenario, this);
         }
 
-        public IStepExceptionHandler CreateStepExceptionHandler(IScenarioInternal scenario)
+        internal StepExceptionHandler CreateStepExceptionHandler(Scenario scenario)
         {
             return new StepExceptionHandler(scenario, this);
         }
 
-        public IStepExecutor CreateStepExecutor(IScenarioInternal scenario)
+        internal StepExecutor CreateStepExecutor(Scenario scenario)
         {
             return new StepExecutor(scenario, this);
         }
 
-        public IScenarioOutputWriter CreateScenarioOutputWriter(IScenarioInternal scenario, IOutputWriter outputWriter)
+        internal ScenarioOutputWriter CreateScenarioOutputWriter(Scenario scenario, IOutputWriter outputWriter)
         {
             return new ScenarioOutputWriter(scenario, outputWriter);
         }

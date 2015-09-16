@@ -1,59 +1,34 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace xBDD.Utility
 {
-    public class MethodRetriever : IMethodRetriever
+    internal class MethodRetriever
     {
-        IUtilityFactory factory;
-        public MethodRetriever(IUtilityFactory factory)
+        UtilityFactory factory;
+        internal MethodRetriever(UtilityFactory factory)
         {
             this.factory = factory;
         }
 
-        public IMethod GetCallingStepMethod()
+        internal Method GetScenarioMethod(object featureClass, string methodName)
         {
-            StackFrame stackFrame = GetStepStackFrame();
-            return factory.CreateMethod(stackFrame.GetMethod());
-        }
-        public IMethod GetScenarioMethod()
-        {
-            StackFrame stackFrame = new StackFrame(2);
-            if (stackFrame.GetMethod().Name == "MoveNext")
-                stackFrame = new StackFrame(4);
-            return factory.CreateMethod(stackFrame.GetMethod());
+
+            var method = featureClass.GetType().GetTypeInfo().GetDeclaredMethod(methodName);
+            if (method == null)
+                throw new StepMethodNotFoundException();
+            return factory.CreateMethod(method);
 
         }
-        public IMethod GetStepMethod(Action<IStep> action)
+        internal Method GetStepMethod(Action<Step> action)
         {
-            return factory.CreateMethod(action.Method);
+            return factory.CreateMethod(action.GetMethodInfo());
         }
-        public IMethod GetStepMethod(Func<IStep, Task> action)
+        internal Method GetStepMethod(Func<Step, Task> action)
         {
-            return factory.CreateMethod(action.Method);
+            return factory.CreateMethod(action.GetMethodInfo());
         }
-
-        StackFrame GetStepStackFrame()
-        {
-            bool found = false;
-            int stackLocation = 1;
-            StackFrame sf = null;
-            while(!found)
-            {
-                sf = new StackFrame(stackLocation);
-                var method = sf.GetMethod();
-                if (method == null)
-                {
-                    throw new StepMethodNotFoundException();
-                }
-                if (method.DeclaringType != null && (method.IsStep() || method.DeclaringType.IsStepLibrary()))
-                    found = true;
-                else
-                    stackLocation++;
-            }
-            return sf;
-        }
-
     }
 }

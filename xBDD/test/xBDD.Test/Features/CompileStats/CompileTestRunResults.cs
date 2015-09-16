@@ -9,7 +9,7 @@ namespace xBDD.Test.Features.CompileStats
 {
     public class CompileTestRunResults
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public CompileTestRunResults(ITestOutputHelper output)
         {
@@ -20,7 +20,7 @@ namespace xBDD.Test.Features.CompileStats
         public void CompletedTestRun()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -28,7 +28,7 @@ namespace xBDD.Test.Features.CompileStats
         public void WithAreaPathSpecified()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -36,7 +36,7 @@ namespace xBDD.Test.Features.CompileStats
         public void EmptyTestRun()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }

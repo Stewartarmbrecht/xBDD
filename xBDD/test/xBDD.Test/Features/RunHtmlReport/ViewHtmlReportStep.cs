@@ -6,7 +6,7 @@ namespace xBDD.Test.Features.RunHtmlReport
     public class ViewHtmlReportStep
 
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public ViewHtmlReportStep(ITestOutputHelper output)
         {
@@ -17,7 +17,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewName()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -25,7 +25,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewMultilineParameter()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -33,7 +33,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewTableParameter()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -41,7 +41,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewOutcomeWhenPassing()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -49,7 +49,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewOutcomeWhenFailing()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -57,7 +57,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewOutcomeWhenSkipped()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }

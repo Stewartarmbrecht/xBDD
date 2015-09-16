@@ -17,7 +17,6 @@ namespace xBDD.xUnit
         public void WriteLine(string text)
         {
             testOutputHelper.WriteLine(text);
-            Trace.WriteLine(text);
         }
     }
 }

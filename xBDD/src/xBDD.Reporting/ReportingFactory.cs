@@ -2,11 +2,11 @@
 
 namespace xBDD.Reporting
 {
-    public class ReportingFactory : IReportingFactory
+    public class ReportingFactory
     {
-        public ITextFileWriter GetTextFileWriter()
+        public TextWriter GetTextFileWriter()
         {
-            return new TextFileWriter();
+            return new TextWriter();
         }
     }
 }

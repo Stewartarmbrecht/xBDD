@@ -7,6 +7,6 @@ My.Area.Path
 			When my action [Failed]
 				Error Type: Exception
 				   Message: My Error
-				     Stack:    at xBDD.Test.Features.CommonGivenSteps.<the_ExceptionStepIndex_step_throws_a_ExceptionType_exception>b__12_0(IStep st) in C:\Users\stearm01\Source\Repos\xBDD\xBDD\test\xBDD.Test\Features\CommonSteps.cs:line 160
-				               at xBDD.Core.StepExecutor.ExecuteStep(IStep step) in C:\Users\stearm01\Source\Repos\xBDD\xBDD\src\xBDD.Core\Core\StepExecutor.cs:line 44
+				     Stack:    at xBDD.Test.Features.CommonGivenSteps.<the_ExceptionStepIndex_step_throws_a_ExceptionType_exception>b__12_0(Step st) in C:\Users\stearm01\Source\Repos\xBDD\xBDD\test\xBDD.Test\Features\CommonSteps.cs:line 160
+				               at xBDD.Core.StepExecutor.ExecuteStep(Step step) in C:\Users\stearm01\Source\Repos\xBDD\xBDD\src\xBDD.Core\Core\StepExecutor.cs:line 44
 			Then my ending condition [Skipped - Previous Error]

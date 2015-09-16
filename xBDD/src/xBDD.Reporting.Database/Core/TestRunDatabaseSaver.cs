@@ -1,20 +1,21 @@
 ﻿using System;
+using xb = xBDD;
 
 namespace xBDD.Reporting.Database.Core
 {
-    public class TestRunDatabaseSaver : ITestRunDatabaseSaver
+    public class TestRunDatabaseSaver
     {
         string connectionName;
-        IDatabaseFactory factory;
-        public TestRunDatabaseSaver(IDatabaseFactory factory, string connectionName)
+        DatabaseFactory factory;
+        public TestRunDatabaseSaver(DatabaseFactory factory, string connectionName)
         {
             this.factory = factory;
             this.connectionName = connectionName;
         }
-        public int SaveTestRun(ITestRun testRun)
+        public int SaveTestRun(xb.TestRun testRun)
         {
-            IDatabaseContext dbContext = factory.CreatexBDDDbContext(connectionName);
-            IDatabaseObjectBuilder dbObjectBuilder = factory.CreateDatabaseObjectBuilder(dbContext);
+            DatabaseContext dbContext = factory.CreatexBDDDbContext(connectionName);
+            DatabaseObjectBuilder dbObjectBuilder = factory.CreateDatabaseObjectBuilder(dbContext);
             TestRun testRunDb = dbObjectBuilder.BuildTestRun(testRun);
             dbContext.EnsureDatabase();
             var count = dbContext.SaveChanges();

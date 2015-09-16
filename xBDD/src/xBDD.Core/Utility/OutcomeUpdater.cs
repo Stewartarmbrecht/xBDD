@@ -1,8 +1,8 @@
 ﻿namespace xBDD.Utility
 {
-    public class OutcomeAggregator : IOutcomeAggregator
+    internal class OutcomeAggregator
     {
-        public Outcome GetNewParentOutcome(Outcome currentParentOutcome, Outcome childOutcome)
+        internal Outcome GetNewParentOutcome(Outcome currentParentOutcome, Outcome childOutcome)
         {
             Outcome newOutcome = currentParentOutcome;
             switch (childOutcome)

@@ -5,7 +5,7 @@ namespace xBDD.Test.Features.RunHtmlReport
 {
     public class ViewHtmlReportArea
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public ViewHtmlReportArea(ITestOutputHelper output)
         {
@@ -16,7 +16,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewAreaName()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -24,7 +24,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewOutcomeWhenPassing()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -32,7 +32,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewOutcomeWhenFailing()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -40,7 +40,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewOutcomeWhenSkipped()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -48,7 +48,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewAreaTimes()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -56,7 +56,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildAreas()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -64,7 +64,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildFeatures()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -73,7 +73,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildAreaCountsAllPassingAreas()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -81,7 +81,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildAreaCountsWithFaillingArea()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -89,7 +89,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildAreaCountsWithSkippedAreas()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -97,7 +97,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildAreaCountsWithSkippedAndFailingAreas()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -105,7 +105,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildFeatureCountsAllPassingFeatures()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -113,7 +113,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildFeatureCountsWithFaillingFeature()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -121,7 +121,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildFeatureCountsWithSkippedFeatures()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -129,7 +129,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildFeatureCountsWithSkippedAndFailingFeatures()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -137,7 +137,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildScenarioCountsAllPassingScenarios()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -145,7 +145,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildScenarioCountsWithFaillingScenario()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -153,7 +153,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildScenarioCountsWithSkippedScenarios()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -161,7 +161,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildScenarioCountsWithSkippedAndFailingScenarios()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -169,7 +169,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildStepCountsAllPassingSteps()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -177,7 +177,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildStepCountsWithFaillingStep()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -185,7 +185,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildStepCountsWithSkippedSteps()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -193,7 +193,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewChildStepCountsWithSkippedAndFailingSteps()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -201,7 +201,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentAreaCountsAllPassingAreas()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -209,7 +209,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentAreaCountsWithFaillingArea()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -217,7 +217,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentAreaCountsWithSkippedAreas()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -225,7 +225,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentAreaCountsWithSkippedAndFailingAreas()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -233,7 +233,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentFeatureCountsAllPassingFeatures()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -241,7 +241,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentFeatureCountsWithFaillingFeature()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -249,7 +249,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentFeatureCountsWithSkippedFeatures()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -257,7 +257,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentFeatureCountsWithSkippedAndFailingFeatures()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -265,7 +265,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentScenarioCountsAllPassingScenarios()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -273,7 +273,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentScenarioCountsWithFaillingScenario()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -281,7 +281,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentScenarioCountsWithSkippedScenarios()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -289,7 +289,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentScenarioCountsWithSkippedAndFailingScenarios()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -297,7 +297,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentStepCountsAllPassingSteps()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -305,7 +305,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentStepCountsWithFaillingStep()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -313,7 +313,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentStepCountsWithSkippedSteps()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -321,7 +321,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         public void ViewDescendentStepCountsWithSkippedAndFailingSteps()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }

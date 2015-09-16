@@ -3,99 +3,99 @@ using System.Threading.Tasks;
 
 namespace xBDD.Core
 {
-    public class ScenarioBuilder : IScenarioBuilder
+    public class ScenarioBuilder
     {
-        ICoreFactory factory;
-        IScenarioInternal scenario;
+        CoreFactory factory;
+        Scenario scenario;
 
-        public ScenarioBuilder(IScenarioInternal scenario, ICoreFactory factory)
+        public ScenarioBuilder(Scenario scenario, CoreFactory factory)
         {
             this.factory = factory;
             this.scenario = scenario;
         }
 
         #region Given
-        public IScenario Given(string name, Action<IStep> stepAction)
+        public Scenario Given(string name, Action<Step> stepAction)
         {
             return Action(name, stepAction, ActionType.Given);
         }
-        public IScenario Given(Action<IStep> stepAction)
+        public Scenario Given(Action<Step> stepAction)
         {
             return Action(stepAction, ActionType.Given);
         }
-        public IScenario GivenAsync(Func<IStep, Task> stepAction)
+        public Scenario GivenAsync(Func<Step, Task> stepAction)
         {
             return Action(stepAction, ActionType.Given);
         }
-        public IScenario GivenAsync(string name, Func<IStep, Task> stepAction)
+        public Scenario GivenAsync(string name, Func<Step, Task> stepAction)
         {
             return Action(name, stepAction, ActionType.Given);
         }
         #endregion Given
         #region When
-        public IScenario When(string name, Action<IStep> stepAction)
+        public Scenario When(string name, Action<Step> stepAction)
         {
             return Action(name, stepAction, ActionType.When);
         }
-        public IScenario When(Action<IStep> stepAction)
+        public Scenario When(Action<Step> stepAction)
         {
             return Action(stepAction, ActionType.When);
         }
-        public IScenario WhenAsync(Func<IStep, Task> stepAction)
+        public Scenario WhenAsync(Func<Step, Task> stepAction)
         {
             return Action(stepAction, ActionType.When);
         }
-        public IScenario WhenAsync(string name, Func<IStep, Task> stepAction)
+        public Scenario WhenAsync(string name, Func<Step, Task> stepAction)
         {
             return Action(name, stepAction, ActionType.When);
         }
         #endregion When
         #region Then
-        public IScenario Then(string name, Action<IStep> stepAction)
+        public Scenario Then(string name, Action<Step> stepAction)
         {
             return Action(name, stepAction, ActionType.Then);
         }
-        public IScenario Then(Action<IStep> stepAction)
+        public Scenario Then(Action<Step> stepAction)
         {
             return Action(stepAction, ActionType.Then);
         }
-        public IScenario ThenAsync(Func<IStep, Task> stepAction)
+        public Scenario ThenAsync(Func<Step, Task> stepAction)
         {
             return Action(stepAction, ActionType.Then);
         }
-        public IScenario ThenAsync(string name, Func<IStep, Task> stepAction)
+        public Scenario ThenAsync(string name, Func<Step, Task> stepAction)
         {
             return Action(name, stepAction, ActionType.Then);
         }
         #endregion Then
         #region And
-        public IScenario And(string name, Action<IStep> stepAction)
+        public Scenario And(string name, Action<Step> stepAction)
         {
             return Action(name, stepAction, ActionType.And);
         }
-        public IScenario And(Action<IStep> stepAction)
+        public Scenario And(Action<Step> stepAction)
         {
             return Action(stepAction, ActionType.And);
         }
-        public IScenario AndAsync(Func<IStep, Task> stepAction)
+        public Scenario AndAsync(Func<Step, Task> stepAction)
         {
             return Action(stepAction, ActionType.And);
         }
-        public IScenario AndAsync(string name, Func<IStep, Task> stepAction)
+        public Scenario AndAsync(string name, Func<Step, Task> stepAction)
         {
             return Action(name, stepAction, ActionType.And);
         }
         #endregion And
         #region Action
-        IScenario Action(Action<IStep> stepAction, ActionType type)
+        Scenario Action(Action<Step> stepAction, ActionType type)
         {
             return Action(null, stepAction, type);
         }
-        IScenario Action(Func<IStep, Task> stepAction, ActionType type)
+        Scenario Action(Func<Step, Task> stepAction, ActionType type)
         {
             return Action(null, stepAction, type);
         }
-        IScenario Action(string name, Action<IStep> stepAction, ActionType type)
+        Scenario Action(string name, Action<Step> stepAction, ActionType type)
         {
             var step = factory.CreateStep(scenario);
             var method = factory.UtilityFactory.GetMethodRetriever().GetStepMethod(stepAction);
@@ -108,7 +108,7 @@ namespace xBDD.Core
             scenario.Steps.Add(step);
             return scenario;
         }
-        IScenario Action(string name, Func<IStep, Task> stepAction, ActionType type)
+        Scenario Action(string name, Func<Step, Task> stepAction, ActionType type)
         {
             var step = factory.CreateStep(scenario);
             var method = factory.UtilityFactory.GetMethodRetriever().GetStepMethod(stepAction);

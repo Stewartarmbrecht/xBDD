@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using xBDD.Core;
 
-namespace xBDD.Core
+namespace xBDD
 {
-    public class Step : IStep
+    public class Step
     {
-        ICoreFactory factory;
-        public Step(IScenario scenario, ICoreFactory factory)
+        CoreFactory factory;
+        public Step(Scenario scenario, CoreFactory factory)
         {
             this.Scenario = scenario;
             this.factory = factory;
         }
-        public IScenario Scenario { get; private set; }
-        public Action<IStep> Action { get; set; }
-        public Func<IStep, Task> ActionAsync { get; set; }
+        public Scenario Scenario { get; private set; }
+        public Action<Step> Action { get; set; }
+        public Func<Step, Task> ActionAsync { get; set; }
         public ActionType ActionType { get; set; }
         public string Name { get; private set; }
         public void SetName(string name)
@@ -45,11 +47,6 @@ namespace xBDD.Core
 
         public void ReplaceNameParameters(params string[] keyValue)
         {
-            if(Name == null)
-            {
-                var method = factory.UtilityFactory.GetMethodRetriever().GetCallingStepMethod();
-                SetName(factory.UtilityFactory.GetStepNameReader().ReadStepName(method));
-            }
             var replacements = new Dictionary<string, string>();
             string key = null;
             foreach(string param in keyValue)

@@ -1,46 +1,55 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace xBDD.Utility
 {
-    public class Method : IMethod
+    internal class Method
     {
         MethodBase methodBase;
-        IUtilityFactory factory;
+        UtilityFactory factory;
 
-        public Method(MethodBase methodBase, IUtilityFactory factory)
+        internal Method(MethodBase methodBase, UtilityFactory factory)
         {
+            if (methodBase == null)
+                throw new ArgumentNullException("methodBase");
             this.methodBase = methodBase;
             this.factory = factory;
         }
 
-        public string Name { get { return methodBase.Name; } }
+        internal string Name { get { return methodBase.Name; } }
 
-        public string GetClassName()
+        internal string GetClassName()
         {
-            return methodBase.ReflectedType.Name.AddSpacesToSentence(true);
+            return methodBase.DeclaringType.Name.AddSpacesToSentence(true);
         }
-        public IEnumerable<IAttributeWrapper> GetCustomAttributesData()
+        internal IEnumerable<AttributeWrapper> GetCustomAttributesData()
         {
-            List<IAttributeWrapper> attr = new List<IAttributeWrapper>();
-            methodBase.GetCustomAttributesData().ToList().ForEach(data =>
+            List<AttributeWrapper> attr = new List<AttributeWrapper>();
+            var attributes = methodBase.GetCustomAttributes().ToList();
+
+            foreach (var ca in attributes)
             {
-                attr.Add(this.factory.CreateAttribute(data));
-            });
+                attr.Add(this.factory.CreateAttribute(ca));
+            }
             return attr;
         }
-        public string GetNameSpace()
+
+        internal string GetNameSpace()
         {
-            return methodBase.ReflectedType.Namespace;
+            return methodBase.DeclaringType.Namespace;
         }
-        public IEnumerable<IAttributeWrapper> GetReflectedTypeCustomAttributesData()
+        internal IEnumerable<TAttribute> GetAttributes<TAttribute>()
+            where TAttribute : System.Attribute
         {
-            List<IAttributeWrapper> attr = new List<IAttributeWrapper>();
-            methodBase.ReflectedType.GetCustomAttributesData().ToList().ForEach(data =>
-            {
-                attr.Add(this.factory.CreateAttribute(data));
-            });
+            List<TAttribute> attr = new List<TAttribute>();
+            methodBase
+                .DeclaringType
+                .GetTypeInfo()
+                .GetCustomAttributes<TAttribute>()
+                .ToList();
             return attr;
         }
     }

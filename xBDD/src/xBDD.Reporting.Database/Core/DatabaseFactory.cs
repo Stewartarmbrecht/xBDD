@@ -1,8 +1,9 @@
-﻿namespace xBDD.Reporting.Database.Core
+﻿using xb = xBDD;
+namespace xBDD.Reporting.Database.Core
 {
-    public class DatabaseFactory : IDatabaseFactory
+    public class DatabaseFactory
     {
-        public Scenario CreateScenario(IScenario scenario, TestRun testRun)
+        public Scenario CreateScenario(xb.Scenario scenario, TestRun testRun)
         {
             return new Scenario()
             {
@@ -17,7 +18,7 @@
             };
         }
 
-        public Step CreateStep(IStep step, Scenario scenario)
+        public Step CreateStep(xb.Step step, Scenario scenario)
         {
             return new Step()
             {
@@ -32,30 +33,30 @@
             };
         }
 
-        public TestRun CreateTestRun(ITestRun testRun)
+        public TestRun CreateTestRun(xb.TestRun testRun)
         {
             return new TestRun()
             {
                 Name = testRun.Name
             };
         }
-        public IDatabaseContext CreatexBDDDbContext(string connectionName)
+        public DatabaseContext CreatexBDDDbContext(string connectionName)
         {
             return new DatabaseContext(connectionName);
         }
 
-        public IDatabaseObjectBuilder CreateDatabaseObjectBuilder(IDatabaseContext dbContext)
+        public DatabaseObjectBuilder CreateDatabaseObjectBuilder(DatabaseContext dbContext)
         {
-            IDatabaseFactory dbFactory = CreateDatabaseFactory();
-            return new DabaseObjectBuilder(dbContext, dbFactory);
+            DatabaseFactory dbFactory = CreateDatabaseFactory();
+            return new DatabaseObjectBuilder(dbContext, dbFactory);
         }
 
-        public IDatabaseFactory CreateDatabaseFactory()
+        public DatabaseFactory CreateDatabaseFactory()
         {
             return new DatabaseFactory();
         }
 
-        public ITestRunDatabaseSaver CreateTestRunDatabaseSaver(string connectionName)
+        public TestRunDatabaseSaver CreateTestRunDatabaseSaver(string connectionName)
         {
             return new TestRunDatabaseSaver(this, connectionName);
         }

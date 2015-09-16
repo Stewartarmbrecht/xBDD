@@ -14,7 +14,7 @@ namespace xBDD.Test.Sample
             s.PageName = "Home - ToCo CMS";
             s.Header = "ToCo CMS";
 
-            Scenario = testRun.AddScenario(null, null, "My.Explicitly.Set.Area")
+            Scenario = testRun.AddScenario(null, null, "My.Explicitly.Set.Area", this)
                 .Given(s.the_user_logs_in_as_UserName)
                 .When(s.the_user_loads_the_PageName_page)
                 .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
@@ -30,7 +30,7 @@ namespace xBDD.Test.Sample
             s.PageName = "Home - ToCo CMS";
             s.Header = "ToCo CMS";
 
-            Scenario = testRun.AddScenario(null, "My Explicitly Set Feature Name")
+            Scenario = testRun.AddScenario(null, "My Explicitly Set Feature Name", this)
                 .Given(s.the_user_logs_in_as_UserName)
                 .When(s.the_user_loads_the_PageName_page)
                 .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);
@@ -45,7 +45,7 @@ namespace xBDD.Test.Sample
             s.PageName = "Home - ToCo CMS";
             s.Header = "ToCo CMS";
 
-            Scenario = testRun.AddScenario("My Explicitly Set Scenario Name")
+            Scenario = testRun.AddScenario("My Explicitly Set Scenario Name", this)
                 .Given(s.the_user_logs_in_as_UserName)
                 .When(s.the_user_loads_the_PageName_page)
                 .And(s.the_time_is_captured)

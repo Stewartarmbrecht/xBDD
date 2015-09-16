@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Hosting;
 using Microsoft.Framework.Configuration;
-using Microsoft.Framework.Runtime;
+using Microsoft.Dnx.Runtime;
 
 namespace xBDD.Reporting.Database
 {

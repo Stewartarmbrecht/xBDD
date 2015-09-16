@@ -5,7 +5,7 @@ namespace xBDD.Test.Features.Environment
 {
     public class PublishTestResultsToCentralDatabase
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public PublishTestResultsToCentralDatabase(ITestOutputHelper output)
         {
@@ -17,7 +17,7 @@ namespace xBDD.Test.Features.Environment
         {
             var s = new Steps();
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(s.Given.the_solution_is_set_to_the_Publish_configuration)
                 .And(s.Given.there_is_a_valid_connection_string_set_for_the_ConfigurationSetting_setting)
@@ -26,11 +26,11 @@ namespace xBDD.Test.Features.Environment
                 .Run();
         }
         [ScenarioFact]
-        public void PublishAfterCITestRun()
+        public void PublishAfterCTestRun()
         {
             var s = new Steps();
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .When(s.When.a_developer_pushes_a_commit_to_the_GitHub_repository)
                 .Then(s.Then.a_visual_studio_online_build_should_trigger)

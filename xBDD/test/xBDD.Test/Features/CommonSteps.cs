@@ -26,8 +26,8 @@ namespace xBDD.Test.Features
     }
     public class CommonState
     {
-        public IScenario Scenario { get; set; }
-        public IStep Step { get; set; }
+        public Scenario Scenario { get; set; }
+        public Step Step { get; set; }
         public Exception CaughtException { get; set; }
         public string MultilineParameter { get; internal set; }
         public string MethodCall { get; internal set; }
@@ -58,7 +58,7 @@ namespace xBDD.Test.Features
         {
             this.state = state;
         }
-        internal void a_test_run(IStep step)
+        internal void a_test_run(Step step)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("var factory = new CoreFactory();");
@@ -67,7 +67,7 @@ namespace xBDD.Test.Features
             var factory = new CoreFactory();
             state.TestRun = new TestRun(factory);
         }
-        internal void a_test_run_with_name_TestRunName(IStep step)
+        internal void a_test_run_with_name_TestRunName(Step step)
         {
             step.ReplaceNameParameters("TestRunName", state.TestRunName.Quote());
             StringBuilder sb = new StringBuilder();
@@ -79,16 +79,16 @@ namespace xBDD.Test.Features
             state.TestRun = new TestRun(factory);
             state.TestRun.Name = state.TestRunName;
         }
-        internal void a_scenario(IStep step)
+        internal void a_scenario(Step step)
         {
             if(state.TestRun == null)
             {
                 var factory = new CoreFactory();
                 state.TestRun = new TestRun(factory);
             }
-            state.Scenario = state.TestRun.AddScenario();
+            state.Scenario = state.TestRun.AddScenario(this);
         }
-        internal void a_scenario_with_the_name_ScenarioName(IStep step)
+        internal void a_scenario_with_the_name_ScenarioName(Step step)
         {
             step.ReplaceNameParameters("ScenarioName", state.ScenarioName.Quote());
             step.SetMultilineParameter("testRun.AddScenario(\"" + state.ScenarioName + "\");");
@@ -97,17 +97,17 @@ namespace xBDD.Test.Features
                 var factory = new CoreFactory();
                 state.TestRun = new TestRun(factory);
             }
-            state.Scenario = state.TestRun.AddScenario(state.ScenarioName);
+            state.Scenario = state.TestRun.AddScenario(state.ScenarioName, this);
         }
-        internal void a_scenario_AreaPath_FeatureName_ScenarioName(IStep step)
+        internal void a_scenario_AreaPath_FeatureName_ScenarioName(Step step)
         {
             step.ReplaceNameParameters(
                 "AreaPath", state.AreaPath, 
                 "FeatureName", state.FeatureName,
                 "ScenarioName", state.ScenarioName);
-            state.Scenario = state.TestRun.AddScenario(state.ScenarioName, state.FeatureName, state.AreaPath);
+            state.Scenario = state.TestRun.AddScenario(state.ScenarioName, state.FeatureName, state.AreaPath, this);
         }
-        internal void a_given_step_with_the_name_StepName(IStep step)
+        internal void a_given_step_with_the_name_StepName(Step step)
         {
             step.ReplaceNameParameters("StepName", state.StepName.Quote());
             step.SetMultilineParameter("scenario.Given(\""+state.StepName+"\", step => {});");
@@ -119,18 +119,18 @@ namespace xBDD.Test.Features
             state.Scenario.Given(state.StepName, stepTarget => { });
             state.Step = state.Scenario.Steps[state.Scenario.Steps.Count -1];
         }
-        internal void the_scenario_is_set_to_write_its_output(IStep step)
+        internal void the_scenario_is_set_to_write_its_output(Step step)
         {
             step.SetMultilineParameter("scenario.SetOutputWriter(outputWriter);");
             state.OutputWriter = new MockOutputWriter();
             state.Scenario.SetOutputWriter(state.OutputWriter);
         }
-        internal void the_step_has_a_multiline_parameter_of(IStep step)
+        internal void the_step_has_a_multiline_parameter_of(Step step)
         {
             step.SetMultilineParameter(state.MultilineParameter);
             state.Step.SetMultilineParameter(state.MultilineParameter);
         }
-        internal void the_scenario_has_three_steps(IStep step)
+        internal void the_scenario_has_three_steps(Step step)
         {
             state.Scenario.Given("my starting condition", st => {
                 st.ReturnIfPreviousError();
@@ -142,7 +142,7 @@ namespace xBDD.Test.Features
                 st.ReturnIfPreviousError();
             });
         }
-        internal void all_steps_are_set_to_skip(IStep obj)
+        internal void all_steps_are_set_to_skip(Step obj)
         {
             foreach(var step in state.Scenario.Steps)
             {
@@ -151,7 +151,7 @@ namespace xBDD.Test.Features
                 };
             }
         }
-        internal void the_ExceptionStepIndex_step_throws_a_ExceptionType_exception(IStep step)
+        internal void the_ExceptionStepIndex_step_throws_a_ExceptionType_exception(Step step)
         {
             step.ReplaceNameParameters("ExceptionStepIndex", state.ExceptionStepIndex.ToString());
             step.ReplaceNameParameters("ExceptionType", state.StepException.GetType().Name);
@@ -160,7 +160,7 @@ namespace xBDD.Test.Features
                 throw state.StepException;
             };
         }
-        public void a_when_step_with_the_name_StepName(IStep step)
+        public void a_when_step_with_the_name_StepName(Step step)
         {
             step.ReplaceNameParameters("StepName", state.StepName);
             step.SetMultilineParameter("scenario.When(stepName, st => { step.ReturnIfPreviousError(); });");
@@ -177,12 +177,12 @@ namespace xBDD.Test.Features
         {
             this.state = state;
         }
-        internal void the_scenario_is_run(IStep step)
+        internal void the_scenario_is_run(Step step)
         {
             step.ReturnIfPreviousError();
             state.Scenario.Run();
         }
-        internal void the_scenario_is_run_and_the_exception_caught(IStep step)
+        internal void the_scenario_is_run_and_the_exception_caught(Step step)
         {
             step.ReturnIfPreviousError();
             try
@@ -194,11 +194,11 @@ namespace xBDD.Test.Features
                 state.CaughtException = ex;
             }
         }
-        internal async Task the_scenario_is_run_asynchronously(IStep obj)
+        internal async Task the_scenario_is_run_asynchronously(Step obj)
         {
             await state.Scenario.RunAsync();
         }
-        internal void the_scenario_is_skipped_with_reason_of_ScenarioReason(IStep step)
+        internal void the_scenario_is_skipped_with_reason_of_ScenarioReason(Step step)
         {
             step.ReplaceNameParameters("ScenarioReason", state.ScenarioReason.Quote());
             step.ReturnIfPreviousError();
@@ -211,7 +211,7 @@ namespace xBDD.Test.Features
                 state.CaughtException = ex;
             }
         }
-        internal async Task the_scenario_is_skipped_asynchronously_with_reason_of_ScenarioReason(IStep step)
+        internal async Task the_scenario_is_skipped_asynchronously_with_reason_of_ScenarioReason(Step step)
         {
             step.ReplaceNameParameters("ScenarioReason", state.ScenarioReason);
             step.ReturnIfPreviousError();
@@ -234,44 +234,44 @@ namespace xBDD.Test.Features
         {
             this.state = state;
         }
-        internal void the_scenario_should_write_the_following_output(IStep step)
+        internal void the_scenario_should_write_the_following_output(Step step)
         {
             step.ReturnIfPreviousError();
             Assert.Equal(state.Output, state.OutputWriter.Output);
         }
-        internal void the_scenario_reason_should_be_ScenarioReason(IStep step)
+        internal void the_scenario_reason_should_be_ScenarioReason(Step step)
         {
             step.ReplaceNameParameters("ScenarioReason", state.ScenarioReason.Quote());
             Assert.Equal(state.ScenarioReason, state.Scenario.Reason);
         }
-        internal void the_caught_scenario_exception_should_be_of_type_ScenarioExceptionType(IStep step)
+        internal void the_caught_scenario_exception_should_be_of_type_ScenarioExceptionType(Step step)
         {
             step.ReplaceNameParameters("ScenarioExceptionType", state.ScenarioExceptionType);
             step.ReturnIfPreviousError();
             Assert.Equal(state.ScenarioExceptionType, state.CaughtException.GetType().Name);
         }
-        internal void the_caught_scenario_exception_should_have_a_message_of_ScenarioExceptionMessage(IStep step)
+        internal void the_caught_scenario_exception_should_have_a_message_of_ScenarioExceptionMessage(Step step)
         {
             step.ReplaceNameParameters("ScenarioExceptionMessage", state.ScenarioExceptionMessage);
             step.ReturnIfPreviousError();
             Assert.Equal(state.ScenarioExceptionMessage, state.CaughtException.Message);
         }
-        internal void the_step_outcome_should_be_StepOutcome(IStep step)
+        internal void the_step_outcome_should_be_StepOutcome(Step step)
         {
             step.ReplaceNameParameters("StepOutcome", Enum.GetName(typeof(Outcome), state.StepOutcome));
             Assert.Equal(state.StepOutcome, state.Step.Outcome);
         }
-        internal void the_step_reason_should_be_StepReason(IStep step)
+        internal void the_step_reason_should_be_StepReason(Step step)
         {
             step.ReplaceNameParameters("StepReason", state.StepReason.Quote());
             Assert.Equal(state.StepReason, state.Step.Reason);
         }
-        internal void the_step_exception_message_should_be_StepExceptionMessage(IStep step)
+        internal void the_step_exception_message_should_be_StepExceptionMessage(Step step)
         {
             step.ReplaceNameParameters("StepExceptionMessage", state.StepExceptionMessage);
             Assert.Equal(state.StepExceptionMessage, state.Step.Exception.Message);
         }
-        internal void the_step_exception_should_be_the_exception_thrown(IStep step)
+        internal void the_step_exception_should_be_the_exception_thrown(Step step)
         {
             Assert.Equal(state.StepException, state.Step.Exception);
         }

@@ -3,18 +3,18 @@ using xBDD.Utility;
 
 namespace xBDD.Core
 {
-    internal class StepExceptionHandler : IStepExceptionHandler
+    internal class StepExceptionHandler
     {
-        IScenarioInternal scenario;
-        IOutcomeAggregator outcomeAggregator;
+        Scenario scenario;
+        OutcomeAggregator outcomeAggregator;
 
-        public StepExceptionHandler(IScenarioInternal scenario, ICoreFactory factory)
+        public StepExceptionHandler(Scenario scenario, CoreFactory factory)
         {
             this.scenario = scenario;
             outcomeAggregator = factory.UtilityFactory.CreateOutcomeAggregator();
         }
 
-        public void HandleException(IStepExecutor stepExecutor, IStep step, Exception ex)
+        public void HandleException(StepExecutor stepExecutor, Step step, Exception ex)
         {
             if (ex is SkipStepException)
             {
@@ -29,7 +29,7 @@ namespace xBDD.Core
                 ProcessException(stepExecutor, step, ex);
             }
         }
-        void ProcessSkipException(IStepExecutor stepExecutor, IStep step, SkipStepException ex)
+        void ProcessSkipException(StepExecutor stepExecutor, Step step, SkipStepException ex)
         {
             stepExecutor.SetEndTimes(step);
             step.Outcome = Outcome.Skipped;
@@ -41,7 +41,7 @@ namespace xBDD.Core
                 scenario.FirstStepException = new StepException(step.Name, ex);
             step.Exception = ex;
         }
-        void ProcessNotImplementedException(IStepExecutor stepExecutor, IStep step, NotImplementedException ex)
+        void ProcessNotImplementedException(StepExecutor stepExecutor, Step step, NotImplementedException ex)
         {
             if (scenario.FirstStepException == null)
             {
@@ -55,7 +55,7 @@ namespace xBDD.Core
             if (scenario.Reason == null)
                 scenario.Reason = "Step Not Implemented";
         }
-        void ProcessException(IStepExecutor stepExecutor, IStep step, Exception ex)
+        void ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
         {
             if (scenario.FirstStepException == null)
             {

@@ -17,7 +17,7 @@ namespace xBDD.Test.Features.ShareState
         public void Sync()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -25,7 +25,7 @@ namespace xBDD.Test.Features.ShareState
         public void Async()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }

@@ -1,13 +1,13 @@
 ﻿using Microsoft.Data.Entity;
 using System;
-using Microsoft.Framework.Runtime.Infrastructure;
-using Microsoft.Framework.Runtime;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.AspNet.Hosting;
+using Microsoft.Dnx.Runtime.Infrastructure;
+using Microsoft.Dnx.Runtime;
 
 namespace xBDD.Reporting.Database.Core
 {
-    public class DatabaseContext : DbContext, IDatabaseContext
+    public class DatabaseContext : DbContext
     {
         string connectionStringName;
 
@@ -29,11 +29,6 @@ namespace xBDD.Reporting.Database.Core
                 var hostEnv = new HostingEnvironment();
                 Console.WriteLine("Writing command line arguments");
                 var environment = Environment.GetEnvironmentVariable("Environment");
-                var args = Environment.GetCommandLineArgs();
-                foreach (var arg in args)
-                {
-                    Console.WriteLine(arg);
-                }
 
                 if (environment == null)
                     hostEnv.EnvironmentName = "Development";
@@ -42,7 +37,7 @@ namespace xBDD.Reporting.Database.Core
                 Console.WriteLine("The hosting environment was set to " + hostEnv.EnvironmentName);
                 var statup = new Startup(hostEnv, appEnv);
             }
-            var connectionString = Startup.Configuration.Get(connectionStringName);
+            var connectionString = Startup.Configuration[connectionStringName];
             optionsBuilder.UseSqlServer(connectionString);
         }
 

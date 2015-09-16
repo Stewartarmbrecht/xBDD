@@ -5,7 +5,7 @@ namespace xBDD.Test.Features.DefineScenarios
 {
     public class AddAStep
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public AddAStep(ITestOutputHelper output)
         {
@@ -17,12 +17,12 @@ namespace xBDD.Test.Features.DefineScenarios
         {
             Steps s = new Steps();
             s.State.StepType = "Given";
-            s.State.StepName = "my step";
+            s.c.State.StepName = "my step";
             s.State.AddedStepName = "Given my step";
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Given(s.Given.a_scenario)
+                .Given(s.c.Given.a_scenario)
                 .When(s.When.a_StepType_step_is_added_to_a_scenario_with_a_name_of_StepName)
                 .Then(s.Then.the_added_step_name_should_be_AddedStepName);
         }
@@ -30,7 +30,7 @@ namespace xBDD.Test.Features.DefineScenarios
         public void GivenAsync()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -38,7 +38,7 @@ namespace xBDD.Test.Features.DefineScenarios
         public void When()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -46,7 +46,7 @@ namespace xBDD.Test.Features.DefineScenarios
         public void WhenAsync()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -54,7 +54,7 @@ namespace xBDD.Test.Features.DefineScenarios
         public void Then()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -62,7 +62,7 @@ namespace xBDD.Test.Features.DefineScenarios
         public void ThenAsync()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -70,7 +70,7 @@ namespace xBDD.Test.Features.DefineScenarios
         public void And()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -78,7 +78,15 @@ namespace xBDD.Test.Features.DefineScenarios
         public void AndAsync()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
+                .SetOutputWriter(outputWriter)
+                .Skip("Not Started");
+        }
+        [ScenarioFact]
+        public void InAnInheritedMethod()
+        {
+            xBDD.CurrentRun
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }

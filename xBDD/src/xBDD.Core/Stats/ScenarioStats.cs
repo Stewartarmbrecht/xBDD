@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace xBDD.Stats
 {
-    public interface IStepStats
+    internal class ScenarioStats
     {
     }
 }

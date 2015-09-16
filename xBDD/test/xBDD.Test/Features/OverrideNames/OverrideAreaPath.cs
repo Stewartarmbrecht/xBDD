@@ -6,7 +6,7 @@ namespace xBDD.Test.Features.OverrideNames
 {
     public class OverrideAreaPath
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public OverrideAreaPath(ITestOutputHelper output)
         {
@@ -17,7 +17,7 @@ namespace xBDD.Test.Features.OverrideNames
         public void WhenAdding()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -25,7 +25,7 @@ namespace xBDD.Test.Features.OverrideNames
         public void WithAnAttribute()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -35,7 +35,7 @@ namespace xBDD.Test.Features.OverrideNames
         //{
         //    var s = new OverridingNamesSteps();
         //    s.ExpectedAreaPath = "My.New.Area.Path";
-        //    xBDD.CurrentRun.AddScenario()
+        //    xBDD.CurrentRun.AddScenario(this)
         //        .When(s.a_simple_passing_scenario_with_an_area_path_attribute_is_run)
         //        .Then(s.the_area_path_should_match_the_area_path_attribute_setting)
         //        .Run();
@@ -45,7 +45,7 @@ namespace xBDD.Test.Features.OverrideNames
         //{
         //    var s = new OverridingNamesSteps();
         //    s.ExpectedAreaPath = "My.Explicitly.Set.Area";
-        //    xBDD.CurrentRun.AddScenario()
+        //    xBDD.CurrentRun.AddScenario(this)
         //        .When(s.a_simple_passing_scenario_with_an_area_path_set_when_adding_the_scenario)
         //        .Then(s.the_area_path_should_match_the_string_value_used)
         //        .Run();

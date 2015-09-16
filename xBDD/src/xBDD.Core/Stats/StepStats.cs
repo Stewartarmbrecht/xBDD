@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 namespace xBDD.Stats
 {
-    public interface IStatsCompiler
+    internal class StepStats
     {
-        ITestRunStats CompileStats(ITestRun testRun);
     }
 }

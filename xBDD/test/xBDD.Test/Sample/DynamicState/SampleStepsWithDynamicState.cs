@@ -13,7 +13,7 @@ namespace xBDD.Test.Sample
         /// UserName - string
         /// </summary>
         /// <param name="step"></param>
-        public void the_user_logs_in_as_UserName(IStep step)
+        public void the_user_logs_in_as_UserName(Step step)
         {
             string userName = step.State.UserName;
             step.ReplaceNameParameters("UserName", userName.Quote());
@@ -23,7 +23,7 @@ namespace xBDD.Test.Sample
         /// UserName - string
         /// </summary>
         /// <param name="step"></param>
-        public async Task the_user_logs_in_as_UserName_async(IStep step)
+        public async Task the_user_logs_in_as_UserName_async(Step step)
         {
             string userName = step.State.UserName;
             step.ReplaceNameParameters("UserName", userName.Quote());
@@ -36,7 +36,7 @@ namespace xBDD.Test.Sample
         /// Response - string - Body of the page that was retrived.
         /// </summary>
         /// <param name="step"></param>
-        public void the_user_loads_the_PageName_page(IStep step)
+        public void the_user_loads_the_PageName_page(Step step)
         {
             string pageName = step.State.PageName;
             step.ReplaceNameParameters("PageName", pageName.Quote());
@@ -47,7 +47,7 @@ namespace xBDD.Test.Sample
             step.State.Response = "Here you go!";
         }
 
-        internal void the_time_is_captured_and_the_step_fails(IStep step)
+        internal void the_time_is_captured_and_the_step_fails(Step step)
         {
             System.Threading.Thread.Sleep(10);
             step.State.CapturedTime = DateTime.Now;
@@ -55,7 +55,7 @@ namespace xBDD.Test.Sample
             throw new Exception("Deliberate");
         }
 
-        internal void the_time_is_captured(IStep step)
+        internal void the_time_is_captured(Step step)
         {
             System.Threading.Thread.Sleep(10);
             step.State.CapturedTime = DateTime.Now;
@@ -69,7 +69,7 @@ namespace xBDD.Test.Sample
         /// Response - string - Body of the page that was retrived.
         /// </summary>
         /// <param name="step"></param>
-        public async Task the_user_loads_the_PageName_page_async(IStep step)
+        public async Task the_user_loads_the_PageName_page_async(Step step)
         {
             string pageName = step.State.PageName;
             step.ReplaceNameParameters("PageName", pageName.Quote());
@@ -83,7 +83,7 @@ namespace xBDD.Test.Sample
         /// Requires: Header - string - Class name to find header.
         /// </summary>
         /// <param name="step"></param>
-        public void the_loaded_page_should_have_a_header_of_ExpectedHeader(IStep step)
+        public void the_loaded_page_should_have_a_header_of_ExpectedHeader(Step step)
         {
             string header = step.State.Header;
             step.ReplaceNameParameters("ExpectedHeader", header.Quote());
@@ -93,7 +93,7 @@ namespace xBDD.Test.Sample
         /// Requires: Header - string - Class name to find header.
         /// </summary>
         /// <param name="step"></param>
-        public async Task the_loaded_page_should_have_a_header_of_ExpectedHeader_async(IStep step)
+        public async Task the_loaded_page_should_have_a_header_of_ExpectedHeader_async(Step step)
         {
             string header = step.State.Header;
             step.ReplaceNameParameters("ExpectedHeader", header.Quote());

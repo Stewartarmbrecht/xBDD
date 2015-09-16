@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace xBDD.Reporting.TextFile
 {
-    public class TextFileWriter : ITextFileWriter
+    public class TextWriter
     {
-        public void WriteToFile(ITestRun testRun, string fileName)
+        public string WriteToText(TestRun testRun)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(testRun.Name);
@@ -19,10 +19,10 @@ namespace xBDD.Reporting.TextFile
             {
                 WriteScenario(scenario, sb);
             }
-            File.WriteAllText(fileName, sb.ToString());
+            return sb.ToString();
         }
 
-        private void WriteScenario(IScenario scenario, StringBuilder sb)
+        private void WriteScenario(Scenario scenario, StringBuilder sb)
         {
             sb.AppendLine(scenario.AreaPath);
             sb.Append("\t");
@@ -49,7 +49,7 @@ namespace xBDD.Reporting.TextFile
             }
         }
 
-        private void WriteStep(IStep step, StringBuilder sb)
+        private void WriteStep(Step step, StringBuilder sb)
         {
             sb.Append("\t\t\t" + step.Name);
             if(step.Scenario.Outcome == Outcome.Failed)

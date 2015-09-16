@@ -7,13 +7,35 @@
   "licenseUrl": "",
 
   "dependencies": {
-    "Microsoft.Framework.Runtime": "1.0.0-beta5",
-    "Microsoft.Framework.Configuration": "1.0.0-beta6",
-    "Microsoft.Framework.Configuration.Json": "1.0.0-beta5",
   },
   "userSecretsId": "xBDD.Core",
   "frameworks": {
-    "dnx451": { }
+    "dnx451": {
+    },
+    "dnxcore5": {
+      "dependencies": {
+        "System.Collections":  "4.0.10",
+        "System.Dynamic.Runtime": "4.0.0",
+        "System.Linq": "4.0.0",
+        "System.Linq.Expressions": "4.0.10",
+        "System.Reflection": "4.0.10",
+        "System.Reflection.Extensions": "4.0.0",
+        "System.Runtime": "4.0.20",
+        "System.Text.RegularExpressions": "4.0.10"
+      }
+    },
+    "dotnet": {
+      "dependencies": {
+        "System.Collections":  "4.0.10",
+        "System.Dynamic.Runtime": "4.0.0",
+        "System.Linq": "4.0.0",
+        "System.Linq.Expressions": "4.0.10",
+        "System.Reflection": "4.0.10",
+        "System.Reflection.Extensions": "4.0.0",
+        "System.Runtime": "4.0.20",
+        "System.Text.RegularExpressions": "4.0.10"
+      }
+    }
   },
   "configurations": {
     "Publish": { }

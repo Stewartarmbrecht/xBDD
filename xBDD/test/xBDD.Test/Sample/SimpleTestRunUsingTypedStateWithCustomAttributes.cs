@@ -17,7 +17,7 @@ namespace xBDD.Test.Sample
             s.PageName = "Home - ToCo CMS";
             s.Header = "ToCo CMS";
 
-            Scenario = testRun.AddScenario()
+            Scenario = testRun.AddScenario(this)
                 .Given(s.the_user_logs_in_as_UserName)
                 .When(s.the_user_loads_the_PageName_page)
                 .Then(s.the_loaded_page_should_have_a_header_of_ExpectedHeader);

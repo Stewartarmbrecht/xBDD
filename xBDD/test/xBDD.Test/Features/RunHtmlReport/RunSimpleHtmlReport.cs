@@ -9,7 +9,7 @@ namespace xBDD.Test.Features.RunHtmlReport
 {
     public class RunSimpleHtmlReport
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public RunSimpleHtmlReport(ITestOutputHelper output)
         {
@@ -19,7 +19,7 @@ namespace xBDD.Test.Features.RunHtmlReport
         [ScenarioFact]
         public void RunReport()
         {
-            xBDD.CurrentRun.AddScenario()
+            xBDD.CurrentRun.AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }

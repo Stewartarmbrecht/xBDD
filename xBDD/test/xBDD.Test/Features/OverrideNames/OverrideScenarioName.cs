@@ -5,7 +5,7 @@ namespace xBDD.Test.Features.OverrideNames
 {
     public class OverrideScenarioName
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public OverrideScenarioName(ITestOutputHelper output)
         {
@@ -16,7 +16,7 @@ namespace xBDD.Test.Features.OverrideNames
         public void WhenAdding()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -24,7 +24,7 @@ namespace xBDD.Test.Features.OverrideNames
         public void WithAnAttribute()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -34,7 +34,7 @@ namespace xBDD.Test.Features.OverrideNames
         //{
         //    var s = new OverridingNamesSteps();
         //    s.ExpectedScenarioName = "My New Scenario Name";
-        //    xBDD.CurrentRun.AddScenario()
+        //    xBDD.CurrentRun.AddScenario(this)
         //        .When(s.a_simple_passing_scenario_with_an_scenario_name_attribute_is_run)
         //        .Then(s.the_scenario_name_should_match_the_scenario_name_attribute_setting)
         //        .Run();
@@ -45,7 +45,7 @@ namespace xBDD.Test.Features.OverrideNames
         //{
         //    var s = new OverridingNamesSteps();
         //    s.ExpectedScenarioName = "My Explicitly Set Scenario Name";
-        //    xBDD.CurrentRun.AddScenario()
+        //    xBDD.CurrentRun.AddScenario(this)
         //        .When(s.a_simple_passing_scenario_with_a_scenario_name_set_when_adding_the_scenario)
         //        .Then(s.the_scenario_name_should_match_the_string_value_used)
         //        .Run();

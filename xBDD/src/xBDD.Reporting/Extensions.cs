@@ -5,11 +5,11 @@ namespace xBDD
 {
     public static class xBDDExtensions
     {
-        public static void WriteToFile(this ITestRun testRun, string fileName)
+        public static string WriteToText(this TestRun testRun)
         {
-            IReportingFactory factory = new ReportingFactory();
-            ITextFileWriter saver = factory.GetTextFileWriter();
-            saver.WriteToFile(testRun, fileName);
+            ReportingFactory factory = new ReportingFactory();
+            TextWriter saver = factory.GetTextFileWriter();
+            return saver.WriteToText(testRun);
         }
     }
 }

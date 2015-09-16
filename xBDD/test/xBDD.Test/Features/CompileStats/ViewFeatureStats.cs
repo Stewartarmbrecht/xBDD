@@ -9,7 +9,7 @@ namespace xBDD.Test.Features.CompileStats
 {
     public class ViewFeatureStats
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public ViewFeatureStats(ITestOutputHelper output)
         {
@@ -20,7 +20,7 @@ namespace xBDD.Test.Features.CompileStats
         public void Outcome()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -28,7 +28,7 @@ namespace xBDD.Test.Features.CompileStats
         public void ScenarioTotalCount()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -36,7 +36,7 @@ namespace xBDD.Test.Features.CompileStats
         public void ScenarioPassedCount()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -44,7 +44,7 @@ namespace xBDD.Test.Features.CompileStats
         public void ScenarioFailedCount()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -52,7 +52,7 @@ namespace xBDD.Test.Features.CompileStats
         public void ScenarioSkippedCount()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -60,7 +60,7 @@ namespace xBDD.Test.Features.CompileStats
         public void StepTotalCount()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -68,7 +68,7 @@ namespace xBDD.Test.Features.CompileStats
         public void StepPassedCount()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -76,7 +76,7 @@ namespace xBDD.Test.Features.CompileStats
         public void StepFailedCount()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -84,7 +84,7 @@ namespace xBDD.Test.Features.CompileStats
         public void StepSkippedCount()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -92,7 +92,7 @@ namespace xBDD.Test.Features.CompileStats
         public void StartTime()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -100,7 +100,7 @@ namespace xBDD.Test.Features.CompileStats
         public void EndTime()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -108,7 +108,7 @@ namespace xBDD.Test.Features.CompileStats
         public void Duration()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -116,7 +116,7 @@ namespace xBDD.Test.Features.CompileStats
         public void Time()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }

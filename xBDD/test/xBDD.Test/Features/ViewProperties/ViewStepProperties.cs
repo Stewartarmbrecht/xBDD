@@ -13,7 +13,7 @@ namespace xBDD.Test.Features.ViewProperties
         public void Name()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -21,7 +21,7 @@ namespace xBDD.Test.Features.ViewProperties
         public void ActionType()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -29,7 +29,7 @@ namespace xBDD.Test.Features.ViewProperties
         public void StartTime()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -37,7 +37,7 @@ namespace xBDD.Test.Features.ViewProperties
         public void EndTime()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -45,7 +45,7 @@ namespace xBDD.Test.Features.ViewProperties
         public void Outcome()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -53,7 +53,7 @@ namespace xBDD.Test.Features.ViewProperties
         public void Reason()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -61,7 +61,7 @@ namespace xBDD.Test.Features.ViewProperties
         public void Exception()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -69,7 +69,7 @@ namespace xBDD.Test.Features.ViewProperties
         public void InlineParameters()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -77,7 +77,7 @@ namespace xBDD.Test.Features.ViewProperties
         public void MultilineParameter()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -85,7 +85,7 @@ namespace xBDD.Test.Features.ViewProperties
         public void TableParameter()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -93,7 +93,7 @@ namespace xBDD.Test.Features.ViewProperties
         public void State()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }

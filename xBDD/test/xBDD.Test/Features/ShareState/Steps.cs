@@ -19,36 +19,36 @@ namespace xBDD.Test.Features.ShareState
             Then = new ThenSteps(State);
         }
     }
-    public class StepsState : CommonState
+    public class StepsState
     {
     }
 
     [StepLibrary]
-    public class GivenSteps : CommonGivenSteps
+    public class GivenSteps
     {
         StepsState state;
         public GivenSteps(StepsState state)
-            : base(state)
+
         {
             this.state = state;
         }
     }
     [StepLibrary]
-    public class WhenSteps : CommonWhenSteps
+    public class WhenSteps
     {
         StepsState state;
         public WhenSteps(StepsState state)
-            : base(state)
+
         {
             this.state = state;
         }
     }
     [StepLibrary]
-    public class ThenSteps : CommonThenSteps
+    public class ThenSteps
     {
         StepsState state;
         public ThenSteps(StepsState state)
-            : base(state)
+
         {
             this.state = state;
         }

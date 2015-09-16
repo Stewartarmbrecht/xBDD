@@ -5,7 +5,7 @@ namespace xBDD.Test.Features.DefineScenarios
 {
     public class SpecifyParameters
     {
-        private readonly IOutputWriter outputWriter;
+        private readonly OutputWriter outputWriter;
 
         public SpecifyParameters(ITestOutputHelper output)
         {
@@ -16,7 +16,7 @@ namespace xBDD.Test.Features.DefineScenarios
         public void InlineWithTypedState()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -24,7 +24,7 @@ namespace xBDD.Test.Features.DefineScenarios
         public void InlineWithDynamicState()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -32,7 +32,7 @@ namespace xBDD.Test.Features.DefineScenarios
         public void MultilineParameter()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
@@ -40,7 +40,7 @@ namespace xBDD.Test.Features.DefineScenarios
         public void TableParameter()
         {
             xBDD.CurrentRun
-                .AddScenario()
+                .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
         }
