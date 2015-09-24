@@ -1,6 +1,8 @@
 ﻿using Microsoft.Dnx.Runtime.Infrastructure;
 using Microsoft.Framework.DependencyInjection;
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using Xunit;
 using Microsoft.Dnx.Runtime;
 using Microsoft.AspNet.Hosting;
@@ -55,6 +57,16 @@ namespace xBDD.Test
             {
                 try
                 {
+                    Console.WriteLine("Removing SampleCode scenarios.");
+                    var scenarios = xBDD.CurrentRun.Scenarios.Where(x => x.AreaPath.Contains("SampleCode")).ToList();
+                    Console.WriteLine("Found " + scenarios.Count() + " sample code scenarios.");
+                    foreach(var scenario in scenarios)
+                    {
+                        xBDD.CurrentRun.Scenarios.Remove(scenario);
+                        Console.WriteLine("Scenario '" + scenario.Name + "' removed.");
+                    }
+                    Console.WriteLine("SampleCode scenarios have been removed.");
+
                     Console.WriteLine("Saving to the databse.");
                     var count = xBDD.CurrentRun.SaveToDatabase(null);
                 }
