@@ -57,68 +57,122 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Run();
         }
         [ScenarioFact]
-        public void GivenAsync()
+        public void Async()
         {
+            Wrapper<Scenario> scenarioWrapper = new Wrapper<Scenario>();
+            Wrapper<Step> stepWrapper = new Wrapper<Step>();
             xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Skip("Not Started");
+                .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAnAsyncStep.cs"))
+                .When(Code.ExecuteMethod(() =>
+                {
+                    scenarioWrapper.Object = new SampleCode.AddAnAsyncStep().Add();
+                }))
+                .Then(ScenarioTarget.WillBeCreated(scenarioWrapper))
+                .And(ScenarioTarget.WillHaveAStep(1, scenarioWrapper, stepWrapper))
+                .And(StepTarget.NameWillBe("my async starting condition", stepWrapper))
+                .And(StepTarget.FullNameWillBe("Given my async starting condition", stepWrapper))
+                .And(StepTarget.AsyncActionWillNotBeNull(stepWrapper))
+                .And(StepTarget.ActionTypeWillBe(ActionType.Given, stepWrapper))
+                .Run();
         }
         [ScenarioFact]
         public void When()
         {
+            Wrapper<Scenario> scenarioWrapper = new Wrapper<Scenario>();
+            Wrapper<Step> stepWrapper = new Wrapper<Step>();
             xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Skip("Not Started");
-        }
-        [ScenarioFact]
-        public void WhenAsync()
-        {
-            xBDD.CurrentRun
-                .AddScenario(this)
-                .SetOutputWriter(outputWriter)
-                .Skip("Not Started");
+                .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAWhenStep.cs"))
+                .When(Code.ExecuteMethod(() =>
+                {
+                    scenarioWrapper.Object = new SampleCode.AddAWhenStep().Add();
+                }))
+                .Then(ScenarioTarget.WillBeCreated(scenarioWrapper))
+                .And(ScenarioTarget.WillHaveAStep(2, scenarioWrapper, stepWrapper))
+                .And(StepTarget.NameWillBe("my action", stepWrapper))
+                .And(StepTarget.FullNameWillBe("When my action", stepWrapper))
+                .And(StepTarget.ActionWillNotBeNull(stepWrapper))
+                .And(StepTarget.ActionTypeWillBe(ActionType.When, stepWrapper))
+                .Run();
         }
         [ScenarioFact]
         public void Then()
         {
+            Wrapper<Scenario> scenarioWrapper = new Wrapper<Scenario>();
+            Wrapper<Step> stepWrapper = new Wrapper<Step>();
             xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Skip("Not Started");
-        }
-        [ScenarioFact]
-        public void ThenAsync()
-        {
-            xBDD.CurrentRun
-                .AddScenario(this)
-                .SetOutputWriter(outputWriter)
-                .Skip("Not Started");
+                .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAThenStep.cs"))
+                .When(Code.ExecuteMethod(() =>
+                {
+                    scenarioWrapper.Object = new SampleCode.AddAThenStep().Add();
+                }))
+                .Then(ScenarioTarget.WillBeCreated(scenarioWrapper))
+                .And(ScenarioTarget.WillHaveAStep(3, scenarioWrapper, stepWrapper))
+                .And(StepTarget.NameWillBe("my ending condition", stepWrapper))
+                .And(StepTarget.FullNameWillBe("Then my ending condition", stepWrapper))
+                .And(StepTarget.ActionWillNotBeNull(stepWrapper))
+                .And(StepTarget.ActionTypeWillBe(ActionType.Then, stepWrapper))
+                .Run();
         }
         [ScenarioFact]
         public void And()
         {
+            Wrapper<Scenario> scenarioWrapper = new Wrapper<Scenario>();
+            Wrapper<Step> stepWrapper = new Wrapper<Step>();
             xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Skip("Not Started");
+                .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAnAndStep.cs"))
+                .When(Code.ExecuteMethod(() =>
+                {
+                    scenarioWrapper.Object = new SampleCode.AddAnAndStep().Add();
+                }))
+                .Then(ScenarioTarget.WillBeCreated(scenarioWrapper))
+                .And(ScenarioTarget.WillHaveAStep(4, scenarioWrapper, stepWrapper))
+                .And(StepTarget.NameWillBe("my extra ending condition", stepWrapper))
+                .And(StepTarget.FullNameWillBe("And my extra ending condition", stepWrapper))
+                .And(StepTarget.ActionWillNotBeNull(stepWrapper))
+                .And(StepTarget.ActionTypeWillBe(ActionType.And, stepWrapper))
+                .Run();
         }
         [ScenarioFact]
-        public void AndAsync()
+        public void ReusableStep()
         {
+            Wrapper<Scenario> scenarioWrapper = new Wrapper<Scenario>();
+            Wrapper<Step> stepWrapper = new Wrapper<Step>();
             xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Skip("Not Started");
+                .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAReusableStep.cs"))
+                .When(Code.ExecuteMethod(() =>
+                {
+                    scenarioWrapper.Object = new SampleCode.AddAReusableStep().Add();
+                }))
+                .And(ScenarioTarget.WillHaveAStep(1, scenarioWrapper, stepWrapper))
+                .And(StepTarget.NameWillBe("the user performs an action", stepWrapper))
+                .Run();
         }
         [ScenarioFact]
-        public void InAnInheritedMethod()
+        public void ReusableStepThatTakesAStaticParameter()
         {
+            Wrapper<Scenario> scenarioWrapper = new Wrapper<Scenario>();
+            Wrapper<Step> stepWrapper = new Wrapper<Step>();
             xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Skip("Not Started");
+                .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAReusableStepThatTakesAStaticParameter.cs"))
+                .When(Code.ExecuteMethod(() =>
+                {
+                    scenarioWrapper.Object = new SampleCode.AddAReusableStepThatTakesAStaticParameter().Add();
+                }))
+                .And(ScenarioTarget.WillHaveAStep(1, scenarioWrapper, stepWrapper))
+                .And(StepTarget.NameWillBe("the user performs a 'save' action", stepWrapper))
+                .Run();
         }
     }
 }

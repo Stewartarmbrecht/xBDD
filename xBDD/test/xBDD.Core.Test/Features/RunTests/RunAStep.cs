@@ -229,5 +229,22 @@ namespace xBDD.Core.Test.Features.RunTests
             //    .RunAsync();
         }
 
+        [ScenarioFact]
+        public void ReusableStepThatUsesObjectCreatedInPreviousStep()
+        {
+            Wrapper<Scenario> scenarioWrapper = new Wrapper<Scenario>();
+            Wrapper<int> count = new Wrapper<int>();
+            xBDD.CurrentRun
+                .AddScenario(this)
+                .SetOutputWriter(outputWriter)
+                .Given(Code.HasMethod("\\Features\\RunTests\\SampleCode\\AddAReusableStepThatUsesObjectCreatedInPreviousStep.cs"))
+                .When(Code.ExecuteMethod(() =>
+                {
+                    scenarioWrapper.Object = new SampleCode.AddAReusableStepThatUsesObjectCreatedInPreviousStep().Add(count);
+                }))
+                .Then(xBDD.CreateStep("the count should be 3", () => { Assert.Equal(3, count.Object); }))
+                .And(ScenarioTarget.WillHaveOutcome(Outcome.Passed, scenarioWrapper))
+                .Run();
+        }
     }
 }

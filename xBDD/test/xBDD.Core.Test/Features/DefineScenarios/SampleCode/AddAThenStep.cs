@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+﻿namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAThenStep
     {

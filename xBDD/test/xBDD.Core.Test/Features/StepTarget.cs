@@ -46,5 +46,16 @@ namespace xBDD.Core.Test.Features
                 }
                 );
         }
+
+        internal static Step AsyncActionWillNotBeNull(Wrapper<Step> stepWrapper)
+        {
+            return xBDD.CreateStep(
+                "the step will have an async action defined",
+                () =>
+                {
+                    Assert.NotNull(stepWrapper.Object.ActionAsync);
+                }
+                );
+        }
     }
 }

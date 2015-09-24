@@ -56,5 +56,15 @@ namespace xBDD.Core.Test.Features
                 }
                 );
         }
+
+        internal static Step WillHaveOutcome(Outcome outcome, Wrapper<Scenario> sut)
+        {
+            return xBDD.CreateStep(
+                "the scenario will have an outcome of '" + Enum.GetName(typeof(Outcome), outcome) + "'",
+                () => {
+                    Assert.Equal(outcome, sut.Object.Outcome);
+                }
+                );
+        }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+﻿namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAWhenStep
     {
@@ -11,7 +6,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
         {
             return xBDD.CurrentRun
                 .AddScenario(this)
-                .Given(xBDD.CreateStep("my starting condition", () => { /*my action here*/ }))
+                .Given(xBDD.CreateStep("my starting condition", () => { /*my setup here*/ }))
                 .When(xBDD.CreateStep("my action", () => { /*my action here*/ }));
         }
     }

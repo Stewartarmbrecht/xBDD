@@ -1,20 +1,20 @@
 ﻿namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
-    public class AddAReusableStep
+    public class AddAReusableStepThatTakesAStaticParameter
     {
         public Scenario Add()
         {
             return xBDD.CurrentRun
                 .AddScenario(this)
-                .Given(User.PerformsAnAction());
+                .Given(ParameterUser.PerformsAnAction("save"));
         }
     }
 
-    public static class User
+    public static class ParameterUser
     {
-        public static Step PerformsAnAction()
+        public static Step PerformsAnAction(string actionType)
         {
-            return xBDD.CreateStep("the user performs an action",
+            return xBDD.CreateStep("the user performs a '"+actionType+"' action",
                 () =>
                 {
                     //my action here.
