@@ -1,8 +1,10 @@
 ﻿using xBDD.xUnit;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace xBDD.Test.Features.RunHtmlReport
 {
+    [Collection("xBDDReportingTest")]
     public class ViewHtmlReportFeature
     {
         private readonly OutputWriter outputWriter;

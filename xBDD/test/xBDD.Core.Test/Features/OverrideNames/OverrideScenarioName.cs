@@ -1,8 +1,10 @@
 ﻿using xBDD.xUnit;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace xBDD.Core.Test.Features.OverrideNames
 {
+    [Collection("xBDDCoreTest")]
     public class OverrideScenarioName
     {
         private readonly OutputWriter outputWriter;

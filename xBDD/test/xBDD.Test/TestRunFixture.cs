@@ -71,7 +71,7 @@ namespace xBDD.Test
         }
     }
 
-    [CollectionDefinition("TestRunCollection")]
+    [CollectionDefinition("xBDDTest")]
     public class TestRunCollection : ICollectionFixture<TestRunFixture>
     {
 

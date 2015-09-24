@@ -1,10 +1,10 @@
-﻿using System.Text;
-using xBDD.xUnit;
+﻿using xBDD.xUnit;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace xBDD.Core.Test.Features.OverrideNames
 {
+    [Collection("xBDDCoreTest")]
     public class OverrideStepName
     {
         private readonly OutputWriter outputWriter;

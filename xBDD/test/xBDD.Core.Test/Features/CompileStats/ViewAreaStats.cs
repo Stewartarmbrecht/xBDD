@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using xBDD.xUnit;
+﻿using xBDD.xUnit;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace xBDD.Core.Test.Features.CompileStats
 {
+    [Collection("xBDDCoreTest")]
     public class ViewAreaStats
     {
         private readonly OutputWriter outputWriter;

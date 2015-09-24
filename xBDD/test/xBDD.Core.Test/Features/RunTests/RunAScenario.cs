@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using xBDD.xUnit;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace xBDD.Core.Test.Features.RunTests
 {
+    [Collection("xBDDCoreTest")]
     public class RunAScenario
     {
         private readonly OutputWriter outputWriter;

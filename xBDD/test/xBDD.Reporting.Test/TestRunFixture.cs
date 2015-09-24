@@ -3,7 +3,7 @@ using Xunit;
 
 namespace xBDD.Reporting.Test
 {
-    [CollectionDefinition("TestRunCollection")]
+    [CollectionDefinition("xBDDReportingTest")]
     public class TestRunCollection : ICollectionFixture<TestRunFixture>
     {
 

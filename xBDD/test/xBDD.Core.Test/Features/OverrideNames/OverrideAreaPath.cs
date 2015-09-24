@@ -4,6 +4,7 @@ using Xunit.Abstractions;
 
 namespace xBDD.Core.Test.Features.OverrideNames
 {
+    [Collection("xBDDCoreTest")]
     public class OverrideAreaPath
     {
         private readonly OutputWriter outputWriter;

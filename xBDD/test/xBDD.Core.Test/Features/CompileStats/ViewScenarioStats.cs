@@ -1,8 +1,10 @@
 ﻿using xBDD.xUnit;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace xBDD.Core.Test.Features.CompileStats
 {
+    [Collection("xBDDCoreTest")]
     public class ViewScenarioStats
     {
         private readonly OutputWriter outputWriter;

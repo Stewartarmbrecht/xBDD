@@ -1,9 +1,10 @@
-﻿using System.Text;
-using xBDD.xUnit;
+﻿using xBDD.xUnit;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace xBDD.Core.Test.Features.DefineScenarios
 {
+    [Collection("xBDDCoreTest")]
     public class CreateATestRun
     {
         private readonly OutputWriter outputWriter;

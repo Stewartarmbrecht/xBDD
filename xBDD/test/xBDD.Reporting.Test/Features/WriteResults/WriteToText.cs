@@ -1,15 +1,10 @@
-﻿using Microsoft.Dnx.Runtime;
-using Microsoft.Dnx.Runtime.Infrastructure;
-using Microsoft.Framework.DependencyInjection;
-using System.IO;
-using xBDD.xUnit;
+﻿using xBDD.xUnit;
 using Xunit;
 using Xunit.Abstractions;
-using System;
 
 namespace xBDD.Test.Features.SaveResults
 {
-    [Collection("TestRunCollection")]
+    [Collection("xBDDReportingTest")]
     public class WriteToText
     {
         private readonly OutputWriter outputWriter;

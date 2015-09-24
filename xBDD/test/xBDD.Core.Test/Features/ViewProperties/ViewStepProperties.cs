@@ -1,8 +1,10 @@
 ﻿using xBDD.Test.Features;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace xBDD.Core.Test.Features.ViewProperties
 {
+    [Collection("xBDDCoreTest")]
     public class ViewStepProperties : Feature
     {
         public ViewStepProperties(ITestOutputHelper outputWriter)

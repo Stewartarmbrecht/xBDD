@@ -1,8 +1,10 @@
 ﻿using xBDD.xUnit;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace xBDD.Core.Test.Features.DefineScenarios
 {
+    [Collection("xBDDCoreTest")]
     public class SpecifyParameters
     {
         private readonly OutputWriter outputWriter;

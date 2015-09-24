@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using xBDD.xUnit;
+﻿using xBDD.xUnit;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace xBDD.Test.Features.RunHtmlReport
 {
+    [Collection("xBDDReportingTest")]
     public class ViewHtmlReport
     {
         private readonly OutputWriter outputWriter;
