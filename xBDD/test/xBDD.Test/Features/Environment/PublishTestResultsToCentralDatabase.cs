@@ -27,12 +27,14 @@ namespace xBDD.Test.Features.Environment
                 .Run();
         }
         [ScenarioFact]
-        public void PublishAfterCTestRun()
+        public void PublishAfterCITestRun()
         {
             xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Skip("Re-writing");
+                .When(xBDD.CreateStep("the developer pushes a commit to the master branch"))
+                .Then(xBDD.CreateStep("the CI process should build the solution, run the tests, and publish the results to a central database"))
+                .Run();
         }
     }
 }
