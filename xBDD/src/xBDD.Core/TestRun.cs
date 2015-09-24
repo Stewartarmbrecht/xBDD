@@ -38,9 +38,9 @@ namespace xBDD
             }
         }
 
-        public Scenario AddScenario(object featureClass, [CallerMemberName]string name = "")
+        public Scenario AddScenario(object featureClass, [CallerMemberName]string methodName = "")
         {
-            Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, name);
+            Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
             return AddScenario(method, null, null, null);
         }
         public Scenario AddScenario(string scenarioName, 

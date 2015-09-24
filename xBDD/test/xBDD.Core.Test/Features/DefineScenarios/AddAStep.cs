@@ -15,16 +15,22 @@ namespace xBDD.Core.Test.Features.DefineScenarios
         [ScenarioFact]
         public void Given()
         {
-            Steps s = new Steps();
-            s.State.StepType = "Given";
-            s.c.State.StepName = "my step";
-            s.State.AddedStepName = "Given my step";
+            Wrapper<Scenario> scenarioWrapper = new Wrapper<Scenario>();
+            Wrapper<Step> stepWrapper = new Wrapper<Step>();
             xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Given(s.c.Given.a_scenario)
-                .When(s.When.a_StepType_step_is_added_to_a_scenario_with_a_name_of_StepName)
-                .Then(s.Then.the_added_step_name_should_be_AddedStepName);
+                .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAGivenStep.cs"))
+                .When(Code.ExecuteMethod(() =>
+                {
+                    scenarioWrapper.Object = new SampleCode.AddAGivenStep().Add();
+                }))
+                .Then(ScenarioTarget.ShouldBeCreated(scenarioWrapper))
+                .And(ScenarioTarget.ShouldHaveAStep(1,scenarioWrapper, stepWrapper))
+                .And(StepTarget.NameShouldBe("my starting condition", stepWrapper))
+                .And(StepTarget.FullNameShouldBe("Given my starting condition", stepWrapper))
+                .And(StepTarget.ActionShouldNotBeNull(stepWrapper))
+                .Run();
         }
         [ScenarioFact]
         public void GivenAsync()

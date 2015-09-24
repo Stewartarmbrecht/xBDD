@@ -22,7 +22,7 @@ namespace xBDD.Utility
             return factory.CreateMethod(method);
 
         }
-        internal Method GetStepMethod(Action<Step> action)
+        internal Method GetStepMethod(Action action)
         {
             return factory.CreateMethod(action.GetMethodInfo());
         }

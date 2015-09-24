@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using xBDD.Utility;
 
 [assembly: InternalsVisibleTo("xBDD.Test")]
@@ -23,10 +25,25 @@ namespace xBDD.Core
             return scenario;
         }
 
-        internal Step CreateStep(Scenario scenario)
+        internal Step CreateStep(string stepName, Action action, string multilineParameter = null)
         {
-            var step = new Step(scenario, this);
-            scenario.TestRun.Steps.Add(step);
+            var step = new Step()
+            {
+                Name = stepName,
+                Action = action,
+                MultilineParameter = multilineParameter
+            };
+            return step;
+        }
+
+        internal Step CreateStep(string stepName, Func<Task> action, string multilineParameter = null)
+        {
+            var step = new Step()
+            {
+                Name = stepName,
+                ActionAsync = action,
+                MultilineParameter = multilineParameter
+            };
             return step;
         }
 

@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using xBDD.Core;
 using xBDD.Stats;
 
@@ -20,6 +22,13 @@ namespace xBDD
                 return testRun;
             }
         }
+
+        internal static Step CreateStep(
+            string stepName, Action action, string multilineParameter = "")
+        {
+            return factory.CreateStep(stepName, action, multilineParameter);
+        }
+
         static void EnsureFactory()
         {
             if (factory == null)

@@ -57,78 +57,23 @@ namespace xBDD
             await runner.SkipAsync(reason);
         }
 
-        #region Given
-        public Scenario GivenAsync(string stepName, Func<Step, Task> stepAction)
+        public Scenario Given(Step step)
         {
-            return builder.GivenAsync(stepName, stepAction);
+            return builder.Given(step);
         }
-        public Scenario GivenAsync(Func<Step, Task> stepAction)
+        public Scenario When(Step step)
         {
-            return builder.GivenAsync(stepAction);
+            return builder.When(step);
         }
-        public Scenario Given(Action<Step> stepAction)
+        public Scenario Then(Step step)
         {
-            return builder.Given(stepAction);
+            return builder.Then(step);
         }
-        public Scenario Given(string name, Action<Step> stepAction)
+
+        public Scenario And(Step step)
         {
-            return builder.Given(name, stepAction);
+            return builder.And(step);
         }
-        #endregion Given
-        #region When
-        public Scenario WhenAsync(string name, Func<Step, Task> stepAction)
-        {
-            return builder.WhenAsync(name, stepAction);
-        }
-        public Scenario WhenAsync(Func<Step, Task> stepAction)
-        {
-            return builder.WhenAsync(stepAction);
-        }
-        public Scenario When(Action<Step> stepAction)
-        {
-            return builder.When(stepAction);
-        }
-        public Scenario When(string name, Action<Step> stepAction)
-        {
-            return builder.When(name, stepAction);
-        }
-        #endregion When
-        #region Then
-        public Scenario ThenAsync(string name, Func<Step, Task> stepAction)
-        {
-            return builder.ThenAsync(name, stepAction);
-        }
-        public Scenario ThenAsync(Func<Step, Task> stepAction)
-        {
-            return builder.ThenAsync(stepAction);
-        }
-        public Scenario Then(Action<Step> stepAction)
-        {
-            return builder.Then(stepAction);
-        }
-        public Scenario Then(string name, Action<Step> stepAction)
-        {
-            return builder.Then(name, stepAction);
-        }
-        #endregion Then
-        #region And
-        public Scenario AndAsync(string name, Func<Step, Task> stepAction)
-        {
-            return builder.AndAsync(name, stepAction);
-        }
-        public Scenario AndAsync(Func<Step, Task> stepAction)
-        {
-            return builder.AndAsync(stepAction);
-        }
-        public Scenario And(Action<Step> stepAction)
-        {
-            return builder.And(stepAction);
-        }
-        public Scenario And(string name, Action<Step> stepAction)
-        {
-            return builder.And(name, stepAction);
-        }
-        #endregion And
 
         public Scenario SetOutputWriter(IOutputWriter outputWriter)
         {
