@@ -2,6 +2,9 @@
 using xBDD.Utility;
 
 [assembly: InternalsVisibleTo("xBDD.Test")]
+[assembly: InternalsVisibleTo("xBDD.Core.Test")]
+[assembly: InternalsVisibleTo("xBDD.Reporting.Test")]
+[assembly: InternalsVisibleTo("xBDD.Reporting.Database.Test")]
 
 namespace xBDD.Core
 {

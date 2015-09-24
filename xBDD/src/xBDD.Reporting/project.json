@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
   "description": "Provides test run reporting for the xBDD testing framework.",
   "authors": [ "Stewart Armbrecht" ],

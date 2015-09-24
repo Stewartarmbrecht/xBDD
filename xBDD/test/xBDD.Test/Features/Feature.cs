@@ -9,7 +9,7 @@ namespace xBDD.Test.Features
 {
     public class Feature
     {
-        internal readonly OutputWriter outputWriter;
+        public readonly OutputWriter outputWriter;
 
         public Feature(ITestOutputHelper output)
         {
