@@ -24,8 +24,9 @@ namespace xBDD
         }
 
         internal static Step CreateStep(
-            string stepName, Action action, string multilineParameter = "")
+            string stepName, Action action = null, string multilineParameter = "")
         {
+            action = action ?? (() => { });
             return factory.CreateStep(stepName, action, multilineParameter);
         }
 

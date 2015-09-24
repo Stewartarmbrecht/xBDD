@@ -18,16 +18,11 @@ namespace xBDD.Test.Features.Environment
             xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Skip("Re-writing");
-            //var s = new Steps();
-            //xBDD.CurrentRun
-            //    .AddScenario(this)
-            //    .SetOutputWriter(outputWriter)
-            //    .Given(s.Given.the_solution_is_set_to_the_Publish_configuration)
-            //    .And(s.Given.there_is_a_valid_connection_string_set_for_the_ConfigurationSetting_setting)
-            //    .When(s.When.the_tests_are_run)
-            //    .Then(s.Then.it_should_publish_the_test_results_to_that_database)
-            //    .Run();
+                .Given(xBDD.CreateStep("the developer sets the solution to the Publish configuration"))
+                .And(xBDD.CreateStep("the developer defines a valid connection string for an environment variable named 'Data:DefaultConnection:ConnectionString'"))
+                .When(xBDD.CreateStep("the developer runs the tests"))
+                .Then(xBDD.CreateStep("the test results should be published to the database"))
+                .Run();
         }
         [ScenarioFact]
         public void PublishAfterCTestRun()

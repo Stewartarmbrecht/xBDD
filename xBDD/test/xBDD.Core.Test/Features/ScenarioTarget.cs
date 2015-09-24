@@ -5,40 +5,40 @@ namespace xBDD.Core.Test.Features
 {
     internal class ScenarioTarget
     {
-        internal static Step ShouldBeCreated(Wrapper<Scenario> sut)
+        internal static Step WillBeCreated(Wrapper<Scenario> sut)
         {
             return xBDD.CreateStep(
-                "the scenario should be created",
+                "the scenario will be created",
                 () =>
                 {
                     Assert.NotNull(sut.Object);
                 });
         }
 
-        internal static Step NameShouldMatchMethodName(string expectedName, Wrapper<Scenario> sut)
+        internal static Step NameWillMatchMethodName(string expectedName, Wrapper<Scenario> sut)
         {
             return xBDD.CreateStep(
-                "the scenario name should match the method name with spaces: '" + expectedName + "'",
+                "the scenario name will match the method name with spaces: '" + expectedName + "'",
                 () => {
                     Assert.Equal(expectedName, sut.Object.Name);
                 }
                 );
         }
 
-        internal static Step FeatureNameShouldMatchClassName(string expectedName, Wrapper<Scenario> sut)
+        internal static Step FeatureNameWillMatchClassName(string expectedName, Wrapper<Scenario> sut)
         {
             return xBDD.CreateStep(
-                "the feature name should match the class name with spaces: '" + expectedName + "'",
+                "the feature name will match the class name with spaces: '" + expectedName + "'",
                 () => {
                     Assert.Equal(expectedName, sut.Object.FeatureName);
                 }
                 );
         }
 
-        internal static Step ShouldHaveAStep(int stepNumber, Wrapper<Scenario> scenarioWrapper, Wrapper<Step> stepWrapper)
+        internal static Step WillHaveAStep(int stepNumber, Wrapper<Scenario> scenarioWrapper, Wrapper<Step> stepWrapper)
         {
             return xBDD.CreateStep(
-                "the scenario should have a step at position " + stepNumber,
+                "the scenario will have a step at position " + stepNumber,
                 () =>
                 {
                     stepWrapper.Object = scenarioWrapper.Object.Steps[stepNumber - 1];
@@ -47,10 +47,10 @@ namespace xBDD.Core.Test.Features
                 );
         }
 
-        internal static Step AreaPathShouldMatchNamespace(string expected, Wrapper<Scenario> sut)
+        internal static Step AreaPathWillMatchNamespace(string expected, Wrapper<Scenario> sut)
         {
             return xBDD.CreateStep(
-                "the area path should match the namespace: '" + expected + "'",
+                "the area path will match the namespace: '" + expected + "'",
                 () => {
                     Assert.Equal(expected, sut.Object.AreaPath);
                 }

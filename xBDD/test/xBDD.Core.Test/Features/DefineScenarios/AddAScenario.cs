@@ -30,10 +30,10 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 {
                     sut.Object = new SampleCode.AddAScenarioDefaultSample().DefaultScenarioAdd();
                 }))
-                .Then(ScenarioTarget.ShouldBeCreated(sut))
-                .And(ScenarioTarget.NameShouldMatchMethodName("Default Scenario Add", sut))
-                .And(ScenarioTarget.FeatureNameShouldMatchClassName("Add A Scenario Default Sample", sut))
-                .And(ScenarioTarget.AreaPathShouldMatchNamespace("xBDD.Core.Test.Features.DefineScenarios.SampleCode", sut))
+                .Then(ScenarioTarget.WillBeCreated(sut))
+                .And(ScenarioTarget.NameWillMatchMethodName("Default Scenario Add", sut))
+                .And(ScenarioTarget.FeatureNameWillMatchClassName("Add A Scenario Default Sample", sut))
+                .And(ScenarioTarget.AreaPathWillMatchNamespace("xBDD.Core.Test.Features.DefineScenarios.SampleCode", sut))
                 .Run();
         }
         [ScenarioFact]
@@ -48,10 +48,10 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 {
                     sut.Object = new SampleCode.AddAScenarioExplicitNameSample().WithExplicitName();
                 }))
-                .Then(ScenarioTarget.ShouldBeCreated(sut))
-                .And(ScenarioTarget.NameShouldMatchMethodName("My Explicit Scenario Name", sut))
-                .And(ScenarioTarget.FeatureNameShouldMatchClassName("Add A Scenario Explicit Name Sample", sut))
-                .And(ScenarioTarget.AreaPathShouldMatchNamespace("xBDD.Core.Test.Features.DefineScenarios.SampleCode", sut))
+                .Then(ScenarioTarget.WillBeCreated(sut))
+                .And(ScenarioTarget.NameWillMatchMethodName("My Explicit Scenario Name", sut))
+                .And(ScenarioTarget.FeatureNameWillMatchClassName("Add A Scenario Explicit Name Sample", sut))
+                .And(ScenarioTarget.AreaPathWillMatchNamespace("xBDD.Core.Test.Features.DefineScenarios.SampleCode", sut))
                 .Run();
         }
     }

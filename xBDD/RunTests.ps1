@@ -16,20 +16,14 @@ dnu restore
 
 dnx $PSScriptRoot\src\xBDD.Reporting.Database\ ef migration apply
 
-if(Test-Path $PSScriptRoot\TestResults.xml)
-{
-	Write-Host "Removing TestResults.xml"
-	Remove-Item $PSScriptRoot\TestResults.xml
-}
-
-if(Test-Path $PSScriptRoot\NUnitTestResults.xml)
-{
-	Write-Host "Removing NUnitTestResults.xml"
-	Remove-Item $PSScriptRoot\NUnitTestResults.xml
-}
-
-Write-Host "Running Tests"
+Write-Host "Running xBDD.Test Tests"
 dnx $PSScriptRoot\test\xBDD.Test test
 
-Write-Host "Converting TestResults.xml to NUnitTestResults.xml"
-.\xsltproc $PSScriptRoot\TestResults.xml $PSScriptRoot\NUnitXml.xslt $PSScriptRoot\NUnitTestResults.xml
+Write-Host "Running xBDD.Core.Test Tests"
+dnx $PSScriptRoot\test\xBDD.Core.Test test
+
+Write-Host "Running xBDD.Reporting.Test Tests"
+dnx $PSScriptRoot\test\xBDD.Reporting.Test test
+
+Write-Host "Running xBDD.Reporting.Database.Test Tests"
+dnx $PSScriptRoot\test\xBDD.Reporting.Database.Test test

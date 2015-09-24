@@ -25,11 +25,33 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 {
                     scenarioWrapper.Object = new SampleCode.AddAGivenStep().Add();
                 }))
-                .Then(ScenarioTarget.ShouldBeCreated(scenarioWrapper))
-                .And(ScenarioTarget.ShouldHaveAStep(1,scenarioWrapper, stepWrapper))
-                .And(StepTarget.NameShouldBe("my starting condition", stepWrapper))
-                .And(StepTarget.FullNameShouldBe("Given my starting condition", stepWrapper))
-                .And(StepTarget.ActionShouldNotBeNull(stepWrapper))
+                .Then(ScenarioTarget.WillBeCreated(scenarioWrapper))
+                .And(ScenarioTarget.WillHaveAStep(1,scenarioWrapper, stepWrapper))
+                .And(StepTarget.NameWillBe("my starting condition", stepWrapper))
+                .And(StepTarget.FullNameWillBe("Given my starting condition", stepWrapper))
+                .And(StepTarget.ActionWillNotBeNull(stepWrapper))
+                .And(StepTarget.ActionTypeWillBe(ActionType.Given, stepWrapper))
+                .Run();
+        }
+        [ScenarioFact]
+        public void GivenWithNoAction()
+        {
+            Wrapper<Scenario> scenarioWrapper = new Wrapper<Scenario>();
+            Wrapper<Step> stepWrapper = new Wrapper<Step>();
+            xBDD.CurrentRun
+                .AddScenario(this)
+                .SetOutputWriter(outputWriter)
+                .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAGivenStepWithNoAction.cs"))
+                .When(Code.ExecuteMethod(() =>
+                {
+                    scenarioWrapper.Object = new SampleCode.AddAGivenStepWithNoAction().Add();
+                }))
+                .Then(ScenarioTarget.WillBeCreated(scenarioWrapper))
+                .And(ScenarioTarget.WillHaveAStep(1, scenarioWrapper, stepWrapper))
+                .And(StepTarget.NameWillBe("my starting condition that needs no action", stepWrapper))
+                .And(StepTarget.FullNameWillBe("Given my starting condition that needs no action", stepWrapper))
+                .And(StepTarget.ActionWillNotBeNull(stepWrapper))
+                .And(StepTarget.ActionTypeWillBe(ActionType.Given, stepWrapper))
                 .Run();
         }
         [ScenarioFact]
