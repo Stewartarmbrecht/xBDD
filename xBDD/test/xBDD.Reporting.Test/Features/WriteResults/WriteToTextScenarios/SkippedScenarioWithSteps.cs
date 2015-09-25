@@ -1,7 +1,7 @@
 ﻿using xBDD.Test;
-namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 {
-    public class RunScenarioWithSteps : IExecute<string>
+    public class SkippedScenarioWithSteps : IExecute<string>
     {
         public string Execute()
         {
@@ -14,7 +14,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
                     .Given(xBDD.CreateStep("my starting condition"))
                     .When(xBDD.CreateStep("my action"))
                     .Then(xBDD.CreateStep("my ending condition"))
-                    .Run();
+                    .Skip("Deferred");
             }
             catch { }
             return xBDD.CurrentRun.WriteToText();

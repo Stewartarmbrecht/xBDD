@@ -25,75 +25,75 @@ namespace xBDD.Reporting.Test.Features.WriteResults
             xBDD.CurrentRun
                 .AddScenario(this, methodName)
                 .SetOutputWriter(outputWriter)
-                .Given(Code.HasMethod("\\Features\\WriteResults\\Scenarios\\" + actionName + ".cs"))
+                .Given(Code.HasMethod("\\Features\\WriteResults\\WriteToTextScenarios\\" + actionName + ".cs"))
                 .When(Code.ExecuteMethod(() =>
                 {
                     text.Object = action.Execute();
                 }))
                 .Then(TestResults.ShouldMatch(
-                    "\\Features\\WriteResults\\Scenarios\\" + actionName + ".txt", text, writeActual))
+                    "\\Features\\WriteResults\\WriteToTextScenarios\\" + actionName + ".txt", text, writeActual))
                 .Run();
         }
 
         [ScenarioFact]
         public void WriteEmtpyTestRun()
         {
-            Run(new Scenarios.EmptyTestRun());
+            Run(new WriteToTextScenarios.EmptyTestRun());
         }
         [ScenarioFact]
         public void WriteSkippedEmptyScenario()
         {
-            Run(new Scenarios.SkippedEmptyScenario());
+            Run(new WriteToTextScenarios.SkippedEmptyScenario());
         }
         [ScenarioFact]
         public void WriteRunEmptyScenario()
         {
-            Run(new Scenarios.RunEmptyScenario());
+            Run(new WriteToTextScenarios.RunEmptyScenario());
         }
         [ScenarioFact]
         public void WriteSkippedScenarioWithSteps()
         {
-            Run(new Scenarios.SkippedScenarioWithSteps());
+            Run(new WriteToTextScenarios.SkippedScenarioWithSteps());
         }
         [ScenarioFact]
         public void WriteRunScenarioWithSteps()
         {
-            Run(new Scenarios.RunScenarioWithSteps());
+            Run(new WriteToTextScenarios.RunScenarioWithSteps());
         }
         [ScenarioFact]
         public void WriteRunScenarioWithSkippedStep()
         {
-            Run(new Scenarios.RunScenarioWithSkippedStep());
+            Run(new WriteToTextScenarios.RunScenarioWithSkippedStep());
         }
         [ScenarioFact]
         public void WriteRunScenarioWithNotImplementedStep()
         {
-            Run(new Scenarios.RunScenarioWithNotImplementedStep());
+            Run(new WriteToTextScenarios.RunScenarioWithNotImplementedStep());
         }
         [ScenarioFact]
         public void WriteRunScenarioWithFailedStep()
         {
-            Run(new Scenarios.RunScenarioWithFailedStep());
+            Run(new WriteToTextScenarios.RunScenarioWithFailedStep());
         }
         [ScenarioFact]
         public void WriteRunMultipleScenariosSameFeature()
         {
-            Run(new Scenarios.RunMultipleScenariosSameFeature());
+            Run(new WriteToTextScenarios.RunMultipleScenariosSameFeature());
         }
         [ScenarioFact]
         public void WriteRunMultipleFeaturesSameArea()
         {
-            Run(new Scenarios.RunMultipleFeaturesSameArea());
+            Run(new WriteToTextScenarios.RunMultipleFeaturesSameArea());
         }
         [ScenarioFact]
         public void WriteRunMultipleAreas()
         {
-            Run(new Scenarios.RunMultipleAreas());
+            Run(new WriteToTextScenarios.RunMultipleAreas());
         }
         [ScenarioFact]
         public void WriteRunScenarioWithStepWithMultilineParameter()
         {
-            Run(new Scenarios.RunScenarioWithStepWithMultilineParameter());
+            Run(new WriteToTextScenarios.RunScenarioWithStepWithMultilineParameter());
         }
     }
 }

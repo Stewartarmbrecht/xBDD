@@ -1,5 +1,5 @@
 ﻿using xBDD.Test;
-namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 {
     public class RunMultipleScenariosSameFeature : IExecute<string>
     {

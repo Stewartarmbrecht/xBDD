@@ -1,8 +1,7 @@
-﻿using System;
-using xBDD.Test;
-namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+﻿using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 {
-    public class RunScenarioWithFailedStep : IExecute<string>
+    public class RunScenarioWithSteps : IExecute<string>
     {
         public string Execute()
         {
@@ -13,7 +12,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
                 xBDD.CurrentRun
                     .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                     .Given(xBDD.CreateStep("my starting condition"))
-                    .When(xBDD.CreateStep("my action", () => { throw new Exception("My Error"); }))
+                    .When(xBDD.CreateStep("my action"))
                     .Then(xBDD.CreateStep("my ending condition"))
                     .Run();
             }

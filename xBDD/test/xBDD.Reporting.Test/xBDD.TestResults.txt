@@ -1,11 +1,11 @@
-xBDD.Reporting.Test 2015-09-25T11:42:47
+xBDD.Reporting.Test 2015-09-25T12:29:54
 
 xBDD.Reporting.Test.Features.WriteResults
 	Write To Text
 		Write Emtpy Test Run
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 				{
 				    public class EmptyTestRun : IExecute<string>
 				    {
@@ -24,7 +24,7 @@ xBDD.Reporting.Test.Features.WriteResults
 		Write Run Empty Scenario
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 				{
 				    public class RunEmptyScenario : IExecute<string>
 				    {
@@ -49,7 +49,7 @@ xBDD.Reporting.Test.Features.WriteResults
 		Write Run Multiple Areas
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 				{
 				    public class RunMultipleAreas : IExecute<string>
 				    {
@@ -116,7 +116,7 @@ xBDD.Reporting.Test.Features.WriteResults
 		Write Run Multiple Features Same Area
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 				{
 				    public class RunMultipleFeaturesSameArea : IExecute<string>
 				    {
@@ -182,7 +182,7 @@ xBDD.Reporting.Test.Features.WriteResults
 		Write Run Multiple Scenarios Same Feature
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 				{
 				    public class RunMultipleScenariosSameFeature : IExecute<string>
 				    {
@@ -228,7 +228,7 @@ xBDD.Reporting.Test.Features.WriteResults
 			Given the following method
 				using System;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 				{
 				    public class RunScenarioWithFailedStep : IExecute<string>
 				    {
@@ -268,7 +268,7 @@ xBDD.Reporting.Test.Features.WriteResults
 			Given the following method
 				using System;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 				{
 				    public class RunScenarioWithNotImplementedStep : IExecute<string>
 				    {
@@ -303,7 +303,7 @@ xBDD.Reporting.Test.Features.WriteResults
 		Write Run Scenario With Skipped Step
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 				{
 				    public class RunScenarioWithSkippedStep : IExecute<string>
 				    {
@@ -338,7 +338,7 @@ xBDD.Reporting.Test.Features.WriteResults
 		Write Run Scenario With Step With Multiline Parameter
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 				{
 				    public class RunScenarioWithStepWithMultilineParameter : IExecute<string>
 				    {
@@ -372,7 +372,7 @@ xBDD.Reporting.Test.Features.WriteResults
 		Write Run Scenario With Steps
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 				{
 				    public class RunScenarioWithSteps : IExecute<string>
 				    {
@@ -407,7 +407,7 @@ xBDD.Reporting.Test.Features.WriteResults
 		Write Skipped Empty Scenario
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 				{
 				    public class SkippedEmptyScenario : IExecute<string>
 				    {
@@ -436,7 +436,7 @@ xBDD.Reporting.Test.Features.WriteResults
 		Write Skipped Scenario With Steps
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 				{
 				    public class SkippedScenarioWithSteps : IExecute<string>
 				    {

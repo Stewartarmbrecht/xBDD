@@ -1,7 +1,7 @@
 ﻿using xBDD.Test;
-namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
 {
-    public class SkippedScenarioWithSteps : IExecute<string>
+    public class RunScenarioWithSkippedStep : IExecute<string>
     {
         public string Execute()
         {
@@ -12,9 +12,9 @@ namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
                 xBDD.CurrentRun
                     .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                     .Given(xBDD.CreateStep("my starting condition"))
-                    .When(xBDD.CreateStep("my action"))
+                    .When(xBDD.CreateStep("my action", () => { throw new SkipStepException("Deferred"); }))
                     .Then(xBDD.CreateStep("my ending condition"))
-                    .Skip("Deferred");
+                    .Run();
             }
             catch { }
             return xBDD.CurrentRun.WriteToText();
