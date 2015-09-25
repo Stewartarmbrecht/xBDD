@@ -1,6 +1,5 @@
 ﻿using System;
 using xBDD.Test;
-
 namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
 {
     public class RunScenarioWithNotImplementedStep : IExecute<string>

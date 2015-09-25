@@ -90,5 +90,10 @@ namespace xBDD.Reporting.Test.Features.WriteResults
         {
             Run(new Scenarios.RunMultipleAreas());
         }
+        [ScenarioFact]
+        public void WriteRunScenarioWithStepWithMultilineParameter()
+        {
+            Run(new Scenarios.RunScenarioWithStepWithMultilineParameter());
+        }
     }
 }

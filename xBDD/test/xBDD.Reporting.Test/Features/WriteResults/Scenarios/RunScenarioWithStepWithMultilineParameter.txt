@@ -1,0 +1,11 @@
+﻿My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario
+			Given my starting condition with the following
+				My
+				multiline
+				parameter
+			When my action
+			Then my ending condition

@@ -1,0 +1,551 @@
+xBDD.Reporting.Test 2015-09-25T11:42:47
+
+xBDD.Reporting.Test.Features.WriteResults
+	Write To Text
+		Write Emtpy Test Run
+			Given the following method
+				using xBDD.Test;
+				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				{
+				    public class EmptyTestRun : IExecute<string>
+				    {
+				        public string Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.Name = "My Test Run";
+				            return xBDD.CurrentRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written to text should match the template:
+				My Test Run
+				
+		Write Run Empty Scenario
+			Given the following method
+				using xBDD.Test;
+				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				{
+				    public class RunEmptyScenario : IExecute<string>
+				    {
+				        public string Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.Name = "My Test Run";
+				            xBDD.CurrentRun
+				                .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                .Run();
+				            return xBDD.CurrentRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written to text should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario
+		Write Run Multiple Areas
+			Given the following method
+				using xBDD.Test;
+				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				{
+				    public class RunMultipleAreas : IExecute<string>
+				    {
+				        public string Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.Name = "My Test Run";
+				            try
+				            {
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature One", "My.Area.Path.One")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature One", "My.Area.Path.One")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature Two", "My.Area.Path.Two")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature Two", "My.Area.Path.Two")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return xBDD.CurrentRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written to text should match the template:
+				My Test Run
+				
+				My.Area.Path.One
+					My Feature One
+						My Scenario One
+							Given my starting condition
+							When my action
+							Then my ending condition
+						My Scenario Two
+							Given my starting condition
+							When my action
+							Then my ending condition
+				My.Area.Path.Two
+					My Feature Two
+						My Scenario One
+							Given my starting condition
+							When my action
+							Then my ending condition
+						My Scenario Two
+							Given my starting condition
+							When my action
+							Then my ending condition
+		Write Run Multiple Features Same Area
+			Given the following method
+				using xBDD.Test;
+				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				{
+				    public class RunMultipleFeaturesSameArea : IExecute<string>
+				    {
+				        public string Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.Name = "My Test Run";
+				            try
+				            {
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature One", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature One", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature Two", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature Two", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return xBDD.CurrentRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written to text should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature One
+						My Scenario One
+							Given my starting condition
+							When my action
+							Then my ending condition
+						My Scenario Two
+							Given my starting condition
+							When my action
+							Then my ending condition
+					My Feature Two
+						My Scenario One
+							Given my starting condition
+							When my action
+							Then my ending condition
+						My Scenario Two
+							Given my starting condition
+							When my action
+							Then my ending condition
+		Write Run Multiple Scenarios Same Feature
+			Given the following method
+				using xBDD.Test;
+				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				{
+				    public class RunMultipleScenariosSameFeature : IExecute<string>
+				    {
+				        public string Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.Name = "My Test Run";
+				            try
+				            {
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return xBDD.CurrentRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written to text should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario One
+							Given my starting condition
+							When my action
+							Then my ending condition
+						My Scenario Two
+							Given my starting condition
+							When my action
+							Then my ending condition
+		Write Run Scenario With Failed Step
+			Given the following method
+				using System;
+				using xBDD.Test;
+				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				{
+				    public class RunScenarioWithFailedStep : IExecute<string>
+				    {
+				        public string Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.Name = "My Test Run";
+				            try
+				            {
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action", () => { throw new Exception("My Error"); }))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return xBDD.CurrentRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written to text should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario [Failed]
+							Given my starting condition
+							When my action [Failed]
+								Error Type: Exception
+								   Message: My Error
+				{{				     Stack\: .*}}
+				{{.*}}/rl
+							Then my ending condition [Skipped - Previous Error]
+		Write Run Scenario With Not Implemented Step
+			Given the following method
+				using System;
+				using xBDD.Test;
+				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				{
+				    public class RunScenarioWithNotImplementedStep : IExecute<string>
+				    {
+				        public string Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.Name = "My Test Run";
+				            try
+				            {
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action", () => { throw new NotImplementedException(); }))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return xBDD.CurrentRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written to text should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario [Failed - Step Not Implemented]
+							Given my starting condition
+							When my action [Failed - Not Implemented]
+							Then my ending condition [Skipped - Previous Error]
+		Write Run Scenario With Skipped Step
+			Given the following method
+				using xBDD.Test;
+				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				{
+				    public class RunScenarioWithSkippedStep : IExecute<string>
+				    {
+				        public string Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.Name = "My Test Run";
+				            try
+				            {
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action", () => { throw new SkipStepException("Deferred"); }))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return xBDD.CurrentRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written to text should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario [Failed - Step Skipped]
+							Given my starting condition
+							When my action [Skipped - Deferred]
+							Then my ending condition [Skipped - Previous Error]
+		Write Run Scenario With Step With Multiline Parameter
+			Given the following method
+				using xBDD.Test;
+				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				{
+				    public class RunScenarioWithStepWithMultilineParameter : IExecute<string>
+				    {
+				        public string Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.Name = "My Test Run";
+				            xBDD.CurrentRun
+				                .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                .Given(xBDD.CreateStep("my starting condition with the following", () => { }, "My\r\nmultiline\r\nparameter"))
+				                .When(xBDD.CreateStep("my action"))
+				                .Then(xBDD.CreateStep("my ending condition"))
+				                .Run();
+				            return xBDD.CurrentRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written to text should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario
+							Given my starting condition with the following
+								My
+								multiline
+								parameter
+							When my action
+							Then my ending condition
+		Write Run Scenario With Steps
+			Given the following method
+				using xBDD.Test;
+				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				{
+				    public class RunScenarioWithSteps : IExecute<string>
+				    {
+				        public string Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.Name = "My Test Run";
+				            try
+				            {
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return xBDD.CurrentRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written to text should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario
+							Given my starting condition
+							When my action
+							Then my ending condition
+		Write Skipped Empty Scenario
+			Given the following method
+				using xBDD.Test;
+				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				{
+				    public class SkippedEmptyScenario : IExecute<string>
+				    {
+				        public string Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.Name = "My Test Run";
+				            try
+				            {
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Skip("Deferred");
+				            }
+				            catch { }
+				            return xBDD.CurrentRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written to text should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario [Skipped - Deferred]
+		Write Skipped Scenario With Steps
+			Given the following method
+				using xBDD.Test;
+				namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
+				{
+				    public class SkippedScenarioWithSteps : IExecute<string>
+				    {
+				        public string Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.Name = "My Test Run";
+				            try
+				            {
+				                xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Skip("Deferred");
+				            }
+				            catch { }
+				            return xBDD.CurrentRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written to text should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario [Skipped - Deferred]
+							Given my starting condition
+							When my action
+							Then my ending condition
+xBDD.Test.Features.RunHtmlReport
+	Run Simple Html Report
+		Run Report [Skipped - Not Started]
+	View Html Report
+		Run Date [Skipped - Not Started]
+		View Name [Skipped - Not Started]
+		View Root Area [Skipped - Not Started]
+	View Html Report Area
+		View Area Name [Skipped - Not Started]
+		View Area Times [Skipped - Not Started]
+		View Child Area Counts All Passing Areas [Skipped - Not Started]
+		View Child Area Counts With Failling Area [Skipped - Not Started]
+		View Child Area Counts With Skipped And Failing Areas [Skipped - Not Started]
+		View Child Area Counts With Skipped Areas [Skipped - Not Started]
+		View Child Areas [Skipped - Not Started]
+		View Child Feature Counts All Passing Features [Skipped - Not Started]
+		View Child Feature Counts With Failling Feature [Skipped - Not Started]
+		View Child Feature Counts With Skipped And Failing Features [Skipped - Not Started]
+		View Child Feature Counts With Skipped Features [Skipped - Not Started]
+		View Child Features [Skipped - Not Started]
+		View Child Scenario Counts All Passing Scenarios [Skipped - Not Started]
+		View Child Scenario Counts With Failling Scenario [Skipped - Not Started]
+		View Child Scenario Counts With Skipped And Failing Scenarios [Skipped - Not Started]
+		View Child Scenario Counts With Skipped Scenarios [Skipped - Not Started]
+		View Child Step Counts All Passing Steps [Skipped - Not Started]
+		View Child Step Counts With Failling Step [Skipped - Not Started]
+		View Child Step Counts With Skipped And Failing Steps [Skipped - Not Started]
+		View Child Step Counts With Skipped Steps [Skipped - Not Started]
+		View Descendent Area Counts All Passing Areas [Skipped - Not Started]
+		View Descendent Area Counts With Failling Area [Skipped - Not Started]
+		View Descendent Area Counts With Skipped And Failing Areas [Skipped - Not Started]
+		View Descendent Area Counts With Skipped Areas [Skipped - Not Started]
+		View Descendent Feature Counts All Passing Features [Skipped - Not Started]
+		View Descendent Feature Counts With Failling Feature [Skipped - Not Started]
+		View Descendent Feature Counts With Skipped And Failing Features [Skipped - Not Started]
+		View Descendent Feature Counts With Skipped Features [Skipped - Not Started]
+		View Descendent Scenario Counts All Passing Scenarios [Skipped - Not Started]
+		View Descendent Scenario Counts With Failling Scenario [Skipped - Not Started]
+		View Descendent Scenario Counts With Skipped And Failing Scenarios [Skipped - Not Started]
+		View Descendent Scenario Counts With Skipped Scenarios [Skipped - Not Started]
+		View Descendent Step Counts All Passing Steps [Skipped - Not Started]
+		View Descendent Step Counts With Failling Step [Skipped - Not Started]
+		View Descendent Step Counts With Skipped And Failing Steps [Skipped - Not Started]
+		View Descendent Step Counts With Skipped Steps [Skipped - Not Started]
+		View Outcome When Failing [Skipped - Not Started]
+		View Outcome When Passing [Skipped - Not Started]
+		View Outcome When Skipped [Skipped - Not Started]
+	View Html Report Feature
+		View Child Scenario Counts All Passing Scenarios [Skipped - Not Started]
+		View Child Scenario Counts With Failling Scenario [Skipped - Not Started]
+		View Child Scenario Counts With Skipped And Failing Scenarios [Skipped - Not Started]
+		View Child Scenario Counts With Skipped Scenarios [Skipped - Not Started]
+		View Child Scenarios [Skipped - Not Started]
+		View Child Step Counts All Passing Steps [Skipped - Not Started]
+		View Child Step Counts With Failling Step [Skipped - Not Started]
+		View Child Step Counts With Skipped And Failing Steps [Skipped - Not Started]
+		View Child Step Counts With Skipped Steps [Skipped - Not Started]
+		View Feature Name [Skipped - Not Started]
+		View Feature Statement [Skipped - Not Started]
+		View Feature Times [Skipped - Not Started]
+		View Outcome When Failing [Skipped - Not Started]
+		View Outcome When Passing [Skipped - Not Started]
+		View Outcome When Skipped [Skipped - Not Started]
+	View Html Report Scenario
+		View Child Step Counts All Passing Steps [Skipped - Not Started]
+		View Child Step Counts With Failling Step [Skipped - Not Started]
+		View Child Step Counts With Skipped And Failing Steps [Skipped - Not Started]
+		View Child Step Counts With Skipped Steps [Skipped - Not Started]
+		View Child Steps [Skipped - Not Started]
+		View Name [Skipped - Not Started]
+		View Outcome When Failing [Skipped - Not Started]
+		View Outcome When Passing [Skipped - Not Started]
+		View Outcome When Skipped [Skipped - Not Started]
+		View Times [Skipped - Not Started]
+	View Html Report Step
+		View Multiline Parameter [Skipped - Not Started]
+		View Name [Skipped - Not Started]
+		View Outcome When Failing [Skipped - Not Started]
+		View Outcome When Passing [Skipped - Not Started]
+		View Outcome When Skipped [Skipped - Not Started]
+		View Table Parameter [Skipped - Not Started]

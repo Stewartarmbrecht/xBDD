@@ -1,5 +1,4 @@
 ﻿using xBDD.Test;
-
 namespace xBDD.Reporting.Test.Features.WriteResults.Scenarios
 {
     public class RunMultipleAreas : IExecute<string>

@@ -18,7 +18,7 @@ namespace xBDD.Test
             var step = xBDD.CreateStep(
                 "the following method",
                 () => { },
-                string.Join("\n", code));
+                string.Join("\r\n", code));
             return step;
         }
 

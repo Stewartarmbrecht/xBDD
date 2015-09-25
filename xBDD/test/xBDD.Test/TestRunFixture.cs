@@ -7,6 +7,7 @@ using Xunit;
 using Microsoft.Dnx.Runtime;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Framework.Configuration;
+using System.IO;
 
 namespace xBDD.Test
 {
@@ -15,7 +16,7 @@ namespace xBDD.Test
         public IApplicationEnvironment ApplicationEnvironment { get; set; }
         public bool ShouldPublish { get; private set; }
 
-        public TestRunFixture()
+        public TestRunFixture(string projectName)
         {
             var provider = CallContextServiceLocator.Locator.ServiceProvider;
             ApplicationEnvironment = provider.GetRequiredService<IApplicationEnvironment>();
@@ -49,6 +50,7 @@ namespace xBDD.Test
             //}
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
+            xBDD.CurrentRun.Name = projectName + " " + DateTime.Now.ToString("s");
         }
         public static IConfiguration Configuration { get; set; }
         public void Dispose()
@@ -80,11 +82,20 @@ namespace xBDD.Test
             {
                 Console.WriteLine("Saving to the database was skipped.");
             }
+
+            File.WriteAllText("xBDD.TestResults.txt", xBDD.CurrentRun.WriteToText());
         }
     }
+    public class xBDDTestTestRunFixture : TestRunFixture
+    {
+        public xBDDTestTestRunFixture()
+            : base("xBDD.Test")
+        {
 
+        }
+    }
     [CollectionDefinition("xBDDTest")]
-    public class TestRunCollection : ICollectionFixture<TestRunFixture>
+    public class TestRunCollection : ICollectionFixture<xBDDTestTestRunFixture>
     {
 
     }

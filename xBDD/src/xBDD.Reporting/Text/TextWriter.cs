@@ -61,7 +61,7 @@ namespace xBDD.Reporting.TextFile
         private void WriteStep(Step step, StringBuilder sb)
         {
             sb.Append("\t\t\t" + step.FullName);
-            if(step.Scenario.Outcome == Outcome.Failed)
+            if (step.Scenario.Outcome == Outcome.Failed)
             {
                 if (step.Outcome != Outcome.Passed)
                 {
@@ -72,11 +72,15 @@ namespace xBDD.Reporting.TextFile
                 }
                 else
                     sb.AppendLine();
-                if (step.Exception != null && !(step.Exception is NotImplementedException) && step.Outcome != Outcome.Skipped)
-                    WriteException(step.Exception, sb);
             }
             else
                 sb.AppendLine();
+            if (!String.IsNullOrEmpty(step.MultilineParameter))
+            {
+                WriteMultilineParameter(step.MultilineParameter, sb);
+            }
+            if (step.Exception != null && !(step.Exception is NotImplementedException) && step.Outcome != Outcome.Skipped)
+                WriteException(step.Exception, sb);
         }
 
         private void WriteException(Exception exception, StringBuilder sb)
@@ -100,6 +104,21 @@ namespace xBDD.Reporting.TextFile
                         sb.Append("\t\t\t\t            ");
                         sb.AppendLine(lines[i]);
                     }
+                }
+            }
+        }
+
+        private void WriteMultilineParameter(string multilineParameter, StringBuilder sb)
+        {
+            string[] lines = Regex.Split(multilineParameter, "\r\n");
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if (i == lines.Length - 1 && lines[i].Length == 0)
+                    return;
+                else
+                {
+                    sb.Append("\t\t\t\t");
+                    sb.AppendLine(lines[i]);
                 }
             }
         }
