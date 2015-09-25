@@ -15,18 +15,27 @@ namespace xBDD.Reporting.TextFile
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(testRun.Name);
             sb.AppendLine();
-            foreach(var scenario in testRun.Scenarios)
+            Scenario lastScenario = null;
+            foreach(var scenario in testRun.Scenarios.OrderBy(x => x.AreaPath).ThenBy(x => x.FeatureName).ThenBy(x => x.Name))
             {
-                WriteScenario(scenario, sb);
+                WriteScenario(lastScenario, scenario, sb);
+                lastScenario = scenario;
             }
             return sb.ToString();
         }
 
-        private void WriteScenario(Scenario scenario, StringBuilder sb)
+        private void WriteScenario(Scenario lastScenario, Scenario scenario, StringBuilder sb)
         {
-            sb.AppendLine(scenario.AreaPath);
-            sb.Append("\t");
-            sb.AppendLine(scenario.FeatureName);
+            if(lastScenario == null || (lastScenario != null && lastScenario.AreaPath != scenario.AreaPath))
+            {
+                sb.AppendLine(scenario.AreaPath);
+            }
+
+            if (lastScenario == null || (lastScenario != null && lastScenario.FeatureName != scenario.FeatureName))
+            {
+                sb.Append("\t");
+                sb.AppendLine(scenario.FeatureName);
+            }
             sb.Append("\t\t");
             sb.Append(scenario.Name);
             if (scenario.Outcome != Outcome.Passed)
@@ -51,19 +60,19 @@ namespace xBDD.Reporting.TextFile
 
         private void WriteStep(Step step, StringBuilder sb)
         {
-            sb.Append("\t\t\t" + step.Name);
+            sb.Append("\t\t\t" + step.FullName);
             if(step.Scenario.Outcome == Outcome.Failed)
             {
                 if (step.Outcome != Outcome.Passed)
                 {
                     sb.Append(" [" + Enum.GetName(typeof(Outcome), step.Outcome));
-                    if (step.Reason != null && step.Outcome != Outcome.Failed)
+                    if (step.Reason != null && (step.Outcome != Outcome.Failed || step.Reason == "Not Implemented"))
                         sb.Append(" - " + step.Reason);
                     sb.AppendLine("]");
                 }
                 else
                     sb.AppendLine();
-                if (step.Exception != null && step.Outcome != Outcome.Skipped)
+                if (step.Exception != null && !(step.Exception is NotImplementedException) && step.Outcome != Outcome.Skipped)
                     WriteException(step.Exception, sb);
             }
             else

@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Prebuild.ps1 = Prebuild.ps1
 		..\README.md = ..\README.md
 		RunTests.ps1 = RunTests.ps1
+		TestResultsQueries.sql = TestResultsQueries.sql
 		xsltproc.ps1 = xsltproc.ps1
 	EndProjectSection
 EndProject

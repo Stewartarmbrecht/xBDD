@@ -55,13 +55,11 @@ namespace xBDD
             Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureName, methodName);
             return AddScenario(method, scenarioName, featureName, null);
         }
-        public Scenario AddScenario(string scenarioName, string featureName, string areaPath,
-            object featureClass, [CallerMemberName]string methodName = "")
+        public Scenario AddScenario(string scenarioName, string featureName, string areaPath)
         {
-            Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
-            return AddScenario(method, scenarioName, featureName, areaPath);
+            return AddScenario(null, scenarioName, featureName, areaPath);
         }
-        internal Scenario AddScenario(Method method, string scenarioName, string featureName, string areaPath)
+        private Scenario AddScenario(Method method, string scenarioName, string featureName, string areaPath)
         {
             var test = factory.CreateScenario(this);
             if (scenarioName == null && method != null)

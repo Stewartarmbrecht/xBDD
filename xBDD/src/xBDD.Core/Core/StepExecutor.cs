@@ -54,6 +54,8 @@ namespace xBDD.Core
             step.StartTime = DateTime.Now;
             if (step == scenario.Steps[0])
                 scenario.StartTime = step.StartTime;
+            if (scenario.FirstStepException != null)
+                throw new SkipStepException("Previous Error");
         }
 
         void PostExecution(Step step)

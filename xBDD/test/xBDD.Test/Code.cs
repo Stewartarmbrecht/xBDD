@@ -2,12 +2,9 @@
 using Microsoft.Dnx.Runtime.Infrastructure;
 using Microsoft.Framework.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace xBDD.Core.Test.Features
+namespace xBDD.Test
 {
     public static class Code
     {
@@ -25,7 +22,7 @@ namespace xBDD.Core.Test.Features
             return step;
         }
 
-        internal static Step ExecuteMethod(Action code)
+        public static Step ExecuteMethod(Action code)
         {
             return xBDD.CreateStep(
                 "the method is executed",
