@@ -27,13 +27,13 @@ namespace xBDD
                 factory = new CoreFactory();
         }
 
-        public Step CreateStep(string stepName, Action action = null, string multilineParameter = null)
+        public Step CreateStep(string stepName, Action action = null, string multilineParameter = null, MultilineParameterFormat format = MultilineParameterFormat.literal)
         {
-            return xBDD.CreateStep(stepName, action, multilineParameter);
+            return xBDD.CreateStep(stepName, action, multilineParameter, format);
         }
-        public Step CreateAsyncStep(string stepName, Func<Task> action = null, string multilineParameter = null)
+        public Step CreateAsyncStep(string stepName, Func<Task> action = null, string multilineParameter = null, MultilineParameterFormat format = MultilineParameterFormat.literal)
         {
-            return xBDD.CreateAsyncStep(stepName, action, multilineParameter);
+            return xBDD.CreateAsyncStep(stepName, action, multilineParameter, format);
         }
     }
 }

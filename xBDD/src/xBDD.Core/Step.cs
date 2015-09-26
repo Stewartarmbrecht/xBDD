@@ -20,6 +20,7 @@ namespace xBDD
 
         public Exception Exception { get; set; }
         public string MultilineParameter { get; set; }
+        public MultilineParameterFormat MultilineParameterFormat { get; set; }
         public IEnumerable<char> FullName { get { return Enum.GetName(typeof(ActionType), ActionType) + " " + Name; } }
     }
 }

@@ -84,6 +84,7 @@ namespace xBDD.Test
             }
 
             File.WriteAllText("xBDD.TestResults.txt", xBDD.CurrentRun.WriteToText());
+            File.WriteAllText("xBDD.TestResults.html", xBDD.CurrentRun.WriteToHtml());
         }
     }
     public class xBDDTestTestRunFixture : TestRunFixture

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>My Test Run</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
+    <style>.mp { margin-left: 2em }</style>
+</head>
+<body class="container-fluid">
+    <h1 class="testrun-name">My Test Run</h1>
+    <ol class="areas">
+        <li class="area">
+            <h2>My.Area.Path</h2>
+            <ol class="features">
+                <li class="feature">
+                    <h3>My Feature</h3>
+                    <ol class="scenarios">
+                        <li class="scenario failed bg-danger">
+                            <h4 class="text-danger">My Scenario [Failed]</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given my starting condition</h5>
+                                </li>
+                                <li class="step failed text-danger">
+                                    <h5>When my action [Failed]</h5>
+                                    <dl class="exception dl-horizontal">
+                                        <dt>Error Type</dt>
+                                        <dd>Exception</dd>
+                                        <dt>Message</dt>
+                                        <dd>My Error</dd>
+                                        <dt>Stack</dt>
+                                        <dd><pre>   at xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios.RunScenarioWithFailedStep.&lt;&gt;c.&lt;Execute&gt;b__0_0() in C:\Users\stearm01\Source\Repos\xBDD\xBDD\test\xBDD.Reporting.Test\Features\WriteResults\WriteToHtmlScenarios\RunScenarioWithFailedStep.cs:line 16
+   at xBDD.Core.StepExecutor.ExecuteStep(Step step) in C:\Users\stearm01\Source\Repos\xBDD\xBDD\src\xBDD.Core\Core\StepExecutor.cs:line 44</pre></dd>
+                                    </dl>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>Then my ending condition [Skipped - Previous Error]</h5>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+    </ol>
+</body>
+</html>

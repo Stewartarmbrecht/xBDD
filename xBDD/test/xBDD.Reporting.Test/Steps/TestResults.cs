@@ -4,12 +4,15 @@ using Microsoft.Framework.DependencyInjection;
 using System;
 using System.IO;
 using TemplateValidator;
+using xBDD.Test;
 
 namespace xBDD.Reporting.Test.Steps
 {
     public static class TestResults
     {
-        internal static Step ShouldMatch(string templateFile, Wrapper<string> testResults, bool writeActual = false)
+        internal static Step ShouldMatch(string templateFile, 
+            Wrapper<string> testResults, bool writeActual = false, 
+            string extension = "txt", MultilineParameterFormat format = MultilineParameterFormat.literal)
         {
             var provider = CallContextServiceLocator.Locator.ServiceProvider;
             var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
@@ -28,7 +31,7 @@ namespace xBDD.Reporting.Test.Steps
                 () => {
                     if (writeActual)
                     {
-                        File.WriteAllText(templateFilePath + ".actual.txt", testResults.Object);
+                        File.WriteAllText(templateFilePath + ".actual." + extension, testResults.Object);
                     }
 
                     if (createTemplate)
@@ -39,7 +42,8 @@ namespace xBDD.Reporting.Test.Steps
                     else
                         testResults.Object.ValidateToTemplate(template);
                 },
-                string.Join("\n", template));
+                template,
+                format);
             return step;
         }
     }

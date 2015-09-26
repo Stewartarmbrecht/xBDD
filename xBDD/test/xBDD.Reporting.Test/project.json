@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
   "description": "xBDD.Reporting.Test Class Library",
   "authors": [ "Stewart Armbrecht" ],
@@ -8,6 +8,7 @@
 
   "dependencies": {
     "xBDD.Test": "1.0.0-*",
+    "Microsoft.AspNet.Http": "1.0.0-beta7",
     "xunit": "2.1.0-rc1-build3168",
     "xunit.runner.dnx": "2.1.0-beta5-build169",
     "TemplateValidator": "1.0.0-beta2"
@@ -17,8 +18,10 @@
     "ef": "EntityFramework.Commands"
   },
   "frameworks": {
-    "dnx451": { },
-    "dnxcore50": { }
+    "dnx451": {
+    },
+    "dnxcore50": {
+    }
   },
   "userSecretsId": "xBDD.Test",
   "configurations": {

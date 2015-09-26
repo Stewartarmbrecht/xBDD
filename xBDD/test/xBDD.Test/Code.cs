@@ -14,11 +14,12 @@ namespace xBDD.Test
             var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
 
             
-            var code = File.ReadAllLines(appEnv.ApplicationBasePath + fileName);
+            var code = File.ReadAllText(appEnv.ApplicationBasePath + fileName);
             var step = xBDD.CreateStep(
                 "the following method",
                 () => { },
-                string.Join("\r\n", code));
+                code,
+                MultilineParameterFormat.cs);
             return step;
         }
 

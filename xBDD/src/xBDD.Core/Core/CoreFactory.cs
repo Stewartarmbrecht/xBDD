@@ -25,24 +25,26 @@ namespace xBDD.Core
             return scenario;
         }
 
-        internal Step CreateStep(string stepName, Action action, string multilineParameter = null)
+        internal Step CreateStep(string stepName, Action action, string multilineParameter = null, MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
         {
             var step = new Step()
             {
                 Name = stepName,
                 Action = action,
-                MultilineParameter = multilineParameter
+                MultilineParameter = multilineParameter,
+                MultilineParameterFormat = multilineParameterFormat
             };
             return step;
         }
 
-        internal Step CreateStep(string stepName, Func<Task> action, string multilineParameter = null)
+        internal Step CreateStep(string stepName, Func<Task> action, string multilineParameter = null, MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
         {
             var step = new Step()
             {
                 Name = stepName,
                 ActionAsync = action,
-                MultilineParameter = multilineParameter
+                MultilineParameter = multilineParameter,
+                MultilineParameterFormat = multilineParameterFormat
             };
             return step;
         }

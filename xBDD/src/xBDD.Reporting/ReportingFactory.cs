@@ -1,4 +1,6 @@
-﻿using xBDD.Reporting.TextFile;
+﻿using System;
+using xBDD.Reporting.Html;
+using xBDD.Reporting.TextFile;
 
 namespace xBDD.Reporting
 {
@@ -7,6 +9,11 @@ namespace xBDD.Reporting
         public TextWriter GetTextFileWriter()
         {
             return new TextWriter();
+        }
+
+        internal HtmlWriter GetHtmlFileWriter()
+        {
+            return new HtmlWriter();
         }
     }
 }

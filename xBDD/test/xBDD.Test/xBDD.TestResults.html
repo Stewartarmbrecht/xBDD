@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>xBDD.Test 2015-09-26T08:10:00</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
+    <style>.mp { margin-left: 2em }</style>
+</head>
+<body class="container-fluid">
+    <h1 class="testrun-name">xBDD.Test 2015-09-26T08:10:00</h1>
+    <ol class="areas">
+        <li class="area">
+            <h2>xBDD.Test.Features.Environment</h2>
+            <ol class="features">
+                <li class="feature">
+                    <h3>Publish Test Results To Central Database</h3>
+                    <ol class="scenarios">
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Publish After CI Test Run</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>When the developer pushes a commit to the master branch</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the CI process should build the solution, run the tests, and publish the results to a central database</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Publish After Test Run</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the developer sets the solution to the Publish configuration</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>And the developer defines a valid connection string for an environment variable named 'Data:DefaultConnection:ConnectionString'</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the developer runs the tests</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results should be published to the database</h5>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+    </ol>
+</body>
+</html>

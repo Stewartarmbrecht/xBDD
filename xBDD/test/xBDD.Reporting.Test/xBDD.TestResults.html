@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>xBDD.Reporting.Test 2015-09-26T08:09:58</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
+    <style>.mp { margin-left: 2em }</style>
+</head>
+<body class="container-fluid">
+    <h1 class="testrun-name">xBDD.Reporting.Test 2015-09-26T08:09:58</h1>
+    <ol class="areas">
+        <li class="area">
+            <h2>xBDD.Reporting.Test.Features.WriteResults</h2>
+            <ol class="features">
+                <li class="feature">
+                    <h3>Write To Html</h3>
+                    <ol class="scenarios">
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Emtpy Test Run</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class EmptyTestRun : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Empty Scenario</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunEmptyScenario : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            xBDD.CurrentRun
+                .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                .Run();
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario&lt;/h4&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Multiple Areas</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunMultipleAreas : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path.One&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path.One&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path.Two&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path.Two&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path.One&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature One&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario One&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario Two&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path.Two&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature Two&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario One&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario Two&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Multiple Features Same Area</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunMultipleFeaturesSameArea : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature One&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario One&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario Two&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature Two&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario One&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario Two&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Multiple Write To Html Scenarios Same Feature</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunMultipleScenariosSameFeature : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario One&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario Two&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Failed Step</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using System;
+using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithFailedStep : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;, () =&gt; { throw new Exception(&quot;My Error&quot;); }))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario failed bg-danger&quot;&gt;
+                            &lt;h4 class=&quot;text-danger&quot;&gt;My Scenario [Failed]&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step failed text-danger&quot;&gt;
+                                    &lt;h5&gt;When my action [Failed]&lt;/h5&gt;
+                                    &lt;dl class=&quot;exception dl-horizontal&quot;&gt;
+                                        &lt;dt&gt;Error Type&lt;/dt&gt;
+                                        &lt;dd&gt;Exception&lt;/dd&gt;
+                                        &lt;dt&gt;Message&lt;/dt&gt;
+                                        &lt;dd&gt;My Error&lt;/dd&gt;
+                                        &lt;dt&gt;Stack&lt;/dt&gt;
+{{.*}}/rl
+                                    &lt;/dl&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition [Skipped - Previous Error]&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Not Implemented Step</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using System;
+using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithNotImplementedStep : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;, () =&gt; { throw new NotImplementedException(); }))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario failed bg-danger&quot;&gt;
+                            &lt;h4 class=&quot;text-danger&quot;&gt;My Scenario [Failed - Step Not Implemented]&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step failed text-danger&quot;&gt;
+                                    &lt;h5&gt;When my action [Failed - Not Implemented]&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition [Skipped - Previous Error]&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Skipped Step</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithSkippedStep : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;, () =&gt; { throw new SkipStepException(&quot;Deferred&quot;); }))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario failed bg-danger&quot;&gt;
+                            &lt;h4 class=&quot;text-danger&quot;&gt;My Scenario [Failed - Step Skipped]&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;When my action [Skipped - Deferred]&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition [Skipped - Previous Error]&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Step With Multiline Parameter</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithStepWithMultilineParameter : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            xBDD.CurrentRun
+                .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                .Given(xBDD.CreateStep(&quot;my starting condition with the following&quot;, () =&gt; { }, &quot;My\r\n  multiline\r\n    parameter&quot;))
+                .When(xBDD.CreateStep(&quot;my action&quot;))
+                .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                .Run();
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition with the following&lt;/h5&gt;
+                                    &lt;pre class=&quot;mp&quot;&gt;My
+  multiline
+    parameter&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Step With Multiline Parameter With Formatting</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithStepWithMultilineParameterWithFormatting : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            xBDD.CurrentRun
+                .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                .Given(xBDD.CreateStep(
+                    &quot;my starting condition with the following&quot;, 
+                    () =&gt; { }, 
+                    &quot;My\r\n  multiline\r\n    parameter&quot;))
+                .And(xBDD.CreateStep(
+                    &quot;my formatted genric code&quot;,
+                    () =&gt; { },
+                    &quot;public void MyClass {}&quot;,
+                    MultilineParameterFormat.code))
+                .And(xBDD.CreateStep(
+                    &quot;my formatted specific code (html)&quot;,
+                    () =&gt; { },
+                    &quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;Hey&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;,
+                    MultilineParameterFormat.html))
+                .When(xBDD.CreateStep(&quot;my action&quot;))
+                .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                .Run();
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition with the following&lt;/h5&gt;
+                                    &lt;pre class=&quot;mp&quot;&gt;My
+  multiline
+    parameter&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;And my formatted genric code&lt;/h5&gt;
+                                    &lt;pre class=&quot;mp prettyprint&quot;&gt;public void MyClass {}&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;And my formatted specific code (html)&lt;/h5&gt;
+                                    &lt;pre class=&quot;mp prettyprint lang-html&quot;&gt;&amp;lt;table&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;Hey&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Steps</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithSteps : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Skipped Empty Scenario</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class SkippedEmptyScenario : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Skip(&quot;Deferred&quot;);
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario skipped bg-warning&quot;&gt;
+                            &lt;h4 class=&quot;text-warning&quot;&gt;My Scenario [Skipped - Deferred]&lt;/h4&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Skipped Scenario With Steps</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class SkippedScenarioWithSteps : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Skip(&quot;Deferred&quot;);
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+{{.*}}/rl
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario skipped bg-warning&quot;&gt;
+                            &lt;h4 class=&quot;text-warning&quot;&gt;My Scenario [Skipped - Deferred]&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+                <li class="feature">
+                    <h3>Write To Text</h3>
+                    <ol class="scenarios">
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Emtpy Test Run</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class EmptyTestRun : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            return xBDD.CurrentRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Empty Scenario</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunEmptyScenario : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            xBDD.CurrentRun
+                .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                .Run();
+            return xBDD.CurrentRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Multiple Areas</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunMultipleAreas : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path.One&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path.One&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path.Two&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path.Two&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path.One
+	My Feature One
+		My Scenario One
+			Given my starting condition
+			When my action
+			Then my ending condition
+		My Scenario Two
+			Given my starting condition
+			When my action
+			Then my ending condition
+My.Area.Path.Two
+	My Feature Two
+		My Scenario One
+			Given my starting condition
+			When my action
+			Then my ending condition
+		My Scenario Two
+			Given my starting condition
+			When my action
+			Then my ending condition
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Multiple Features Same Area</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunMultipleFeaturesSameArea : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature One
+		My Scenario One
+			Given my starting condition
+			When my action
+			Then my ending condition
+		My Scenario Two
+			Given my starting condition
+			When my action
+			Then my ending condition
+	My Feature Two
+		My Scenario One
+			Given my starting condition
+			When my action
+			Then my ending condition
+		My Scenario Two
+			Given my starting condition
+			When my action
+			Then my ending condition
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Multiple Scenarios Same Feature</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunMultipleScenariosSameFeature : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario One
+			Given my starting condition
+			When my action
+			Then my ending condition
+		My Scenario Two
+			Given my starting condition
+			When my action
+			Then my ending condition
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Failed Step</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using System;
+using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunScenarioWithFailedStep : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;, () =&gt; { throw new Exception(&quot;My Error&quot;); }))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario [Failed]
+			Given my starting condition
+			When my action [Failed]
+				Error Type: Exception
+				   Message: My Error
+{{				     Stack\: .*}}
+{{.*}}/rl
+			Then my ending condition [Skipped - Previous Error]
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Not Implemented Step</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using System;
+using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunScenarioWithNotImplementedStep : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;, () =&gt; { throw new NotImplementedException(); }))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario [Failed - Step Not Implemented]
+			Given my starting condition
+			When my action [Failed - Not Implemented]
+			Then my ending condition [Skipped - Previous Error]
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Skipped Step</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunScenarioWithSkippedStep : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;, () =&gt; { throw new SkipStepException(&quot;Deferred&quot;); }))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario [Failed - Step Skipped]
+			Given my starting condition
+			When my action [Skipped - Deferred]
+			Then my ending condition [Skipped - Previous Error]
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Step With Multiline Parameter</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunScenarioWithStepWithMultilineParameter : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            xBDD.CurrentRun
+                .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                .Given(xBDD.CreateStep(&quot;my starting condition with the following&quot;, () =&gt; { }, &quot;My\r\nmultiline\r\nparameter&quot;))
+                .When(xBDD.CreateStep(&quot;my action&quot;))
+                .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                .Run();
+            return xBDD.CurrentRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario
+			Given my starting condition with the following
+				My
+				multiline
+				parameter
+			When my action
+			Then my ending condition
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Steps</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunScenarioWithSteps : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario
+			Given my starting condition
+			When my action
+			Then my ending condition
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Skipped Empty Scenario</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class SkippedEmptyScenario : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Skip(&quot;Deferred&quot;);
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario [Skipped - Deferred]
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Skipped Scenario With Steps</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class SkippedScenarioWithSteps : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Skip(&quot;Deferred&quot;);
+            }
+            catch { }
+            return xBDD.CurrentRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario [Skipped - Deferred]
+			Given my starting condition
+			When my action
+			Then my ending condition
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+    </ol>
+</body>
+</html>
