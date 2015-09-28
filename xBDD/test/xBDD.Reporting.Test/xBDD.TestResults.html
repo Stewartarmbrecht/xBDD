@@ -2,16 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>xBDD.Reporting.Test 2015-09-26T08:09:58</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>xBDD.Reporting.Test 2015-09-28T01:52:08</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <style>.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }</style>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
-    <style>.mp { margin-left: 2em }</style>
+    <script language="javascript" type="text/javascript">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }</script>
 </head>
 <body class="container-fluid">
-    <h1 class="testrun-name">xBDD.Reporting.Test 2015-09-26T08:09:58</h1>
+    <h1 class="testrun-name">xBDD.Reporting.Test 2015-09-28T01:52:08</h1>
     <ol class="areas">
         <li class="area">
             <h2>xBDD.Reporting.Test.Features.WriteResults</h2>
@@ -43,18 +45,67 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code3" aria-controls="code3" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview3" aria-controls="preview3" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code3">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview3">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe3"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe3doc = document.getElementById('iframe3').contentWindow.document;
+                                                    iframe3doc.open();
+                                                    var html3 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+<\/body> \
+<\/html>";
+                                                    iframe3doc.write(html3);
+                                                    resizeIframe(document.getElementById('iframe3'));
+                                                    iframe3doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -85,13 +136,27 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code6" aria-controls="code6" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview6" aria-controls="preview6" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code6">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
@@ -112,6 +177,56 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
     &lt;/ol&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview6">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe6"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe6doc = document.getElementById('iframe6').contentWindow.document;
+                                                    iframe6doc.open();
+                                                    var html6 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario<\/h4> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe6doc.write(html6);
+                                                    resizeIframe(document.getElementById('iframe6'));
+                                                    iframe6doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -167,13 +282,27 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code9" aria-controls="code9" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview9" aria-controls="preview9" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code9">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
@@ -257,6 +386,119 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
     &lt;/ol&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview9">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe9"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe9doc = document.getElementById('iframe9').contentWindow.document;
+                                                    iframe9doc.open();
+                                                    var html9 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path.One<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature One<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario One<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario Two<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path.Two<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature Two<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario One<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario Two<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe9doc.write(html9);
+                                                    resizeIframe(document.getElementById('iframe9'));
+                                                    iframe9doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -312,13 +554,27 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code12" aria-controls="code12" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview12" aria-controls="preview12" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code12">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
@@ -397,6 +653,114 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
     &lt;/ol&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe12"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe12doc = document.getElementById('iframe12').contentWindow.document;
+                                                    iframe12doc.open();
+                                                    var html12 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature One<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario One<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario Two<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+                <li class=\"feature\"> \
+                    <h3>My Feature Two<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario One<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario Two<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe12doc.write(html12);
+                                                    resizeIframe(document.getElementById('iframe12'));
+                                                    iframe12doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -440,13 +804,27 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code15" aria-controls="code15" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview15" aria-controls="preview15" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code15">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
@@ -492,6 +870,81 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
     &lt;/ol&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview15">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe15"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe15doc = document.getElementById('iframe15').contentWindow.document;
+                                                    iframe15doc.open();
+                                                    var html15 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario One<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario Two<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe15doc.write(html15);
+                                                    resizeIframe(document.getElementById('iframe15'));
+                                                    iframe15doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -530,13 +983,27 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code18" aria-controls="code18" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview18" aria-controls="preview18" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code18">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
@@ -559,7 +1026,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                         &lt;dt&gt;Error Type&lt;/dt&gt;
                                         &lt;dd&gt;Exception&lt;/dd&gt;
                                         &lt;dt&gt;Message&lt;/dt&gt;
-                                        &lt;dd&gt;My Error&lt;/dd&gt;
+                                        &lt;dd&gt;&lt;pre&gt;My Error&lt;/pre&gt;&lt;/dd&gt;
                                         &lt;dt&gt;Stack&lt;/dt&gt;
 {{.*}}/rl
                                     &lt;/dl&gt;
@@ -576,6 +1043,75 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
     &lt;/ol&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview18">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe18"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe18doc = document.getElementById('iframe18').contentWindow.document;
+                                                    iframe18doc.open();
+                                                    var html18 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario failed bg-danger\"> \
+                            <h4 class=\"text-danger\">My Scenario [Failed]<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step failed text-danger\"> \
+                                    <h5>When my action [Failed]<\/h5> \
+                                    <dl class=\"exception dl-horizontal\"> \
+                                        <dt>Error Type<\/dt> \
+                                        <dd>Exception<\/dd> \
+                                        <dt>Message<\/dt> \
+                                        <dd><pre>My Error<\/pre><\/dd> \
+                                        <dt>Stack<\/dt> \
+{{.*}}\/rl \
+                                    <\/dl> \
+                                <\/li> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>Then my ending condition [Skipped - Previous Error]<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe18doc.write(html18);
+                                                    resizeIframe(document.getElementById('iframe18'));
+                                                    iframe18doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -614,13 +1150,27 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code21" aria-controls="code21" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview21" aria-controls="preview21" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code21">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
@@ -652,6 +1202,67 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
     &lt;/ol&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview21">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe21"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe21doc = document.getElementById('iframe21').contentWindow.document;
+                                                    iframe21doc.open();
+                                                    var html21 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario failed bg-danger\"> \
+                            <h4 class=\"text-danger\">My Scenario [Failed - Step Not Implemented]<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step failed text-danger\"> \
+                                    <h5>When my action [Failed - Not Implemented]<\/h5> \
+                                <\/li> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>Then my ending condition [Skipped - Previous Error]<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe21doc.write(html21);
+                                                    resizeIframe(document.getElementById('iframe21'));
+                                                    iframe21doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -689,13 +1300,27 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code24" aria-controls="code24" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview24" aria-controls="preview24" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code24">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
@@ -727,6 +1352,67 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
     &lt;/ol&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview24">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe24"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe24doc = document.getElementById('iframe24').contentWindow.document;
+                                                    iframe24doc.open();
+                                                    var html24 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario failed bg-danger\"> \
+                            <h4 class=\"text-danger\">My Scenario [Failed - Step Skipped]<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>When my action [Skipped - Deferred]<\/h5> \
+                                <\/li> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>Then my ending condition [Skipped - Previous Error]<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe24doc.write(html24);
+                                                    resizeIframe(document.getElementById('iframe24'));
+                                                    iframe24doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -760,13 +1446,27 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code27" aria-controls="code27" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview27" aria-controls="preview27" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code27">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
@@ -801,6 +1501,70 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
     &lt;/ol&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview27">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe27"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe27doc = document.getElementById('iframe27').contentWindow.document;
+                                                    iframe27doc.open();
+                                                    var html27 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition with the following<\/h5> \
+                                    <pre class=\"mp\">My \
+  multiline \
+    parameter<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe27doc.write(html27);
+                                                    resizeIframe(document.getElementById('iframe27'));
+                                                    iframe27doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -847,13 +1611,27 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code30" aria-controls="code30" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview30" aria-controls="preview30" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code30">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
@@ -896,6 +1674,333 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
     &lt;/ol&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview30">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe30"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe30doc = document.getElementById('iframe30').contentWindow.document;
+                                                    iframe30doc.open();
+                                                    var html30 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition with the following<\/h5> \
+                                    <pre class=\"mp\">My \
+  multiline \
+    parameter<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>And my formatted genric code<\/h5> \
+                                    <pre class=\"mp prettyprint\">public void MyClass {}<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>And my formatted specific code (html)<\/h5> \
+                                    <pre class=\"mp prettyprint lang-html\">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Hey&lt;\/td&gt;&lt;\/tr&gt;&lt;\/table&gt;<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe30doc.write(html30);
+                                                    resizeIframe(document.getElementById('iframe30'));
+                                                    iframe30doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Step With Multiline Parameter With Html Formatting And Preview</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithStepWithMultilineParameterWithHtmlFormattingAndPreview : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.Name = &quot;My Test Run&quot;;
+            xBDD.CurrentRun
+                .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                .Given(xBDD.CreateStep(
+                    &quot;my starting condition with the following&quot;, 
+                    () =&gt; { }, 
+                    &quot;My\r\n  multiline\r\n    parameter&quot;))
+                .And(xBDD.CreateStep(
+                    &quot;my formatted genric code&quot;,
+                    () =&gt; { },
+                    &quot;public void MyClass {}&quot;,
+                    MultilineParameterFormat.code))
+                .And(xBDD.CreateStep(
+                    &quot;my formatted specific code (html)&quot;,
+                    () =&gt; { },
+                    &quot;&lt;table&gt;\r\n    &lt;tr&gt;\r\n        &lt;td&gt;\r\n            Hey\r\n        &lt;/td&gt;\r\n    &lt;/tr&gt;\r\n&lt;/table&gt;&quot;,
+                    MultilineParameterFormat.htmlpreview))
+                .When(xBDD.CreateStep(&quot;my action&quot;))
+                .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                .Run();
+            return xBDD.CurrentRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code33" aria-controls="code33" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview33" aria-controls="preview33" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code33">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition with the following&lt;/h5&gt;
+                                    &lt;pre class=&quot;mp&quot;&gt;My
+  multiline
+    parameter&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;And my formatted genric code&lt;/h5&gt;
+                                    &lt;pre class=&quot;mp prettyprint&quot;&gt;public void MyClass {}&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;And my formatted specific code (html)&lt;/h5&gt;
+                                    &lt;div&gt;
+                                        &lt;ul class=&quot;nav nav-tabs&quot; role=&quot;tablist&quot;&gt;
+                                            &lt;li role=&quot;presentation&quot; class=&quot;active&quot;&gt;&lt;a href=&quot;#code3&quot; aria-controls=&quot;code3&quot; role=&quot;tab&quot; data-toggle=&quot;tab&quot;&gt;Code&lt;/a&gt;&lt;/li&gt;
+                                            &lt;li role=&quot;presentation&quot;&gt;&lt;a href=&quot;#preview3&quot; aria-controls=&quot;preview3&quot; role=&quot;tab&quot; data-toggle=&quot;tab&quot;&gt;Preview&lt;/a&gt;&lt;/li&gt;
+                                        &lt;/ul&gt;
+                                        &lt;div class=&quot;tab-content&quot;&gt;
+                                            &lt;div role=&quot;tabpanel&quot; class=&quot;tab-pane active&quot; id=&quot;code3&quot;&gt;
+                                                &lt;pre class=&quot;mp prettyprint lang-html&quot;&gt;&amp;lt;table&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;td&amp;gt;
+            Hey
+        &amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;&lt;/pre&gt;
+                                            &lt;/div&gt;
+                                            &lt;div role=&quot;tabpanel&quot; class=&quot;tab-pane&quot; id=&quot;preview3&quot;&gt;
+                                                &lt;div class=&quot;panel panel-default&quot;&gt;
+                                                    &lt;div class=&quot;panel-body&quot;&gt;
+                                                        &lt;iframe width=&quot;100%&quot; id=&quot;iframe3&quot;&gt;&lt;/iframe&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                                &lt;script type=&quot;text/javascript&quot;&gt;
+                                                    var iframe3doc = document.getElementById('iframe3').contentWindow.document;
+                                                    iframe3doc.open();
+                                                    var html3 = &quot;&lt;table&gt; \
+    &lt;tr&gt; \
+        &lt;td&gt; \
+            Hey \
+        &lt;\/td&gt; \
+    &lt;\/tr&gt; \
+&lt;\/table&gt;&quot;;
+                                                    iframe3doc.write(html3);
+                                                    resizeIframe(document.getElementById('iframe3'));
+                                                    iframe3doc.close();
+                                                &lt;/script&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview33">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe33"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe33doc = document.getElementById('iframe33').contentWindow.document;
+                                                    iframe33doc.open();
+                                                    var html33 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition with the following<\/h5> \
+                                    <pre class=\"mp\">My \
+  multiline \
+    parameter<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>And my formatted genric code<\/h5> \
+                                    <pre class=\"mp prettyprint\">public void MyClass {}<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>And my formatted specific code (html)<\/h5> \
+                                    <div> \
+                                        <ul class=\"nav nav-tabs\" role=\"tablist\"> \
+                                            <li role=\"presentation\" class=\"active\"><a href=\"#code3\" aria-controls=\"code3\" role=\"tab\" data-toggle=\"tab\">Code<\/a><\/li> \
+                                            <li role=\"presentation\"><a href=\"#preview3\" aria-controls=\"preview3\" role=\"tab\" data-toggle=\"tab\">Preview<\/a><\/li> \
+                                        <\/ul> \
+                                        <div class=\"tab-content\"> \
+                                            <div role=\"tabpanel\" class=\"tab-pane active\" id=\"code3\"> \
+                                                <pre class=\"mp prettyprint lang-html\">&lt;table&gt; \
+    &lt;tr&gt; \
+        &lt;td&gt; \
+            Hey \
+        &lt;\/td&gt; \
+    &lt;\/tr&gt; \
+&lt;\/table&gt;<\/pre> \
+                                            <\/div> \
+                                            <div role=\"tabpanel\" class=\"tab-pane\" id=\"preview3\"> \
+                                                <div class=\"panel panel-default\"> \
+                                                    <div class=\"panel-body\"> \
+                                                        <iframe width=\"100%\" id=\"iframe3\"><\/iframe> \
+                                                    <\/div> \
+                                                <\/div> \
+                                                <script type=\"text\/javascript\"> \
+                                                    var iframe3doc = document.getElementById('iframe3').contentWindow.document; \
+                                                    iframe3doc.open(); \
+                                                    var html3 = \"<table> \ \
+    <tr> \ \
+        <td> \ \
+            Hey \ \
+        <\\/td> \ \
+    <\\/tr> \ \
+<\\/table>\"; \
+                                                    iframe3doc.write(html3); \
+                                                    resizeIframe(document.getElementById('iframe3')); \
+                                                    iframe3doc.close(); \
+                                                <\/script> \
+                                            <\/div> \
+                                        <\/div> \
+                                    <\/div> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe33doc.write(html33);
+                                                    resizeIframe(document.getElementById('iframe33'));
+                                                    iframe33doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -933,13 +2038,27 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code36" aria-controls="code36" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview36" aria-controls="preview36" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code36">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
@@ -971,6 +2090,67 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
     &lt;/ol&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview36">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe36"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe36doc = document.getElementById('iframe36').contentWindow.document;
+                                                    iframe36doc.open();
+                                                    var html36 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe36doc.write(html36);
+                                                    resizeIframe(document.getElementById('iframe36'));
+                                                    iframe36doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -1005,13 +2185,27 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code39" aria-controls="code39" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview39" aria-controls="preview39" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code39">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
@@ -1032,6 +2226,56 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
     &lt;/ol&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview39">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe39"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe39doc = document.getElementById('iframe39').contentWindow.document;
+                                                    iframe39doc.open();
+                                                    var html39 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario skipped bg-warning\"> \
+                            <h4 class=\"text-warning\">My Scenario [Skipped - Deferred]<\/h4> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe39doc.write(html39);
+                                                    resizeIframe(document.getElementById('iframe39'));
+                                                    iframe39doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -1069,13 +2313,27 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
-                                    <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#code42" aria-controls="code42" role="tab" data-toggle="tab">Code</a></li>
+                                            <li role="presentation"><a href="#preview42" aria-controls="preview42" role="tab" data-toggle="tab">Preview</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="code42">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
     &lt;title&gt;My Test Run&lt;/title&gt;
-{{.*}}/rl
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }&lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
     &lt;h1 class=&quot;testrun-name&quot;&gt;My Test Run&lt;/h1&gt;
@@ -1107,6 +2365,67 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
     &lt;/ol&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="preview42">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe42"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe42doc = document.getElementById('iframe42').contentWindow.document;
+                                                    iframe42doc.open();
+                                                    var html42 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight\/1.75 + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario skipped bg-warning\"> \
+                            <h4 class=\"text-warning\">My Scenario [Skipped - Deferred]<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe42doc.write(html42);
+                                                    resizeIframe(document.getElementById('iframe42'));
+                                                    iframe42doc.close();
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -1139,7 +2458,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <h5>Then the test results written should match the template:</h5>
                                     <pre class="mp">My Test Run
 
 </pre>
@@ -1173,7 +2492,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <h5>Then the test results written should match the template:</h5>
                                     <pre class="mp">My Test Run
 
 My.Area.Path
@@ -1235,7 +2554,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <h5>Then the test results written should match the template:</h5>
                                     <pre class="mp">My Test Run
 
 My.Area.Path.One
@@ -1314,7 +2633,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <h5>Then the test results written should match the template:</h5>
                                     <pre class="mp">My Test Run
 
 My.Area.Path
@@ -1380,7 +2699,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <h5>Then the test results written should match the template:</h5>
                                     <pre class="mp">My Test Run
 
 My.Area.Path
@@ -1432,7 +2751,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <h5>Then the test results written should match the template:</h5>
                                     <pre class="mp">My Test Run
 
 My.Area.Path
@@ -1484,7 +2803,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <h5>Then the test results written should match the template:</h5>
                                     <pre class="mp">My Test Run
 
 My.Area.Path
@@ -1531,7 +2850,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <h5>Then the test results written should match the template:</h5>
                                     <pre class="mp">My Test Run
 
 My.Area.Path
@@ -1574,7 +2893,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <h5>Then the test results written should match the template:</h5>
                                     <pre class="mp">My Test Run
 
 My.Area.Path
@@ -1624,7 +2943,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <h5>Then the test results written should match the template:</h5>
                                     <pre class="mp">My Test Run
 
 My.Area.Path
@@ -1668,7 +2987,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <h5>Then the test results written should match the template:</h5>
                                     <pre class="mp">My Test Run
 
 My.Area.Path
@@ -1712,7 +3031,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                                     <h5>When the method is executed</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the test results written to text should match the template:</h5>
+                                    <h5>Then the test results written should match the template:</h5>
                                     <pre class="mp">My Test Run
 
 My.Area.Path

@@ -25,9 +25,16 @@ namespace xBDD.Reporting.Test.Steps
                 createTemplate = true;
             else
                 template = File.ReadAllText(templateFilePath);
+            if(format == MultilineParameterFormat.htmlpreview)
+            {
+                var directory = templateFilePath.Substring(0, templateFilePath.LastIndexOf('\\') + 1);
+                var htmlOpen = File.ReadAllText(directory + "HtmlOpen.html");
+                var htmlClose = File.ReadAllText(directory + "HtmlClose.html");
+                template = htmlOpen + template + htmlClose;
+            }
 
             var step = xBDD.CreateStep(
-                "the test results written to text should match the template:",
+                "the test results written should match the template:",
                 () => {
                     if (writeActual)
                     {

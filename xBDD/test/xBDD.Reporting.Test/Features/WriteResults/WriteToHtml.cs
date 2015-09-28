@@ -31,7 +31,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults
                     text.Object = action.Execute();
                 }))
                 .Then(TestResults.ShouldMatch(
-                    "\\Features\\WriteResults\\WriteToHtmlScenarios\\" + actionName + ".html", text, writeActual, "html", MultilineParameterFormat.html))
+                    "\\Features\\WriteResults\\WriteToHtmlScenarios\\" + actionName + ".html", text, writeActual, "html", MultilineParameterFormat.htmlpreview))
                 .Run();
         }
 
@@ -99,6 +99,11 @@ namespace xBDD.Reporting.Test.Features.WriteResults
         public void WriteRunScenarioWithStepWithMultilineParameterWithFormatting()
         {
             Run(new WriteToHtmlScenarios.RunScenarioWithStepWithMultilineParameterWithFormatting());
+        }
+        [ScenarioFact]
+        public void WriteRunScenarioWithStepWithMultilineParameterWithHtmlFormattingAndPreview()
+        {
+            Run(new WriteToHtmlScenarios.RunScenarioWithStepWithMultilineParameterWithHtmlFormattingAndPreview());
         }
     }
 }
