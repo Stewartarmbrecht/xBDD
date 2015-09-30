@@ -1,4 +1,5 @@
 ﻿using System;
+using xBDD.Model;
 using Xunit;
 
 namespace xBDD.Core.Test.Features

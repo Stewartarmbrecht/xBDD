@@ -1,7 +1,8 @@
-﻿using xBDD.Test;
-using xBDD.xUnit;
-using Xunit;
+﻿using Xunit;
 using Xunit.Abstractions;
+using xBDD.Model;
+using xBDD.Test;
+using xBDD.xUnit;
 
 namespace xBDD.Core.Test.Features.DefineScenarios
 {
@@ -26,7 +27,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAScenarioDefaultSample.cs"))
                 .When(Code.ExecuteMethod(() =>
                 {
-                    sut.Object = new SampleCode.AddAScenarioDefaultSample().DefaultScenarioAdd();
+                    sut.Object = new SampleCode.AddAScenarioDefaultSample().DefaultScenarioAdd().Scenario;
                 }))
                 .Then(ScenarioTarget.WillBeCreated(sut))
                 .And(ScenarioTarget.NameWillMatchMethodName("Default Scenario Add", sut))
@@ -44,7 +45,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAScenarioExplicitNameSample.cs"))
                 .When(Code.ExecuteMethod(() =>
                 {
-                    sut.Object = new SampleCode.AddAScenarioExplicitNameSample().WithExplicitName();
+                    sut.Object = new SampleCode.AddAScenarioExplicitNameSample().WithExplicitName().Scenario;
                 }))
                 .Then(ScenarioTarget.WillBeCreated(sut))
                 .And(ScenarioTarget.NameWillMatchMethodName("My Explicit Scenario Name", sut))

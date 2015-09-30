@@ -2,7 +2,7 @@
 {
     public class AddAnAndStep
     {
-        public Scenario Add()
+        public ScenarioBuilder Add()
         {
             return xBDD.CurrentRun
                 .AddScenario(this)

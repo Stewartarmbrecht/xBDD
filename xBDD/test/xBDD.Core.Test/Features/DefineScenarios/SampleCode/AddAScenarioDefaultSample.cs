@@ -2,7 +2,7 @@
 {
     public class AddAScenarioDefaultSample
     {
-        public Scenario DefaultScenarioAdd()
+        public ScenarioBuilder DefaultScenarioAdd()
         {
             return xBDD.CurrentRun.AddScenario(this);
         }

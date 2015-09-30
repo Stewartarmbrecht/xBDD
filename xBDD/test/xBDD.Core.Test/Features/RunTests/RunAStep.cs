@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using xBDD.Model;
 using xBDD.Test;
 using xBDD.xUnit;
 using Xunit;
@@ -48,10 +49,10 @@ namespace xBDD.Core.Test.Features.RunTests
         [ScenarioFact]
         public async Task PassAsync()
         {
-            xBDD.CurrentRun
+            await xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Skip("Re-writing");
+                .SkipAsync("Re-writing");
             //var s = new Steps();
             //s.State.CapturedStartTime = new DateTime();
             //s.State.CapturedEndTime = new DateTime();
@@ -105,10 +106,10 @@ namespace xBDD.Core.Test.Features.RunTests
         [ScenarioFact]
         public async Task FailAsync()
         {
-            xBDD.CurrentRun
+            await xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Skip("Re-writing");
+                .SkipAsync("Re-writing");
             //var s = new Steps();
             //s.State.CapturedStartTime = new DateTime();
             //s.State.CapturedEndTime = new DateTime();
@@ -160,10 +161,10 @@ namespace xBDD.Core.Test.Features.RunTests
         [ScenarioFact]
         public async Task SkipAsync()
         {
-            xBDD.CurrentRun
+            await xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Skip("Re-writing");
+                .SkipAsync("Re-writing");
             //var s = new Steps();
             //s.State.CapturedStartTime = new DateTime();
             //s.State.CapturedEndTime = new DateTime();
@@ -210,10 +211,10 @@ namespace xBDD.Core.Test.Features.RunTests
         [ScenarioFact]
         public async Task SkipBecauseOfPreviousSkipAsync()
         {
-            xBDD.CurrentRun
+            await xBDD.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Skip("Re-writing");
+                .SkipAsync("Re-writing");
             //var s = new Steps();
             //s.c.State.StepReason = "Previous Error";
             //s.State.ExpectedExceptionType = typeof(SkipStepException);

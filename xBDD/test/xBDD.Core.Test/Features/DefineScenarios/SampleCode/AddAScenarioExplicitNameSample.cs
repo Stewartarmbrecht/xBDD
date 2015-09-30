@@ -2,7 +2,7 @@
 {
     public class AddAScenarioExplicitNameSample
     {
-        public Scenario WithExplicitName()
+        public ScenarioBuilder WithExplicitName()
         {
             return xBDD.CurrentRun.AddScenario("My Explicit Scenario Name", this);
         }

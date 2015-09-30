@@ -1,10 +1,8 @@
-﻿using xBDD.Model;
-
-namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+﻿namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAGivenStep
     {
-        public Scenario Add()
+        public ScenarioBuilder Add()
         {
             return xBDD.CurrentRun
                 .AddScenario(this)

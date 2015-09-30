@@ -1,5 +1,5 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
+using xBDD.Model;
 
 namespace xBDD.Core.Test.Features.RunTests.SampleCode
 {
@@ -23,7 +23,7 @@ namespace xBDD.Core.Test.Features.RunTests.SampleCode
 
             scenario.Run();
 
-            return scenario;
+            return scenario.Scenario;
         }
     }
 

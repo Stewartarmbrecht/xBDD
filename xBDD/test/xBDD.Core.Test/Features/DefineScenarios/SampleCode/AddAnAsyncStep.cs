@@ -4,7 +4,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAnAsyncStep
     {
-        public Scenario Add()
+        public ScenarioBuilder Add()
         {
             return xBDD.CurrentRun
                 .AddScenario(this)

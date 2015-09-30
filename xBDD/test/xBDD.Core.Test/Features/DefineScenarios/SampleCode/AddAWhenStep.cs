@@ -2,7 +2,7 @@
 {
     public class AddAWhenStep
     {
-        public Scenario Add()
+        public ScenarioBuilder Add()
         {
             return xBDD.CurrentRun
                 .AddScenario(this)

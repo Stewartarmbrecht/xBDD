@@ -1,8 +1,10 @@
-﻿namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+﻿using xBDD.Model;
+
+namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAReusableStepThatTakesAStaticParameter
     {
-        public Scenario Add()
+        public ScenarioBuilder Add()
         {
             return xBDD.CurrentRun
                 .AddScenario(this)

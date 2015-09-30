@@ -2,7 +2,7 @@
 {
     public class AddAGivenStepWithNoAction
     {
-        public Scenario Add()
+        public ScenarioBuilder Add()
         {
             return xBDD.CurrentRun
                 .AddScenario(this)

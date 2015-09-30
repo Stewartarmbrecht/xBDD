@@ -1,7 +1,8 @@
-﻿using xBDD.Test;
-using xBDD.xUnit;
-using Xunit;
+﻿using Xunit;
 using Xunit.Abstractions;
+using xBDD.Model;
+using xBDD.Test;
+using xBDD.xUnit;
 
 namespace xBDD.Core.Test.Features.DefineScenarios
 {
@@ -26,7 +27,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAGivenStep.cs"))
                 .When(Code.ExecuteMethod(() =>
                 {
-                    scenarioWrapper.Object = new SampleCode.AddAGivenStep().Add();
+                    scenarioWrapper.Object = new SampleCode.AddAGivenStep().Add().Scenario;
                 }))
                 .Then(ScenarioTarget.WillBeCreated(scenarioWrapper))
                 .And(ScenarioTarget.WillHaveAStep(1,scenarioWrapper, stepWrapper))
@@ -47,7 +48,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAGivenStepWithNoAction.cs"))
                 .When(Code.ExecuteMethod(() =>
                 {
-                    scenarioWrapper.Object = new SampleCode.AddAGivenStepWithNoAction().Add();
+                    scenarioWrapper.Object = new SampleCode.AddAGivenStepWithNoAction().Add().Scenario;
                 }))
                 .Then(ScenarioTarget.WillBeCreated(scenarioWrapper))
                 .And(ScenarioTarget.WillHaveAStep(1, scenarioWrapper, stepWrapper))
@@ -68,7 +69,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAnAsyncStep.cs"))
                 .When(Code.ExecuteMethod(() =>
                 {
-                    scenarioWrapper.Object = new SampleCode.AddAnAsyncStep().Add();
+                    scenarioWrapper.Object = new SampleCode.AddAnAsyncStep().Add().Scenario;
                 }))
                 .Then(ScenarioTarget.WillBeCreated(scenarioWrapper))
                 .And(ScenarioTarget.WillHaveAStep(1, scenarioWrapper, stepWrapper))
@@ -89,7 +90,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAWhenStep.cs"))
                 .When(Code.ExecuteMethod(() =>
                 {
-                    scenarioWrapper.Object = new SampleCode.AddAWhenStep().Add();
+                    scenarioWrapper.Object = new SampleCode.AddAWhenStep().Add().Scenario;
                 }))
                 .Then(ScenarioTarget.WillBeCreated(scenarioWrapper))
                 .And(ScenarioTarget.WillHaveAStep(2, scenarioWrapper, stepWrapper))
@@ -110,7 +111,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAThenStep.cs"))
                 .When(Code.ExecuteMethod(() =>
                 {
-                    scenarioWrapper.Object = new SampleCode.AddAThenStep().Add();
+                    scenarioWrapper.Object = new SampleCode.AddAThenStep().Add().Scenario;
                 }))
                 .Then(ScenarioTarget.WillBeCreated(scenarioWrapper))
                 .And(ScenarioTarget.WillHaveAStep(3, scenarioWrapper, stepWrapper))
@@ -131,7 +132,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAnAndStep.cs"))
                 .When(Code.ExecuteMethod(() =>
                 {
-                    scenarioWrapper.Object = new SampleCode.AddAnAndStep().Add();
+                    scenarioWrapper.Object = new SampleCode.AddAnAndStep().Add().Scenario;
                 }))
                 .Then(ScenarioTarget.WillBeCreated(scenarioWrapper))
                 .And(ScenarioTarget.WillHaveAStep(4, scenarioWrapper, stepWrapper))
@@ -152,7 +153,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAReusableStep.cs"))
                 .When(Code.ExecuteMethod(() =>
                 {
-                    scenarioWrapper.Object = new SampleCode.AddAReusableStep().Add();
+                    scenarioWrapper.Object = new SampleCode.AddAReusableStep().Add().Scenario;
                 }))
                 .And(ScenarioTarget.WillHaveAStep(1, scenarioWrapper, stepWrapper))
                 .And(StepTarget.NameWillBe("the user performs an action", stepWrapper))
@@ -169,7 +170,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAReusableStepThatTakesAStaticParameter.cs"))
                 .When(Code.ExecuteMethod(() =>
                 {
-                    scenarioWrapper.Object = new SampleCode.AddAReusableStepThatTakesAStaticParameter().Add();
+                    scenarioWrapper.Object = new SampleCode.AddAReusableStepThatTakesAStaticParameter().Add().Scenario;
                 }))
                 .And(ScenarioTarget.WillHaveAStep(1, scenarioWrapper, stepWrapper))
                 .And(StepTarget.NameWillBe("the user performs a 'save' action", stepWrapper))

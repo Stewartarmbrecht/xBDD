@@ -10,6 +10,9 @@ namespace xBDD.Core
         Utility.OutcomeAggregator outcomeAggregator;
         ScenarioRunner runner;
         Scenario scenario;
+
+        public Scenario Scenario { get { return scenario; } }
+
         internal ScenarioBuilder(string scenarioName, Feature feature, CoreFactory factory)
         {
             this.factory = factory;

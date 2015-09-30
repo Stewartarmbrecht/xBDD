@@ -1,4 +1,5 @@
 ﻿using System;
+using xBDD.Model;
 using Xunit;
 
 namespace xBDD.Core.Test.Features
@@ -30,7 +31,7 @@ namespace xBDD.Core.Test.Features
             return xBDD.CreateStep(
                 "the feature name will match the class name with spaces: '" + expectedName + "'",
                 () => {
-                    Assert.Equal(expectedName, sut.Object.FeatureName);
+                    Assert.Equal(expectedName, sut.Object.Feature.Name);
                 }
                 );
         }
@@ -52,7 +53,7 @@ namespace xBDD.Core.Test.Features
             return xBDD.CreateStep(
                 "the area path will match the namespace: '" + expected + "'",
                 () => {
-                    Assert.Equal(expected, sut.Object.AreaPath);
+                    Assert.Equal(expected, sut.Object.Feature.Area.Name);
                 }
                 );
         }
