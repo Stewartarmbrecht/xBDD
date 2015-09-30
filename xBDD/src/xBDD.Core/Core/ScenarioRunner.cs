@@ -20,7 +20,7 @@ namespace xBDD.Core
             statsCascader = factory.UtilityFactory.CreateStatsCascader();
         }
 
-        public void Run()
+        public void Run(bool passWhenNoAction)
         {
             if (outputWriter != null)
                 outputWriter.WriteOutput();
@@ -35,7 +35,7 @@ namespace xBDD.Core
                 {
                     foreach (var step in scenario.Steps)
                     {
-                        if (step.Action == null)
+                        if (step.Action == null && !passWhenNoAction)
                         {
                             if(step.ActionAsync != null)
                             {
@@ -57,7 +57,15 @@ namespace xBDD.Core
                                 throw ex; 
                             }
                         }
-                        stepExecutor.ExecuteStep(step);
+                        if(passWhenNoAction)
+                        {
+                            step.Outcome = Outcome.Passed;
+                            statsCascader.CascadeStats(step);
+                        }
+                        else
+                        {
+                            stepExecutor.ExecuteStep(step);
+                        }
                     }
                 }
                 catch(Exception ex)

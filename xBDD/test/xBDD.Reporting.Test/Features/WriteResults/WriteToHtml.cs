@@ -72,7 +72,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults
         [ScenarioFact]
         public void WriteRunScenarioWithFailedStep()
         {
-            Run(new WriteToHtmlScenarios.RunScenarioWithFailedStep(), true);
+            Run(new WriteToHtmlScenarios.RunScenarioWithFailedStep());
         }
         [ScenarioFact]
         public void WriteRunMultipleWriteToHtmlScenariosSameFeature()

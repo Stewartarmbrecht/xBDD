@@ -1,20 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <assemblies>
-  <assembly name="xBDD.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3168" run-date="2015-09-30" run-time="13:05:52" total="2" passed="2" failed="0" skipped="0" time="0.284" errors="0">
+  <assembly name="xBDD.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3168" run-date="2015-09-30" run-time="15:39:46" total="5" passed="5" failed="0" skipped="0" time="0.228" errors="0">
     <errors />
-    <collection total="2" passed="2" failed="0" skipped="0" name="xBDDTest" time="0.018">
-      <test name="xBDD.Test.Features.Environment.PublishTestResultsToCentralDatabase.PublishAfterCITestRun" type="xBDD.Test.Features.Environment.PublishTestResultsToCentralDatabase" method="PublishAfterCITestRun" time="0.0171627" result="Pass">
+    <collection total="5" passed="5" failed="0" skipped="0" name="xBDDTest" time="0.017">
+      <test name="xBDD.Test.Features.Environment.PublishTestResultsToCentralDatabase.PublishAfterCITestRun" type="xBDD.Test.Features.Environment.PublishTestResultsToCentralDatabase" method="PublishAfterCITestRun" time="0.0151804" result="Pass">
         <output><![CDATA[Publish After CI Test Run
     the developer pushes a commit to the master branch
     the CI process should build the solution, run the tests, and publish the results to a central database
 ]]></output>
       </test>
-      <test name="xBDD.Test.Features.Environment.PublishTestResultsToCentralDatabase.PublishAfterTestRun" type="xBDD.Test.Features.Environment.PublishTestResultsToCentralDatabase" method="PublishAfterTestRun" time="0.0007715" result="Pass">
+      <test name="xBDD.Test.Features.Environment.PublishTestResultsToCentralDatabase.PublishAfterTestRun" type="xBDD.Test.Features.Environment.PublishTestResultsToCentralDatabase" method="PublishAfterTestRun" time="0.000594" result="Pass">
         <output><![CDATA[Publish After Test Run
     the developer sets the solution to the Publish configuration
     the developer defines a valid connection string for an environment variable named 'Data:DefaultConnection:ConnectionString'
     the developer runs the tests
     the test results should be published to the database
+]]></output>
+      </test>
+      <test name="xBDD.Test.Features.Environment.RunTests.RunFilteredTests" type="xBDD.Test.Features.Environment.RunTests" method="RunFilteredTests" time="0.0006469" result="Pass">
+        <output><![CDATA[Run Filtered Tests
+    a contributor has downloaded the solution
+    marked a test method with a trait: '[Trait("category", "now")]'
+    has opened powershell
+    has navigated to the root folder of a project in powershell
+    the contributor runs 'dnx xunit.runner.dnx -trait "category=now"
+    only the test that was marked will run
+    the test results will be written in plain text to the <ProjectName>.TestResults.txt file at the root of the project
+    the test results will be written in html to the <ProjectName>.TestResults.html file at the root of the project
+    the output from running the tests will be written to the <ProjectName>.Output.txt file at the root of the project
+]]></output>
+      </test>
+      <test name="xBDD.Test.Features.Environment.RunTests.RunAllTests" type="xBDD.Test.Features.Environment.RunTests" method="RunAllTests" time="0.0001827" result="Pass">
+        <output><![CDATA[Run All Tests
+    a contributor has downloaded the solution
+    the contributor runs the xBDD\RunJustTests.ps1 powershell script
+    all tests will run
+    the test results will be written in plain text to the <ProjectName>.TestResults.txt file at the root of each project
+    the test results will be written in html to the <ProjectName>.TestResults.html file at the root of each project
+    the output from running the tests will be written to the <ProjectName>.Output.txt file at the root of each project
+]]></output>
+      </test>
+      <test name="xBDD.Test.Features.Environment.RunTests.RunProjectTests" type="xBDD.Test.Features.Environment.RunTests" method="RunProjectTests" time="0.0001922" result="Pass">
+        <output><![CDATA[Run Project Tests
+    a contributor has downloaded the solution
+    opened powershell
+    has navigated to the root folder of a project in powershell
+    the contributor runs 'dnx test' in powershell
+    all tests in that project will run
+    the test results will be written in plain text to the <ProjectName>.TestResults.txt file at the root of the project
+    the test results will be written in html to the <ProjectName>.TestResults.html file at the root of the project
+    the output from running the tests will be written to the <ProjectName>.Output.txt file at the root of the project
 ]]></output>
       </test>
     </collection>

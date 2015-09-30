@@ -138,7 +138,11 @@ namespace xBDD.Core
         }
         public void Run()
         {
-            runner.Run();
+            runner.Run(false);
+        }
+        public void Document()
+        {
+            runner.Run(true);
         }
         public async Task RunAsync()
         {

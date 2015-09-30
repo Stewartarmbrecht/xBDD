@@ -73,7 +73,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults
         [Trait("category", "now")]
         public void WriteRunScenarioWithFailedStep()
         {
-            Run(new WriteToTextScenarios.RunScenarioWithFailedStep(), true);
+            Run(new WriteToTextScenarios.RunScenarioWithFailedStep());
         }
         [ScenarioFact]
         public void WriteRunMultipleScenariosSameFeature()
