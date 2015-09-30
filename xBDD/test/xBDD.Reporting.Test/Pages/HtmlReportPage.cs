@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Dnx.Runtime;
 using Microsoft.Dnx.Runtime.Infrastructure;
 using Microsoft.Framework.DependencyInjection;
@@ -48,6 +49,30 @@ namespace xBDD.Reporting.Test.Pages
                 var classAttr = TestRunName.GetAttribute("class");
                 if(classAttr != null)
                     result = classAttr.Contains("text-success");
+            }
+            return result;
+        }
+
+        internal bool TestRunNameIsYellow()
+        {
+            bool result = false;
+            if(TestRunName != null)
+            {
+                var classAttr = TestRunName.GetAttribute("class");
+                if(classAttr != null)
+                    result = classAttr.Contains("text-warning");
+            }
+            return result;
+        }
+
+        internal bool TestRunNameIsRed()
+        {
+            bool result = false;
+            if(TestRunName != null)
+            {
+                var classAttr = TestRunName.GetAttribute("class");
+                if(classAttr != null)
+                    result = classAttr.Contains("text-danger");
             }
             return result;
         }

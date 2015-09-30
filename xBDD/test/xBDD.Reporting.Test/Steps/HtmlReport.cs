@@ -75,6 +75,52 @@ namespace xBDD.Reporting.Test.Steps
             return step;
         }
 
+        internal static Step OfASingleFailedScenario()
+        {
+            string path = GetReportPath();
+
+            var step = xBDD.CreateStep(
+                "the test results of a passing test run",
+                () =>
+                {
+                    var xBDD = new xBDDMock();
+                    xBDD.CurrentRun.TestRun.Name = "My Test Run";
+                    try
+                    {
+                        xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 11")
+                            .Given("my step 1", () => { })
+                            .When("my step 2", () => { throw new Exception("My Error"); })
+                            .Then("my step 3", () => { })
+                            .Run();
+                    }
+                    catch { }
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
+                    File.WriteAllText(path, htmlReport);
+                });
+            return step;
+        }
+
+        internal static Step OfASingleSkippedScenario()
+        {
+            string path = GetReportPath();
+
+            var step = xBDD.CreateStep(
+                "the test results of a skipped test run",
+                () =>
+                {
+                    var xBDD = new xBDDMock();
+                    xBDD.CurrentRun.TestRun.Name = "My Test Run";
+                    xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 11")
+                        .Given("my step 1", () => { })
+                        .When("my step 2", () => { })
+                        .Then("my step 3", () => { })
+                        .Skip("Not Started");
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
+                    File.WriteAllText(path, htmlReport);
+                });
+            return step;
+        }
+
         internal static Step OfAnEmptyTestRun()
         {
             string path = GetReportPath();

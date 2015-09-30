@@ -15,7 +15,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport
         }
         
         [ScenarioFact]
-        [Trait("category", "today")]
         public void GetString()
         {
             Wrapper<string> html = new Wrapper<string>();            

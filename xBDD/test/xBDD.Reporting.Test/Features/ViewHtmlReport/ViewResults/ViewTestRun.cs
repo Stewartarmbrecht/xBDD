@@ -7,6 +7,7 @@ using Xunit.Abstractions;
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls
 {
 	[Collection("xBDDReportingTest")]
+	[Trait("category", "today")]
 	public class ViewTestRun
 	{
 		private readonly OutputWriter outputWriter;
@@ -17,7 +18,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "today")]
 		public void EmptyTestRun()
 		{
             Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
@@ -39,21 +39,13 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "today")]
 		public void PassingTestRun()
 		{
             Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
             xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario())
                 .When(WebUser.ViewsReport(htmlReport))
-                .Then("the report will show the test run name at the top", () => {
-                    Assert.NotNull(htmlReport.Object.TestRunName);
-                    Assert.Equal("My Test Run", htmlReport.Object.TestRunName.Text);
-                })
-                .And("the report will show the test run name as the title for the page", () => {
-                    Assert.Equal("My Test Run", htmlReport.Object.Title);
-                })
-                .And("the report will show the test run name in green to indicate the test run passed", () => {
+                .Then("the report will show the test run name in green to indicate the test run passed", () => {
 					outputWriter.WriteLine(htmlReport.Object.TestRunName.GetAttribute("class"));
                     Assert.True(htmlReport.Object.TestRunNameIsGreen());
                 })
@@ -61,19 +53,31 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "today")]
 		public void PassingWithSomeSkipped()
 		{
-			 xBDD.CurrentRun.AddScenario(this)
-				.Skip("Not Started");
+            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            xBDD.CurrentRun.AddScenario(this)
+                .Given(HtmlReport.OfASingleSkippedScenario())
+                .When(WebUser.ViewsReport(htmlReport))
+                .Then("the report will show the test run name in yellow to indicate the test run passed", () => {
+					outputWriter.WriteLine(htmlReport.Object.TestRunName.GetAttribute("class"));
+                    Assert.True(htmlReport.Object.TestRunNameIsYellow());
+                })
+                .Run();
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "today")]
 		public void Failing()
 		{
-			 xBDD.CurrentRun.AddScenario(this)
-				.Skip("Not Started");
+            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            xBDD.CurrentRun.AddScenario(this)
+                .Given(HtmlReport.OfASingleFailedScenario())
+                .When(WebUser.ViewsReport(htmlReport))
+                .Then("the report will show the test run name in red to indicate the test run passed", () => {
+					outputWriter.WriteLine(htmlReport.Object.TestRunName.GetAttribute("class"));
+                    Assert.True(htmlReport.Object.TestRunNameIsRed());
+                })
+                .Run();
 		}
 	}
 }

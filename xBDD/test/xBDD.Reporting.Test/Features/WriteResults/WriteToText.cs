@@ -70,7 +70,6 @@ namespace xBDD.Reporting.Test.Features.WriteResults
             Run(new WriteToTextScenarios.RunScenarioWithNotImplementedStep());
         }
         [ScenarioFact]
-        [Trait("category", "now")]
         public void WriteRunScenarioWithFailedStep()
         {
             Run(new WriteToTextScenarios.RunScenarioWithFailedStep());

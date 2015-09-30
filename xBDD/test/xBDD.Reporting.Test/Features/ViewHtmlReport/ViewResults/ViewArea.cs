@@ -15,7 +15,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "today")]
 		public void Passing()
 		{
 			 xBDD.CurrentRun.AddScenario(this)
