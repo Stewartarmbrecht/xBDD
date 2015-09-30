@@ -3,6 +3,7 @@ using Microsoft.Dnx.Runtime.Infrastructure;
 using Microsoft.Framework.DependencyInjection;
 using System;
 using System.IO;
+using xBDD.Model;
 
 namespace xBDD.Test
 {

@@ -6,8 +6,8 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
         public string Execute()
         {
             var xBDD = new xBDDMock();
-            xBDD.CurrentRun.Name = "My Test Run";
-            return xBDD.CurrentRun.WriteToText();
+            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+            return xBDD.CurrentRun.TestRun.WriteToText();
         }
     }
 }

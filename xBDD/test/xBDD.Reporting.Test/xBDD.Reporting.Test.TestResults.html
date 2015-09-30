@@ -1,0 +1,3228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>xBDD.Reporting.Test 2015-09-30T12:27:14</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <style>.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }</style>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
+    <script language="javascript" type="text/javascript">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }</script>
+</head>
+<body class="container-fluid">
+    <h1 class="testrun-name text-warning">xBDD.Reporting.Test 2015-09-30T12:27:14</h1>
+    <ol class="areas">
+        <li class="area">
+            <h2>xBDD.Reporting.Test.Features.ViewHtmlReport</h2>
+            <ol class="features">
+                <li class="feature">
+                    <h3>Write To Html</h3>
+                    <ol class="scenarios">
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Get String</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>When the code calls 'xBDD.CurrentRun.WriteToHTML()</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the code should return a string value of the html report</h5>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li class="area">
+            <h2>xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults</h2>
+            <ol class="features">
+                <li class="feature">
+                    <h3>View Area</h3>
+                    <ol class="scenarios">
+                        <li class="scenario skipped bg-warning">
+                            <h4 class="text-warning">Passing [Skipped - Not Started]</h4>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li class="area">
+            <h2>xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls</h2>
+            <ol class="features">
+                <li class="feature">
+                    <h3>View Test Run</h3>
+                    <ol class="scenarios">
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Empty Test Run</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the test results of an empty test run</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the user views the html report</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the report will show the test run name at the top</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>And the report will show the test run name as the title for the page</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>And the report will show the test run name in gray to indicate no scenarios were run</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario skipped bg-warning">
+                            <h4 class="text-warning">Failing [Skipped - Not Started]</h4>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Passing Test Run</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the test results of a passing test run</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the user views the html report</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the report will show the test run name at the top</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>And the report will show the test run name as the title for the page</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>And the report will show the test run name in green to indicate the test run passed</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario skipped bg-warning">
+                            <h4 class="text-warning">Passing With Some Skipped [Skipped - Not Started]</h4>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li class="area">
+            <h2>xBDD.Reporting.Test.Features.WriteResults</h2>
+            <ol class="features">
+                <li class="feature">
+                    <h3>Browse Html Report</h3>
+                    <ol class="scenarios">
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">View Empty Test Run</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the test results of an empty test run</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the user views the html report</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the report will show the test run name at the top</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>And the report will show the test run name as the title for the page</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario skipped bg-warning">
+                            <h4 class="text-warning">View Passing Scenario [Skipped - Not Started]</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step skipped text-warning">
+                                    <h5>Given the test results of a passing test run</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>When the user views the html report</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>Then the area path will be green</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>And the feature name will be green</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>And the scenario name will be green</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>And the step names will be green</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario skipped bg-warning">
+                            <h4 class="text-warning">View Run Scenario [Skipped - Not Started]</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step skipped text-warning">
+                                    <h5>Given the test results of a passing test run</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>When the user views the html report</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>Then the area path will be displayed</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>And the feature name will be displayed indented under the area path</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>And the scenario name will be displayed indented under the feature name</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>And the steps will be displayed indented, under the scenario</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario skipped bg-warning">
+                            <h4 class="text-warning">View Run Step With Multiline Parameter Of Text [Skipped - Not Started]</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step skipped text-warning">
+                                    <h5>Given the test results of a passing test run</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>When the user views the html report</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>Then the steps multiline parameter will show indented under the step name</h5>
+                                </li>
+                                <li class="step skipped text-warning">
+                                    <h5>And the multline parameter will have line breaks and indentation preserved</h5>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+                <li class="feature">
+                    <h3>Write To Html</h3>
+                    <ol class="scenarios">
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Emtpy Test Run</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class EmptyTestRun : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview35" aria-controls="preview35" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code35" aria-controls="code35" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview35">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe35"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe35doc = document.getElementById('iframe35').contentWindow.document;
+                                                    iframe35doc.open();
+                                                    var html35 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-muted\">My Test Run<\/h1> \
+<\/body> \
+<\/html>";
+                                                    iframe35doc.write(html35);
+                                                    resizeIframe(document.getElementById('iframe35'));
+                                                    iframe35doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code35">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-muted&quot;&gt;My Test Run&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Empty Scenario</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunEmptyScenario : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            xBDD.CurrentRun
+                .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                .Run();
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview38" aria-controls="preview38" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code38" aria-controls="code38" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview38">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe38"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe38doc = document.getElementById('iframe38').contentWindow.document;
+                                                    iframe38doc.open();
+                                                    var html38 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-success\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario<\/h4> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe38doc.write(html38);
+                                                    resizeIframe(document.getElementById('iframe38'));
+                                                    iframe38doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code38">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-success&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario&lt;/h4&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Multiple Areas</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunMultipleAreas : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path.One&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path.One&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path.Two&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path.Two&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview41" aria-controls="preview41" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code41" aria-controls="code41" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview41">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe41"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe41doc = document.getElementById('iframe41').contentWindow.document;
+                                                    iframe41doc.open();
+                                                    var html41 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-success\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path.One<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature One<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario One<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario Two<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path.Two<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature Two<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario One<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario Two<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe41doc.write(html41);
+                                                    resizeIframe(document.getElementById('iframe41'));
+                                                    iframe41doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code41">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-success&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path.One&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature One&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario One&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario Two&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path.Two&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature Two&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario One&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario Two&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Multiple Features Same Area</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunMultipleFeaturesSameArea : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview44" aria-controls="preview44" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code44" aria-controls="code44" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview44">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe44"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe44doc = document.getElementById('iframe44').contentWindow.document;
+                                                    iframe44doc.open();
+                                                    var html44 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-success\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature One<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario One<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario Two<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+                <li class=\"feature\"> \
+                    <h3>My Feature Two<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario One<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario Two<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe44doc.write(html44);
+                                                    resizeIframe(document.getElementById('iframe44'));
+                                                    iframe44doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code44">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-success&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature One&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario One&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario Two&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature Two&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario One&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario Two&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Multiple Write To Html Scenarios Same Feature</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunMultipleScenariosSameFeature : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview47" aria-controls="preview47" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code47" aria-controls="code47" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview47">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe47"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe47doc = document.getElementById('iframe47').contentWindow.document;
+                                                    iframe47doc.open();
+                                                    var html47 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-success\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario One<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario Two<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe47doc.write(html47);
+                                                    resizeIframe(document.getElementById('iframe47'));
+                                                    iframe47doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code47">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-success&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario One&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario Two&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Failed Step</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using System;
+using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithFailedStep : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;, () =&gt; { throw new Exception(&quot;My Error&quot;); }))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview50" aria-controls="preview50" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code50" aria-controls="code50" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview50">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe50"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe50doc = document.getElementById('iframe50').contentWindow.document;
+                                                    iframe50doc.open();
+                                                    var html50 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-danger\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario failed bg-danger\"> \
+                            <h4 class=\"text-danger\">My Scenario [Failed]<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step failed text-danger\"> \
+                                    <h5>When my action [Failed]<\/h5> \
+                                    <dl class=\"exception dl-horizontal\"> \
+                                        <dt>Error Type<\/dt> \
+                                        <dd>Exception<\/dd> \
+                                        <dt>Message<\/dt> \
+                                        <dd><pre>My Error<\/pre><\/dd> \
+                                        <dt>Stack<\/dt> \
+{{.*}}\/rl \
+                                    <\/dl> \
+                                <\/li> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>Then my ending condition [Skipped - Previous Error]<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe50doc.write(html50);
+                                                    resizeIframe(document.getElementById('iframe50'));
+                                                    iframe50doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code50">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-danger&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario failed bg-danger&quot;&gt;
+                            &lt;h4 class=&quot;text-danger&quot;&gt;My Scenario [Failed]&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step failed text-danger&quot;&gt;
+                                    &lt;h5&gt;When my action [Failed]&lt;/h5&gt;
+                                    &lt;dl class=&quot;exception dl-horizontal&quot;&gt;
+                                        &lt;dt&gt;Error Type&lt;/dt&gt;
+                                        &lt;dd&gt;Exception&lt;/dd&gt;
+                                        &lt;dt&gt;Message&lt;/dt&gt;
+                                        &lt;dd&gt;&lt;pre&gt;My Error&lt;/pre&gt;&lt;/dd&gt;
+                                        &lt;dt&gt;Stack&lt;/dt&gt;
+{{.*}}/rl
+                                    &lt;/dl&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition [Skipped - Previous Error]&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Not Implemented Step</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using System;
+using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithNotImplementedStep : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;, () =&gt; { throw new NotImplementedException(); }))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview53" aria-controls="preview53" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code53" aria-controls="code53" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview53">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe53"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe53doc = document.getElementById('iframe53').contentWindow.document;
+                                                    iframe53doc.open();
+                                                    var html53 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-danger\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario failed bg-danger\"> \
+                            <h4 class=\"text-danger\">My Scenario [Failed - Step Not Implemented]<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step failed text-danger\"> \
+                                    <h5>When my action [Failed - Not Implemented]<\/h5> \
+                                <\/li> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>Then my ending condition [Skipped - Previous Error]<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe53doc.write(html53);
+                                                    resizeIframe(document.getElementById('iframe53'));
+                                                    iframe53doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code53">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-danger&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario failed bg-danger&quot;&gt;
+                            &lt;h4 class=&quot;text-danger&quot;&gt;My Scenario [Failed - Step Not Implemented]&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step failed text-danger&quot;&gt;
+                                    &lt;h5&gt;When my action [Failed - Not Implemented]&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition [Skipped - Previous Error]&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Skipped Step</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithSkippedStep : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;, () =&gt; { throw new SkipStepException(&quot;Deferred&quot;); }))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview56" aria-controls="preview56" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code56" aria-controls="code56" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview56">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe56"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe56doc = document.getElementById('iframe56').contentWindow.document;
+                                                    iframe56doc.open();
+                                                    var html56 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-danger\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario failed bg-danger\"> \
+                            <h4 class=\"text-danger\">My Scenario [Failed - Step Skipped]<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>When my action [Skipped - Deferred]<\/h5> \
+                                <\/li> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>Then my ending condition [Skipped - Previous Error]<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe56doc.write(html56);
+                                                    resizeIframe(document.getElementById('iframe56'));
+                                                    iframe56doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code56">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-danger&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario failed bg-danger&quot;&gt;
+                            &lt;h4 class=&quot;text-danger&quot;&gt;My Scenario [Failed - Step Skipped]&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;When my action [Skipped - Deferred]&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition [Skipped - Previous Error]&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Step With Multiline Parameter</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithStepWithMultilineParameter : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            xBDD.CurrentRun
+                .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                .Given(xBDD.CreateStep(&quot;my starting condition with the following&quot;, () =&gt; { }, &quot;My\r\n  multiline\r\n    parameter&quot;))
+                .When(xBDD.CreateStep(&quot;my action&quot;))
+                .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                .Run();
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview59" aria-controls="preview59" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code59" aria-controls="code59" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview59">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe59"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe59doc = document.getElementById('iframe59').contentWindow.document;
+                                                    iframe59doc.open();
+                                                    var html59 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-success\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition with the following<\/h5> \
+                                    <pre class=\"mp\">My \
+  multiline \
+    parameter<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe59doc.write(html59);
+                                                    resizeIframe(document.getElementById('iframe59'));
+                                                    iframe59doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code59">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-success&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition with the following&lt;/h5&gt;
+                                    &lt;pre class=&quot;mp&quot;&gt;My
+  multiline
+    parameter&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Step With Multiline Parameter With Formatting</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithStepWithMultilineParameterWithFormatting : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            xBDD.CurrentRun
+                .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                .Given(xBDD.CreateStep(
+                    &quot;my starting condition with the following&quot;, 
+                    () =&gt; { }, 
+                    &quot;My\r\n  multiline\r\n    parameter&quot;))
+                .And(xBDD.CreateStep(
+                    &quot;my formatted genric code&quot;,
+                    () =&gt; { },
+                    &quot;public void MyClass {}&quot;,
+                    MultilineParameterFormat.code))
+                .And(xBDD.CreateStep(
+                    &quot;my formatted specific code (html)&quot;,
+                    () =&gt; { },
+                    &quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;Hey&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;,
+                    MultilineParameterFormat.html))
+                .When(xBDD.CreateStep(&quot;my action&quot;))
+                .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                .Run();
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview62" aria-controls="preview62" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code62" aria-controls="code62" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview62">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe62"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe62doc = document.getElementById('iframe62').contentWindow.document;
+                                                    iframe62doc.open();
+                                                    var html62 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-success\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition with the following<\/h5> \
+                                    <pre class=\"mp\">My \
+  multiline \
+    parameter<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>And my formatted genric code<\/h5> \
+                                    <pre class=\"mp prettyprint\">public void MyClass {}<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>And my formatted specific code (html)<\/h5> \
+                                    <pre class=\"mp prettyprint lang-html\">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Hey&lt;\/td&gt;&lt;\/tr&gt;&lt;\/table&gt;<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe62doc.write(html62);
+                                                    resizeIframe(document.getElementById('iframe62'));
+                                                    iframe62doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code62">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-success&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition with the following&lt;/h5&gt;
+                                    &lt;pre class=&quot;mp&quot;&gt;My
+  multiline
+    parameter&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;And my formatted genric code&lt;/h5&gt;
+                                    &lt;pre class=&quot;mp prettyprint&quot;&gt;public void MyClass {}&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;And my formatted specific code (html)&lt;/h5&gt;
+                                    &lt;pre class=&quot;mp prettyprint lang-html&quot;&gt;&amp;lt;table&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;Hey&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Step With Multiline Parameter With Html Formatting And Preview</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithStepWithMultilineParameterWithHtmlFormattingAndPreview : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            xBDD.CurrentRun
+                .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                .Given(xBDD.CreateStep(
+                    &quot;my starting condition with the following&quot;, 
+                    () =&gt; { }, 
+                    &quot;My\r\n  multiline\r\n    parameter&quot;))
+                .And(xBDD.CreateStep(
+                    &quot;my formatted genric code&quot;,
+                    () =&gt; { },
+                    &quot;public void MyClass {}&quot;,
+                    MultilineParameterFormat.code))
+                .And(xBDD.CreateStep(
+                    &quot;my formatted specific code (html)&quot;,
+                    () =&gt; { },
+                    &quot;&lt;table&gt;\r\n    &lt;tr&gt;\r\n        &lt;td&gt;\r\n            Hey\r\n        &lt;/td&gt;\r\n    &lt;/tr&gt;\r\n&lt;/table&gt;&quot;,
+                    MultilineParameterFormat.htmlpreview))
+                .When(xBDD.CreateStep(&quot;my action&quot;))
+                .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                .Run();
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview65" aria-controls="preview65" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code65" aria-controls="code65" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview65">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe65"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe65doc = document.getElementById('iframe65').contentWindow.document;
+                                                    iframe65doc.open();
+                                                    var html65 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-success\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition with the following<\/h5> \
+                                    <pre class=\"mp\">My \
+  multiline \
+    parameter<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>And my formatted genric code<\/h5> \
+                                    <pre class=\"mp prettyprint\">public void MyClass {}<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>And my formatted specific code (html)<\/h5> \
+                                    <div> \
+                                        <ul class=\"nav nav-tabs\" role=\"tablist\"> \
+                                            <li role=\"presentation\" class=\"active\"><a href=\"#preview3\" aria-controls=\"preview3\" role=\"tab\" data-toggle=\"tab\">Preview<\/a><\/li> \
+                                            <li role=\"presentation\"><a href=\"#code3\" aria-controls=\"code3\" role=\"tab\" data-toggle=\"tab\">Code<\/a><\/li> \
+                                        <\/ul> \
+                                        <div class=\"tab-content\"> \
+                                            <div role=\"tabpanel\" class=\"tab-pane active\" id=\"preview3\"> \
+                                                <div class=\"panel panel-default\"> \
+                                                    <div class=\"panel-body\"> \
+                                                        <iframe width=\"100%\" id=\"iframe3\"><\/iframe> \
+                                                    <\/div> \
+                                                <\/div> \
+                                                <script type=\"text\/javascript\"> \
+                                                    var iframe3doc = document.getElementById('iframe3').contentWindow.document; \
+                                                    iframe3doc.open(); \
+                                                    var html3 = \"<table> \ \
+    <tr> \ \
+        <td> \ \
+            Hey \ \
+        <\\/td> \ \
+    <\\/tr> \ \
+<\\/table>\"; \
+                                                    iframe3doc.write(html3); \
+                                                    resizeIframe(document.getElementById('iframe3')); \
+                                                    iframe3doc.close(); \
+                                                <\/script> \
+                                            <\/div> \
+                                            <div role=\"tabpanel\" class=\"tab-pane\" id=\"code3\"> \
+                                                <pre class=\"mp prettyprint lang-html\">&lt;table&gt; \
+    &lt;tr&gt; \
+        &lt;td&gt; \
+            Hey \
+        &lt;\/td&gt; \
+    &lt;\/tr&gt; \
+&lt;\/table&gt;<\/pre> \
+                                            <\/div> \
+                                        <\/div> \
+                                    <\/div> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe65doc.write(html65);
+                                                    resizeIframe(document.getElementById('iframe65'));
+                                                    iframe65doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code65">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-success&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition with the following&lt;/h5&gt;
+                                    &lt;pre class=&quot;mp&quot;&gt;My
+  multiline
+    parameter&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;And my formatted genric code&lt;/h5&gt;
+                                    &lt;pre class=&quot;mp prettyprint&quot;&gt;public void MyClass {}&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;And my formatted specific code (html)&lt;/h5&gt;
+                                    &lt;div&gt;
+                                        &lt;ul class=&quot;nav nav-tabs&quot; role=&quot;tablist&quot;&gt;
+                                            &lt;li role=&quot;presentation&quot; class=&quot;active&quot;&gt;&lt;a href=&quot;#preview3&quot; aria-controls=&quot;preview3&quot; role=&quot;tab&quot; data-toggle=&quot;tab&quot;&gt;Preview&lt;/a&gt;&lt;/li&gt;
+                                            &lt;li role=&quot;presentation&quot;&gt;&lt;a href=&quot;#code3&quot; aria-controls=&quot;code3&quot; role=&quot;tab&quot; data-toggle=&quot;tab&quot;&gt;Code&lt;/a&gt;&lt;/li&gt;
+                                        &lt;/ul&gt;
+                                        &lt;div class=&quot;tab-content&quot;&gt;
+                                            &lt;div role=&quot;tabpanel&quot; class=&quot;tab-pane active&quot; id=&quot;preview3&quot;&gt;
+                                                &lt;div class=&quot;panel panel-default&quot;&gt;
+                                                    &lt;div class=&quot;panel-body&quot;&gt;
+                                                        &lt;iframe width=&quot;100%&quot; id=&quot;iframe3&quot;&gt;&lt;/iframe&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                                &lt;script type=&quot;text/javascript&quot;&gt;
+                                                    var iframe3doc = document.getElementById('iframe3').contentWindow.document;
+                                                    iframe3doc.open();
+                                                    var html3 = &quot;&lt;table&gt; \
+    &lt;tr&gt; \
+        &lt;td&gt; \
+            Hey \
+        &lt;\/td&gt; \
+    &lt;\/tr&gt; \
+&lt;\/table&gt;&quot;;
+                                                    iframe3doc.write(html3);
+                                                    resizeIframe(document.getElementById('iframe3'));
+                                                    iframe3doc.close();
+                                                &lt;/script&gt;
+                                            &lt;/div&gt;
+                                            &lt;div role=&quot;tabpanel&quot; class=&quot;tab-pane&quot; id=&quot;code3&quot;&gt;
+                                                &lt;pre class=&quot;mp prettyprint lang-html&quot;&gt;&amp;lt;table&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;td&amp;gt;
+            Hey
+        &amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;&lt;/pre&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Steps</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class RunScenarioWithSteps : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview68" aria-controls="preview68" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code68" aria-controls="code68" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview68">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe68"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe68doc = document.getElementById('iframe68').contentWindow.document;
+                                                    iframe68doc.open();
+                                                    var html68 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-success\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe68doc.write(html68);
+                                                    resizeIframe(document.getElementById('iframe68'));
+                                                    iframe68doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code68">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-success&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Skipped Empty Scenario</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class SkippedEmptyScenario : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Skip(&quot;Deferred&quot;);
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview71" aria-controls="preview71" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code71" aria-controls="code71" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview71">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe71"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe71doc = document.getElementById('iframe71').contentWindow.document;
+                                                    iframe71doc.open();
+                                                    var html71 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-warning\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario skipped bg-warning\"> \
+                            <h4 class=\"text-warning\">My Scenario [Skipped - Deferred]<\/h4> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe71doc.write(html71);
+                                                    resizeIframe(document.getElementById('iframe71'));
+                                                    iframe71doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code71">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-warning&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario skipped bg-warning&quot;&gt;
+                            &lt;h4 class=&quot;text-warning&quot;&gt;My Scenario [Skipped - Deferred]&lt;/h4&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Skipped Scenario With Steps</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
+{
+    public class SkippedScenarioWithSteps : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Skip(&quot;Deferred&quot;);
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#preview74" aria-controls="preview74" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code74" aria-controls="code74" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="preview74">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe74"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe74doc = document.getElementById('iframe74').contentWindow.document;
+                                                    iframe74doc.open();
+                                                    var html74 = "<\!DOCTYPE html> \
+<html> \
+<head> \
+    <meta charset=\"utf-8\" \/> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" \/> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <script src=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/run_prettify.js?skin=sunburst\"><\/script> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-warning\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My.Area.Path<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario skipped bg-warning\"> \
+                            <h4 class=\"text-warning\">My Scenario [Skipped - Deferred]<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>Given my starting condition<\/h5> \
+                                <\/li> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>When my action<\/h5> \
+                                <\/li> \
+                                <li class=\"step skipped text-warning\"> \
+                                    <h5>Then my ending condition<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+<\/body> \
+<\/html>";
+                                                    iframe74doc.write(html74);
+                                                    resizeIframe(document.getElementById('iframe74'));
+                                                    iframe74doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code74">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-warning&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My.Area.Path&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario skipped bg-warning&quot;&gt;
+                            &lt;h4 class=&quot;text-warning&quot;&gt;My Scenario [Skipped - Deferred]&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;Given my starting condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;When my action&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step skipped text-warning&quot;&gt;
+                                    &lt;h5&gt;Then my ending condition&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+                <li class="feature">
+                    <h3>Write To Text</h3>
+                    <ol class="scenarios">
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Emtpy Test Run</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class EmptyTestRun : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            return xBDD.CurrentRun.TestRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Empty Scenario</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunEmptyScenario : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            xBDD.CurrentRun
+                .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                .Run();
+            return xBDD.CurrentRun.TestRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Multiple Areas</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunMultipleAreas : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path.One&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path.One&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path.Two&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path.Two&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path.One
+	My Feature One
+		My Scenario One
+			Given my starting condition
+			When my action
+			Then my ending condition
+		My Scenario Two
+			Given my starting condition
+			When my action
+			Then my ending condition
+My.Area.Path.Two
+	My Feature Two
+		My Scenario One
+			Given my starting condition
+			When my action
+			Then my ending condition
+		My Scenario Two
+			Given my starting condition
+			When my action
+			Then my ending condition
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Multiple Features Same Area</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunMultipleFeaturesSameArea : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature One&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature Two&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature One
+		My Scenario One
+			Given my starting condition
+			When my action
+			Then my ending condition
+		My Scenario Two
+			Given my starting condition
+			When my action
+			Then my ending condition
+	My Feature Two
+		My Scenario One
+			Given my starting condition
+			When my action
+			Then my ending condition
+		My Scenario Two
+			Given my starting condition
+			When my action
+			Then my ending condition
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Multiple Scenarios Same Feature</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunMultipleScenariosSameFeature : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario One&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario Two&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario One
+			Given my starting condition
+			When my action
+			Then my ending condition
+		My Scenario Two
+			Given my starting condition
+			When my action
+			Then my ending condition
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Failed Step</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using System;
+using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunScenarioWithFailedStep : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;, () =&gt; { throw new Exception(&quot;My Error&quot;); }))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario [Failed]
+			Given my starting condition
+			When my action [Failed]
+				Error Type: Exception
+				   Message: My Error
+{{				     Stack\: .*}}
+{{.*}}/rl
+			Then my ending condition [Skipped - Previous Error]
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Not Implemented Step</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using System;
+using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunScenarioWithNotImplementedStep : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;, () =&gt; { throw new NotImplementedException(); }))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario [Failed - Step Not Implemented]
+			Given my starting condition
+			When my action [Failed - Not Implemented]
+			Then my ending condition [Skipped - Previous Error]
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Skipped Step</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunScenarioWithSkippedStep : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;, () =&gt; { throw new SkipStepException(&quot;Deferred&quot;); }))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario [Failed - Step Skipped]
+			Given my starting condition
+			When my action [Skipped - Deferred]
+			Then my ending condition [Skipped - Previous Error]
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Step With Multiline Parameter</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunScenarioWithStepWithMultilineParameter : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            xBDD.CurrentRun
+                .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                .Given(xBDD.CreateStep(&quot;my starting condition with the following&quot;, () =&gt; { }, &quot;My\r\nmultiline\r\nparameter&quot;))
+                .When(xBDD.CreateStep(&quot;my action&quot;))
+                .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                .Run();
+            return xBDD.CurrentRun.TestRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario
+			Given my starting condition with the following
+				My
+				multiline
+				parameter
+			When my action
+			Then my ending condition
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Run Scenario With Steps</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class RunScenarioWithSteps : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Run();
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario
+			Given my starting condition
+			When my action
+			Then my ending condition
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Skipped Empty Scenario</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class SkippedEmptyScenario : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Skip(&quot;Deferred&quot;);
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario [Skipped - Deferred]
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="scenario passed bg-success">
+                            <h4 class="text-success">Write Skipped Scenario With Steps</h4>
+                            <ul class="steps list-unstyled">
+                                <li class="step passed text-success">
+                                    <h5>Given the following method</h5>
+                                    <pre class="mp prettyprint lang-cs">using xBDD.Test;
+namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+{
+    public class SkippedScenarioWithSteps : IExecute&lt;string&gt;
+    {
+        public string Execute()
+        {
+            var xBDD = new xBDDMock();
+            xBDD.CurrentRun.TestRun.Name = &quot;My Test Run&quot;;
+            try
+            {
+                xBDD.CurrentRun
+                    .AddScenario(&quot;My Scenario&quot;, &quot;My Feature&quot;, &quot;My.Area.Path&quot;)
+                    .Given(xBDD.CreateStep(&quot;my starting condition&quot;))
+                    .When(xBDD.CreateStep(&quot;my action&quot;))
+                    .Then(xBDD.CreateStep(&quot;my ending condition&quot;))
+                    .Skip(&quot;Deferred&quot;);
+            }
+            catch { }
+            return xBDD.CurrentRun.TestRun.WriteToText();
+        }
+    }
+}
+</pre>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>When the method is executed</h5>
+                                </li>
+                                <li class="step passed text-success">
+                                    <h5>Then the test results written should match the template:</h5>
+                                    <pre class="mp">My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario [Skipped - Deferred]
+			Given my starting condition
+			When my action
+			Then my ending condition
+</pre>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+    </ol>
+</body>
+</html>

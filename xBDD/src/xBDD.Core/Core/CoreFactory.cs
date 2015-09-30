@@ -1,67 +1,112 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using xBDD.Model;
 using xBDD.Utility;
-
-[assembly: InternalsVisibleTo("xBDD.Test")]
-[assembly: InternalsVisibleTo("xBDD.Core.Test")]
-[assembly: InternalsVisibleTo("xBDD.Reporting.Test")]
-[assembly: InternalsVisibleTo("xBDD.Reporting.Database.Test")]
 
 namespace xBDD.Core
 {
     public class CoreFactory
     {
-        internal CoreFactory()
+        public CoreFactory()
         {
             UtilityFactory = new UtilityFactory();
         }
         internal UtilityFactory UtilityFactory { get; private set; }
-        internal Scenario CreateScenario(TestRun testRun)
+        internal TestRun CreateTestRun(string name)
         {
-            UtilityFactory = new UtilityFactory();
-            var scenario = new Scenario(this, testRun);
-            testRun.Scenarios.Add(scenario);
+            return new TestRun()
+            {
+                Name = name,
+                AreaStats = new OutcomeStats(),
+                FeatureStats = new OutcomeStats(),
+                ScenarioStats = new OutcomeStats(),
+                StepStats = new OutcomeStats(),
+            };
+        }
+
+        internal Area CreateArea(string name, TestRun testRun)
+        {
+            var area = new Area()
+            {
+                Name = name,
+                TestRun = testRun,
+                FeatureStats = new OutcomeStats(),
+                ScenarioStats = new OutcomeStats(),
+                StepStats = new OutcomeStats()
+            };
+            testRun.Areas.Add(area);
+            return area;
+        }
+        internal Feature CreateFeature(string name, Area area)
+        {
+            var feature = new Feature()
+            {
+                Name = name, 
+                Area = area,
+                ScenarioStats = new OutcomeStats(),
+                StepStats = new OutcomeStats()
+            };
+            area.Features.Add(feature);
+            return feature;
+        }
+
+        internal Scenario CreateScenario(string name, Feature feature)
+        {
+            var scenario = new Scenario()
+            {
+                Name = name,
+                Feature = feature,
+                StepStats = new OutcomeStats()
+            };
+            feature.Scenarios.Add(scenario);
             return scenario;
         }
 
-        internal Step CreateStep(string stepName, Action action, string multilineParameter = null, MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
+        internal Step CreateStep(string stepName, Action action, string multilineParameter, MultilineParameterFormat multilineParameterFormat)
         {
-            var step = new Step()
+            return new Step()
             {
                 Name = stepName,
                 Action = action,
                 MultilineParameter = multilineParameter,
                 MultilineParameterFormat = multilineParameterFormat
             };
-            return step;
         }
 
-        internal Step CreateStep(string stepName, Func<Task> action, string multilineParameter = null, MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
+        internal Step CreateStep(string stepName, Func<Task> action, string multilineParameter, MultilineParameterFormat multilineParameterFormat)
         {
-            var step = new Step()
+            return new Step()
             {
                 Name = stepName,
                 ActionAsync = action,
                 MultilineParameter = multilineParameter,
                 MultilineParameterFormat = multilineParameterFormat
             };
-            return step;
         }
 
-        internal TestRun CreateTestRun()
+        public TestRunBuilder CreateTestRunBuilder(string testRunName)
         {
-            return new TestRun(this);
+            return new TestRunBuilder(this, CreateTestRun(testRunName));
+        }
+
+        internal ScenarioBuilder CreateScenarioBuilder(string scenarioName, Feature feature)
+        {
+            return new ScenarioBuilder(scenarioName, feature, this);
+        }
+
+        internal AreaCache CreateAreaCache()
+        {
+            return new AreaCache(this);
+        }
+
+        internal FeatureCache CreateFeatureCache()
+        {
+            return new FeatureCache(this);
         }
 
         internal ScenarioRunner CreateScenarioRunner(Scenario scenario)
         {
             return new ScenarioRunner(scenario, this);
-        }
-
-        internal ScenarioBuilder CreateScenarioBuilder(Scenario scenario)
-        {
-            return new ScenarioBuilder(scenario, this);
         }
 
         internal StepExceptionHandler CreateStepExceptionHandler(Scenario scenario)

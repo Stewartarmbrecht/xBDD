@@ -1,31 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using xBDD.Core;
-using xBDD.Stats;
+using xBDD.Model;
 
 namespace xBDD
 {
     public partial class xBDD
     {
         static CoreFactory factory;
-        static TestRun testRun;
-        public static TestRun CurrentRun
+        static TestRunBuilder testRunBuilder;
+        public static TestRunBuilder CurrentRun
         {
             get
             {
                 EnsureFactory();
-                if (testRun == null)
+                if (testRunBuilder == null)
                 {
-                    testRun = factory.CreateTestRun();
+                    testRunBuilder = factory.CreateTestRunBuilder(null);
                 }
-                return testRun;
+                return testRunBuilder;
             }
         }
 
-        internal static Step CreateStep(
-            string stepName, Action action = null, 
+        public static Step CreateStep(
+            string stepName, 
+            Action action = null, 
             string multilineParameter = "",
             MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
         {
@@ -33,7 +32,7 @@ namespace xBDD
             return factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
         }
 
-        internal static Step CreateAsyncStep(
+        public static Step CreateAsyncStep(
             string stepName, Func<Task> action = null,
             string multilineParameter = "",
             MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)

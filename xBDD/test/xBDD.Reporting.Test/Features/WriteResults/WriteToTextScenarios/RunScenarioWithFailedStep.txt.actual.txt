@@ -1,0 +1,12 @@
+My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario [Failed]
+			Given my starting condition
+			When my action [Failed]
+				Error Type: Exception
+				   Message: My Error
+				     Stack:    at xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios.RunScenarioWithFailedStep.<>c.<Execute>b__0_0() in C:\Users\stearm01\Source\Repos\xBDD\xBDD\test\xBDD.Reporting.Test\Features\WriteResults\WriteToTextScenarios\RunScenarioWithFailedStep.cs:line 16
+				               at xBDD.Core.StepExecutor.ExecuteStep(Step step) in C:\Users\stearm01\Source\Repos\xBDD\xBDD\src\xBDD.Core\Core\StepExecutor.cs:line 44
+			Then my ending condition [Skipped - Previous Error]

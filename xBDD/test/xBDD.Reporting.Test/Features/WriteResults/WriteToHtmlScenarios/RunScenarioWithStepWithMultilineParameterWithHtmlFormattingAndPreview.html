@@ -1,4 +1,4 @@
-﻿    <h1 class="testrun-name">My Test Run</h1>
+﻿    <h1 class="testrun-name text-success">My Test Run</h1>
     <ol class="areas">
         <li class="area">
             <h2>My.Area.Path</h2>
@@ -23,20 +23,11 @@
                                     <h5>And my formatted specific code (html)</h5>
                                     <div>
                                         <ul class="nav nav-tabs" role="tablist">
-                                            <li role="presentation" class="active"><a href="#code3" aria-controls="code3" role="tab" data-toggle="tab">Code</a></li>
-                                            <li role="presentation"><a href="#preview3" aria-controls="preview3" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation" class="active"><a href="#preview3" aria-controls="preview3" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#code3" aria-controls="code3" role="tab" data-toggle="tab">Code</a></li>
                                         </ul>
                                         <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane active" id="code3">
-                                                <pre class="mp prettyprint lang-html">&lt;table&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
-            Hey
-        &lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;</pre>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane" id="preview3">
+                                            <div role="tabpanel" class="tab-pane active" id="preview3">
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
                                                         <iframe width="100%" id="iframe3"></iframe>
@@ -56,6 +47,15 @@
                                                     resizeIframe(document.getElementById('iframe3'));
                                                     iframe3doc.close();
                                                 </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="code3">
+                                                <pre class="mp prettyprint lang-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            Hey
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
                                             </div>
                                         </div>
                                     </div>

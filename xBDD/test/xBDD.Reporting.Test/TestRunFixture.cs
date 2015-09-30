@@ -10,6 +10,12 @@ namespace xBDD.Reporting.Test
         {
 
         }
+        
+        public override void Dispose()
+        {
+            base.Dispose();
+            Browser.Close();
+        }
     }
     [CollectionDefinition("xBDDReportingTest")]
     public class TestRunCollection : ICollectionFixture<xBDDReportingTestTestRunFixture>

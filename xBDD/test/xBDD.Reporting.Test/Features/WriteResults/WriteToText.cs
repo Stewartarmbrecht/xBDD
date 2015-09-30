@@ -1,10 +1,9 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-using xBDD.Reporting.Test.Steps;
-using xBDD.Test;
-using xBDD.xUnit;
+﻿using System.Runtime.CompilerServices;
 using Xunit;
 using Xunit.Abstractions;
+using xBDD.Test;
+using xBDD.xUnit;
+using xBDD.Reporting.Test.Steps;
 
 namespace xBDD.Reporting.Test.Features.WriteResults
 {
@@ -30,7 +29,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults
                 {
                     text.Object = action.Execute();
                 }))
-                .Then(TestResults.ShouldMatch(
+                .Then(HtmlReport.ShouldMatch(
                     "\\Features\\WriteResults\\WriteToTextScenarios\\" + actionName + ".txt", text, writeActual))
                 .Run();
         }
@@ -71,9 +70,10 @@ namespace xBDD.Reporting.Test.Features.WriteResults
             Run(new WriteToTextScenarios.RunScenarioWithNotImplementedStep());
         }
         [ScenarioFact]
+        [Trait("category", "now")]
         public void WriteRunScenarioWithFailedStep()
         {
-            Run(new WriteToTextScenarios.RunScenarioWithFailedStep());
+            Run(new WriteToTextScenarios.RunScenarioWithFailedStep(), true);
         }
         [ScenarioFact]
         public void WriteRunMultipleScenariosSameFeature()

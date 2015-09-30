@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Threading.Tasks;
 using xBDD.Core;
+using xBDD.Model;
 
 namespace xBDD
 {
     public class xBDDMock
     {
         CoreFactory factory;
-        TestRun testRun;
-        public TestRun CurrentRun
+        TestRunBuilder testRun;
+        public TestRunBuilder CurrentRun
         {
             get
             {
                 EnsureFactory();
                 if (testRun == null)
                 {
-                    testRun = factory.CreateTestRun();
+                    testRun = factory.CreateTestRunBuilder("My Test Run");
                 }
                 return testRun;
             }

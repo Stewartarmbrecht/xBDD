@@ -1,20 +1,10 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
+using xBDD.Core;
 
 namespace xBDD.Utility
 {
-    internal class UtilityFactory
+    public class UtilityFactory
     {
-        internal ScenarioNameReader GetScenarioNameReader()
-        {
-            return new ScenarioNameReader();
-        }
-
-        internal StepNameReader GetStepNameReader()
-        {
-            return new StepNameReader();
-        }
-
         internal MethodRetriever GetMethodRetriever()
         {
             return new MethodRetriever(this);
@@ -25,24 +15,14 @@ namespace xBDD.Utility
             return new Method(methodBase, this);
         }
 
-        internal AttributeWrapper CreateAttribute(Attribute attr)
-        {
-            return new AttributeWrapper(attr);
-        }
-
-        internal FeatureNameReader GetFeatureNameReader()
-        {
-            return new FeatureNameReader();
-        }
-
-        internal AreaPathReader GetAreaPathReader()
-        {
-            return new AreaPathReader();
-        }
-
         internal OutcomeAggregator CreateOutcomeAggregator()
         {
             return new OutcomeAggregator();
+        }
+
+        internal StatsCascader CreateStatsCascader()
+        {
+            return new StatsCascader(this);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using xBDD.Model;
 
 namespace xBDD.Reporting.Database.Core
 {

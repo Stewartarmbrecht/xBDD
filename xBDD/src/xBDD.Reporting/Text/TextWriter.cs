@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using xBDD.Model;
 
 namespace xBDD.Reporting.TextFile
 {
     public class TextWriter
     {
-        public string WriteToText(TestRun testRun)
+        public string WriteToString(TestRun testRun)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(testRun.Name);
             sb.AppendLine();
             Scenario lastScenario = null;
-            foreach(var scenario in testRun.Scenarios.OrderBy(x => x.AreaPath).ThenBy(x => x.FeatureName).ThenBy(x => x.Name))
+            foreach(var scenario in testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name))
             {
                 WriteScenario(lastScenario, scenario, sb);
                 lastScenario = scenario;
@@ -26,15 +24,15 @@ namespace xBDD.Reporting.TextFile
 
         private void WriteScenario(Scenario lastScenario, Scenario scenario, StringBuilder sb)
         {
-            if(lastScenario == null || (lastScenario != null && lastScenario.AreaPath != scenario.AreaPath))
+            if(lastScenario == null || (lastScenario != null && lastScenario.Feature.Area.Name != scenario.Feature.Area.Name))
             {
-                sb.AppendLine(scenario.AreaPath);
+                sb.AppendLine(scenario.Feature.Area.Name);
             }
 
-            if (lastScenario == null || (lastScenario != null && lastScenario.FeatureName != scenario.FeatureName))
+            if (lastScenario == null || (lastScenario != null && lastScenario.Feature.Name != scenario.Feature.Name))
             {
                 sb.Append("\t");
-                sb.AppendLine(scenario.FeatureName);
+                sb.AppendLine(scenario.Feature.Name);
             }
             sb.Append("\t\t");
             sb.Append(scenario.Name);

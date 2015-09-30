@@ -1,17 +1,17 @@
 ﻿using System;
-using xBDD.Utility;
+using xBDD.Model;
 
 namespace xBDD.Core
 {
     internal class StepExceptionHandler
     {
         Scenario scenario;
-        OutcomeAggregator outcomeAggregator;
+        StatsCascader statsCascader;
 
         public StepExceptionHandler(Scenario scenario, CoreFactory factory)
         {
             this.scenario = scenario;
-            outcomeAggregator = factory.UtilityFactory.CreateOutcomeAggregator();
+            statsCascader = factory.UtilityFactory.CreateStatsCascader();
         }
 
         public void HandleException(StepExecutor stepExecutor, Step step, Exception ex)
@@ -31,43 +31,36 @@ namespace xBDD.Core
         }
         void ProcessSkipException(StepExecutor stepExecutor, Step step, SkipStepException ex)
         {
-            stepExecutor.SetEndTimes(step);
+            step.EndTime = DateTime.Now;
             step.Outcome = Outcome.Skipped;
             step.Reason = ex.Message;
-            scenario.Outcome = outcomeAggregator.GetNewParentOutcome(scenario.Outcome, step.Outcome);
             if(scenario.Reason == null)
                 scenario.Reason = "Step Skipped";
-            if (scenario.FirstStepException == null)
-                scenario.FirstStepException = new StepException(step.Name, ex);
             step.Exception = ex;
+            statsCascader.CascadeStats(step);
+            throw new StepException(step.Name, ex);
         }
         void ProcessNotImplementedException(StepExecutor stepExecutor, Step step, NotImplementedException ex)
         {
-            if (scenario.FirstStepException == null)
-            {
-                scenario.FirstStepException = new StepNotImplementedException(step.Name, ex);
-            }
-            stepExecutor.SetEndTimes(step);
+            step.EndTime = DateTime.Now;
             step.Outcome = Outcome.Failed;
             step.Reason = "Not Implemented";
             step.Exception = ex;
-            scenario.Outcome = outcomeAggregator.GetNewParentOutcome(scenario.Outcome, step.Outcome);
             if (scenario.Reason == null)
                 scenario.Reason = "Step Not Implemented";
+            statsCascader.CascadeStats(step);
+            throw new StepNotImplementedException(step.Name, ex);
         }
         void ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
         {
-            if (scenario.FirstStepException == null)
-            {
-                scenario.FirstStepException = new StepException(step.Name, ex);
-            }
-            stepExecutor.SetEndTimes(step);
+            step.EndTime = DateTime.Now;
             step.Outcome = Outcome.Failed;
             step.Reason = ex.Message;
             step.Exception = ex;
-            scenario.Outcome = outcomeAggregator.GetNewParentOutcome(scenario.Outcome, step.Outcome);
             if (scenario.Reason == null)
                 scenario.Reason = "Failed Step";
+            statsCascader.CascadeStats(step);
+            throw new StepException(step.Name, ex);
         }
     }
 }

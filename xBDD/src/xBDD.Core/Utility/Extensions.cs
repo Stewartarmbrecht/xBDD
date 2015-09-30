@@ -1,6 +1,4 @@
-﻿using System;
-using System.Reflection;
-using System.Text;
+﻿using System.Text;
 
 namespace xBDD.Utility
 {
@@ -38,10 +36,6 @@ namespace xBDD.Utility
                 lastChar = currentChar;
             }
             return newText.ToString();
-        }
-        internal static string ReplaceUnderscores(this string text)
-        {
-            return text.Replace('_', ' ');
         }
     }
 }

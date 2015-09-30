@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Xunit.Abstractions;
 using xBDD.xUnit;
-using Xunit.Abstractions;
 
 namespace xBDD.Test.Features
 {

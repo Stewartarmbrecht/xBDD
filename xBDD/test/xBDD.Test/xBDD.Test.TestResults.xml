@@ -1,4 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <assemblies>
-  <assembly />
+  <assembly name="xBDD.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3168" run-date="2015-09-30" run-time="12:27:12" total="2" passed="2" failed="0" skipped="0" time="0.213" errors="0">
+    <errors />
+    <collection total="2" passed="2" failed="0" skipped="0" name="xBDDTest" time="0.014">
+      <test name="xBDD.Test.Features.Environment.PublishTestResultsToCentralDatabase.PublishAfterCITestRun" type="xBDD.Test.Features.Environment.PublishTestResultsToCentralDatabase" method="PublishAfterCITestRun" time="0.0133598" result="Pass">
+        <output><![CDATA[Publish After CI Test Run
+    the developer pushes a commit to the master branch
+    the CI process should build the solution, run the tests, and publish the results to a central database
+]]></output>
+      </test>
+      <test name="xBDD.Test.Features.Environment.PublishTestResultsToCentralDatabase.PublishAfterTestRun" type="xBDD.Test.Features.Environment.PublishTestResultsToCentralDatabase" method="PublishAfterTestRun" time="0.0007662" result="Pass">
+        <output><![CDATA[Publish After Test Run
+    the developer sets the solution to the Publish configuration
+    the developer defines a valid connection string for an environment variable named 'Data:DefaultConnection:ConnectionString'
+    the developer runs the tests
+    the test results should be published to the database
+]]></output>
+      </test>
+    </collection>
+  </assembly>
 </assemblies>

@@ -1,4 +1,6 @@
-﻿namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+﻿using xBDD.Model;
+
+namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAGivenStep
     {

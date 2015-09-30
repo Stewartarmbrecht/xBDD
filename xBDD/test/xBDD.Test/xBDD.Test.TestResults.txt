@@ -1,0 +1,12 @@
+xBDD.Test 2015-09-30T12:27:12
+
+xBDD.Test.Features.Environment
+	Publish Test Results To Central Database
+		Publish After CI Test Run
+			When the developer pushes a commit to the master branch
+			Then the CI process should build the solution, run the tests, and publish the results to a central database
+		Publish After Test Run
+			Given the developer sets the solution to the Publish configuration
+			And the developer defines a valid connection string for an environment variable named 'Data:DefaultConnection:ConnectionString'
+			When the developer runs the tests
+			Then the test results should be published to the database

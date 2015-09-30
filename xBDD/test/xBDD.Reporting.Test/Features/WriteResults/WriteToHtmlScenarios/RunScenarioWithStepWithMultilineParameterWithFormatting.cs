@@ -6,7 +6,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
         public string Execute()
         {
             var xBDD = new xBDDMock();
-            xBDD.CurrentRun.Name = "My Test Run";
+            xBDD.CurrentRun.TestRun.Name = "My Test Run";
             xBDD.CurrentRun
                 .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                 .Given(xBDD.CreateStep(
@@ -26,7 +26,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                 .When(xBDD.CreateStep("my action"))
                 .Then(xBDD.CreateStep("my ending condition"))
                 .Run();
-            return xBDD.CurrentRun.WriteToHtml();
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
         }
     }
 }

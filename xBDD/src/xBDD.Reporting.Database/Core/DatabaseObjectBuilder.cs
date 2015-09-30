@@ -1,5 +1,5 @@
-﻿using System.Runtime;
-using xb = xBDD;
+﻿using System.Linq;
+using xb = xBDD.Model;
 
 namespace xBDD.Reporting.Database.Core
 {
@@ -24,7 +24,11 @@ namespace xBDD.Reporting.Database.Core
 
         private void BuildScenarios(xb.TestRun testRun, TestRun testRunDb)
         {
-            foreach(xb.Scenario scenario in testRun.Scenarios)
+            var scenarios = from area in testRun.Areas
+                            from feature in area.Features
+                            from scenario in feature.Scenarios
+                            select scenario; 
+            foreach(xb.Scenario scenario in scenarios)
             {
                 Scenario scenarioDb = factory.CreateScenario(scenario, testRunDb);
                 scenarioDb.TestRun = testRunDb;

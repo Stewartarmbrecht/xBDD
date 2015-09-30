@@ -1,13 +1,12 @@
-﻿using Microsoft.Dnx.Runtime.Infrastructure;
-using Microsoft.Framework.DependencyInjection;
-using System;
-using System.Linq;
-using System.Linq.Expressions;
-using Xunit;
-using Microsoft.Dnx.Runtime;
-using Microsoft.AspNet.Hosting;
-using Microsoft.Framework.Configuration;
+﻿using System;
 using System.IO;
+using System.Linq;
+using Microsoft.AspNet.Hosting;
+using Microsoft.Dnx.Runtime;
+using Microsoft.Dnx.Runtime.Infrastructure;
+using Microsoft.Framework.Configuration;
+using Microsoft.Framework.DependencyInjection;
+using Xunit;
 
 namespace xBDD.Test
 {
@@ -15,9 +14,11 @@ namespace xBDD.Test
     {
         public IApplicationEnvironment ApplicationEnvironment { get; set; }
         public bool ShouldPublish { get; private set; }
+        public string ProjectName { get; private set;}
 
         public TestRunFixture(string projectName)
         {
+            ProjectName = projectName;
             var provider = CallContextServiceLocator.Locator.ServiceProvider;
             ApplicationEnvironment = provider.GetRequiredService<IApplicationEnvironment>();
             Console.WriteLine("Currently using the " + ApplicationEnvironment.Configuration + " configuration.");
@@ -50,27 +51,27 @@ namespace xBDD.Test
             //}
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
-            xBDD.CurrentRun.Name = projectName + " " + DateTime.Now.ToString("s");
+            xBDD.CurrentRun.TestRun.Name = projectName + " " + DateTime.Now.ToString("s");
         }
         public static IConfiguration Configuration { get; set; }
-        public void Dispose()
+        public virtual void Dispose()
         {
             if(ShouldPublish)
             {
                 try
                 {
                     Console.WriteLine("Removing SampleCode scenarios.");
-                    var scenarios = xBDD.CurrentRun.Scenarios.Where(x => x.AreaPath.Contains("SampleCode")).ToList();
+                    var scenarios = xBDD.CurrentRun.TestRun.Scenarios.Where(x => x.Feature.Area.Name.Contains("SampleCode")).ToList();
                     Console.WriteLine("Found " + scenarios.Count() + " sample code scenarios.");
                     foreach(var scenario in scenarios)
                     {
-                        xBDD.CurrentRun.Scenarios.Remove(scenario);
+                        xBDD.CurrentRun.TestRun.Scenarios.Remove(scenario);
                         Console.WriteLine("Scenario '" + scenario.Name + "' removed.");
                     }
                     Console.WriteLine("SampleCode scenarios have been removed.");
 
                     Console.WriteLine("Saving to the databse.");
-                    var count = xBDD.CurrentRun.SaveToDatabase(null);
+                    var count = xBDD.CurrentRun.TestRun.SaveToDatabase(null);
                 }
                 catch (Exception ex)
                 {
@@ -83,8 +84,8 @@ namespace xBDD.Test
                 Console.WriteLine("Saving to the database was skipped.");
             }
 
-            File.WriteAllText("xBDD.TestResults.txt", xBDD.CurrentRun.WriteToText());
-            File.WriteAllText("xBDD.TestResults.html", xBDD.CurrentRun.WriteToHtml());
+            File.WriteAllText(ProjectName + ".TestResults.txt", xBDD.CurrentRun.TestRun.WriteToText());
+            File.WriteAllText(ProjectName + ".TestResults.html", xBDD.CurrentRun.TestRun.WriteToHtml());
         }
     }
     public class xBDDTestTestRunFixture : TestRunFixture

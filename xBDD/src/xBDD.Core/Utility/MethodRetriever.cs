@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace xBDD.Utility
 {
@@ -21,14 +18,6 @@ namespace xBDD.Utility
                 throw new StepMethodNotFoundException();
             return factory.CreateMethod(method);
 
-        }
-        internal Method GetStepMethod(Action action)
-        {
-            return factory.CreateMethod(action.GetMethodInfo());
-        }
-        internal Method GetStepMethod(Func<Step, Task> action)
-        {
-            return factory.CreateMethod(action.GetMethodInfo());
         }
     }
 }

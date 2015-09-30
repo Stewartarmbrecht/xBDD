@@ -6,7 +6,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
         public string Execute()
         {
             var xBDD = new xBDDMock();
-            xBDD.CurrentRun.Name = "My Test Run";
+            xBDD.CurrentRun.TestRun.Name = "My Test Run";
             try
             {
                 xBDD.CurrentRun
@@ -14,7 +14,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                     .Skip("Deferred");
             }
             catch { }
-            return xBDD.CurrentRun.WriteToHtml();
+            return xBDD.CurrentRun.TestRun.WriteToHtml();
         }
     }
 }

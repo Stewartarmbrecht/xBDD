@@ -1,4 +1,4 @@
-﻿using xb = xBDD;
+﻿using xb = xBDD.Model;
 namespace xBDD.Reporting.Database.Core
 {
     public class DatabaseFactory
@@ -7,8 +7,8 @@ namespace xBDD.Reporting.Database.Core
         {
             return new Scenario()
             {
-                AreaPath = scenario.AreaPath,
-                FeatureName = scenario.FeatureName,
+                AreaPath = scenario.Feature.Area.Name,
+                FeatureName = scenario.Feature.Name,
                 Name = scenario.Name,
                 Outcome = scenario.Outcome,
                 Reason = scenario.Reason,

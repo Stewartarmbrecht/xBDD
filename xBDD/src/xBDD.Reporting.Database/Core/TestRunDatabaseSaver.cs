@@ -1,5 +1,5 @@
 ﻿using System;
-using xb = xBDD;
+using xb = xBDD.Model;
 
 namespace xBDD.Reporting.Database.Core
 {

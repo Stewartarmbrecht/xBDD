@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using xBDD.Utility;
+using xBDD.Model;
 
 namespace xBDD.Core
 {
@@ -8,11 +8,11 @@ namespace xBDD.Core
     {
         StepExceptionHandler stepExceptionHandler;
         Scenario scenario;
-        OutcomeAggregator outcomeAggregator;
+        StatsCascader statsCascader;
         public StepExecutor(Scenario scenario, CoreFactory factory)
         {
             stepExceptionHandler = factory.CreateStepExceptionHandler(scenario);
-            outcomeAggregator = factory.UtilityFactory.CreateOutcomeAggregator();
+            statsCascader = factory.UtilityFactory.CreateStatsCascader();
             this.scenario = scenario;
         }
         public async Task ExecuteStepAsync(Step step)
@@ -52,25 +52,13 @@ namespace xBDD.Core
         private void PreExecution(Step step)
         {
             step.StartTime = DateTime.Now;
-            if (step == scenario.Steps[0])
-                scenario.StartTime = step.StartTime;
-            if (scenario.FirstStepException != null)
-                throw new SkipStepException("Previous Error");
         }
 
         void PostExecution(Step step)
         {
-            SetEndTimes(step);
-            step.Outcome = Outcome.Passed;
-            scenario.Outcome = outcomeAggregator.GetNewParentOutcome(scenario.Outcome, step.Outcome);
-        }
-        public void SetEndTimes(Step step)
-        {
             step.EndTime = DateTime.Now;
-            scenario.Time = scenario.Time.Add(step.EndTime.Subtract(step.StartTime));
-            if (step == scenario.Steps[scenario.Steps.Count - 1])
-                scenario.EndTime = step.EndTime;
+            step.Outcome = Outcome.Passed;
+            statsCascader.CascadeStats(step);
         }
-
     }
 }

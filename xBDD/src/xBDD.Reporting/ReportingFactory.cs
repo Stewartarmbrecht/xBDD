@@ -1,5 +1,4 @@
-﻿using System;
-using xBDD.Reporting.Html;
+﻿using xBDD.Reporting.Html;
 using xBDD.Reporting.TextFile;
 
 namespace xBDD.Reporting

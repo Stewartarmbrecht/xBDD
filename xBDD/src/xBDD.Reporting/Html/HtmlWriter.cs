@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
+using xBDD.Model;
 
 namespace xBDD.Reporting.Html
 {
     public class HtmlWriter
     {
         int stepCounter = 0;
-        public string WriteToText(TestRun testRun)
+        public string WriteToString(TestRun testRun)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("<!DOCTYPE html>");
@@ -34,14 +34,38 @@ namespace xBDD.Reporting.Html
             sb.AppendLine("    <script src=\"https://code.jquery.com/jquery-2.1.4.min.js\"></script>");
             sb.AppendLine("    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js\"></script>");
             sb.AppendLine("    <script src=\"https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst\"></script>");
-            sb.AppendLine("    <script language=\"javascript\" type=\"text/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight/1.75 + 'px'; }</script>");
+            sb.AppendLine("    <script language=\"javascript\" type=\"text/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }</script>");
             sb.AppendLine("</head>");
         }
         void WriteBody(TestRun testRun, StringBuilder sb)
         {
             WriteTagOpener("body", sb, 0, "container-fluid", false);
-            WriteTag("h1", sb, 1, "testrun-name", testRun.Name.HtmlEncode(), true);
-            if (testRun.Scenarios.Count > 0)
+            var scenarioCount = testRun.Areas.Count;
+            var cssClass = "testrun-name";
+            if(scenarioCount == 0)
+            {
+                cssClass = cssClass + " text-muted";
+            }
+            else
+            {
+                switch(testRun.Outcome)
+                {
+                    case Outcome.Failed:
+                        cssClass = cssClass + " text-danger";
+                        break;
+                    case Outcome.NotRun:
+                        cssClass = cssClass + " text-info";
+                        break;
+                    case Outcome.Passed:
+                        cssClass = cssClass + " text-success";
+                        break;
+                    case Outcome.Skipped:
+                        cssClass = cssClass + " text-warning";
+                        break;
+                }
+            }
+            WriteTag("h1", sb, 1, cssClass, testRun.Name.HtmlEncode(), true);
+            if (scenarioCount > 0)
             {
                 WriteAreas(testRun, sb);
             }
@@ -51,7 +75,7 @@ namespace xBDD.Reporting.Html
         {
             WriteTagOpener("ol", sb, 1, "areas", false);
             Scenario lastScenario = null;
-            foreach (var scenario in testRun.Scenarios.OrderBy(x => x.AreaPath).ThenBy(x => x.FeatureName).ThenBy(x => x.Name))
+            foreach (var scenario in testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name))
             {
                 WriteScenario(lastScenario, scenario, sb);
                 lastScenario = scenario;
@@ -63,7 +87,7 @@ namespace xBDD.Reporting.Html
         }
         void WriteScenario(Scenario lastScenario, Scenario scenario, StringBuilder sb)
         {
-            if (lastScenario == null || (lastScenario != null && lastScenario.AreaPath != scenario.AreaPath))
+            if (lastScenario == null || (lastScenario != null && lastScenario.Feature.Area.Name != scenario.Feature.Area.Name))
             {
                 if (lastScenario != null)
                 {
@@ -73,7 +97,7 @@ namespace xBDD.Reporting.Html
                 WriteAreaOpen(scenario, sb);
                 WriteFeatureOpen(scenario, sb);
             }
-            else if (lastScenario == null || (lastScenario != null && lastScenario.FeatureName != scenario.FeatureName))
+            else if (lastScenario == null || (lastScenario != null && lastScenario.Feature.Name != scenario.Feature.Name))
             {
                 if (lastScenario != null)
                 {
@@ -93,7 +117,7 @@ namespace xBDD.Reporting.Html
         void WriteAreaOpen(Scenario scenario, StringBuilder sb)
         {
             WriteTagOpener("li", sb, 2, "area", false);
-            WriteTag("h2", sb, 3, null, scenario.AreaPath.HtmlEncode(), true);
+            WriteTag("h2", sb, 3, null, scenario.Feature.Area.Name.HtmlEncode(), true);
             WriteTagOpener("ol", sb, 3, "features", false);
         }
         void WriteAreaClose(StringBuilder sb)
@@ -104,7 +128,7 @@ namespace xBDD.Reporting.Html
         void WriteFeatureOpen(Scenario scenario, StringBuilder sb)
         {
             WriteTagOpener("li", sb, 4, "feature", false);
-            WriteTag("h3", sb, 5, null, scenario.FeatureName.HtmlEncode(), true);
+            WriteTag("h3", sb, 5, null, scenario.Feature.Name.HtmlEncode(), true);
             WriteTagOpener("ol", sb, 5, "scenarios", false);
         }
         void WriteFeatureClose(StringBuilder sb)
@@ -269,14 +293,11 @@ namespace xBDD.Reporting.Html
         {
             var html = @"                                    <div>
                                         <ul class=""nav nav-tabs"" role=""tablist"">
-                                            <li role=""presentation"" class=""active""><a href=""#code{0}"" aria-controls=""code{0}"" role=""tab"" data-toggle=""tab"">Code</a></li>
-                                            <li role=""presentation""><a href=""#preview{0}"" aria-controls=""preview{0}"" role=""tab"" data-toggle=""tab"">Preview</a></li>
+                                            <li role=""presentation"" class=""active""><a href=""#preview{0}"" aria-controls=""preview{0}"" role=""tab"" data-toggle=""tab"">Preview</a></li>
+                                            <li role=""presentation""><a href=""#code{0}"" aria-controls=""code{0}"" role=""tab"" data-toggle=""tab"">Code</a></li>
                                         </ul>
                                         <div class=""tab-content"">
-                                            <div role=""tabpanel"" class=""tab-pane active"" id=""code{0}"">
-                                                <pre class=""mp prettyprint lang-html"">{1}</pre>
-                                            </div>
-                                            <div role=""tabpanel"" class=""tab-pane"" id=""preview{0}"">
+                                            <div role=""tabpanel"" class=""tab-pane active"" id=""preview{0}"">
                                                 <div class=""panel panel-default"">
                                                     <div class=""panel-body"">
                                                         <iframe width=""100%"" id=""iframe{0}""></iframe>
@@ -290,6 +311,9 @@ namespace xBDD.Reporting.Html
                                                     resizeIframe(document.getElementById('iframe{0}'));
                                                     iframe{0}doc.close();
                                                 </script>
+                                            </div>
+                                            <div role=""tabpanel"" class=""tab-pane"" id=""code{0}"">
+                                                <pre class=""mp prettyprint lang-html"">{1}</pre>
                                             </div>
                                         </div>
                                     </div>";
