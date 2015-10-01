@@ -32,7 +32,7 @@ namespace xBDD.Core.Test.Features.RunTests.SampleCode
         internal static Step NavigatesToPage(string url, Wrapper<WebPage> widget, Wrapper<int> count)
         {
             return xBDD.CreateStep("the user navigates to page",
-                () =>
+                (s) =>
                 {
                     widget.Object = WebPage.NavigateTo(url);
                     count.Object++;
@@ -42,7 +42,7 @@ namespace xBDD.Core.Test.Features.RunTests.SampleCode
         internal static Step ClicksTheButton(string name, Wrapper<WebPage> sut, Wrapper<int> count)
         {
             return xBDD.CreateStep("the user clicks the '" + name + "' button",
-                () =>
+                (s) =>
                 {
                     sut.Object = sut.Object.Click(name);
                     count.Object++;
@@ -54,7 +54,7 @@ namespace xBDD.Core.Test.Features.RunTests.SampleCode
         internal static Step WillHaveATitleOf(string expectedName, Wrapper<WebPage> sut, Wrapper<int> count)
         {
             return xBDD.CreateStep("the web page will have a title of '" + expectedName + "'",
-                () =>
+                (s) =>
                 {
                     Assert.Equal(expectedName, sut.Object.Title);
                     count.Object++;

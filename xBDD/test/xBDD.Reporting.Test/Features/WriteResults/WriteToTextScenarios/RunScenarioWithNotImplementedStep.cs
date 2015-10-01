@@ -13,7 +13,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
                 xBDD.CurrentRun
                     .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                     .Given(xBDD.CreateStep("my starting condition"))
-                    .When(xBDD.CreateStep("my action", () => { throw new NotImplementedException(); }))
+                    .When(xBDD.CreateStep("my action", (s) => { throw new NotImplementedException(); }))
                     .Then(xBDD.CreateStep("my ending condition"))
                     .Run();
             }

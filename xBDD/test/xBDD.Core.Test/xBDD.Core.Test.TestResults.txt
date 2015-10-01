@@ -1,4 +1,4 @@
-xBDD.Core.Test 2015-09-30T15:39:47
+xBDD.Core.Test 2015-09-30T17:36:33
 
 xBDD.Core.Test.Features.CompileStats
 	Compile Test Run Results
@@ -113,10 +113,10 @@ xBDD.Core.Test.Features.DefineScenarios
 				        {
 				            return xBDD.CurrentRun
 				                .AddScenario(this)
-				                .Given(xBDD.CreateStep("my starting condition", () => { /*my action here*/ }))
-				                .When(xBDD.CreateStep("my action", () => { /*my action here*/ }))
-				                .Then(xBDD.CreateStep("my ending condition", () => { /*my validation here*/ }))
-				                .And(xBDD.CreateStep("my extra ending condition", () => { /*my extra validation here*/ }));
+				                .Given(xBDD.CreateStep("my starting condition", (s) => { /*my action here*/ }))
+				                .When(xBDD.CreateStep("my action", (s) => { /*my action here*/ }))
+				                .Then(xBDD.CreateStep("my ending condition", (s) => { /*my validation here*/ }))
+				                .And(xBDD.CreateStep("my extra ending condition", (s) => { /*my extra validation here*/ }));
 				        }
 				    }
 				}
@@ -139,7 +139,7 @@ xBDD.Core.Test.Features.DefineScenarios
 				        {
 				            return xBDD.CurrentRun
 				                .AddScenario(this)
-				                .Given(xBDD.CreateAsyncStep("my async starting condition", () => { return Task.Run(() => { }); }));
+				                .Given(xBDD.CreateAsyncStep("my async starting condition", (s) => { return Task.Run(() => { }); }));
 				        }
 				    }
 				}
@@ -160,7 +160,7 @@ xBDD.Core.Test.Features.DefineScenarios
 				        {
 				            return xBDD.CurrentRun
 				                .AddScenario(this)
-				                .Given(xBDD.CreateStep("my starting condition", () => { /*my action here*/ }));
+				                .Given(xBDD.CreateStep("my starting condition", (s) => { /*my action here*/ }));
 				        }
 				    }
 				}
@@ -213,7 +213,7 @@ xBDD.Core.Test.Features.DefineScenarios
 				        public static Step PerformsAnAction()
 				        {
 				            return xBDD.CreateStep("the user performs an action",
-				                () =>
+				                (s) =>
 				                {
 				                    //my action here.
 				                });
@@ -244,7 +244,7 @@ xBDD.Core.Test.Features.DefineScenarios
 				        public static Step PerformsAnAction(string actionType)
 				        {
 				            return xBDD.CreateStep("the user performs a '"+actionType+"' action",
-				                () =>
+				                (s) =>
 				                {
 				                    //my action here.
 				                });
@@ -264,9 +264,9 @@ xBDD.Core.Test.Features.DefineScenarios
 				        {
 				            return xBDD.CurrentRun
 				                .AddScenario(this)
-				                .Given(xBDD.CreateStep("my starting condition", () => { /*my setup here*/ }))
-				                .When(xBDD.CreateStep("my action", () => { /*my action here*/ }))
-				                .Then(xBDD.CreateStep("my ending condition", () => { /*my validation here*/ }));
+				                .Given(xBDD.CreateStep("my starting condition", (s) => { /*my setup here*/ }))
+				                .When(xBDD.CreateStep("my action", (s) => { /*my action here*/ }))
+				                .Then(xBDD.CreateStep("my ending condition", (s) => { /*my validation here*/ }));
 				        }
 				    }
 				}
@@ -287,8 +287,8 @@ xBDD.Core.Test.Features.DefineScenarios
 				        {
 				            return xBDD.CurrentRun
 				                .AddScenario(this)
-				                .Given(xBDD.CreateStep("my starting condition", () => { /*my setup here*/ }))
-				                .When(xBDD.CreateStep("my action", () => { /*my action here*/ }));
+				                .Given(xBDD.CreateStep("my starting condition", (s) => { /*my setup here*/ }))
+				                .When(xBDD.CreateStep("my action", (s) => { /*my action here*/ }));
 				        }
 				    }
 				}
@@ -427,7 +427,7 @@ xBDD.Core.Test.Features.RunTests
 				        internal static Step NavigatesToPage(string url, Wrapper<WebPage> widget, Wrapper<int> count)
 				        {
 				            return xBDD.CreateStep("the user navigates to page",
-				                () =>
+				                (s) =>
 				                {
 				                    widget.Object = WebPage.NavigateTo(url);
 				                    count.Object++;
@@ -437,7 +437,7 @@ xBDD.Core.Test.Features.RunTests
 				        internal static Step ClicksTheButton(string name, Wrapper<WebPage> sut, Wrapper<int> count)
 				        {
 				            return xBDD.CreateStep("the user clicks the '" + name + "' button",
-				                () =>
+				                (s) =>
 				                {
 				                    sut.Object = sut.Object.Click(name);
 				                    count.Object++;
@@ -449,7 +449,7 @@ xBDD.Core.Test.Features.RunTests
 				        internal static Step WillHaveATitleOf(string expectedName, Wrapper<WebPage> sut, Wrapper<int> count)
 				        {
 				            return xBDD.CreateStep("the web page will have a title of '" + expectedName + "'",
-				                () =>
+				                (s) =>
 				                {
 				                    Assert.Equal(expectedName, sut.Object.Title);
 				                    count.Object++;

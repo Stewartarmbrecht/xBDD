@@ -25,7 +25,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAScenarioDefaultSample.cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     sut.Object = new SampleCode.AddAScenarioDefaultSample().DefaultScenarioAdd().Scenario;
                 }))
@@ -43,7 +43,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAScenarioExplicitNameSample.cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     sut.Object = new SampleCode.AddAScenarioExplicitNameSample().WithExplicitName().Scenario;
                 }))

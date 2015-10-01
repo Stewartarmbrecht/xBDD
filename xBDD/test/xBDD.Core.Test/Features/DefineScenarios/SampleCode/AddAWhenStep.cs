@@ -6,8 +6,8 @@
         {
             return xBDD.CurrentRun
                 .AddScenario(this)
-                .Given(xBDD.CreateStep("my starting condition", () => { /*my setup here*/ }))
-                .When(xBDD.CreateStep("my action", () => { /*my action here*/ }));
+                .Given(xBDD.CreateStep("my starting condition", (s) => { /*my setup here*/ }))
+                .When(xBDD.CreateStep("my action", (s) => { /*my action here*/ }));
         }
     }
 }

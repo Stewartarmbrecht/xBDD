@@ -12,7 +12,7 @@ namespace xBDD.Reporting.Test.Steps
     {
         internal static Step ShouldMatch(string templateFile, 
             Wrapper<string> testResults, bool writeActual = false, 
-            string extension = "txt", MultilineParameterFormat format = MultilineParameterFormat.literal)
+            string extension = "txt", TextFormat format = TextFormat.text)
         {
             var provider = CallContextServiceLocator.Locator.ServiceProvider;
             var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
@@ -25,7 +25,7 @@ namespace xBDD.Reporting.Test.Steps
                 createTemplate = true;
             else
                 template = File.ReadAllText(templateFilePath);
-            if(format == MultilineParameterFormat.htmlpreview)
+            if(format == TextFormat.htmlpreview)
             {
                 var directory = templateFilePath.Substring(0, templateFilePath.LastIndexOf('\\') + 1);
                 var htmlOpen = File.ReadAllText(directory + "HtmlOpen.html");
@@ -35,7 +35,7 @@ namespace xBDD.Reporting.Test.Steps
 
             var step = xBDD.CreateStep(
                 "the test results written should match the template:",
-                () => {
+                (s) => {
                     if (writeActual)
                     {
                         File.WriteAllText(templateFilePath + ".actual." + extension, testResults.Object);
@@ -54,20 +54,46 @@ namespace xBDD.Reporting.Test.Steps
             return step;
         }
 
+        internal static Step OfAStepWithOutput(string output, TextFormat format)
+        {
+            string path = GetReportPath();
+
+            var step = xBDD.CreateStep(
+                "the test results of a passing test run",
+                (s) =>
+                {
+                    var xBDD = new xBDDMock();
+                    xBDD.CurrentRun.TestRun.Name = "My Test Run";
+                    xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 1")
+                        .Given("my step 1", (s2) => { 
+                            s2.Output = output;
+                            s2.OutputFormat = TextFormat.text; 
+                        })
+                        .When("my step 2", (s2) => {
+                            
+                         })
+                        .Then("my step 3", (s2) => { })
+                        .Run();
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
+                    File.WriteAllText(path, htmlReport);
+                });
+            return step;
+        }
+
         internal static Step OfASinglePassingScenario()
         {
             string path = GetReportPath();
 
             var step = xBDD.CreateStep(
                 "the test results of a passing test run",
-                () =>
+                (s) =>
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 11")
-                        .Given("my step 1", () => { })
-                        .When("my step 2", () => { })
-                        .Then("my step 3", () => { })
+                        .Given("my step 1", (s2) => { })
+                        .When("my step 2", (s2) => { })
+                        .Then("my step 3", (s2) => { })
                         .Run();
                     var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
                     File.WriteAllText(path, htmlReport);
@@ -81,16 +107,16 @@ namespace xBDD.Reporting.Test.Steps
 
             var step = xBDD.CreateStep(
                 "the test results of a passing test run",
-                () =>
+                (s) =>
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     try
                     {
                         xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 11")
-                            .Given("my step 1", () => { })
-                            .When("my step 2", () => { throw new Exception("My Error"); })
-                            .Then("my step 3", () => { })
+                            .Given("my step 1", (s2) => { })
+                            .When("my step 2", (s2) => { throw new Exception("My Error"); })
+                            .Then("my step 3", (s2) => { })
                             .Run();
                     }
                     catch { }
@@ -106,14 +132,14 @@ namespace xBDD.Reporting.Test.Steps
 
             var step = xBDD.CreateStep(
                 "the test results of a skipped test run",
-                () =>
+                (s) =>
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 11")
-                        .Given("my step 1", () => { })
-                        .When("my step 2", () => { })
-                        .Then("my step 3", () => { })
+                        .Given("my step 1", (s2) => { })
+                        .When("my step 2", (s2) => { })
+                        .Then("my step 3", (s2) => { })
                         .Skip("Not Started");
                     var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
                     File.WriteAllText(path, htmlReport);
@@ -127,7 +153,7 @@ namespace xBDD.Reporting.Test.Steps
 
             var step = xBDD.CreateStep(
                 "the test results of an empty test run",
-                () =>
+                (s) =>
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";

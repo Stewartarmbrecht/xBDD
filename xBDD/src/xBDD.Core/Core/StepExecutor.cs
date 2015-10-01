@@ -22,11 +22,11 @@ namespace xBDD.Core
                 PreExecution(step);
                 if (step.ActionAsync == null && step.Action != null)
                 {
-                    await Task.Run(() => { step.Action(); });
+                    await Task.Run(() => { step.Action(step); });
                 }
                 else
                 {
-                    await step.ActionAsync();
+                    await step.ActionAsync(step);
                 }
                 PostExecution(step);
             }
@@ -41,7 +41,7 @@ namespace xBDD.Core
             try
             {
                 PreExecution(step);
-                step.Action();
+                step.Action(step);
                 PostExecution(step);
             }
             catch (Exception ex)

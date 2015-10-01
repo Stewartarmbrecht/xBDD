@@ -12,7 +12,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults.WriteToHtmlScenarios
                 xBDD.CurrentRun
                     .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                     .Given(xBDD.CreateStep("my starting condition"))
-                    .When(xBDD.CreateStep("my action", () => { throw new SkipStepException("Deferred"); }))
+                    .When(xBDD.CreateStep("my action", (s) => { throw new SkipStepException("Deferred"); }))
                     .Then(xBDD.CreateStep("my ending condition"))
                     .Run();
             }

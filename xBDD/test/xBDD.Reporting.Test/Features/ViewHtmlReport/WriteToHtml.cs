@@ -19,12 +19,12 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport
         {
             Wrapper<string> html = new Wrapper<string>();            
             xBDD.CurrentRun.AddScenario(this)
-                .When("the code calls 'xBDD.CurrentRun.WriteToHTML()", () => { 
+                .When("the code calls 'xBDD.CurrentRun.WriteToHTML()", (s) => { 
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     html.Object = xBDD.CurrentRun.TestRun.WriteToHtml();
                  })
-                .Then("the code should return a string value of the html report", () => { 
+                .Then("the code should return a string value of the html report", (s) => { 
                     Assert.StartsWith("<!DOCTYPE html>", html.Object);
                  })
                 .Run();

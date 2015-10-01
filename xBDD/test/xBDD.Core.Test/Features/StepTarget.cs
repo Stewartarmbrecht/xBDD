@@ -10,7 +10,7 @@ namespace xBDD.Core.Test.Features
         {
             return xBDD.CreateStep(
                 "the step name will be '" + expectedName + "'",
-                () => {
+                (s) => {
                     Assert.Equal(expectedName, sut.Object.Name);
                 }
                 );
@@ -20,7 +20,7 @@ namespace xBDD.Core.Test.Features
         {
             return xBDD.CreateStep(
                 "the full step name will be '" + expectedName + "'",
-                () => {
+                (s) => {
                     Assert.Equal(expectedName, sut.Object.FullName);
                 }
                 );
@@ -30,7 +30,7 @@ namespace xBDD.Core.Test.Features
         {
             return xBDD.CreateStep(
                 "the step will have an action defined",
-                () =>
+                (s) =>
                 {
                     Assert.NotNull(stepWrapper.Object.Action);
                 }
@@ -41,7 +41,7 @@ namespace xBDD.Core.Test.Features
         {
             return xBDD.CreateStep(
                 "the step action type will be "+ Enum.GetName(typeof(ActionType), actionType),
-                () =>
+                (s) =>
                 {
                     Assert.Equal(actionType, stepWrapper.Object.ActionType);
                 }
@@ -52,7 +52,7 @@ namespace xBDD.Core.Test.Features
         {
             return xBDD.CreateStep(
                 "the step will have an async action defined",
-                () =>
+                (s) =>
                 {
                     Assert.NotNull(stepWrapper.Object.ActionAsync);
                 }

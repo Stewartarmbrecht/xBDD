@@ -29,6 +29,40 @@ namespace xBDD.Reporting.Test.Pages
         public IWebElement TestRunName { get; set; }
         public string Title { get { return driver.Title; } }
 
+        public string Html { get { return driver.PageSource; } }
+
+        public string GetStepOutputText(int stepNumber)
+        {
+            string text = null;
+            var outputPre = driver.FindElement(By.Id("output-" + stepNumber));
+            if(outputPre != null)
+                text = outputPre.Text;
+            return text;
+        }
+        public TextFormat? GetStepOutputFormat(int stepNumber)
+        {
+            TextFormat? format = null;
+            string className = null;
+            var outputPre = driver.FindElement(By.Id("output-" + stepNumber));
+            if(outputPre != null)
+            {
+                className = outputPre.GetAttribute("class");
+            }
+            
+            if(className == "text")
+                format = TextFormat.text;
+            else if(className == "code prettify")
+                format = TextFormat.code;
+            else if(className == "code prettify lang-html")
+            {
+                format = TextFormat.code;
+                var outputFrame = driver.FindElement(By.Id("output-preview-" + stepNumber));
+                if(outputFrame != null)
+                    format = TextFormat.htmlpreview;
+            }
+            return format;
+        }
+
         internal bool TestRunNameIsGray()
         {
             bool result = false;

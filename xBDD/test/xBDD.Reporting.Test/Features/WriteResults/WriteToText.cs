@@ -25,7 +25,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults
                 .AddScenario(this, methodName)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\WriteResults\\WriteToTextScenarios\\" + actionName + ".cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     text.Object = action.Execute();
                 }))

@@ -1,22 +1,10 @@
-xBDD.Reporting.Test 2015-09-30T16:08:48
+xBDD.Reporting.Test 2015-09-30T22:57:24
 
 xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls
-	View Test Run
-		Empty Test Run
-			Given the test results of an empty test run
-			When the user views the html report
-			Then the report will show the test run name at the top
-			And the report will show the test run name as the title for the page
-			And the report will show the test run name in gray to indicate no scenarios were run
-		Failing
+	View Step Output
+		Code [Skipped - Not Started]
+		General Text
 			Given the test results of a passing test run
 			When the user views the html report
-			Then the report will show the test run name in red to indicate the test run passed
-		Passing Test Run
-			Given the test results of a passing test run
-			When the user views the html report
-			Then the report will show the test run name in green to indicate the test run passed
-		Passing With Some Skipped
-			Given the test results of a skipped test run
-			When the user views the html report
-			Then the report will show the test run name in yellow to indicate the test run passed
+			Then the report will show the output indented under the step
+		Html With Preview [Skipped - Not Started]

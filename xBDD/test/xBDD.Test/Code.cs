@@ -18,13 +18,13 @@ namespace xBDD.Test
             var code = File.ReadAllText(appEnv.ApplicationBasePath + fileName);
             var step = xBDD.CreateStep(
                 "the following method",
-                () => { },
+                (s) => { },
                 code,
-                MultilineParameterFormat.cs);
+                TextFormat.cs);
             return step;
         }
 
-        public static Step ExecuteMethod(Action code)
+        public static Step ExecuteMethod(Action<Step> code)
         {
             return xBDD.CreateStep(
                 "the method is executed",

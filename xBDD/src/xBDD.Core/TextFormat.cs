@@ -1,8 +1,8 @@
 ﻿namespace xBDD
 {
-    public enum MultilineParameterFormat
+    public enum TextFormat
     {
-        literal,
+        text,
         code,
         bsh,
         c,

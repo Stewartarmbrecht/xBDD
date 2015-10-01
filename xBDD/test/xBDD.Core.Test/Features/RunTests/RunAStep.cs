@@ -240,11 +240,11 @@ namespace xBDD.Core.Test.Features.RunTests
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\RunTests\\SampleCode\\AddAReusableStepThatUsesObjectCreatedInPreviousStep.cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     scenarioWrapper.Object = new SampleCode.AddAReusableStepThatUsesObjectCreatedInPreviousStep().Add(count);
                 }))
-                .Then(xBDD.CreateStep("the count should be 3", () => { Assert.Equal(3, count.Object); }))
+                .Then(xBDD.CreateStep("the count should be 3", (s) => { Assert.Equal(3, count.Object); }))
                 .And(ScenarioTarget.WillHaveOutcome(Outcome.Passed, scenarioWrapper))
                 .Run();
         }

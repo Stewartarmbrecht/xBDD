@@ -11,7 +11,7 @@ namespace xBDD.Reporting.Test.Steps
         {
             var step = xBDD.CreateStep(
                 "the user views the html report",
-                () => {
+                (s) => {
                     report.Object = HtmlReportPage.Load();
                 });
             return step;
@@ -23,7 +23,7 @@ namespace xBDD.Reporting.Test.Steps
                 
             var step = xBDD.CreateStep(
                 stepName,
-                () => {
+                (s) => {
                     Assert.Equal(expectedText, webDriver.Object.FindElement(By.ClassName(cssClass)).Text);
                 });
             return step;
@@ -36,7 +36,7 @@ namespace xBDD.Reporting.Test.Steps
                 
             var step = xBDD.CreateStep(
                 stepName,
-                () => {
+                (s) => {
                     Assert.Equal(title, webDriver.Object.Title);
                 });
             return step;

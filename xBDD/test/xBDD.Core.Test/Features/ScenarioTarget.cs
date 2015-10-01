@@ -10,7 +10,7 @@ namespace xBDD.Core.Test.Features
         {
             return xBDD.CreateStep(
                 "the scenario will be created",
-                () =>
+                (s) =>
                 {
                     Assert.NotNull(sut.Object);
                 });
@@ -20,7 +20,7 @@ namespace xBDD.Core.Test.Features
         {
             return xBDD.CreateStep(
                 "the scenario name will match the method name with spaces: '" + expectedName + "'",
-                () => {
+                (s) => {
                     Assert.Equal(expectedName, sut.Object.Name);
                 }
                 );
@@ -30,7 +30,7 @@ namespace xBDD.Core.Test.Features
         {
             return xBDD.CreateStep(
                 "the feature name will match the class name with spaces: '" + expectedName + "'",
-                () => {
+                (s) => {
                     Assert.Equal(expectedName, sut.Object.Feature.Name);
                 }
                 );
@@ -40,7 +40,7 @@ namespace xBDD.Core.Test.Features
         {
             return xBDD.CreateStep(
                 "the scenario will have a step at position " + stepNumber,
-                () =>
+                (s) =>
                 {
                     stepWrapper.Object = scenarioWrapper.Object.Steps[stepNumber - 1];
                     Assert.NotNull(stepWrapper.Object);
@@ -52,7 +52,7 @@ namespace xBDD.Core.Test.Features
         {
             return xBDD.CreateStep(
                 "the area path will match the namespace: '" + expected + "'",
-                () => {
+                (s) => {
                     Assert.Equal(expected, sut.Object.Feature.Area.Name);
                 }
                 );
@@ -62,7 +62,7 @@ namespace xBDD.Core.Test.Features
         {
             return xBDD.CreateStep(
                 "the scenario will have an outcome of '" + Enum.GetName(typeof(Outcome), outcome) + "'",
-                () => {
+                (s) => {
                     Assert.Equal(outcome, sut.Object.Outcome);
                 }
                 );

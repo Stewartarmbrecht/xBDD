@@ -25,7 +25,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAGivenStep.cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     scenarioWrapper.Object = new SampleCode.AddAGivenStep().Add().Scenario;
                 }))
@@ -46,7 +46,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAGivenStepWithNoAction.cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     scenarioWrapper.Object = new SampleCode.AddAGivenStepWithNoAction().Add().Scenario;
                 }))
@@ -67,7 +67,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAnAsyncStep.cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     scenarioWrapper.Object = new SampleCode.AddAnAsyncStep().Add().Scenario;
                 }))
@@ -88,7 +88,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAWhenStep.cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     scenarioWrapper.Object = new SampleCode.AddAWhenStep().Add().Scenario;
                 }))
@@ -109,7 +109,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAThenStep.cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     scenarioWrapper.Object = new SampleCode.AddAThenStep().Add().Scenario;
                 }))
@@ -130,7 +130,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAnAndStep.cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     scenarioWrapper.Object = new SampleCode.AddAnAndStep().Add().Scenario;
                 }))
@@ -151,7 +151,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAReusableStep.cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     scenarioWrapper.Object = new SampleCode.AddAReusableStep().Add().Scenario;
                 }))
@@ -168,7 +168,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAReusableStepThatTakesAStaticParameter.cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     scenarioWrapper.Object = new SampleCode.AddAReusableStepThatTakesAStaticParameter().Add().Scenario;
                 }))

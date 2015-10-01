@@ -25,12 +25,12 @@ namespace xBDD.Reporting.Test.Features.WriteResults
                 .AddScenario(this, methodName)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasMethod("\\Features\\WriteResults\\WriteToHtmlScenarios\\" + actionName + ".cs"))
-                .When(Code.ExecuteMethod(() =>
+                .When(Code.ExecuteMethod((s) =>
                 {
                     text.Object = action.Execute();
                 }))
                 .Then(HtmlReport.ShouldMatch(
-                    "\\Features\\WriteResults\\WriteToHtmlScenarios\\" + actionName + ".html", text, writeActual, "html", MultilineParameterFormat.htmlpreview))
+                    "\\Features\\WriteResults\\WriteToHtmlScenarios\\" + actionName + ".html", text, writeActual, "html", TextFormat.htmlpreview))
                 .Run();
         }
 

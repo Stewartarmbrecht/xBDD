@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>xBDD.Reporting.Test 2015-09-30T16:08:48</title>
+    <title>xBDD.Reporting.Test 2015-09-30T22:57:24</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <style>.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }</style>
@@ -13,36 +13,19 @@
     <script language="javascript" type="text/javascript">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }</script>
 </head>
 <body class="container-fluid">
-    <h1 class="testrun-name text-success">xBDD.Reporting.Test 2015-09-30T16:08:48</h1>
+    <h1 class="testrun-name text-warning">xBDD.Reporting.Test 2015-09-30T22:57:24</h1>
     <ol class="areas">
         <li class="area">
             <h2>xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls</h2>
             <ol class="features">
                 <li class="feature">
-                    <h3>View Test Run</h3>
+                    <h3>View Step Output</h3>
                     <ol class="scenarios">
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Empty Test Run</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
-                                    <h5>Given the test results of an empty test run</h5>
-                                </li>
-                                <li class="step passed text-success">
-                                    <h5>When the user views the html report</h5>
-                                </li>
-                                <li class="step passed text-success">
-                                    <h5>Then the report will show the test run name at the top</h5>
-                                </li>
-                                <li class="step passed text-success">
-                                    <h5>And the report will show the test run name as the title for the page</h5>
-                                </li>
-                                <li class="step passed text-success">
-                                    <h5>And the report will show the test run name in gray to indicate no scenarios were run</h5>
-                                </li>
-                            </ul>
+                        <li class="scenario skipped bg-warning">
+                            <h4 class="text-warning">Code [Skipped - Not Started]</h4>
                         </li>
                         <li class="scenario passed bg-success">
-                            <h4 class="text-success">Failing</h4>
+                            <h4 class="text-success">General Text</h4>
                             <ul class="steps list-unstyled">
                                 <li class="step passed text-success">
                                     <h5>Given the test results of a passing test run</h5>
@@ -51,37 +34,128 @@
                                     <h5>When the user views the html report</h5>
                                 </li>
                                 <li class="step passed text-success">
-                                    <h5>Then the report will show the test run name in red to indicate the test run passed</h5>
+                                    <h5>Then the report will show the output indented under the step</h5>
+                                    <div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#output-preview-3" aria-controls="output-preview-3" role="tab" data-toggle="tab">Preview</a></li>
+                                            <li role="presentation"><a href="#output-code-3" aria-controls="output-code-3" role="tab" data-toggle="tab">Code</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="output-preview-3">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <iframe width="100%" id="iframe3"></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    var iframe3doc = document.getElementById('iframe3').contentWindow.document;
+                                                    iframe3doc.open();
+                                                    var html3 = "<\!DOCTYPE html><html><head> \
+    <meta charset=\"utf-8\"> \
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> \
+    <title>My Test Run<\/title> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap.min.css\"> \
+    <link rel=\"stylesheet\" href=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/css\/bootstrap-theme.min.css\"> \
+    <style>.mp { margin-left\: 2em } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; }<\/style> \
+    <script src=\"https\:\/\/code.jquery.com\/jquery-2.1.4.min.js\"><\/script> \
+    <script src=\"https\:\/\/maxcdn.bootstrapcdn.com\/bootstrap\/3.3.5\/js\/bootstrap.min.js\"><\/script> \
+    <link rel=\"stylesheet\" type=\"text\/css\" href=\"https\:\/\/google-code-prettify.googlecode.com\/svn\/loader\/skins\/sunburst.css\"> \
+    <script language=\"javascript\" type=\"text\/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }<\/script> \
+<\/head> \
+<body class=\"container-fluid\"> \
+    <h1 class=\"testrun-name text-success\">My Test Run<\/h1> \
+    <ol class=\"areas\"> \
+        <li class=\"area\"> \
+            <h2>My Area 1<\/h2> \
+            <ol class=\"features\"> \
+                <li class=\"feature\"> \
+                    <h3>My Feature 1<\/h3> \
+                    <ol class=\"scenarios\"> \
+                        <li class=\"scenario passed bg-success\"> \
+                            <h4 class=\"text-success\">My Scenario 1<\/h4> \
+                            <ul class=\"steps list-unstyled\"> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Given my step 1<\/h5> \
+                                    <pre class=\"text\" id=\"output-1\">Here \
+ is \
+ my \
+ output\!<\/pre> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>When my step 2<\/h5> \
+                                <\/li> \
+                                <li class=\"step passed text-success\"> \
+                                    <h5>Then my step 3<\/h5> \
+                                <\/li> \
+                            <\/ul> \
+                        <\/li> \
+                    <\/ol> \
+                <\/li> \
+            <\/ol> \
+        <\/li> \
+    <\/ol> \
+ \
+<\/body><\/html>";
+                                                    iframe3doc.write(html3);
+                                                    resizeIframe(document.getElementById('iframe3'));
+                                                    iframe3doc.close();
+                                                </script>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="output-code-3">
+                                                <pre class="mp prettyprint lang-html">&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt;My Test Run&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }&lt;/style&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://google-code-prettify.googlecode.com/svn/loader/skins/sunburst.css&quot;&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container-fluid&quot;&gt;
+    &lt;h1 class=&quot;testrun-name text-success&quot;&gt;My Test Run&lt;/h1&gt;
+    &lt;ol class=&quot;areas&quot;&gt;
+        &lt;li class=&quot;area&quot;&gt;
+            &lt;h2&gt;My Area 1&lt;/h2&gt;
+            &lt;ol class=&quot;features&quot;&gt;
+                &lt;li class=&quot;feature&quot;&gt;
+                    &lt;h3&gt;My Feature 1&lt;/h3&gt;
+                    &lt;ol class=&quot;scenarios&quot;&gt;
+                        &lt;li class=&quot;scenario passed bg-success&quot;&gt;
+                            &lt;h4 class=&quot;text-success&quot;&gt;My Scenario 1&lt;/h4&gt;
+                            &lt;ul class=&quot;steps list-unstyled&quot;&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Given my step 1&lt;/h5&gt;
+                                    &lt;pre class=&quot;text&quot; id=&quot;output-1&quot;&gt;Here
+ is
+ my
+ output!&lt;/pre&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;When my step 2&lt;/h5&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;step passed text-success&quot;&gt;
+                                    &lt;h5&gt;Then my step 3&lt;/h5&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;/body&gt;&lt;/html&gt;</pre>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Passing Test Run</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
-                                    <h5>Given the test results of a passing test run</h5>
-                                </li>
-                                <li class="step passed text-success">
-                                    <h5>When the user views the html report</h5>
-                                </li>
-                                <li class="step passed text-success">
-                                    <h5>Then the report will show the test run name in green to indicate the test run passed</h5>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Passing With Some Skipped</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
-                                    <h5>Given the test results of a skipped test run</h5>
-                                </li>
-                                <li class="step passed text-success">
-                                    <h5>When the user views the html report</h5>
-                                </li>
-                                <li class="step passed text-success">
-                                    <h5>Then the report will show the test run name in yellow to indicate the test run passed</h5>
-                                </li>
-                            </ul>
+                        <li class="scenario skipped bg-warning">
+                            <h4 class="text-warning">Html With Preview [Skipped - Not Started]</h4>
                         </li>
                     </ol>
                 </li>

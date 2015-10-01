@@ -8,7 +8,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
         {
             return xBDD.CurrentRun
                 .AddScenario(this)
-                .Given(xBDD.CreateAsyncStep("my async starting condition", () => { return Task.Run(() => { }); }));
+                .Given(xBDD.CreateAsyncStep("my async starting condition", (s) => { return Task.Run(() => { }); }));
         }
     }
 }

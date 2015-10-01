@@ -53,9 +53,9 @@ namespace xBDD.Core
 
         public ScenarioBuilder Given(
             string stepName, 
-            Action action = null, 
+            Action<Step> action = null, 
             string multilineParameter = "",
-            MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
+            TextFormat multilineParameterFormat = TextFormat.text)
         {
             var step = factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
             return Given(step);
@@ -63,9 +63,9 @@ namespace xBDD.Core
 
         public ScenarioBuilder GivenAsync(
             string stepName, 
-            Func<Task> action = null, 
+            Func<Step, Task> action = null, 
             string multilineParameter = "",
-            MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
+            TextFormat multilineParameterFormat = TextFormat.text)
         {
             var step = factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
             return Given(step);
@@ -73,9 +73,9 @@ namespace xBDD.Core
 
         public ScenarioBuilder When(
             string stepName, 
-            Action action = null, 
+            Action<Step> action = null, 
             string multilineParameter = "",
-            MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
+            TextFormat multilineParameterFormat = TextFormat.text)
         {
             var step = factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
             return When(step);
@@ -83,9 +83,9 @@ namespace xBDD.Core
 
         public ScenarioBuilder WhenAsync(
             string stepName, 
-            Func<Task> action = null, 
+            Func<Step, Task> action = null, 
             string multilineParameter = "",
-            MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
+            TextFormat multilineParameterFormat = TextFormat.text)
         {
             var step = factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
             return When(step);
@@ -93,9 +93,9 @@ namespace xBDD.Core
 
         public ScenarioBuilder Then(
             string stepName, 
-            Action action = null, 
+            Action<Step> action = null, 
             string multilineParameter = "",
-            MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
+            TextFormat multilineParameterFormat = TextFormat.text)
         {
             var step = factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
             return Then(step);
@@ -103,9 +103,9 @@ namespace xBDD.Core
 
         public ScenarioBuilder ThenAsync(
             string stepName, 
-            Func<Task> action = null, 
+            Func<Step, Task> action = null, 
             string multilineParameter = "",
-            MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
+            TextFormat multilineParameterFormat = TextFormat.text)
         {
             var step = factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
             return Then(step);
@@ -113,9 +113,9 @@ namespace xBDD.Core
 
         public ScenarioBuilder And(
             string stepName, 
-            Action action = null, 
+            Action<Step> action = null, 
             string multilineParameter = "",
-            MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
+            TextFormat multilineParameterFormat = TextFormat.text)
         {
             var step = factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
             return And(step);
@@ -123,9 +123,9 @@ namespace xBDD.Core
 
         public ScenarioBuilder AndAsync(
             string stepName, 
-            Func<Task> action = null, 
+            Func<Step, Task> action = null, 
             string multilineParameter = "",
-            MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
+            TextFormat multilineParameterFormat = TextFormat.text)
         {
             var step = factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
             return And(step);

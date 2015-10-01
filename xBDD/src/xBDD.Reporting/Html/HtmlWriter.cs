@@ -255,6 +255,10 @@ namespace xBDD.Reporting.Html
             if (step.Exception != null && !(step.Exception is NotImplementedException) && step.Outcome != Outcome.Skipped)
                 WriteException(step.Exception, sb);
 
+            if (!String.IsNullOrEmpty(step.Output))
+            {
+                WriteOutput(step, sb, stepNumber);
+            }
             WriteTagClose("li", sb, 8);
         }
         void WriteException(Exception exception, StringBuilder sb)
@@ -270,18 +274,18 @@ namespace xBDD.Reporting.Html
         }
         void WriteMultilineParameter(Step step, StringBuilder sb, int stepNumber)
         {
-            if(step.MultilineParameterFormat == MultilineParameterFormat.htmlpreview)
+            if(step.MultilineParameterFormat == TextFormat.htmlpreview)
             {
                 WriteMultilineParameterWithHtmlPreview(step, sb, stepNumber);
             }
             else
             {
                 var className = "mp";
-                if (step.MultilineParameterFormat != MultilineParameterFormat.literal)
+                if (step.MultilineParameterFormat != TextFormat.text)
                 {
                     className = className + " prettyprint";
-                    if (step.MultilineParameterFormat != MultilineParameterFormat.code)
-                        className = className + " lang-" + Enum.GetName(typeof(MultilineParameterFormat), step.MultilineParameterFormat);
+                    if (step.MultilineParameterFormat != TextFormat.code)
+                        className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.MultilineParameterFormat);
                 }
                 WriteTagOpener("pre", sb, 9, className, true);
                 sb.Append(step.MultilineParameter.HtmlEncode());
@@ -328,13 +332,73 @@ namespace xBDD.Reporting.Html
                 .Replace("\"", "\\\"")));
         }
 
+        void WriteOutput(Step step, StringBuilder sb, int stepNumber)
+        {
+            if(step.OutputFormat == TextFormat.htmlpreview)
+            {
+                WriteOutputWithHtmlPreview(step, sb, stepNumber);
+            }
+            else
+            {
+                var className = "text";
+                if (step.OutputFormat != TextFormat.text)
+                {
+                    className = Enum.GetName(typeof(TextFormat), step.OutputFormat) + " prettyprint";
+                    if (step.OutputFormat != TextFormat.code)
+                        className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.OutputFormat);
+                }
+                WriteTagOpener("pre", sb, 9, className, true, "output-" + stepNumber);
+                sb.Append(step.Output.HtmlEncode());
+                WriteTagClose("pre", sb, 0);
+            }
+        }
+
+        void WriteOutputWithHtmlPreview(Step step, StringBuilder sb, int stepNumber)
+        {
+            var html = @"                                    <div>
+                                        <ul class=""nav nav-tabs"" role=""tablist"">
+                                            <li role=""presentation"" class=""active""><a href=""#output-preview-{0}"" aria-controls=""output-preview-{0}"" role=""tab"" data-toggle=""tab"">Preview</a></li>
+                                            <li role=""presentation""><a href=""#output-code-{0}"" aria-controls=""output-code-{0}"" role=""tab"" data-toggle=""tab"">Code</a></li>
+                                        </ul>
+                                        <div class=""tab-content"">
+                                            <div role=""tabpanel"" class=""tab-pane active"" id=""output-preview-{0}"">
+                                                <div class=""panel panel-default"">
+                                                    <div class=""panel-body"">
+                                                        <iframe width=""100%"" id=""iframe{0}""></iframe>
+                                                    </div>
+                                                </div>
+                                                <script type=""text/javascript"">
+                                                    var iframe{0}doc = document.getElementById('iframe{0}').contentWindow.document;
+                                                    iframe{0}doc.open();
+                                                    var html{0} = ""{2}"";
+                                                    iframe{0}doc.write(html{0});
+                                                    resizeIframe(document.getElementById('iframe{0}'));
+                                                    iframe{0}doc.close();
+                                                </script>
+                                            </div>
+                                            <div role=""tabpanel"" class=""tab-pane"" id=""output-code-{0}"">
+                                                <pre class=""mp prettyprint lang-html"">{1}</pre>
+                                            </div>
+                                        </div>
+                                    </div>";
+            sb.AppendLine(String.Format(html,
+                stepNumber, 
+                step.Output.HtmlEncode(), 
+                step.Output
+                .Replace("\r\n", " \\\r\n")
+                .Replace(":", "\\:")
+                .Replace("/", "\\/")
+                .Replace("!", "\\!")
+                .Replace("\"", "\\\"")));
+        }
+
         void WriteTag(string tag, StringBuilder sb, int indentation, string className, string text, bool inline)
         {
             WriteTagOpener(tag, sb, indentation, className, inline);
             sb.Append(text);
             WriteTagClose(tag, sb, inline?0:indentation);
         }
-        void WriteTagOpener(string tag, StringBuilder sb, int indentation, string className, bool inline)
+        void WriteTagOpener(string tag, StringBuilder sb, int indentation, string className, bool inline, string id = null)
         {
             WriteIndentation(sb, indentation);
             sb.Append("<");
@@ -343,6 +407,12 @@ namespace xBDD.Reporting.Html
             {
                 sb.Append(" class=\"");
                 sb.Append(className);
+                sb.Append("\"");
+            }
+            if (id != null)
+            {
+                sb.Append(" id=\"");
+                sb.Append(id);
                 sb.Append("\"");
             }
             if (inline)

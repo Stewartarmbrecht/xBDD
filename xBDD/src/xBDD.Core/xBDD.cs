@@ -24,20 +24,21 @@ namespace xBDD
 
         public static Step CreateStep(
             string stepName, 
-            Action action = null, 
+            Action<Step> action = null, 
             string multilineParameter = "",
-            MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
+            TextFormat multilineParameterFormat = TextFormat.text)
         {
-            action = action ?? (() => { });
+            action = action ?? ((s) => { });
             return factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
         }
 
         public static Step CreateAsyncStep(
-            string stepName, Func<Task> action = null,
+            string stepName, 
+            Func<Step, Task> action = null,
             string multilineParameter = "",
-            MultilineParameterFormat multilineParameterFormat = MultilineParameterFormat.literal)
+            TextFormat multilineParameterFormat = TextFormat.text)
         {
-            action = action ?? (() => { return Task.Run(() => { }); });
+            action = action ?? ((s) => { return Task.Run(() => { }); });
             return factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
         }
 

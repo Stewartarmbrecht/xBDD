@@ -24,11 +24,11 @@ namespace xBDD.Reporting.Test.Features.WriteResults
             xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAnEmptyTestRun())
                 .When(WebUser.ViewsReport(htmlReport))
-                .Then("the report will show the test run name at the top", () => {
+                .Then("the report will show the test run name at the top", (s) => {
                     Assert.NotNull(htmlReport.Object.TestRunName);
                     Assert.Equal("My Test Run", htmlReport.Object.TestRunName.Text);
                 })
-                .And("the report will show the test run name as the title for the page", () => {
+                .And("the report will show the test run name as the title for the page", (s) => {
                     Assert.Equal("My Test Run", htmlReport.Object.Title);
                 })
                 .Run();

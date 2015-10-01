@@ -17,7 +17,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
         public static Step PerformsAnAction()
         {
             return xBDD.CreateStep("the user performs an action",
-                () =>
+                (s) =>
                 {
                     //my action here.
                 });

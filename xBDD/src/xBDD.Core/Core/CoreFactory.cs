@@ -62,7 +62,7 @@ namespace xBDD.Core
             return scenario;
         }
 
-        internal Step CreateStep(string stepName, Action action, string multilineParameter, MultilineParameterFormat multilineParameterFormat)
+        internal Step CreateStep(string stepName, Action<Step> action, string multilineParameter, TextFormat multilineParameterFormat)
         {
             return new Step()
             {
@@ -73,7 +73,7 @@ namespace xBDD.Core
             };
         }
 
-        internal Step CreateStep(string stepName, Func<Task> action, string multilineParameter, MultilineParameterFormat multilineParameterFormat)
+        internal Step CreateStep(string stepName, Func<Step, Task> action, string multilineParameter, TextFormat multilineParameterFormat)
         {
             return new Step()
             {
