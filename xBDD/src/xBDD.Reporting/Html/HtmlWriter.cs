@@ -30,13 +30,26 @@ namespace xBDD.Reporting.Html
             WriteTag("title", sb, 1, null, testRun.Name.HtmlEncode(), true);
             sb.AppendLine("    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css\">");
             sb.AppendLine("    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css\">");
-            sb.AppendLine("    <style>.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }</style>");
+            WriteStyles(sb);
             sb.AppendLine("    <script src=\"https://code.jquery.com/jquery-2.1.4.min.js\"></script>");
             sb.AppendLine("    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js\"></script>");
             sb.AppendLine("    <script src=\"https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst\"></script>");
             sb.AppendLine("    <script language=\"javascript\" type=\"text/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }</script>");
             sb.AppendLine("</head>");
         }
+
+        private static void WriteStyles(StringBuilder sb)
+        {
+            sb.Append("    <style>");
+            sb.Append(" ul.steps, div.output, div.mp, dl.exception { margin-left: 2em }");
+            sb.Append(" iframe { border: 1px solid gray; resize: both; overflow: auto; }");
+            sb.Append(" li.scenario h4 { margin: .5em; }");
+            sb.Append(" ol.features { padding: .5em; }");
+            sb.Append(" li.feature { margin: 1.5em; padding: .1em 2em; box-shadow: 1px 1px 8px 1px rgb(202, 202, 202); }");
+            sb.Append(" li.scenario .panel { margin: 2em; }");
+            sb.AppendLine("</style>");  
+        }
+
         void WriteBody(TestRun testRun, StringBuilder sb)
         {
             WriteTagOpener("body", sb, 0, "container-fluid", false);
@@ -64,7 +77,9 @@ namespace xBDD.Reporting.Html
                         break;
                 }
             }
-            WriteTag("h1", sb, 1, cssClass, testRun.Name.HtmlEncode(), true);
+            WriteTagOpener("div", sb, 1, "page-header", false);
+            WriteTag("h1", sb, 2, cssClass, testRun.Name.HtmlEncode(), true);
+            WriteTagClose("div", sb, 1);
             if (scenarioCount > 0)
             {
                 WriteAreas(testRun, sb);
@@ -73,7 +88,7 @@ namespace xBDD.Reporting.Html
         }
         void WriteAreas(TestRun testRun, StringBuilder sb)
         {
-            WriteTagOpener("ol", sb, 1, "areas", false);
+            WriteTagOpener("ol", sb, 1, "areas list-unstyled", false);
             Scenario lastScenario = null;
             foreach (var scenario in testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name))
             {
@@ -116,9 +131,33 @@ namespace xBDD.Reporting.Html
         }
         void WriteAreaOpen(Scenario scenario, StringBuilder sb)
         {
+            string style = null;
+            string className = null;
+            switch (scenario.Feature.Area.Outcome)
+            {
+                case Outcome.NotRun:
+                    style = "#949494";
+                    className = "text-muted";
+                    break;
+                case Outcome.Passed:
+                    style = "#5A8B5B";
+                    className = "text-success";
+                    break;
+                case Outcome.Failed:
+                    style = "#AD4D4B";
+                    className = "text-danger";
+                    break;
+                case Outcome.Skipped:
+                    style = "#917545";
+                    className = "text-warning";
+                    break;
+                default:
+                    break;
+            }
+            style = "box-shadow: inset 1px 1px 8px 1px "+style+";";
             WriteTagOpener("li", sb, 2, "area", false);
-            WriteTag("h2", sb, 3, null, scenario.Feature.Area.Name.HtmlEncode(), true);
-            WriteTagOpener("ol", sb, 3, "features", false);
+            WriteTag("h2", sb, 3, className, scenario.Feature.Area.Name.HtmlEncode(), true);
+            WriteTagOpener("ol", sb, 3, "features list-unstyled", false, null, style);
         }
         void WriteAreaClose(StringBuilder sb)
         {
@@ -127,9 +166,33 @@ namespace xBDD.Reporting.Html
         }
         void WriteFeatureOpen(Scenario scenario, StringBuilder sb)
         {
-            WriteTagOpener("li", sb, 4, "feature", false);
-            WriteTag("h3", sb, 5, null, scenario.Feature.Name.HtmlEncode(), true);
-            WriteTagOpener("ol", sb, 5, "scenarios", false);
+            string style = null;
+            string className = null;
+            switch (scenario.Feature.Outcome)
+            {
+                case Outcome.NotRun:
+                    style = "#949494";
+                    className = "text-muted";
+                    break;
+                case Outcome.Passed:
+                    style = "#5A8B5B";
+                    className = "text-success";
+                    break;
+                case Outcome.Failed:
+                    style = "#AD4D4B";
+                    className = "text-danger";
+                    break;
+                case Outcome.Skipped:
+                    style = "#917545";
+                    className = "text-warning";
+                    break;
+                default:
+                    break;
+            }
+            style = "box-shadow: 1px 1px 8px 1px "+style+";";
+            WriteTagOpener("li", sb, 4, "feature", false, null, style);
+            WriteTag("h3", sb, 5, className, scenario.Feature.Name.HtmlEncode(), true);
+            WriteTagOpener("ol", sb, 5, "scenarios list-unstyled", false);
         }
         void WriteFeatureClose(StringBuilder sb)
         {
@@ -139,26 +202,29 @@ namespace xBDD.Reporting.Html
         void WriteScenarioOpen(Scenario scenario, StringBuilder sb)
         {
             var className = "scenario " + Enum.GetName(typeof(Outcome), scenario.Outcome).ToLower();
+            var panelClassName = "panel ";
             switch (scenario.Outcome)
             {
                 case Outcome.NotRun:
                     break;
                 case Outcome.Passed:
-                    className = className + " bg-success";
+                    panelClassName = panelClassName + " panel-default";
                     break;
                 case Outcome.Failed:
-                    className = className + " bg-danger";
+                    panelClassName = panelClassName + " panel-danger";
                     break;
                 case Outcome.Skipped:
-                    className = className + " bg-warning";
+                    panelClassName = panelClassName + " panel-warning";
                     break;
                 default:
                     break;
             }
             WriteTagOpener("li", sb, 6, className, false);
+            WriteTagOpener("div", sb, 7, panelClassName, false);
         }
         void WriteScenarioClose(StringBuilder sb)
         {
+            WriteTagClose("div", sb, 7);
             WriteTagClose("li", sb, 6);
         }
         void WriteScenarioStatus(Scenario scenario, StringBuilder sb)
@@ -174,41 +240,25 @@ namespace xBDD.Reporting.Html
         }
         void WriteScenarioTitleLine(Scenario scenario, StringBuilder sb)
         {
-            string className = null;
-            switch (scenario.Outcome)
-            {
-                case Outcome.NotRun:
-                    className = "text-info";
-                    break;
-                case Outcome.Passed:
-                    className = "text-success";
-                    break;
-                case Outcome.Failed:
-                    className = "text-danger";
-                    break;
-                case Outcome.Skipped:
-                    className = "text-warning";
-                    break;
-                default:
-                    break;
-            }
-            WriteTagOpener("h4", sb, 7, className, true);
+            WriteTagOpener("div", sb, 7, "panel-heading", true);
             sb.Append(scenario.Name.HtmlEncode());
             if (scenario.Outcome != Outcome.Passed)
             {
                 WriteScenarioStatus(scenario, sb);
             }
-            WriteTagClose("h4", sb, 0);
+            WriteTagClose("div", sb, 0);
         }
         void WriteSteps(Scenario scenario, StringBuilder sb)
         {
-            WriteTagOpener("ul", sb, 7, "steps list-unstyled", false);
+            WriteTagOpener("div", sb, 7, "panel-body", false);
+            WriteTagOpener("ol", sb, 7, "steps list-unstyled", false);
             foreach(Step step in scenario.Steps)
             {
                 stepCounter++;
                 WriteStep(step, sb, stepCounter);
             }
-            WriteTagClose("ul", sb, 7);
+            WriteTagClose("ol", sb, 7);
+            WriteTagClose("div", sb, 7);
         }
         void WriteStep(Step step, StringBuilder sb, int stepNumber)
         {
@@ -287,15 +337,17 @@ namespace xBDD.Reporting.Html
                     if (step.MultilineParameterFormat != TextFormat.code)
                         className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.MultilineParameterFormat);
                 }
-                WriteTagOpener("pre", sb, 9, className, true);
+                WriteTagOpener("div", sb, 9, "mp", true);
+                WriteTagOpener("pre", sb, 10, className, true);
                 sb.Append(step.MultilineParameter.HtmlEncode());
-                WriteTagClose("pre", sb, 0);
+                WriteTagClose("pre", sb, 10);
+                WriteTagClose("div", sb, 0);
             }
         }
 
         void WriteMultilineParameterWithHtmlPreview(Step step, StringBuilder sb, int stepNumber)
         {
-            var html = @"                                    <div>
+            var html = @"                                    <div class=""mp"">
                                         <ul class=""nav nav-tabs"" role=""tablist"">
                                             <li role=""presentation"" class=""active""><a href=""#preview{0}"" aria-controls=""preview{0}"" role=""tab"" data-toggle=""tab"">Preview</a></li>
                                             <li role=""presentation""><a href=""#code{0}"" aria-controls=""code{0}"" role=""tab"" data-toggle=""tab"">Code</a></li>
@@ -347,15 +399,18 @@ namespace xBDD.Reporting.Html
                     if (step.OutputFormat != TextFormat.code)
                         className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.OutputFormat);
                 }
-                WriteTagOpener("pre", sb, 9, className, true, "output-" + stepNumber);
+                WriteTagOpener("div", sb, 9, "output", true);
+                WriteTagOpener("pre", sb, 10, className, true, "output-" + stepNumber);
                 sb.Append(step.Output.HtmlEncode());
                 WriteTagClose("pre", sb, 0);
+                WriteTagClose("div", sb, 0);
             }
         }
 
         void WriteOutputWithHtmlPreview(Step step, StringBuilder sb, int stepNumber)
         {
-            var html = @"                                    <div>
+            var html = @"                                    <div class=""output"">
+                                        <strong><h5>Output</h5></stong>
                                         <ul class=""nav nav-tabs"" role=""tablist"">
                                             <li role=""presentation"" class=""active""><a href=""#output-preview-{0}"" aria-controls=""output-preview-{0}"" role=""tab"" data-toggle=""tab"">Preview</a></li>
                                             <li role=""presentation""><a href=""#output-code-{0}"" aria-controls=""output-code-{0}"" role=""tab"" data-toggle=""tab"">Code</a></li>
@@ -398,7 +453,7 @@ namespace xBDD.Reporting.Html
             sb.Append(text);
             WriteTagClose(tag, sb, inline?0:indentation);
         }
-        void WriteTagOpener(string tag, StringBuilder sb, int indentation, string className, bool inline, string id = null)
+        void WriteTagOpener(string tag, StringBuilder sb, int indentation, string className, bool inline, string id = null, string style = "")
         {
             WriteIndentation(sb, indentation);
             sb.Append("<");
@@ -409,6 +464,13 @@ namespace xBDD.Reporting.Html
                 sb.Append(className);
                 sb.Append("\"");
             }
+            if (style != null)
+            {
+                sb.Append(" style=\"");
+                sb.Append(style);
+                sb.Append("\"");
+            }
+            
             if (id != null)
             {
                 sb.Append(" id=\"");

@@ -3,41 +3,43 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Test Run</title>
+    <title style="">My Test Run</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <style>.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }</style>
+    <style> ul.steps, div.output, div.mp, dl.exception { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; } li.scenario h4 { margin: .5em; } ol.features { padding: .5em; } li.feature { margin: 1.5em; padding: .1em 2em; box-shadow: 1px 1px 8px 1px rgb(202, 202, 202); } li.scenario .panel { margin: 2em; }</style>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
     <script language="javascript" type="text/javascript">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }</script>
 </head>
-<body class="container-fluid">
-    <h1 class="testrun-name text-success">My Test Run</h1>
-    <ol class="areas">
-        <li class="area">
-            <h2>My Area 1</h2>
-            <ol class="features">
-                <li class="feature">
-                    <h3>My Feature 1</h3>
-                    <ol class="scenarios">
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">My Scenario 1</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
-                                    <h5>Given my step 1</h5>
-                                    <pre class="text" id="output-1">Here
- is
- my
- output!</pre>
+<body class="container-fluid" style="">
+    <div class="page-header" style="">
+        <h1 class="testrun-name text-success" style="">My Test Run</h1>
+    </div>
+    <ol class="areas list-unstyled" style="">
+        <li class="area" style="">
+            <h2 class="text-success" style="">My Area 11</h2>
+            <ol class="features list-unstyled" style="box-shadow: inset 1px 1px 8px 1px #5A8B5B;">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #5A8B5B;">
+                    <h3 class="text-success" style="">My Feature 1</h3>
+                    <ol class="scenarios list-unstyled" style="">
+                        <li class="scenario passed" style="">
+                            <div class="panel  panel-default" style="">
+                            <div class="panel-heading" style="">My Scenario 1</div>
+                            <div class="panel-body" style="">
+                            <ol class="steps list-unstyled" style="">
+                                <li class="step passed text-success" style="">
+                                    <h5 style="">Given my step 1</h5>
                                 </li>
-                                <li class="step passed text-success">
-                                    <h5>When my step 2</h5>
+                                <li class="step passed text-success" style="">
+                                    <h5 style="">When my step 2</h5>
                                 </li>
-                                <li class="step passed text-success">
-                                    <h5>Then my step 3</h5>
+                                <li class="step passed text-success" style="">
+                                    <h5 style="">Then my step 3</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>

@@ -5,15 +5,17 @@ using Xunit.Abstractions;
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 {
 	[Collection("xBDDReportingTest")]
-	public class CollapseAndExpandException
+	public class CollapseAndExpandOutput
 	{
 		private readonly OutputWriter outputWriter;
 
-		public CollapseAndExpandException(ITestOutputHelper output)
+		public CollapseAndExpandOutput(ITestOutputHelper output)
 		{
 			outputWriter = new OutputWriter(output);
 		}
+		
 		[ScenarioFact]
+		[Trait("category", "today")]
 		public void Collapse()
 		{
 			 xBDD.CurrentRun.AddScenario(this)

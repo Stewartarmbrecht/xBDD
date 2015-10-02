@@ -34,75 +34,75 @@ namespace xBDD.Reporting.Test.Features.WriteResults
                 .Run();
         }
 
-        [ScenarioFact]
-        public void WriteEmtpyTestRun()
-        {
-            Run(new WriteToHtmlScenarios.EmptyTestRun());
-        }
-        [ScenarioFact]
-        public void WriteRunEmptyScenario()
-        {
-            Run(new WriteToHtmlScenarios.RunEmptyScenario());
-        }
-        [ScenarioFact]
-        public void WriteSkippedEmptyScenario()
-        {
-            Run(new WriteToHtmlScenarios.SkippedEmptyScenario());
-        }
-        [ScenarioFact]
-        public void WriteSkippedScenarioWithSteps()
-        {
-            Run(new WriteToHtmlScenarios.SkippedScenarioWithSteps());
-        }
-        [ScenarioFact]
-        public void WriteRunScenarioWithSteps()
-        {
-            Run(new WriteToHtmlScenarios.RunScenarioWithSteps());
-        }
-        [ScenarioFact]
-        public void WriteRunScenarioWithSkippedStep()
-        {
-            Run(new WriteToHtmlScenarios.RunScenarioWithSkippedStep());
-        }
-        [ScenarioFact]
-        public void WriteRunScenarioWithNotImplementedStep()
-        {
-            Run(new WriteToHtmlScenarios.RunScenarioWithNotImplementedStep());
-        }
-        [ScenarioFact]
-        public void WriteRunScenarioWithFailedStep()
-        {
-            Run(new WriteToHtmlScenarios.RunScenarioWithFailedStep());
-        }
-        [ScenarioFact]
-        public void WriteRunMultipleWriteToHtmlScenariosSameFeature()
-        {
-            Run(new WriteToHtmlScenarios.RunMultipleScenariosSameFeature());
-        }
-        [ScenarioFact]
-        public void WriteRunMultipleFeaturesSameArea()
-        {
-            Run(new WriteToHtmlScenarios.RunMultipleFeaturesSameArea());
-        }
-        [ScenarioFact]
-        public void WriteRunMultipleAreas()
-        {
-            Run(new WriteToHtmlScenarios.RunMultipleAreas());
-        }
-        [ScenarioFact]
-        public void WriteRunScenarioWithStepWithMultilineParameter()
-        {
-            Run(new WriteToHtmlScenarios.RunScenarioWithStepWithMultilineParameter());
-        }
-        [ScenarioFact]
-        public void WriteRunScenarioWithStepWithMultilineParameterWithFormatting()
-        {
-            Run(new WriteToHtmlScenarios.RunScenarioWithStepWithMultilineParameterWithFormatting());
-        }
-        [ScenarioFact]
-        public void WriteRunScenarioWithStepWithMultilineParameterWithHtmlFormattingAndPreview()
-        {
-            Run(new WriteToHtmlScenarios.RunScenarioWithStepWithMultilineParameterWithHtmlFormattingAndPreview());
-        }
+        //  [ScenarioFact]
+        //  public void WriteEmtpyTestRun()
+        //  {
+        //      Run(new WriteToHtmlScenarios.EmptyTestRun());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteRunEmptyScenario()
+        //  {
+        //      Run(new WriteToHtmlScenarios.RunEmptyScenario());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteSkippedEmptyScenario()
+        //  {
+        //      Run(new WriteToHtmlScenarios.SkippedEmptyScenario());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteSkippedScenarioWithSteps()
+        //  {
+        //      Run(new WriteToHtmlScenarios.SkippedScenarioWithSteps());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteRunScenarioWithSteps()
+        //  {
+        //      Run(new WriteToHtmlScenarios.RunScenarioWithSteps());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteRunScenarioWithSkippedStep()
+        //  {
+        //      Run(new WriteToHtmlScenarios.RunScenarioWithSkippedStep());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteRunScenarioWithNotImplementedStep()
+        //  {
+        //      Run(new WriteToHtmlScenarios.RunScenarioWithNotImplementedStep());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteRunScenarioWithFailedStep()
+        //  {
+        //      Run(new WriteToHtmlScenarios.RunScenarioWithFailedStep());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteRunMultipleWriteToHtmlScenariosSameFeature()
+        //  {
+        //      Run(new WriteToHtmlScenarios.RunMultipleScenariosSameFeature());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteRunMultipleFeaturesSameArea()
+        //  {
+        //      Run(new WriteToHtmlScenarios.RunMultipleFeaturesSameArea());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteRunMultipleAreas()
+        //  {
+        //      Run(new WriteToHtmlScenarios.RunMultipleAreas());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteRunScenarioWithStepWithMultilineParameter()
+        //  {
+        //      Run(new WriteToHtmlScenarios.RunScenarioWithStepWithMultilineParameter());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteRunScenarioWithStepWithMultilineParameterWithFormatting()
+        //  {
+        //      Run(new WriteToHtmlScenarios.RunScenarioWithStepWithMultilineParameterWithFormatting());
+        //  }
+        //  [ScenarioFact]
+        //  public void WriteRunScenarioWithStepWithMultilineParameterWithHtmlFormattingAndPreview()
+        //  {
+        //      Run(new WriteToHtmlScenarios.RunScenarioWithStepWithMultilineParameterWithHtmlFormattingAndPreview());
+        //  }
     }
 }

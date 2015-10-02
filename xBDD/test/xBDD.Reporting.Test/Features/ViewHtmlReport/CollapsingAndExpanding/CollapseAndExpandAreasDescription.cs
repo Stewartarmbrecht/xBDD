@@ -5,11 +5,11 @@ using Xunit.Abstractions;
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 {
 	[Collection("xBDDReportingTest")]
-	public class CollapseAndExpandException
+	public class CollapseAndExpandAreaDescription
 	{
 		private readonly OutputWriter outputWriter;
 
-		public CollapseAndExpandException(ITestOutputHelper output)
+		public CollapseAndExpandAreaDescription(ITestOutputHelper output)
 		{
 			outputWriter = new OutputWriter(output);
 		}
