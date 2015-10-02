@@ -84,6 +84,7 @@ namespace xBDD.Test
                 Console.WriteLine("Saving to the database was skipped.");
             }
 
+            xBDD.CurrentRun.TestRun.Areas.ForEach(x => { x.Name = x.Name.Replace(ProjectName + ".Features.", ""); });
             File.WriteAllText(ProjectName + ".TestResults.txt", xBDD.CurrentRun.TestRun.WriteToText());
             File.WriteAllText(ProjectName + ".TestResults.html", xBDD.CurrentRun.TestRun.WriteToHtml());
         }

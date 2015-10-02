@@ -156,7 +156,7 @@ namespace xBDD.Reporting.Html
             }
             style = "box-shadow: inset 1px 1px 8px 1px "+style+";";
             WriteTagOpener("li", sb, 2, "area", false);
-            WriteTag("h2", sb, 3, className, scenario.Feature.Area.Name.HtmlEncode(), true);
+            WriteTag("h2", sb, 3, className, scenario.Feature.Area.Name.Replace('.',' ').HtmlEncode(), true);
             WriteTagOpener("ol", sb, 3, "features list-unstyled", false, null, style);
         }
         void WriteAreaClose(StringBuilder sb)
@@ -354,11 +354,7 @@ namespace xBDD.Reporting.Html
                                         </ul>
                                         <div class=""tab-content"">
                                             <div role=""tabpanel"" class=""tab-pane active"" id=""preview{0}"">
-                                                <div class=""panel panel-default"">
-                                                    <div class=""panel-body"">
-                                                        <iframe width=""100%"" id=""iframe{0}""></iframe>
-                                                    </div>
-                                                </div>
+                                                <iframe width=""100%"" id=""iframe{0}""></iframe>
                                                 <script type=""text/javascript"">
                                                     var iframe{0}doc = document.getElementById('iframe{0}').contentWindow.document;
                                                     iframe{0}doc.open();
@@ -417,11 +413,7 @@ namespace xBDD.Reporting.Html
                                         </ul>
                                         <div class=""tab-content"">
                                             <div role=""tabpanel"" class=""tab-pane active"" id=""output-preview-{0}"">
-                                                <div class=""panel panel-default"">
-                                                    <div class=""panel-body"">
-                                                        <iframe width=""100%"" id=""iframe{0}""></iframe>
-                                                    </div>
-                                                </div>
+                                                <iframe width=""100%"" id=""iframe{0}""></iframe>
                                                 <script type=""text/javascript"">
                                                     var iframe{0}doc = document.getElementById('iframe{0}').contentWindow.document;
                                                     iframe{0}doc.open();

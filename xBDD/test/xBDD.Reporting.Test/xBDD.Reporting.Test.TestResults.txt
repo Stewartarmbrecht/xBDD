@@ -1,11 +1,11 @@
-xBDD.Reporting.Test 2015-10-02T16:09:38
+xBDD.Reporting.Test 2015-10-02T16:37:13
 
-xBDD.Reporting.Test.Features.ViewHtmlReport
+ViewHtmlReport
 	Write To Html
 		Get String
 			When the code calls 'xBDD.CurrentRun.WriteToHTML()
 			Then the code should return a string value of the html report
-xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
+ViewHtmlReport.CollapsingAndExpanding
 	Collapse And Expand Area
 		Collapse [Skipped - Not Started]
 		Collapse All [Skipped - Not Started]
@@ -30,7 +30,7 @@ xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 		Default Collapsed When More Than5 [Skipped - Not Started]
 		Expand [Skipped - Not Started]
 		Expand All [Skipped - Not Started]
-xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
+ViewHtmlReport.ViewResults
 	View Area
 		Failing [Skipped - Not Started]
 		Mulitple [Skipped - Not Started]
@@ -48,7 +48,7 @@ xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		Name [Skipped - Not Started]
 		Passing [Skipped - Not Started]
 		Skipped [Skipped - Not Started]
-xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls
+ViewHtmlReport.ViewResutls
 	View Step Output
 		Code [Skipped - Not Started]
 		General Text
@@ -75,7 +75,7 @@ xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls
 			Given the test results of a skipped test run
 			When the user views the html report
 			Then the report will show the test run name in yellow to indicate the test run passed
-xBDD.Reporting.Test.Features.WriteResults
+WriteResults
 	Browse Html Report
 		View Empty Test Run
 			Given the test results of an empty test run
