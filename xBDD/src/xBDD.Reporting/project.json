@@ -11,13 +11,13 @@
   },
   "userSecretsId": "xBDD",
   "frameworks": {
+    "dnx451": { },
+    "dnxcore50": { },
     "dotnet": {
       "dependencies": {
         "System.IO": "4.0.10"
       }
-    },
-    "dnx451": { },
-    "dnxcore50": { }
+    }
   },
   "configurations": {
     "Publish": { }

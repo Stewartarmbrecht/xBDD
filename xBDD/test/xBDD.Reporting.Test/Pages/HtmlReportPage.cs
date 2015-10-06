@@ -24,8 +24,71 @@ namespace xBDD.Reporting.Test.Pages
             return report;
         }
 
+        internal void ClickArea(int areaNumber)
+        {
+            IWebElement area = driver.FindElement(By.CssSelector("#area-" + areaNumber + " h2"));
+            area.Click();
+        }
+
+        internal IWebElement AreaFeatures(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-" + areaNumber + " ol.features"));
+        }
+
         [FindsBy(How = How.ClassName, Using = "testrun-name")]
         public IWebElement TestRunName { get; set; }
+        [FindsBy(How = How.Id, Using = "menu")]
+        public IWebElement Menu { get; internal set; }
+        [FindsBy(How = How.Id, Using = "menu-button")]
+        public IWebElement MenuButton { get; internal set; }
+
+        [FindsBy(How = How.Id, Using = "collapse-all-areas-button")]
+        public IWebElement CollapseAllAreasButton { get; internal set; }
+
+        internal IWebElement Exception(int stepNumber)
+        {
+            return  driver.FindElement(By.CssSelector("#step-" + stepNumber + " dl.exception"));
+        }
+
+        internal IWebElement ExceptionType(int stepNumber)
+        {
+            return  driver.FindElement(By.CssSelector("#step-" + stepNumber + " dl.exception dd.error-type"));
+        }
+
+        internal IWebElement ExceptionMessage(int stepNumber)
+        {
+            return  driver.FindElement(By.CssSelector("#step-" + stepNumber + " dl.exception dd.error-message"));
+        }
+
+        internal IWebElement ExceptionStackTrace(int stepNumber)
+        {
+            return  driver.FindElement(By.CssSelector("#step-" + stepNumber + " dl.exception dd.error-stack"));
+        }
+
+        internal IWebElement InnerException(int stepNumber)
+        {
+            var selector = "#step-" + stepNumber + " dl.exception>dd.inner-exception>dl.exception";
+            return  driver.FindElement(By.CssSelector(selector));
+        }
+
+        internal IWebElement InnerExceptionType(int stepNumber)
+        {
+            var selector = "#step-" + stepNumber + " dl.exception>dd.inner-exception>dl.exception>dd.error-type";
+            return  driver.FindElement(By.CssSelector(selector));
+        }
+
+        internal IWebElement InnerExceptionMessage(int stepNumber)
+        {
+            var selector = "#step-" + stepNumber + " dl.exception>dd.inner-exception>dl.exception>dd.error-message";
+            return  driver.FindElement(By.CssSelector(selector));
+        }
+
+        internal IWebElement InnerExceptionStackTrace(int stepNumber)
+        {
+            var selector = "#step-" + stepNumber + " dl.exception>dd.inner-exception>dl.exception>dd.error-stack";
+            return  driver.FindElement(By.CssSelector(selector));
+        }
+
         public string Title { get { return driver.Title; } }
 
         public string Html { get { return driver.PageSource; } }
@@ -38,6 +101,7 @@ namespace xBDD.Reporting.Test.Pages
                 text = outputPre.Text;
             return text;
         }
+
         public TextFormat? GetStepOutputFormat(int stepNumber)
         {
             TextFormat? format = null;

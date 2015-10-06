@@ -27,7 +27,8 @@
         "System.Runtime.Extensions": "4.0.10",
         "System.Threading": "4.0.10"
       }
-    }
+    },
+    "dotnet": { }
   },
   "configurations": {
     "Publish": { }

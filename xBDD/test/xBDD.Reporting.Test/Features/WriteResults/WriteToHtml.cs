@@ -1,9 +1,6 @@
-﻿using System.Runtime.CompilerServices;
-using Xunit;
+﻿using Xunit;
 using Xunit.Abstractions;
-using xBDD.Test;
 using xBDD.xUnit;
-using xBDD.Reporting.Test.Steps;
 
 namespace xBDD.Reporting.Test.Features.WriteResults
 {
@@ -17,22 +14,22 @@ namespace xBDD.Reporting.Test.Features.WriteResults
             outputWriter = new OutputWriter(output);
         }
 
-        public void Run(IExecute<string> action, bool writeActual = false, [CallerMemberName]string methodName = "")
-        {
-            var actionName = action.GetType().Name;
-            Wrapper<string> text = new Wrapper<string>();
-            xBDD.CurrentRun
-                .AddScenario(this, methodName)
-                .SetOutputWriter(outputWriter)
-                .Given(Code.HasMethod("\\Features\\WriteResults\\WriteToHtmlScenarios\\" + actionName + ".cs"))
-                .When(Code.ExecuteMethod((s) =>
-                {
-                    text.Object = action.Execute();
-                }))
-                .Then(HtmlReport.ShouldMatch(
-                    "\\Features\\WriteResults\\WriteToHtmlScenarios\\" + actionName + ".html", text, writeActual, "html", TextFormat.htmlpreview))
-                .Run();
-        }
+        //  public void Run(IExecute<string> action, bool writeActual = false, [CallerMemberName]string methodName = "")
+        //  {
+        //      var actionName = action.GetType().Name;
+        //      Wrapper<string> text = new Wrapper<string>();
+        //      xBDD.CurrentRun
+        //          .AddScenario(this, methodName)
+        //          .SetOutputWriter(outputWriter)
+        //          .Given(Code.HasMethod("\\Features\\WriteResults\\WriteToHtmlScenarios\\" + actionName + ".cs"))
+        //          .When(Code.ExecuteMethod((s) =>
+        //          {
+        //              text.Object = action.Execute();
+        //          }))
+        //          .Then(HtmlReport.ShouldMatch(
+        //              "\\Features\\WriteResults\\WriteToHtmlScenarios\\" + actionName + ".html", text, writeActual, "html", TextFormat.htmlpreview))
+        //          .Run();
+        //  }
 
         //  [ScenarioFact]
         //  public void WriteEmtpyTestRun()

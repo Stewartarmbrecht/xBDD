@@ -29,7 +29,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults
                 {
                     text.Object = action.Execute();
                 }))
-                .Then(HtmlReport.ShouldMatch(
+                .Then(TextReport.ShouldMatch(
                     "\\Features\\WriteResults\\WriteToTextScenarios\\" + actionName + ".txt", text, writeActual))
                 .Run();
         }

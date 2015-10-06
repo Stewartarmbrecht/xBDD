@@ -3,140 +3,181 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>xBDD.Test 2015-09-30T17:36:32</title>
+    <title>xBDD.Test 2015-10-05T23:05:03</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <style>.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }</style>
+    <style> ul.steps, div.output, div.mp, dl.exception { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; } li.scenario h4 { margin: .5em; } ol.features { padding: .5em; } li.feature { margin: 1.5em; padding: .1em 2em; box-shadow: 1px 1px 8px 1px rgb(202, 202, 202); } li.scenario .panel { margin: 2em; }</style>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
     <script language="javascript" type="text/javascript">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }</script>
 </head>
 <body class="container-fluid">
-    <h1 class="testrun-name text-success">xBDD.Test 2015-09-30T17:36:32</h1>
-    <ol class="areas">
-        <li class="area">
-            <h2>xBDD.Test.Features.Environment</h2>
-            <ol class="features">
-                <li class="feature">
-                    <h3>Publish Test Results To Central Database</h3>
-                    <ol class="scenarios">
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Publish After CI Test Run</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+    <nav class="navbar navbar-default" id="menu">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" id="menu-button"type="button" data-toggle="collapse" data-target="#menu-body" aria-expanded="false">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="menu-body">
+                <ul class="nav navbar-nav">
+                    <li>
+                    <a id="collapse-all-areas-button"href="javascript: $('ol.features').collapse('hide');">Collapse All Areas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-header">
+        <h1 class="testrun-name text-success">xBDD.Test 2015-10-05T23:05:03</h1>
+    </div>
+    <ol class="areas list-unstyled">
+        <li class="area" id="area-1">
+            <h2 class="text-success"data-toggle="collapse" href="#area-1-features" aria-expanded="true" aria-controls="area-1-features" >Environment</h2>
+            <ol class="features list-unstyled collapse in" style="border-left: 2px solid #5A8B5B;" id="area-1-features"aria-expanded="true">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #5A8B5B;">
+                    <h3 class="text-success">Publish Test Results To Central Database</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Publish After CI Test Run</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-1">
                                     <h5>When the developer pushes a commit to the master branch</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-2">
                                     <h5>Then the CI process should build the solution, run the tests, and publish the results to a central database</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Publish After Test Run</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Publish After Test Run</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-3">
                                     <h5>Given the developer sets the solution to the Publish configuration</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-4">
                                     <h5>And the developer defines a valid connection string for an environment variable named 'Data:DefaultConnection:ConnectionString'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-5">
                                     <h5>When the developer runs the tests</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-6">
                                     <h5>Then the test results should be published to the database</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Run Tests</h3>
-                    <ol class="scenarios">
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Run All Tests</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #5A8B5B;">
+                    <h3 class="text-success">Run Tests</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Run All Tests</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-7">
                                     <h5>Given a contributor has downloaded the solution</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-8">
                                     <h5>And the contributor runs the xBDD\RunJustTests.ps1 powershell script</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-9">
                                     <h5>Then all tests will run</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-10">
                                     <h5>And the test results will be written in plain text to the &lt;ProjectName&gt;.TestResults.txt file at the root of each project</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-11">
                                     <h5>And the test results will be written in html to the &lt;ProjectName&gt;.TestResults.html file at the root of each project</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-12">
                                     <h5>And the output from running the tests will be written to the &lt;ProjectName&gt;.Output.txt file at the root of each project</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Run Filtered Tests</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Run Filtered Tests</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-13">
                                     <h5>Given a contributor has downloaded the solution</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-14">
                                     <h5>And marked a test method with a trait: '[Trait(&quot;category&quot;, &quot;now&quot;)]'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-15">
                                     <h5>And has opened powershell</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-16">
                                     <h5>And has navigated to the root folder of a project in powershell</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-17">
                                     <h5>When the contributor runs 'dnx xunit.runner.dnx -trait &quot;category=now&quot;</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-18">
                                     <h5>Then only the test that was marked will run</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-19">
                                     <h5>And the test results will be written in plain text to the &lt;ProjectName&gt;.TestResults.txt file at the root of the project</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-20">
                                     <h5>And the test results will be written in html to the &lt;ProjectName&gt;.TestResults.html file at the root of the project</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-21">
                                     <h5>And the output from running the tests will be written to the &lt;ProjectName&gt;.Output.txt file at the root of the project</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Run Project Tests</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Run Project Tests</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-22">
                                     <h5>Given a contributor has downloaded the solution</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-23">
                                     <h5>And opened powershell</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-24">
                                     <h5>And has navigated to the root folder of a project in powershell</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-25">
                                     <h5>When the contributor runs 'dnx test' in powershell</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-26">
                                     <h5>Then all tests in that project will run</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-27">
                                     <h5>And the test results will be written in plain text to the &lt;ProjectName&gt;.TestResults.txt file at the root of the project</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-28">
                                     <h5>And the test results will be written in html to the &lt;ProjectName&gt;.TestResults.html file at the root of the project</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-29">
                                     <h5>And the output from running the tests will be written to the &lt;ProjectName&gt;.Output.txt file at the root of the project</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>

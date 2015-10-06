@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title style="">My Test Run</title>
+    <title>My Test Run</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <style> ul.steps, div.output, div.mp, dl.exception { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; } li.scenario h4 { margin: .5em; } ol.features { padding: .5em; } li.feature { margin: 1.5em; padding: .1em 2em; box-shadow: 1px 1px 8px 1px rgb(202, 202, 202); } li.scenario .panel { margin: 2em; }</style>
@@ -12,30 +12,49 @@
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
     <script language="javascript" type="text/javascript">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }</script>
 </head>
-<body class="container-fluid" style="">
-    <div class="page-header" style="">
-        <h1 class="testrun-name text-success" style="">My Test Run</h1>
+<body class="container-fluid">
+    <nav class="navbar navbar-default" id="menu">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" id="menu-button"type="button" data-toggle="collapse" data-target="#menu-body" aria-expanded="false">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="menu-body">
+                <ul class="nav navbar-nav">
+                    <li>
+                    <a id="collapse-all-areas-button"href="javascript: $('ol.features').collapse('hide');">Collapse All Areas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-header">
+        <h1 class="testrun-name text-warning">My Test Run</h1>
     </div>
-    <ol class="areas list-unstyled" style="">
-        <li class="area" style="">
-            <h2 class="text-success" style="">My Area 11</h2>
-            <ol class="features list-unstyled" style="box-shadow: inset 1px 1px 8px 1px #5A8B5B;">
-                <li class="feature" style="box-shadow: 1px 1px 8px 1px #5A8B5B;">
-                    <h3 class="text-success" style="">My Feature 1</h3>
-                    <ol class="scenarios list-unstyled" style="">
-                        <li class="scenario passed" style="">
-                            <div class="panel  panel-default" style="">
-                            <div class="panel-heading" style="">My Scenario 1</div>
-                            <div class="panel-body" style="">
-                            <ol class="steps list-unstyled" style="">
-                                <li class="step passed text-success" style="">
-                                    <h5 style="">Given my step 1</h5>
+    <ol class="areas list-unstyled">
+        <li class="area" id="area-1">
+            <h2 class="text-warning"data-toggle="collapse" href="#area-1-features" aria-expanded="true" aria-controls="area-1-features" >My Area 11</h2>
+            <ol class="features list-unstyled collapse in" style="border-left: 2px solid #917545;" id="area-1-features"aria-expanded="true">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">My Feature 1</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">My Scenario 1 [Skipped - Not Started]</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step skipped text-warning" id="step-1">
+                                    <h5>Given my step 1</h5>
                                 </li>
-                                <li class="step passed text-success" style="">
-                                    <h5 style="">When my step 2</h5>
+                                <li class="step skipped text-warning" id="step-2">
+                                    <h5>When my step 2</h5>
                                 </li>
-                                <li class="step passed text-success" style="">
-                                    <h5 style="">Then my step 3</h5>
+                                <li class="step skipped text-warning" id="step-3">
+                                    <h5>Then my step 3</h5>
                                 </li>
                             </ol>
                             </div>

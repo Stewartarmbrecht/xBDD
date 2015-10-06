@@ -3,238 +3,383 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>xBDD.Core.Test 2015-10-01T06:28:24</title>
+    <title>xBDD.Core.Test 2015-10-05T23:05:05</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <style>.mp { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; }</style>
+    <style> ul.steps, div.output, div.mp, dl.exception { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; } li.scenario h4 { margin: .5em; } ol.features { padding: .5em; } li.feature { margin: 1.5em; padding: .1em 2em; box-shadow: 1px 1px 8px 1px rgb(202, 202, 202); } li.scenario .panel { margin: 2em; }</style>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
     <script language="javascript" type="text/javascript">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }</script>
 </head>
 <body class="container-fluid">
-    <h1 class="testrun-name text-warning">xBDD.Core.Test 2015-10-01T06:28:24</h1>
-    <ol class="areas">
-        <li class="area">
-            <h2>xBDD.Core.Test.Features.CompileStats</h2>
-            <ol class="features">
-                <li class="feature">
-                    <h3>Compile Test Run Results</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Completed Test Run [Skipped - Not Started]</h4>
+    <nav class="navbar navbar-default" id="menu">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" id="menu-button"type="button" data-toggle="collapse" data-target="#menu-body" aria-expanded="false">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="menu-body">
+                <ul class="nav navbar-nav">
+                    <li>
+                    <a id="collapse-all-areas-button"href="javascript: $('ol.features').collapse('hide');">Collapse All Areas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-header">
+        <h1 class="testrun-name text-warning">xBDD.Core.Test 2015-10-05T23:05:05</h1>
+    </div>
+    <ol class="areas list-unstyled">
+        <li class="area" id="area-1">
+            <h2 class="text-warning"data-toggle="collapse" href="#area-1-features" aria-expanded="true" aria-controls="area-1-features" >CompileStats</h2>
+            <ol class="features list-unstyled collapse in" style="border-left: 2px solid #917545;" id="area-1-features"aria-expanded="true">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">Compile Test Run Results</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Completed Test Run [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Empty Test Run [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Empty Test Run [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With Area Path Specified [Skipped - Not Started]</h4>
-                        </li>
-                    </ol>
-                </li>
-                <li class="feature">
-                    <h3>View Area Stats</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Area Failed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Area Passed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Area Skipped Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Area Total Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Area Failed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Area Passed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Area Skipped Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Area Total Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Feature Failed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Feature Passed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Feature Skipped Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Feature Total Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Scenario Failed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Scenario Passed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Scenario Skipped Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Scenario Total Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Step Failed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Step Passed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Step Skipped Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Descendent Step Total Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Duration [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">End Time [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Feature Failed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Feature Passed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Feature Skipped Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Feature Total Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Outcome [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Scenario Failed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Scenario Passed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Scenario Skipped Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Scenario Total Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Start Time [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Step Failed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Step Passed Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Step Skipped Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Step Total Count [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Time [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With Area Path Specified [Skipped - Not Started]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>View Feature Stats</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Duration [Skipped - Not Started]</h4>
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">View Area Stats</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Area Failed Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">End Time [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Area Passed Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Outcome [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Area Skipped Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Scenario Failed Count [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Area Total Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Scenario Passed Count [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Area Failed Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Scenario Skipped Count [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Area Passed Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Scenario Total Count [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Area Skipped Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Start Time [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Area Total Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Step Failed Count [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Feature Failed Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Step Passed Count [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Feature Passed Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Step Skipped Count [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Feature Skipped Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Step Total Count [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Feature Total Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Time [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Scenario Failed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Scenario Passed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Scenario Skipped Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Scenario Total Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Step Failed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Step Passed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Step Skipped Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Descendent Step Total Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Duration [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">End Time [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Feature Failed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Feature Passed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Feature Skipped Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Feature Total Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Outcome [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Scenario Failed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Scenario Passed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Scenario Skipped Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Scenario Total Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Start Time [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Step Failed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Step Passed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Step Skipped Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Step Total Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Time [Skipped - Not Started]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>View Scenario Stats</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Duration [Skipped - Not Started]</h4>
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">View Feature Stats</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Duration [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">End Time [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">End Time [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Outcome [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Outcome [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Start Time [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Scenario Failed Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Step Failed Count [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Scenario Passed Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Step Passed Count [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Scenario Skipped Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Step Skipped Count [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Scenario Total Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Step Total Count [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Start Time [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Step Failed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Step Passed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Step Skipped Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Step Total Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Time [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                    </ol>
+                </li>
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">View Scenario Stats</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Duration [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">End Time [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Outcome [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Start Time [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Step Failed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Step Passed Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Step Skipped Count [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Step Total Count [Skipped - Not Started]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
             </ol>
         </li>
-        <li class="area">
-            <h2>xBDD.Core.Test.Features.DefineScenarios</h2>
-            <ol class="features">
-                <li class="feature">
-                    <h3>Add A Scenario</h3>
-                    <ol class="scenarios">
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Default Method</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+        <li class="area" id="area-2">
+            <h2 class="text-warning"data-toggle="collapse" href="#area-2-features" aria-expanded="true" aria-controls="area-2-features" >DefineScenarios</h2>
+            <ol class="features list-unstyled collapse in" style="border-left: 2px solid #917545;" id="area-2-features"aria-expanded="true">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #5A8B5B;">
+                    <h3 class="text-success">Add A Scenario</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Default Method</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-1">
                                     <h5>Given the following method</h5>
-                                    <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAScenarioDefaultSample
     {
@@ -244,31 +389,36 @@
         }
     }
 }
-</pre>
+                                        </pre>
+</div>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-2">
                                     <h5>When the method is executed</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-3">
                                     <h5>Then the scenario will be created</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-4">
                                     <h5>And the scenario name will match the method name with spaces: 'Default Scenario Add'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-5">
                                     <h5>And the feature name will match the class name with spaces: 'Add A Scenario Default Sample'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-6">
                                     <h5>And the area path will match the namespace: 'xBDD.Core.Test.Features.DefineScenarios.SampleCode'</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">With Explicit Name</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">With Explicit Name</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-7">
                                     <h5>Given the following method</h5>
-                                    <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAScenarioExplicitNameSample
     {
@@ -278,36 +428,41 @@
         }
     }
 }
-</pre>
+                                        </pre>
+</div>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-8">
                                     <h5>When the method is executed</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-9">
                                     <h5>Then the scenario will be created</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-10">
                                     <h5>And the scenario name will match the method name with spaces: 'My Explicit Scenario Name'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-11">
                                     <h5>And the feature name will match the class name with spaces: 'Add A Scenario Explicit Name Sample'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-12">
                                     <h5>And the area path will match the namespace: 'xBDD.Core.Test.Features.DefineScenarios.SampleCode'</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Add A Step</h3>
-                    <ol class="scenarios">
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">And</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #5A8B5B;">
+                    <h3 class="text-success">Add A Step</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">And</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-13">
                                     <h5>Given the following method</h5>
-                                    <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAnAndStep
     {
@@ -322,37 +477,42 @@
         }
     }
 }
-</pre>
+                                        </pre>
+</div>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-14">
                                     <h5>When the method is executed</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-15">
                                     <h5>Then the scenario will be created</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-16">
                                     <h5>And the scenario will have a step at position 4</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-17">
                                     <h5>And the step name will be 'my extra ending condition'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-18">
                                     <h5>And the full step name will be 'And my extra ending condition'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-19">
                                     <h5>And the step will have an action defined</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-20">
                                     <h5>And the step action type will be And</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Async</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Async</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-21">
                                     <h5>Given the following method</h5>
-                                    <pre class="mp prettyprint lang-cs">using System.Threading.Tasks;
+                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">using System.Threading.Tasks;
 
 namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
@@ -366,37 +526,42 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
         }
     }
 }
-</pre>
+                                        </pre>
+</div>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-22">
                                     <h5>When the method is executed</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-23">
                                     <h5>Then the scenario will be created</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-24">
                                     <h5>And the scenario will have a step at position 1</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-25">
                                     <h5>And the step name will be 'my async starting condition'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-26">
                                     <h5>And the full step name will be 'Given my async starting condition'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-27">
                                     <h5>And the step will have an async action defined</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-28">
                                     <h5>And the step action type will be Given</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Given</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Given</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-29">
                                     <h5>Given the following method</h5>
-                                    <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAGivenStep
     {
@@ -408,37 +573,42 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
         }
     }
 }
-</pre>
+                                        </pre>
+</div>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-30">
                                     <h5>When the method is executed</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-31">
                                     <h5>Then the scenario will be created</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-32">
                                     <h5>And the scenario will have a step at position 1</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-33">
                                     <h5>And the step name will be 'my starting condition'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-34">
                                     <h5>And the full step name will be 'Given my starting condition'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-35">
                                     <h5>And the step will have an action defined</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-36">
                                     <h5>And the step action type will be Given</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Given With No Action</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Given With No Action</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-37">
                                     <h5>Given the following method</h5>
-                                    <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAGivenStepWithNoAction
     {
@@ -450,37 +620,42 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
         }
     }
 }
-</pre>
+                                        </pre>
+</div>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-38">
                                     <h5>When the method is executed</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-39">
                                     <h5>Then the scenario will be created</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-40">
                                     <h5>And the scenario will have a step at position 1</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-41">
                                     <h5>And the step name will be 'my starting condition that needs no action'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-42">
                                     <h5>And the full step name will be 'Given my starting condition that needs no action'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-43">
                                     <h5>And the step will have an action defined</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-44">
                                     <h5>And the step action type will be Given</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Reusable Step</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Reusable Step</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-45">
                                     <h5>Given the following method</h5>
-                                    <pre class="mp prettyprint lang-cs">using xBDD.Model;
+                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">using xBDD.Model;
 
 namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
@@ -506,25 +681,30 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
         }
     }
 }
-</pre>
+                                        </pre>
+</div>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-46">
                                     <h5>When the method is executed</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-47">
                                     <h5>And the scenario will have a step at position 1</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-48">
                                     <h5>And the step name will be 'the user performs an action'</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Reusable Step That Takes A Static Parameter</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Reusable Step That Takes A Static Parameter</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-49">
                                     <h5>Given the following method</h5>
-                                    <pre class="mp prettyprint lang-cs">using xBDD.Model;
+                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">using xBDD.Model;
 
 namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
@@ -550,25 +730,30 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
         }
     }
 }
-</pre>
+                                        </pre>
+</div>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-50">
                                     <h5>When the method is executed</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-51">
                                     <h5>And the scenario will have a step at position 1</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-52">
                                     <h5>And the step name will be 'the user performs a 'save' action'</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Then</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Then</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-53">
                                     <h5>Given the following method</h5>
-                                    <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAThenStep
     {
@@ -582,37 +767,42 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
         }
     }
 }
-</pre>
+                                        </pre>
+</div>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-54">
                                     <h5>When the method is executed</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-55">
                                     <h5>Then the scenario will be created</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-56">
                                     <h5>And the scenario will have a step at position 3</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-57">
                                     <h5>And the step name will be 'my ending condition'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-58">
                                     <h5>And the full step name will be 'Then my ending condition'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-59">
                                     <h5>And the step will have an action defined</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-60">
                                     <h5>And the step action type will be Then</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">When</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">When</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-61">
                                     <h5>Given the following method</h5>
-                                    <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 {
     public class AddAWhenStep
     {
@@ -625,373 +815,506 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
         }
     }
 }
-</pre>
+                                        </pre>
+</div>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-62">
                                     <h5>When the method is executed</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-63">
                                     <h5>Then the scenario will be created</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-64">
                                     <h5>And the scenario will have a step at position 2</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-65">
                                     <h5>And the step name will be 'my action'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-66">
                                     <h5>And the full step name will be 'When my action'</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-67">
                                     <h5>And the step will have an action defined</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-68">
                                     <h5>And the step action type will be When</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Create A Test Run</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Manually [Skipped - Re-writing]</h4>
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">Create A Test Run</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Manually [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Throughx BDD Current Test Run [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Throughx BDD Current Test Run [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Throughx BDD Current Test Run2Times [Skipped - Re-writing]</h4>
-                        </li>
-                    </ol>
-                </li>
-                <li class="feature">
-                    <h3>Organize Steps</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">In A Step Library [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">In A Step Library Shared Across Areas [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Throughx BDD Current Test Run2Times [Skipped - Re-writing]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Specify Parameters</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Inline With Dynamic State [Skipped - Not Started]</h4>
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">Organize Steps</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">In A Step Library [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Inline With Typed State [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">In A Step Library Shared Across Areas [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Multiline Parameter [Skipped - Not Started]</h4>
+                    </ol>
+                </li>
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">Specify Parameters</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Inline With Dynamic State [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Table Parameter [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Inline With Typed State [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Multiline Parameter [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Table Parameter [Skipped - Not Started]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
             </ol>
         </li>
-        <li class="area">
-            <h2>xBDD.Core.Test.Features.DefineScenarios.SampleCode</h2>
-            <ol class="features">
-                <li class="feature">
-                    <h3>Add A Given Step</h3>
-                    <ol class="scenarios">
+        <li class="area" id="area-3">
+            <h2 class="text-muted"data-toggle="collapse" href="#area-3-features" aria-expanded="true" aria-controls="area-3-features" >DefineScenarios SampleCode</h2>
+            <ol class="features list-unstyled collapse in" style="border-left: 2px solid #949494;" id="area-3-features"aria-expanded="true">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #949494;">
+                    <h3 class="text-muted">Add A Given Step</h3>
+                    <ol class="scenarios list-unstyled">
                         <li class="scenario notrun">
-                            <h4 class="text-info">Add [NotRun]</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step notrun text-info">
+                            <div class="panel ">
+                            <div class="panel-heading">Add [NotRun]</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step notrun text-info" id="step-69">
                                     <h5>Given my starting condition</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Add A Given Step With No Action</h3>
-                    <ol class="scenarios">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #949494;">
+                    <h3 class="text-muted">Add A Given Step With No Action</h3>
+                    <ol class="scenarios list-unstyled">
                         <li class="scenario notrun">
-                            <h4 class="text-info">Add [NotRun]</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step notrun text-info">
+                            <div class="panel ">
+                            <div class="panel-heading">Add [NotRun]</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step notrun text-info" id="step-70">
                                     <h5>Given my starting condition that needs no action</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Add A Reusable Step</h3>
-                    <ol class="scenarios">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #949494;">
+                    <h3 class="text-muted">Add A Reusable Step</h3>
+                    <ol class="scenarios list-unstyled">
                         <li class="scenario notrun">
-                            <h4 class="text-info">Add [NotRun]</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step notrun text-info">
+                            <div class="panel ">
+                            <div class="panel-heading">Add [NotRun]</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step notrun text-info" id="step-71">
                                     <h5>Given the user performs an action</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Add A Reusable Step That Takes A Static Parameter</h3>
-                    <ol class="scenarios">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #949494;">
+                    <h3 class="text-muted">Add A Reusable Step That Takes A Static Parameter</h3>
+                    <ol class="scenarios list-unstyled">
                         <li class="scenario notrun">
-                            <h4 class="text-info">Add [NotRun]</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step notrun text-info">
+                            <div class="panel ">
+                            <div class="panel-heading">Add [NotRun]</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step notrun text-info" id="step-72">
                                     <h5>Given the user performs a 'save' action</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Add A Scenario Default Sample</h3>
-                    <ol class="scenarios">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #949494;">
+                    <h3 class="text-muted">Add A Scenario Default Sample</h3>
+                    <ol class="scenarios list-unstyled">
                         <li class="scenario notrun">
-                            <h4 class="text-info">Default Scenario Add [NotRun]</h4>
+                            <div class="panel ">
+                            <div class="panel-heading">Default Scenario Add [NotRun]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Add A Scenario Explicit Name Sample</h3>
-                    <ol class="scenarios">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #949494;">
+                    <h3 class="text-muted">Add A Scenario Explicit Name Sample</h3>
+                    <ol class="scenarios list-unstyled">
                         <li class="scenario notrun">
-                            <h4 class="text-info">My Explicit Scenario Name [NotRun]</h4>
+                            <div class="panel ">
+                            <div class="panel-heading">My Explicit Scenario Name [NotRun]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Add A Then Step</h3>
-                    <ol class="scenarios">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #949494;">
+                    <h3 class="text-muted">Add A Then Step</h3>
+                    <ol class="scenarios list-unstyled">
                         <li class="scenario notrun">
-                            <h4 class="text-info">Add [NotRun]</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step notrun text-info">
+                            <div class="panel ">
+                            <div class="panel-heading">Add [NotRun]</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step notrun text-info" id="step-73">
                                     <h5>Given my starting condition</h5>
                                 </li>
-                                <li class="step notrun text-info">
+                                <li class="step notrun text-info" id="step-74">
                                     <h5>When my action</h5>
                                 </li>
-                                <li class="step notrun text-info">
+                                <li class="step notrun text-info" id="step-75">
                                     <h5>Then my ending condition</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Add A When Step</h3>
-                    <ol class="scenarios">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #949494;">
+                    <h3 class="text-muted">Add A When Step</h3>
+                    <ol class="scenarios list-unstyled">
                         <li class="scenario notrun">
-                            <h4 class="text-info">Add [NotRun]</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step notrun text-info">
+                            <div class="panel ">
+                            <div class="panel-heading">Add [NotRun]</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step notrun text-info" id="step-76">
                                     <h5>Given my starting condition</h5>
                                 </li>
-                                <li class="step notrun text-info">
+                                <li class="step notrun text-info" id="step-77">
                                     <h5>When my action</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Add An And Step</h3>
-                    <ol class="scenarios">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #949494;">
+                    <h3 class="text-muted">Add An And Step</h3>
+                    <ol class="scenarios list-unstyled">
                         <li class="scenario notrun">
-                            <h4 class="text-info">Add [NotRun]</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step notrun text-info">
+                            <div class="panel ">
+                            <div class="panel-heading">Add [NotRun]</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step notrun text-info" id="step-78">
                                     <h5>Given my starting condition</h5>
                                 </li>
-                                <li class="step notrun text-info">
+                                <li class="step notrun text-info" id="step-79">
                                     <h5>When my action</h5>
                                 </li>
-                                <li class="step notrun text-info">
+                                <li class="step notrun text-info" id="step-80">
                                     <h5>Then my ending condition</h5>
                                 </li>
-                                <li class="step notrun text-info">
+                                <li class="step notrun text-info" id="step-81">
                                     <h5>And my extra ending condition</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Add An Async Step</h3>
-                    <ol class="scenarios">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #949494;">
+                    <h3 class="text-muted">Add An Async Step</h3>
+                    <ol class="scenarios list-unstyled">
                         <li class="scenario notrun">
-                            <h4 class="text-info">Add [NotRun]</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step notrun text-info">
+                            <div class="panel ">
+                            <div class="panel-heading">Add [NotRun]</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step notrun text-info" id="step-82">
                                     <h5>Given my async starting condition</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>
             </ol>
         </li>
-        <li class="area">
-            <h2>xBDD.Core.Test.Features.OverrideNames</h2>
-            <ol class="features">
-                <li class="feature">
-                    <h3>Override Area Path</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">When Adding [Skipped - Not Started]</h4>
+        <li class="area" id="area-4">
+            <h2 class="text-warning"data-toggle="collapse" href="#area-4-features" aria-expanded="true" aria-controls="area-4-features" >OverrideNames</h2>
+            <ol class="features list-unstyled collapse in" style="border-left: 2px solid #917545;" id="area-4-features"aria-expanded="true">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">Override Area Path</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">When Adding [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With An Attribute [Skipped - Not Started]</h4>
-                        </li>
-                    </ol>
-                </li>
-                <li class="feature">
-                    <h3>Override Feature Name</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">When Adding [Skipped - Not Started]</h4>
-                        </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With An Attribute [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With An Attribute [Skipped - Not Started]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Override Scenario Name</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">When Adding [Skipped - Not Started]</h4>
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">Override Feature Name</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">When Adding [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With An Attribute [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With An Attribute [Skipped - Not Started]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Override Step Name</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">At Run Time [Skipped - Not Started]</h4>
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">Override Scenario Name</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">When Adding [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">When Adding [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With An Attribute [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">When Adding With And Start [Skipped - Not Started]</h4>
+                    </ol>
+                </li>
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">Override Step Name</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">At Run Time [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">When Adding With Given Start [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">When Adding [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">When Adding With Then Start [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">When Adding With And Start [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">When Adding With When Start [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">When Adding With Given Start [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With An Attribute [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">When Adding With Then Start [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With Multiline Parameter Set [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">When Adding With When Start [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With Multiple Parameter Replacement [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With An Attribute [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With Parameter Quotes [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With Multiline Parameter Set [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With Parameter Replacement [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With Multiple Parameter Replacement [Skipped - Re-writing]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With Parameter Quotes [Skipped - Not Started]</div>
+                            </div>
+                        </li>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With Parameter Replacement [Skipped - Re-writing]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
             </ol>
         </li>
-        <li class="area">
-            <h2>xBDD.Core.Test.Features.RunTests</h2>
-            <ol class="features">
-                <li class="feature">
-                    <h3>Run A Scenario</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Run Async [Skipped - Re-writing]</h4>
+        <li class="area" id="area-5">
+            <h2 class="text-warning"data-toggle="collapse" href="#area-5-features" aria-expanded="true" aria-controls="area-5-features" >RunTests</h2>
+            <ol class="features list-unstyled collapse in" style="border-left: 2px solid #917545;" id="area-5-features"aria-expanded="true">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">Run A Scenario</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Run Async [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Run No Steps [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Run No Steps [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Run Sync [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Run Sync [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Run Sync With Async Step [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Run Sync With Async Step [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Skip [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Skip [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Skip Async [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Skip Async [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Skip Async Null Reason [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Skip Async Null Reason [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Skip Null Reason [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Skip Null Reason [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With All Passing Steps [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With All Passing Steps [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With All Skipped Steps [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With All Skipped Steps [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With One Failing Step And Preceeding Passing Steps [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With One Failing Step And Preceeding Passing Steps [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With One Middle Failing Step And The Rest Passing [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With One Middle Failing Step And The Rest Passing [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With One Middle Not Implemented Step And The Rest Passing [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With One Middle Not Implemented Step And The Rest Passing [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">With One Middle Skipped Step And The Rest Passing [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">With One Middle Skipped Step And The Rest Passing [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Write Scenario To Output [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Write Scenario To Output [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Write Scenario With Multiline Paramter To Output [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Write Scenario With Multiline Paramter To Output [Skipped - Re-writing]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>Run A Step</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Fail Async [Skipped - Re-writing]</h4>
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">Run A Step</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Fail Async [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Fail Sync [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Fail Sync [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Pass Async [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Pass Async [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Pass Sync [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Pass Sync [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Reusable Step That Uses Object Created In Previous Step</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Reusable Step That Uses Object Created In Previous Step</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-83">
                                     <h5>Given the following method</h5>
-                                    <pre class="mp prettyprint lang-cs">using Xunit;
+                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">using Xunit;
 using xBDD.Model;
 
 namespace xBDD.Core.Test.Features.RunTests.SampleCode
@@ -1055,129 +1378,184 @@ namespace xBDD.Core.Test.Features.RunTests.SampleCode
         }
     }
 }
-</pre>
+                                        </pre>
+</div>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-84">
                                     <h5>When the method is executed</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-85">
                                     <h5>Then the count should be 3</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-86">
                                     <h5>And the scenario will have an outcome of 'Passed'</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Skip Async [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Skip Async [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Skip Because Of Previous Skip Async [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Skip Because Of Previous Skip Async [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Skip Because Of Previous Skip Sync [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Skip Because Of Previous Skip Sync [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Skip Sync [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Skip Sync [Skipped - Re-writing]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
             </ol>
         </li>
-        <li class="area">
-            <h2>xBDD.Core.Test.Features.RunTests.SampleCode</h2>
-            <ol class="features">
-                <li class="feature">
-                    <h3>Add A Reusable Step That Uses Object Created In Previous Step</h3>
-                    <ol class="scenarios">
-                        <li class="scenario passed bg-success">
-                            <h4 class="text-success">Add</h4>
-                            <ul class="steps list-unstyled">
-                                <li class="step passed text-success">
+        <li class="area" id="area-6">
+            <h2 class="text-success"data-toggle="collapse" href="#area-6-features" aria-expanded="true" aria-controls="area-6-features" >RunTests SampleCode</h2>
+            <ol class="features list-unstyled collapse in" style="border-left: 2px solid #5A8B5B;" id="area-6-features"aria-expanded="true">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #5A8B5B;">
+                    <h3 class="text-success">Add A Reusable Step That Uses Object Created In Previous Step</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario passed">
+                            <div class="panel  panel-default">
+                            <div class="panel-heading">Add</div>
+                            <div class="panel-body">
+                            <ol class="steps list-unstyled">
+                                <li class="step passed text-success" id="step-87">
                                     <h5>Given the user navigates to page</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-88">
                                     <h5>When the user clicks the 'Register' button</h5>
                                 </li>
-                                <li class="step passed text-success">
+                                <li class="step passed text-success" id="step-89">
                                     <h5>Then the web page will have a title of 'Registration'</h5>
                                 </li>
-                            </ul>
+                            </ol>
+                            </div>
+                            </div>
                         </li>
                     </ol>
                 </li>
             </ol>
         </li>
-        <li class="area">
-            <h2>xBDD.Core.Test.Features.ViewProperties</h2>
-            <ol class="features">
-                <li class="feature">
-                    <h3>View Scenario Properties</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Area Path [Skipped - Not Started]</h4>
+        <li class="area" id="area-7">
+            <h2 class="text-warning"data-toggle="collapse" href="#area-7-features" aria-expanded="true" aria-controls="area-7-features" >ViewProperties</h2>
+            <ol class="features list-unstyled collapse in" style="border-left: 2px solid #917545;" id="area-7-features"aria-expanded="true">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">View Scenario Properties</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Area Path [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">End Time [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">End Time [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Feature Name [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Feature Name [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Name [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Name [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Outcome [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Outcome [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Start Time [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Start Time [Skipped - Re-writing]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">State [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">State [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Steps [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Steps [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Total Time [Skipped - Re-writing]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Total Time [Skipped - Re-writing]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>
-                <li class="feature">
-                    <h3>View Step Properties</h3>
-                    <ol class="scenarios">
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Action Type [Skipped - Not Started]</h4>
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+                    <h3 class="text-warning">View Step Properties</h3>
+                    <ol class="scenarios list-unstyled">
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Action Type [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">End Time [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">End Time [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Exception [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Exception [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Inline Parameters [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Inline Parameters [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Multiline Parameter [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Multiline Parameter [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Name [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Name [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Outcome [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Outcome [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Reason [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Reason [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Start Time [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Start Time [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">State [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">State [Skipped - Not Started]</div>
+                            </div>
                         </li>
-                        <li class="scenario skipped bg-warning">
-                            <h4 class="text-warning">Table Parameter [Skipped - Not Started]</h4>
+                        <li class="scenario skipped">
+                            <div class="panel  panel-warning">
+                            <div class="panel-heading">Table Parameter [Skipped - Not Started]</div>
+                            </div>
                         </li>
                     </ol>
                 </li>

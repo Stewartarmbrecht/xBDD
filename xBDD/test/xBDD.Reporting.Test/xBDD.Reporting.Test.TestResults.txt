@@ -1,4 +1,4 @@
-xBDD.Reporting.Test 2015-10-02T16:37:13
+xBDD.Reporting.Test 2015-10-05T23:05:06
 
 ViewHtmlReport
 	Write To Html
@@ -6,15 +6,23 @@ ViewHtmlReport
 			When the code calls 'xBDD.CurrentRun.WriteToHTML()
 			Then the code should return a string value of the html report
 ViewHtmlReport.CollapsingAndExpanding
-	Collapse And Expand Area
+	Collapse And Expand Area Description
 		Collapse [Skipped - Not Started]
 		Collapse All [Skipped - Not Started]
 		Default Collapsed When More Than5 [Skipped - Not Started]
 		Expand [Skipped - Not Started]
 		Expand All [Skipped - Not Started]
-	Collapse And Expand Area Description
-		Collapse [Skipped - Not Started]
-		Collapse All [Skipped - Not Started]
+	Collapse And Expand Areas
+		Collapse
+			Given the test results of a single skipped scenario
+			And the user views the html report
+			When the user clicks the first area
+			Then the report should collapse the features listed under the area
+		Collapse All
+			Given the test results of a passing full test run
+			And the user views the html report
+			When the user clicks the collapse all areas menu option
+			Then the report should collapse the features listed under the area
 		Default Collapsed When More Than5 [Skipped - Not Started]
 		Expand [Skipped - Not Started]
 		Expand All [Skipped - Not Started]
@@ -48,11 +56,35 @@ ViewHtmlReport.ViewResults
 		Name [Skipped - Not Started]
 		Passing [Skipped - Not Started]
 		Skipped [Skipped - Not Started]
+	View Step
+		Failing [Skipped - Not Started]
+		Mulitple [Skipped - Not Started]
+		Passing [Skipped - Not Started]
+		Single [Skipped - Not Started]
+		Skipped [Skipped - Not Started]
+		With Exception
+			Given the test results with a feiled step with an exception
+			When the user views the html report
+			Then the user should see a section for the exception
+			And the section should display the exception type
+			And the section should display the exception message
+			And the section should display the exception stack trace
+		With Inner Exception
+			Given the test results with a feiled step with an exception
+			When the user views the html report
+			Then the user should see a section for the nsted exception
+			And the section should display the exception type
+			And the section should display the exception message
+			And the section should display the exception stack trace
 ViewHtmlReport.ViewResutls
 	View Step Output
 		Code [Skipped - Not Started]
 		General Text
-			Given the test results of a passing test run
+			Given the test results of a step with a/an text output of 
+				Here
+				 is
+				 my
+				 output!
 			When the user views the html report
 			Then the report will show the output indented under the step
 		Html With Preview [Skipped - Not Started]
@@ -64,15 +96,15 @@ ViewHtmlReport.ViewResutls
 			And the report will show the test run name as the title for the page
 			And the report will show the test run name in gray to indicate no scenarios were run
 		Failing
-			Given the test results of a passing test run
+			Given the test results of a single feiled scenario
 			When the user views the html report
 			Then the report will show the test run name in red to indicate the test run passed
 		Passing Test Run
-			Given the test results of a passing test run
+			Given the test results of a single passing scenario
 			When the user views the html report
 			Then the report will show the test run name in green to indicate the test run passed
 		Passing With Some Skipped
-			Given the test results of a skipped test run
+			Given the test results of a single skipped scenario
 			When the user views the html report
 			Then the report will show the test run name in yellow to indicate the test run passed
 WriteResults
@@ -83,21 +115,21 @@ WriteResults
 			Then the report will show the test run name at the top
 			And the report will show the test run name as the title for the page
 		View Passing Scenario [Skipped - Not Started]
-			Given the test results of a passing test run
+			Given the test results of a single passing scenario
 			When the user views the html report
 			Then the area path will be green
 			And the feature name will be green
 			And the scenario name will be green
 			And the step names will be green
 		View Run Scenario [Skipped - Not Started]
-			Given the test results of a passing test run
+			Given the test results of a single passing scenario
 			When the user views the html report
 			Then the area path will be displayed
 			And the feature name will be displayed indented under the area path
 			And the scenario name will be displayed indented under the feature name
 			And the steps will be displayed indented, under the scenario
 		View Run Step With Multiline Parameter Of Text [Skipped - Not Started]
-			Given the test results of a passing test run
+			Given the test results of a single passing scenario
 			When the user views the html report
 			Then the steps multiline parameter will show indented under the step name
 			And the multline parameter will have line breaks and indentation preserved

@@ -1,6 +1,6 @@
-xBDD.Test 2015-09-30T17:36:32
+xBDD.Test 2015-10-05T23:05:03
 
-xBDD.Test.Features.Environment
+Environment
 	Publish Test Results To Central Database
 		Publish After CI Test Run
 			When the developer pushes a commit to the master branch

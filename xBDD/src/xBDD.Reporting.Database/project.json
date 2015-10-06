@@ -17,13 +17,7 @@
   },
   "userSecretsId": "xBDD",
   "frameworks": {
-    "dnx451": {
-      "frameworkAssemblies": {
-      }
-    },
-    "dnxcore50": {
-      "dependencies": {
-      }
-    }
+    "dnx451": { },
+    "dnxcore50": { }
   }
 }
