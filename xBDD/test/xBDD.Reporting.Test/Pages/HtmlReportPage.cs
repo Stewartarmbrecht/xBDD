@@ -44,6 +44,11 @@ namespace xBDD.Reporting.Test.Pages
             return driver.FindElement(By.CssSelector("#area-" + areaNumber + " ol.features"));
         }
 
+        internal IWebElement FeatureScenarios(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-" + areaNumber + " ol.scenarios"));
+        }
+
         [FindsBy(How = How.ClassName, Using = "testrun-name")]
         public IWebElement TestRunName { get; set; }
         [FindsBy(How = How.Id, Using = "menu")]
@@ -162,6 +167,27 @@ namespace xBDD.Reporting.Test.Pages
             if(area != null)
             {
                 var classAttr = area.GetAttribute("class");
+                if(classAttr != null)
+                {
+                    if(classAttr.Contains("text-muted"))
+                        result = Color.Gray;
+                    else if(classAttr.Contains("text-success"))
+                        result = Color.Green;
+                    else if(classAttr.Contains("text-warning"))
+                        result = Color.Yellow;
+                    else if(classAttr.Contains("text-danger"))
+                        result = Color.Red;
+                }
+            }
+            return result;
+        }
+        internal Color GetFeatureNameColor(int featureNumber)
+        {
+            var feature = Feature(featureNumber);
+            Color result = Color.Unknown;
+            if(feature != null)
+            {
+                var classAttr = feature.GetAttribute("class");
                 if(classAttr != null)
                 {
                     if(classAttr.Contains("text-muted"))

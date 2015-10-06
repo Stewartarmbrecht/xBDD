@@ -15,7 +15,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "today")]
 		public void SingleScenario()
 		{
 			 xBDD.CurrentRun.AddScenario(this)
@@ -23,7 +22,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "today")]
 		public void SingleFeatureMultipleScenarios()
 		{
 			 xBDD.CurrentRun.AddScenario(this)
@@ -31,7 +29,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "today")]
 		public void SingleAreaMultipleFeatures()
 		{
 			 xBDD.CurrentRun.AddScenario(this)
@@ -39,7 +36,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "today")]
 		public void MultipleAreas()
 		{
 			 xBDD.CurrentRun.AddScenario(this)

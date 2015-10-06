@@ -229,9 +229,15 @@ namespace xBDD.Reporting.Html
             }
             style = "box-shadow: 1px 1px 8px 1px "+style+";";
             featureCounter++;
+            var expanded = scenario.Feature.Outcome == Outcome.Failed;
+            var expandedText = expanded ? "true" : "false";
             WriteTagOpen("li", sb, 4, "feature", false, "feature-" + featureCounter, style);
-            WriteTag("h3", sb, 5, className, scenario.Feature.Name.HtmlEncode(), true);
-            WriteTagOpen("ol", sb, 5, "scenarios list-unstyled", false);
+
+            var titleAttributes = String.Format("data-toggle=\"collapse\" href=\"#feature-{0}-scenarios\" aria-expanded=\"{1}\" aria-controls=\"feature-{0}-scenarios\" ", featureCounter, expandedText);
+            WriteTag("h3", sb, 5, className, scenario.Feature.Name.HtmlEncode(), true, null, null, titleAttributes);
+
+            var scenariosClassName = "scenarios list-unstyled collapse" + (expanded ? " in" : "");
+            WriteTagOpen("ol", sb, 5, scenariosClassName, false, "feature-" + areaCounter + "-scenarios", null, String.Format("aria-expanded=\"{0}\"", expandedText));
         }
         void WriteFeatureClose(StringBuilder sb)
         {
@@ -453,7 +459,7 @@ namespace xBDD.Reporting.Html
         void WriteOutputWithHtmlPreview(Step step, StringBuilder sb, int stepNumber)
         {
             var html = @"                                    <div class=""output"">
-                                        <strong><h5>Output</h5></stong>
+                                        <strong><h5>Output</h5></strong>
                                         <ul class=""nav nav-tabs"" role=""tablist"">
                                             <li role=""presentation"" class=""active""><a href=""#output-preview-{0}"" aria-controls=""output-preview-{0}"" role=""tab"" data-toggle=""tab"">Preview</a></li>
                                             <li role=""presentation""><a href=""#output-code-{0}"" aria-controls=""output-code-{0}"" role=""tab"" data-toggle=""tab"">Code</a></li>

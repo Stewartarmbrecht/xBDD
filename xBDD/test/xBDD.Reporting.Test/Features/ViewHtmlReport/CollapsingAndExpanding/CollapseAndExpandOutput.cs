@@ -15,7 +15,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "today")]
 		public void Collapse()
 		{
 			 xBDD.CurrentRun.AddScenario(this)

@@ -8,7 +8,6 @@ using Xunit.Abstractions;
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
 	[Collection("xBDDReportingTest")]
-	[Trait("category", "today")]
 	public class ViewStepOutput
 	{
 		private readonly OutputWriter outputWriter;
@@ -29,9 +28,11 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .When(WebUser.ViewsReport(htmlReport))
 				.AndAsync("the user clicks the first area", async (s) => {
 					await Page.ClickWhenVisible("first area", htmlReport.Object.Area(1));
+					await BootstrapPage.WaitTillExpanded("first area features", htmlReport.Object.AreaFeatures(1));
 				})
 				.AndAsync("the user clicks the first feature", async (s) => {
 					await Page.ClickWhenVisible("first feature", htmlReport.Object.Feature(1));
+					await BootstrapPage.WaitTillExpanded("first feature scenarios", htmlReport.Object.FeatureScenarios(1));
 				})
                 .Then("the report will show the output indented under the step", (s) => {
 					s.Output = htmlReport.Object.Html;
