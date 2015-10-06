@@ -71,7 +71,7 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("div", sb, 3, "collapse navbar-collapse", false, "menu-body");
             WriteTagOpen("ul", sb, 4, "nav navbar-nav", false);
             WriteTagOpen("li", sb, 5, null, false);
-            WriteTag("a", sb, 5, null, "Collapse All Areas", true, "collapse-all-areas-button", null, "href=\"javascript: $('ol.features').collapse('hide');\"");
+            WriteTag("a", sb, 5, null, "Expand All Areas", true, "expand-all-areas-button", null, "href=\"javascript: $('ol.features').collapse('show');\"");
             WriteTagClose("li", sb, 5);
             WriteTagClose("ul", sb, 4);
             WriteTagClose("div", sb, 3);
@@ -171,7 +171,7 @@ namespace xBDD.Reporting.Html
                     break;
                 case Outcome.Passed:
                     style = "#5A8B5B";
-                    className = "text-success";
+                    className = "text-success collapsed";
                     break;
                 case Outcome.Failed:
                     style = "#AD4D4B";
@@ -187,10 +187,15 @@ namespace xBDD.Reporting.Html
             style = "border-left: 2px solid "+style+";";
             //  style = "box-shadow: inset 1px 1px 8px 1px "+style+";";
             areaCounter++;
-            var attributes = String.Format("data-toggle=\"collapse\" href=\"#area-{0}-features\" aria-expanded=\"true\" aria-controls=\"area-{0}-features\" ", areaCounter);
+            var expanded = scenario.Feature.Area.Outcome == Outcome.Failed;
+            var expandedText = expanded ? "true" : "false";
             WriteTagOpen("li", sb, 2, "area", false, "area-" + areaCounter);
-            WriteTag("h2", sb, 3, className, scenario.Feature.Area.Name.Replace('.',' ').HtmlEncode(), true, null, null, attributes);
-            WriteTagOpen("ol", sb, 3, "features list-unstyled collapse in", false, "area-" + areaCounter + "-features", style, "aria-expanded=\"true\"");
+
+            var areaTitleAttributes = String.Format("data-toggle=\"collapse\" href=\"#area-{0}-features\" aria-expanded=\"{1}\" aria-controls=\"area-{0}-features\" ", areaCounter, expandedText);
+            WriteTag("h2", sb, 3, className, scenario.Feature.Area.Name.Replace('.',' ').HtmlEncode(), true, null, null, areaTitleAttributes);
+
+            var featuresClasName = "features list-unstyled collapse" + (expanded ? " in" : "");
+            WriteTagOpen("ol", sb, 3, featuresClasName, false, "area-" + areaCounter + "-features", style, String.Format("aria-expanded=\"{0}\"", expandedText));
         }
         void WriteAreaClose(StringBuilder sb)
         {
@@ -223,7 +228,8 @@ namespace xBDD.Reporting.Html
                     break;
             }
             style = "box-shadow: 1px 1px 8px 1px "+style+";";
-            WriteTagOpen("li", sb, 4, "feature", false, null, style);
+            featureCounter++;
+            WriteTagOpen("li", sb, 4, "feature", false, "feature-" + featureCounter, style);
             WriteTag("h3", sb, 5, className, scenario.Feature.Name.HtmlEncode(), true);
             WriteTagOpen("ol", sb, 5, "scenarios list-unstyled", false);
         }
@@ -252,7 +258,8 @@ namespace xBDD.Reporting.Html
                 default:
                     break;
             }
-            WriteTagOpen("li", sb, 6, className, false);
+            scenarioCounter++;
+            WriteTagOpen("li", sb, 6, className, false, "scenario-" + scenarioCounter);
             WriteTagOpen("div", sb, 7, panelClassName, false);
         }
         void WriteScenarioClose(StringBuilder sb)

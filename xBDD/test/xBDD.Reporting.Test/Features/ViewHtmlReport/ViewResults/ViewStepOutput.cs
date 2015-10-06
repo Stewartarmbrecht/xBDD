@@ -1,3 +1,4 @@
+using xBDD.Browser;
 using xBDD.Reporting.Test.Pages;
 using xBDD.Reporting.Test.Steps;
 using xBDD.xUnit;
@@ -18,14 +19,20 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		public void GeneralText()
+		public async void GeneralText()
 		{
             Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
 			string output = "Here\r\n is\r\n my\r\n output!";
 			var format = TextFormat.text;
-            xBDD.CurrentRun.AddScenario(this)
+            await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAStepWithOutput(output, format))
                 .When(WebUser.ViewsReport(htmlReport))
+				.AndAsync("the user clicks the first area", async (s) => {
+					await Page.ClickWhenVisible("first area", htmlReport.Object.Area(1));
+				})
+				.AndAsync("the user clicks the first feature", async (s) => {
+					await Page.ClickWhenVisible("first feature", htmlReport.Object.Feature(1));
+				})
                 .Then("the report will show the output indented under the step", (s) => {
 					s.Output = htmlReport.Object.Html;
 					s.OutputFormat = TextFormat.htmlpreview;
@@ -34,7 +41,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                     Assert.True(foundFormat.HasValue); 
                     Assert.Equal(foundFormat.Value, format); 
                 })
-                .Run();
+                .RunAsync();
 		}
 		
 		[ScenarioFact]

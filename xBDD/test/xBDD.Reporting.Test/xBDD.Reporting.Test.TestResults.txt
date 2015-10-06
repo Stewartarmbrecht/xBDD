@@ -1,4 +1,4 @@
-xBDD.Reporting.Test 2015-10-06T13:29:42
+xBDD.Reporting.Test 2015-10-06T14:50:27
 
 ViewHtmlReport
 	Write To Html
@@ -16,21 +16,20 @@ ViewHtmlReport.CollapsingAndExpanding
 		Collapse
 			Given the test results of a single skipped scenario
 			And the user views the html report
-			When the user clicks the first area
+			And the user expands the first area
+			When the user cliks the first area again
 			Then the report should collapse the features listed under the area
-		Collapse All
-			Given the test results of a passing full test run
-			And the user views the html report
-			When the user clicks the collapse all areas menu option
-			Then the report should collapse the features listed under the area
-		Default Collapsed When More Than5 [Skipped - Not Started]
+		Collapse All [Skipped - Not Started]
 		Expand
 			Given the test results of a single skipped scenario
 			And the user views the html report
-			And the user collapses the first area
-			When the user cliks the first area again
+			When the user clicks the first area
 			Then the report should expand the features listed under the area
-		Expand All [Skipped - Not Started]
+		Expand All
+			Given the test results of a passing full test run
+			And the user views the html report
+			When the user clicks the expand all areas menu option
+			Then the report should expand the features listed under the area
 	Collapse And Expand Exception
 		Collapse [Skipped - Not Started]
 		Collapse All [Skipped - Not Started]
@@ -48,12 +47,11 @@ ViewHtmlReport.ViewResults
 		Failing [Skipped - Not Started]
 		Mulitple [Skipped - Not Started]
 		Passing [Skipped - Not Started]
-		Single [Skipped - Not Started]
-			Given a test run with a single area
-			When the user views the test run's html report
-			Then the area name should be displayed
-			And the area description should display
-			And the description should have it's formatting preserved
+		Single
+			Given the test results of a single passing scenario
+			When the user views the html report
+			Then the report will show the area name in green to indicate all features passed
+			And the features under the area will be collapsed because it passed
 		Skipped [Skipped - Not Started]
 	View Failure Only
 		Multiple Areas [Skipped - Not Started]
@@ -95,6 +93,8 @@ ViewHtmlReport.ViewResults
 				 my
 				 output!
 			When the user views the html report
+			And the user clicks the first area
+			And the user clicks the first feature
 			Then the report will show the output indented under the step
 		Html With Preview [Skipped - Not Started]
 	View Test Run

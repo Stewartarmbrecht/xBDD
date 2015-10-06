@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="menu-body">
                 <ul class="nav navbar-nav">
                     <li>
-                    <a id="collapse-all-areas-button"href="javascript: $('ol.features').collapse('hide');">Collapse All Areas</a>
+                    <a id="expand-all-areas-button"href="javascript: $('ol.features').collapse('show');">Expand All Areas</a>
                     </li>
                 </ul>
             </div>
@@ -37,12 +37,12 @@
     </div>
     <ol class="areas list-unstyled">
         <li class="area" id="area-1">
-            <h2 class="text-warning"data-toggle="collapse" href="#area-1-features" aria-expanded="true" aria-controls="area-1-features" >My Area 11</h2>
-            <ol class="features list-unstyled collapse in" style="border-left: 2px solid #917545;" id="area-1-features"aria-expanded="true">
-                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
+            <h2 class="text-warning"data-toggle="collapse" href="#area-1-features" aria-expanded="false" aria-controls="area-1-features" >My Area 11</h2>
+            <ol class="features list-unstyled collapse" style="border-left: 2px solid #917545;" id="area-1-features"aria-expanded="false">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;" id="feature-1">
                     <h3 class="text-warning">My Feature 1</h3>
                     <ol class="scenarios list-unstyled">
-                        <li class="scenario skipped">
+                        <li class="scenario skipped" id="scenario-1">
                             <div class="panel  panel-warning">
                             <div class="panel-heading">My Scenario 1 [Skipped - Not Started]</div>
                             <div class="panel-body">

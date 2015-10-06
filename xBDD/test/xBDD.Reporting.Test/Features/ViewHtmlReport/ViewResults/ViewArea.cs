@@ -1,4 +1,7 @@
+using xBDD.Reporting.Test.Pages;
+using xBDD.Reporting.Test.Steps;
 using xBDD.xUnit;
+using xBDD.Browser;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -8,6 +11,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 	//  [Description("In order to understand how functionality is organized")]
 	//  [Description("As a report reviewer")]
 	//  [Description("I would like to view the areas in the html report")]
+	[Trait("category", "now")]
 	public class ViewArea
 	{
 		private readonly OutputWriter outputWriter;
@@ -18,15 +22,19 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		public void Single()
+		public async void Single()
 		{
-			xBDD.CurrentRun.AddScenario(this)
-				.Given("a test run with a single area")
-				.When("the user views the test run's html report")
-				.Then("the area name should be displayed")
-				.And("the area description should display")
-				.And("the description should have it's formatting preserved")
-				.Skip("Not Started");
+            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            await xBDD.CurrentRun.AddScenario(this)
+                .Given(HtmlReport.OfASinglePassingScenario())
+                .When(WebUser.ViewsReport(htmlReport))
+                .Then("the report will show the area name in green to indicate all features passed", (s) => {
+                    Assert.Equal(Color.Green, htmlReport.Object.GetAreaNameColor(1));
+                })
+				.AndAsync("the features under the area will be collapsed because it passed", async (s) => {
+					await Page.WaitTillNotVisible("area 1 features", htmlReport.Object.AreaFeatures(1));
+				})
+                .RunAsync();
 		}
 		[ScenarioFact]
 		public void Mulitple()

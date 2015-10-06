@@ -29,6 +29,16 @@ namespace xBDD.Reporting.Test.Pages
             return driver.FindElement(By.CssSelector("#area-" + areaNumber + " h2"));
         }
 
+        internal IWebElement Feature(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-" + featureNumber + " h3"));
+        }
+
+        internal IWebElement Scenario(int scenarioNumber)
+        {
+            return driver.FindElement(By.CssSelector("#scenario-" + scenarioNumber + " h4"));
+        }
+
         internal IWebElement AreaFeatures(int areaNumber)
         {
             return driver.FindElement(By.CssSelector("#area-" + areaNumber + " ol.features"));
@@ -41,8 +51,8 @@ namespace xBDD.Reporting.Test.Pages
         [FindsBy(How = How.Id, Using = "menu-button")]
         public IWebElement MenuButton { get; internal set; }
 
-        [FindsBy(How = How.Id, Using = "collapse-all-areas-button")]
-        public IWebElement CollapseAllAreasButton { get; internal set; }
+        [FindsBy(How = How.Id, Using = "expand-all-areas-button")]
+        public IWebElement ExpandAllAreasButton { get; internal set; }
 
         internal IWebElement Exception(int stepNumber)
         {
@@ -131,6 +141,27 @@ namespace xBDD.Reporting.Test.Pages
             if(TestRunName != null)
             {
                 var classAttr = TestRunName.GetAttribute("class");
+                if(classAttr != null)
+                {
+                    if(classAttr.Contains("text-muted"))
+                        result = Color.Gray;
+                    else if(classAttr.Contains("text-success"))
+                        result = Color.Green;
+                    else if(classAttr.Contains("text-warning"))
+                        result = Color.Yellow;
+                    else if(classAttr.Contains("text-danger"))
+                        result = Color.Red;
+                }
+            }
+            return result;
+        }
+        internal Color GetAreaNameColor(int areaNumber)
+        {
+            var area = Area(areaNumber);
+            Color result = Color.Unknown;
+            if(area != null)
+            {
+                var classAttr = area.GetAttribute("class");
                 if(classAttr != null)
                 {
                     if(classAttr.Contains("text-muted"))

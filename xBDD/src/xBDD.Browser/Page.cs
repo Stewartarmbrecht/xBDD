@@ -16,15 +16,15 @@ namespace xBDD.Browser
                 throw new Exception("The web element (" + webElementName + ") was not found.");
             return Task.Run(() =>
             {
-                var visible = false;
+                var hidden = false;
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
-                while (sw.ElapsedMilliseconds < waitMilliseconds && visible == false)
+                while (sw.ElapsedMilliseconds < waitMilliseconds && hidden == false)
                 {
                     if (!webElement.Displayed)
-                        visible = true;
+                        hidden = true;
                 }
-                if(!visible)
+                if(!hidden)
                     throw new Exception("The web element (" + webElementName + ") was not hidden.");
             });
         }
