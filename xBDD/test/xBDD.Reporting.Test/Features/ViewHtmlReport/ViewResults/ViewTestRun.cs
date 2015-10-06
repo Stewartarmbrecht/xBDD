@@ -4,7 +4,7 @@ using xBDD.xUnit;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls
+namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
 	[Collection("xBDDReportingTest")]
 	public class ViewTestRun

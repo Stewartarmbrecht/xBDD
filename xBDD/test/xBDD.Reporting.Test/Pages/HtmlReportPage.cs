@@ -133,13 +133,13 @@ namespace xBDD.Reporting.Test.Pages
                 var classAttr = TestRunName.GetAttribute("class");
                 if(classAttr != null)
                 {
-                    if(classAttr == "text-muted")
+                    if(classAttr.Contains("text-muted"))
                         result = Color.Gray;
-                    else if(classAttr == "text-success")
+                    else if(classAttr.Contains("text-success"))
                         result = Color.Green;
-                    else if(classAttr == "text-warning")
+                    else if(classAttr.Contains("text-warning"))
                         result = Color.Yellow;
-                    else if(classAttr == "text-danger")
+                    else if(classAttr.Contains("text-danger"))
                         result = Color.Red;
                 }
             }

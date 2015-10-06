@@ -1,49 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <assemblies>
-  <assembly name="xBDD.Reporting.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3168" run-date="2015-10-05" run-time="23:05:06" total="65" passed="65" failed="0" skipped="0" time="8.895" errors="0">
+  <assembly name="xBDD.Reporting.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3168" run-date="2015-10-06" run-time="13:29:42" total="65" passed="65" failed="0" skipped="0" time="9.499" errors="0">
     <errors />
-    <collection total="65" passed="65" failed="0" skipped="0" name="xBDDReportingTest" time="4.452">
-      <test name="xBDD.Test.Features.ViewHtmlReport.ViewResutls.ViewFailureOnly.SingleFeatureMultipleScenarios" type="xBDD.Test.Features.ViewHtmlReport.ViewResutls.ViewFailureOnly" method="SingleFeatureMultipleScenarios" time="0.0095497" result="Pass">
-        <traits>
-          <trait name="category" value="today" />
-        </traits>
-      </test>
-      <test name="xBDD.Test.Features.ViewHtmlReport.ViewResutls.ViewFailureOnly.SingleScenario" type="xBDD.Test.Features.ViewHtmlReport.ViewResutls.ViewFailureOnly" method="SingleScenario" time="0.0003063" result="Pass">
-        <traits>
-          <trait name="category" value="today" />
-        </traits>
-      </test>
-      <test name="xBDD.Test.Features.ViewHtmlReport.ViewResutls.ViewFailureOnly.SingleAreaMultipleFeatures" type="xBDD.Test.Features.ViewHtmlReport.ViewResutls.ViewFailureOnly" method="SingleAreaMultipleFeatures" time="0.0000816" result="Pass">
-        <traits>
-          <trait name="category" value="today" />
-        </traits>
-      </test>
-      <test name="xBDD.Test.Features.ViewHtmlReport.ViewResutls.ViewFailureOnly.MultipleAreas" type="xBDD.Test.Features.ViewHtmlReport.ViewResutls.ViewFailureOnly" method="MultipleAreas" time="0.0000775" result="Pass">
-        <traits>
-          <trait name="category" value="today" />
-        </traits>
-      </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport.ViewRunStepWithMultilineParameterOfText" type="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport" method="ViewRunStepWithMultilineParameterOfText" time="0.0035257" result="Pass">
+    <collection total="65" passed="65" failed="0" skipped="0" name="xBDDReportingTest" time="5.020">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport.ViewRunStepWithMultilineParameterOfText" type="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport" method="ViewRunStepWithMultilineParameterOfText" time="0.0153673" result="Pass">
         <traits>
           <trait name="category" value="current" />
         </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport.ViewPassingScenario" type="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport" method="ViewPassingScenario" time="0.0001679" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport.ViewPassingScenario" type="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport" method="ViewPassingScenario" time="0.0008362" result="Pass">
         <traits>
           <trait name="category" value="current" />
         </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport.ViewEmptyTestRun" type="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport" method="ViewEmptyTestRun" time="2.7402781" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport.ViewEmptyTestRun" type="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport" method="ViewEmptyTestRun" time="2.4786239" result="Pass">
         <traits>
           <trait name="category" value="current" />
         </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport.ViewRunScenario" type="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport" method="ViewRunScenario" time="0.0009711" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport.ViewRunScenario" type="xBDD.Reporting.Test.Features.WriteResults.BrowseHtmlReport" method="ViewRunScenario" time="0.0003747" result="Pass">
         <traits>
           <trait name="category" value="current" />
         </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunMultipleFeaturesSameArea" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunMultipleFeaturesSameArea" time="0.0469253" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunMultipleFeaturesSameArea" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunMultipleFeaturesSameArea" time="0.0130587" result="Pass">
         <output><![CDATA[Write Run Multiple Features Same Area
     the following method
         using xBDD.Test;
@@ -112,7 +92,7 @@
         			Then my ending condition
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunEmptyScenario" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunEmptyScenario" time="0.0038663" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunEmptyScenario" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunEmptyScenario" time="0.0017341" result="Pass">
         <output><![CDATA[Write Run Empty Scenario
     the following method
         using xBDD.Test;
@@ -140,7 +120,7 @@
         		My Scenario
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunScenarioWithSkippedStep" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunScenarioWithSkippedStep" time="0.0068997" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunScenarioWithSkippedStep" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunScenarioWithSkippedStep" time="0.0016935" result="Pass">
         <output><![CDATA[Write Run Scenario With Skipped Step
     the following method
         using xBDD.Test;
@@ -178,7 +158,7 @@
         			Then my ending condition [Skipped - Previous Error]
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunScenarioWithNotImplementedStep" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunScenarioWithNotImplementedStep" time="0.0062159" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunScenarioWithNotImplementedStep" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunScenarioWithNotImplementedStep" time="0.0011616" result="Pass">
         <output><![CDATA[Write Run Scenario With Not Implemented Step
     the following method
         using System;
@@ -217,7 +197,7 @@
         			Then my ending condition [Skipped - Previous Error]
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteSkippedEmptyScenario" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteSkippedEmptyScenario" time="0.0031611" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteSkippedEmptyScenario" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteSkippedEmptyScenario" time="0.000618" result="Pass">
         <output><![CDATA[Write Skipped Empty Scenario
     the following method
         using xBDD.Test;
@@ -249,7 +229,7 @@
         		My Scenario [Skipped - Deferred]
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunMultipleScenariosSameFeature" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunMultipleScenariosSameFeature" time="0.0035944" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunMultipleScenariosSameFeature" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunMultipleScenariosSameFeature" time="0.0007932" result="Pass">
         <output><![CDATA[Write Run Multiple Scenarios Same Feature
     the following method
         using xBDD.Test;
@@ -297,7 +277,7 @@
         			Then my ending condition
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteEmtpyTestRun" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteEmtpyTestRun" time="0.0026194" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteEmtpyTestRun" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteEmtpyTestRun" time="0.0005005" result="Pass">
         <output><![CDATA[Write Emtpy Test Run
     the following method
         using xBDD.Test;
@@ -319,7 +299,7 @@
 
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteSkippedScenarioWithSteps" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteSkippedScenarioWithSteps" time="0.0030486" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteSkippedScenarioWithSteps" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteSkippedScenarioWithSteps" time="0.0005906" result="Pass">
         <output><![CDATA[Write Skipped Scenario With Steps
     the following method
         using xBDD.Test;
@@ -357,7 +337,7 @@
         			Then my ending condition
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunScenarioWithFailedStep" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunScenarioWithFailedStep" time="0.0095923" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunScenarioWithFailedStep" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunScenarioWithFailedStep" time="0.0023723" result="Pass">
         <output><![CDATA[Write Run Scenario With Failed Step
     the following method
         using System;
@@ -400,7 +380,7 @@
         			Then my ending condition [Skipped - Previous Error]
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunScenarioWithStepWithMultilineParameter" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunScenarioWithStepWithMultilineParameter" time="0.004887" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunScenarioWithStepWithMultilineParameter" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunScenarioWithStepWithMultilineParameter" time="0.0010385" result="Pass">
         <output><![CDATA[Write Run Scenario With Step With Multiline Parameter
     the following method
         using xBDD.Test;
@@ -437,7 +417,7 @@
         			Then my ending condition
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunScenarioWithSteps" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunScenarioWithSteps" time="0.003228" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunScenarioWithSteps" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunScenarioWithSteps" time="0.0006746" result="Pass">
         <output><![CDATA[Write Run Scenario With Steps
     the following method
         using xBDD.Test;
@@ -475,7 +455,7 @@
         			Then my ending condition
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunMultipleAreas" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunMultipleAreas" time="0.0045315" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.WriteResults.WriteToText.WriteRunMultipleAreas" type="xBDD.Reporting.Test.Features.WriteResults.WriteToText" method="WriteRunMultipleAreas" time="0.0010829" result="Pass">
         <output><![CDATA[Write Run Multiple Areas
     the following method
         using xBDD.Test;
@@ -545,111 +525,139 @@
         			Then my ending condition
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.WriteToHtml.GetString" type="xBDD.Reporting.Test.Features.ViewHtmlReport.WriteToHtml" method="GetString" time="0.002811" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewStepOutput.Code" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewStepOutput" method="Code" time="0.0006576" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.WriteToHtml.GetString" type="xBDD.Reporting.Test.Features.ViewHtmlReport.WriteToHtml" method="GetString" time="0.0007233" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Passing" time="0.0001775" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Mulitple" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Mulitple" time="0.0001395" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Failing" time="0.0000957" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Single" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Single" time="0.0002448" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Skipped" time="0.0000874" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly.SingleScenario" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly" method="SingleScenario" time="0.0003298" result="Pass">
         <traits>
           <trait name="category" value="today" />
         </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewStepOutput.GeneralText" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewStepOutput" method="GeneralText" time="0.1122632" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly.SingleAreaMultipleFeatures" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly" method="SingleAreaMultipleFeatures" time="0.0001022" result="Pass">
         <traits>
           <trait name="category" value="today" />
         </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewStepOutput.HtmlWithPreview" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewStepOutput" method="HtmlWithPreview" time="0.0001653" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly.SingleFeatureMultipleScenarios" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly" method="SingleFeatureMultipleScenarios" time="0.0001098" result="Pass">
         <traits>
           <trait name="category" value="today" />
         </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewTestRun.EmptyTestRun" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewTestRun" method="EmptyTestRun" time="0.0707907" result="Pass">
-        <output><![CDATA[testrun-name text-muted
-]]></output>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly.MultipleAreas" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly" method="MultipleAreas" time="0.0001041" result="Pass">
+        <traits>
+          <trait name="category" value="today" />
+        </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewTestRun.PassingWithSomeSkipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewTestRun" method="PassingWithSomeSkipped" time="0.0601061" result="Pass">
-        <output><![CDATA[testrun-name text-warning
-]]></output>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Description" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Description" time="0.0001918" result="Pass">
+        <traits>
+          <trait name="category" value="today" />
+        </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewTestRun.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewTestRun" method="Failing" time="0.054138" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Skipped" time="0.0000843" result="Pass">
+        <traits>
+          <trait name="category" value="today" />
+        </traits>
+      </test>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Failing" time="0.0000828" result="Pass">
+        <traits>
+          <trait name="category" value="today" />
+        </traits>
+      </test>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Name" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Name" time="0.0000782" result="Pass">
+        <traits>
+          <trait name="category" value="today" />
+        </traits>
+      </test>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Passing" time="0.0000809" result="Pass">
+        <traits>
+          <trait name="category" value="today" />
+        </traits>
+      </test>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Single" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Single" time="0.0002223" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Mulitple" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Mulitple" time="0.0001068" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.WithInnerException" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="WithInnerException" time="0.1832091" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.WithException" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="WithException" time="0.1923058" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Passing" time="0.0002284" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Failing" time="0.0001444" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Skipped" time="0.0001364" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput.HtmlWithPreview" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput" method="HtmlWithPreview" time="0.0003188" result="Pass">
+        <traits>
+          <trait name="category" value="today" />
+        </traits>
+      </test>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput.Code" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput" method="Code" time="0.000171" result="Pass">
+        <traits>
+          <trait name="category" value="today" />
+        </traits>
+      </test>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput.GeneralText" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput" method="GeneralText" time="0.124739" result="Pass">
+        <traits>
+          <trait name="category" value="today" />
+        </traits>
+      </test>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun" method="Failing" time="0.0729954" result="Pass">
         <output><![CDATA[testrun-name text-danger
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewTestRun.PassingTestRun" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls.ViewTestRun" method="PassingTestRun" time="0.0518264" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun.EmptyTestRun" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun" method="EmptyTestRun" time="0.0896349" result="Pass">
+        <output><![CDATA[testrun-name text-muted
+]]></output>
+      </test>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun.PassingTestRun" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun" method="PassingTestRun" time="0.0674435" result="Pass">
         <output><![CDATA[testrun-name text-success
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Passing" time="0.000226" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Mulitple" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Mulitple" time="0.0000843" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Failing" time="0.0000798" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Single" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Single" time="0.0001296" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Skipped" time="0.000079" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Description" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Description" time="0.0001785" result="Pass">
-        <traits>
-          <trait name="category" value="today" />
-        </traits>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun.PassingWithSomeSkipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun" method="PassingWithSomeSkipped" time="0.0668376" result="Pass">
+        <output><![CDATA[testrun-name text-warning
+]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Skipped" time="0.0000824" result="Pass">
-        <traits>
-          <trait name="category" value="today" />
-        </traits>
-      </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Failing" time="0.0000783" result="Pass">
-        <traits>
-          <trait name="category" value="today" />
-        </traits>
-      </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Name" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Name" time="0.0000748" result="Pass">
-        <traits>
-          <trait name="category" value="today" />
-        </traits>
-      </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Passing" time="0.0000737" result="Pass">
-        <traits>
-          <trait name="category" value="today" />
-        </traits>
-      </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Single" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Single" time="0.000174" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Mulitple" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Mulitple" time="0.0000843" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.WithInnerException" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="WithInnerException" time="0.1302936" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="CollapseAll" time="0.6601505" result="Pass">
         <traits>
           <trait name="category" value="now" />
         </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.WithException" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="WithException" time="0.1359177" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Passing" time="0.0001911" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Failing" time="0.0000961" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Skipped" time="0.0000907" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="CollapseAll" time="0.5549068" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="DefaultCollapsedWhenMoreThan5" time="0.0001767" result="Pass">
         <traits>
           <trait name="category" value="now" />
         </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="DefaultCollapsedWhenMoreThan5" time="0.0001957" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="Collapse" time="0.4207501" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="Collapse" time="0.4754303" result="Pass">
         <traits>
           <trait name="category" value="now" />
         </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="ExpandAll" time="0.0001858" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="Expand" time="0.0001117" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="CollapseAll" time="0.0001785" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="Collapse" time="0.0000854" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="ExpandAll" time="0.0000809" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="Expand" time="0.0000775" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="DefaultCollapsedWhenMoreThan5" time="0.0000809" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="DefaultCollapsedWhenMoreThan5" time="0.0001687" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="Expand" time="0.000082" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="CollapseAll" time="0.0000779" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="ExpandAll" time="0.000076" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="Collapse" time="0.0000741" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="DefaultCollapsedWhenMoreThan5" time="0.0001713" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="ExpandAll" time="0.0000821" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="Collapse" time="0.0000782" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="ExpandAll" time="0.0002573" result="Pass">
+        <traits>
+          <trait name="category" value="now" />
+        </traits>
+      </test>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="Expand" time="0.5607343" result="Pass">
+        <traits>
+          <trait name="category" value="now" />
+        </traits>
+      </test>
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="CollapseAll" time="0.0003295" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="Collapse" time="0.000122" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="ExpandAll" time="0.0001025" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="Expand" time="0.0000972" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="DefaultCollapsedWhenMoreThan5" time="0.0000907" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="DefaultCollapsedWhenMoreThan5" time="0.0001858" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="Expand" time="0.0000942" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="CollapseAll" time="0.00009" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="ExpandAll" time="0.0000998" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="Collapse" time="0.0000991" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="DefaultCollapsedWhenMoreThan5" time="0.0001873" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="ExpandAll" time="0.0000942" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="Collapse" time="0.0000888" result="Pass">
         <traits>
           <trait name="category" value="today" />
         </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="CollapseAll" time="0.000076" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="Expand" time="0.0000741" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="CollapseAll" time="0.0000881" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="Expand" time="0.0000881" result="Pass" />
     </collection>
   </assembly>
 </assemblies>
