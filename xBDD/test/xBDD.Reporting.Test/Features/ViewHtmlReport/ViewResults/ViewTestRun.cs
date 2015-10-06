@@ -32,7 +32,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls
                 })
                 .And("the report will show the test run name in gray to indicate no scenarios were run", (s) => {
 					outputWriter.WriteLine(htmlReport.Object.TestRunName.GetAttribute("class"));
-                    Assert.True(htmlReport.Object.TestRunNameIsGray());
+                    Assert.Equal(Color.Gray, htmlReport.Object.GetTestRunNameColor());
                 })
                 .Run();
 		}
@@ -46,7 +46,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls
                 .When(WebUser.ViewsReport(htmlReport))
                 .Then("the report will show the test run name in green to indicate the test run passed", (s) => {
 					outputWriter.WriteLine(htmlReport.Object.TestRunName.GetAttribute("class"));
-                    Assert.True(htmlReport.Object.TestRunNameIsGreen());
+                    Assert.Equal(Color.Green, htmlReport.Object.GetTestRunNameColor());
                 })
                 .Run();
 		}
@@ -60,7 +60,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls
                 .When(WebUser.ViewsReport(htmlReport))
                 .Then("the report will show the test run name in yellow to indicate the test run passed", (s) => {
 					outputWriter.WriteLine(htmlReport.Object.TestRunName.GetAttribute("class"));
-                    Assert.True(htmlReport.Object.TestRunNameIsYellow());
+                    Assert.Equal(Color.Yellow, htmlReport.Object.GetTestRunNameColor());
                 })
                 .Run();
 		}
@@ -74,7 +74,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResutls
                 .When(WebUser.ViewsReport(htmlReport))
                 .Then("the report will show the test run name in red to indicate the test run passed", (s) => {
 					outputWriter.WriteLine(htmlReport.Object.TestRunName.GetAttribute("class"));
-                    Assert.True(htmlReport.Object.TestRunNameIsRed());
+                    Assert.Equal(Color.Red, htmlReport.Object.GetTestRunNameColor());
                 })
                 .Run();
 		}

@@ -8,6 +8,7 @@ using xBDD.Browser;
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 {
 	[Collection("xBDDReportingTest")]
+	[Trait("category", "now")]
 	public class CollapseAndExpandAreas
 	{
 		private readonly OutputWriter outputWriter;
@@ -17,7 +18,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 			outputWriter = new OutputWriter(output);
 		}
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void Collapse()
 		{
             Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
@@ -25,17 +25,16 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
                 .Given(HtmlReport.OfASingleSkippedScenario())
 				.And(WebUser.ViewsReport(htmlReport))
                 .When("the user clicks the first area", (s) => { 
-					htmlReport.Object.ClickArea(1);
+					Page.ClickWhenVisible("first area", htmlReport.Object.Area(1));
 				})
                 .ThenAsync("the report should collapse the features listed under the area", async (s) => {
+					await Page.WaitTillNotVisible("features", htmlReport.Object.AreaFeatures(1));
 					s.Output = htmlReport.Object.Html;
 					s.OutputFormat = TextFormat.htmlpreview;
-					await Page.WaitTillNotVisible(htmlReport.Object.AreaFeatures(1), 5000);
                 })
                 .RunAsync();
 		}
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void CollapseAll()
 		{
             Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
@@ -43,23 +42,41 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
                 .Given(HtmlReport.OfAPassingFullTestRun())
 				.And(WebUser.ViewsReport(htmlReport))
                 .WhenAsync("the user clicks the collapse all areas menu option", async (s) => { 
-					htmlReport.Object.MenuButton.Click();
-					await Page.WaitTillVisible(htmlReport.Object.CollapseAllAreasButton, 500);
-					htmlReport.Object.CollapseAllAreasButton.Click();
+					await Page.ClickWhenVisible("menu button", htmlReport.Object.MenuButton);
+					await Page.ClickWhenVisible("collapse all areas button", htmlReport.Object.CollapseAllAreasButton);
 				})
                 .ThenAsync("the report should collapse the features listed under the area", async (s) => {
+					await Page.WaitTillNotVisible("area 1 features", htmlReport.Object.AreaFeatures(1));
+					await Page.WaitTillNotVisible("area 2 features", htmlReport.Object.AreaFeatures(2));
 					s.Output = htmlReport.Object.Html;
 					s.OutputFormat = TextFormat.htmlpreview;
-					await Page.WaitTillNotVisible(htmlReport.Object.AreaFeatures(1), 500);
-					await Page.WaitTillNotVisible(htmlReport.Object.AreaFeatures(2), 500);
                 })
                 .RunAsync();
 		}
 		[ScenarioFact]
-		public void Expand()
+		public async void Expand()
 		{
-			 xBDD.CurrentRun.AddScenario(this)
-				.Skip("Not Started");
+            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            await xBDD.CurrentRun.AddScenario(this)
+                .Given(HtmlReport.OfASingleSkippedScenario())
+				.And(WebUser.ViewsReport(htmlReport))
+                .AndAsync("the user collapses the first area", async (s) => { 
+					s.Output = htmlReport.Object.Html;
+					s.OutputFormat = TextFormat.htmlpreview;
+					await Page.ClickWhenVisible("area 1", htmlReport.Object.Area(1));
+					await Page.WaitTillNotVisible("area 1 features", htmlReport.Object.AreaFeatures(1));
+					s.Output = htmlReport.Object.Html;
+					s.OutputFormat = TextFormat.htmlpreview;
+				})
+                .WhenAsync("the user cliks the first area again", async (s) => { 
+					await Page.ClickWhenVisible("area 1", htmlReport.Object.Area(1), 500);
+				})
+                .ThenAsync("the report should expand the features listed under the area", async (s) => {
+					await Page.WaitTillVisible("area 1 features", htmlReport.Object.AreaFeatures(1));
+					s.Output = htmlReport.Object.Html;
+					s.OutputFormat = TextFormat.htmlpreview;
+                })
+                .RunAsync();
 		}
 		[ScenarioFact]
 		public void ExpandAll()

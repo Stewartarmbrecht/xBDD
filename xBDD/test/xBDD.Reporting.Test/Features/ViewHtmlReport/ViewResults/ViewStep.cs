@@ -71,7 +71,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				.RunAsync();
 		}
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void WithInnerException()
 		{
             Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();

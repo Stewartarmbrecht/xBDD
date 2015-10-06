@@ -24,10 +24,9 @@ namespace xBDD.Reporting.Test.Pages
             return report;
         }
 
-        internal void ClickArea(int areaNumber)
+        internal IWebElement Area(int areaNumber)
         {
-            IWebElement area = driver.FindElement(By.CssSelector("#area-" + areaNumber + " h2"));
-            area.Click();
+            return driver.FindElement(By.CssSelector("#area-" + areaNumber + " h2"));
         }
 
         internal IWebElement AreaFeatures(int areaNumber)
@@ -126,52 +125,34 @@ namespace xBDD.Reporting.Test.Pages
             return format;
         }
 
-        internal bool TestRunNameIsGray()
+        internal Color GetTestRunNameColor()
         {
-            bool result = false;
+            Color result = Color.Unknown;
             if(TestRunName != null)
             {
                 var classAttr = TestRunName.GetAttribute("class");
                 if(classAttr != null)
-                    result = classAttr.Contains("text-muted");
+                {
+                    if(classAttr == "text-muted")
+                        result = Color.Gray;
+                    else if(classAttr == "text-success")
+                        result = Color.Green;
+                    else if(classAttr == "text-warning")
+                        result = Color.Yellow;
+                    else if(classAttr == "text-danger")
+                        result = Color.Red;
+                }
             }
             return result;
         }
-
-        internal bool TestRunNameIsGreen()
-        {
-            bool result = false;
-            if(TestRunName != null)
-            {
-                var classAttr = TestRunName.GetAttribute("class");
-                if(classAttr != null)
-                    result = classAttr.Contains("text-success");
-            }
-            return result;
-        }
-
-        internal bool TestRunNameIsYellow()
-        {
-            bool result = false;
-            if(TestRunName != null)
-            {
-                var classAttr = TestRunName.GetAttribute("class");
-                if(classAttr != null)
-                    result = classAttr.Contains("text-warning");
-            }
-            return result;
-        }
-
-        internal bool TestRunNameIsRed()
-        {
-            bool result = false;
-            if(TestRunName != null)
-            {
-                var classAttr = TestRunName.GetAttribute("class");
-                if(classAttr != null)
-                    result = classAttr.Contains("text-danger");
-            }
-            return result;
-        }
+    }
+    
+    public enum Color 
+    {
+        Gray,
+        Green,
+        Yellow,
+        Red,
+        Unknown
     }
 }
