@@ -36,7 +36,12 @@ namespace xBDD.Reporting.Test.Pages
 
         internal IWebElement Scenario(int scenarioNumber)
         {
-            return driver.FindElement(By.CssSelector("#scenario-" + scenarioNumber + " h4"));
+            return driver.FindElement(By.CssSelector("#scenario-" + scenarioNumber + " div.panel"));
+        }
+
+        internal IWebElement ScenarioTitleLine(int scenarioNumber)
+        {
+            return driver.FindElement(By.CssSelector("#scenario-" + scenarioNumber + " div.panel-heading"));
         }
 
         internal IWebElement AreaFeatures(int areaNumber)
@@ -44,9 +49,14 @@ namespace xBDD.Reporting.Test.Pages
             return driver.FindElement(By.CssSelector("#area-" + areaNumber + " ol.features"));
         }
 
-        internal IWebElement FeatureScenarios(int areaNumber)
+        internal IWebElement FeatureScenarios(int featureNumber)
         {
-            return driver.FindElement(By.CssSelector("#feature-" + areaNumber + " ol.scenarios"));
+            return driver.FindElement(By.CssSelector("#feature-" + featureNumber + " ol.scenarios"));
+        }
+
+        internal IWebElement ScenarioSteps(int scenarioNumber)
+        {
+            return driver.FindElement(By.CssSelector("#scenario-" + scenarioNumber + " div.panel-body"));
         }
 
         [FindsBy(How = How.ClassName, Using = "testrun-name")]
@@ -116,6 +126,14 @@ namespace xBDD.Reporting.Test.Pages
             return text;
         }
 
+        public IWebElement StepOutputLink(int stepNumber)
+        {
+            return driver.FindElement(By.CssSelector("#step-" + stepNumber + " a.step-output-link"));
+        }
+        public IWebElement StepOutput(int stepNumber)
+        {
+            return driver.FindElement(By.CssSelector("#step-" + stepNumber + " div.output"));
+        }
         public TextFormat? GetStepOutputFormat(int stepNumber)
         {
             TextFormat? format = null;
@@ -197,6 +215,27 @@ namespace xBDD.Reporting.Test.Pages
                     else if(classAttr.Contains("text-warning"))
                         result = Color.Yellow;
                     else if(classAttr.Contains("text-danger"))
+                        result = Color.Red;
+                }
+            }
+            return result;
+        }
+        internal Color GetScenarioNameColor(int scenarioNumber)
+        {
+            var scenario = Scenario(scenarioNumber);
+            Color result = Color.Unknown;
+            if(scenario != null)
+            {
+                var classAttr = scenario.GetAttribute("class");
+                if(classAttr != null)
+                {
+                    if(classAttr.Contains("panel-default"))
+                        result = Color.Gray;
+                    else if(classAttr.Contains("panel-success"))
+                        result = Color.Green;
+                    else if(classAttr.Contains("panel-warning"))
+                        result = Color.Yellow;
+                    else if(classAttr.Contains("panel-danger"))
                         result = Color.Red;
                 }
             }

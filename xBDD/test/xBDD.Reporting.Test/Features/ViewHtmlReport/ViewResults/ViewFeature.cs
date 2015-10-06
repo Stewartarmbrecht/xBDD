@@ -30,7 +30,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				.Skip("Not Started");
 		}
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void Passing()
 		{
             Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
@@ -40,7 +39,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				.AndAsync("the user expands the first area", async (s) => {
 					await Page.ClickWhenVisible("first area", htmlReport.Object.Area(1));
 				})
-                .ThenAsync("the report will show the feature indented under the step", async (s) => {
+                .ThenAsync("the report will show the feature indented under the area", async (s) => {
 					await BootstrapPage.WaitTillExpanded("area 1 features", htmlReport.Object.AreaFeatures(1));
 					s.Output = htmlReport.Object.Html;
 					s.OutputFormat = TextFormat.htmlpreview;

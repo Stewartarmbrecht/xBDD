@@ -18,6 +18,37 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
+		[Trait("category", "now")]
+		public async void CollapsedByDefault()
+		{
+            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+			string output = "Here\r\n is\r\n my\r\n output!";
+			var format = TextFormat.text;
+            await xBDD.CurrentRun.AddScenario(this)
+                .Given(HtmlReport.OfAStepWithOutput(output, format))
+                .When(WebUser.ViewsReport(htmlReport))
+				.AndAsync("the user clicks the first area", async (s) => {
+					await Page.ClickWhenVisible("first area", htmlReport.Object.Area(1));
+					await BootstrapPage.WaitTillExpanded("first area features", htmlReport.Object.AreaFeatures(1));
+				})
+				.AndAsync("the user clicks the first feature", async (s) => {
+					await Page.ClickWhenVisible("first feature", htmlReport.Object.Feature(1));
+					await BootstrapPage.WaitTillExpanded("first feature scenarios", htmlReport.Object.FeatureScenarios(1));
+				})
+				.AndAsync("the user clicks the first scenario", async (s) => {
+					await Page.ClickWhenVisible("first scenario", htmlReport.Object.ScenarioTitleLine(1));
+					await BootstrapPage.WaitTillExpanded("first scenario steps", htmlReport.Object.ScenarioSteps(1));
+				})
+                .ThenAsync("the report will show an [Output] link to the left of the step name", async (s) => {
+					s.Output = htmlReport.Object.Html;
+					s.OutputFormat = TextFormat.htmlpreview;
+					await Page.WaitTillVisible("step 1 output link", htmlReport.Object.StepOutputLink(1));
+                })
+                .RunAsync();
+		}
+		
+		[ScenarioFact]
+		[Trait("category", "now")]
 		public async void GeneralText()
 		{
             Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
@@ -33,6 +64,14 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				.AndAsync("the user clicks the first feature", async (s) => {
 					await Page.ClickWhenVisible("first feature", htmlReport.Object.Feature(1));
 					await BootstrapPage.WaitTillExpanded("first feature scenarios", htmlReport.Object.FeatureScenarios(1));
+				})
+				.AndAsync("the user clicks the first scenario", async (s) => {
+					await Page.ClickWhenVisible("first scenario", htmlReport.Object.ScenarioTitleLine(1));
+					await BootstrapPage.WaitTillExpanded("first scenario steps", htmlReport.Object.ScenarioSteps(1));
+				})
+				.AndAsync("the user clicks the first steps [Output] link", async (s) => {
+					await Page.ClickWhenVisible("first step [Output] link", htmlReport.Object.StepOutputLink(1));
+					await BootstrapPage.WaitTillExpanded("first steps output", htmlReport.Object.StepOutput(1));
 				})
                 .Then("the report will show the output indented under the step", (s) => {
 					s.Output = htmlReport.Object.Html;

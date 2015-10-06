@@ -122,7 +122,7 @@ namespace xBDD.Reporting.Html
             Scenario lastScenario = null;
             foreach (var scenario in testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name))
             {
-                WriteScenario(lastScenario, scenario, sb);
+                WriteAreaFeatureAndScenario(lastScenario, scenario, sb);
                 lastScenario = scenario;
             }
 
@@ -130,7 +130,7 @@ namespace xBDD.Reporting.Html
             WriteAreaClose(sb);
             WriteTagClose("ol", sb, 1);//areas
         }
-        void WriteScenario(Scenario lastScenario, Scenario scenario, StringBuilder sb)
+        void WriteAreaFeatureAndScenario(Scenario lastScenario, Scenario scenario, StringBuilder sb)
         {
             if (lastScenario == null || (lastScenario != null && lastScenario.Feature.Area.Name != scenario.Feature.Area.Name))
             {
@@ -151,6 +151,11 @@ namespace xBDD.Reporting.Html
                 WriteFeatureOpen(scenario, sb);
             }
 
+            WriteScenario(scenario, sb);
+        }
+
+        private void WriteScenario(Scenario scenario, StringBuilder sb)
+        {
             WriteScenarioOpen(scenario, sb);
             WriteScenarioTitleLine(scenario, sb);
             if (scenario.Steps.Count > 0)
@@ -159,6 +164,7 @@ namespace xBDD.Reporting.Html
             }
             WriteScenarioClose(sb);
         }
+
         void WriteAreaOpen(Scenario scenario, StringBuilder sb)
         {
             string style = null;
@@ -237,7 +243,7 @@ namespace xBDD.Reporting.Html
             WriteTag("h3", sb, 5, className, scenario.Feature.Name.HtmlEncode(), true, null, null, titleAttributes);
 
             var scenariosClassName = "scenarios list-unstyled collapse" + (expanded ? " in" : "");
-            WriteTagOpen("ol", sb, 5, scenariosClassName, false, "feature-" + areaCounter + "-scenarios", null, String.Format("aria-expanded=\"{0}\"", expandedText));
+            WriteTagOpen("ol", sb, 5, scenariosClassName, false, "feature-" + featureCounter + "-scenarios", null, String.Format("aria-expanded=\"{0}\"", expandedText));
         }
         void WriteFeatureClose(StringBuilder sb)
         {
@@ -253,7 +259,7 @@ namespace xBDD.Reporting.Html
                 case Outcome.NotRun:
                     break;
                 case Outcome.Passed:
-                    panelClassName = panelClassName + " panel-default";
+                    panelClassName = panelClassName + " panel-success";
                     break;
                 case Outcome.Failed:
                     panelClassName = panelClassName + " panel-danger";
@@ -286,7 +292,11 @@ namespace xBDD.Reporting.Html
         }
         void WriteScenarioTitleLine(Scenario scenario, StringBuilder sb)
         {
-            WriteTagOpen("div", sb, 7, "panel-heading", true);
+            var expanded = scenario.Outcome == Outcome.Failed;
+            var expandedText = expanded ? "true" : "false";
+
+            var titleAttributes = String.Format("data-toggle=\"collapse\" href=\"#scenario-{0}-steps\" aria-expanded=\"{1}\" aria-controls=\"scenario-{0}-steps\" ", scenarioCounter, expandedText);
+            WriteTagOpen("div", sb, 7, "panel-heading", true, null, null, titleAttributes);
             sb.Append(scenario.Name.HtmlEncode());
             if (scenario.Outcome != Outcome.Passed)
             {
@@ -296,7 +306,11 @@ namespace xBDD.Reporting.Html
         }
         void WriteSteps(Scenario scenario, StringBuilder sb)
         {
-            WriteTagOpen("div", sb, 7, "panel-body", false);
+            var expanded = scenario.Outcome == Outcome.Failed;
+            var expandedText = expanded ? "true" : "false";
+
+            var scenariosClassName = "panel-body collapse" + (expanded ? " in" : "");
+            WriteTagOpen("div", sb, 7, scenariosClassName, false, "scenario-" + scenarioCounter + "-steps", null, String.Format("aria-expanded=\"{0}\"", expandedText));
             WriteTagOpen("ol", sb, 7, "steps list-unstyled", false);
             foreach(Step step in scenario.Steps)
             {
@@ -330,7 +344,12 @@ namespace xBDD.Reporting.Html
 
             WriteTagOpen("h5", sb, 9, null, true);
             sb.Append(step.FullName.HtmlEncode());
-
+            
+            if (!String.IsNullOrEmpty(step.Output))
+            {
+                sb.Append(String.Format(" <a class=\"step-output-link\" data-toggle=\"collapse\" href=\"#step-{0}-output\" aria-expanded=\"false\" aria-controls=\"step-{0}-output\">[Output]</a>", stepNumber));
+            }
+            
             if (step.Scenario.Outcome == Outcome.Failed && step.Outcome != Outcome.Passed)
             {
                 sb.Append(" [");
@@ -435,6 +454,7 @@ namespace xBDD.Reporting.Html
 
         void WriteOutput(Step step, StringBuilder sb, int stepNumber)
         {
+            WriteTagOpen("div", sb, 9, "output collapse", false, "step-" + stepNumber + "-output", null, "aria-expanded=\"false\"");
             if(step.OutputFormat == TextFormat.htmlpreview)
             {
                 WriteOutputWithHtmlPreview(step, sb, stepNumber);
@@ -448,18 +468,16 @@ namespace xBDD.Reporting.Html
                     if (step.OutputFormat != TextFormat.code)
                         className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.OutputFormat);
                 }
-                WriteTagOpen("div", sb, 9, "output", true);
                 WriteTagOpen("pre", sb, 10, className, true, "output-" + stepNumber);
                 sb.Append(step.Output.HtmlEncode());
                 WriteTagClose("pre", sb, 0);
-                WriteTagClose("div", sb, 0);
             }
+            WriteTagClose("div", sb, 0);
         }
 
         void WriteOutputWithHtmlPreview(Step step, StringBuilder sb, int stepNumber)
         {
-            var html = @"                                    <div class=""output"">
-                                        <strong><h5>Output</h5></strong>
+            var html = @"                                        <strong><h5>Output</h5></strong>
                                         <ul class=""nav nav-tabs"" role=""tablist"">
                                             <li role=""presentation"" class=""active""><a href=""#output-preview-{0}"" aria-controls=""output-preview-{0}"" role=""tab"" data-toggle=""tab"">Preview</a></li>
                                             <li role=""presentation""><a href=""#output-code-{0}"" aria-controls=""output-code-{0}"" role=""tab"" data-toggle=""tab"">Code</a></li>
@@ -479,8 +497,7 @@ namespace xBDD.Reporting.Html
                                             <div role=""tabpanel"" class=""tab-pane"" id=""output-code-{0}"">
                                                 <pre class=""mp prettyprint lang-html"">{1}</pre>
                                             </div>
-                                        </div>
-                                    </div>";
+                                        </div>";
             sb.AppendLine(String.Format(html,
                 stepNumber, 
                 step.Output.HtmlEncode(), 
