@@ -7,12 +7,23 @@ namespace xBDD.Reporting.Test.Steps
 {
     public static class WebUser
     {
-        internal static Step ViewsReport(Wrapper<HtmlReportPage> report)
+        internal static Step ViewsReportGeneral(Wrapper<HtmlReportPageGeneral> report)
         {
             var step = xBDD.CreateStep(
                 "the user views the html report",
                 (s) => {
-                    report.Object = HtmlReportPage.Load();
+                    report.Object = HtmlReportPageGeneral.Load();
+                    s.Output = report.Object.Html;
+                    s.OutputFormat = TextFormat.htmlpreview;
+                });
+            return step;
+        }
+        internal static Step ViewsReportStats(Wrapper<HtmlReportPageStats> report)
+        {
+            var step = xBDD.CreateStep(
+                "the user views the html report",
+                (s) => {
+                    report.Object = HtmlReportPageStats.Load();
                     s.Output = report.Object.Html;
                     s.OutputFormat = TextFormat.htmlpreview;
                 });

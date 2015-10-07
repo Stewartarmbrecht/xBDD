@@ -47,7 +47,7 @@ namespace xBDD.Utility
             }
             return newOutcome;
         }
-        internal Outcome GetNewScenarioOutcome(Outcome scenarioOutcome, Outcome stepOutcome)
+        internal Outcome GetNewScenarioOutcome(Outcome scenarioOutcome, Outcome stepOutcome, bool scenarioSkipped)
         {
             Outcome newOutcome = scenarioOutcome;
             switch (stepOutcome)
@@ -58,10 +58,16 @@ namespace xBDD.Utility
                     switch (scenarioOutcome)
                     {
                         case Outcome.NotRun:
-                            newOutcome = Outcome.Failed;
+                            if(scenarioSkipped)
+                                newOutcome = Outcome.Skipped;
+                            else
+                                newOutcome = Outcome.Failed;
                             break;
                         case Outcome.Passed:
-                            newOutcome = Outcome.Failed;
+                            if(scenarioSkipped)
+                                newOutcome = Outcome.Skipped;
+                            else
+                                newOutcome = Outcome.Failed;
                             break;
                     }
                     break;

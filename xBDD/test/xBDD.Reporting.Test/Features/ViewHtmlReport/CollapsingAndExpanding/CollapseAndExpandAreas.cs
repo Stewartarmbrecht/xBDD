@@ -19,10 +19,10 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 		[ScenarioFact]
 		public async void Collapse()
 		{
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleSkippedScenario())
-				.And(WebUser.ViewsReport(htmlReport))
+				.And(WebUser.ViewsReportGeneral(htmlReport))
                 .AndAsync("the user expands the first area", async (s) => { 
 					s.Output = htmlReport.Object.Html;
 					s.OutputFormat = TextFormat.htmlpreview;
@@ -50,10 +50,10 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 		[ScenarioFact]
 		public async void Expand()
 		{
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleSkippedScenario())
-				.And(WebUser.ViewsReport(htmlReport))
+				.And(WebUser.ViewsReportGeneral(htmlReport))
                 .When("the user clicks the first area", (s) => { 
 					Page.ClickWhenVisible("first area", htmlReport.Object.Area(1));
 				})
@@ -67,10 +67,10 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 		[ScenarioFact]
 		public async void ExpandAll()
 		{
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAPassingFullTestRun())
-				.And(WebUser.ViewsReport(htmlReport))
+				.And(WebUser.ViewsReportGeneral(htmlReport))
                 .WhenAsync("the user clicks the expand all areas menu option", async (s) => { 
 					await Page.ClickWhenVisible("menu button", htmlReport.Object.MenuButton);
 					await Page.ClickWhenVisible("expand all areas button", htmlReport.Object.ExpandAllAreasButton);

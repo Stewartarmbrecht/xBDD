@@ -37,7 +37,7 @@ namespace xBDD.Core
             if(scenario.Reason == null)
                 scenario.Reason = "Step Skipped";
             step.Exception = ex;
-            statsCascader.CascadeStats(step);
+            statsCascader.CascadeStats(step, false);
             throw new StepException(step.Name, ex);
         }
         void ProcessNotImplementedException(StepExecutor stepExecutor, Step step, NotImplementedException ex)
@@ -48,7 +48,7 @@ namespace xBDD.Core
             step.Exception = ex;
             if (scenario.Reason == null)
                 scenario.Reason = "Step Not Implemented";
-            statsCascader.CascadeStats(step);
+            statsCascader.CascadeStats(step, false);
             throw new StepNotImplementedException(step.Name, ex);
         }
         void ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
@@ -59,7 +59,7 @@ namespace xBDD.Core
             step.Exception = ex;
             if (scenario.Reason == null)
                 scenario.Reason = "Failed Step";
-            statsCascader.CascadeStats(step);
+            statsCascader.CascadeStats(step, false);
             throw new StepException(step.Name, ex);
         }
     }

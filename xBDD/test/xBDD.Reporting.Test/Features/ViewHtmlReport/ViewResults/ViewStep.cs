@@ -52,10 +52,10 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		[ScenarioFact]
 		public async void WithException()
 		{
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAFailingStepWithAnException())
-				.When(WebUser.ViewsReport(htmlReport))
+				.When(WebUser.ViewsReportGeneral(htmlReport))
                 .Then("the user should see a section for the exception", (s) => {
 					Assert.True(htmlReport.Object.Exception(2).Displayed); 
 				})
@@ -73,10 +73,10 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		[ScenarioFact]
 		public async void WithInnerException()
 		{
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAFailingStepWithANestedException())
-				.When(WebUser.ViewsReport(htmlReport))
+				.When(WebUser.ViewsReportGeneral(htmlReport))
                 .Then("the user should see a section for the nsted exception", (s) => {
 					Assert.True(htmlReport.Object.InnerException(2).Displayed); 
 				})

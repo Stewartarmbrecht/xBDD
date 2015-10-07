@@ -23,10 +23,10 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		[ScenarioFact]
 		public async void Single()
 		{
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario())
-                .When(WebUser.ViewsReport(htmlReport))
+                .When(WebUser.ViewsReportGeneral(htmlReport))
                 .Then("the report will show the area name in green to indicate all features passed", (s) => {
                     Assert.Equal(Color.Green, htmlReport.Object.GetAreaNameColor(1));
                 })

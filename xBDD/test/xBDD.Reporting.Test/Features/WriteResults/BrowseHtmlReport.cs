@@ -20,10 +20,10 @@ namespace xBDD.Reporting.Test.Features.WriteResults
         [Trait("category", "current")]
         public void ViewEmptyTestRun()
         {
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAnEmptyTestRun())
-                .When(WebUser.ViewsReport(htmlReport))
+                .When(WebUser.ViewsReportGeneral(htmlReport))
                 .Then("the report will show the test run name at the top", (s) => {
                     Assert.NotNull(htmlReport.Object.TestRunName);
                     Assert.Equal("My Test Run", htmlReport.Object.TestRunName.Text);
@@ -37,10 +37,10 @@ namespace xBDD.Reporting.Test.Features.WriteResults
         [Trait("category", "current")]
         public void ViewRunScenario()
         {
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario())
-                .When(WebUser.ViewsReport(htmlReport))
+                .When(WebUser.ViewsReportGeneral(htmlReport))
                 .Then("the area path will be displayed")
                 .And("the feature name will be displayed indented under the area path")
                 .And("the scenario name will be displayed indented under the feature name")
@@ -51,10 +51,10 @@ namespace xBDD.Reporting.Test.Features.WriteResults
         [Trait("category", "current")]
         public void ViewRunStepWithMultilineParameterOfText()
         {
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario())
-                .When(WebUser.ViewsReport(htmlReport))
+                .When(WebUser.ViewsReportGeneral(htmlReport))
                 .Then("the steps multiline parameter will show indented under the step name")
                 .And("the multline parameter will have line breaks and indentation preserved")
                 .Skip("Not Started");
@@ -63,10 +63,10 @@ namespace xBDD.Reporting.Test.Features.WriteResults
         [Trait("category", "current")]
         public void ViewPassingScenario()
         {
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario())
-                .When(WebUser.ViewsReport(htmlReport))
+                .When(WebUser.ViewsReportGeneral(htmlReport))
                 .Then("the area path will be green")
                 .And("the feature name will be green")
                 .And("the scenario name will be green")

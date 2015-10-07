@@ -18,15 +18,14 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void CollapsedByDefault()
 		{
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
 			string output = "Here\r\n is\r\n my\r\n output!";
 			var format = TextFormat.text;
             await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAStepWithOutput(output, format))
-                .When(WebUser.ViewsReport(htmlReport))
+                .When(WebUser.ViewsReportGeneral(htmlReport))
 				.AndAsync("the user clicks the first area", async (s) => {
 					await Page.ClickWhenVisible("first area", htmlReport.Object.Area(1));
 					await BootstrapPage.WaitTillExpanded("first area features", htmlReport.Object.AreaFeatures(1));
@@ -48,15 +47,14 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void GeneralText()
 		{
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
 			string output = "Here\r\n is\r\n my\r\n output!";
 			var format = TextFormat.text;
             await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAStepWithOutput(output, format))
-                .When(WebUser.ViewsReport(htmlReport))
+                .When(WebUser.ViewsReportGeneral(htmlReport))
 				.AndAsync("the user clicks the first area", async (s) => {
 					await Page.ClickWhenVisible("first area", htmlReport.Object.Area(1));
 					await BootstrapPage.WaitTillExpanded("first area features", htmlReport.Object.AreaFeatures(1));
@@ -87,7 +85,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		[ScenarioFact]
 		public void Code()
 		{
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             xBDD.CurrentRun.AddScenario(this)
                 .Skip("Not Started");
 		}
@@ -95,7 +93,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		[ScenarioFact]
 		public void HtmlWithPreview()
 		{
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             xBDD.CurrentRun.AddScenario(this)
                 .Skip("Not Started");
 		}

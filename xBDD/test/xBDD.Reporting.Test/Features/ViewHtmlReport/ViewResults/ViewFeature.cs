@@ -32,10 +32,10 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		[ScenarioFact]
 		public async void Passing()
 		{
-            Wrapper<HtmlReportPage> htmlReport = new Wrapper<HtmlReportPage>();
+            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
             await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAPassingFullTestRun())
-                .When(WebUser.ViewsReport(htmlReport))
+                .When(WebUser.ViewsReportGeneral(htmlReport))
 				.AndAsync("the user expands the first area", async (s) => {
 					await Page.ClickWhenVisible("first area", htmlReport.Object.Area(1));
 				})

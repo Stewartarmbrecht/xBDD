@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using Microsoft.Dnx.Runtime;
 using Microsoft.Dnx.Runtime.Infrastructure;
 using Microsoft.Framework.DependencyInjection;
@@ -84,6 +85,57 @@ namespace xBDD.Reporting.Test.Steps
                         .When("my step 23", (s2) => { })
                         .Then("my step 24", (s2) => { })
                         .Run();
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
+                    File.WriteAllText(path, htmlReport);
+                });
+            return step;
+        }
+
+        internal static Step OfAFullTestRunWithAllOutcomes()
+        {
+            string path = GetReportPath();
+
+            var step = xBDD.CreateStep(
+                "the test results of a full test run with all outcomes",
+                (s) =>
+                {
+                    int stepCounter = 0;
+                    int scenarioCounter = 0;
+                    int[] skippedScenarios = new int[] { 10, 11, 13, 14, 20, 22, 23 };
+                    int failedSetp = 56;
+                    var xBDD = new xBDDMock();
+                    xBDD.CurrentRun.TestRun.Name = "My Test Run";
+                    for(int ia = 0; ia < 3; ia++)
+                    {
+                        var areaName = "My Area " + (ia + 1);
+                        for(int ife = 0; ife < 3; ife++ )
+                        {
+                            var featureName = "My Feature " + ((ife + 1) * (ia + 1));
+                            for(int isc = 0; isc < 3; isc++ )
+                            {
+                                scenarioCounter++;
+                                var scenarioName = "My Scenario " + scenarioCounter;
+                                var scenario = xBDD.CurrentRun.AddScenario(scenarioName, featureName, areaName);
+                                stepCounter++;
+                                scenario.Given("my step " + stepCounter, (s2) => { });
+                                stepCounter++;
+                                if(stepCounter == failedSetp)
+                                    scenario.When("my failed step " + stepCounter, (s2) => { throw new Exception("My Error"); });
+                                else
+                                    scenario.When("my step 2", (s2) => { });
+                                stepCounter++;
+                                scenario.Then("my step 3", (s2) => { });
+                                try
+                                {
+                                    if(skippedScenarios.Contains(scenarioCounter))
+                                        scenario.Skip("Deferred");
+                                    else
+                                        scenario.Run();
+                                }
+                                catch { }
+                            }                            
+                        }
+                    }
                     var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
                     File.WriteAllText(path, htmlReport);
                 });

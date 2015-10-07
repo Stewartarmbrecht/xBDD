@@ -1,4 +1,4 @@
-xBDD.Reporting.Test 2015-10-06T16:52:10
+xBDD.Reporting.Test 2015-10-07T15:26:18
 
 ViewHtmlReport
 	Write To Html
@@ -53,6 +53,11 @@ ViewHtmlReport.ViewResults
 			Then the report will show the area name in green to indicate all features passed
 			And the features under the area will be collapsed because it passed
 		Skipped [Skipped - Not Started]
+	View Area Stats
+		All Failed [Skipped - Not Started]
+		All Passing [Skipped - Not Started]
+		All Skipped [Skipped - Not Started]
+		Failed Skipped And Passing [Skipped - Not Started]
 	View Failure Only
 		Multiple Areas [Skipped - Not Started]
 		Single Area Multiple Features [Skipped - Not Started]
@@ -148,6 +153,54 @@ ViewHtmlReport.ViewResults
 			Given the test results of a single skipped scenario
 			When the user views the html report
 			Then the report will show the test run name in yellow to indicate the test run passed
+	View Test Run Stats
+		All Failed [Skipped - Not Started]
+		All Passing [Skipped - Not Started]
+		All Skipped [Skipped - Not Started]
+		Failed Skipped And Passing Area Stats
+			Given the test results of a full test run with all outcomes
+			When the user views the html report
+			Then there should be a green, yellow, and red bar for the passing, skipped, and failing areas under the test run name
+			And the passing, green bar should have a width of 33%
+			And the skipped, yellow bar should have a width of 33%
+			And the failed, red bar should have a width of 33%
+			And the total number of areas should show to the left of the outcome bar with a value of 3
+			And the number of passed areas should show to the left of the outcome bar with a value of 1
+			And the number of skipped areas should show to the left of the outcome bar with a value of 1
+			And the number of failed areas should show to the left of the outcome bar with a value of 1
+		Failed Skipped And Passing Feature Stats
+			Given the test results of a full test run with all outcomes
+			When the user views the html report
+			Then there should be a green, yellow, and red bar for the passing, skipped, and failing features under the test run name
+			And the passing, green bar should have a width of 56%
+			And the skipped, yellow bar should have a width of 33%
+			And the failed, red bar should have a width of 11%
+			And the total number of areas should show to the left of the outcome bar with a value of 9
+			And the number of passed features should show to the left of the outcome bar with a value of 5
+			And the number of skipped features should show to the left of the outcome bar with a value of 3
+			And the number of failed features should show to the left of the outcome bar with a value of 1
+		Failed Skipped And Passing Scenario Stats
+			Given the test results of a full test run with all outcomes
+			When the user views the html report
+			Then there should be a green, yellow, and red bar for the passing, skipped, and failing scenarios under the test run name
+			And the passing, green bar should have a width of 70%
+			And the skipped, yellow bar should have a width of 26%
+			And the failed, red bar should have a width of 4%
+			And the total number of scenarios should show to the left of the outcome bar with a value of 27
+			And the number of passed scenarios should show to the left of the outcome bar with a value of 19
+			And the number of skipped scenarios should show to the left of the outcome bar with a value of 7
+			And the number of failed scenarios should show to the left of the outcome bar with a value of 1
+		Failed Skipped And Passing Steps Stats
+			Given the test results of a full test run with all outcomes
+			When the user views the html report
+			Then there should be a green, yellow, and red bar for the passing, skipped, and failing steps under the test run name
+			And the passing, green bar should have a width of 72%
+			And the skipped, yellow bar should have a width of 27%
+			And the failed, red bar should have a width of 1%
+			And the total number of steps should show to the left of the outcome bar with a value of 81
+			And the number of passed steps should show to the left of the outcome bar with a value of 58
+			And the number of skipped steps should show to the left of the outcome bar with a value of 22
+			And the number of failed steps should show to the left of the outcome bar with a value of 1
 WriteResults
 	Browse Html Report
 		View Empty Test Run

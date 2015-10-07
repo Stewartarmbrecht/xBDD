@@ -30,19 +30,22 @@ namespace xBDD.Browser
         }
         public static Task WaitTillVisible(string webElementName, IWebElement webElement, int waitMilliseconds = -1)
         {
-            if(waitMilliseconds == -1)
-                waitMilliseconds = DefaultWait;
-            if(webElement == null)
-                throw new Exception("The web element (" + webElementName + ") was not found.");
             return Task.Run(() =>
             {
+                if(waitMilliseconds == -1)
+                    waitMilliseconds = DefaultWait;
+                if(webElement == null)
+                    throw new Exception("The web element (" + webElementName + ") was not found.");
+    
                 var visible = false;
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
                 while (sw.ElapsedMilliseconds < waitMilliseconds && visible == false)
                 {
                     if (webElement.Displayed)
+                    {
                         visible = true;
+                    }
                 }
                 if(!visible)
                     throw new Exception("The web element ("+webElementName+") was not visible");

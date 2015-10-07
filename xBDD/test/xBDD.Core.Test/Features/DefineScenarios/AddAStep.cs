@@ -38,7 +38,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Run();
         }
         [ScenarioFact]
-        public void GivenWithNoAction()
+        public void WithNoAction()
         {
             Wrapper<Scenario> scenarioWrapper = new Wrapper<Scenario>();
             Wrapper<Step> stepWrapper = new Wrapper<Step>();
@@ -175,6 +175,13 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .And(ScenarioTarget.WillHaveAStep(1, scenarioWrapper, stepWrapper))
                 .And(StepTarget.NameWillBe("the user performs a 'save' action", stepWrapper))
                 .Run();
+        }
+        [ScenarioFact]
+        public void AsyncFunctionInSyncStep()
+        {
+            xBDD.CurrentRun
+                .AddScenario(this)
+                .Skip("Not Started");
         }
     }
 }

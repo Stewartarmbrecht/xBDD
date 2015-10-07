@@ -43,7 +43,7 @@ namespace xBDD.Core
                                 step.Outcome = Outcome.Failed;
                                 step.Exception = ex;
                                 step.Reason = "Async Step in Sync Scenario";
-                                statsCascader.CascadeStats(step);
+                                statsCascader.CascadeStats(step, false);
                                 throw ex; 
                             }
                             else
@@ -53,14 +53,14 @@ namespace xBDD.Core
                                 step.Outcome = Outcome.Failed;
                                 step.Exception = ex;
                                 step.Reason = "No Action";
-                                statsCascader.CascadeStats(step);
+                                statsCascader.CascadeStats(step, false);
                                 throw ex; 
                             }
                         }
                         if(passWhenNoAction)
                         {
                             step.Outcome = Outcome.Passed;
-                            statsCascader.CascadeStats(step);
+                            statsCascader.CascadeStats(step, false);
                         }
                         else
                         {
@@ -77,6 +77,7 @@ namespace xBDD.Core
                         {
                             step.Outcome = Outcome.Skipped;
                             step.Reason = "Previous Error";
+                            statsCascader.CascadeStats(step, false);
                         }
                     }
                     throw;
@@ -108,6 +109,16 @@ namespace xBDD.Core
                 {
                     foreach (var step in scenario.Steps)
                     {
+                        if (step.ActionAsync == null && step.Action == null)
+                        {
+                            var notImplementedException = new NotImplementedException();
+                            var ex = new StepNotImplementedException(step.Name, notImplementedException);
+                            step.Outcome = Outcome.Failed;
+                            step.Exception = ex;
+                            step.Reason = "No Action";
+                            statsCascader.CascadeStats(step, false);
+                            throw ex; 
+                        }
                         await stepExecutor.ExecuteStepAsync(step);
                     }
                 }
@@ -120,6 +131,7 @@ namespace xBDD.Core
                         {
                             step.Outcome = Outcome.Skipped;
                             step.Reason = "Previous Error";
+                            statsCascader.CascadeStats(step, false);
                         }
                         throw;
                     }
@@ -131,12 +143,17 @@ namespace xBDD.Core
         {
             if (reason == null)
                 throw new ArgumentNullException("reason");
-            scenario.Outcome = Outcome.Skipped;
-            scenario.Reason = reason;
             if(scenario.Steps.Count > 0)
+            {
                 SkipSteps();
+                scenario.Reason = reason;
+            }
             else
+            {
+                scenario.Outcome = Outcome.Skipped;
+                scenario.Reason = reason;
                 statsCascader.CascadeStats(scenario);
+            }
         }
 
         private void SkipSteps()
@@ -145,7 +162,7 @@ namespace xBDD.Core
             {
                 step.Outcome = Outcome.Skipped;
                 step.Reason = "Scenario Skipped";
-                statsCascader.CascadeStats(step);
+                statsCascader.CascadeStats(step, true);
             }
         }
 
@@ -153,12 +170,17 @@ namespace xBDD.Core
         {
             if (reason == null)
                 throw new ArgumentNullException("reason");
-            scenario.Outcome = Outcome.Skipped;
-            scenario.Reason = reason;
             if(scenario.Steps.Count > 0)
+            {
                 SkipSteps();
+                scenario.Reason = reason;
+            }
             else
+            {
+                scenario.Outcome = Outcome.Skipped;
+                scenario.Reason = reason;
                 statsCascader.CascadeStats(scenario);
+            }
             await Task.Run(() => {});
         }
 

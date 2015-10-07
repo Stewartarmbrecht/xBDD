@@ -50,16 +50,25 @@ namespace xBDD.Reporting.Html
             sb.Append(" ol.features { padding: .5em; }");
             sb.Append(" li.feature { margin: 1.5em; padding: .1em 2em; box-shadow: 1px 1px 8px 1px rgb(202, 202, 202); }");
             sb.Append(" li.scenario .panel { margin: 2em; }");
+            sb.Append(" .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; }");
+            sb.Append(" td.graph td { padding: 0px !important; }");
             sb.AppendLine("</style>");  
         }
 
         void WriteBody(TestRun testRun, StringBuilder sb)
         {
             WriteTagOpen("body", sb, 0, "container-fluid", false);
+            WriteNavBar(sb);
+            WriteTestRun(testRun, sb);
+            WriteTagClose("body", sb, 0);
+        }
+
+        private void WriteNavBar(StringBuilder sb)
+        {
             WriteTagOpen("nav", sb, 1, "navbar navbar-default", false, "menu");
             WriteTagOpen("div", sb, 2, "container-fluid", false);
             WriteTagOpen("div", sb, 3, "navbar-header", false);
-            WriteTagOpen("button", sb, 4, "navbar-toggle collapsed", false, "menu-button", null, 
+            WriteTagOpen("button", sb, 4, "navbar-toggle collapsed", false, "menu-button", null,
                 "type=\"button\" data-toggle=\"collapse\" data-target=\"#menu-body\" aria-expanded=\"false\"");
             WriteTag("span", sb, 5, "sr-only", "Toggle Navigation", true);
             WriteTag("span", sb, 5, "icon-bar", null, true);
@@ -77,8 +86,6 @@ namespace xBDD.Reporting.Html
             WriteTagClose("div", sb, 3);
             WriteTagClose("div", sb, 2);
             WriteTagClose("nav", sb, 1);
-            WriteTestRun(testRun, sb);
-            WriteTagClose("body", sb, 0);
         }
 
         private void WriteTestRun(TestRun testRun, StringBuilder sb)
@@ -110,10 +117,52 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("div", sb, 1, "page-header", false);
             WriteTag("h1", sb, 2, cssClass, testRun.Name.HtmlEncode(), true);
             WriteTagClose("div", sb, 1);
+            WriteStatsTableStart(sb, 1);
+            WriteStats(sb, testRun.AreaStats, 1, "testrun-area-stats", "Areas");
+            WriteStats(sb, testRun.FeatureStats, 1, "testrun-feature-stats", "Features");
+            WriteStats(sb, testRun.ScenarioStats, 1, "testrun-scenario-stats", "Scenarios");
+            WriteStats(sb, testRun.StepStats, 1, "testrun-step-stats", "Steps");
+            WriteStatsTableClose(sb, 1);
             if (scenarioCount > 0)
             {
                 WriteAreas(testRun, sb);
             }
+        }
+
+        private void WriteStatsTableClose(StringBuilder sb, int baseIndent)
+        {
+            WriteTagClose("table", sb, baseIndent);
+        }
+
+        private void WriteStatsTableStart(StringBuilder sb, int baseIndent)
+        {
+            WriteTagOpen("table", sb, baseIndent, "table table-condensed", false, null, "width: 100%; empty-cells: show;");
+        }
+
+        private void WriteStats(StringBuilder sb, OutcomeStats stats, int baseIndent, string id, string label)
+        {
+            WriteTagOpen("tr", sb, baseIndent + 1, null, false, id);
+            WriteTag("td", sb, baseIndent + 2, "stats-label text-right", label, true, null);
+            WriteTag("td", sb, baseIndent + 2, "total info text-center", stats.Total.ToString(), true, null);
+            WriteTag("td", sb, baseIndent + 2, "passed success text-center", stats.Passed.ToString(), true, null);
+            WriteTag("td", sb, baseIndent + 2, "skipped warning text-center", stats.Skipped.ToString(), true, null);
+            WriteTag("td", sb, baseIndent + 2, "failed danger text-center", stats.Failed.ToString(), true, null);
+            WriteTagOpen("td", sb, baseIndent + 2, "graph", false, null, "width: 100%;");
+            WriteTagOpen("table", sb, baseIndent, null, false, null, "width: 100%; empty-cells: show; height: 14px;");
+            WriteTagOpen("tr", sb, baseIndent + 1, null, false);
+            double passedPercent = stats.Total == 0 ? 0 : (((double)stats.Passed / (double)stats.Total) * 100);
+            var passedStyle = String.Format("width: {0}%", passedPercent);
+            WriteTag("td", sb, baseIndent + 2, "passed-bar bg-success", null, true, null, passedStyle);
+            double skippedPercent = stats.Total == 0 ? 0 : (((double)stats.Skipped / (double)stats.Total) * 100);
+            var skippedStyle = String.Format("width: {0}%", skippedPercent);
+            WriteTag("td", sb, baseIndent + 2, "skipped-bar bg-warning", null, true, null, skippedStyle);
+            double failedPercent = stats.Total == 0 ? 0 : (((double)stats.Failed / (double)stats.Total) * 100);
+            var failedStyle = String.Format("width: {0}%", failedPercent);
+            WriteTag("td", sb, baseIndent + 2, "failed-bar bg-danger", null, true, null, failedStyle);
+            WriteTagClose("tr", sb, baseIndent + 1);
+            WriteTagClose("table", sb, baseIndent);
+            WriteTagClose("td", sb, baseIndent + 1);
+            WriteTagClose("tr", sb, baseIndent);
         }
 
         void WriteAreas(TestRun testRun, StringBuilder sb)
@@ -484,13 +533,12 @@ namespace xBDD.Reporting.Html
                                         </ul>
                                         <div class=""tab-content"">
                                             <div role=""tabpanel"" class=""tab-pane active"" id=""output-preview-{0}"">
-                                                <iframe width=""100%"" id=""iframe{0}""></iframe>
+                                                <iframe width=""100%"" height=""400px"" id=""iframe{0}""></iframe>
                                                 <script type=""text/javascript"">
                                                     var iframe{0}doc = document.getElementById('iframe{0}').contentWindow.document;
                                                     iframe{0}doc.open();
                                                     var html{0} = ""{2}"";
                                                     iframe{0}doc.write(html{0});
-                                                    resizeIframe(document.getElementById('iframe{0}'));
                                                     iframe{0}doc.close();
                                                 </script>
                                             </div>
