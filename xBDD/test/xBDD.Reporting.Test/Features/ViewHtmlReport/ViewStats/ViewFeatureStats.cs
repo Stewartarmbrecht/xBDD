@@ -1,13 +1,13 @@
-using xBDD.Reporting.Test.Pages;
-using xBDD.Reporting.Test.Steps;
-using xBDD.xUnit;
-using xBDD.Browser;
 using Xunit;
 using Xunit.Abstractions;
-using System;
+using xBDD.Browser;
+using xBDD.xUnit;
+using xBDD.Reporting.Test.Pages;
+using xBDD.Reporting.Test.Steps;
+
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
-	[Collection("xBDDReportingTest")]
+    [Collection("xBDDReportingTest")]
 	//  [Description("In order to understand how functionality is organized")]
 	//  [Description("As a report reviewer")]
 	//  [Description("I would like to view the features in the html report")]
@@ -21,7 +21,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void FailedSkippedAndPassingScenarioStats()
 		{
             Wrapper<HtmlReportPageStats> htmlReportStats = new Wrapper<HtmlReportPageStats>();
@@ -29,7 +28,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
                 .When(WebUser.ViewsReportStats(htmlReportStats))
                 .ThenAsync("there should be a green, yellow, and red bar for the passing, skipped, and failing scenarios under the feature name", async (s) => {
-					await Page.WaitTillVisible("feature scenarios outcome bar", htmlReportStats.Object.FeatureScenarioOutcomeBar(3));
+					await Page.WaitTillVisible("feature scenarios outcome bar", htmlReportStats.Object.FeatureScenarioOutcomeStats(3));
 					s.Output = htmlReportStats.Object.Html;
 					s.OutputFormat = TextFormat.htmlpreview;
                 })
@@ -57,7 +56,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .RunAsync();
 		}
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void FailedSkippedAndPassingStepsStats()
 		{
             Wrapper<HtmlReportPageStats> htmlReportStats = new Wrapper<HtmlReportPageStats>();
@@ -65,7 +63,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
                 .When(WebUser.ViewsReportStats(htmlReportStats))
                 .ThenAsync("there should be a green, yellow, and red bar for the passing, skipped, and failing steps under the feature name", async (s) => {
-					await Page.WaitTillVisible("feature steps outcome bar", htmlReportStats.Object.FeatureStepOutcomeBar(3));
+					await Page.WaitTillVisible("feature steps outcome bar", htmlReportStats.Object.FeatureStepOutcomeStats(3));
 					s.Output = htmlReportStats.Object.Html;
 					s.OutputFormat = TextFormat.htmlpreview;
                 })

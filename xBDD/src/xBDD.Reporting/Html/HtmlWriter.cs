@@ -150,17 +150,28 @@ namespace xBDD.Reporting.Html
             WriteTag("td", sb, baseIndent + 2, "skipped warning text-center", stats.Skipped.ToString(), true, null);
             WriteTag("td", sb, baseIndent + 2, "failed danger text-center", stats.Failed.ToString(), true, null);
             WriteTagOpen("td", sb, baseIndent + 2, "graph", false, null, "width: 100%;");
-            WriteTagOpen("table", sb, baseIndent, null, false, null, "width: 100%; empty-cells: show; height: 14px;");
+            WriteTagOpen("table", sb, baseIndent, "table", false, null, "width: 100%; empty-cells: show; height: 14px;");
             WriteTagOpen("tr", sb, baseIndent + 1, null, false);
-            double passedPercent = stats.Total == 0 ? 0 : (((double)stats.Passed / (double)stats.Total) * 100);
-            var passedStyle = String.Format("width: {0}%", passedPercent);
-            WriteTag("td", sb, baseIndent + 2, "passed-bar bg-success", null, true, null, passedStyle);
-            double skippedPercent = stats.Total == 0 ? 0 : (((double)stats.Skipped / (double)stats.Total) * 100);
-            var skippedStyle = String.Format("width: {0}%", skippedPercent);
-            WriteTag("td", sb, baseIndent + 2, "skipped-bar bg-warning", null, true, null, skippedStyle);
-            double failedPercent = stats.Total == 0 ? 0 : (((double)stats.Failed / (double)stats.Total) * 100);
-            var failedStyle = String.Format("width: {0}%", failedPercent);
-            WriteTag("td", sb, baseIndent + 2, "failed-bar bg-danger", null, true, null, failedStyle);
+            
+            if(stats.Total == 0)
+            {
+                WriteTag("td", sb, baseIndent + 2, "empty-bar active", null, true, null, "width: 100%;");
+            }
+            else
+            {
+                double passedPercent = stats.Total == 0 ? 0 : (((double)stats.Passed / (double)stats.Total) * 100);
+                var passedStyle = String.Format("width: {0}%", passedPercent);
+                WriteTag("td", sb, baseIndent + 2, "passed-bar bg-success", null, true, null, passedStyle);
+                
+                double skippedPercent = stats.Total == 0 ? 0 : (((double)stats.Skipped / (double)stats.Total) * 100);
+                var skippedStyle = String.Format("width: {0}%", skippedPercent);
+                WriteTag("td", sb, baseIndent + 2, "skipped-bar bg-warning", null, true, null, skippedStyle);
+                
+                double failedPercent = stats.Total == 0 ? 0 : (((double)stats.Failed / (double)stats.Total) * 100);
+                var failedStyle = String.Format("width: {0}%", failedPercent);
+                WriteTag("td", sb, baseIndent + 2, "failed-bar bg-danger", null, true, null, failedStyle);
+            }
+
             WriteTagClose("tr", sb, baseIndent + 1);
             WriteTagClose("table", sb, baseIndent);
             WriteTagClose("td", sb, baseIndent + 1);

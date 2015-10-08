@@ -17,7 +17,7 @@ namespace xBDD.Reporting.Test.Pages
         }
 
         [FindsBy(How = How.Id, Using = "testrun-area-stats")]
-        public IWebElement TestRunAreaOutcomeBar { get; internal set; }
+        public IWebElement TestRunAreaOutcomeStats { get; internal set; }
         [FindsBy(How = How.CssSelector, Using = "#testrun-area-stats td.passed-bar")]
         public IWebElement TestRunAreaOutcomeSuccessBar { get; internal set; }
 
@@ -34,10 +34,12 @@ namespace xBDD.Reporting.Test.Pages
         public IWebElement TestRunAreaOutcomeSkipped { get; internal set; }
         [FindsBy(How = How.CssSelector, Using = "#testrun-area-stats td.failed")]
         public IWebElement TestRunAreaOutcomeFailed { get; internal set; }
+        [FindsBy(How = How.CssSelector, Using = "#testrun-area-stats td.empty-bar")]
+        public IWebElement TestRunAreaOutcomeEmptyBar { get; internal set; }
 
         
         [FindsBy(How = How.Id, Using = "testrun-feature-stats")]
-        public IWebElement TestRunFeatureOutcomeBar { get; internal set; }
+        public IWebElement TestRunFeatureOutcomeStats { get; internal set; }
         [FindsBy(How = How.CssSelector, Using = "#testrun-feature-stats td.passed-bar")]
         public IWebElement TestRunFeatureOutcomeSuccessBar { get; internal set; }
 
@@ -57,7 +59,7 @@ namespace xBDD.Reporting.Test.Pages
 
 
         [FindsBy(How = How.Id, Using = "testrun-scenario-stats")]
-        public IWebElement TestRunScenarioOutcomeBar { get; internal set; }
+        public IWebElement TestRunScenarioOutcomeStats { get; internal set; }
         [FindsBy(How = How.CssSelector, Using = "#testrun-scenario-stats td.passed-bar")]
         public IWebElement TestRunScenarioOutcomeSuccessBar { get; internal set; }
 
@@ -77,7 +79,7 @@ namespace xBDD.Reporting.Test.Pages
 
 
         [FindsBy(How = How.Id, Using = "testrun-step-stats")]
-        public IWebElement TestRunStepOutcomeBar { get; internal set; }
+        public IWebElement TestRunStepOutcomeStats { get; internal set; }
         [FindsBy(How = How.CssSelector, Using = "#testrun-step-stats td.passed-bar")]
         public IWebElement TestRunStepOutcomeSuccessBar { get; internal set; }
 
@@ -96,7 +98,7 @@ namespace xBDD.Reporting.Test.Pages
         public IWebElement TestRunStepOutcomeFailed { get; internal set; }
 
 
-        public IWebElement AreaFeatureOutcomeBar(int areaNumber)
+        public IWebElement AreaFeatureOutcomeStats(int areaNumber)
         {
             return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-feature-stats"));
         }
@@ -130,7 +132,7 @@ namespace xBDD.Reporting.Test.Pages
         }
 
 
-        public IWebElement AreaScenarioOutcomeBar(int areaNumber)
+        public IWebElement AreaScenarioOutcomeStats(int areaNumber)
         {
             return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-scenario-stats"));
         }
@@ -164,7 +166,7 @@ namespace xBDD.Reporting.Test.Pages
         }
 
 
-        public IWebElement AreaStepOutcomeBar(int areaNumber)
+        public IWebElement AreaStepOutcomeStats(int areaNumber)
         {
             return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-step-stats"));
         }
@@ -199,7 +201,7 @@ namespace xBDD.Reporting.Test.Pages
 
 
 
-        public IWebElement FeatureScenarioOutcomeBar(int featureNumber)
+        public IWebElement FeatureScenarioOutcomeStats(int featureNumber)
         {
             return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-scenario-stats"));
         }
@@ -233,7 +235,7 @@ namespace xBDD.Reporting.Test.Pages
         }
 
 
-        public IWebElement FeatureStepOutcomeBar(int featureNumber)
+        public IWebElement FeatureStepOutcomeStats(int featureNumber)
         {
             return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-step-stats"));
         }
@@ -267,7 +269,7 @@ namespace xBDD.Reporting.Test.Pages
         }
 
 
-        public IWebElement ScenarioStepOutcomeBar(int scenarioNumber)
+        public IWebElement ScenarioStepOutcomeStats(int scenarioNumber)
         {
             return driver.FindElement(By.CssSelector("#scenario-"+scenarioNumber+"-step-stats"));
         }

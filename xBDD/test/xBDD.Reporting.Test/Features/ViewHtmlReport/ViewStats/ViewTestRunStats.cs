@@ -1,13 +1,13 @@
-using xBDD.Reporting.Test.Pages;
-using xBDD.Reporting.Test.Steps;
-using xBDD.xUnit;
-using xBDD.Browser;
 using Xunit;
 using Xunit.Abstractions;
-using System;
+using xBDD.Browser;
+using xBDD.xUnit;
+using xBDD.Reporting.Test.Pages;
+using xBDD.Reporting.Test.Steps;
+
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
-	[Collection("xBDDReportingTest")]
+    [Collection("xBDDReportingTest")]
 	//  [Description("In order to understand how functionality is organized")]
 	//  [Description("As a report reviewer")]
 	//  [Description("I would like to view the areas in the html report")]
@@ -21,7 +21,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void FailedSkippedAndPassingAreaStats()
 		{
             Wrapper<HtmlReportPageStats> htmlReportStats = new Wrapper<HtmlReportPageStats>();
@@ -29,7 +28,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
                 .When(WebUser.ViewsReportStats(htmlReportStats))
                 .ThenAsync("there should be a green, yellow, and red bar for the passing, skipped, and failing areas under the test run name", async (s) => {
-					await Page.WaitTillVisible("test run area outcome bar", htmlReportStats.Object.TestRunAreaOutcomeBar);
+					await Page.WaitTillVisible("test run area outcome bar", htmlReportStats.Object.TestRunAreaOutcomeStats);
 					s.Output = htmlReportStats.Object.Html;
 					s.OutputFormat = TextFormat.htmlpreview;
                 })
@@ -57,7 +56,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .RunAsync();
 		}
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void FailedSkippedAndPassingFeatureStats()
 		{
             Wrapper<HtmlReportPageStats> htmlReportStats = new Wrapper<HtmlReportPageStats>();
@@ -65,7 +63,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
                 .When(WebUser.ViewsReportStats(htmlReportStats))
                 .ThenAsync("there should be a green, yellow, and red bar for the passing, skipped, and failing features under the test run name", async (s) => {
-					await Page.WaitTillVisible("test run features outcome bar", htmlReportStats.Object.TestRunFeatureOutcomeBar);
+					await Page.WaitTillVisible("test run features outcome bar", htmlReportStats.Object.TestRunFeatureOutcomeStats);
 					s.Output = htmlReportStats.Object.Html;
 					s.OutputFormat = TextFormat.htmlpreview;
                 })
@@ -93,7 +91,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .RunAsync();
 		}
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void FailedSkippedAndPassingScenarioStats()
 		{
             Wrapper<HtmlReportPageStats> htmlReportStats = new Wrapper<HtmlReportPageStats>();
@@ -101,7 +98,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
                 .When(WebUser.ViewsReportStats(htmlReportStats))
                 .ThenAsync("there should be a green, yellow, and red bar for the passing, skipped, and failing scenarios under the test run name", async (s) => {
-					await Page.WaitTillVisible("test run scenarios outcome bar", htmlReportStats.Object.TestRunScenarioOutcomeBar);
+					await Page.WaitTillVisible("test run scenarios outcome bar", htmlReportStats.Object.TestRunScenarioOutcomeStats);
 					s.Output = htmlReportStats.Object.Html;
 					s.OutputFormat = TextFormat.htmlpreview;
                 })
@@ -129,7 +126,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .RunAsync();
 		}
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void FailedSkippedAndPassingStepsStats()
 		{
             Wrapper<HtmlReportPageStats> htmlReportStats = new Wrapper<HtmlReportPageStats>();
@@ -137,7 +133,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
                 .When(WebUser.ViewsReportStats(htmlReportStats))
                 .ThenAsync("there should be a green, yellow, and red bar for the passing, skipped, and failing steps under the test run name", async (s) => {
-					await Page.WaitTillVisible("test run steps outcome bar", htmlReportStats.Object.TestRunStepOutcomeBar);
+					await Page.WaitTillVisible("test run steps outcome bar", htmlReportStats.Object.TestRunStepOutcomeStats);
 					s.Output = htmlReportStats.Object.Html;
 					s.OutputFormat = TextFormat.htmlpreview;
                 })
@@ -165,10 +161,34 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .RunAsync();
 		}
 		[ScenarioFact]
-		public void AllPassing()
+		[Trait("category", "now")]
+		public async void AreaStatsNoAreas()
 		{
-			 xBDD.CurrentRun.AddScenario(this)
-				.Skip("Not Started");
+            Wrapper<HtmlReportPageStats> htmlReportStats = new Wrapper<HtmlReportPageStats>();
+            await xBDD.CurrentRun.AddScenario(this)
+                .Given(HtmlReport.OfAnEmptyTestRun())
+                .When(WebUser.ViewsReportStats(htmlReportStats))
+                .ThenAsync("there should be a section that lists areas stats for the test run", async (s) => {
+					await Page.WaitTillVisible("test run areas outcome bar", htmlReportStats.Object.TestRunAreaOutcomeStats);
+					s.Output = htmlReportStats.Object.Html;
+					s.OutputFormat = TextFormat.htmlpreview;
+                })
+                .And("the stats should show the total number of areas of 0", (s) => {
+					Assert.Equal("0", htmlReportStats.Object.TestRunAreaOutcomeTotal.Text);
+               	})
+                .And("the stats should show the number of areas with all passing scenarios as 0", (s) => {
+					Assert.Equal("0", htmlReportStats.Object.TestRunAreaOutcomePassed.Text);
+               	})
+                .And("the stats should show the number of areas with skippped scenarios as 0", (s) => {
+					Assert.Equal("0", htmlReportStats.Object.TestRunAreaOutcomeSkipped.Text);
+               	})
+                .And("the status should show the number of areas with failed scenarios as 0", (s) => {
+					Assert.Equal("0", htmlReportStats.Object.TestRunAreaOutcomeFailed.Text);
+               	})
+                .And("the stats should show a gray bar to indicate there are no areas that is 100%", (s) => {
+					Assert.True(htmlReportStats.Object.TestRunAreaOutcomeEmptyBar.GetAttribute("style").Contains("width: 100%"));
+               	})
+                .RunAsync();
 		}
 		[ScenarioFact]
 		public void AllSkipped()

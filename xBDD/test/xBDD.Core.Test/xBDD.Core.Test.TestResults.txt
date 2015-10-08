@@ -1,4 +1,4 @@
-xBDD.Core.Test 2015-10-05T23:05:05
+xBDD.Core.Test 2015-10-07T22:33:13
 
 CompileStats
 	Compile Test Run Results
@@ -150,6 +150,7 @@ DefineScenarios
 			And the full step name will be 'Given my async starting condition'
 			And the step will have an async action defined
 			And the step action type will be Given
+		Async Function In Sync Step [Skipped - Not Started]
 		Given
 			Given the following method
 				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
@@ -169,27 +170,6 @@ DefineScenarios
 			And the scenario will have a step at position 1
 			And the step name will be 'my starting condition'
 			And the full step name will be 'Given my starting condition'
-			And the step will have an action defined
-			And the step action type will be Given
-		Given With No Action
-			Given the following method
-				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
-				{
-				    public class AddAGivenStepWithNoAction
-				    {
-				        public ScenarioBuilder Add()
-				        {
-				            return xBDD.CurrentRun
-				                .AddScenario(this)
-				                .Given(xBDD.CreateStep("my starting condition that needs no action"));
-				        }
-				    }
-				}
-			When the method is executed
-			Then the scenario will be created
-			And the scenario will have a step at position 1
-			And the step name will be 'my starting condition that needs no action'
-			And the full step name will be 'Given my starting condition that needs no action'
 			And the step will have an action defined
 			And the step action type will be Given
 		Reusable Step
@@ -299,6 +279,27 @@ DefineScenarios
 			And the full step name will be 'When my action'
 			And the step will have an action defined
 			And the step action type will be When
+		With No Action
+			Given the following method
+				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
+				{
+				    public class AddAGivenStepWithNoAction
+				    {
+				        public ScenarioBuilder Add()
+				        {
+				            return xBDD.CurrentRun
+				                .AddScenario(this)
+				                .Given(xBDD.CreateStep("my starting condition that needs no action"));
+				        }
+				    }
+				}
+			When the method is executed
+			Then the scenario will be created
+			And the scenario will have a step at position 1
+			And the step name will be 'my starting condition that needs no action'
+			And the full step name will be 'Given my starting condition that needs no action'
+			And the step will have an action defined
+			And the step action type will be Given
 	Create A Test Run
 		Manually [Skipped - Re-writing]
 		Throughx BDD Current Test Run [Skipped - Re-writing]

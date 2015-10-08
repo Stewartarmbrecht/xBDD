@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <assemblies>
-  <assembly name="xBDD.Reporting.Database.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3168" run-date="2015-10-05" run-time="23:05:16" total="4" passed="4" failed="0" skipped="0" time="0.360" errors="0">
+  <assembly name="xBDD.Reporting.Database.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3168" run-date="2015-10-07" run-time="22:33:33" total="4" passed="4" failed="0" skipped="0" time="0.261" errors="0">
     <errors />
-    <collection total="4" passed="4" failed="0" skipped="0" name="xBDDReportingDatabaseTest" time="0.024">
-      <test name="xBDD.Test.Features.SaveResults.WriteToDatabase.ToExistingDatabaseFails" type="xBDD.Test.Features.SaveResults.WriteToDatabase" method="ToExistingDatabaseFails" time="0.0222079" result="Pass" />
-      <test name="xBDD.Test.Features.SaveResults.WriteToDatabase.ToNewDatabase" type="xBDD.Test.Features.SaveResults.WriteToDatabase" method="ToNewDatabase" time="0.0015901" result="Pass" />
-      <test name="xBDD.Test.Features.SaveResults.WriteToDatabase.GetTestResults" type="xBDD.Test.Features.SaveResults.WriteToDatabase" method="GetTestResults" time="0.0003485" result="Pass" />
-      <test name="xBDD.Test.Features.SaveResults.WriteToDatabase.ToExistingDatabase" type="xBDD.Test.Features.SaveResults.WriteToDatabase" method="ToExistingDatabase" time="0.0003101" result="Pass" />
+    <collection total="4" passed="4" failed="0" skipped="0" name="xBDDReportingDatabaseTest" time="0.014">
+      <test name="xBDD.Test.Features.SaveResults.WriteToDatabase.ToExistingDatabaseFails" type="xBDD.Test.Features.SaveResults.WriteToDatabase" method="ToExistingDatabaseFails" time="0.0133306" result="Pass" />
+      <test name="xBDD.Test.Features.SaveResults.WriteToDatabase.ToNewDatabase" type="xBDD.Test.Features.SaveResults.WriteToDatabase" method="ToNewDatabase" time="0.0005887" result="Pass" />
+      <test name="xBDD.Test.Features.SaveResults.WriteToDatabase.GetTestResults" type="xBDD.Test.Features.SaveResults.WriteToDatabase" method="GetTestResults" time="0.0001569" result="Pass" />
+      <test name="xBDD.Test.Features.SaveResults.WriteToDatabase.ToExistingDatabase" type="xBDD.Test.Features.SaveResults.WriteToDatabase" method="ToExistingDatabase" time="0.0001546" result="Pass" />
     </collection>
   </assembly>
 </assemblies>

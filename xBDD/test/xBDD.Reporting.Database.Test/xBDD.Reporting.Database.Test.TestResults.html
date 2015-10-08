@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>xBDD.Reporting.Database.Test 2015-10-05T23:05:16</title>
+    <title>xBDD.Reporting.Database.Test 2015-10-07T22:33:33</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <style> ul.steps, div.output, div.mp, dl.exception { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; } li.scenario h4 { margin: .5em; } ol.features { padding: .5em; } li.feature { margin: 1.5em; padding: .1em 2em; box-shadow: 1px 1px 8px 1px rgb(202, 202, 202); } li.scenario .panel { margin: 2em; }</style>
+    <style> ul.steps, div.output, div.mp, dl.exception { margin-left: 2em } iframe { border: 1px solid gray; resize: both; overflow: auto; } li.scenario h4 { margin: .5em; } ol.features { padding: .5em; } li.feature { margin: 1.5em; padding: 1em 2em; box-shadow: 1px 1px 8px 1px rgb(202, 202, 202); } li.scenario .panel { margin: 2em; } .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; } td.graph td { padding: 0px !important; } .table { margin: 0px !important; } h3 { margin: 0px !important; }</style>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
@@ -26,40 +26,262 @@
             <div class="collapse navbar-collapse" id="menu-body">
                 <ul class="nav navbar-nav">
                     <li>
-                    <a id="collapse-all-areas-button"href="javascript: $('ol.features').collapse('hide');">Collapse All Areas</a>
+                    <a id="expand-all-areas-button"href="javascript: $('ol.features').collapse('show');">Expand All Areas</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="page-header">
-        <h1 class="testrun-name text-warning">xBDD.Reporting.Database.Test 2015-10-05T23:05:16</h1>
+        <h1 class="testrun-name text-warning">xBDD.Reporting.Database.Test 2015-10-07T22:33:33</h1>
     </div>
+    <table class="table table-condensed" style="width: 100%; empty-cells: show;">
+        <tr id="testrun-area-stats">
+            <td class="stats-label text-right">Areas</td>
+            <td class="total info text-center">1</td>
+            <td class="passed success text-center">0</td>
+            <td class="skipped warning text-center">1</td>
+            <td class="failed danger text-center">0</td>
+            <td class="graph" style="width: 100%;">
+    <table style="width: 100%; empty-cells: show; height: 14px;">
+        <tr>
+            <td class="passed-bar bg-success" style="width: 0%"></td>
+            <td class="skipped-bar bg-warning" style="width: 100%"></td>
+            <td class="failed-bar bg-danger" style="width: 0%"></td>
+        </tr>
+    </table>
+        </td>
+    </tr>
+        <tr id="testrun-feature-stats">
+            <td class="stats-label text-right">Features</td>
+            <td class="total info text-center">1</td>
+            <td class="passed success text-center">0</td>
+            <td class="skipped warning text-center">1</td>
+            <td class="failed danger text-center">0</td>
+            <td class="graph" style="width: 100%;">
+    <table style="width: 100%; empty-cells: show; height: 14px;">
+        <tr>
+            <td class="passed-bar bg-success" style="width: 0%"></td>
+            <td class="skipped-bar bg-warning" style="width: 100%"></td>
+            <td class="failed-bar bg-danger" style="width: 0%"></td>
+        </tr>
+    </table>
+        </td>
+    </tr>
+        <tr id="testrun-scenario-stats">
+            <td class="stats-label text-right">Scenarios</td>
+            <td class="total info text-center">4</td>
+            <td class="passed success text-center">0</td>
+            <td class="skipped warning text-center">4</td>
+            <td class="failed danger text-center">0</td>
+            <td class="graph" style="width: 100%;">
+    <table style="width: 100%; empty-cells: show; height: 14px;">
+        <tr>
+            <td class="passed-bar bg-success" style="width: 0%"></td>
+            <td class="skipped-bar bg-warning" style="width: 100%"></td>
+            <td class="failed-bar bg-danger" style="width: 0%"></td>
+        </tr>
+    </table>
+        </td>
+    </tr>
+        <tr id="testrun-step-stats">
+            <td class="stats-label text-right">Steps</td>
+            <td class="total info text-center">0</td>
+            <td class="passed success text-center">0</td>
+            <td class="skipped warning text-center">0</td>
+            <td class="failed danger text-center">0</td>
+            <td class="graph" style="width: 100%;">
+    <table style="width: 100%; empty-cells: show; height: 14px;">
+        <tr>
+            <td class="passed-bar bg-success" style="width: 0%"></td>
+            <td class="skipped-bar bg-warning" style="width: 0%"></td>
+            <td class="failed-bar bg-danger" style="width: 0%"></td>
+        </tr>
+    </table>
+        </td>
+    </tr>
+    </table>
     <ol class="areas list-unstyled">
         <li class="area" id="area-1">
-            <h2 class="text-warning"data-toggle="collapse" href="#area-1-features" aria-expanded="true" aria-controls="area-1-features" >xBDD Test Features SaveResults</h2>
-            <ol class="features list-unstyled collapse in" style="border-left: 2px solid #917545;" id="area-1-features"aria-expanded="true">
-                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;">
-                    <h3 class="text-warning">Write To Database</h3>
-                    <ol class="scenarios list-unstyled">
-                        <li class="scenario skipped">
+            <h2 class="text-warning"data-toggle="collapse" href="#area-1-features" aria-expanded="false" aria-controls="area-1-features" >xBDD Test Features SaveResults</h2>
+            <table class="table table-condensed" style="width: 100%; empty-cells: show;">
+                <tr id="area-1-feature-stats">
+                    <td class="stats-label text-right">Features</td>
+                    <td class="total info text-center">1</td>
+                    <td class="passed success text-center">0</td>
+                    <td class="skipped warning text-center">1</td>
+                    <td class="failed danger text-center">0</td>
+                    <td class="graph" style="width: 100%;">
+            <table style="width: 100%; empty-cells: show; height: 14px;">
+                <tr>
+                    <td class="passed-bar bg-success" style="width: 0%"></td>
+                    <td class="skipped-bar bg-warning" style="width: 100%"></td>
+                    <td class="failed-bar bg-danger" style="width: 0%"></td>
+                </tr>
+            </table>
+                </td>
+            </tr>
+                <tr id="area-1-scenario-stats">
+                    <td class="stats-label text-right">Scenarios</td>
+                    <td class="total info text-center">4</td>
+                    <td class="passed success text-center">0</td>
+                    <td class="skipped warning text-center">4</td>
+                    <td class="failed danger text-center">0</td>
+                    <td class="graph" style="width: 100%;">
+            <table style="width: 100%; empty-cells: show; height: 14px;">
+                <tr>
+                    <td class="passed-bar bg-success" style="width: 0%"></td>
+                    <td class="skipped-bar bg-warning" style="width: 100%"></td>
+                    <td class="failed-bar bg-danger" style="width: 0%"></td>
+                </tr>
+            </table>
+                </td>
+            </tr>
+                <tr id="area-1-step-stats">
+                    <td class="stats-label text-right">Steps</td>
+                    <td class="total info text-center">0</td>
+                    <td class="passed success text-center">0</td>
+                    <td class="skipped warning text-center">0</td>
+                    <td class="failed danger text-center">0</td>
+                    <td class="graph" style="width: 100%;">
+            <table style="width: 100%; empty-cells: show; height: 14px;">
+                <tr>
+                    <td class="passed-bar bg-success" style="width: 0%"></td>
+                    <td class="skipped-bar bg-warning" style="width: 0%"></td>
+                    <td class="failed-bar bg-danger" style="width: 0%"></td>
+                </tr>
+            </table>
+                </td>
+            </tr>
+            </table>
+            <ol class="features list-unstyled collapse" style="border-left: 2px solid #917545;" id="area-1-features"aria-expanded="false">
+                <li class="feature" style="box-shadow: 1px 1px 8px 1px #917545;" id="feature-1">
+                    <h3 class="text-warning"data-toggle="collapse" href="#feature-1-scenarios" aria-expanded="false" aria-controls="feature-1-scenarios" >Write To Database</h3>
+                    <table class="table table-condensed" style="width: 100%; empty-cells: show;">
+                        <tr id="feature-1-scenario-stats">
+                            <td class="stats-label text-right">Scenarios</td>
+                            <td class="total info text-center">4</td>
+                            <td class="passed success text-center">0</td>
+                            <td class="skipped warning text-center">4</td>
+                            <td class="failed danger text-center">0</td>
+                            <td class="graph" style="width: 100%;">
+                    <table style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="passed-bar bg-success" style="width: 0%"></td>
+                            <td class="skipped-bar bg-warning" style="width: 100%"></td>
+                            <td class="failed-bar bg-danger" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                        <tr id="feature-1-step-stats">
+                            <td class="stats-label text-right">Steps</td>
+                            <td class="total info text-center">0</td>
+                            <td class="passed success text-center">0</td>
+                            <td class="skipped warning text-center">0</td>
+                            <td class="failed danger text-center">0</td>
+                            <td class="graph" style="width: 100%;">
+                    <table style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="passed-bar bg-success" style="width: 0%"></td>
+                            <td class="skipped-bar bg-warning" style="width: 0%"></td>
+                            <td class="failed-bar bg-danger" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                    </table>
+                    <ol class="scenarios list-unstyled collapse" id="feature-1-scenarios"aria-expanded="false">
+                        <li class="scenario skipped" id="scenario-1">
                             <div class="panel  panel-warning">
-                            <div class="panel-heading">Get Test Results [Skipped - Not Started]</div>
+                            <div class="panel-heading"data-toggle="collapse" href="#scenario-1-steps" aria-expanded="false" aria-controls="scenario-1-steps" >Get Test Results [Skipped - Not Started]                                    <table class="table table-condensed" style="width: 100%; empty-cells: show;">
+                        <tr id="scenario-1-step-stats">
+                            <td class="stats-label text-right">Steps</td>
+                            <td class="total info text-center">0</td>
+                            <td class="passed success text-center">0</td>
+                            <td class="skipped warning text-center">0</td>
+                            <td class="failed danger text-center">0</td>
+                            <td class="graph" style="width: 100%;">
+                    <table style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="passed-bar bg-success" style="width: 0%"></td>
+                            <td class="skipped-bar bg-warning" style="width: 0%"></td>
+                            <td class="failed-bar bg-danger" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                                    </table>
+</div>
                             </div>
                         </li>
-                        <li class="scenario skipped">
+                        <li class="scenario skipped" id="scenario-2">
                             <div class="panel  panel-warning">
-                            <div class="panel-heading">To Existing Database [Skipped - Not Started]</div>
+                            <div class="panel-heading"data-toggle="collapse" href="#scenario-2-steps" aria-expanded="false" aria-controls="scenario-2-steps" >To Existing Database [Skipped - Not Started]                                    <table class="table table-condensed" style="width: 100%; empty-cells: show;">
+                        <tr id="scenario-2-step-stats">
+                            <td class="stats-label text-right">Steps</td>
+                            <td class="total info text-center">0</td>
+                            <td class="passed success text-center">0</td>
+                            <td class="skipped warning text-center">0</td>
+                            <td class="failed danger text-center">0</td>
+                            <td class="graph" style="width: 100%;">
+                    <table style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="passed-bar bg-success" style="width: 0%"></td>
+                            <td class="skipped-bar bg-warning" style="width: 0%"></td>
+                            <td class="failed-bar bg-danger" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                                    </table>
+</div>
                             </div>
                         </li>
-                        <li class="scenario skipped">
+                        <li class="scenario skipped" id="scenario-3">
                             <div class="panel  panel-warning">
-                            <div class="panel-heading">To Existing Database Fails [Skipped - Not Started]</div>
+                            <div class="panel-heading"data-toggle="collapse" href="#scenario-3-steps" aria-expanded="false" aria-controls="scenario-3-steps" >To Existing Database Fails [Skipped - Not Started]                                    <table class="table table-condensed" style="width: 100%; empty-cells: show;">
+                        <tr id="scenario-3-step-stats">
+                            <td class="stats-label text-right">Steps</td>
+                            <td class="total info text-center">0</td>
+                            <td class="passed success text-center">0</td>
+                            <td class="skipped warning text-center">0</td>
+                            <td class="failed danger text-center">0</td>
+                            <td class="graph" style="width: 100%;">
+                    <table style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="passed-bar bg-success" style="width: 0%"></td>
+                            <td class="skipped-bar bg-warning" style="width: 0%"></td>
+                            <td class="failed-bar bg-danger" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                                    </table>
+</div>
                             </div>
                         </li>
-                        <li class="scenario skipped">
+                        <li class="scenario skipped" id="scenario-4">
                             <div class="panel  panel-warning">
-                            <div class="panel-heading">To New Database [Skipped - Re-writing]</div>
+                            <div class="panel-heading"data-toggle="collapse" href="#scenario-4-steps" aria-expanded="false" aria-controls="scenario-4-steps" >To New Database [Skipped - Re-writing]                                    <table class="table table-condensed" style="width: 100%; empty-cells: show;">
+                        <tr id="scenario-4-step-stats">
+                            <td class="stats-label text-right">Steps</td>
+                            <td class="total info text-center">0</td>
+                            <td class="passed success text-center">0</td>
+                            <td class="skipped warning text-center">0</td>
+                            <td class="failed danger text-center">0</td>
+                            <td class="graph" style="width: 100%;">
+                    <table style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="passed-bar bg-success" style="width: 0%"></td>
+                            <td class="skipped-bar bg-warning" style="width: 0%"></td>
+                            <td class="failed-bar bg-danger" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                                    </table>
+</div>
                             </div>
                         </li>
                     </ol>
