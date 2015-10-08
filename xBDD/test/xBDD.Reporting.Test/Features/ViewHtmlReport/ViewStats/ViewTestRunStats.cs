@@ -70,15 +70,12 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 					s.OutputFormat = TextFormat.htmlpreview;
                 })
                 .And("the passing, green bar should have a width of 56%", (s) => {
-					Console.WriteLine(htmlReportStats.Object.TestRunFeatureOutcomeSuccessBar.GetAttribute("style"));
 					Assert.True(htmlReportStats.Object.TestRunFeatureOutcomeSuccessBar.GetAttribute("style").Contains("width: 55.5555555555556%"));
                	})
                 .And("the skipped, yellow bar should have a width of 33%", (s) => {
-					Console.WriteLine(htmlReportStats.Object.TestRunFeatureOutcomeSkippedBar.GetAttribute("style"));
 					Assert.True(htmlReportStats.Object.TestRunFeatureOutcomeSkippedBar.GetAttribute("style").Contains("width: 33.3333333333333%"));
                	})
                 .And("the failed, red bar should have a width of 11%", (s) => {
-					Console.WriteLine(htmlReportStats.Object.TestRunFeatureOutcomeFailedBar.GetAttribute("style"));
 					Assert.True(htmlReportStats.Object.TestRunFeatureOutcomeFailedBar.GetAttribute("style").Contains("width: 11.1111111111111%"));
                	})
                 .And("the total number of areas should show to the left of the outcome bar with a value of 9", (s) => {
@@ -109,15 +106,12 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 					s.OutputFormat = TextFormat.htmlpreview;
                 })
                 .And("the passing, green bar should have a width of 70%", (s) => {
-					Console.WriteLine(htmlReportStats.Object.TestRunScenarioOutcomeSuccessBar.GetAttribute("style"));
 					Assert.True(htmlReportStats.Object.TestRunScenarioOutcomeSuccessBar.GetAttribute("style").Contains("width: 70.3703703703704%"));
                	})
                 .And("the skipped, yellow bar should have a width of 26%", (s) => {
-					Console.WriteLine(htmlReportStats.Object.TestRunScenarioOutcomeSkippedBar.GetAttribute("style"));
 					Assert.True(htmlReportStats.Object.TestRunScenarioOutcomeSkippedBar.GetAttribute("style").Contains("width: 25.9259259259259%"));
                	})
                 .And("the failed, red bar should have a width of 4%", (s) => {
-					Console.WriteLine(htmlReportStats.Object.TestRunScenarioOutcomeFailedBar.GetAttribute("style"));
 					Assert.True(htmlReportStats.Object.TestRunScenarioOutcomeFailedBar.GetAttribute("style").Contains("width: 3.7037037037037%"));
                	})
                 .And("the total number of scenarios should show to the left of the outcome bar with a value of 27", (s) => {
@@ -148,15 +142,12 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 					s.OutputFormat = TextFormat.htmlpreview;
                 })
                 .And("the passing, green bar should have a width of 72%", (s) => {
-					Console.WriteLine(htmlReportStats.Object.TestRunStepOutcomeSuccessBar.GetAttribute("style"));
 					Assert.True(htmlReportStats.Object.TestRunStepOutcomeSuccessBar.GetAttribute("style").Contains("width: 71.6049382716049%"));
                	})
                 .And("the skipped, yellow bar should have a width of 27%", (s) => {
-					Console.WriteLine(htmlReportStats.Object.TestRunStepOutcomeSkippedBar.GetAttribute("style"));
 					Assert.True(htmlReportStats.Object.TestRunStepOutcomeSkippedBar.GetAttribute("style").Contains("width: 27.1604938271605%"));
                	})
                 .And("the failed, red bar should have a width of 1%", (s) => {
-					Console.WriteLine(htmlReportStats.Object.TestRunStepOutcomeFailedBar.GetAttribute("style"));
 					Assert.True(htmlReportStats.Object.TestRunStepOutcomeFailedBar.GetAttribute("style").Contains("width: 1.23456790123457%"));
                	})
                 .And("the total number of steps should show to the left of the outcome bar with a value of 81", (s) => {

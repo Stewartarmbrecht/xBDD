@@ -249,6 +249,12 @@ namespace xBDD.Reporting.Html
             var areaTitleAttributes = String.Format("data-toggle=\"collapse\" href=\"#area-{0}-features\" aria-expanded=\"{1}\" aria-controls=\"area-{0}-features\" ", areaCounter, expandedText);
             WriteTag("h2", sb, 3, className, scenario.Feature.Area.Name.Replace('.',' ').HtmlEncode(), true, null, null, areaTitleAttributes);
 
+            WriteStatsTableStart(sb, 3);
+            WriteStats(sb, scenario.Feature.Area.FeatureStats, 3, "area-"+areaCounter+"-feature-stats", "Features");
+            WriteStats(sb, scenario.Feature.Area.ScenarioStats, 3, "area-"+areaCounter+"-scenario-stats", "Scenarios");
+            WriteStats(sb, scenario.Feature.Area.StepStats, 3, "area-"+areaCounter+"-step-stats", "Steps");
+            WriteStatsTableClose(sb, 3);
+
             var featuresClasName = "features list-unstyled collapse" + (expanded ? " in" : "");
             WriteTagOpen("ol", sb, 3, featuresClasName, false, "area-" + areaCounter + "-features", style, String.Format("aria-expanded=\"{0}\"", expandedText));
         }

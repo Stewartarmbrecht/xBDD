@@ -96,6 +96,107 @@ namespace xBDD.Reporting.Test.Pages
         public IWebElement TestRunStepOutcomeFailed { get; internal set; }
 
 
+        public IWebElement AreaFeatureOutcomeBar(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-feature-stats"));
+        }
+        public IWebElement AreaFeatureOutcomeSuccessBar(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-feature-stats td.passed-bar"));
+        }
+        public IWebElement AreaFeatureOutcomeSkippedBar(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-feature-stats td.skipped-bar"));
+        }
+        public IWebElement AreaFeatureOutcomeFailedBar(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-feature-stats td.failed-bar"));
+        }
+        public IWebElement AreaFeatureOutcomeTotal(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-feature-stats td.total"));
+        }
+        public IWebElement AreaFeatureOutcomePassed(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-feature-stats td.passed"));
+        }
+        public IWebElement AreaFeatureOutcomeSkipped(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-feature-stats td.skipped"));
+        }
+        public IWebElement AreaFeatureOutcomeFailed(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-feature-stats td.failed"));
+        }
+
+
+        public IWebElement AreaScenarioOutcomeBar(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-scenario-stats"));
+        }
+        public IWebElement AreaScenarioOutcomeSuccessBar(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-scenario-stats td.passed-bar"));
+        }
+        public IWebElement AreaScenarioOutcomeSkippedBar(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-scenario-stats td.skipped-bar"));
+        }
+        public IWebElement AreaScenarioOutcomeFailedBar(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-scenario-stats td.failed-bar"));
+        }
+        public IWebElement AreaScenarioOutcomeTotal(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-scenario-stats td.total"));
+        }
+        public IWebElement AreaScenarioOutcomePassed(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-scenario-stats td.passed"));
+        }
+        public IWebElement AreaScenarioOutcomeSkipped(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-scenario-stats td.skipped"));
+        }
+        public IWebElement AreaScenarioOutcomeFailed(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-scenario-stats td.failed"));
+        }
+
+
+        public IWebElement AreaStepOutcomeBar(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-step-stats"));
+        }
+        public IWebElement AreaStepOutcomeSuccessBar(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-step-stats td.passed-bar"));
+        }
+        public IWebElement AreaStepOutcomeSkippedBar(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-step-stats td.skipped-bar"));
+        }
+        public IWebElement AreaStepOutcomeFailedBar(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-step-stats td.failed-bar"));
+        }
+        public IWebElement AreaStepOutcomeTotal(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-step-stats td.total"));
+        }
+        public IWebElement AreaStepOutcomePassed(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-step-stats td.passed"));
+        }
+        public IWebElement AreaStepOutcomeSkipped(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-step-stats td.skipped"));
+        }
+        public IWebElement AreaStepOutcomeFailed(int areaNumber)
+        {
+            return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-step-stats td.failed"));
+        }
+
         public static HtmlReportPageStats Load()
         {
             var provider = CallContextServiceLocator.Locator.ServiceProvider;
