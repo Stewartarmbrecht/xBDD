@@ -197,6 +197,75 @@ namespace xBDD.Reporting.Test.Pages
             return driver.FindElement(By.CssSelector("#area-"+areaNumber+"-step-stats td.failed"));
         }
 
+
+
+        public IWebElement FeatureScenarioOutcomeBar(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-scenario-stats"));
+        }
+        public IWebElement FeatureScenarioOutcomeSuccessBar(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-scenario-stats td.passed-bar"));
+        }
+        public IWebElement FeatureScenarioOutcomeSkippedBar(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-scenario-stats td.skipped-bar"));
+        }
+        public IWebElement FeatureScenarioOutcomeFailedBar(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-scenario-stats td.failed-bar"));
+        }
+        public IWebElement FeatureScenarioOutcomeTotal(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-scenario-stats td.total"));
+        }
+        public IWebElement FeatureScenarioOutcomePassed(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-scenario-stats td.passed"));
+        }
+        public IWebElement FeatureScenarioOutcomeSkipped(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-scenario-stats td.skipped"));
+        }
+        public IWebElement FeatureScenarioOutcomeFailed(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-scenario-stats td.failed"));
+        }
+
+
+        public IWebElement FeatureStepOutcomeBar(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-step-stats"));
+        }
+        public IWebElement FeatureStepOutcomeSuccessBar(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-step-stats td.passed-bar"));
+        }
+        public IWebElement FeatureStepOutcomeSkippedBar(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-step-stats td.skipped-bar"));
+        }
+        public IWebElement FeatureStepOutcomeFailedBar(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-step-stats td.failed-bar"));
+        }
+        public IWebElement FeatureStepOutcomeTotal(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-step-stats td.total"));
+        }
+        public IWebElement FeatureStepOutcomePassed(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-step-stats td.passed"));
+        }
+        public IWebElement FeatureStepOutcomeSkipped(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-step-stats td.skipped"));
+        }
+        public IWebElement FeatureStepOutcomeFailed(int featureNumber)
+        {
+            return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-step-stats td.failed"));
+        }
+
         public static HtmlReportPageStats Load()
         {
             var provider = CallContextServiceLocator.Locator.ServiceProvider;

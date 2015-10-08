@@ -297,6 +297,11 @@ namespace xBDD.Reporting.Html
             var titleAttributes = String.Format("data-toggle=\"collapse\" href=\"#feature-{0}-scenarios\" aria-expanded=\"{1}\" aria-controls=\"feature-{0}-scenarios\" ", featureCounter, expandedText);
             WriteTag("h3", sb, 5, className, scenario.Feature.Name.HtmlEncode(), true, null, null, titleAttributes);
 
+            WriteStatsTableStart(sb, 5);
+            WriteStats(sb, scenario.Feature.ScenarioStats, 5, "feature-"+areaCounter+"-scenario-stats", "Scenarios");
+            WriteStats(sb, scenario.Feature.StepStats, 5, "feature-"+areaCounter+"-step-stats", "Steps");
+            WriteStatsTableClose(sb, 5);
+
             var scenariosClassName = "scenarios list-unstyled collapse" + (expanded ? " in" : "");
             WriteTagOpen("ol", sb, 5, scenariosClassName, false, "feature-" + featureCounter + "-scenarios", null, String.Format("aria-expanded=\"{0}\"", expandedText));
         }
