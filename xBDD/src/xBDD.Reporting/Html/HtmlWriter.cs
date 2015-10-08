@@ -48,10 +48,12 @@ namespace xBDD.Reporting.Html
             sb.Append(" iframe { border: 1px solid gray; resize: both; overflow: auto; }");
             sb.Append(" li.scenario h4 { margin: .5em; }");
             sb.Append(" ol.features { padding: .5em; }");
-            sb.Append(" li.feature { margin: 1.5em; padding: .1em 2em; box-shadow: 1px 1px 8px 1px rgb(202, 202, 202); }");
+            sb.Append(" li.feature { margin: 1.5em; padding: 1em 2em; box-shadow: 1px 1px 8px 1px rgb(202, 202, 202); }");
             sb.Append(" li.scenario .panel { margin: 2em; }");
             sb.Append(" .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; }");
             sb.Append(" td.graph td { padding: 0px !important; }");
+            sb.Append(" .table { margin: 0px !important; }");
+            sb.Append(" h3 { margin: 0px !important; }");
             sb.AppendLine("</style>");  
         }
 
@@ -362,6 +364,11 @@ namespace xBDD.Reporting.Html
             {
                 WriteScenarioStatus(scenario, sb);
             }
+
+            WriteStatsTableStart(sb, 9);
+            WriteStats(sb, scenario.StepStats, 5, "scenario-"+scenarioCounter+"-step-stats", "Steps");
+            WriteStatsTableClose(sb, 9);
+
             WriteTagClose("div", sb, 0);
         }
         void WriteSteps(Scenario scenario, StringBuilder sb)

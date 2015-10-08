@@ -266,6 +266,40 @@ namespace xBDD.Reporting.Test.Pages
             return driver.FindElement(By.CssSelector("#feature-"+featureNumber+"-step-stats td.failed"));
         }
 
+
+        public IWebElement ScenarioStepOutcomeBar(int scenarioNumber)
+        {
+            return driver.FindElement(By.CssSelector("#scenario-"+scenarioNumber+"-step-stats"));
+        }
+        public IWebElement ScenarioStepOutcomeSuccessBar(int scenarioNumber)
+        {
+            return driver.FindElement(By.CssSelector("#scenario-"+scenarioNumber+"-step-stats td.passed-bar"));
+        }
+        public IWebElement ScenarioStepOutcomeSkippedBar(int scenarioNumber)
+        {
+            return driver.FindElement(By.CssSelector("#scenario-"+scenarioNumber+"-step-stats td.skipped-bar"));
+        }
+        public IWebElement ScenarioStepOutcomeFailedBar(int scenarioNumber)
+        {
+            return driver.FindElement(By.CssSelector("#scenario-"+scenarioNumber+"-step-stats td.failed-bar"));
+        }
+        public IWebElement ScenarioStepOutcomeTotal(int scenarioNumber)
+        {
+            return driver.FindElement(By.CssSelector("#scenario-"+scenarioNumber+"-step-stats td.total"));
+        }
+        public IWebElement ScenarioStepOutcomePassed(int scenarioNumber)
+        {
+            return driver.FindElement(By.CssSelector("#scenario-"+scenarioNumber+"-step-stats td.passed"));
+        }
+        public IWebElement ScenarioStepOutcomeSkipped(int scenarioNumber)
+        {
+            return driver.FindElement(By.CssSelector("#scenario-"+scenarioNumber+"-step-stats td.skipped"));
+        }
+        public IWebElement ScenarioStepOutcomeFailed(int scenarioNumber)
+        {
+            return driver.FindElement(By.CssSelector("#scenario-"+scenarioNumber+"-step-stats td.failed"));
+        }
+
         public static HtmlReportPageStats Load()
         {
             var provider = CallContextServiceLocator.Locator.ServiceProvider;
