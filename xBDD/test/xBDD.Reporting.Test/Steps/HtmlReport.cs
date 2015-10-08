@@ -101,6 +101,7 @@ namespace xBDD.Reporting.Test.Steps
                 {
                     int stepCounter = 0;
                     int scenarioCounter = 0;
+                    int featureCounter = 0;
                     int[] skippedScenarios = new int[] { 10, 11, 13, 14, 20, 22, 23 };
                     int failedSetp = 56;
                     var xBDD = new xBDDMock();
@@ -110,7 +111,8 @@ namespace xBDD.Reporting.Test.Steps
                         var areaName = "My Area " + (ia + 1);
                         for(int ife = 0; ife < 3; ife++ )
                         {
-                            var featureName = "My Feature " + ((ife + 1) * (ia + 1));
+                            featureCounter++;
+                            var featureName = "My Feature " + featureCounter;
                             for(int isc = 0; isc < 3; isc++ )
                             {
                                 scenarioCounter++;

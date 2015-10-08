@@ -14,6 +14,7 @@ namespace xBDD.Reporting.Html
         public string WriteToString(TestRun testRun)
         {
             StringBuilder sb = new StringBuilder();
+            //sb.AppendLine(JsonConvert.SerializeObject(testRun));
             sb.AppendLine("<!DOCTYPE html>");
             WriteHtml(testRun, sb);
             return sb.ToString();
@@ -54,6 +55,9 @@ namespace xBDD.Reporting.Html
             sb.Append(" td.graph td { padding: 0px !important; }");
             sb.Append(" .table { margin: 0px !important; }");
             sb.Append(" h3 { margin: 0px !important; }");
+            sb.Append(" .table td.bar { padding: 0px !important; }");
+            sb.Append(" .testrun-percent-bar { background-color: #56C1F7; }");
+            sb.Append(" .area-percent-bar { background-color: #A4DEFB; }");
             sb.AppendLine("</style>");  
         }
 
@@ -120,10 +124,10 @@ namespace xBDD.Reporting.Html
             WriteTag("h1", sb, 2, cssClass, testRun.Name.HtmlEncode(), true);
             WriteTagClose("div", sb, 1);
             WriteStatsTableStart(sb, 1);
-            WriteStats(sb, testRun.AreaStats, 1, "testrun-area-stats", "Areas");
-            WriteStats(sb, testRun.FeatureStats, 1, "testrun-feature-stats", "Features");
-            WriteStats(sb, testRun.ScenarioStats, 1, "testrun-scenario-stats", "Scenarios");
-            WriteStats(sb, testRun.StepStats, 1, "testrun-step-stats", "Steps");
+            WriteStats(sb, testRun.AreaStats, 1, "testrun-area-stats", "Areas", null, null, null);
+            WriteStats(sb, testRun.FeatureStats, 1, "testrun-feature-stats", "Features", null, null, null);
+            WriteStats(sb, testRun.ScenarioStats, 1, "testrun-scenario-stats", "Scenarios", null, null, null);
+            WriteStats(sb, testRun.StepStats, 1, "testrun-step-stats", "Steps", null, null, null);
             WriteStatsTableClose(sb, 1);
             if (scenarioCount > 0)
             {
@@ -141,40 +145,79 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("table", sb, baseIndent, "table table-condensed", false, null, "width: 100%; empty-cells: show;");
         }
 
-        private void WriteStats(StringBuilder sb, OutcomeStats stats, int baseIndent, string id, string label)
+        private void WriteStats(StringBuilder sb, OutcomeStats stats, int baseIndent, string id, string label, 
+            OutcomeStats testRunStats, OutcomeStats areaStats, OutcomeStats featureStats)
         {
             WriteTagOpen("tr", sb, baseIndent + 1, null, false, id);
-            WriteTag("td", sb, baseIndent + 2, "stats-label text-right", label, true, null);
-            WriteTag("td", sb, baseIndent + 2, "total info text-center", stats.Total.ToString(), true, null);
-            WriteTag("td", sb, baseIndent + 2, "passed success text-center", stats.Passed.ToString(), true, null);
-            WriteTag("td", sb, baseIndent + 2, "skipped warning text-center", stats.Skipped.ToString(), true, null);
-            WriteTag("td", sb, baseIndent + 2, "failed danger text-center", stats.Failed.ToString(), true, null);
-            WriteTagOpen("td", sb, baseIndent + 2, "graph", false, null, "width: 100%;");
+            WriteTag("td", sb, baseIndent + 2, "stats-label text-right", label, true, null, "width: 10%;");
+            WriteTag("td", sb, baseIndent + 2, "total info text-center", stats.Total.ToString(), true, null, "width: 2.5%;");
+            WriteTag("td", sb, baseIndent + 2, "passed success text-center", stats.Passed.ToString(), true, null, "width: 2.5%;");
+            WriteTag("td", sb, baseIndent + 2, "skipped warning text-center", stats.Skipped.ToString(), true, null, "width: 2.5%;");
+            WriteTag("td", sb, baseIndent + 2, "failed danger text-center", stats.Failed.ToString(), true, null, "width: 2.5%;");
+            var outcomeBarStyle = "width: 80%;";
+            if(testRunStats != null)
+                outcomeBarStyle = "width: 40%;";
+            WriteTagOpen("td", sb, baseIndent + 2, "outcome-bar-chart", false, null, outcomeBarStyle);
             WriteTagOpen("table", sb, baseIndent, "table", false, null, "width: 100%; empty-cells: show; height: 14px;");
             WriteTagOpen("tr", sb, baseIndent + 1, null, false);
             
             if(stats.Total == 0)
             {
-                WriteTag("td", sb, baseIndent + 2, "empty-bar active", null, true, null, "width: 100%;");
+                WriteTag("td", sb, baseIndent + 2, "empty-bar", null, true, null, "width: 100%;");
             }
             else
             {
                 double passedPercent = stats.Total == 0 ? 0 : (((double)stats.Passed / (double)stats.Total) * 100);
                 var passedStyle = String.Format("width: {0}%", passedPercent);
-                WriteTag("td", sb, baseIndent + 2, "passed-bar bg-success", null, true, null, passedStyle);
+                WriteTag("td", sb, baseIndent + 2, "bar passed-bar bg-success", null, true, null, passedStyle);
                 
                 double skippedPercent = stats.Total == 0 ? 0 : (((double)stats.Skipped / (double)stats.Total) * 100);
                 var skippedStyle = String.Format("width: {0}%", skippedPercent);
-                WriteTag("td", sb, baseIndent + 2, "skipped-bar bg-warning", null, true, null, skippedStyle);
+                WriteTag("td", sb, baseIndent + 2, "bar skipped-bar bg-warning", null, true, null, skippedStyle);
                 
                 double failedPercent = stats.Total == 0 ? 0 : (((double)stats.Failed / (double)stats.Total) * 100);
                 var failedStyle = String.Format("width: {0}%", failedPercent);
-                WriteTag("td", sb, baseIndent + 2, "failed-bar bg-danger", null, true, null, failedStyle);
+                WriteTag("td", sb, baseIndent + 2, "bar failed-bar bg-danger", null, true, null, failedStyle);
             }
 
             WriteTagClose("tr", sb, baseIndent + 1);
             WriteTagClose("table", sb, baseIndent);
             WriteTagClose("td", sb, baseIndent + 1);
+
+            if(testRunStats != null)
+            {
+                WriteTagOpen("td", sb, baseIndent + 2, "total-percentage-bar-chart", false, null, "width: 40%;");
+                WriteTagOpen("table", sb, baseIndent, "table", false, null, "width: 100%; empty-cells: show; height: 14px;");
+                WriteTagOpen("tr", sb, baseIndent + 1, null, false);
+
+                double testRunPercent = 0;
+                if(testRunStats != null)
+                    testRunPercent = ((double)stats.Total/(double)testRunStats.Total)*100;
+
+                double areaPrecent = 0;
+                if(areaStats != null)
+                    areaPrecent = (((double)stats.Total/(double)areaStats.Total)*100) - testRunPercent;
+                double featurePercent = 0;
+                if(featureStats != null)
+                    featurePercent = (((double)stats.Total/(double)featureStats.Total)*100) - areaPrecent - testRunPercent;
+                
+                var testRunPercentStyle = "width: " + testRunPercent.ToString() + "%;";
+                WriteTag("td", sb, baseIndent + 2, "bar testrun-percent-bar", null, true, null, testRunPercentStyle);
+                
+                var areaPercentStyle = "width: " + areaPrecent.ToString() + "%;";
+                WriteTag("td", sb, baseIndent + 2, "bar area-percent-bar", null, true, null, areaPercentStyle);
+                
+                var featurePercentStyle = "width: " + featurePercent.ToString() + "%;";
+                WriteTag("td", sb, baseIndent + 2, "bar feature-percent-bar info", null, true, null, featurePercentStyle);
+                
+                var remainderPrecentStyle = "width: " + (100-featurePercent-areaPrecent-testRunPercent).ToString() + "%;";
+                WriteTag("td", sb, baseIndent + 2, "bar empty-bar active", null, true, null, remainderPrecentStyle);
+                
+                WriteTagClose("tr", sb, baseIndent + 1);
+                WriteTagClose("table", sb, baseIndent);
+                WriteTagClose("td", sb, baseIndent + 1);
+            }
+
             WriteTagClose("tr", sb, baseIndent);
         }
 
@@ -263,9 +306,9 @@ namespace xBDD.Reporting.Html
             WriteTag("h2", sb, 3, className, scenario.Feature.Area.Name.Replace('.',' ').HtmlEncode(), true, null, null, areaTitleAttributes);
 
             WriteStatsTableStart(sb, 3);
-            WriteStats(sb, scenario.Feature.Area.FeatureStats, 3, "area-"+areaCounter+"-feature-stats", "Features");
-            WriteStats(sb, scenario.Feature.Area.ScenarioStats, 3, "area-"+areaCounter+"-scenario-stats", "Scenarios");
-            WriteStats(sb, scenario.Feature.Area.StepStats, 3, "area-"+areaCounter+"-step-stats", "Steps");
+            WriteStats(sb, scenario.Feature.Area.FeatureStats, 3, "area-"+areaCounter+"-feature-stats", "Features", scenario.Feature.Area.TestRun.FeatureStats, null, null);
+            WriteStats(sb, scenario.Feature.Area.ScenarioStats, 3, "area-"+areaCounter+"-scenario-stats", "Scenarios", scenario.Feature.Area.TestRun.ScenarioStats, null, null);
+            WriteStats(sb, scenario.Feature.Area.StepStats, 3, "area-"+areaCounter+"-step-stats", "Steps", scenario.Feature.Area.TestRun.StepStats, null, null);
             WriteStatsTableClose(sb, 3);
 
             var featuresClasName = "features list-unstyled collapse" + (expanded ? " in" : "");
@@ -311,8 +354,8 @@ namespace xBDD.Reporting.Html
             WriteTag("h3", sb, 5, className, scenario.Feature.Name.HtmlEncode(), true, null, null, titleAttributes);
 
             WriteStatsTableStart(sb, 5);
-            WriteStats(sb, scenario.Feature.ScenarioStats, 5, "feature-"+areaCounter+"-scenario-stats", "Scenarios");
-            WriteStats(sb, scenario.Feature.StepStats, 5, "feature-"+areaCounter+"-step-stats", "Steps");
+            WriteStats(sb, scenario.Feature.ScenarioStats, 5, "feature-"+featureCounter+"-scenario-stats", "Scenarios", scenario.Feature.Area.TestRun.ScenarioStats, scenario.Feature.Area.ScenarioStats, null);
+            WriteStats(sb, scenario.Feature.StepStats, 5, "feature-"+featureCounter+"-step-stats", "Steps", scenario.Feature.Area.TestRun.StepStats, scenario.Feature.Area.StepStats, null);
             WriteStatsTableClose(sb, 5);
 
             var scenariosClassName = "scenarios list-unstyled collapse" + (expanded ? " in" : "");
@@ -377,7 +420,7 @@ namespace xBDD.Reporting.Html
             }
 
             WriteStatsTableStart(sb, 9);
-            WriteStats(sb, scenario.StepStats, 5, "scenario-"+scenarioCounter+"-step-stats", "Steps");
+            WriteStats(sb, scenario.StepStats, 5, "scenario-"+scenarioCounter+"-step-stats", "Steps", scenario.Feature.Area.TestRun.StepStats, scenario.Feature.Area.StepStats, scenario.Feature.StepStats);
             WriteStatsTableClose(sb, 9);
 
             WriteTagClose("div", sb, 0);

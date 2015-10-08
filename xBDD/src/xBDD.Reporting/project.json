@@ -7,7 +7,8 @@
   "licenseUrl": "",
 
   "dependencies": {
-    "xBDD.Core": "1.0.0-*"
+    "xBDD.Core": "1.0.0-*",
+    "Newtonsoft.Json": "7.0.1"
   },
   "userSecretsId": "xBDD",
   "frameworks": {
