@@ -48,13 +48,13 @@ namespace xBDD.Reporting.Html
             sb.Append(" ul.steps, div.output, div.mp, dl.exception { margin-left: 2em }");
             sb.Append(" iframe { border: 1px solid gray; resize: both; overflow: auto; }");
             sb.Append(" li.scenario h4 { margin: .5em; }");
-            sb.Append(" ol.features { padding: .5em; }");
+            //sb.Append(" ol.features { padding: .5em; }");
             sb.Append(" li.feature { margin: 1.5em; padding: 1em 2em; box-shadow: 1px 1px 8px 1px rgb(202, 202, 202); }");
-            sb.Append(" li.scenario .panel { margin: 2em; }");
+            sb.Append(" li.scenario .panel { margin: 1.5em; }");
             sb.Append(" .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; }");
             sb.Append(" td.graph td { padding: 0px !important; }");
             sb.Append(" .table { margin: 0px !important; }");
-            sb.Append(" h3 { margin: 0px !important; }");
+            sb.Append(" h3 { margin: 8px !important; }");
             sb.Append(" .table td.bar { padding: 0px !important; }");
             sb.Append(" .testrun-percent-bar { background-color: #56C1F7; }");
             sb.Append(" .area-percent-bar { background-color: #A4DEFB; }");
@@ -120,14 +120,17 @@ namespace xBDD.Reporting.Html
                         break;
                 }
             }
-            WriteTagOpen("div", sb, 1, "page-header", false);
-            WriteTag("h1", sb, 2, cssClass, testRun.Name.HtmlEncode(), true);
+            WriteTagOpen("div", sb, 1, "page-header", false, null, "margin-top: 0px !important;");
+            WriteTagOpen("h1", sb, 2, cssClass, true);
+            WriteTag("small", sb, 2, null, "Test Run", true);
+            sb.Append("</br>");
+            sb.Append(testRun.Name.HtmlEncode());
+            WriteTagClose("h1", sb, 2);
             WriteTagClose("div", sb, 1);
             WriteStatsTableStart(sb, 1);
-            WriteStats(sb, testRun.AreaStats, 1, "testrun-area-stats", "Areas", null, null, null);
-            WriteStats(sb, testRun.FeatureStats, 1, "testrun-feature-stats", "Features", null, null, null);
-            WriteStats(sb, testRun.ScenarioStats, 1, "testrun-scenario-stats", "Scenarios", null, null, null);
-            WriteStats(sb, testRun.StepStats, 1, "testrun-step-stats", "Steps", null, null, null);
+            WriteStats(sb, testRun.AreaStats, 1, "testrun-area-stats", "Areas");
+            WriteStats(sb, testRun.FeatureStats, 1, "testrun-feature-stats", "Features");
+            WriteStats(sb, testRun.ScenarioStats, 1, "testrun-scenario-stats", "Scenarios");
             WriteStatsTableClose(sb, 1);
             if (scenarioCount > 0)
             {
@@ -145,19 +148,14 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("table", sb, baseIndent, "table table-condensed", false, null, "width: 100%; empty-cells: show;");
         }
 
-        private void WriteStats(StringBuilder sb, OutcomeStats stats, int baseIndent, string id, string label, 
-            OutcomeStats testRunStats, OutcomeStats areaStats, OutcomeStats featureStats)
+        private void WriteStats(StringBuilder sb, OutcomeStats stats, int baseIndent, string id, string label)
         {
             WriteTagOpen("tr", sb, baseIndent + 1, null, false, id);
-            WriteTag("td", sb, baseIndent + 2, "stats-label text-right", label, true, null, "width: 10%;");
-            WriteTag("td", sb, baseIndent + 2, "total info text-center", stats.Total.ToString(), true, null, "width: 2.5%;");
-            WriteTag("td", sb, baseIndent + 2, "passed success text-center", stats.Passed.ToString(), true, null, "width: 2.5%;");
-            WriteTag("td", sb, baseIndent + 2, "skipped warning text-center", stats.Skipped.ToString(), true, null, "width: 2.5%;");
-            WriteTag("td", sb, baseIndent + 2, "failed danger text-center", stats.Failed.ToString(), true, null, "width: 2.5%;");
-            var outcomeBarStyle = "width: 80%;";
-            if(testRunStats != null)
-                outcomeBarStyle = "width: 40%;";
-            WriteTagOpen("td", sb, baseIndent + 2, "outcome-bar-chart", false, null, outcomeBarStyle);
+            WriteTag("td", sb, baseIndent + 2, "stats-label text-muted text-right", label, true, null, "width: 0%; padding-left: 0px !important;");
+            WriteTag("td", sb, baseIndent + 2, "passed success text-center", stats.Passed.ToString(), true, null, "width: 3.3333333333333%;");
+            WriteTag("td", sb, baseIndent + 2, "skipped warning text-center", stats.Skipped.ToString(), true, null, "width: 3.3333333333333%;");
+            WriteTag("td", sb, baseIndent + 2, "failed danger text-center", stats.Failed.ToString(), true, null, "width: 3.3333333333333%;");
+            WriteTagOpen("td", sb, baseIndent + 2, "outcome-bar-chart", false, null, "width: 90%;");
             WriteTagOpen("table", sb, baseIndent, "table", false, null, "width: 100%; empty-cells: show; height: 14px;");
             WriteTagOpen("tr", sb, baseIndent + 1, null, false);
             
@@ -169,55 +167,20 @@ namespace xBDD.Reporting.Html
             {
                 double passedPercent = stats.Total == 0 ? 0 : (((double)stats.Passed / (double)stats.Total) * 100);
                 var passedStyle = String.Format("width: {0}%", passedPercent);
-                WriteTag("td", sb, baseIndent + 2, "bar passed-bar bg-success", null, true, null, passedStyle);
+                WriteTag("td", sb, baseIndent + 2, "bar passed-bar bg-success text-center", null, true, null, passedStyle);
                 
                 double skippedPercent = stats.Total == 0 ? 0 : (((double)stats.Skipped / (double)stats.Total) * 100);
                 var skippedStyle = String.Format("width: {0}%", skippedPercent);
-                WriteTag("td", sb, baseIndent + 2, "bar skipped-bar bg-warning", null, true, null, skippedStyle);
+                WriteTag("td", sb, baseIndent + 2, "bar skipped-bar bg-warning text-center", null, true, null, skippedStyle);
                 
                 double failedPercent = stats.Total == 0 ? 0 : (((double)stats.Failed / (double)stats.Total) * 100);
                 var failedStyle = String.Format("width: {0}%", failedPercent);
-                WriteTag("td", sb, baseIndent + 2, "bar failed-bar bg-danger", null, true, null, failedStyle);
+                WriteTag("td", sb, baseIndent + 2, "bar failed-bar bg-danger text-center", null, true, null, failedStyle);
             }
 
             WriteTagClose("tr", sb, baseIndent + 1);
             WriteTagClose("table", sb, baseIndent);
             WriteTagClose("td", sb, baseIndent + 1);
-
-            if(testRunStats != null)
-            {
-                WriteTagOpen("td", sb, baseIndent + 2, "total-percentage-bar-chart", false, null, "width: 40%;");
-                WriteTagOpen("table", sb, baseIndent, "table", false, null, "width: 100%; empty-cells: show; height: 14px;");
-                WriteTagOpen("tr", sb, baseIndent + 1, null, false);
-
-                double testRunPercent = 0;
-                if(testRunStats != null)
-                    testRunPercent = ((double)stats.Total/(double)testRunStats.Total)*100;
-
-                double areaPrecent = 0;
-                if(areaStats != null)
-                    areaPrecent = (((double)stats.Total/(double)areaStats.Total)*100) - testRunPercent;
-                double featurePercent = 0;
-                if(featureStats != null)
-                    featurePercent = (((double)stats.Total/(double)featureStats.Total)*100) - areaPrecent - testRunPercent;
-                
-                var testRunPercentStyle = "width: " + testRunPercent.ToString() + "%;";
-                WriteTag("td", sb, baseIndent + 2, "bar testrun-percent-bar", null, true, null, testRunPercentStyle);
-                
-                var areaPercentStyle = "width: " + areaPrecent.ToString() + "%;";
-                WriteTag("td", sb, baseIndent + 2, "bar area-percent-bar", null, true, null, areaPercentStyle);
-                
-                var featurePercentStyle = "width: " + featurePercent.ToString() + "%;";
-                WriteTag("td", sb, baseIndent + 2, "bar feature-percent-bar info", null, true, null, featurePercentStyle);
-                
-                var remainderPrecentStyle = "width: " + (100-featurePercent-areaPrecent-testRunPercent).ToString() + "%;";
-                WriteTag("td", sb, baseIndent + 2, "bar empty-bar active", null, true, null, remainderPrecentStyle);
-                
-                WriteTagClose("tr", sb, baseIndent + 1);
-                WriteTagClose("table", sb, baseIndent);
-                WriteTagClose("td", sb, baseIndent + 1);
-            }
-
             WriteTagClose("tr", sb, baseIndent);
         }
 
@@ -303,12 +266,15 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("li", sb, 2, "area", false, "area-" + areaCounter);
 
             var areaTitleAttributes = String.Format("data-toggle=\"collapse\" href=\"#area-{0}-features\" aria-expanded=\"{1}\" aria-controls=\"area-{0}-features\" ", areaCounter, expandedText);
-            WriteTag("h2", sb, 3, className, scenario.Feature.Area.Name.Replace('.',' ').HtmlEncode(), true, null, null, areaTitleAttributes);
+            WriteTagOpen("h2", sb, 3, className, true, null, null, areaTitleAttributes);
+            WriteTag("small", sb, 4, null, "Area", true);
+            sb.Append(scenario.Feature.Area.Name.Replace('.',' ').HtmlEncode());
+            WriteTag("span", sb, 4, "badge pull-right total", scenario.Feature.Area.FeatureStats.Total.ToString(), true, null, null, "title=\"Features\"");
+            WriteTagClose("h2", sb, 3);
 
             WriteStatsTableStart(sb, 3);
-            WriteStats(sb, scenario.Feature.Area.FeatureStats, 3, "area-"+areaCounter+"-feature-stats", "Features", scenario.Feature.Area.TestRun.FeatureStats, null, null);
-            WriteStats(sb, scenario.Feature.Area.ScenarioStats, 3, "area-"+areaCounter+"-scenario-stats", "Scenarios", scenario.Feature.Area.TestRun.ScenarioStats, null, null);
-            WriteStats(sb, scenario.Feature.Area.StepStats, 3, "area-"+areaCounter+"-step-stats", "Steps", scenario.Feature.Area.TestRun.StepStats, null, null);
+            WriteStats(sb, scenario.Feature.Area.FeatureStats, 3, "area-"+areaCounter+"-feature-stats", "Features");
+            WriteStats(sb, scenario.Feature.Area.ScenarioStats, 3, "area-"+areaCounter+"-scenario-stats", "Scenarios");
             WriteStatsTableClose(sb, 3);
 
             var featuresClasName = "features list-unstyled collapse" + (expanded ? " in" : "");
@@ -351,11 +317,14 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("li", sb, 4, "feature", false, "feature-" + featureCounter, style);
 
             var titleAttributes = String.Format("data-toggle=\"collapse\" href=\"#feature-{0}-scenarios\" aria-expanded=\"{1}\" aria-controls=\"feature-{0}-scenarios\" ", featureCounter, expandedText);
-            WriteTag("h3", sb, 5, className, scenario.Feature.Name.HtmlEncode(), true, null, null, titleAttributes);
+            WriteTagOpen("h3", sb, 5, className, true, "vertical-align: top !important;", null, titleAttributes);
+            WriteTag("small", sb, 6,null, "Feature", true);
+            sb.Append(scenario.Feature.Name.HtmlEncode());
+            WriteTag("span", sb, 6, "badge pull-right total", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, "title=\"Scenarios\"");
+            WriteTagClose("h3", sb, 5);
 
             WriteStatsTableStart(sb, 5);
-            WriteStats(sb, scenario.Feature.ScenarioStats, 5, "feature-"+featureCounter+"-scenario-stats", "Scenarios", scenario.Feature.Area.TestRun.ScenarioStats, scenario.Feature.Area.ScenarioStats, null);
-            WriteStats(sb, scenario.Feature.StepStats, 5, "feature-"+featureCounter+"-step-stats", "Steps", scenario.Feature.Area.TestRun.StepStats, scenario.Feature.Area.StepStats, null);
+            WriteStats(sb, scenario.Feature.ScenarioStats, 5, "feature-"+featureCounter+"-scenario-stats", "Scenarios");
             WriteStatsTableClose(sb, 5);
 
             var scenariosClassName = "scenarios list-unstyled collapse" + (expanded ? " in" : "");
@@ -419,9 +388,7 @@ namespace xBDD.Reporting.Html
                 WriteScenarioStatus(scenario, sb);
             }
 
-            WriteStatsTableStart(sb, 9);
-            WriteStats(sb, scenario.StepStats, 5, "scenario-"+scenarioCounter+"-step-stats", "Steps", scenario.Feature.Area.TestRun.StepStats, scenario.Feature.Area.StepStats, scenario.Feature.StepStats);
-            WriteStatsTableClose(sb, 9);
+            WriteTag("span", sb, 8, "badge pull-right total", scenario.StepStats.Total.ToString(), true, null, null, "title=\"Steps\"");
 
             WriteTagClose("div", sb, 0);
         }

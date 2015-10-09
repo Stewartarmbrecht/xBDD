@@ -1,4 +1,4 @@
-xBDD.Reporting.Test 2015-10-08T17:48:41
+xBDD.Reporting.Test 2015-10-09T13:19:01
 
 ViewHtmlReport
 	Write To Html
@@ -58,7 +58,8 @@ ViewHtmlReport.ViewResults
 			Given the test results of a full test run with all outcomes
 			When the user views the html report
 			Then there should be a section under the area name that displays feature statistics about the area
-			And the section should show the total number of features with a value of 3
+			And the total number of features should show as a badge to the right of the area name with a value of 3
+			And the badge should show 'Features' when the user hovers over it
 			And the section should show the number of passed features with a value of 1
 			And the section should show the number of skipped features with a value of 1
 			And the section should show the number of failed features with a value of 1
@@ -66,13 +67,10 @@ ViewHtmlReport.ViewResults
 			And the passed, green bar should have a width of 33%
 			And the skipped, yellow bar should have a width of 33%
 			And the failed, red bar should have a width of 33%
-			And the section should have a dark blue bar chart of the percentages of the total features relative to the parent test run
-			And the dark blue, percentage of test run bar should have a width of 33% (3/9)
 		Failed Skipped And Passing Scenario Stats
 			Given the test results of a full test run with all outcomes
 			When the user views the html report
 			Then there should be a section under the area name that displays scenario statistics about the area
-			And the section should show the total number of scenarios with a value of 9
 			And the section should show the number of passed scenarios with a value of 5
 			And the section should show the number of skipped scenarios with a value of 3
 			And the section should show the number of failed scenarios with a value of 1
@@ -80,22 +78,6 @@ ViewHtmlReport.ViewResults
 			And the passed, green bar should have a width of 55%
 			And the skipped, yellow bar should have a width of 33%
 			And the failed, red bar should have a width of 11%
-			And the section should have a dark blue bar chart of the percentages of the total scenarios relative to the parent test run
-			And the dark blue, percentage of test run bar should have a width of 33% (9/27)
-		Failed Skipped And Passing Steps Stats
-			Given the test results of a full test run with all outcomes
-			When the user views the html report
-			Then there should be a section under the area name that displays step statistics about the area
-			And the section should show the total number of steps with a value of 27
-			And the section should show the number of passed steps with a value of 16
-			And the section should show the number of skipped steps with a value of 10
-			And the section should show the number of failed steps with a value of 1
-			And the section should a green, yellow, and red bar chart of the percentages of passed, skipped, and failed steps
-			And the passed, green bar should have a width of 59%
-			And the skipped, yellow bar should have a width of 37%
-			And the failed, red bar should have a width of 4%
-			And the section should have a dark blue bar chart of the percentages of the total steps relative to the parent test run
-			And the dark blue, percentage of test run bar should have a width of 33% (27/81)
 	View Failure Only
 		Multiple Areas [Skipped - Not Started]
 		Single Area Multiple Features [Skipped - Not Started]
@@ -118,7 +100,8 @@ ViewHtmlReport.ViewResults
 			Given the test results of a full test run with all outcomes
 			When the user views the html report
 			Then there should be a section under the feature name that displays scenario statistics about the feature
-			And the section should show the total number of scenarios with a value of 3
+			And the total number of scenarios should show as a badge to the right of the feature name with a value of 3
+			And the badge should show 'Scenarios' when the user hovers over it
 			And the section should show the number of passed scenarios with a value of 1
 			And the section should show the number of skipped scenarios with a value of 1
 			And the section should show the number of failed scenarios with a value of 1
@@ -126,24 +109,6 @@ ViewHtmlReport.ViewResults
 			And the passed, green bar should have a width of 33%
 			And the skipped, yellow bar should have a width of 33%
 			And the failed, red bar should have a width of 33%
-			And the section should a dark blue, blue, and light blue overlapping bar chart of the percentages of the total scenarios relative to the parent area, and test run
-			And the dark blue, percentage of test run bar should have a width of 11% (3/27)
-			And the blue, percentage of area bar should have a width of 33% (3/9) (22% because of overlap with test run bar)
-		Failed Skipped And Passing Steps Stats
-			Given the test results of a full test run with all outcomes
-			When the user views the html report
-			Then there should be a section under the feature name that displays step statistics about the feature
-			And the section should show the total number of steps with a value of 9
-			And the section should show the number of passed steps with a value of 4
-			And the section should show the number of skipped steps with a value of 4
-			And the section should show the number of failed steps with a value of 1
-			And the section should a green, yellow, and red bar chart of the percentages of passed, skipped, and failed steps
-			And the passed, green bar should have a width of 44%
-			And the skipped, yellow bar should have a width of 44%
-			And the failed, red bar should have a width of 11%
-			And the section should a dark blue, blue, and light blue overlapping bar chart of the percentages of the total steps relative to the parent area, and test run
-			And the dark blue, percentage of test run bar should have a width of 11% (9/81)
-			And the blue, percentage of area bar should have a width of 22% (9/27) (11% because of overlap with test run bar)
 	View Scenario
 		Description [Skipped - Not Started]
 		Failing [Skipped - Not Started]
@@ -161,19 +126,8 @@ ViewHtmlReport.ViewResults
 		Failed Skipped And Passing Steps Stats
 			Given the test results of a full test run with all outcomes
 			When the user views the html report
-			Then there should be a section under the scenario name that displays step statistics about the scenario
-			And the section should show the total number of steps with a value of 3
-			And the section should show the number of passed steps with a value of 1
-			And the section should show the number of skipped steps with a value of 1
-			And the section should show the number of failed steps with a value of 1
-			And the section should a green, yellow, and red bar chart of the percentages of passed, skipped, and failed steps
-			And the passed, green bar should have a width of 33%
-			And the skipped, yellow bar should have a width of 33%
-			And the failed, red bar should have a width of 33%
-			And the section should a dark blue, blue, and light blue overlapping bar chart of the percentages of the total steps relative to the parent feature, area, and test run
-			And the dark blue, percentage of test run bar should have a width of 4% (3/81)
-			And the blue, percentage of area bar should have a width of 11% (3/27) (7.4% because of overlap with test run bar)
-			And the light blue, percentage of area bar should have a width of 33% (3/9) (22% because of overlap with area bar)
+			Then there should be badget displaying the total number of steps in the scenario to the right of the scenario name
+			And the badge should show 'Steps' when the user hovers over it
 	View Step
 		Failing [Skipped - Not Started]
 		Mulitple [Skipped - Not Started]
@@ -244,7 +198,6 @@ ViewHtmlReport.ViewResults
 			Given the test results of an empty test run
 			When the user views the html report
 			Then there should be a section under the name that displays area statistics about the test run
-			And the section should show the total number of areas with a value of 0
 			And the section should show the number of passed areas with a value of 0
 			And the section should show the number of skipped areas with a value of 0
 			And the section should show the number of failed areas with a value of 0
@@ -253,7 +206,6 @@ ViewHtmlReport.ViewResults
 			Given the test results of a full test run with all outcomes
 			When the user views the html report
 			Then there should be a section under the name that displays area statistics about the test run
-			And the section should show the total number of areas with a value of 3
 			And the section should show the number of passed areas with a value of 1
 			And the section should show the number of skipped areas with a value of 1
 			And the section should show the number of failed areas with a value of 1
@@ -265,7 +217,6 @@ ViewHtmlReport.ViewResults
 			Given the test results of a full test run with all outcomes
 			When the user views the html report
 			Then there should be a section under the name that displays feature statistics about the test run
-			And the section should show the total number of features with a value of 9
 			And the section should show the number of passed features with a value of 5
 			And the section should show the number of skipped features with a value of 3
 			And the section should show the number of failed features with a value of 1
@@ -277,7 +228,6 @@ ViewHtmlReport.ViewResults
 			Given the test results of a full test run with all outcomes
 			When the user views the html report
 			Then there should be a section under the name that displays scenario statistics about the test run
-			And the section should show the total number of scenarios with a value of 27
 			And the section should show the number of passed scenarios with a value of 19
 			And the section should show the number of skipped scenarios with a value of 7
 			And the section should show the number of failed scenarios with a value of 1
@@ -285,18 +235,6 @@ ViewHtmlReport.ViewResults
 			And the passed, green bar should have a width of 70%
 			And the skipped, yellow bar should have a width of 26%
 			And the failed, red bar should have a width of 4%
-		Failed Skipped And Passing Steps Stats
-			Given the test results of a full test run with all outcomes
-			When the user views the html report
-			Then there should be a section under the name that displays step statistics about the test run
-			And the section should show the total number of steps with a value of 81
-			And the section should show the number of passed steps with a value of 58
-			And the section should show the number of skipped steps with a value of 22
-			And the section should show the number of failed steps with a value of 1
-			And the section should a green, yellow, and red bar chart of the percentages of passed, skipped, and failed steps
-			And the passed, green bar should have a width of 72%
-			And the skipped, yellow bar should have a width of 27%
-			And the failed, red bar should have a width of 1%
 WriteResults
 	Browse Html Report
 		View Empty Test Run

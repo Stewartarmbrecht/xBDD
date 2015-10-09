@@ -25,7 +25,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .When(WebUser.ViewsReportGeneral(htmlReport))
                 .Then("the report will show the test run name at the top", (s) => {
                     Assert.NotNull(htmlReport.Object.TestRunName);
-                    Assert.Equal("My Test Run", htmlReport.Object.TestRunName.Text);
+                    Assert.Equal("Test Run\r\nMy Test Run", htmlReport.Object.TestRunName.Text);
                 })
                 .And("the report will show the test run name as the title for the page", (s) => {
                     Assert.Equal("My Test Run", htmlReport.Object.Title);

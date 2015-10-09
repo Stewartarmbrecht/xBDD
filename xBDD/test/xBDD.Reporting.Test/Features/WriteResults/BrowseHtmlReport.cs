@@ -17,7 +17,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults
         }
 
         [ScenarioFact]
-        [Trait("category", "current")]
+        [Trait("category", "now")]
         public void ViewEmptyTestRun()
         {
             Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
@@ -26,7 +26,7 @@ namespace xBDD.Reporting.Test.Features.WriteResults
                 .When(WebUser.ViewsReportGeneral(htmlReport))
                 .Then("the report will show the test run name at the top", (s) => {
                     Assert.NotNull(htmlReport.Object.TestRunName);
-                    Assert.Equal("My Test Run", htmlReport.Object.TestRunName.Text);
+                    Assert.Equal("Test Run\r\nMy Test Run", htmlReport.Object.TestRunName.Text);
                 })
                 .And("the report will show the test run name as the title for the page", (s) => {
                     Assert.Equal("My Test Run", htmlReport.Object.Title);
@@ -34,7 +34,6 @@ namespace xBDD.Reporting.Test.Features.WriteResults
                 .Run();
         }
         [ScenarioFact]
-        [Trait("category", "current")]
         public void ViewRunScenario()
         {
             Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
@@ -48,7 +47,6 @@ namespace xBDD.Reporting.Test.Features.WriteResults
                 .Skip("Not Started");
         }
         [ScenarioFact]
-        [Trait("category", "current")]
         public void ViewRunStepWithMultilineParameterOfText()
         {
             Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
@@ -60,7 +58,6 @@ namespace xBDD.Reporting.Test.Features.WriteResults
                 .Skip("Not Started");
         }
         [ScenarioFact]
-        [Trait("category", "current")]
         public void ViewPassingScenario()
         {
             Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();

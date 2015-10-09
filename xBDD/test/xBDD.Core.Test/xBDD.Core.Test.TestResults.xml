@@ -1,49 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <assemblies>
-  <assembly name="xBDD.Core.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3168" run-date="2015-10-07" run-time="22:33:13" total="143" passed="143" failed="0" skipped="0" time="0.330" errors="0">
+  <assembly name="xBDD.Core.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3168" run-date="2015-10-09" run-time="13:19:00" total="143" passed="143" failed="0" skipped="0" time="0.393" errors="0">
     <errors />
-    <collection total="143" passed="143" failed="0" skipped="0" name="xBDDCoreTest" time="0.056">
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.State" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="State" time="0.0100066" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.StartTime" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="StartTime" time="0.0003732" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.TotalTime" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="TotalTime" time="0.0001056" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.Name" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="Name" time="0.000077" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.EndTime" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="EndTime" time="0.000082" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.AreaPath" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="AreaPath" time="0.000079" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.Steps" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="Steps" time="0.0000802" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.Outcome" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="Outcome" time="0.0000752" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.FeatureName" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="FeatureName" time="0.0000756" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.Reason" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="Reason" time="0.0001709" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.MultilineParameter" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="MultilineParameter" time="0.0000926" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.State" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="State" time="0.0000855" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.Outcome" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="Outcome" time="0.000084" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.Exception" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="Exception" time="0.0000817" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.InlineParameters" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="InlineParameters" time="0.0000813" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.EndTime" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="EndTime" time="0.0000794" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.TableParameter" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="TableParameter" time="0.0000794" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.StartTime" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="StartTime" time="0.0000798" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.Name" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="Name" time="0.0000771" result="Pass" />
-      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.ActionType" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="ActionType" time="0.0000771" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.SkipAsyncNullReason" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="SkipAsyncNullReason" time="0.0034998" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.Skip" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="Skip" time="0.0001329" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WithAllPassingSteps" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WithAllPassingSteps" time="0.0001276" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WithOneMiddleNotImplementedStepAndTheRestPassing" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WithOneMiddleNotImplementedStepAndTheRestPassing" time="0.0001528" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WithOneMiddleSkippedStepAndTheRestPassing" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WithOneMiddleSkippedStepAndTheRestPassing" time="0.0001771" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WriteScenarioToOutput" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WriteScenarioToOutput" time="0.0001581" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WithOneFailingStepAndPreceedingPassingSteps" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WithOneFailingStepAndPreceedingPassingSteps" time="0.0001736" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.RunAsync" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="RunAsync" time="0.0008089" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.SkipAsync" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="SkipAsync" time="0.0006005" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.RunNoSteps" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="RunNoSteps" time="0.0001014" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WithOneMiddleFailingStepAndTheRestPassing" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WithOneMiddleFailingStepAndTheRestPassing" time="0.0000888" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.SkipNullReason" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="SkipNullReason" time="0.0000836" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WriteScenarioWithMultilineParamterToOutput" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WriteScenarioWithMultilineParamterToOutput" time="0.0000904" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WithAllSkippedSteps" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WithAllSkippedSteps" time="0.0000832" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.RunSync" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="RunSync" time="0.0000805" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.RunSyncWithAsyncStep" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="RunSyncWithAsyncStep" time="0.0000798" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.SkipSync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="SkipSync" time="0.0001823" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.PassSync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="PassSync" time="0.0001178" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.PassAsync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="PassAsync" time="0.0005621" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.SkipBecauseOfPreviousSkipSync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="SkipBecauseOfPreviousSkipSync" time="0.0001025" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.ReusableStepThatUsesObjectCreatedInPreviousStep" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="ReusableStepThatUsesObjectCreatedInPreviousStep" time="0.0136746" result="Pass">
+    <collection total="143" passed="143" failed="0" skipped="0" name="xBDDCoreTest" time="0.083">
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.State" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="State" time="0.0191068" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.StartTime" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="StartTime" time="0.0006518" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.TotalTime" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="TotalTime" time="0.0001679" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.Name" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="Name" time="0.000155" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.EndTime" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="EndTime" time="0.0001581" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.AreaPath" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="AreaPath" time="0.0001785" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.Steps" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="Steps" time="0.0001592" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.Outcome" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="Outcome" time="0.0001569" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties.FeatureName" type="xBDD.Core.Test.Features.ViewProperties.ViewScenarioProperties" method="FeatureName" time="0.0001531" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.Reason" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="Reason" time="0.0003173" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.MultilineParameter" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="MultilineParameter" time="0.0001481" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.State" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="State" time="0.0010065" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.Outcome" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="Outcome" time="0.0001581" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.Exception" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="Exception" time="0.0002078" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.InlineParameters" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="InlineParameters" time="0.0001379" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.EndTime" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="EndTime" time="0.0001531" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.TableParameter" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="TableParameter" time="0.0001413" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.StartTime" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="StartTime" time="0.0001326" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.Name" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="Name" time="0.0001268" result="Pass" />
+      <test name="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties.ActionType" type="xBDD.Core.Test.Features.ViewProperties.ViewStepProperties" method="ActionType" time="0.0001284" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.SkipAsyncNullReason" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="SkipAsyncNullReason" time="0.0098569" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.Skip" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="Skip" time="0.0003945" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WithAllPassingSteps" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WithAllPassingSteps" time="0.0003755" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WithOneMiddleNotImplementedStepAndTheRestPassing" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WithOneMiddleNotImplementedStepAndTheRestPassing" time="0.0003652" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WithOneMiddleSkippedStepAndTheRestPassing" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WithOneMiddleSkippedStepAndTheRestPassing" time="0.0002702" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WriteScenarioToOutput" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WriteScenarioToOutput" time="0.0001352" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WithOneFailingStepAndPreceedingPassingSteps" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WithOneFailingStepAndPreceedingPassingSteps" time="0.0001467" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.RunAsync" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="RunAsync" time="0.002104" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.SkipAsync" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="SkipAsync" time="0.0008458" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.RunNoSteps" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="RunNoSteps" time="0.0002101" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WithOneMiddleFailingStepAndTheRestPassing" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WithOneMiddleFailingStepAndTheRestPassing" time="0.0001771" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.SkipNullReason" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="SkipNullReason" time="0.0001656" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WriteScenarioWithMultilineParamterToOutput" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WriteScenarioWithMultilineParamterToOutput" time="0.0001455" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.WithAllSkippedSteps" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="WithAllSkippedSteps" time="0.0001341" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.RunSync" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="RunSync" time="0.0001318" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAScenario.RunSyncWithAsyncStep" type="xBDD.Core.Test.Features.RunTests.RunAScenario" method="RunSyncWithAsyncStep" time="0.0001106" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.SkipSync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="SkipSync" time="0.0002763" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.PassSync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="PassSync" time="0.0001277" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.PassAsync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="PassAsync" time="0.0008914" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.SkipBecauseOfPreviousSkipSync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="SkipBecauseOfPreviousSkipSync" time="0.0001451" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.ReusableStepThatUsesObjectCreatedInPreviousStep" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="ReusableStepThatUsesObjectCreatedInPreviousStep" time="0.0201126" result="Pass">
         <output><![CDATA[Reusable Step That Uses Object Created In Previous Step
     the following method
         using Xunit;
@@ -115,28 +115,28 @@
     the scenario will have an outcome of 'Passed'
 ]]></output>
       </test>
-      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.FailSync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="FailSync" time="0.0001295" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.SkipBecauseOfPreviousSkipAsync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="SkipBecauseOfPreviousSkipAsync" time="0.0005982" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.SkipAsync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="SkipAsync" time="0.000591" result="Pass" />
-      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.FailAsync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="FailAsync" time="0.0006857" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideAreaPath.WithAnAttribute" type="xBDD.Core.Test.Features.OverrideNames.OverrideAreaPath" method="WithAnAttribute" time="0.0001907" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideAreaPath.WhenAdding" type="xBDD.Core.Test.Features.OverrideNames.OverrideAreaPath" method="WhenAdding" time="0.0000896" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideFeatureName.WithAnAttribute" type="xBDD.Core.Test.Features.OverrideNames.OverrideFeatureName" method="WithAnAttribute" time="0.0001744" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideFeatureName.WhenAdding" type="xBDD.Core.Test.Features.OverrideNames.OverrideFeatureName" method="WhenAdding" time="0.0000877" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideScenarioName.WhenAdding" type="xBDD.Core.Test.Features.OverrideNames.OverrideScenarioName" method="WhenAdding" time="0.0001766" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideScenarioName.WithAnAttribute" type="xBDD.Core.Test.Features.OverrideNames.OverrideScenarioName" method="WithAnAttribute" time="0.0000881" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WithMultilineParameterSet" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WithMultilineParameterSet" time="0.0001938" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WhenAdding" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WhenAdding" time="0.0000934" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WhenAddingWithThenStart" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WhenAddingWithThenStart" time="0.0000968" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WhenAddingWithGivenStart" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WhenAddingWithGivenStart" time="0.0000885" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WhenAddingWithWhenStart" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WhenAddingWithWhenStart" time="0.0000851" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WithParameterQuotes" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WithParameterQuotes" time="0.000087" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WithMultipleParameterReplacement" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WithMultipleParameterReplacement" time="0.0000854" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WithAnAttribute" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WithAnAttribute" time="0.0000801" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.AtRunTime" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="AtRunTime" time="0.0000805" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WithParameterReplacement" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WithParameterReplacement" time="0.0000786" result="Pass" />
-      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WhenAddingWithAndStart" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WhenAddingWithAndStart" time="0.0001052" result="Pass" />
-      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAScenario.WithExplicitName" type="xBDD.Core.Test.Features.DefineScenarios.AddAScenario" method="WithExplicitName" time="0.0017109" result="Pass">
+      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.FailSync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="FailSync" time="0.00013" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.SkipBecauseOfPreviousSkipAsync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="SkipBecauseOfPreviousSkipAsync" time="0.0006184" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.SkipAsync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="SkipAsync" time="0.0005405" result="Pass" />
+      <test name="xBDD.Core.Test.Features.RunTests.RunAStep.FailAsync" type="xBDD.Core.Test.Features.RunTests.RunAStep" method="FailAsync" time="0.0005599" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideAreaPath.WithAnAttribute" type="xBDD.Core.Test.Features.OverrideNames.OverrideAreaPath" method="WithAnAttribute" time="0.0001683" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideAreaPath.WhenAdding" type="xBDD.Core.Test.Features.OverrideNames.OverrideAreaPath" method="WhenAdding" time="0.0000862" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideFeatureName.WithAnAttribute" type="xBDD.Core.Test.Features.OverrideNames.OverrideFeatureName" method="WithAnAttribute" time="0.0002154" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideFeatureName.WhenAdding" type="xBDD.Core.Test.Features.OverrideNames.OverrideFeatureName" method="WhenAdding" time="0.0000919" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideScenarioName.WhenAdding" type="xBDD.Core.Test.Features.OverrideNames.OverrideScenarioName" method="WhenAdding" time="0.0001607" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideScenarioName.WithAnAttribute" type="xBDD.Core.Test.Features.OverrideNames.OverrideScenarioName" method="WithAnAttribute" time="0.0000885" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WithMultilineParameterSet" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WithMultilineParameterSet" time="0.0001607" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WhenAdding" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WhenAdding" time="0.0000851" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WhenAddingWithThenStart" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WhenAddingWithThenStart" time="0.0000817" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WhenAddingWithGivenStart" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WhenAddingWithGivenStart" time="0.0000805" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WhenAddingWithWhenStart" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WhenAddingWithWhenStart" time="0.0000885" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WithParameterQuotes" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WithParameterQuotes" time="0.0000775" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WithMultipleParameterReplacement" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WithMultipleParameterReplacement" time="0.0000809" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WithAnAttribute" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WithAnAttribute" time="0.0000744" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.AtRunTime" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="AtRunTime" time="0.0000741" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WithParameterReplacement" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WithParameterReplacement" time="0.0000771" result="Pass" />
+      <test name="xBDD.Core.Test.Features.OverrideNames.OverrideStepName.WhenAddingWithAndStart" type="xBDD.Core.Test.Features.OverrideNames.OverrideStepName" method="WhenAddingWithAndStart" time="0.0000721" result="Pass" />
+      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAScenario.WithExplicitName" type="xBDD.Core.Test.Features.DefineScenarios.AddAScenario" method="WithExplicitName" time="0.001747" result="Pass">
         <output><![CDATA[With Explicit Name
     the following method
         namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
@@ -156,7 +156,7 @@
     the area path will match the namespace: 'xBDD.Core.Test.Features.DefineScenarios.SampleCode'
 ]]></output>
       </test>
-      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAScenario.DefaultMethod" type="xBDD.Core.Test.Features.DefineScenarios.AddAScenario" method="DefaultMethod" time="0.000591" result="Pass">
+      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAScenario.DefaultMethod" type="xBDD.Core.Test.Features.DefineScenarios.AddAScenario" method="DefaultMethod" time="0.0005591" result="Pass">
         <output><![CDATA[Default Method
     the following method
         namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
@@ -176,7 +176,7 @@
     the area path will match the namespace: 'xBDD.Core.Test.Features.DefineScenarios.SampleCode'
 ]]></output>
       </test>
-      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.And" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="And" time="0.0036679" result="Pass">
+      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.And" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="And" time="0.0037097" result="Pass">
         <output><![CDATA[And
     the following method
         namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
@@ -203,7 +203,7 @@
     the step action type will be And
 ]]></output>
       </test>
-      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.WithNoAction" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="WithNoAction" time="0.0007096" result="Pass">
+      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.WithNoAction" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="WithNoAction" time="0.0006694" result="Pass">
         <output><![CDATA[With No Action
     the following method
         namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
@@ -227,7 +227,7 @@
     the step action type will be Given
 ]]></output>
       </test>
-      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.ReusableStep" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="ReusableStep" time="0.000786" result="Pass">
+      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.ReusableStep" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="ReusableStep" time="0.000799" result="Pass">
         <output><![CDATA[Reusable Step
     the following method
         using xBDD.Model;
@@ -261,7 +261,7 @@
     the step name will be 'the user performs an action'
 ]]></output>
       </test>
-      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.When" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="When" time="0.0008598" result="Pass">
+      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.When" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="When" time="0.0008882" result="Pass">
         <output><![CDATA[When
     the following method
         namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
@@ -286,8 +286,8 @@
     the step action type will be When
 ]]></output>
       </test>
-      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.AsyncFunctionInSyncStep" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="AsyncFunctionInSyncStep" time="0.0000885" result="Pass" />
-      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.ReusableStepThatTakesAStaticParameter" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="ReusableStepThatTakesAStaticParameter" time="0.0008184" result="Pass">
+      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.AsyncFunctionInSyncStep" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="AsyncFunctionInSyncStep" time="0.0000831" result="Pass" />
+      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.ReusableStepThatTakesAStaticParameter" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="ReusableStepThatTakesAStaticParameter" time="0.0008857" result="Pass">
         <output><![CDATA[Reusable Step That Takes A Static Parameter
     the following method
         using xBDD.Model;
@@ -321,7 +321,7 @@
     the step name will be 'the user performs a 'save' action'
 ]]></output>
       </test>
-      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.Async" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="Async" time="0.0012829" result="Pass">
+      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.Async" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="Async" time="0.0015368" result="Pass">
         <output><![CDATA[Async
     the following method
         using System.Threading.Tasks;
@@ -347,7 +347,7 @@
     the step action type will be Given
 ]]></output>
       </test>
-      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.Then" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="Then" time="0.0008506" result="Pass">
+      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.Then" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="Then" time="0.0009742" result="Pass">
         <output><![CDATA[Then
     the following method
         namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
@@ -373,7 +373,7 @@
     the step action type will be Then
 ]]></output>
       </test>
-      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.Given" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="Given" time="0.0007879" result="Pass">
+      <test name="xBDD.Core.Test.Features.DefineScenarios.AddAStep.Given" type="xBDD.Core.Test.Features.DefineScenarios.AddAStep" method="Given" time="0.0008062" result="Pass">
         <output><![CDATA[Given
     the following method
         namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
@@ -397,76 +397,76 @@
     the step action type will be Given
 ]]></output>
       </test>
-      <test name="xBDD.Core.Test.Features.DefineScenarios.CreateATestRun.ThroughxBDDCurrentTestRun" type="xBDD.Core.Test.Features.DefineScenarios.CreateATestRun" method="ThroughxBDDCurrentTestRun" time="0.0001824" result="Pass" />
-      <test name="xBDD.Core.Test.Features.DefineScenarios.CreateATestRun.Manually" type="xBDD.Core.Test.Features.DefineScenarios.CreateATestRun" method="Manually" time="0.0000885" result="Pass" />
-      <test name="xBDD.Core.Test.Features.DefineScenarios.CreateATestRun.ThroughxBDDCurrentTestRun2Times" type="xBDD.Core.Test.Features.DefineScenarios.CreateATestRun" method="ThroughxBDDCurrentTestRun2Times" time="0.0000859" result="Pass" />
-      <test name="xBDD.Core.Test.Features.DefineScenarios.OrganizeSteps.InAStepLibrary" type="xBDD.Core.Test.Features.DefineScenarios.OrganizeSteps" method="InAStepLibrary" time="0.000174" result="Pass" />
-      <test name="xBDD.Core.Test.Features.DefineScenarios.OrganizeSteps.InAStepLibrarySharedAcrossAreas" type="xBDD.Core.Test.Features.DefineScenarios.OrganizeSteps" method="InAStepLibrarySharedAcrossAreas" time="0.0000889" result="Pass" />
-      <test name="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters.MultilineParameter" type="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters" method="MultilineParameter" time="0.0001766" result="Pass" />
-      <test name="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters.InlineWithDynamicState" type="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters" method="InlineWithDynamicState" time="0.0000904" result="Pass" />
-      <test name="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters.InlineWithTypedState" type="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters" method="InlineWithTypedState" time="0.0000916" result="Pass" />
-      <test name="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters.TableParameter" type="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters" method="TableParameter" time="0.0000828" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.CompileTestRunResults.EmptyTestRun" type="xBDD.Core.Test.Features.CompileStats.CompileTestRunResults" method="EmptyTestRun" time="0.000212" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.CompileTestRunResults.WithAreaPathSpecified" type="xBDD.Core.Test.Features.CompileStats.CompileTestRunResults" method="WithAreaPathSpecified" time="0.0000897" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.CompileTestRunResults.CompletedTestRun" type="xBDD.Core.Test.Features.CompileStats.CompileTestRunResults" method="CompletedTestRun" time="0.0000855" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentAreaPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentAreaPassedCount" time="0.0002261" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.FeatureFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="FeatureFailedCount" time="0.0000949" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.Time" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="Time" time="0.0000919" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentScenarioPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentScenarioPassedCount" time="0.0000881" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.StepPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="StepPassedCount" time="0.0000855" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.Duration" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="Duration" time="0.0000961" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.AreaPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="AreaPassedCount" time="0.0000851" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentStepTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentStepTotalCount" time="0.0000885" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentFeatureSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentFeatureSkippedCount" time="0.0000847" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.AreaFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="AreaFailedCount" time="0.0000843" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.FeatureSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="FeatureSkippedCount" time="0.0001223" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentFeatureTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentFeatureTotalCount" time="0.0000972" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentFeaturePassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentFeaturePassedCount" time="0.0001116" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentScenarioFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentScenarioFailedCount" time="0.0000866" result="Pass" />
+      <test name="xBDD.Core.Test.Features.DefineScenarios.CreateATestRun.ThroughxBDDCurrentTestRun" type="xBDD.Core.Test.Features.DefineScenarios.CreateATestRun" method="ThroughxBDDCurrentTestRun" time="0.0001809" result="Pass" />
+      <test name="xBDD.Core.Test.Features.DefineScenarios.CreateATestRun.Manually" type="xBDD.Core.Test.Features.DefineScenarios.CreateATestRun" method="Manually" time="0.0000961" result="Pass" />
+      <test name="xBDD.Core.Test.Features.DefineScenarios.CreateATestRun.ThroughxBDDCurrentTestRun2Times" type="xBDD.Core.Test.Features.DefineScenarios.CreateATestRun" method="ThroughxBDDCurrentTestRun2Times" time="0.0000976" result="Pass" />
+      <test name="xBDD.Core.Test.Features.DefineScenarios.OrganizeSteps.InAStepLibrary" type="xBDD.Core.Test.Features.DefineScenarios.OrganizeSteps" method="InAStepLibrary" time="0.0001793" result="Pass" />
+      <test name="xBDD.Core.Test.Features.DefineScenarios.OrganizeSteps.InAStepLibrarySharedAcrossAreas" type="xBDD.Core.Test.Features.DefineScenarios.OrganizeSteps" method="InAStepLibrarySharedAcrossAreas" time="0.0000915" result="Pass" />
+      <test name="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters.MultilineParameter" type="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters" method="MultilineParameter" time="0.0001603" result="Pass" />
+      <test name="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters.InlineWithDynamicState" type="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters" method="InlineWithDynamicState" time="0.00009" result="Pass" />
+      <test name="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters.InlineWithTypedState" type="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters" method="InlineWithTypedState" time="0.0000859" result="Pass" />
+      <test name="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters.TableParameter" type="xBDD.Core.Test.Features.DefineScenarios.SpecifyParameters" method="TableParameter" time="0.0000809" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.CompileTestRunResults.EmptyTestRun" type="xBDD.Core.Test.Features.CompileStats.CompileTestRunResults" method="EmptyTestRun" time="0.000155" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.CompileTestRunResults.WithAreaPathSpecified" type="xBDD.Core.Test.Features.CompileStats.CompileTestRunResults" method="WithAreaPathSpecified" time="0.0000859" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.CompileTestRunResults.CompletedTestRun" type="xBDD.Core.Test.Features.CompileStats.CompileTestRunResults" method="CompletedTestRun" time="0.0000839" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentAreaPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentAreaPassedCount" time="0.0001649" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.FeatureFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="FeatureFailedCount" time="0.0000862" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.Time" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="Time" time="0.0000817" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentScenarioPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentScenarioPassedCount" time="0.0000813" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.StepPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="StepPassedCount" time="0.0000783" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.Duration" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="Duration" time="0.0000794" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.AreaPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="AreaPassedCount" time="0.0000756" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentStepTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentStepTotalCount" time="0.0000748" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentFeatureSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentFeatureSkippedCount" time="0.0000771" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.AreaFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="AreaFailedCount" time="0.0000744" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.FeatureSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="FeatureSkippedCount" time="0.0000866" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentFeatureTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentFeatureTotalCount" time="0.0000775" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentFeaturePassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentFeaturePassedCount" time="0.0000752" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentScenarioFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentScenarioFailedCount" time="0.0000756" result="Pass" />
       <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.FeaturePassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="FeaturePassedCount" time="0.0000782" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.FeatureTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="FeatureTotalCount" time="0.0000748" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentAreaFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentAreaFailedCount" time="0.000076" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.StepTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="StepTotalCount" time="0.0000775" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.ScenarioPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="ScenarioPassedCount" time="0.0000767" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentStepFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentStepFailedCount" time="0.0000767" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.EndTime" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="EndTime" time="0.0000775" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.StepFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="StepFailedCount" time="0.000076" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentAreaSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentAreaSkippedCount" time="0.0000778" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.StartTime" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="StartTime" time="0.0000752" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.ScenarioFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="ScenarioFailedCount" time="0.0000744" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentAreaTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentAreaTotalCount" time="0.0000744" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.AreaTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="AreaTotalCount" time="0.0000737" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.StepSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="StepSkippedCount" time="0.0000763" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.ScenarioTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="ScenarioTotalCount" time="0.0000737" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.AreaSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="AreaSkippedCount" time="0.0000794" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.Outcome" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="Outcome" time="0.0000721" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.ScenarioSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="ScenarioSkippedCount" time="0.0000737" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentFeatureFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentFeatureFailedCount" time="0.0000786" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.FeatureTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="FeatureTotalCount" time="0.0000733" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentAreaFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentAreaFailedCount" time="0.0000748" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.StepTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="StepTotalCount" time="0.0000824" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.ScenarioPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="ScenarioPassedCount" time="0.0000828" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentStepFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentStepFailedCount" time="0.0000953" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.EndTime" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="EndTime" time="0.0000812" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.StepFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="StepFailedCount" time="0.0000884" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentAreaSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentAreaSkippedCount" time="0.0000824" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.StartTime" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="StartTime" time="0.0000771" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.ScenarioFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="ScenarioFailedCount" time="0.000079" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentAreaTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentAreaTotalCount" time="0.0000752" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.AreaTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="AreaTotalCount" time="0.0000782" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.StepSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="StepSkippedCount" time="0.0000991" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.ScenarioTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="ScenarioTotalCount" time="0.0000851" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.AreaSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="AreaSkippedCount" time="0.0000798" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.Outcome" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="Outcome" time="0.0000737" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.ScenarioSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="ScenarioSkippedCount" time="0.0000771" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentFeatureFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentFeatureFailedCount" time="0.0000752" result="Pass" />
       <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentStepSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentStepSkippedCount" time="0.0000744" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentScenarioTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentScenarioTotalCount" time="0.0000782" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentScenarioSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentScenarioSkippedCount" time="0.0000809" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentStepPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentStepPassedCount" time="0.0000748" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.ScenarioFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="ScenarioFailedCount" time="0.0001667" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.ScenarioSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="ScenarioSkippedCount" time="0.0000869" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.EndTime" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="EndTime" time="0.0000839" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.Time" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="Time" time="0.0000783" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.Outcome" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="Outcome" time="0.000082" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.StepTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="StepTotalCount" time="0.0000817" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.Duration" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="Duration" time="0.0000741" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.ScenarioTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="ScenarioTotalCount" time="0.0000741" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.StepFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="StepFailedCount" time="0.0000744" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.StepPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="StepPassedCount" time="0.0000782" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.StartTime" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="StartTime" time="0.0000779" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.StepSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="StepSkippedCount" time="0.0000737" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.ScenarioPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="ScenarioPassedCount" time="0.0000725" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.Duration" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="Duration" time="0.0001584" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.StartTime" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="StartTime" time="0.0000878" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.StepSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="StepSkippedCount" time="0.0000821" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.StepTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="StepTotalCount" time="0.000079" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.EndTime" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="EndTime" time="0.0000748" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.Outcome" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="Outcome" time="0.0000767" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.StepPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="StepPassedCount" time="0.0000767" result="Pass" />
-      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.StepFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="StepFailedCount" time="0.0000725" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentScenarioTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentScenarioTotalCount" time="0.0000828" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentScenarioSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentScenarioSkippedCount" time="0.0000778" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewAreaStats.DescendentStepPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewAreaStats" method="DescendentStepPassedCount" time="0.0001097" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.ScenarioFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="ScenarioFailedCount" time="0.0001672" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.ScenarioSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="ScenarioSkippedCount" time="0.000087" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.EndTime" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="EndTime" time="0.0000961" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.Time" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="Time" time="0.0002079" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.Outcome" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="Outcome" time="0.0001014" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.StepTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="StepTotalCount" time="0.0000862" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.Duration" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="Duration" time="0.0000821" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.ScenarioTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="ScenarioTotalCount" time="0.0000782" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.StepFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="StepFailedCount" time="0.0000779" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.StepPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="StepPassedCount" time="0.0000767" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.StartTime" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="StartTime" time="0.0000737" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.StepSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="StepSkippedCount" time="0.0000748" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats.ScenarioPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewFeatureStats" method="ScenarioPassedCount" time="0.0000737" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.Duration" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="Duration" time="0.0001657" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.StartTime" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="StartTime" time="0.0000862" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.StepSkippedCount" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="StepSkippedCount" time="0.0000805" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.StepTotalCount" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="StepTotalCount" time="0.0000824" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.EndTime" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="EndTime" time="0.0000756" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.Outcome" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="Outcome" time="0.0000752" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.StepPassedCount" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="StepPassedCount" time="0.0000737" result="Pass" />
+      <test name="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats.StepFailedCount" type="xBDD.Core.Test.Features.CompileStats.ViewScenarioStats" method="StepFailedCount" time="0.0000737" result="Pass" />
     </collection>
   </assembly>
 </assemblies>
