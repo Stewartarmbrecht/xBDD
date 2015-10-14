@@ -39,7 +39,7 @@ namespace xBDD.Core
         {
             return AddScenario(null, scenarioName, featureName, areaPath);
         }
-        private ScenarioBuilder AddScenario(Method method, string scenarioName, string featureName, string areaPath)
+        private ScenarioBuilder AddScenario(Method method, string scenarioName, string featureName, string areaName)
         {
             if (scenarioName == null && method != null)
                 scenarioName = method.Name.AddSpacesToSentence(true);
@@ -47,10 +47,10 @@ namespace xBDD.Core
             if (featureName == null && method != null)
                 featureName = method.GetClassName().AddSpacesToSentence(true);
 
-            if (areaPath == null && method != null)
-                areaPath = method.GetNameSpace();
+            if (areaName == null && method != null)
+                areaName = method.GetNameSpace();
             
-            var area = areaCache.GetOrCreate(TestRun, areaPath);
+            var area = areaCache.GetOrCreate(TestRun, areaName);
             var feature = featureCache.GetOrCreate(area, featureName);
             return factory.CreateScenarioBuilder(scenarioName, feature);
         }

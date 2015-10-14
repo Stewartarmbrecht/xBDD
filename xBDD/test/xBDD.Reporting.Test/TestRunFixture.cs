@@ -14,7 +14,7 @@ namespace xBDD.Reporting.Test
         public override void Dispose()
         {
             base.Dispose();
-            Browser.Close();
+            WebDriver.Close();
         }
     }
     [CollectionDefinition("xBDDReportingTest")]

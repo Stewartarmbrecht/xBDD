@@ -1,6 +1,6 @@
-xBDD.Reporting.Database.Test 2015-10-09T13:19:19
+xBDD Reporting Database
 
-xBDD.Test.Features.SaveResults
+xBDD - Test - Features - Save Results
 	Write To Database
 		Get Test Results [Skipped - Not Started]
 		To Existing Database [Skipped - Not Started]

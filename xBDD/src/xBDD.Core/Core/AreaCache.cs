@@ -14,12 +14,12 @@ namespace xBDD.Core
 			this.areas = new List<Area>();
 		}
 		
-		public Area GetOrCreate(TestRun testRun, string areaPath)
+		public Area GetOrCreate(TestRun testRun, string areaName)
 		{
-			var area = areas.Where(x => x.Name == areaPath).FirstOrDefault();
+			var area = areas.Where(x => x.Name == areaName).FirstOrDefault();
 			if(area == null)
 			{
-				area = factory.CreateArea(areaPath, testRun);
+				area = factory.CreateArea(areaName, testRun);
 				areas.Add(area);				
 			}
 			return area;

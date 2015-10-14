@@ -32,7 +32,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Then(ScenarioTarget.WillBeCreated(sut))
                 .And(ScenarioTarget.NameWillMatchMethodName("Default Scenario Add", sut))
                 .And(ScenarioTarget.FeatureNameWillMatchClassName("Add A Scenario Default Sample", sut))
-                .And(ScenarioTarget.AreaPathWillMatchNamespace("xBDD.Core.Test.Features.DefineScenarios.SampleCode", sut))
+                .And(ScenarioTarget.AreaPathWillMatchNamespace("xBDD - Core - Test - Features - Define Scenarios - Sample Code", sut))
                 .Run();
         }
         [ScenarioFact]
@@ -50,7 +50,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Then(ScenarioTarget.WillBeCreated(sut))
                 .And(ScenarioTarget.NameWillMatchMethodName("My Explicit Scenario Name", sut))
                 .And(ScenarioTarget.FeatureNameWillMatchClassName("Add A Scenario Explicit Name Sample", sut))
-                .And(ScenarioTarget.AreaPathWillMatchNamespace("xBDD.Core.Test.Features.DefineScenarios.SampleCode", sut))
+                .And(ScenarioTarget.AreaPathWillMatchNamespace("xBDD - Core - Test - Features - Define Scenarios - Sample Code", sut))
                 .Run();
         }
     }

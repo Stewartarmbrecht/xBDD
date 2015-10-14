@@ -25,7 +25,7 @@ namespace xBDD.Utility
 
         internal string GetNameSpace()
         {
-            return methodBase.DeclaringType.Namespace;
+            return methodBase.DeclaringType.Namespace.ConvertNamespaceToAreaName();
         }
     }
 }

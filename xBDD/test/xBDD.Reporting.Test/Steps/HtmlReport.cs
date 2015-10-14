@@ -216,7 +216,7 @@ namespace xBDD.Reporting.Test.Steps
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
-                    xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 11")
+                    xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 1")
                         .Given("my step 1", (s2) => { })
                         .When("my step 2", (s2) => { })
                         .Then("my step 3", (s2) => { })
@@ -239,7 +239,7 @@ namespace xBDD.Reporting.Test.Steps
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     try
                     {
-                        xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 11")
+                        xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 1")
                             .Given("my step 1", (s2) => { })
                             .When("my step 2", (s2) => { throw new Exception("My Error"); })
                             .Then("my step 3", (s2) => { })
@@ -262,7 +262,7 @@ namespace xBDD.Reporting.Test.Steps
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
-                    xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 11")
+                    xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 1")
                         .Given("my step 1", (s2) => { })
                         .When("my step 2", (s2) => { })
                         .Then("my step 3", (s2) => { })

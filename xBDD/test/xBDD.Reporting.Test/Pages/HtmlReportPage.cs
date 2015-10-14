@@ -1,5 +1,8 @@
+using Microsoft.Dnx.Runtime;
+using Microsoft.Dnx.Runtime.Infrastructure;
+using Microsoft.Framework.DependencyInjection;
 using OpenQA.Selenium;
-
+using xBDD.Browser;
 namespace xBDD.Reporting.Test.Pages
 {
     public class HtmlReportPage
@@ -8,6 +11,22 @@ namespace xBDD.Reporting.Test.Pages
         public HtmlReportPage(IWebDriver driver)
         {
             this.driver = driver; 
+        }
+        static PageLocation pageLocation;
+        public static PageLocation PageLocation 
+        {
+            get
+            {
+                if(pageLocation == null)
+                {
+                    var provider = CallContextServiceLocator.Locator.ServiceProvider;
+                    var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
+                    var path = "file:///" + appEnv.ApplicationBasePath + "\\TestHtmlReport.html";
+                    pageLocation = new PageLocation("Test Html Report", path);
+                }
+                return pageLocation;
+            }
+            
         }
         internal IWebElement Area(int areaNumber)
         {
@@ -31,5 +50,6 @@ namespace xBDD.Reporting.Test.Pages
 
         public string Html { get { return driver.PageSource; } }
 
+        public static PageElement TestRunName = new PageElement("test run name",".testrun-name");
     }
 }

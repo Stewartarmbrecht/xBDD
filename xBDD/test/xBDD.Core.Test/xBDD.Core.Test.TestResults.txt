@@ -1,6 +1,6 @@
-xBDD.Core.Test 2015-10-09T13:19:00
+xBDD Core
 
-CompileStats
+Compile Stats
 	Compile Test Run Results
 		Completed Test Run [Skipped - Not Started]
 		Empty Test Run [Skipped - Not Started]
@@ -66,7 +66,7 @@ CompileStats
 		Step Passed Count [Skipped - Not Started]
 		Step Skipped Count [Skipped - Not Started]
 		Step Total Count [Skipped - Not Started]
-DefineScenarios
+Define Scenarios
 	Add A Scenario
 		Default Method
 			Given the following method
@@ -84,7 +84,7 @@ DefineScenarios
 			Then the scenario will be created
 			And the scenario name will match the method name with spaces: 'Default Scenario Add'
 			And the feature name will match the class name with spaces: 'Add A Scenario Default Sample'
-			And the area path will match the namespace: 'xBDD.Core.Test.Features.DefineScenarios.SampleCode'
+			And the area path will match the namespace: 'xBDD - Core - Test - Features - Define Scenarios - Sample Code'
 		With Explicit Name
 			Given the following method
 				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
@@ -101,7 +101,7 @@ DefineScenarios
 			Then the scenario will be created
 			And the scenario name will match the method name with spaces: 'My Explicit Scenario Name'
 			And the feature name will match the class name with spaces: 'Add A Scenario Explicit Name Sample'
-			And the area path will match the namespace: 'xBDD.Core.Test.Features.DefineScenarios.SampleCode'
+			And the area path will match the namespace: 'xBDD - Core - Test - Features - Define Scenarios - Sample Code'
 	Add A Step
 		And
 			Given the following method
@@ -312,7 +312,7 @@ DefineScenarios
 		Inline With Typed State [Skipped - Not Started]
 		Multiline Parameter [Skipped - Not Started]
 		Table Parameter [Skipped - Not Started]
-DefineScenarios.SampleCode
+Define Scenarios - Sample Code
 	Add A Given Step
 		Add [NotRun]
 			Given my starting condition
@@ -347,7 +347,7 @@ DefineScenarios.SampleCode
 	Add An Async Step
 		Add [NotRun]
 			Given my async starting condition
-OverrideNames
+Override Names
 	Override Area Path
 		When Adding [Skipped - Not Started]
 		With An Attribute [Skipped - Not Started]
@@ -369,7 +369,7 @@ OverrideNames
 		With Multiple Parameter Replacement [Skipped - Re-writing]
 		With Parameter Quotes [Skipped - Not Started]
 		With Parameter Replacement [Skipped - Re-writing]
-RunTests
+Run Tests
 	Run A Scenario
 		Run Async [Skipped - Re-writing]
 		Run No Steps [Skipped - Re-writing]
@@ -465,13 +465,13 @@ RunTests
 		Skip Because Of Previous Skip Async [Skipped - Re-writing]
 		Skip Because Of Previous Skip Sync [Skipped - Re-writing]
 		Skip Sync [Skipped - Re-writing]
-RunTests.SampleCode
+Run Tests - Sample Code
 	Add A Reusable Step That Uses Object Created In Previous Step
 		Add
 			Given the user navigates to page
 			When the user clicks the 'Register' button
 			Then the web page will have a title of 'Registration'
-ViewProperties
+View Properties
 	View Scenario Properties
 		Area Path [Skipped - Not Started]
 		End Time [Skipped - Re-writing]

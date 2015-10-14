@@ -13,7 +13,7 @@ namespace xBDD.Reporting.Test.Pages
             : base(driver)
         {
             this.driver = driver; 
-            PageFactory.InitElements(Browser.Current, this);
+            PageFactory.InitElements(WebDriver.Current, this);
         }
 
         [FindsBy(How = How.Id, Using = "testrun-area-stats")]
@@ -203,8 +203,8 @@ namespace xBDD.Reporting.Test.Pages
             var provider = CallContextServiceLocator.Locator.ServiceProvider;
             var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
             var path = "file:///" + appEnv.ApplicationBasePath + "\\TestHtmlReport.html";
-            Browser.Current.Navigate().GoToUrl(path);
-            HtmlReportPageStats report = new HtmlReportPageStats(Browser.Current);
+            WebDriver.Current.Navigate().GoToUrl(path);
+            HtmlReportPageStats report = new HtmlReportPageStats(WebDriver.Current);
             return report;
         }
     }

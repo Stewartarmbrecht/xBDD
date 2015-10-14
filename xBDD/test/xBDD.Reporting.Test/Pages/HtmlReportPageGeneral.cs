@@ -13,15 +13,15 @@ namespace xBDD.Reporting.Test.Pages
             : base(driver)
         {
             this.driver = driver; 
-            PageFactory.InitElements(Browser.Current, this);
+            PageFactory.InitElements(WebDriver.Current, this);
         }
         public static HtmlReportPageGeneral Load()
         {
             var provider = CallContextServiceLocator.Locator.ServiceProvider;
             var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
             var path = "file:///" + appEnv.ApplicationBasePath + "\\TestHtmlReport.html";
-            Browser.Current.Navigate().GoToUrl(path);
-            HtmlReportPageGeneral report = new HtmlReportPageGeneral(Browser.Current);
+            WebDriver.Current.Navigate().GoToUrl(path);
+            HtmlReportPageGeneral report = new HtmlReportPageGeneral(WebDriver.Current);
             return report;
         }
 

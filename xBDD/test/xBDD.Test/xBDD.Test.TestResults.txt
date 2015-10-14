@@ -1,4 +1,4 @@
-xBDD.Test 2015-10-09T13:18:58
+xBDD
 
 Environment
 	Publish Test Results To Central Database

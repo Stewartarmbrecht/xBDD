@@ -6,6 +6,7 @@ using Microsoft.Dnx.Runtime;
 using Microsoft.Dnx.Runtime.Infrastructure;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
+using xBDD.Utility;
 using Xunit;
 
 namespace xBDD.Test
@@ -51,7 +52,7 @@ namespace xBDD.Test
             //}
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
-            xBDD.CurrentRun.TestRun.Name = projectName + " " + DateTime.Now.ToString("s");
+            xBDD.CurrentRun.TestRun.Name = projectName.Replace(".Test", "").Replace(".", " ");
         }
         public static IConfiguration Configuration { get; set; }
         public virtual void Dispose()
@@ -83,8 +84,8 @@ namespace xBDD.Test
             {
                 Console.WriteLine("Saving to the database was skipped.");
             }
-
-            xBDD.CurrentRun.TestRun.Areas.ForEach(x => { x.Name = x.Name.Replace(ProjectName + ".Features.", ""); });
+            var baseAreaNameToTrim = (ProjectName + ".Features.").ConvertNamespaceToAreaName(); 
+            xBDD.CurrentRun.TestRun.Areas.ForEach(x => { x.Name = x.Name.Replace(baseAreaNameToTrim, ""); });
             File.WriteAllText(ProjectName + ".TestResults.txt", xBDD.CurrentRun.TestRun.WriteToText());
             File.WriteAllText(ProjectName + ".TestResults.html", xBDD.CurrentRun.TestRun.WriteToHtml());
         }

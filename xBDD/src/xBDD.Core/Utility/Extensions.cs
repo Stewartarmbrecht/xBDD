@@ -2,9 +2,14 @@
 
 namespace xBDD.Utility
 {
-    internal static class Extensions
+    public static class Extensions
     {
-        internal static string AddSpacesToSentence(this string text, bool preserveAcronyms)
+        
+        public static string ConvertNamespaceToAreaName(this string text)
+        {
+            return text.AddSpacesToSentence(true).Replace(".", " - ");
+        }
+        public static string AddSpacesToSentence(this string text, bool preserveAcronyms)
         {
             text = text.Replace('_', ' ');
             if (string.IsNullOrWhiteSpace(text))

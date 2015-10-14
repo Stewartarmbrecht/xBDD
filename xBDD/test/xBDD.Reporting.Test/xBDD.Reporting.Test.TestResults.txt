@@ -1,11 +1,12 @@
-xBDD.Reporting.Test 2015-10-09T13:19:01
+xBDD Reporting
 
-ViewHtmlReport
+View Html Report
 	Write To Html
-		Get String
-			When the code calls 'xBDD.CurrentRun.WriteToHTML()
-			Then the code should return a string value of the html report
-ViewHtmlReport.CollapsingAndExpanding
+		Standard Full Report
+			Given a completed test run
+			When the following code executes 'var report = xBDD.CurrentRun.WriteToHTML()'
+			Then the report variable will be a string that contains the entire HTML report that can be written to a file, or sent via email, or whatever...
+View Html Report - Collapsing And Expanding
 	Collapse And Expand Area Description
 		Collapse [Skipped - Not Started]
 		Collapse All [Skipped - Not Started]
@@ -42,7 +43,7 @@ ViewHtmlReport.CollapsingAndExpanding
 		Default Collapsed When More Than5 [Skipped - Not Started]
 		Expand [Skipped - Not Started]
 		Expand All [Skipped - Not Started]
-ViewHtmlReport.ViewResults
+View Html Report - View Results
 	View Area
 		Failing [Skipped - Not Started]
 		Mulitple [Skipped - Not Started]
@@ -235,37 +236,12 @@ ViewHtmlReport.ViewResults
 			And the passed, green bar should have a width of 70%
 			And the skipped, yellow bar should have a width of 26%
 			And the failed, red bar should have a width of 4%
-WriteResults
-	Browse Html Report
-		View Empty Test Run
-			Given the test results of an empty test run
-			When the user views the html report
-			Then the report will show the test run name at the top
-			And the report will show the test run name as the title for the page
-		View Passing Scenario [Skipped - Not Started]
-			Given the test results of a single passing scenario
-			When the user views the html report
-			Then the area path will be green
-			And the feature name will be green
-			And the scenario name will be green
-			And the step names will be green
-		View Run Scenario [Skipped - Not Started]
-			Given the test results of a single passing scenario
-			When the user views the html report
-			Then the area path will be displayed
-			And the feature name will be displayed indented under the area path
-			And the scenario name will be displayed indented under the feature name
-			And the steps will be displayed indented, under the scenario
-		View Run Step With Multiline Parameter Of Text [Skipped - Not Started]
-			Given the test results of a single passing scenario
-			When the user views the html report
-			Then the steps multiline parameter will show indented under the step name
-			And the multline parameter will have line breaks and indentation preserved
+View Text Report
 	Write To Text
 		Write Emtpy Test Run
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class EmptyTestRun : IExecute<string>
 				    {
@@ -284,7 +260,7 @@ WriteResults
 		Write Run Empty Scenario
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunEmptyScenario : IExecute<string>
 				    {
@@ -309,7 +285,7 @@ WriteResults
 		Write Run Multiple Areas
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunMultipleAreas : IExecute<string>
 				    {
@@ -376,7 +352,7 @@ WriteResults
 		Write Run Multiple Features Same Area
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunMultipleFeaturesSameArea : IExecute<string>
 				    {
@@ -442,7 +418,7 @@ WriteResults
 		Write Run Multiple Scenarios Same Feature
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunMultipleScenariosSameFeature : IExecute<string>
 				    {
@@ -488,7 +464,7 @@ WriteResults
 			Given the following method
 				using System;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithFailedStep : IExecute<string>
 				    {
@@ -528,7 +504,7 @@ WriteResults
 			Given the following method
 				using System;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithNotImplementedStep : IExecute<string>
 				    {
@@ -563,7 +539,7 @@ WriteResults
 		Write Run Scenario With Skipped Step
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithSkippedStep : IExecute<string>
 				    {
@@ -598,7 +574,7 @@ WriteResults
 		Write Run Scenario With Step With Multiline Parameter
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithStepWithMultilineParameter : IExecute<string>
 				    {
@@ -632,7 +608,7 @@ WriteResults
 		Write Run Scenario With Steps
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithSteps : IExecute<string>
 				    {
@@ -667,7 +643,7 @@ WriteResults
 		Write Skipped Empty Scenario
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class SkippedEmptyScenario : IExecute<string>
 				    {
@@ -696,7 +672,7 @@ WriteResults
 		Write Skipped Scenario With Steps
 			Given the following method
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.WriteResults.WriteToTextScenarios
+				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class SkippedScenarioWithSteps : IExecute<string>
 				    {

@@ -8,6 +8,7 @@ namespace xBDD.Browser
     public static class Page
     {
         public static int DefaultWait = 500;
+        
         public static Task WaitTillNotVisible(string webElementName, IWebElement webElement, int waitMilliseconds = -1)
         {
             if(waitMilliseconds == -1)

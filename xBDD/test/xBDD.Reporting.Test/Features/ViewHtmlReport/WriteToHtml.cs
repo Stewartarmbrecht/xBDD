@@ -15,16 +15,18 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport
         }
         
         [ScenarioFact]
-        public void GetString()
+        public void StandardFullReport()
         {
             Wrapper<string> html = new Wrapper<string>();            
             xBDD.CurrentRun.AddScenario(this)
-                .When("the code calls 'xBDD.CurrentRun.WriteToHTML()", (s) => { 
+                .Given("a completed test run", (s) => {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
+                })
+                .When("the following code executes 'var report = xBDD.CurrentRun.WriteToHTML()'", (s) => { 
                     html.Object = xBDD.CurrentRun.TestRun.WriteToHtml();
                  })
-                .Then("the code should return a string value of the html report", (s) => { 
+                .Then("the report variable will be a string that contains the entire HTML report that can be written to a file, or sent via email, or whatever...", (s) => { 
                     Assert.StartsWith("<!DOCTYPE html>", html.Object);
                  })
                 .Run();
