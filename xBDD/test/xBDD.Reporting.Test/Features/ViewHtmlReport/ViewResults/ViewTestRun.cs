@@ -1,12 +1,12 @@
-using xBDD.Reporting.Test.Pages;
-using xBDD.Reporting.Test.Steps;
-using xBDD.xUnit;
 using Xunit;
 using Xunit.Abstractions;
+using xBDD.Browser;
+using xBDD.xUnit;
+using xBDD.Reporting.Test.Steps;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
-	[Collection("xBDDReportingTest")]
+    [Collection("xBDDReportingTest")]
 	public class ViewTestRun
 	{
 		private readonly OutputWriter outputWriter;
@@ -17,66 +17,62 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		public void EmptyTestRun()
+		public async void EmptyTestRun()
 		{
-            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
-            xBDD.CurrentRun.AddScenario(this)
+            WebBrowser browser = new WebBrowser(WebDriver.Current);
+            await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAnEmptyTestRun())
-                .When(WebUser.ViewsReportGeneral(htmlReport))
-                .Then("the report will show the test run name at the top", (s) => {
-                    Assert.NotNull(htmlReport.Object.TestRunName);
-                    Assert.Equal("Test Run\r\nMy Test Run", htmlReport.Object.TestRunName.Text);
+                .When(WebUser.ViewsReport(browser))
+                .ThenAsync("the report will show the test run name at the top", async (s) => {
+                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.Name);
+                    browser.ElementHasText(Pages.HtmlReportPage.TestRun.Name, "My Test Run");
                 })
                 .And("the report will show the test run name as the title for the page", (s) => {
-                    Assert.Equal("My Test Run", htmlReport.Object.Title);
+                    browser.HasTitle("My Test Run");
                 })
-                .And("the report will show the test run name in gray to indicate no scenarios were run", (s) => {
-					outputWriter.WriteLine(htmlReport.Object.TestRunName.GetAttribute("class"));
-                    Assert.Equal(Color.Gray, htmlReport.Object.GetTestRunNameColor());
+                .AndAsync("the report will show the test run name in gray to indicate no scenarios were run", async (s) => {
+                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.NameGrey);
                 })
-                .Run();
+                .RunAsync();
 		}
 		
 		[ScenarioFact]
-		public void PassingTestRun()
+		public async void PassingTestRun()
 		{
-            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
-            xBDD.CurrentRun.AddScenario(this)
+            WebBrowser browser = new WebBrowser(WebDriver.Current);
+            await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario())
-                .When(WebUser.ViewsReportGeneral(htmlReport))
-                .Then("the report will show the test run name in green to indicate the test run passed", (s) => {
-					outputWriter.WriteLine(htmlReport.Object.TestRunName.GetAttribute("class"));
-                    Assert.Equal(Color.Green, htmlReport.Object.GetTestRunNameColor());
+                .When(WebUser.ViewsReport(browser))
+                .ThenAsync("the report will show the test run name in green to indicate the test run passed", async (s) => {
+                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.NameGreen);
                 })
-                .Run();
+                .RunAsync();
 		}
 		
 		[ScenarioFact]
-		public void PassingWithSomeSkipped()
+		public async void PassingWithSomeSkipped()
 		{
-            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
-            xBDD.CurrentRun.AddScenario(this)
+            WebBrowser browser = new WebBrowser(WebDriver.Current);
+            await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleSkippedScenario())
-                .When(WebUser.ViewsReportGeneral(htmlReport))
-                .Then("the report will show the test run name in yellow to indicate the test run passed", (s) => {
-					outputWriter.WriteLine(htmlReport.Object.TestRunName.GetAttribute("class"));
-                    Assert.Equal(Color.Yellow, htmlReport.Object.GetTestRunNameColor());
+                .When(WebUser.ViewsReport(browser))
+                .ThenAsync("the report will show the test run name in yellow to indicate the test run had skipped scenarios", async (s) => {
+                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.NameYellow);
                 })
-                .Run();
+                .RunAsync();
 		}
 		
 		[ScenarioFact]
-		public void Failing()
+		public async void Failing()
 		{
-            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
-            xBDD.CurrentRun.AddScenario(this)
+            WebBrowser browser = new WebBrowser(WebDriver.Current);
+            await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleFailedScenario())
-                .When(WebUser.ViewsReportGeneral(htmlReport))
-                .Then("the report will show the test run name in red to indicate the test run passed", (s) => {
-					outputWriter.WriteLine(htmlReport.Object.TestRunName.GetAttribute("class"));
-                    Assert.Equal(Color.Red, htmlReport.Object.GetTestRunNameColor());
+                .When(WebUser.ViewsReport(browser))
+                .ThenAsync("the report will show the test run name in red to indicate the test run has failing scenarios", async (s) => {
+                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.NameRed);
                 })
-                .Run();
+                .RunAsync();
 		}
 	}
 }

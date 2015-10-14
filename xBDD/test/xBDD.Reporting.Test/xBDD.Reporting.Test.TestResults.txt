@@ -15,16 +15,15 @@ View Html Report - Collapsing And Expanding
 		Expand All [Skipped - Not Started]
 	Collapse And Expand Areas
 		Collapse
-			Given the test results of a single skipped scenario
+			Given the test results of a single feiled scenario
 			And the user views the html report
-			And the user expands the first area
-			When the user cliks the first area again
+			When the user cliks the first area
 			Then the report should collapse the features listed under the area
 		Collapse All [Skipped - Not Started]
 		Expand
 			Given the test results of a single skipped scenario
 			And the user views the html report
-			When the user clicks the first area
+			When the user cliks the first area
 			Then the report should expand the features listed under the area
 		Expand All
 			Given the test results of a passing full test run
@@ -45,15 +44,21 @@ View Html Report - Collapsing And Expanding
 		Expand All [Skipped - Not Started]
 View Html Report - View Results
 	View Area
-		Failing [Skipped - Not Started]
-		Mulitple [Skipped - Not Started]
-		Passing [Skipped - Not Started]
-		Single
+		Failing
+			Given the test results of a single feiled scenario
+			When the user views the html report
+			Then the report will show the area name in red to indicate a scenario failed
+			And the features under the area will be expanded because it has a failing scenario
+		Passing
 			Given the test results of a single passing scenario
 			When the user views the html report
 			Then the report will show the area name in green to indicate all features passed
 			And the features under the area will be collapsed because it passed
-		Skipped [Skipped - Not Started]
+		Skipped
+			Given the test results of a single skipped scenario
+			When the user views the html report
+			Then the report will show the area name in yellow to indicate scenarios were skipped
+			And the features under the area will be collapsed because it was not failing
 	View Area Stats
 		Failed Skipped And Passing Feature Stats
 			Given the test results of a full test run with all outcomes
@@ -85,22 +90,28 @@ View Html Report - View Results
 		Single Feature Multiple Scenarios [Skipped - Not Started]
 		Single Scenario [Skipped - Not Started]
 	View Feature
-		Description [Skipped - Not Started]
-		Failing [Skipped - Not Started]
-		Name [Skipped - Not Started]
-		Passing
-			Given the test results of a passing full test run
+		Failing
+			Given the test results of a single feiled scenario
 			When the user views the html report
-			And the user expands the first area
-			Then the report will show the feature indented under the area
-			And the feature name will be green to indicate its passed
-			And the scenarios under the feature will be collapsed
-		Skipped [Skipped - Not Started]
+			Then the report will show the feature name in red to indicate a scenario failed
+			And the scenarios under the feature will be expanded because it has a failing scenario
+		Passing
+			Given the test results of a single passing scenario
+			When the user views the html report
+			And the user clicks the first area
+			Then the report will show the feature name in green to indicate all scenarios passed
+			And the scenarios under the feature will be collapsed because it passed
+		Skipped
+			Given the test results of a single skipped scenario
+			When the user views the html report
+			And the user clicks the first area
+			Then the report will show the feature name in yellow to indicate scenarios were skipped
+			And the scenarios under the feature will be collapsed because it was not failing
 	View Feature Stats
 		Failed Skipped And Passing Scenario Stats
 			Given the test results of a full test run with all outcomes
 			When the user views the html report
-			Then there should be a section under the feature name that displays scenario statistics about the feature
+			Then there should be a section under the feature name that displays scenario statistics
 			And the total number of scenarios should show as a badge to the right of the feature name with a value of 3
 			And the badge should show 'Scenarios' when the user hovers over it
 			And the section should show the number of passed scenarios with a value of 1
@@ -111,30 +122,50 @@ View Html Report - View Results
 			And the skipped, yellow bar should have a width of 33%
 			And the failed, red bar should have a width of 33%
 	View Scenario
-		Description [Skipped - Not Started]
-		Failing [Skipped - Not Started]
-		Name [Skipped - Not Started]
-		Passing
-			Given the test results of a passing full test run
+		Failing
+			Given the test results of a single feiled scenario
 			When the user views the html report
-			And the user expands the first area
-			And the user expands the first feature
-			Then the report will show the scenario indented under the feature
-			And the scenario name will be green to indicate its passed
-			And the steps under the scenario will be collapsed
-		Skipped [Skipped - Not Started]
+			Then the report will show the scenario name in red to indicate a scenario failed
+			And the steps under the scenario will be expanded because it has a failing step
+		Passing
+			Given the test results of a single passing scenario
+			When the user views the html report
+			And the user clicks the first area
+			And the user clicks the first feature
+			Then the report will show the scenario name in green to indicate all steps passed
+			And the steps under the scenario will be collapsed because it passed
+		Skipped
+			Given the test results of a single skipped scenario
+			When the user views the html report
+			And the user clicks the first area
+			And the user clicks the first feature
+			Then the report will show the scenario name in yellow to indicate the scenario was skipped
+			And the steps under the scenario will be collapsed because it was not failing
 	View Scenario Stats
 		Failed Skipped And Passing Steps Stats
 			Given the test results of a full test run with all outcomes
 			When the user views the html report
-			Then there should be badget displaying the total number of steps in the scenario to the right of the scenario name
+			Then the total number of steps should show as a badge to the right of the scenario name with a value of 3
 			And the badge should show 'Steps' when the user hovers over it
 	View Step
-		Failing [Skipped - Not Started]
-		Mulitple [Skipped - Not Started]
-		Passing [Skipped - Not Started]
-		Single [Skipped - Not Started]
-		Skipped [Skipped - Not Started]
+		Failing
+			Given the test results of a single feiled scenario
+			When the user views the html report
+			Then the report will show the step name in red to indicate a step failed
+		Passing
+			Given the test results of a single passing scenario
+			When the user views the html report
+			And the user clicks the first area
+			And the user clicks the first feature
+			And the user clicks the first scenario
+			Then the report will show the step name in green to indicate it passed
+		Skipped
+			Given the test results of a single skipped scenario
+			When the user views the html report
+			And the user clicks the first area
+			And the user clicks the first feature
+			And the user clicks the first scenario
+			Then the report will show the step name in yellow to indicate the step was skipped
 		With Exception
 			Given the test results with a feiled step with an exception
 			When the user views the html report
@@ -172,7 +203,7 @@ View Html Report - View Results
 			And the user clicks the first area
 			And the user clicks the first feature
 			And the user clicks the first scenario
-			And the user clicks the first steps [Output] link
+			And the user clicks the first scenario
 			Then the report will show the output indented under the step
 		Html With Preview [Skipped - Not Started]
 	View Test Run
@@ -185,7 +216,7 @@ View Html Report - View Results
 		Failing
 			Given the test results of a single feiled scenario
 			When the user views the html report
-			Then the report will show the test run name in red to indicate the test run passed
+			Then the report will show the test run name in red to indicate the test run has failing scenarios
 		Passing Test Run
 			Given the test results of a single passing scenario
 			When the user views the html report
@@ -193,46 +224,50 @@ View Html Report - View Results
 		Passing With Some Skipped
 			Given the test results of a single skipped scenario
 			When the user views the html report
-			Then the report will show the test run name in yellow to indicate the test run passed
+			Then the report will show the test run name in yellow to indicate the test run had skipped scenarios
 	View Test Run Stats
 		Area Stats No Areas
 			Given the test results of an empty test run
 			When the user views the html report
-			Then there should be a section under the name that displays area statistics about the test run
+			Then there should be a section under the test run name that displays area statistics
+			And the total number of areas should show as a badge to the right of the test run name with a value of 0
+			And the badge should show 'Areas' when the user hovers over it
 			And the section should show the number of passed areas with a value of 0
-			And the section should show the number of skipped areas with a value of 0
-			And the section should show the number of failed areas with a value of 0
-			And the section should a gray bar to indicate there are no areas that is 100%
+			And the section should show the number of areas with skipped scenarios with a value of 0
+			And the section should show the number of areas with failed scenarios with a value of 0
+			And the section should show a gray bar to indicate there are no areas
 		Failed Skipped And Passing Area Stats
 			Given the test results of a full test run with all outcomes
 			When the user views the html report
-			Then there should be a section under the name that displays area statistics about the test run
+			Then there should be a section under the test run name that displays area statistics
+			And the total number of areas should show as a badge to the right of the test run name with a value of 3
+			And the badge should show 'Areas' when the user hovers over it
 			And the section should show the number of passed areas with a value of 1
-			And the section should show the number of skipped areas with a value of 1
-			And the section should show the number of failed areas with a value of 1
-			And the section should a green, yellow, and red bar chart of the percentages of passed, skipped, and failed areas
+			And the section should show the number of areas with skipped scenarios with a value of 1
+			And the section should show the number of areas with failed scenarios with a value of 1
+			And the section should show a green, yellow, and red bar chart of the percentages of passed, skipped, and failed areas
 			And the passed, green bar should have a width of 33%
 			And the skipped, yellow bar should have a width of 33%
 			And the failed, red bar should have a width of 33%
 		Failed Skipped And Passing Feature Stats
 			Given the test results of a full test run with all outcomes
 			When the user views the html report
-			Then there should be a section under the name that displays feature statistics about the test run
+			Then there should be a section under the test run name that displays feature statistics about the test run
 			And the section should show the number of passed features with a value of 5
 			And the section should show the number of skipped features with a value of 3
 			And the section should show the number of failed features with a value of 1
-			And the section should a green, yellow, and red bar chart of the percentages of passed, skipped, and failed features
-			And the passed, green bar should have a width of 55%
+			And the section should show a green, yellow, and red bar chart of the percentages of passed, skipped, and failed features
+			And the passed, green bar should have a width of 33%
 			And the skipped, yellow bar should have a width of 33%
-			And the failed, red bar should have a width of 11%
+			And the failed, red bar should have a width of 33%
 		Failed Skipped And Passing Scenario Stats
 			Given the test results of a full test run with all outcomes
 			When the user views the html report
-			Then there should be a section under the name that displays scenario statistics about the test run
+			Then there should be a section under the test run name that displays scenario statistics about the test run
 			And the section should show the number of passed scenarios with a value of 19
 			And the section should show the number of skipped scenarios with a value of 7
 			And the section should show the number of failed scenarios with a value of 1
-			And the section should a green, yellow, and red bar chart of the percentages of passed, skipped, and failed scenarios
+			And the section should show a green, yellow, and red bar chart of the percentages of passed, skipped, and failed scenarios
 			And the passed, green bar should have a width of 70%
 			And the skipped, yellow bar should have a width of 26%
 			And the failed, red bar should have a width of 4%

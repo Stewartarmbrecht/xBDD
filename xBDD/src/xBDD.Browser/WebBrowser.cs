@@ -23,6 +23,51 @@ namespace xBDD.Browser
         {
             return driver.PageSource;
         }
+        public void HasTitle(string title)
+        {
+            if(driver.Title != title)
+                throw new Exception("The brower title was not '" + title + "' it was '" + driver.Title + "'");
+        }
+
+        public void ElementHasText(PageElement element, string text)
+        {
+            IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
+            if (webElement == null)
+                throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
+            else
+            {
+                var foundText = webElement.Text;
+                if(foundText != text)
+                   throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") did not have text '" + text + "' it was '" + foundText + "'.");
+                
+            }
+        }
+
+        public void ElementStyleMatches(PageElement element, string styleRegEx)
+        {
+            IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
+            if (webElement == null)
+                throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
+            else
+            {
+                string styleFound = webElement.GetAttribute("style"); 
+                if(!System.Text.RegularExpressions.Regex.Match(styleFound, styleRegEx).Success)
+                   throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") did not have a style that matched '" + styleRegEx + "' it was '" + styleFound + "'.");
+            }
+        }
+
+        public void ElementHasTitle(PageElement element, string title)
+        {
+            IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
+            if (webElement == null)
+                throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
+            else
+            {
+                string titleFound = webElement.GetAttribute("title"); 
+                if(titleFound != title)
+                   throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") did not have text '" + title + "' it was '" + titleFound + "'.");
+            }
+        }
 
         public Task WaitTillNotVisible(PageElement element, int waitMilliseconds = -1)
         {
@@ -30,7 +75,7 @@ namespace xBDD.Browser
                 waitMilliseconds = DefaultWait;
             IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
             if (webElement == null)
-                throw new Exception("The web element (" + element.Description + ") was not found.");
+                throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
             return Task.Run(() =>
             {
                 var hidden = false;
@@ -42,7 +87,7 @@ namespace xBDD.Browser
                         hidden = true;
                 }
                 if (!hidden)
-                    throw new Exception("The web element (" + element.Description + ") was not hidden.");
+                    throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not hidden.");
             });
         }
 
@@ -65,34 +110,45 @@ namespace xBDD.Browser
                             visible = true;
                 }
                 if (webElement == null)
-                    throw new Exception("The web element (" + element.Description + ") was not found.");
+                    throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
 
                 if (!visible)
-                    throw new Exception("The web element (" + element.Description + ") was not visible");
+                    throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not visible");
             });
         }
-        public Task ClickWhenVisible(PageElement element, int waitMilliseconds = -1)
+        public Task ClickWhenVisible(PageElement element, bool throwException = true, int waitMilliseconds = -1)
         {
             if (waitMilliseconds == -1)
                 waitMilliseconds = DefaultWait;
-                IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
-            if (webElement == null)
-                throw new Exception("The web element (" + element.Description + ") was not found.");
             return Task.Run(() =>
             {
+                IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
                 var clicked = false;
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
                 while (sw.ElapsedMilliseconds < waitMilliseconds && clicked == false)
                 {
-                    if (webElement.Displayed)
+                    if (webElement == null)
                     {
-                        webElement.Click();
-                        clicked = true;
+                        webElement = driver.FindElement(By.CssSelector(element.Selector));
+                    }
+                    if(webElement != null)
+                    {
+                        if (webElement.Displayed)
+                        {
+                            webElement.Click();
+                            clicked = true;
+                        }
                     }
                 }
-                if (!clicked)
-                    throw new Exception("The web element (" + element.Description + ") was not visible and was not clicked");
+                if(throwException)
+                {
+                    if (webElement == null)
+                        throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
+    
+                    if (!clicked)
+                        throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not visible and was not clicked");
+                }
             });
         }
     }

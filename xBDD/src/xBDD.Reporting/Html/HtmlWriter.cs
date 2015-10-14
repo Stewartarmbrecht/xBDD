@@ -124,7 +124,8 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("h1", sb, 2, cssClass, true);
             WriteTag("small", sb, 2, null, "Test Run", true);
             sb.Append("</br>");
-            sb.Append(testRun.Name.HtmlEncode());
+            WriteTag("span", sb, 0, "name", testRun.Name.HtmlEncode(), true);
+            WriteTag("span", sb, 0, "badge pull-right total", testRun.AreaStats.Total.ToString(), true, null, null, "title=\"Areas\"");
             WriteTagClose("h1", sb, 2);
             WriteTagClose("div", sb, 1);
             WriteStatsTableStart(sb, 1);
@@ -268,7 +269,7 @@ namespace xBDD.Reporting.Html
             var areaTitleAttributes = String.Format("data-toggle=\"collapse\" href=\"#area-{0}-features\" aria-expanded=\"{1}\" aria-controls=\"area-{0}-features\" ", areaCounter, expandedText);
             WriteTagOpen("h2", sb, 3, className, true, null, null, areaTitleAttributes);
             WriteTag("small", sb, 4, null, "Area", true);
-            sb.Append(scenario.Feature.Area.Name.Replace('.',' ').HtmlEncode());
+            WriteTag("span", sb, 4, "name", scenario.Feature.Area.Name.HtmlEncode(), true);
             WriteTag("span", sb, 4, "badge pull-right total", scenario.Feature.Area.FeatureStats.Total.ToString(), true, null, null, "title=\"Features\"");
             WriteTagClose("h2", sb, 3);
 
@@ -319,7 +320,7 @@ namespace xBDD.Reporting.Html
             var titleAttributes = String.Format("data-toggle=\"collapse\" href=\"#feature-{0}-scenarios\" aria-expanded=\"{1}\" aria-controls=\"feature-{0}-scenarios\" ", featureCounter, expandedText);
             WriteTagOpen("h3", sb, 5, className, true, "vertical-align: top !important;", null, titleAttributes);
             WriteTag("small", sb, 6,null, "Feature", true);
-            sb.Append(scenario.Feature.Name.HtmlEncode());
+            WriteTag("span", sb, 6, "name", scenario.Feature.Name.HtmlEncode(), true);
             WriteTag("span", sb, 6, "badge pull-right total", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, "title=\"Scenarios\"");
             WriteTagClose("h3", sb, 5);
 
@@ -366,7 +367,8 @@ namespace xBDD.Reporting.Html
         }
         void WriteScenarioStatus(Scenario scenario, StringBuilder sb)
         {
-            sb.Append(" [");
+            WriteTagOpen("span",sb, 0, "status", true);
+            sb.Append("[");
             sb.Append(Enum.GetName(typeof(Outcome), scenario.Outcome));
             if (scenario.Reason != null && scenario.Reason != "Failed Step")
             {
@@ -374,6 +376,7 @@ namespace xBDD.Reporting.Html
                 sb.Append(scenario.Reason.HtmlEncode());
             }
             sb.Append("]");
+            WriteTagClose("span", sb, 0);
         }
         void WriteScenarioTitleLine(Scenario scenario, StringBuilder sb)
         {
@@ -382,7 +385,7 @@ namespace xBDD.Reporting.Html
 
             var titleAttributes = String.Format("data-toggle=\"collapse\" href=\"#scenario-{0}-steps\" aria-expanded=\"{1}\" aria-controls=\"scenario-{0}-steps\" ", scenarioCounter, expandedText);
             WriteTagOpen("div", sb, 7, "panel-heading", true, null, null, titleAttributes);
-            sb.Append(scenario.Name.HtmlEncode());
+            WriteTag("span", sb, 0, "name", scenario.Name.HtmlEncode(), true);
             if (scenario.Outcome != Outcome.Passed)
             {
                 WriteScenarioStatus(scenario, sb);
@@ -431,16 +434,17 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("li", sb, 8, className, false, "step-" + stepNumber);
 
             WriteTagOpen("h5", sb, 9, null, true);
-            sb.Append(step.FullName.HtmlEncode());
+            WriteTag("span", sb, 0, "name", step.FullName.HtmlEncode(), true);
             
             if (!String.IsNullOrEmpty(step.Output))
             {
-                sb.Append(String.Format(" <a class=\"step-output-link\" data-toggle=\"collapse\" href=\"#step-{0}-output\" aria-expanded=\"false\" aria-controls=\"step-{0}-output\">[Output]</a>", stepNumber));
+                sb.Append(String.Format("<a class=\"step-output-link\" data-toggle=\"collapse\" href=\"#step-{0}-output\" aria-expanded=\"false\" aria-controls=\"step-{0}-output\">[Output]</a>", stepNumber));
             }
             
             if (step.Scenario.Outcome == Outcome.Failed && step.Outcome != Outcome.Passed)
             {
-                sb.Append(" [");
+                WriteTagOpen("span", sb, 0, "status", true);
+                sb.Append("[");
                 sb.Append(Enum.GetName(typeof(Outcome), step.Outcome));
                 if (step.Reason != null && (step.Outcome != Outcome.Failed || step.Reason == "Not Implemented"))
                 {
@@ -448,6 +452,7 @@ namespace xBDD.Reporting.Html
                     sb.Append(step.Reason.HtmlEncode());
                 }
                 sb.Append("]");
+                WriteTagClose("span", sb, 0);
             }
 
             WriteTagClose("h5", sb, 0);

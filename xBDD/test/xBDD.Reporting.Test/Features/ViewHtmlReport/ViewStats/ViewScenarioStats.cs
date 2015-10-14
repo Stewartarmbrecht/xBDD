@@ -2,7 +2,6 @@ using Xunit;
 using Xunit.Abstractions;
 using xBDD.Browser;
 using xBDD.xUnit;
-using xBDD.Reporting.Test.Pages;
 using xBDD.Reporting.Test.Steps;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
@@ -23,16 +22,16 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		[ScenarioFact]
 		public async void FailedSkippedAndPassingStepsStats()
 		{
-            Wrapper<HtmlReportPageStats> htmlReportStats = new Wrapper<HtmlReportPageStats>();
+            WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
-                .When(WebUser.ViewsReportStats(htmlReportStats))
-                .ThenAsync("there should be badget displaying the total number of steps in the scenario to the right of the scenario name", async (s) => {
-					await Page.WaitTillVisible("scenario step stats", htmlReportStats.Object.ScenarioStepOutcomeTotal(19));
-					Assert.Equal("3", htmlReportStats.Object.ScenarioStepOutcomeTotal(19).Text);
-                })
+ 				.When(WebUser.ViewsReport(browser))
+                .ThenAsync("the total number of steps should show as a badge to the right of the scenario name with a value of 3", async (s) => {
+					await browser.WaitTillVisible(Pages.HtmlReportPage.ScenarioStepStats.Total(19));
+					browser.ElementHasText(Pages.HtmlReportPage.ScenarioStepStats.Total(19), "3");
+               	})
                 .And("the badge should show 'Steps' when the user hovers over it", (s) => {
-					Assert.Equal("Steps", htmlReportStats.Object.ScenarioStepOutcomeTotal(19).GetAttribute("title"));
+					browser.ElementHasTitle(Pages.HtmlReportPage.ScenarioStepStats.Total(19), "Steps");
                	})
                 .RunAsync();
 		}

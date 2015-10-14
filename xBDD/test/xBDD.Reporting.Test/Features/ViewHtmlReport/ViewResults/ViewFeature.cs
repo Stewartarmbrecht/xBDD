@@ -1,13 +1,12 @@
-using xBDD.Browser;
-using xBDD.Reporting.Test.Pages;
-using xBDD.Reporting.Test.Steps;
-using xBDD.xUnit;
 using Xunit;
 using Xunit.Abstractions;
+using xBDD.Browser;
+using xBDD.xUnit;
+using xBDD.Reporting.Test.Steps;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
-	[Collection("xBDDReportingTest")]
+    [Collection("xBDDReportingTest")]
 	public class ViewFeature
 	{
 		private readonly OutputWriter outputWriter;
@@ -18,53 +17,56 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		public void Name()
-		{
-			 xBDD.CurrentRun.AddScenario(this)
-				.Skip("Not Started");
-		}
-		[ScenarioFact]
-		public void Description()
-		{
-			 xBDD.CurrentRun.AddScenario(this)
-				.Skip("Not Started");
-		}
-		[ScenarioFact]
 		public async void Passing()
 		{
-            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
+            WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xBDD.CurrentRun.AddScenario(this)
-                .Given(HtmlReport.OfAPassingFullTestRun())
-                .When(WebUser.ViewsReportGeneral(htmlReport))
-				.AndAsync("the user expands the first area", async (s) => {
-					await Page.ClickWhenVisible("first area", htmlReport.Object.Area(1));
+                .Given(HtmlReport.OfASinglePassingScenario())
+                .When(WebUser.ViewsReport(browser))
+				.AndAsync("the user clicks the first area", async (s) => {
+					await browser.ClickWhenVisible(Pages.HtmlReportPage.Area.Name(1));
 				})
-                .ThenAsync("the report will show the feature indented under the area", async (s) => {
-					await BootstrapPage.WaitTillExpanded("area 1 features", htmlReport.Object.AreaFeatures(1));
-					s.Output = htmlReport.Object.Html;
-					s.OutputFormat = TextFormat.htmlpreview;
-					await Page.WaitTillVisible("feature 1", htmlReport.Object.Feature(1));
+                .ThenAsync("the report will show the feature name in green to indicate all scenarios passed", async (s) => {
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Feature.NameGreen(1));
+					browser.ElementHasText(Pages.HtmlReportPage.Feature.Name(1), "My Feature 1");
                 })
-				.And("the feature name will be green to indicate its passed", (s) => {
-					Assert.Equal(Color.Green, htmlReport.Object.GetFeatureNameColor(1));
+				.AndAsync("the scenarios under the feature will be collapsed because it passed", async (s) => {
+					await browser.WaitTillNotVisible(Pages.HtmlReportPage.Feature.Scenarios(1));
 				})
-                .AndAsync("the scenarios under the feature will be collapsed", async (s) => {
-					await BootstrapPage.WaitTillCollapsed("feature 1 scenarios", htmlReport.Object.FeatureScenarios(1));
-                })
                 .RunAsync();
 		}
 		[ScenarioFact]
-		public void Skipped()
+		public async void Skipped()
 		{
-			 xBDD.CurrentRun.AddScenario(this)
-				.Skip("Not Started");
+            WebBrowser browser = new WebBrowser(WebDriver.Current);
+            await xBDD.CurrentRun.AddScenario(this)
+                .Given(HtmlReport.OfASingleSkippedScenario())
+                .When(WebUser.ViewsReport(browser))
+				.AndAsync("the user clicks the first area", async (s) => {
+					await browser.ClickWhenVisible(Pages.HtmlReportPage.Area.Name(1));
+				})
+                .ThenAsync("the report will show the feature name in yellow to indicate scenarios were skipped", async (s) => {
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Feature.NameYellow(1));
+                })
+				.AndAsync("the scenarios under the feature will be collapsed because it was not failing", async (s) => {
+					await browser.WaitTillNotVisible(Pages.HtmlReportPage.Feature.Scenarios(1));
+				})
+                .RunAsync();
 		}
-				[ScenarioFact]
-		public void Failing()
+		[ScenarioFact]
+		public async void Failing()
 		{
-			 xBDD.CurrentRun.AddScenario(this)
-				.Skip("Not Started");
+            WebBrowser browser = new WebBrowser(WebDriver.Current);
+            await xBDD.CurrentRun.AddScenario(this)
+                .Given(HtmlReport.OfASingleFailedScenario())
+                .When(WebUser.ViewsReport(browser))
+                .ThenAsync("the report will show the feature name in red to indicate a scenario failed", async (s) => {
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Feature.NameRed(1));
+                })
+				.AndAsync("the scenarios under the feature will be expanded because it has a failing scenario", async (s) => {
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Feature.Scenarios(1));
+				})
+                .RunAsync();
 		}
-
 	}
 }

@@ -1,13 +1,12 @@
-using xBDD.Reporting.Test.Pages;
-using xBDD.Reporting.Test.Steps;
-using xBDD.xUnit;
 using Xunit;
 using Xunit.Abstractions;
 using xBDD.Browser;
+using xBDD.xUnit;
+using xBDD.Reporting.Test.Steps;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 {
-	[Collection("xBDDReportingTest")]
+    [Collection("xBDDReportingTest")]
 	public class CollapseAndExpandAreas
 	{
 		private readonly OutputWriter outputWriter;
@@ -19,25 +18,15 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 		[ScenarioFact]
 		public async void Collapse()
 		{
-            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
+            WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xBDD.CurrentRun.AddScenario(this)
-                .Given(HtmlReport.OfASingleSkippedScenario())
-				.And(WebUser.ViewsReportGeneral(htmlReport))
-                .AndAsync("the user expands the first area", async (s) => { 
-					s.Output = htmlReport.Object.Html;
-					s.OutputFormat = TextFormat.htmlpreview;
-					await Page.ClickWhenVisible("area 1", htmlReport.Object.Area(1));
-					await BootstrapPage.WaitTillExpanded("area 1 features", htmlReport.Object.AreaFeatures(1));
-					s.Output = htmlReport.Object.Html;
-					s.OutputFormat = TextFormat.htmlpreview;
-				})
-                .WhenAsync("the user cliks the first area again", async (s) => { 
-					await Page.ClickWhenVisible("area 1", htmlReport.Object.Area(1), 500);
+                .Given(HtmlReport.OfASingleFailedScenario())
+                .And(WebUser.ViewsReport(browser))
+                .WhenAsync("the user cliks the first area", async (s) => { 
+					await browser.ClickWhenVisible(Pages.HtmlReportPage.Area.Name(1));
 				})
                 .ThenAsync("the report should collapse the features listed under the area", async (s) => {
-					await BootstrapPage.WaitTillCollapsed("area 1 features", htmlReport.Object.AreaFeatures(1));
-					s.Output = htmlReport.Object.Html;
-					s.OutputFormat = TextFormat.htmlpreview;
+					await browser.WaitTillNotVisible(Pages.HtmlReportPage.Area.Features(1));
                 })
                 .RunAsync();
 		}
@@ -50,35 +39,34 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 		[ScenarioFact]
 		public async void Expand()
 		{
-            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
+            WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleSkippedScenario())
-				.And(WebUser.ViewsReportGeneral(htmlReport))
-                .When("the user clicks the first area", (s) => { 
-					Page.ClickWhenVisible("first area", htmlReport.Object.Area(1));
+                .And(WebUser.ViewsReport(browser))
+                .WhenAsync("the user cliks the first area", async (s) => { 
+					await browser.ClickWhenVisible(Pages.HtmlReportPage.Area.Name(1));
 				})
                 .ThenAsync("the report should expand the features listed under the area", async (s) => {
-					await BootstrapPage.WaitTillExpanded("features", htmlReport.Object.AreaFeatures(1));
-					s.Output = htmlReport.Object.Html;
-					s.OutputFormat = TextFormat.htmlpreview;
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.Features(1));
                 })
                 .RunAsync();
 		}
 		[ScenarioFact]
+		[Trait("category", "now")]
 		public async void ExpandAll()
 		{
-            Wrapper<HtmlReportPageGeneral> htmlReport = new Wrapper<HtmlReportPageGeneral>();
+            WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xBDD.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAPassingFullTestRun())
-				.And(WebUser.ViewsReportGeneral(htmlReport))
-                .WhenAsync("the user clicks the expand all areas menu option", async (s) => { 
-					await Page.ClickWhenVisible("menu button", htmlReport.Object.MenuButton);
-					await Page.ClickWhenVisible("expand all areas button", htmlReport.Object.ExpandAllAreasButton);
+                .And(WebUser.ViewsReport(browser))
+                .WhenAsync("the user clicks the expand all areas menu option", async (s) => {
+					await browser.ClickWhenVisible(Pages.HtmlReportPage.Menu.MenuButton);
+					await browser.ClickWhenVisible(Pages.HtmlReportPage.Menu.ExpandAllAreasButton);
 				})
                 .ThenAsync("the report should expand the features listed under the area", async (s) => {
-					await BootstrapPage.WaitTillExpanded("area 1 features", htmlReport.Object.AreaFeatures(1));
-					await BootstrapPage.WaitTillExpanded("area 2 features", htmlReport.Object.AreaFeatures(2));
-					s.Output = htmlReport.Object.Html;
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.Features(1));
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.Features(2));
+					s.Output = browser.GetPageSource();
 					s.OutputFormat = TextFormat.htmlpreview;
                 })
                 .RunAsync();

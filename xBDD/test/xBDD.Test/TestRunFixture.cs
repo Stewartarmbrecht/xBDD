@@ -86,8 +86,11 @@ namespace xBDD.Test
             }
             var baseAreaNameToTrim = (ProjectName + ".Features.").ConvertNamespaceToAreaName(); 
             xBDD.CurrentRun.TestRun.Areas.ForEach(x => { x.Name = x.Name.Replace(baseAreaNameToTrim, ""); });
+            Console.WriteLine("Saving to text file: " + ProjectName + ".TestResults.txt");
             File.WriteAllText(ProjectName + ".TestResults.txt", xBDD.CurrentRun.TestRun.WriteToText());
+            Console.WriteLine("Saving to html file: "+ ProjectName + ".TestResults.html");
             File.WriteAllText(ProjectName + ".TestResults.html", xBDD.CurrentRun.TestRun.WriteToHtml());
+            Console.WriteLine("Done!");
         }
     }
     public class xBDDTestTestRunFixture : TestRunFixture

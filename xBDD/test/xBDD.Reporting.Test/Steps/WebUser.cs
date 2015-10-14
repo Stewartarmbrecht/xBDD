@@ -1,9 +1,5 @@
-using OpenQA.Selenium;
-using Xunit;
-using xBDD.Model;
-using xBDD.Reporting.Test.Pages;
 using xBDD.Browser;
-using System.Threading.Tasks;
+using xBDD.Model;
 
 namespace xBDD.Reporting.Test.Steps
 {
@@ -14,31 +10,9 @@ namespace xBDD.Reporting.Test.Steps
             var step = xBDD.CreateStep(
                 "the user views the html report",
                 async (s) => {
-                    browser.Load(HtmlReportPage.PageLocation);
-                    await browser.WaitTillVisible(HtmlReportPage.TestRunName);
+                    browser.Load(Pages.HtmlReportPage.Location.PageLocation);
+                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.Name);
                     s.Output = browser.GetPageSource();
-                    s.OutputFormat = TextFormat.htmlpreview;
-                });
-            return step;
-        }
-        internal static Step ViewsReportGeneral(Wrapper<HtmlReportPageGeneral> report)
-        {
-            var step = xBDD.CreateStep(
-                "the user views the html report",
-                (s) => {
-                    report.Object = HtmlReportPageGeneral.Load();
-                    s.Output = report.Object.Html;
-                    s.OutputFormat = TextFormat.htmlpreview;
-                });
-            return step;
-        }
-        internal static Step ViewsReportStats(Wrapper<HtmlReportPageStats> report)
-        {
-            var step = xBDD.CreateStep(
-                "the user views the html report",
-                (s) => {
-                    report.Object = HtmlReportPageStats.Load();
-                    s.Output = report.Object.Html;
                     s.OutputFormat = TextFormat.htmlpreview;
                 });
             return step;
