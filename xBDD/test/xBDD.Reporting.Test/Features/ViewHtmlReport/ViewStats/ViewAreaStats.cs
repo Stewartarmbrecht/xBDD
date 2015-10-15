@@ -20,7 +20,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void FailedSkippedAndPassingFeatureStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);

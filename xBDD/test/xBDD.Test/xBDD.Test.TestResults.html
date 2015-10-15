@@ -34,7 +34,9 @@
     </nav>
     <div class="page-header" style="margin-top: 0px !important;">
         <h1 class="testrun-name text-success">        <small>Test Run</small>
-</br>xBDD        </h1>
+</br><span class="name">xBDD</span>
+<span class="badge pull-right total"title="Areas">1</span>
+        </h1>
     </div>
     <table class="table table-condensed" style="width: 100%; empty-cells: show;">
         <tr id="testrun-area-stats">
@@ -86,7 +88,8 @@
     <ol class="areas list-unstyled">
         <li class="area" id="area-1">
             <h2 class="text-success collapsed"data-toggle="collapse" href="#area-1-features" aria-expanded="false" aria-controls="area-1-features" >                <small>Area</small>
-Environment                <span class="badge pull-right total"title="Features">2</span>
+                <span class="name">Environment</span>
+                <span class="badge pull-right total"title="Features">2</span>
             </h2>
             <table class="table table-condensed" style="width: 100%; empty-cells: show;">
                 <tr id="area-1-feature-stats">
@@ -123,7 +126,8 @@ Environment                <span class="badge pull-right total"title="Features">
             <ol class="features list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="area-1-features"aria-expanded="false">
                 <li class="feature" style="box-shadow: 1px 1px 8px 1px #5A8B5B;" id="feature-1">
                     <h3 class="text-success" id="vertical-align: top !important;"data-toggle="collapse" href="#feature-1-scenarios" aria-expanded="false" aria-controls="feature-1-scenarios" >                        <small>Feature</small>
-Publish Test Results To Central Database                        <span class="badge pull-right total"title="Scenarios">2</span>
+                        <span class="name">Publish Test Results To Central Database</span>
+                        <span class="badge pull-right total"title="Scenarios">2</span>
                     </h3>
                     <table class="table table-condensed" style="width: 100%; empty-cells: show;">
                         <tr id="feature-1-scenario-stats">
@@ -145,15 +149,18 @@ Publish Test Results To Central Database                        <span class="bad
                     <ol class="scenarios list-unstyled collapse" id="feature-1-scenarios"aria-expanded="false">
                         <li class="scenario passed" id="scenario-1">
                             <div class="panel  panel-success">
-                            <div class="panel-heading"data-toggle="collapse" href="#scenario-1-steps" aria-expanded="false" aria-controls="scenario-1-steps" >Publish After CI Test Run                                <span class="badge pull-right total"title="Steps">2</span>
+                            <div class="panel-heading"data-toggle="collapse" href="#scenario-1-steps" aria-expanded="false" aria-controls="scenario-1-steps" ><span class="name">Publish After CI Test Run</span>
+                                <span class="badge pull-right total"title="Steps">2</span>
 </div>
                             <div class="panel-body collapse" id="scenario-1-steps"aria-expanded="false">
                             <ol class="steps list-unstyled">
                                 <li class="step passed text-success" id="step-1">
-                                    <h5>When the developer pushes a commit to the master branch</h5>
+                                    <h5><span class="name">When the developer pushes a commit to the master branch</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-2">
-                                    <h5>Then the CI process should build the solution, run the tests, and publish the results to a central database</h5>
+                                    <h5><span class="name">Then the CI process should build the solution, run the tests, and publish the results to a central database</span>
+</h5>
                                 </li>
                             </ol>
                             </div>
@@ -161,21 +168,26 @@ Publish Test Results To Central Database                        <span class="bad
                         </li>
                         <li class="scenario passed" id="scenario-2">
                             <div class="panel  panel-success">
-                            <div class="panel-heading"data-toggle="collapse" href="#scenario-2-steps" aria-expanded="false" aria-controls="scenario-2-steps" >Publish After Test Run                                <span class="badge pull-right total"title="Steps">4</span>
+                            <div class="panel-heading"data-toggle="collapse" href="#scenario-2-steps" aria-expanded="false" aria-controls="scenario-2-steps" ><span class="name">Publish After Test Run</span>
+                                <span class="badge pull-right total"title="Steps">4</span>
 </div>
                             <div class="panel-body collapse" id="scenario-2-steps"aria-expanded="false">
                             <ol class="steps list-unstyled">
                                 <li class="step passed text-success" id="step-3">
-                                    <h5>Given the developer sets the solution to the Publish configuration</h5>
+                                    <h5><span class="name">Given the developer sets the solution to the Publish configuration</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-4">
-                                    <h5>And the developer defines a valid connection string for an environment variable named 'Data:DefaultConnection:ConnectionString'</h5>
+                                    <h5><span class="name">And the developer defines a valid connection string for an environment variable named 'Data:DefaultConnection:ConnectionString'</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-5">
-                                    <h5>When the developer runs the tests</h5>
+                                    <h5><span class="name">When the developer runs the tests</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-6">
-                                    <h5>Then the test results should be published to the database</h5>
+                                    <h5><span class="name">Then the test results should be published to the database</span>
+</h5>
                                 </li>
                             </ol>
                             </div>
@@ -185,7 +197,8 @@ Publish Test Results To Central Database                        <span class="bad
                 </li>
                 <li class="feature" style="box-shadow: 1px 1px 8px 1px #5A8B5B;" id="feature-2">
                     <h3 class="text-success" id="vertical-align: top !important;"data-toggle="collapse" href="#feature-2-scenarios" aria-expanded="false" aria-controls="feature-2-scenarios" >                        <small>Feature</small>
-Run Tests                        <span class="badge pull-right total"title="Scenarios">3</span>
+                        <span class="name">Run Tests</span>
+                        <span class="badge pull-right total"title="Scenarios">3</span>
                     </h3>
                     <table class="table table-condensed" style="width: 100%; empty-cells: show;">
                         <tr id="feature-2-scenario-stats">
@@ -207,27 +220,34 @@ Run Tests                        <span class="badge pull-right total"title="Scen
                     <ol class="scenarios list-unstyled collapse" id="feature-2-scenarios"aria-expanded="false">
                         <li class="scenario passed" id="scenario-3">
                             <div class="panel  panel-success">
-                            <div class="panel-heading"data-toggle="collapse" href="#scenario-3-steps" aria-expanded="false" aria-controls="scenario-3-steps" >Run All Tests                                <span class="badge pull-right total"title="Steps">6</span>
+                            <div class="panel-heading"data-toggle="collapse" href="#scenario-3-steps" aria-expanded="false" aria-controls="scenario-3-steps" ><span class="name">Run All Tests</span>
+                                <span class="badge pull-right total"title="Steps">6</span>
 </div>
                             <div class="panel-body collapse" id="scenario-3-steps"aria-expanded="false">
                             <ol class="steps list-unstyled">
                                 <li class="step passed text-success" id="step-7">
-                                    <h5>Given a contributor has downloaded the solution</h5>
+                                    <h5><span class="name">Given a contributor has downloaded the solution</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-8">
-                                    <h5>And the contributor runs the xBDD\RunJustTests.ps1 powershell script</h5>
+                                    <h5><span class="name">And the contributor runs the xBDD\RunJustTests.ps1 powershell script</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-9">
-                                    <h5>Then all tests will run</h5>
+                                    <h5><span class="name">Then all tests will run</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-10">
-                                    <h5>And the test results will be written in plain text to the &lt;ProjectName&gt;.TestResults.txt file at the root of each project</h5>
+                                    <h5><span class="name">And the test results will be written in plain text to the &lt;ProjectName&gt;.TestResults.txt file at the root of each project</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-11">
-                                    <h5>And the test results will be written in html to the &lt;ProjectName&gt;.TestResults.html file at the root of each project</h5>
+                                    <h5><span class="name">And the test results will be written in html to the &lt;ProjectName&gt;.TestResults.html file at the root of each project</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-12">
-                                    <h5>And the output from running the tests will be written to the &lt;ProjectName&gt;.Output.txt file at the root of each project</h5>
+                                    <h5><span class="name">And the output from running the tests will be written to the &lt;ProjectName&gt;.Output.txt file at the root of each project</span>
+</h5>
                                 </li>
                             </ol>
                             </div>
@@ -235,36 +255,46 @@ Run Tests                        <span class="badge pull-right total"title="Scen
                         </li>
                         <li class="scenario passed" id="scenario-4">
                             <div class="panel  panel-success">
-                            <div class="panel-heading"data-toggle="collapse" href="#scenario-4-steps" aria-expanded="false" aria-controls="scenario-4-steps" >Run Filtered Tests                                <span class="badge pull-right total"title="Steps">9</span>
+                            <div class="panel-heading"data-toggle="collapse" href="#scenario-4-steps" aria-expanded="false" aria-controls="scenario-4-steps" ><span class="name">Run Filtered Tests</span>
+                                <span class="badge pull-right total"title="Steps">9</span>
 </div>
                             <div class="panel-body collapse" id="scenario-4-steps"aria-expanded="false">
                             <ol class="steps list-unstyled">
                                 <li class="step passed text-success" id="step-13">
-                                    <h5>Given a contributor has downloaded the solution</h5>
+                                    <h5><span class="name">Given a contributor has downloaded the solution</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-14">
-                                    <h5>And marked a test method with a trait: '[Trait(&quot;category&quot;, &quot;now&quot;)]'</h5>
+                                    <h5><span class="name">And marked a test method with a trait: '[Trait(&quot;category&quot;, &quot;now&quot;)]'</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-15">
-                                    <h5>And has opened powershell</h5>
+                                    <h5><span class="name">And has opened powershell</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-16">
-                                    <h5>And has navigated to the root folder of a project in powershell</h5>
+                                    <h5><span class="name">And has navigated to the root folder of a project in powershell</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-17">
-                                    <h5>When the contributor runs 'dnx xunit.runner.dnx -trait &quot;category=now&quot;</h5>
+                                    <h5><span class="name">When the contributor runs 'dnx xunit.runner.dnx -trait &quot;category=now&quot;</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-18">
-                                    <h5>Then only the test that was marked will run</h5>
+                                    <h5><span class="name">Then only the test that was marked will run</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-19">
-                                    <h5>And the test results will be written in plain text to the &lt;ProjectName&gt;.TestResults.txt file at the root of the project</h5>
+                                    <h5><span class="name">And the test results will be written in plain text to the &lt;ProjectName&gt;.TestResults.txt file at the root of the project</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-20">
-                                    <h5>And the test results will be written in html to the &lt;ProjectName&gt;.TestResults.html file at the root of the project</h5>
+                                    <h5><span class="name">And the test results will be written in html to the &lt;ProjectName&gt;.TestResults.html file at the root of the project</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-21">
-                                    <h5>And the output from running the tests will be written to the &lt;ProjectName&gt;.Output.txt file at the root of the project</h5>
+                                    <h5><span class="name">And the output from running the tests will be written to the &lt;ProjectName&gt;.Output.txt file at the root of the project</span>
+</h5>
                                 </li>
                             </ol>
                             </div>
@@ -272,33 +302,42 @@ Run Tests                        <span class="badge pull-right total"title="Scen
                         </li>
                         <li class="scenario passed" id="scenario-5">
                             <div class="panel  panel-success">
-                            <div class="panel-heading"data-toggle="collapse" href="#scenario-5-steps" aria-expanded="false" aria-controls="scenario-5-steps" >Run Project Tests                                <span class="badge pull-right total"title="Steps">8</span>
+                            <div class="panel-heading"data-toggle="collapse" href="#scenario-5-steps" aria-expanded="false" aria-controls="scenario-5-steps" ><span class="name">Run Project Tests</span>
+                                <span class="badge pull-right total"title="Steps">8</span>
 </div>
                             <div class="panel-body collapse" id="scenario-5-steps"aria-expanded="false">
                             <ol class="steps list-unstyled">
                                 <li class="step passed text-success" id="step-22">
-                                    <h5>Given a contributor has downloaded the solution</h5>
+                                    <h5><span class="name">Given a contributor has downloaded the solution</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-23">
-                                    <h5>And opened powershell</h5>
+                                    <h5><span class="name">And opened powershell</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-24">
-                                    <h5>And has navigated to the root folder of a project in powershell</h5>
+                                    <h5><span class="name">And has navigated to the root folder of a project in powershell</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-25">
-                                    <h5>When the contributor runs 'dnx test' in powershell</h5>
+                                    <h5><span class="name">When the contributor runs 'dnx test' in powershell</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-26">
-                                    <h5>Then all tests in that project will run</h5>
+                                    <h5><span class="name">Then all tests in that project will run</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-27">
-                                    <h5>And the test results will be written in plain text to the &lt;ProjectName&gt;.TestResults.txt file at the root of the project</h5>
+                                    <h5><span class="name">And the test results will be written in plain text to the &lt;ProjectName&gt;.TestResults.txt file at the root of the project</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-28">
-                                    <h5>And the test results will be written in html to the &lt;ProjectName&gt;.TestResults.html file at the root of the project</h5>
+                                    <h5><span class="name">And the test results will be written in html to the &lt;ProjectName&gt;.TestResults.html file at the root of the project</span>
+</h5>
                                 </li>
                                 <li class="step passed text-success" id="step-29">
-                                    <h5>And the output from running the tests will be written to the &lt;ProjectName&gt;.Output.txt file at the root of the project</h5>
+                                    <h5><span class="name">And the output from running the tests will be written to the &lt;ProjectName&gt;.Output.txt file at the root of the project</span>
+</h5>
                                 </li>
                             </ol>
                             </div>

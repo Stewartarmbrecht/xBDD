@@ -17,6 +17,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
+		[Trait("category", "now")]
 		public async void Passing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
@@ -31,6 +32,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				})
                 .ThenAsync("the report will show the scenario name in green to indicate all steps passed", async (s) => {
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Scenario.Green(1));
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Scenario.Name(1));
 					browser.ElementHasText(Pages.HtmlReportPage.Scenario.Name(1), "My Scenario 1");
                 })
 				.AndAsync("the steps under the scenario will be collapsed because it passed", async (s) => {

@@ -52,7 +52,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
                 .RunAsync();
 		}
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void ExpandAll()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
