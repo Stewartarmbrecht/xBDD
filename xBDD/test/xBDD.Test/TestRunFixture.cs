@@ -63,7 +63,7 @@ namespace xBDD.Test
                 try
                 {
                     Console.WriteLine("Removing SampleCode scenarios.");
-                    var scenarios = xB.CurrentRun.TestRun.Scenarios.Where(x => x.Feature.Area.Name.Contains("SampleCode")).ToList();
+                    var scenarios = xB.CurrentRun.TestRun.Scenarios.Where(x => x.Feature.Area.Name.Contains("Sample Code")).ToList();
                     Console.WriteLine("Found " + scenarios.Count() + " sample code scenarios.");
                     foreach(var scenario in scenarios)
                     {
