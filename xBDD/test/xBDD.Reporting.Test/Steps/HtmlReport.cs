@@ -206,7 +206,7 @@ namespace xBDD.Reporting.Test.Steps
             return step;
         }
 
-        internal static Step OfASinglePassingScenario()
+        internal static Step OfASinglePassingScenario(string value = null, string actor = null, string capability = null)
         {
             string path = GetReportPath();
 
@@ -221,6 +221,9 @@ namespace xBDD.Reporting.Test.Steps
                         .When("my step 2", (s2) => { })
                         .Then("my step 3", (s2) => { })
                         .Run();
+                    xBDD.CurrentRun.TestRun.Areas[0].Features[0].Actor = actor;
+                    xBDD.CurrentRun.TestRun.Areas[0].Features[0].Value = value;
+                    xBDD.CurrentRun.TestRun.Areas[0].Features[0].Capability = capability;
                     var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
                     File.WriteAllText(path, htmlReport);
                 });

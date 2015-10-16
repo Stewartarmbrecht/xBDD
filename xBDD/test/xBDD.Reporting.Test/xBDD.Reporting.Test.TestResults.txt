@@ -107,6 +107,28 @@ View Html Report - View Results
 			And the user clicks the first area
 			Then the report will show the feature name in yellow to indicate scenarios were skipped
 			And the scenarios under the feature will be collapsed because it was not failing
+	View Feature Statement
+		Full Statement
+			Given the test results of a single passing scenario
+			When the user views the html report
+			And the user expands to view a feature with a feature statement
+			Then the report should show the feature statement of:
+				In order to derive some value
+				As a actor
+				I would like to perform some action
+		No Statement
+			Given the test results of a single passing scenario
+			When the user views the html report
+			And the user expands to view a feature with a feature statement
+			Then the report should not show the feature statement
+		Partial Statement
+			Given the test results of a single passing scenario
+			When the user views the html report
+			And the user expands to view a feature with a feature statement
+			Then the report should show the feature statement of:
+				In order to derive some value
+				As a [Missing!]
+				I would like to [Missing!]
 	View Feature Stats
 		Failed Skipped And Passing Scenario Stats
 			Given the test results of a full test run with all outcomes

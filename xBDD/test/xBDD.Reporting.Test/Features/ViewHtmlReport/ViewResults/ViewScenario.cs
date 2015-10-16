@@ -17,7 +17,6 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		[Trait("category", "now")]
 		public async void Passing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);

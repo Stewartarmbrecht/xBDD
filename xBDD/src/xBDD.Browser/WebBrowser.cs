@@ -37,7 +37,7 @@ namespace xBDD.Browser
             else
             {
                 var foundText = webElement.Text;
-                if(foundText != text)
+                if(foundText.CompareTo(text) != 0)
                    throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") did not have text '" + text + "' it was '" + foundText + "'.");
                 
             }
@@ -89,6 +89,13 @@ namespace xBDD.Browser
                 if (!hidden)
                     throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not hidden.");
             });
+        }
+
+        public void ValidateNotExist(PageElement element)
+        {
+            var webElement = driver.FindElements(By.CssSelector(element.Selector));
+            if (webElement.Count != 0)
+                throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was found.");
         }
 
         public Task WaitTillVisible(PageElement element, int waitMilliseconds = -1)

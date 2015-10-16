@@ -11,6 +11,9 @@ using Xunit.Abstractions;
 namespace xBDD.Core.Test.Features.DefineScenarios
 {
 	[Collection("xBDDCoreTest")]
+	[InOrderTo("leverage xBDD within my testing framework")]
+	[AsA("developer")]
+	[IWouldLikeTo("define and execute a scenario within a unit test")]
 	public class DefineABasicScenario
 	{
 		private readonly OutputWriter outputWriter;

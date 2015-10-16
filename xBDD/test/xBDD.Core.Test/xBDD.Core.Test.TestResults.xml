@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <assemblies>
-  <assembly name="xBDD.Core.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3179" run-date="2015-10-16" run-time="15:52:16" total="2" passed="2" failed="0" skipped="0" time="1.780" errors="0">
+  <assembly name="xBDD.Core.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3179" run-date="2015-10-16" run-time="17:06:45" total="2" passed="2" failed="0" skipped="0" time="1.550" errors="0">
     <errors />
-    <collection total="2" passed="2" failed="0" skipped="0" name="xBDDCoreTest" time="0.048">
-      <test name="xBDD.Core.Test.Features.DefineScenarios.DefineABasicScenario.WithAsynchronousExecution" type="xBDD.Core.Test.Features.DefineScenarios.DefineABasicScenario" method="WithAsynchronousExecution" time="0.0413251" result="Pass">
+    <collection total="2" passed="2" failed="0" skipped="0" name="xBDDCoreTest" time="0.073">
+      <test name="xBDD.Core.Test.Features.DefineScenarios.DefineABasicScenario.WithAsynchronousExecution" type="xBDD.Core.Test.Features.DefineScenarios.DefineABasicScenario" method="WithAsynchronousExecution" time="0.0661883" result="Pass">
         <output><![CDATA[With Asynchronous Execution
     has the following scenarion definition
         using System.Threading.Tasks;
@@ -83,7 +83,7 @@
           <trait name="category" value="now" />
         </traits>
       </test>
-      <test name="xBDD.Core.Test.Features.DefineScenarios.DefineABasicScenario.WithSynchronousExecution" type="xBDD.Core.Test.Features.DefineScenarios.DefineABasicScenario" method="WithSynchronousExecution" time="0.0062787" result="Pass">
+      <test name="xBDD.Core.Test.Features.DefineScenarios.DefineABasicScenario.WithSynchronousExecution" type="xBDD.Core.Test.Features.DefineScenarios.DefineABasicScenario" method="WithSynchronousExecution" time="0.0063912" result="Pass">
         <output><![CDATA[With Synchronous Execution
     has the following scenarion definition
         using xBDD;

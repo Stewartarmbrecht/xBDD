@@ -59,6 +59,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" .testrun-percent-bar { background-color: #56C1F7; }");
             sb.Append(" .area-percent-bar { background-color: #A4DEFB; }");
             sb.Append(" .pointer { cursor: pointer }");
+            sb.Append(" .feature-statement { margin-top: 1em; }");
             sb.AppendLine("</style>");  
         }
 
@@ -328,9 +329,19 @@ namespace xBDD.Reporting.Html
             WriteStatsTableStart(sb, 5);
             WriteStats(sb, scenario.Feature.ScenarioStats, 5, "feature-"+featureCounter+"-scenario-stats", "Scenarios");
             WriteStatsTableClose(sb, 5);
+            
+            WriteFeatureStatement(scenario, sb);
 
             var scenariosClassName = "scenarios list-unstyled collapse" + (expanded ? " in" : "");
             WriteTagOpen("ol", sb, 5, scenariosClassName, false, "feature-" + featureCounter + "-scenarios", null, String.Format("aria-expanded=\"{0}\"", expandedText));
+        }
+        void WriteFeatureStatement(Scenario scenario, StringBuilder sb)
+        {
+            if(scenario.Feature.Actor != null || scenario.Feature.Value != null || scenario.Feature.Capability != null)
+            {
+                var statement = $"In order to {scenario.Feature.Value??"[Missing!]"}\r\nAs a {scenario.Feature.Actor??"[Missing!]"}\r\nI would like to {scenario.Feature.Capability??"[Missing!]"}";
+                WriteTag("pre", sb, 5, "feature-statement", statement, true, $"feature-{featureCounter}-statement");
+            }
         }
         void WriteFeatureClose(StringBuilder sb)
         {

@@ -1,3 +1,4 @@
+using System;
 using xBDD.Browser;
 
 namespace xBDD.Reporting.Test.Pages.HtmlReportPage
@@ -27,6 +28,10 @@ namespace xBDD.Reporting.Test.Pages.HtmlReportPage
         public static PageElement Scenarios(int featureNumber)
         {
             return new PageElement("feature " + featureNumber + " scenarios", "#feature-" + featureNumber + "-scenarios");   
+        }
+        internal static PageElement Statement(int featureNumber)
+        {
+            return new PageElement("feature " + featureNumber + " scenarios", "#feature-" + featureNumber + "-statement");   
         }
     }
 }
