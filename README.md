@@ -31,7 +31,8 @@ initial version of this platform is released.
 
 Note: Area, Feature, and Scenario names will expand when clicked.
 
-[xBDD.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD/test/xBDD.Test/xBDD.Test.TestResults.html)
-[xBDD.Core.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD/test/xBDD.Core.Test/xBDD.Core.Test.TestResults.html)
-[xBDD.Reporting.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD/test/xBDD.Reporting.Test/xBDD.Reporting.Test.TestResults.html)
-[xBDD.Reporting.Database.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD/test/xBDD.Reporting.Database.Test/xBDD.Reporting.Database.Test.TestResults.html)
+
+1. [xBDD.Core.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD/test/xBDD.Core.Test/xBDD.Core.Test.TestResults.html) - Writing and running scenarios.
+2. [xBDD.Reporting.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD/test/xBDD.Reporting.Test/xBDD.Reporting.Test.TestResults.html) - Generating reports from a test run.
+3. [xBDD.Reporting.Database.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD/test/xBDD.Reporting.Database.Test/xBDD.Reporting.Database.Test.TestResults.html) - Writing test results to a database.
+4. [xBDD.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD/test/xBDD.Test/xBDD.Test.TestResults.html) - Features of the project (environment setup and what not).
