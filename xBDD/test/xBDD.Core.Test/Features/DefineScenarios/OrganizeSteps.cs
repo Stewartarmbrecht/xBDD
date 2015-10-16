@@ -17,7 +17,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
         [ScenarioFact]
         public void InAStepLibrary()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -25,7 +25,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
         [ScenarioFact]
         public void InAStepLibrarySharedAcrossAreas()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");

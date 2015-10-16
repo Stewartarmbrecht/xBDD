@@ -15,7 +15,7 @@ View Html Report - Collapsing And Expanding
 		Expand All [Skipped - Not Started]
 	Collapse And Expand Areas
 		Collapse
-			Given the test results of a single feiled scenario
+			Given the test results of a single failed scenario
 			And the user views the html report
 			When the user cliks the first area
 			Then the report should collapse the features listed under the area
@@ -45,7 +45,7 @@ View Html Report - Collapsing And Expanding
 View Html Report - View Results
 	View Area
 		Failing
-			Given the test results of a single feiled scenario
+			Given the test results of a single failed scenario
 			When the user views the html report
 			Then the report will show the area name in red to indicate a scenario failed
 			And the features under the area will be expanded because it has a failing scenario
@@ -91,7 +91,7 @@ View Html Report - View Results
 		Single Scenario [Skipped - Not Started]
 	View Feature
 		Failing
-			Given the test results of a single feiled scenario
+			Given the test results of a single failed scenario
 			When the user views the html report
 			Then the report will show the feature name in red to indicate a scenario failed
 			And the scenarios under the feature will be expanded because it has a failing scenario
@@ -123,7 +123,7 @@ View Html Report - View Results
 			And the failed, red bar should have a width of 33%
 	View Scenario
 		Failing
-			Given the test results of a single feiled scenario
+			Given the test results of a single failed scenario
 			When the user views the html report
 			Then the report will show the scenario name in red to indicate a scenario failed
 			And the steps under the scenario will be expanded because it has a failing step
@@ -149,7 +149,7 @@ View Html Report - View Results
 			And the badge should show 'Steps' when the user hovers over it
 	View Step
 		Failing
-			Given the test results of a single feiled scenario
+			Given the test results of a single failed scenario
 			When the user views the html report
 			Then the report will show the step name in red to indicate a step failed
 		Passing
@@ -167,14 +167,14 @@ View Html Report - View Results
 			And the user clicks the first scenario
 			Then the report will show the step name in yellow to indicate the step was skipped
 		With Exception
-			Given the test results with a feiled step with an exception
+			Given the test results with a failed step with an exception
 			When the user views the html report
 			Then the user should see a section for the exception
 			And the section should display the exception type
 			And the section should display the exception message
 			And the section should display the exception stack trace
 		With Inner Exception
-			Given the test results with a feiled step with an exception
+			Given the test results with a failed step with an exception
 			When the user views the html report
 			Then the user should see a section for the nsted exception
 			And the section should display the exception type
@@ -214,7 +214,7 @@ View Html Report - View Results
 			And the report will show the test run name as the title for the page
 			And the report will show the test run name in gray to indicate no scenarios were run
 		Failing
-			Given the test results of a single feiled scenario
+			Given the test results of a single failed scenario
 			When the user views the html report
 			Then the report will show the test run name in red to indicate the test run has failing scenarios
 		Passing Test Run
@@ -274,7 +274,7 @@ View Html Report - View Results
 View Text Report
 	Write To Text
 		Write Emtpy Test Run
-			Given the following method
+			Given has the following scenarion definition
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
@@ -293,7 +293,7 @@ View Text Report
 				My Test Run
 				
 		Write Run Empty Scenario
-			Given the following method
+			Given has the following scenarion definition
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
@@ -318,7 +318,7 @@ View Text Report
 					My Feature
 						My Scenario
 		Write Run Multiple Areas
-			Given the following method
+			Given has the following scenarion definition
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
@@ -385,7 +385,7 @@ View Text Report
 							When my action
 							Then my ending condition
 		Write Run Multiple Features Same Area
-			Given the following method
+			Given has the following scenarion definition
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
@@ -451,7 +451,7 @@ View Text Report
 							When my action
 							Then my ending condition
 		Write Run Multiple Scenarios Same Feature
-			Given the following method
+			Given has the following scenarion definition
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
@@ -496,7 +496,7 @@ View Text Report
 							When my action
 							Then my ending condition
 		Write Run Scenario With Failed Step
-			Given the following method
+			Given has the following scenarion definition
 				using System;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
@@ -536,7 +536,7 @@ View Text Report
 				{{.*}}/rl
 							Then my ending condition [Skipped - Previous Error]
 		Write Run Scenario With Not Implemented Step
-			Given the following method
+			Given has the following scenarion definition
 				using System;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
@@ -572,7 +572,7 @@ View Text Report
 							When my action [Failed - Not Implemented]
 							Then my ending condition [Skipped - Previous Error]
 		Write Run Scenario With Skipped Step
-			Given the following method
+			Given has the following scenarion definition
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
@@ -607,7 +607,7 @@ View Text Report
 							When my action [Skipped - Deferred]
 							Then my ending condition [Skipped - Previous Error]
 		Write Run Scenario With Step With Multiline Parameter
-			Given the following method
+			Given has the following scenarion definition
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
@@ -641,7 +641,7 @@ View Text Report
 							When my action
 							Then my ending condition
 		Write Run Scenario With Steps
-			Given the following method
+			Given has the following scenarion definition
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
@@ -676,7 +676,7 @@ View Text Report
 							When my action
 							Then my ending condition
 		Write Skipped Empty Scenario
-			Given the following method
+			Given has the following scenarion definition
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
@@ -705,7 +705,7 @@ View Text Report
 					My Feature
 						My Scenario [Skipped - Deferred]
 		Write Skipped Scenario With Steps
-			Given the following method
+			Given has the following scenarion definition
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{

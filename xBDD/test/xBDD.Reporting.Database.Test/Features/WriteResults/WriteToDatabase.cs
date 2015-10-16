@@ -17,7 +17,7 @@ namespace xBDD.Test.Features.SaveResults
         [ScenarioFact]
         public void ToNewDatabase()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -35,7 +35,7 @@ namespace xBDD.Test.Features.SaveResults
         [ScenarioFact]
         public void ToExistingDatabase()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -44,7 +44,7 @@ namespace xBDD.Test.Features.SaveResults
         [ScenarioFact]
         public void ToExistingDatabaseFails()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -53,7 +53,7 @@ namespace xBDD.Test.Features.SaveResults
         [ScenarioFact]
         public void GetTestResults()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");

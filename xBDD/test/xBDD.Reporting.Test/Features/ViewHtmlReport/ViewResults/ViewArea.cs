@@ -23,7 +23,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void Passing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario())
                 .When(WebUser.ViewsReport(browser))
                 .ThenAsync("the report will show the area name in green to indicate all features passed", async (s) => {
@@ -39,7 +39,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void Skipped()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleSkippedScenario())
                 .When(WebUser.ViewsReport(browser))
                 .ThenAsync("the report will show the area name in yellow to indicate scenarios were skipped", async (s) => {
@@ -54,7 +54,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void Failing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleFailedScenario())
                 .When(WebUser.ViewsReport(browser))
                 .ThenAsync("the report will show the area name in red to indicate a scenario failed", async (s) => {

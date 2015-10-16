@@ -17,7 +17,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void Outcome()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -25,7 +25,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void AreaTotalCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -33,7 +33,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void AreaPassedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -41,7 +41,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void AreaFailedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -49,7 +49,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void AreaSkippedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -57,7 +57,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void FeatureTotalCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -65,7 +65,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void FeaturePassedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -73,7 +73,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void FeatureFailedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -81,7 +81,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void FeatureSkippedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -89,7 +89,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void ScenarioTotalCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -97,7 +97,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void ScenarioPassedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -105,7 +105,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void ScenarioFailedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -113,7 +113,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void ScenarioSkippedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -121,7 +121,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void StepTotalCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -129,7 +129,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void StepPassedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -137,7 +137,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void StepFailedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -145,7 +145,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void StepSkippedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -153,7 +153,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentAreaTotalCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -161,7 +161,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentAreaPassedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -169,7 +169,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentAreaFailedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -177,7 +177,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentAreaSkippedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -185,7 +185,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentFeatureTotalCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -193,7 +193,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentFeaturePassedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -201,7 +201,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentFeatureFailedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -209,7 +209,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentFeatureSkippedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -217,7 +217,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentScenarioTotalCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -225,7 +225,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentScenarioPassedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -233,7 +233,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentScenarioFailedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -241,7 +241,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentScenarioSkippedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -249,7 +249,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentStepTotalCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -257,7 +257,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentStepPassedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -265,7 +265,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentStepFailedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -273,7 +273,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void DescendentStepSkippedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -281,7 +281,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void StartTime()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -289,7 +289,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void EndTime()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -297,7 +297,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void Duration()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -305,7 +305,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void Time()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");

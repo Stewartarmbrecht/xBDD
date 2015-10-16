@@ -6,9 +6,9 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
     {
         public ScenarioBuilder Add()
         {
-            return xBDD.CurrentRun
+            return xB.CurrentRun
                 .AddScenario(this)
-                .Given(xBDD.CreateAsyncStep("my async starting condition", (s) => { return Task.Run(() => { }); }));
+                .Given(xB.CreateAsyncStep("my async starting condition", (s) => { return Task.Run(() => { }); }));
         }
     }
 }

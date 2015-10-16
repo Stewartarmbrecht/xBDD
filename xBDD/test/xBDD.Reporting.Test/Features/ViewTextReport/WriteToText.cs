@@ -21,11 +21,11 @@ namespace xBDD.Reporting.Test.Features.ViewTextReport
         {
             var actionName = action.GetType().Name;
             Wrapper<string> text = new Wrapper<string>();
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this, methodName)
                 .SetOutputWriter(outputWriter)
-                .Given(Code.HasMethod("\\Features\\ViewTextReport\\WriteToTextScenarios\\" + actionName + ".cs"))
-                .When(Code.ExecuteMethod((s) =>
+                .Given(Code.HasTheFollowingScenario("\\Features\\ViewTextReport\\WriteToTextScenarios\\" + actionName + ".cs"))
+                .When(Code.IsExecuted((s) =>
                 {
                     text.Object = action.Execute();
                 }))

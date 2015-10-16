@@ -21,11 +21,11 @@ namespace xBDD.Core.Test.Features.DefineScenarios
         public void DefaultMethod()
         {
             Wrapper<Scenario> sut = new Wrapper<Scenario>();
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAScenarioDefaultSample.cs"))
-                .When(Code.ExecuteMethod((s) =>
+                .Given(Code.HasTheFollowingScenario("\\Features\\DefineScenarios\\SampleCode\\AddAScenarioDefaultSample.cs"))
+                .When(Code.IsExecuted((s) =>
                 {
                     sut.Object = new SampleCode.AddAScenarioDefaultSample().DefaultScenarioAdd().Scenario;
                 }))
@@ -39,11 +39,11 @@ namespace xBDD.Core.Test.Features.DefineScenarios
         public void WithExplicitName()
         {
             Wrapper<Scenario> sut = new Wrapper<Scenario>();
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Given(Code.HasMethod("\\Features\\DefineScenarios\\SampleCode\\AddAScenarioExplicitNameSample.cs"))
-                .When(Code.ExecuteMethod((s) =>
+                .Given(Code.HasTheFollowingScenario("\\Features\\DefineScenarios\\SampleCode\\AddAScenarioExplicitNameSample.cs"))
+                .When(Code.IsExecuted((s) =>
                 {
                     sut.Object = new SampleCode.AddAScenarioExplicitNameSample().WithExplicitName().Scenario;
                 }))

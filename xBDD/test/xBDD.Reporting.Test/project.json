@@ -8,14 +8,7 @@
 
   "dependencies": {
     "xBDD.Test": "1.0.0-*",
-    "xBDD.Browser": "1.0.0-*",
-    "Microsoft.AspNet.Http": "1.0.0-beta7",
-    "xunit": "2.1.0-rc1-build3168",
-    "xunit.runner.dnx": "2.1.0-beta5-build169",
-    "TemplateValidator": "1.0.0-beta2",
-    "Selenium.WebDriver": "2.47.0",
-    "Selenium.Support": "2.47.0",
-    "Selenium.WebDriver.PhantomJS.Xplatform": "2.45.0.1"
+    "xBDD.Browser": "1.0.0-*"
   },
   "commands": {
     "test": "xunit.runner.dnx -xml xBDD.Reporting.Test.TestResults.xml",

@@ -17,28 +17,28 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		[ScenarioFact]
 		public void SingleScenario()
 		{
-			 xBDD.CurrentRun.AddScenario(this)
+			 xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 		
 		[ScenarioFact]
 		public void SingleFeatureMultipleScenarios()
 		{
-			 xBDD.CurrentRun.AddScenario(this)
+			 xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 		
 		[ScenarioFact]
 		public void SingleAreaMultipleFeatures()
 		{
-			 xBDD.CurrentRun.AddScenario(this)
+			 xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 		
 		[ScenarioFact]
 		public void MultipleAreas()
 		{
-			 xBDD.CurrentRun.AddScenario(this)
+			 xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 	}

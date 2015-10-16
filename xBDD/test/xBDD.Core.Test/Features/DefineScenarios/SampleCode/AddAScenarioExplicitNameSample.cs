@@ -4,7 +4,7 @@
     {
         public ScenarioBuilder WithExplicitName()
         {
-            return xBDD.CurrentRun.AddScenario("My Explicit Scenario Name", this);
+            return xB.CurrentRun.AddScenario("My Explicit Scenario Name", this);
         }
     }
 }

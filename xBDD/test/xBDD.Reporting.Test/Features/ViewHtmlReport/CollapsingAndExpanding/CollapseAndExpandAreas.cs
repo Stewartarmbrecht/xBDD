@@ -19,7 +19,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 		public async void Collapse()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleFailedScenario())
                 .And(WebUser.ViewsReport(browser))
                 .WhenAsync("the user cliks the first area", async (s) => { 
@@ -33,14 +33,14 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 		[ScenarioFact]
 		public async void CollapseAll()
 		{
-			 await xBDD.CurrentRun.AddScenario(this)
+			 await xB.CurrentRun.AddScenario(this)
 				.SkipAsync("Not Started");
 		}
 		[ScenarioFact]
 		public async void Expand()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleSkippedScenario())
                 .And(WebUser.ViewsReport(browser))
                 .WhenAsync("the user cliks the first area", async (s) => { 
@@ -55,7 +55,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 		public async void ExpandAll()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAPassingFullTestRun())
                 .And(WebUser.ViewsReport(browser))
                 .WhenAsync("the user clicks the expand all areas menu option", async (s) => {

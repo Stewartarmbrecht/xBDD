@@ -17,7 +17,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void WhenAdding()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -25,7 +25,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void WhenAddingWithGivenStart()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -33,7 +33,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void WhenAddingWithWhenStart()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -41,7 +41,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void WhenAddingWithThenStart()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -49,7 +49,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void WhenAddingWithAndStart()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -57,7 +57,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void WithAnAttribute()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -65,7 +65,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void AtRunTime()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -73,7 +73,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void WithParameterReplacement()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -94,7 +94,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void WithMultipleParameterReplacement()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -117,7 +117,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void WithParameterQuotes()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -126,7 +126,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void WithMultilineParameterSet()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");

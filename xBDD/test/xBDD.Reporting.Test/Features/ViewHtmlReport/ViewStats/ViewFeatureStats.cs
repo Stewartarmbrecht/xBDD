@@ -23,7 +23,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void FailedSkippedAndPassingScenarioStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
  				.When(WebUser.ViewsReport(browser))
                 .ThenAsync("there should be a section under the feature name that displays scenario statistics", async (s) => {

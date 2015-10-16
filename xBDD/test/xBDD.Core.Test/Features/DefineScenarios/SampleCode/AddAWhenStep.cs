@@ -4,10 +4,10 @@
     {
         public ScenarioBuilder Add()
         {
-            return xBDD.CurrentRun
+            return xB.CurrentRun
                 .AddScenario(this)
-                .Given(xBDD.CreateStep("my starting condition", (s) => { /*my setup here*/ }))
-                .When(xBDD.CreateStep("my action", (s) => { /*my action here*/ }));
+                .Given(xB.CreateStep("my starting condition", (s) => { /*my setup here*/ }))
+                .When(xB.CreateStep("my action", (s) => { /*my action here*/ }));
         }
     }
 }

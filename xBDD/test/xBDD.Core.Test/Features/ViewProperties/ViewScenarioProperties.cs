@@ -15,12 +15,12 @@ namespace xBDD.Core.Test.Features.ViewProperties
         [ScenarioFact]
         public void Name()
         {
-            xBDD.CurrentRun.AddScenario(this).Skip("Not Started");
+            xB.CurrentRun.AddScenario(this).Skip("Not Started");
         }
         [ScenarioFact]
         public void Outcome()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -35,7 +35,7 @@ namespace xBDD.Core.Test.Features.ViewProperties
         [ScenarioFact]
         public void StartTime()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -50,7 +50,7 @@ namespace xBDD.Core.Test.Features.ViewProperties
         [ScenarioFact]
         public void EndTime()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -65,7 +65,7 @@ namespace xBDD.Core.Test.Features.ViewProperties
         [ScenarioFact]
         public void TotalTime()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -80,7 +80,7 @@ namespace xBDD.Core.Test.Features.ViewProperties
         [ScenarioFact]
         public void FeatureName()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -88,7 +88,7 @@ namespace xBDD.Core.Test.Features.ViewProperties
         [ScenarioFact]
         public void AreaPath()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -96,7 +96,7 @@ namespace xBDD.Core.Test.Features.ViewProperties
         [ScenarioFact]
         public void State()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -104,7 +104,7 @@ namespace xBDD.Core.Test.Features.ViewProperties
         [ScenarioFact]
         public void Steps()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");

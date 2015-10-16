@@ -39,7 +39,8 @@ namespace xBDD.Test
             ShouldPublish = true;
 #endif
 
-            var builder = new ConfigurationBuilder(ApplicationEnvironment.ApplicationBasePath)
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(ApplicationEnvironment.ApplicationBasePath)
                 .AddJsonFile("config.json")
                 .AddJsonFile($"config.{hostEnv.EnvironmentName}.json", optional: true);
 
@@ -52,7 +53,7 @@ namespace xBDD.Test
             //}
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
-            xBDD.CurrentRun.TestRun.Name = projectName.Replace(".Test", "").Replace(".", " ");
+            xB.CurrentRun.TestRun.Name = projectName.Replace(".Test", "").Replace(".", " ");
         }
         public static IConfiguration Configuration { get; set; }
         public virtual void Dispose()
@@ -62,17 +63,17 @@ namespace xBDD.Test
                 try
                 {
                     Console.WriteLine("Removing SampleCode scenarios.");
-                    var scenarios = xBDD.CurrentRun.TestRun.Scenarios.Where(x => x.Feature.Area.Name.Contains("SampleCode")).ToList();
+                    var scenarios = xB.CurrentRun.TestRun.Scenarios.Where(x => x.Feature.Area.Name.Contains("SampleCode")).ToList();
                     Console.WriteLine("Found " + scenarios.Count() + " sample code scenarios.");
                     foreach(var scenario in scenarios)
                     {
-                        xBDD.CurrentRun.TestRun.Scenarios.Remove(scenario);
+                        xB.CurrentRun.TestRun.Scenarios.Remove(scenario);
                         Console.WriteLine("Scenario '" + scenario.Name + "' removed.");
                     }
                     Console.WriteLine("SampleCode scenarios have been removed.");
 
                     Console.WriteLine("Saving to the databse.");
-                    var count = xBDD.CurrentRun.TestRun.SaveToDatabase(null);
+                    var count = xB.CurrentRun.TestRun.SaveToDatabase(null);
                 }
                 catch (Exception ex)
                 {
@@ -85,11 +86,11 @@ namespace xBDD.Test
                 Console.WriteLine("Saving to the database was skipped.");
             }
             var baseAreaNameToTrim = (ProjectName + ".Features.").ConvertNamespaceToAreaName(); 
-            xBDD.CurrentRun.TestRun.Areas.ForEach(x => { x.Name = x.Name.Replace(baseAreaNameToTrim, ""); });
+            xB.CurrentRun.TestRun.Areas.ForEach(x => { x.Name = x.Name.Replace(baseAreaNameToTrim, ""); });
             Console.WriteLine("Saving to text file: " + ProjectName + ".TestResults.txt");
-            File.WriteAllText(ProjectName + ".TestResults.txt", xBDD.CurrentRun.TestRun.WriteToText());
+            File.WriteAllText(ProjectName + ".TestResults.txt", xB.CurrentRun.TestRun.WriteToText());
             Console.WriteLine("Saving to html file: "+ ProjectName + ".TestResults.html");
-            File.WriteAllText(ProjectName + ".TestResults.html", xBDD.CurrentRun.TestRun.WriteToHtml());
+            File.WriteAllText(ProjectName + ".TestResults.html", xB.CurrentRun.TestRun.WriteToHtml());
             Console.WriteLine("Done!");
         }
     }

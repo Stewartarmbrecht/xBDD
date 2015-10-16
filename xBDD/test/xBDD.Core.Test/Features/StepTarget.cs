@@ -8,7 +8,7 @@ namespace xBDD.Core.Test.Features
     {
         internal static Step NameWillBe(string expectedName, Wrapper<Step> sut)
         {
-            return xBDD.CreateStep(
+            return xB.CreateStep(
                 "the step name will be '" + expectedName + "'",
                 (s) => {
                     Assert.Equal(expectedName, sut.Object.Name);
@@ -18,7 +18,7 @@ namespace xBDD.Core.Test.Features
 
         internal static Step FullNameWillBe(string expectedName, Wrapper<Step> sut)
         {
-            return xBDD.CreateStep(
+            return xB.CreateStep(
                 "the full step name will be '" + expectedName + "'",
                 (s) => {
                     Assert.Equal(expectedName, sut.Object.FullName);
@@ -28,7 +28,7 @@ namespace xBDD.Core.Test.Features
 
         internal static Step ActionWillNotBeNull(Wrapper<Step> stepWrapper)
         {
-            return xBDD.CreateStep(
+            return xB.CreateStep(
                 "the step will have an action defined",
                 (s) =>
                 {
@@ -39,7 +39,7 @@ namespace xBDD.Core.Test.Features
 
         internal static Step ActionTypeWillBe(ActionType actionType, Wrapper<Step> stepWrapper)
         {
-            return xBDD.CreateStep(
+            return xB.CreateStep(
                 "the step action type will be "+ Enum.GetName(typeof(ActionType), actionType),
                 (s) =>
                 {
@@ -50,7 +50,7 @@ namespace xBDD.Core.Test.Features
 
         internal static Step AsyncActionWillNotBeNull(Wrapper<Step> stepWrapper)
         {
-            return xBDD.CreateStep(
+            return xB.CreateStep(
                 "the step will have an async action defined",
                 (s) =>
                 {

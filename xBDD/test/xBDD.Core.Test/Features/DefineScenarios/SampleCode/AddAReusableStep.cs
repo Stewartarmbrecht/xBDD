@@ -6,7 +6,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
     {
         public ScenarioBuilder Add()
         {
-            return xBDD.CurrentRun
+            return xB.CurrentRun
                 .AddScenario(this)
                 .Given(User.PerformsAnAction());
         }
@@ -16,7 +16,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
     {
         public static Step PerformsAnAction()
         {
-            return xBDD.CreateStep("the user performs an action",
+            return xB.CreateStep("the user performs an action",
                 (s) =>
                 {
                     //my action here.

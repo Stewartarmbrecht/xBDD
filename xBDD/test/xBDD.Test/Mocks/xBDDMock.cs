@@ -30,11 +30,11 @@ namespace xBDD
 
         public Step CreateStep(string stepName, Action<Step> action = null, string multilineParameter = null, TextFormat format = TextFormat.text)
         {
-            return xBDD.CreateStep(stepName, action, multilineParameter, format);
+            return xB.CreateStep(stepName, action, multilineParameter, format);
         }
         public Step CreateAsyncStep(string stepName, Func<Step, Task> action = null, string multilineParameter = null, TextFormat format = TextFormat.text)
         {
-            return xBDD.CreateAsyncStep(stepName, action, multilineParameter, format);
+            return xB.CreateAsyncStep(stepName, action, multilineParameter, format);
         }
     }
 }

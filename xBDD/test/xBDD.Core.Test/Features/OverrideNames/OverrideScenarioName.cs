@@ -17,7 +17,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void WhenAdding()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -25,7 +25,7 @@ namespace xBDD.Core.Test.Features.OverrideNames
         [ScenarioFact]
         public void WithAnAttribute()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");

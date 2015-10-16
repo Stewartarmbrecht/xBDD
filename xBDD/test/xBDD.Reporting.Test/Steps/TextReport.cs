@@ -33,7 +33,7 @@ namespace xBDD.Reporting.Test.Steps
                 template = htmlOpen + template + htmlClose;
             }
 
-            var step = xBDD.CreateStep(
+            var step = xB.CreateStep(
                 "the test results written should match the template:",
                 (s) => {
                     if (writeActual)

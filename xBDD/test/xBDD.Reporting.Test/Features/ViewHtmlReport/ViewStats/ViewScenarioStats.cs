@@ -23,7 +23,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void FailedSkippedAndPassingStepsStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
  				.When(WebUser.ViewsReport(browser))
                 .ThenAsync("the total number of steps should show as a badge to the right of the scenario name with a value of 3", async (s) => {

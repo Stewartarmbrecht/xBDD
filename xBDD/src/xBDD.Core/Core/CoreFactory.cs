@@ -24,6 +24,11 @@ namespace xBDD.Core
             };
         }
 
+        internal TestRunInitializer CreateTestRunInitializer()
+        {
+            return new TestRunInitializer();
+        }
+
         internal Area CreateArea(string name, TestRun testRun)
         {
             var area = new Area()

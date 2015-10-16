@@ -18,7 +18,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
         [ScenarioFact]
         public void ThroughxBDDCurrentTestRun()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -33,7 +33,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
         [ScenarioFact]
         public void ThroughxBDDCurrentTestRun2Times()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -49,7 +49,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
         [ScenarioFact]
         public void Manually()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");

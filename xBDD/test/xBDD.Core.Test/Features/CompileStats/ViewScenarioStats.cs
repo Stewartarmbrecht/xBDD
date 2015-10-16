@@ -17,7 +17,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void Outcome()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -25,7 +25,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void StepTotalCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -33,7 +33,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void StepPassedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -41,7 +41,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void StepFailedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -49,7 +49,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void StepSkippedCount()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -57,7 +57,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void StartTime()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -65,7 +65,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void EndTime()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");
@@ -73,7 +73,7 @@ namespace xBDD.Core.Test.Features.CompileStats
         [ScenarioFact]
         public void Duration()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Not Started");

@@ -4,9 +4,9 @@
     {
         public ScenarioBuilder Add()
         {
-            return xBDD.CurrentRun
+            return xB.CurrentRun
                 .AddScenario(this)
-                .Given(xBDD.CreateStep("my starting condition that needs no action"));
+                .Given(xB.CreateStep("my starting condition that needs no action"));
         }
     }
 }

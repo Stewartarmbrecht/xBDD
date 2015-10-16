@@ -15,7 +15,7 @@ namespace xBDD.Core.Test.Features.RunTests.SampleCode
         public Scenario Add(Wrapper<int> count)
         {
             Wrapper<WebPage> sut = new Wrapper<WebPage>();
-            var scenario = xBDD.CurrentRun
+            var scenario = xB.CurrentRun
                 .AddScenario(this)
                 .Given(WebUser.NavigatesToPage("http://www.myUrl.com", sut, count))
                 .When(WebUser.ClicksTheButton("Register", sut, count))
@@ -31,7 +31,7 @@ namespace xBDD.Core.Test.Features.RunTests.SampleCode
     {
         internal static Step NavigatesToPage(string url, Wrapper<WebPage> widget, Wrapper<int> count)
         {
-            return xBDD.CreateStep("the user navigates to page",
+            return xB.CreateStep("the user navigates to page",
                 (s) =>
                 {
                     widget.Object = WebPage.NavigateTo(url);
@@ -41,7 +41,7 @@ namespace xBDD.Core.Test.Features.RunTests.SampleCode
 
         internal static Step ClicksTheButton(string name, Wrapper<WebPage> sut, Wrapper<int> count)
         {
-            return xBDD.CreateStep("the user clicks the '" + name + "' button",
+            return xB.CreateStep("the user clicks the '" + name + "' button",
                 (s) =>
                 {
                     sut.Object = sut.Object.Click(name);
@@ -53,7 +53,7 @@ namespace xBDD.Core.Test.Features.RunTests.SampleCode
     {
         internal static Step WillHaveATitleOf(string expectedName, Wrapper<WebPage> sut, Wrapper<int> count)
         {
-            return xBDD.CreateStep("the web page will have a title of '" + expectedName + "'",
+            return xB.CreateStep("the web page will have a title of '" + expectedName + "'",
                 (s) =>
                 {
                     Assert.Equal(expectedName, sut.Object.Title);

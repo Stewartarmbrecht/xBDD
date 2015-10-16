@@ -4,7 +4,7 @@
     {
         public ScenarioBuilder DefaultScenarioAdd()
         {
-            return xBDD.CurrentRun.AddScenario(this);
+            return xB.CurrentRun.AddScenario(this);
         }
     }
 }

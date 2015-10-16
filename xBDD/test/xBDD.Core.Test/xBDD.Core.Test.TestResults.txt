@@ -69,14 +69,14 @@ Compile Stats
 Define Scenarios
 	Add A Scenario
 		Default Method
-			Given the following method
+			Given has the following scenarion definition
 				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 				{
 				    public class AddAScenarioDefaultSample
 				    {
 				        public ScenarioBuilder DefaultScenarioAdd()
 				        {
-				            return xBDD.CurrentRun.AddScenario(this);
+				            return xB.CurrentRun.AddScenario(this);
 				        }
 				    }
 				}
@@ -86,14 +86,14 @@ Define Scenarios
 			And the feature name will match the class name with spaces: 'Add A Scenario Default Sample'
 			And the area path will match the namespace: 'xBDD - Core - Test - Features - Define Scenarios - Sample Code'
 		With Explicit Name
-			Given the following method
+			Given has the following scenarion definition
 				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 				{
 				    public class AddAScenarioExplicitNameSample
 				    {
 				        public ScenarioBuilder WithExplicitName()
 				        {
-				            return xBDD.CurrentRun.AddScenario("My Explicit Scenario Name", this);
+				            return xB.CurrentRun.AddScenario("My Explicit Scenario Name", this);
 				        }
 				    }
 				}
@@ -104,19 +104,19 @@ Define Scenarios
 			And the area path will match the namespace: 'xBDD - Core - Test - Features - Define Scenarios - Sample Code'
 	Add A Step
 		And
-			Given the following method
+			Given has the following scenarion definition
 				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 				{
 				    public class AddAnAndStep
 				    {
 				        public ScenarioBuilder Add()
 				        {
-				            return xBDD.CurrentRun
+				            return xB.CurrentRun
 				                .AddScenario(this)
-				                .Given(xBDD.CreateStep("my starting condition", (s) => { /*my action here*/ }))
-				                .When(xBDD.CreateStep("my action", (s) => { /*my action here*/ }))
-				                .Then(xBDD.CreateStep("my ending condition", (s) => { /*my validation here*/ }))
-				                .And(xBDD.CreateStep("my extra ending condition", (s) => { /*my extra validation here*/ }));
+				                .Given(xB.CreateStep("my starting condition", (s) => { /*my action here*/ }))
+				                .When(xB.CreateStep("my action", (s) => { /*my action here*/ }))
+				                .Then(xB.CreateStep("my ending condition", (s) => { /*my validation here*/ }))
+				                .And(xB.CreateStep("my extra ending condition", (s) => { /*my extra validation here*/ }));
 				        }
 				    }
 				}
@@ -128,7 +128,7 @@ Define Scenarios
 			And the step will have an action defined
 			And the step action type will be And
 		Async
-			Given the following method
+			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				
 				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
@@ -137,9 +137,9 @@ Define Scenarios
 				    {
 				        public ScenarioBuilder Add()
 				        {
-				            return xBDD.CurrentRun
+				            return xB.CurrentRun
 				                .AddScenario(this)
-				                .Given(xBDD.CreateAsyncStep("my async starting condition", (s) => { return Task.Run(() => { }); }));
+				                .Given(xB.CreateAsyncStep("my async starting condition", (s) => { return Task.Run(() => { }); }));
 				        }
 				    }
 				}
@@ -152,16 +152,16 @@ Define Scenarios
 			And the step action type will be Given
 		Async Function In Sync Step [Skipped - Not Started]
 		Given
-			Given the following method
+			Given has the following scenarion definition
 				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 				{
 				    public class AddAGivenStep
 				    {
 				        public ScenarioBuilder Add()
 				        {
-				            return xBDD.CurrentRun
+				            return xB.CurrentRun
 				                .AddScenario(this)
-				                .Given(xBDD.CreateStep("my starting condition", (s) => { /*my action here*/ }));
+				                .Given(xB.CreateStep("my starting condition", (s) => { /*my action here*/ }));
 				        }
 				    }
 				}
@@ -173,7 +173,7 @@ Define Scenarios
 			And the step will have an action defined
 			And the step action type will be Given
 		Reusable Step
-			Given the following method
+			Given has the following scenarion definition
 				using xBDD.Model;
 				
 				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
@@ -182,7 +182,7 @@ Define Scenarios
 				    {
 				        public ScenarioBuilder Add()
 				        {
-				            return xBDD.CurrentRun
+				            return xB.CurrentRun
 				                .AddScenario(this)
 				                .Given(User.PerformsAnAction());
 				        }
@@ -192,7 +192,7 @@ Define Scenarios
 				    {
 				        public static Step PerformsAnAction()
 				        {
-				            return xBDD.CreateStep("the user performs an action",
+				            return xB.CreateStep("the user performs an action",
 				                (s) =>
 				                {
 				                    //my action here.
@@ -204,7 +204,7 @@ Define Scenarios
 			And the scenario will have a step at position 1
 			And the step name will be 'the user performs an action'
 		Reusable Step That Takes A Static Parameter
-			Given the following method
+			Given has the following scenarion definition
 				using xBDD.Model;
 				
 				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
@@ -213,7 +213,7 @@ Define Scenarios
 				    {
 				        public ScenarioBuilder Add()
 				        {
-				            return xBDD.CurrentRun
+				            return xB.CurrentRun
 				                .AddScenario(this)
 				                .Given(ParameterUser.PerformsAnAction("save"));
 				        }
@@ -223,7 +223,7 @@ Define Scenarios
 				    {
 				        public static Step PerformsAnAction(string actionType)
 				        {
-				            return xBDD.CreateStep("the user performs a '"+actionType+"' action",
+				            return xB.CreateStep("the user performs a '"+actionType+"' action",
 				                (s) =>
 				                {
 				                    //my action here.
@@ -235,18 +235,18 @@ Define Scenarios
 			And the scenario will have a step at position 1
 			And the step name will be 'the user performs a 'save' action'
 		Then
-			Given the following method
+			Given has the following scenarion definition
 				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 				{
 				    public class AddAThenStep
 				    {
 				        public ScenarioBuilder Add()
 				        {
-				            return xBDD.CurrentRun
+				            return xB.CurrentRun
 				                .AddScenario(this)
-				                .Given(xBDD.CreateStep("my starting condition", (s) => { /*my setup here*/ }))
-				                .When(xBDD.CreateStep("my action", (s) => { /*my action here*/ }))
-				                .Then(xBDD.CreateStep("my ending condition", (s) => { /*my validation here*/ }));
+				                .Given(xB.CreateStep("my starting condition", (s) => { /*my setup here*/ }))
+				                .When(xB.CreateStep("my action", (s) => { /*my action here*/ }))
+				                .Then(xB.CreateStep("my ending condition", (s) => { /*my validation here*/ }));
 				        }
 				    }
 				}
@@ -258,17 +258,17 @@ Define Scenarios
 			And the step will have an action defined
 			And the step action type will be Then
 		When
-			Given the following method
+			Given has the following scenarion definition
 				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 				{
 				    public class AddAWhenStep
 				    {
 				        public ScenarioBuilder Add()
 				        {
-				            return xBDD.CurrentRun
+				            return xB.CurrentRun
 				                .AddScenario(this)
-				                .Given(xBDD.CreateStep("my starting condition", (s) => { /*my setup here*/ }))
-				                .When(xBDD.CreateStep("my action", (s) => { /*my action here*/ }));
+				                .Given(xB.CreateStep("my starting condition", (s) => { /*my setup here*/ }))
+				                .When(xB.CreateStep("my action", (s) => { /*my action here*/ }));
 				        }
 				    }
 				}
@@ -280,16 +280,16 @@ Define Scenarios
 			And the step will have an action defined
 			And the step action type will be When
 		With No Action
-			Given the following method
+			Given has the following scenarion definition
 				namespace xBDD.Core.Test.Features.DefineScenarios.SampleCode
 				{
 				    public class AddAGivenStepWithNoAction
 				    {
 				        public ScenarioBuilder Add()
 				        {
-				            return xBDD.CurrentRun
+				            return xB.CurrentRun
 				                .AddScenario(this)
-				                .Given(xBDD.CreateStep("my starting condition that needs no action"));
+				                .Given(xB.CreateStep("my starting condition that needs no action"));
 				        }
 				    }
 				}
@@ -304,6 +304,132 @@ Define Scenarios
 		Manually [Skipped - Re-writing]
 		Throughx BDD Current Test Run [Skipped - Re-writing]
 		Throughx BDD Current Test Run2Times [Skipped - Re-writing]
+	Define A Basic Scenario
+		With Asynchronous Execution
+			Given has the following scenarion definition
+				using System.Threading.Tasks;
+				using xBDD;
+				
+				// The namespace will be converted to an Area name with spaces added 
+				// between capitalized words and the periods replaced with 
+				// dashes.
+				namespace MyApp.API.Test.Features.Accounts
+				{
+					// Attributes can be used to define the 
+					// value, actor, and action for the feature
+					[InOrderTo("review the details of a specific account")]
+					[AsA("administrator")]
+					[IWouldLikeTo("be able to get the details of any account from the api by account id")]
+					// The class name will be converted to a feature with 
+					// spaces added between capitalized words
+					public class GetAccountDetails
+					{
+						// The containing method will be used to 
+						// set the scenario name by adding spaces
+						// between the capitalized words and numbers.
+						// Usually this method will be attributed to 
+						// identify it as a unit test that will be run 
+						// by the unit testing framework you are using.
+						public async Task WhenUnauthenticated()
+						{
+							// xB is the static class that provides access to the
+							// current test run.
+							await xB.CurrentRun
+								// AddScenario adds a new scenario to the test run.
+								.AddScenario(this)
+								// Adds a new step to the scenario.  Given, When, Then, and And
+								// all do the same thing.  There are no requirements in how you use them.
+								// The only impact of one versus the other is that the full name for the 
+								// step will start with the Given, When, Then or And based on 
+								// Which one you use.
+								.GivenAsync("the client is not authenticated", async (s) => {
+									//async code to ensure the user session is not authenticated.
+									//await client.logOff();
+									await Task.Run(() => { });
+								})
+								.WhenAsync("the client gets to the account details resource 'http://<site>/api/Accounts/99'", async (s) => {
+									//code to issue get request.
+									//var response = await client.Get('http://<site>/api/Accounts/99');
+									//the line below is just to get the example to compile...
+									await Task.Run(() => { });
+								})
+								.Then("the client should get a 401 response", (s) => {
+									//code to validate response 
+									//no need for asynchronous code here
+								})
+								// To execute the scenario you need to call Run() or RunAsync()
+								// This will execute each step in order that you added them
+								// to the scenario.
+								.RunAsync();
+						}
+					}
+				}
+			When the scenario is excuted
+			Then the test run will have the following structure
+				Area:
+				My App - API - Test - Features - Accounts
+				
+				Feature:
+				Get Account Details
+				
+				Scenario:
+				When Unauthenticated
+				
+				Steps:
+				Given the client is not authenticated
+				When the client gets to the account details resource 'http://<site>/api/Accounts/99'
+				Then the client should get a 401 response
+		With Synchronous Execution
+			Given has the following scenarion definition
+				using xBDD;
+				
+				//Area
+				namespace MyApp.API.Test.Features.Calendar
+				{
+					//Feature
+					[InOrderTo("to reference culture specific holidays")]
+					[AsA("developer")]
+					[IWouldLikeTo("get a list of the current user's culture specific holidays")]
+					public class GetHolidays
+					{
+						//Scenario
+						public void WhenUSCalendar()
+						{
+							xB.CurrentRun
+								.AddScenario(this)
+								.Given("a calendar object is initialized with US holidays", (s) => {
+									//code to create calendar
+								})
+								.When("you call GetHolidays with a date range of 3/10/2015 to 3/18/2015", (s) => {
+									//code to issue get request.
+								})
+								.Then("you should get back a single holiday that is St. Patrick's Day", (s) => {
+									//code to validate response
+								})
+								.Run();
+						}
+					}
+				}
+			When the scenario is executed
+			Then the test run will have the following structure
+				Area:
+				My App - API - Test - Features - Calendar
+				
+				Feature:
+				Get Holidays
+				
+				Feature Description:
+				In order to reference culture specific holidays
+				As a developer
+				I would like to get a list of the current user's culture specific holidays
+				
+				Scenario:
+				When US Calendar
+				
+				Steps:
+				Given a calendar object is initialized with US holidays
+				When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015
+				Then you should get back a single holiday that is St. Patrick's Day
 	Organize Steps
 		In A Step Library [Skipped - Not Started]
 		In A Step Library Shared Across Areas [Skipped - Not Started]
@@ -393,7 +519,7 @@ Run Tests
 		Pass Async [Skipped - Re-writing]
 		Pass Sync [Skipped - Re-writing]
 		Reusable Step That Uses Object Created In Previous Step
-			Given the following method
+			Given has the following scenarion definition
 				using Xunit;
 				using xBDD.Model;
 				
@@ -411,7 +537,7 @@ Run Tests
 				        public Scenario Add(Wrapper<int> count)
 				        {
 				            Wrapper<WebPage> sut = new Wrapper<WebPage>();
-				            var scenario = xBDD.CurrentRun
+				            var scenario = xB.CurrentRun
 				                .AddScenario(this)
 				                .Given(WebUser.NavigatesToPage("http://www.myUrl.com", sut, count))
 				                .When(WebUser.ClicksTheButton("Register", sut, count))
@@ -427,7 +553,7 @@ Run Tests
 				    {
 				        internal static Step NavigatesToPage(string url, Wrapper<WebPage> widget, Wrapper<int> count)
 				        {
-				            return xBDD.CreateStep("the user navigates to page",
+				            return xB.CreateStep("the user navigates to page",
 				                (s) =>
 				                {
 				                    widget.Object = WebPage.NavigateTo(url);
@@ -437,7 +563,7 @@ Run Tests
 				
 				        internal static Step ClicksTheButton(string name, Wrapper<WebPage> sut, Wrapper<int> count)
 				        {
-				            return xBDD.CreateStep("the user clicks the '" + name + "' button",
+				            return xB.CreateStep("the user clicks the '" + name + "' button",
 				                (s) =>
 				                {
 				                    sut.Object = sut.Object.Click(name);
@@ -449,7 +575,7 @@ Run Tests
 				    {
 				        internal static Step WillHaveATitleOf(string expectedName, Wrapper<WebPage> sut, Wrapper<int> count)
 				        {
-				            return xBDD.CreateStep("the web page will have a title of '" + expectedName + "'",
+				            return xB.CreateStep("the web page will have a title of '" + expectedName + "'",
 				                (s) =>
 				                {
 				                    Assert.Equal(expectedName, sut.Object.Title);

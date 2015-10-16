@@ -5,10 +5,8 @@
   "tags": [ "BDD", "xBDD", "xUnit", "UnitTest", "DNX" ],
   "projectUrl": "",
   "licenseUrl": "",
-
   "dependencies": {
-    "xBDD.Core": "1.0.0-*",
-    "Newtonsoft.Json": "7.0.1"
+    "xBDD.Core": "1.0.0-*"
   },
   "userSecretsId": "xBDD",
   "frameworks": {
@@ -16,7 +14,7 @@
     "dnxcore50": { },
     "dotnet": {
       "dependencies": {
-        "System.IO": "4.0.10"
+        "System.IO": "4.0.11-beta-23409"
       }
     }
   },

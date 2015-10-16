@@ -17,7 +17,7 @@ namespace xBDD.Test.Features.Environment
         [ScenarioFact]
         public void RunAllTests ()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given("a contributor has downloaded the solution")
@@ -31,7 +31,7 @@ namespace xBDD.Test.Features.Environment
         [ScenarioFact]
         public void RunProjectTests ()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given("a contributor has downloaded the solution")
@@ -47,7 +47,7 @@ namespace xBDD.Test.Features.Environment
         [ScenarioFact]
         public void RunFilteredTests ()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given("a contributor has downloaded the solution")

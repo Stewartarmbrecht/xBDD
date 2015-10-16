@@ -20,7 +20,7 @@ namespace xBDD.Core.Test.Features.RunTests
         [ScenarioFact]
         public void PassSync()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -49,7 +49,7 @@ namespace xBDD.Core.Test.Features.RunTests
         [ScenarioFact]
         public async Task PassAsync()
         {
-            await xBDD.CurrentRun
+            await xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .SkipAsync("Re-writing");
@@ -77,7 +77,7 @@ namespace xBDD.Core.Test.Features.RunTests
         [ScenarioFact]
         public void FailSync()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -106,7 +106,7 @@ namespace xBDD.Core.Test.Features.RunTests
         [ScenarioFact]
         public async Task FailAsync()
         {
-            await xBDD.CurrentRun
+            await xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .SkipAsync("Re-writing");
@@ -134,7 +134,7 @@ namespace xBDD.Core.Test.Features.RunTests
         [ScenarioFact]
         public void SkipSync()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -161,7 +161,7 @@ namespace xBDD.Core.Test.Features.RunTests
         [ScenarioFact]
         public async Task SkipAsync()
         {
-            await xBDD.CurrentRun
+            await xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .SkipAsync("Re-writing");
@@ -189,7 +189,7 @@ namespace xBDD.Core.Test.Features.RunTests
         [ScenarioFact]
         public void SkipBecauseOfPreviousSkipSync()
         {
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Skip("Re-writing");
@@ -211,7 +211,7 @@ namespace xBDD.Core.Test.Features.RunTests
         [ScenarioFact]
         public async Task SkipBecauseOfPreviousSkipAsync()
         {
-            await xBDD.CurrentRun
+            await xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .SkipAsync("Re-writing");
@@ -236,15 +236,15 @@ namespace xBDD.Core.Test.Features.RunTests
         {
             Wrapper<Scenario> scenarioWrapper = new Wrapper<Scenario>();
             Wrapper<int> count = new Wrapper<int>();
-            xBDD.CurrentRun
+            xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Given(Code.HasMethod("\\Features\\RunTests\\SampleCode\\AddAReusableStepThatUsesObjectCreatedInPreviousStep.cs"))
-                .When(Code.ExecuteMethod((s) =>
+                .Given(Code.HasTheFollowingScenario("\\Features\\RunTests\\SampleCode\\AddAReusableStepThatUsesObjectCreatedInPreviousStep.cs"))
+                .When(Code.IsExecuted((s) =>
                 {
                     scenarioWrapper.Object = new SampleCode.AddAReusableStepThatUsesObjectCreatedInPreviousStep().Add(count);
                 }))
-                .Then(xBDD.CreateStep("the count should be 3", (s) => { Assert.Equal(3, count.Object); }))
+                .Then(xB.CreateStep("the count should be 3", (s) => { Assert.Equal(3, count.Object); }))
                 .And(ScenarioTarget.WillHaveOutcome(Outcome.Passed, scenarioWrapper))
                 .Run();
         }

@@ -20,7 +20,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void EmptyTestRun()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAnEmptyTestRun())
                 .When(WebUser.ViewsReport(browser))
                 .ThenAsync("the report will show the test run name at the top", async (s) => {
@@ -40,7 +40,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void PassingTestRun()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario())
                 .When(WebUser.ViewsReport(browser))
                 .ThenAsync("the report will show the test run name in green to indicate the test run passed", async (s) => {
@@ -53,7 +53,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void PassingWithSomeSkipped()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleSkippedScenario())
                 .When(WebUser.ViewsReport(browser))
                 .ThenAsync("the report will show the test run name in yellow to indicate the test run had skipped scenarios", async (s) => {
@@ -66,7 +66,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void Failing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleFailedScenario())
                 .When(WebUser.ViewsReport(browser))
                 .ThenAsync("the report will show the test run name in red to indicate the test run has failing scenarios", async (s) => {

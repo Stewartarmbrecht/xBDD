@@ -22,7 +22,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
             WebBrowser browser = new WebBrowser(WebDriver.Current);
 			string output = "Here\r\n is\r\n my\r\n output!";
 			var format = TextFormat.text;
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAStepWithOutput(output, format))
                 .When(WebUser.ViewsReport(browser))
 				.AndAsync("the user clicks the first area", async (s) => {
@@ -49,7 +49,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
             WebBrowser browser = new WebBrowser(WebDriver.Current);
 			string output = "Here\r\n is\r\n my\r\n output!";
 			var format = TextFormat.text;
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAStepWithOutput(output, format))
                 .When(WebUser.ViewsReport(browser))
 				.AndAsync("the user clicks the first area", async (s) => {
@@ -79,14 +79,14 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		[ScenarioFact]
 		public void Code()
 		{
-            xBDD.CurrentRun.AddScenario(this)
+            xB.CurrentRun.AddScenario(this)
                 .Skip("Not Started");
 		}
 		
 		[ScenarioFact]
 		public void HtmlWithPreview()
 		{
-            xBDD.CurrentRun.AddScenario(this)
+            xB.CurrentRun.AddScenario(this)
                 .Skip("Not Started");
 		}
 		

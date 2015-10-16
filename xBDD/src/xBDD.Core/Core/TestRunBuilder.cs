@@ -8,6 +8,7 @@ namespace xBDD.Core
         CoreFactory factory;
         AreaCache areaCache;
         FeatureCache featureCache;
+        TestRunInitializer testRunInitializer;
         public TestRun TestRun { get; private set; }
 
         public TestRunBuilder(CoreFactory factory, TestRun testRun)
@@ -15,11 +16,13 @@ namespace xBDD.Core
             this.factory = factory;
             areaCache = factory.CreateAreaCache();
             featureCache = factory.CreateFeatureCache();
+            testRunInitializer = factory.CreateTestRunInitializer();
             TestRun = testRun;
         }
 
         public ScenarioBuilder AddScenario(object featureClass, [CallerMemberName]string methodName = "")
         {
+            testRunInitializer.InitializeTestRun(featureClass, TestRun);
             Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
             return AddScenario(method, null, null, null);
         }
@@ -51,7 +54,7 @@ namespace xBDD.Core
                 areaName = method.GetNameSpace();
             
             var area = areaCache.GetOrCreate(TestRun, areaName);
-            var feature = featureCache.GetOrCreate(area, featureName);
+            var feature = featureCache.GetOrCreate(area, featureName, method);
             return factory.CreateScenarioBuilder(scenarioName, feature);
         }
     }

@@ -18,13 +18,13 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport
         public void StandardFullReport()
         {
             Wrapper<string> html = new Wrapper<string>();            
-            xBDD.CurrentRun.AddScenario(this)
+            xB.CurrentRun.AddScenario(this)
                 .Given("a completed test run", (s) => {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                 })
                 .When("the following code executes 'var report = xBDD.CurrentRun.WriteToHTML()'", (s) => { 
-                    html.Object = xBDD.CurrentRun.TestRun.WriteToHtml();
+                    html.Object = xB.CurrentRun.TestRun.WriteToHtml();
                  })
                 .Then("the report variable will be a string that contains the entire HTML report that can be written to a file, or sent via email, or whatever...", (s) => { 
                     Assert.StartsWith("<!DOCTYPE html>", html.Object);

@@ -9,24 +9,24 @@ namespace xBDD.Test
 {
     public static class Code
     {
-        public static Step HasMethod(string fileName)
+        public static Step HasTheFollowingScenario(string fileName)
         {
             var provider = CallContextServiceLocator.Locator.ServiceProvider;
             var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
 
             
             var code = File.ReadAllText(appEnv.ApplicationBasePath + fileName);
-            var step = xBDD.CreateStep(
-                "the following method",
+            var step = xB.CreateStep(
+                "has the following scenarion definition",
                 (s) => { },
                 code,
                 TextFormat.cs);
             return step;
         }
 
-        public static Step ExecuteMethod(Action<Step> code)
+        public static Step IsExecuted(Action<Step> code)
         {
-            return xBDD.CreateStep(
+            return xB.CreateStep(
                 "the method is executed",
                 code);
         }

@@ -14,8 +14,8 @@ namespace xBDD.Reporting.Test.Steps
         {
             string path = GetReportPath();
 
-            var step = xBDD.CreateStep(
-                "the test results with a feiled step with an exception",
+            var step = xB.CreateStep(
+                "the test results with a failed step with an exception",
                 (s) =>
                 {
                     var xBDD = new xBDDMock();
@@ -39,7 +39,7 @@ namespace xBDD.Reporting.Test.Steps
         {
             string path = GetReportPath();
 
-            var step = xBDD.CreateStep(
+            var step = xB.CreateStep(
                 "the test results of a passing full test run",
                 (s) =>
                 {
@@ -95,7 +95,7 @@ namespace xBDD.Reporting.Test.Steps
         {
             string path = GetReportPath();
 
-            var step = xBDD.CreateStep(
+            var step = xB.CreateStep(
                 "the test results of a full test run with all outcomes",
                 (s) =>
                 {
@@ -148,8 +148,8 @@ namespace xBDD.Reporting.Test.Steps
         {
             string path = GetReportPath();
 
-            var step = xBDD.CreateStep(
-                "the test results with a feiled step with an exception",
+            var step = xB.CreateStep(
+                "the test results with a failed step with an exception",
                 (s) =>
                 {
                     var xBDD = new xBDDMock();
@@ -182,7 +182,7 @@ namespace xBDD.Reporting.Test.Steps
         {
             string path = GetReportPath();
 
-            var step = xBDD.CreateStep(
+            var step = xB.CreateStep(
                 "the test results of a step with a/an " + Enum.GetName(typeof(TextFormat), format) + " output of ",
                 (s) =>
                 {
@@ -210,7 +210,7 @@ namespace xBDD.Reporting.Test.Steps
         {
             string path = GetReportPath();
 
-            var step = xBDD.CreateStep(
+            var step = xB.CreateStep(
                 "the test results of a single passing scenario",
                 (s) =>
                 {
@@ -231,8 +231,8 @@ namespace xBDD.Reporting.Test.Steps
         {
             string path = GetReportPath();
 
-            var step = xBDD.CreateStep(
-                "the test results of a single feiled scenario",
+            var step = xB.CreateStep(
+                "the test results of a single failed scenario",
                 (s) =>
                 {
                     var xBDD = new xBDDMock();
@@ -256,7 +256,7 @@ namespace xBDD.Reporting.Test.Steps
         {
             string path = GetReportPath();
 
-            var step = xBDD.CreateStep(
+            var step = xB.CreateStep(
                 "the test results of a single skipped scenario",
                 (s) =>
                 {
@@ -277,7 +277,7 @@ namespace xBDD.Reporting.Test.Steps
         {
             string path = GetReportPath();
 
-            var step = xBDD.CreateStep(
+            var step = xB.CreateStep(
                 "the test results of an empty test run",
                 (s) =>
                 {

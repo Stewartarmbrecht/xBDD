@@ -58,6 +58,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" .table td.bar { padding: 0px !important; }");
             sb.Append(" .testrun-percent-bar { background-color: #56C1F7; }");
             sb.Append(" .area-percent-bar { background-color: #A4DEFB; }");
+            sb.Append(" .pointer { cursor: pointer }");
             sb.AppendLine("</style>");  
         }
 
@@ -269,7 +270,7 @@ namespace xBDD.Reporting.Html
             var areaTitleAttributes = String.Format("data-toggle=\"collapse\" href=\"#area-{0}-features\" aria-expanded=\"{1}\" aria-controls=\"area-{0}-features\" ", areaCounter, expandedText);
             WriteTagOpen("h2", sb, 3, className, true, null, null, areaTitleAttributes);
             WriteTag("small", sb, 4, null, "Area", true);
-            WriteTag("span", sb, 4, "name", scenario.Feature.Area.Name.HtmlEncode(), true);
+            WriteTag("span", sb, 4, "name pointer", scenario.Feature.Area.Name.HtmlEncode(), true);
             WriteTag("span", sb, 4, "badge pull-right total", scenario.Feature.Area.FeatureStats.Total.ToString(), true, null, null, "title=\"Features\"");
             WriteTagClose("h2", sb, 3);
 
@@ -320,7 +321,7 @@ namespace xBDD.Reporting.Html
             var titleAttributes = String.Format("data-toggle=\"collapse\" href=\"#feature-{0}-scenarios\" aria-expanded=\"{1}\" aria-controls=\"feature-{0}-scenarios\" ", featureCounter, expandedText);
             WriteTagOpen("h3", sb, 5, className, true, "vertical-align: top !important;", null, titleAttributes);
             WriteTag("small", sb, 6,null, "Feature", true);
-            WriteTag("span", sb, 6, "name", scenario.Feature.Name.HtmlEncode(), true);
+            WriteTag("span", sb, 6, "name pointer", scenario.Feature.Name.HtmlEncode(), true);
             WriteTag("span", sb, 6, "badge pull-right total", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, "title=\"Scenarios\"");
             WriteTagClose("h3", sb, 5);
 
@@ -385,7 +386,7 @@ namespace xBDD.Reporting.Html
 
             var titleAttributes = String.Format("data-toggle=\"collapse\" href=\"#scenario-{0}-steps\" aria-expanded=\"{1}\" aria-controls=\"scenario-{0}-steps\" ", scenarioCounter, expandedText);
             WriteTagOpen("div", sb, 7, "panel-heading", true, null, null, titleAttributes);
-            WriteTag("span", sb, 0, "name", scenario.Name.HtmlEncode(), true);
+            WriteTag("span", sb, 0, "name pointer", scenario.Name.HtmlEncode(), true);
             if (scenario.Outcome != Outcome.Passed)
             {
                 WriteScenarioStatus(scenario, sb);

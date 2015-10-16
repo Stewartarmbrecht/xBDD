@@ -5,7 +5,7 @@ using xBDD.Model;
 
 namespace xBDD
 {
-    public partial class xBDD
+    public partial class xB
     {
         static CoreFactory factory;
         static TestRunBuilder testRunBuilder;
@@ -19,6 +19,10 @@ namespace xBDD
                     testRunBuilder = factory.CreateTestRunBuilder(null);
                 }
                 return testRunBuilder;
+            }
+            set
+            {
+                testRunBuilder = value;
             }
         }
 

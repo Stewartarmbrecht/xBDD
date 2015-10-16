@@ -23,7 +23,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void FailedSkippedAndPassingAreaStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
 				.When(WebUser.ViewsReport(browser))
                 .ThenAsync("there should be a section under the test run name that displays area statistics", async (s) => {
@@ -63,7 +63,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void FailedSkippedAndPassingFeatureStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
 				.When(WebUser.ViewsReport(browser))
                 .ThenAsync("there should be a section under the test run name that displays feature statistics about the test run", async (s) => {
@@ -96,7 +96,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void FailedSkippedAndPassingScenarioStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
  				.When(WebUser.ViewsReport(browser))
                 .ThenAsync("there should be a section under the test run name that displays scenario statistics about the test run", async (s) => {
@@ -129,7 +129,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async void AreaStatsNoAreas()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xBDD.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAnEmptyTestRun())
                 .When(WebUser.ViewsReport(browser))
                 .ThenAsync("there should be a section under the test run name that displays area statistics", async (s) => {

@@ -8,8 +8,8 @@
 
   "dependencies": {
     "xBDD.Core": "1.0.0-*",
-    "xunit.extensibility.core": "2.1.0-rc1-build3168",
-    "xunit.extensibility.execution": "2.1.0-rc1-build3168"
+    "xunit.extensibility.core": "2.1.0",
+    "xunit.extensibility.execution": "2.1.0"
   },
   "frameworks": {
     "dnx451": {
@@ -23,9 +23,9 @@
     },
     "dnxcore50": {
       "dependencies": {
-        "System.Runtime": "4.0.20",
-        "System.Runtime.Extensions": "4.0.10",
-        "System.Threading": "4.0.10"
+        "System.Runtime": "4.0.21-beta-23409",
+        "System.Runtime.Extensions": "4.0.11-beta-23409",
+        "System.Threading": "4.0.11-beta-23225"
       }
     },
     "dotnet": { }
