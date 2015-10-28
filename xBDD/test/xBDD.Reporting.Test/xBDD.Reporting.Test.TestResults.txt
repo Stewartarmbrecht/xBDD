@@ -297,16 +297,17 @@ View Text Report
 	Write To Text
 		Write Emtpy Test Run
 			Given has the following scenarion definition
+				using System.Threading.Tasks;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class EmptyTestRun : IExecute<string>
 				    {
-				        public string Execute()
+				        public async Task<string> Execute()
 				        {
 				            var xBDD = new xBDDMock();
 				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            return xBDD.CurrentRun.TestRun.WriteToText();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
 				        }
 				    }
 				}
@@ -316,19 +317,20 @@ View Text Report
 				
 		Write Run Empty Scenario
 			Given has the following scenarion definition
+				using System.Threading.Tasks;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunEmptyScenario : IExecute<string>
 				    {
-				        public string Execute()
+				        public async Task<string> Execute()
 				        {
 				            var xBDD = new xBDDMock();
 				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            xBDD.CurrentRun
+				            await xBDD.CurrentRun
 				                .AddScenario("My Scenario", "My Feature", "My.Area.Path")
 				                .Run();
-				            return xBDD.CurrentRun.TestRun.WriteToText();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
 				        }
 				    }
 				}
@@ -341,36 +343,37 @@ View Text Report
 						My Scenario
 		Write Run Multiple Areas
 			Given has the following scenarion definition
+				using System.Threading.Tasks;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunMultipleAreas : IExecute<string>
 				    {
-				        public string Execute()
+				        public async Task<string> Execute()
 				        {
 				            var xBDD = new xBDDMock();
 				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
 				            try
 				            {
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario One", "My Feature One", "My.Area.Path.One")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
 				                    .Then(xBDD.CreateStep("my ending condition"))
 				                    .Run();
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario Two", "My Feature One", "My.Area.Path.One")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
 				                    .Then(xBDD.CreateStep("my ending condition"))
 				                    .Run();
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario One", "My Feature Two", "My.Area.Path.Two")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
 				                    .Then(xBDD.CreateStep("my ending condition"))
 				                    .Run();
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario Two", "My Feature Two", "My.Area.Path.Two")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
@@ -378,7 +381,7 @@ View Text Report
 				                    .Run();
 				            }
 				            catch { }
-				            return xBDD.CurrentRun.TestRun.WriteToText();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
 				        }
 				    }
 				}
@@ -408,36 +411,37 @@ View Text Report
 							Then my ending condition
 		Write Run Multiple Features Same Area
 			Given has the following scenarion definition
+				using System.Threading.Tasks;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunMultipleFeaturesSameArea : IExecute<string>
 				    {
-				        public string Execute()
+				        public async Task<string> Execute()
 				        {
 				            var xBDD = new xBDDMock();
 				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
 				            try
 				            {
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario One", "My Feature One", "My.Area.Path")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
 				                    .Then(xBDD.CreateStep("my ending condition"))
 				                    .Run();
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario Two", "My Feature One", "My.Area.Path")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
 				                    .Then(xBDD.CreateStep("my ending condition"))
 				                    .Run();
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario One", "My Feature Two", "My.Area.Path")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
 				                    .Then(xBDD.CreateStep("my ending condition"))
 				                    .Run();
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario Two", "My Feature Two", "My.Area.Path")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
@@ -445,7 +449,7 @@ View Text Report
 				                    .Run();
 				            }
 				            catch { }
-				            return xBDD.CurrentRun.TestRun.WriteToText();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
 				        }
 				    }
 				}
@@ -474,24 +478,25 @@ View Text Report
 							Then my ending condition
 		Write Run Multiple Scenarios Same Feature
 			Given has the following scenarion definition
+				using System.Threading.Tasks;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunMultipleScenariosSameFeature : IExecute<string>
 				    {
-				        public string Execute()
+				        public async Task<string> Execute()
 				        {
 				            var xBDD = new xBDDMock();
 				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
 				            try
 				            {
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario One", "My Feature", "My.Area.Path")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
 				                    .Then(xBDD.CreateStep("my ending condition"))
 				                    .Run();
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario Two", "My Feature", "My.Area.Path")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
@@ -499,7 +504,7 @@ View Text Report
 				                    .Run();
 				            }
 				            catch { }
-				            return xBDD.CurrentRun.TestRun.WriteToText();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
 				        }
 				    }
 				}
@@ -520,18 +525,19 @@ View Text Report
 		Write Run Scenario With Failed Step
 			Given has the following scenarion definition
 				using System;
+				using System.Threading.Tasks;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithFailedStep : IExecute<string>
 				    {
-				        public string Execute()
+				        public async Task<string> Execute()
 				        {
 				            var xBDD = new xBDDMock();
 				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
 				            try
 				            {
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action", (s) => { throw new Exception("My Error"); }))
@@ -539,7 +545,7 @@ View Text Report
 				                    .Run();
 				            }
 				            catch { }
-				            return xBDD.CurrentRun.TestRun.WriteToText();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
 				        }
 				    }
 				}
@@ -560,18 +566,20 @@ View Text Report
 		Write Run Scenario With Not Implemented Step
 			Given has the following scenarion definition
 				using System;
+				using System.Threading.Tasks;
 				using xBDD.Test;
+				
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithNotImplementedStep : IExecute<string>
 				    {
-				        public string Execute()
+				        public async Task<string> Execute()
 				        {
 				            var xBDD = new xBDDMock();
 				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
 				            try
 				            {
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action", (s) => { throw new NotImplementedException(); }))
@@ -579,7 +587,7 @@ View Text Report
 				                    .Run();
 				            }
 				            catch { }
-				            return xBDD.CurrentRun.TestRun.WriteToText();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
 				        }
 				    }
 				}
@@ -595,18 +603,19 @@ View Text Report
 							Then my ending condition [Skipped - Previous Error]
 		Write Run Scenario With Skipped Step
 			Given has the following scenarion definition
+				using System.Threading.Tasks;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithSkippedStep : IExecute<string>
 				    {
-				        public string Execute()
+				        public async Task<string> Execute()
 				        {
 				            var xBDD = new xBDDMock();
 				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
 				            try
 				            {
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action", (s) => { throw new SkipStepException("Deferred"); }))
@@ -614,7 +623,7 @@ View Text Report
 				                    .Run();
 				            }
 				            catch { }
-				            return xBDD.CurrentRun.TestRun.WriteToText();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
 				        }
 				    }
 				}
@@ -630,22 +639,23 @@ View Text Report
 							Then my ending condition [Skipped - Previous Error]
 		Write Run Scenario With Step With Multiline Parameter
 			Given has the following scenarion definition
+				using System.Threading.Tasks;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithStepWithMultilineParameter : IExecute<string>
 				    {
-				        public string Execute()
+				        public async Task<string> Execute()
 				        {
 				            var xBDD = new xBDDMock();
 				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            xBDD.CurrentRun
+				            await xBDD.CurrentRun
 				                .AddScenario("My Scenario", "My Feature", "My.Area.Path")
 				                .Given(xBDD.CreateStep("my starting condition with the following", (s) => { }, "My\r\nmultiline\r\nparameter"))
 				                .When(xBDD.CreateStep("my action"))
 				                .Then(xBDD.CreateStep("my ending condition"))
 				                .Run();
-				            return xBDD.CurrentRun.TestRun.WriteToText();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
 				        }
 				    }
 				}
@@ -664,18 +674,19 @@ View Text Report
 							Then my ending condition
 		Write Run Scenario With Steps
 			Given has the following scenarion definition
+				using System.Threading.Tasks;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithSteps : IExecute<string>
 				    {
-				        public string Execute()
+				        public async Task<string> Execute()
 				        {
 				            var xBDD = new xBDDMock();
 				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
 				            try
 				            {
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
@@ -683,7 +694,7 @@ View Text Report
 				                    .Run();
 				            }
 				            catch { }
-				            return xBDD.CurrentRun.TestRun.WriteToText();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
 				        }
 				    }
 				}
@@ -699,23 +710,24 @@ View Text Report
 							Then my ending condition
 		Write Skipped Empty Scenario
 			Given has the following scenarion definition
+				using System.Threading.Tasks;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class SkippedEmptyScenario : IExecute<string>
 				    {
-				        public string Execute()
+				        public async Task<string> Execute()
 				        {
 				            var xBDD = new xBDDMock();
 				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
 				            try
 				            {
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
 				                    .Skip("Deferred");
 				            }
 				            catch { }
-				            return xBDD.CurrentRun.TestRun.WriteToText();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
 				        }
 				    }
 				}
@@ -728,18 +740,19 @@ View Text Report
 						My Scenario [Skipped - Deferred]
 		Write Skipped Scenario With Steps
 			Given has the following scenarion definition
+				using System.Threading.Tasks;
 				using xBDD.Test;
 				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class SkippedScenarioWithSteps : IExecute<string>
 				    {
-				        public string Execute()
+				        public async Task<string> Execute()
 				        {
 				            var xBDD = new xBDDMock();
 				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
 				            try
 				            {
-				                xBDD.CurrentRun
+				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
@@ -747,7 +760,7 @@ View Text Report
 				                    .Skip("Deferred");
 				            }
 				            catch { }
-				            return xBDD.CurrentRun.TestRun.WriteToText();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
 				        }
 				    }
 				}

@@ -39,7 +39,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Step.Green(1));
 					browser.ElementHasText(Pages.HtmlReportPage.Step.Name(1), "Given my step 1");
                 })
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void Skipped()
@@ -60,7 +60,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .ThenAsync("the report will show the step name in yellow to indicate the step was skipped", async (s) => {
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Step.Yellow(1));
                 })
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void Failing()
@@ -72,7 +72,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .ThenAsync("the report will show the step name in red to indicate a step failed", async (s) => {
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Step.Red(2));
                 })
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void WithException()
@@ -93,7 +93,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
        			.AndAsync("the section should display the exception stack trace", async (s) => { 
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Exception.StackTrace(2));
 				})
-				.RunAsync();
+				.Run();
 		}
 		[ScenarioFact]
 		public async void WithInnerException()
@@ -114,7 +114,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
        			.AndAsync("the section should display the exception stack trace", async (s) => { 
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Exception.InnerExceptionStackTrace(2));
 				})
-				.RunAsync();
+				.Run();
 		}
 	}
 }

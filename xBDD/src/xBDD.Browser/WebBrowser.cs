@@ -71,13 +71,13 @@ namespace xBDD.Browser
 
         public Task WaitTillNotVisible(PageElement element, int waitMilliseconds = -1)
         {
-            if (waitMilliseconds == -1)
-                waitMilliseconds = DefaultWait;
-            IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
-            if (webElement == null)
-                throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
             return Task.Run(() =>
             {
+                if (waitMilliseconds == -1)
+                    waitMilliseconds = DefaultWait;
+                IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
+                if (webElement == null)
+                    throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
                 var hidden = false;
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
@@ -125,10 +125,10 @@ namespace xBDD.Browser
         }
         public Task ClickWhenVisible(PageElement element, bool throwException = true, int waitMilliseconds = -1)
         {
-            if (waitMilliseconds == -1)
-                waitMilliseconds = DefaultWait;
             return Task.Run(() =>
             {
+                if (waitMilliseconds == -1)
+                    waitMilliseconds = DefaultWait;
                 IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
                 var clicked = false;
                 Stopwatch sw = new Stopwatch();

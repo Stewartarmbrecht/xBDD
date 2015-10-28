@@ -51,7 +51,7 @@ namespace MyApp.API.Test.Features.Accounts
 				// To execute the scenario you need to call Run() or RunAsync()
 				// This will execute each step in order that you added them
 				// to the scenario.
-				.RunAsync();
+				.Run();
 		}
 	}
 }

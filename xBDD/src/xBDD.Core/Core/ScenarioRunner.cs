@@ -20,70 +20,70 @@ namespace xBDD.Core
             statsCascader = factory.UtilityFactory.CreateStatsCascader();
         }
 
-        public void Run(bool passWhenNoAction)
-        {
-            if (outputWriter != null)
-                outputWriter.WriteOutput();
+        //  public void Run(bool passWhenNoAction)
+        //  {
+        //      if (outputWriter != null)
+        //          outputWriter.WriteOutput();
 
-            if (scenario.Steps.Count() == 0)
-            {
-                ProcessScenarioWhenThereAreNoSteps();
-            }
-            else
-            {
-                try 
-                {
-                    foreach (var step in scenario.Steps)
-                    {
-                        if (step.Action == null && !passWhenNoAction)
-                        {
-                            if(step.ActionAsync != null)
-                            {
-                                var ex = new AsyncStepInSyncScenarioException(step.Name);
-                                step.Outcome = Outcome.Failed;
-                                step.Exception = ex;
-                                step.Reason = "Async Step in Sync Scenario";
-                                statsCascader.CascadeStats(step, false);
-                                throw ex; 
-                            }
-                            else
-                            {
-                                var notImplementedException = new NotImplementedException();
-                                var ex = new StepNotImplementedException(step.Name, notImplementedException);
-                                step.Outcome = Outcome.Failed;
-                                step.Exception = ex;
-                                step.Reason = "No Action";
-                                statsCascader.CascadeStats(step, false);
-                                throw ex; 
-                            }
-                        }
-                        if(passWhenNoAction)
-                        {
-                            step.Outcome = Outcome.Passed;
-                            statsCascader.CascadeStats(step, false);
-                        }
-                        else
-                        {
-                            stepExecutor.ExecuteStep(step);
-                        }
-                    }
-                }
-                catch(Exception ex)
-                {
-                    var t = ex;
-                    foreach(var step in scenario.Steps)
-                    {
-                        if(step.Outcome == Outcome.NotRun)
-                        {
-                            step.Outcome = Outcome.Skipped;
-                            step.Reason = "Previous Error";
-                            statsCascader.CascadeStats(step, false);
-                        }
-                    }
-                    throw;
-                }
-            }
-        }
+        //      if (scenario.Steps.Count() == 0)
+        //      {
+        //          ProcessScenarioWhenThereAreNoSteps();
+        //      }
+        //      else
+        //      {
+        //          try 
+        //          {
+        //              foreach (var step in scenario.Steps)
+        //              {
+        //                  if (step.Action == null && !passWhenNoAction)
+        //                  {
+        //                      if(step.ActionAsync != null)
+        //                      {
+        //                          var ex = new AsyncStepInSyncScenarioException(step.Name);
+        //                          step.Outcome = Outcome.Failed;
+        //                          step.Exception = ex;
+        //                          step.Reason = "Async Step in Sync Scenario";
+        //                          statsCascader.CascadeStats(step, false);
+        //                          throw ex; 
+        //                      }
+        //                      else
+        //                      {
+        //                          var notImplementedException = new NotImplementedException();
+        //                          var ex = new StepNotImplementedException(step.Name, notImplementedException);
+        //                          step.Outcome = Outcome.Failed;
+        //                          step.Exception = ex;
+        //                          step.Reason = "No Action";
+        //                          statsCascader.CascadeStats(step, false);
+        //                          throw ex; 
+        //                      }
+        //                  }
+        //                  if(passWhenNoAction)
+        //                  {
+        //                      step.Outcome = Outcome.Passed;
+        //                      statsCascader.CascadeStats(step, false);
+        //                  }
+        //                  else
+        //                  {
+        //                      stepExecutor.ExecuteStep(step);
+        //                  }
+        //              }
+        //          }
+        //          catch(Exception ex)
+        //          {
+        //              var t = ex;
+        //              foreach(var step in scenario.Steps)
+        //              {
+        //                  if(step.Outcome == Outcome.NotRun)
+        //                  {
+        //                      step.Outcome = Outcome.Skipped;
+        //                      step.Reason = "Previous Error";
+        //                      statsCascader.CascadeStats(step, false);
+        //                  }
+        //              }
+        //              throw;
+        //          }
+        //      }
+        //  }
 
         private void ProcessScenarioWhenThereAreNoSteps()
         {
@@ -94,7 +94,7 @@ namespace xBDD.Core
             statsCascader.CascadeStats(scenario);
         }
 
-        public async Task RunAsync()
+        public async Task RunAsync(bool passWhenNoAction)
         {
             if(outputWriter != null)
                 outputWriter.WriteOutput();
@@ -109,22 +109,29 @@ namespace xBDD.Core
                 {
                     foreach (var step in scenario.Steps)
                     {
-                        if (step.ActionAsync == null && step.Action == null)
+                        if(passWhenNoAction)
                         {
-                            var notImplementedException = new NotImplementedException();
-                            var ex = new StepNotImplementedException(step.Name, notImplementedException);
-                            step.Outcome = Outcome.Failed;
-                            step.Exception = ex;
-                            step.Reason = "No Action";
+                            step.Outcome = Outcome.Passed;
                             statsCascader.CascadeStats(step, false);
-                            throw ex; 
                         }
-                        await stepExecutor.ExecuteStepAsync(step);
+                        else
+                        {
+                            if (step.ActionAsync == null && step.Action == null)
+                            {
+                                var notImplementedException = new NotImplementedException();
+                                var ex = new StepNotImplementedException(step.Name, notImplementedException);
+                                step.Outcome = Outcome.Failed;
+                                step.Exception = ex;
+                                step.Reason = "No Action";
+                                statsCascader.CascadeStats(step, false);
+                                throw ex; 
+                            }
+                            await stepExecutor.ExecuteStepAsync(step);
+                        }
                     }
                 }
                 catch(Exception ex)
                 {
-                    var t = ex;
                     foreach(var step in scenario.Steps)
                     {
                         if(step.Outcome == Outcome.NotRun)
@@ -133,28 +140,28 @@ namespace xBDD.Core
                             step.Reason = "Previous Error";
                             statsCascader.CascadeStats(step, false);
                         }
-                        throw;
                     }
+                    throw;
                 }
             }
         }
 
-        public void Skip(string reason)
-        {
-            if (reason == null)
-                throw new ArgumentNullException("reason");
-            if(scenario.Steps.Count > 0)
-            {
-                SkipSteps();
-                scenario.Reason = reason;
-            }
-            else
-            {
-                scenario.Outcome = Outcome.Skipped;
-                scenario.Reason = reason;
-                statsCascader.CascadeStats(scenario);
-            }
-        }
+        //  public void Skip(string reason)
+        //  {
+        //      if (reason == null)
+        //          throw new ArgumentNullException("reason");
+        //      if(scenario.Steps.Count > 0)
+        //      {
+        //          SkipSteps();
+        //          scenario.Reason = reason;
+        //      }
+        //      else
+        //      {
+        //          scenario.Outcome = Outcome.Skipped;
+        //          scenario.Reason = reason;
+        //          statsCascader.CascadeStats(scenario);
+        //      }
+        //  }
 
         private void SkipSteps()
         {
@@ -166,7 +173,7 @@ namespace xBDD.Core
             }
         }
 
-        public async Task SkipAsync(string reason)
+        public async Task Skip(string reason)
         {
             if (reason == null)
                 throw new ArgumentNullException("reason");

@@ -1,7 +1,9 @@
-﻿namespace xBDD.Test
+﻿using System.Threading.Tasks;
+
+namespace xBDD.Test
 {
     public interface IExecute<TResult>
     {
-        TResult Execute();
+        Task<TResult> Execute();
     }
 }

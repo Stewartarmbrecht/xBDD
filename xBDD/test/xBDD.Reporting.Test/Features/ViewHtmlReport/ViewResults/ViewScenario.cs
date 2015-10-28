@@ -37,7 +37,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				.AndAsync("the steps under the scenario will be collapsed because it passed", async (s) => {
 					await browser.WaitTillNotVisible(Pages.HtmlReportPage.Scenario.Steps(1));
 				})
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void Skipped()
@@ -58,7 +58,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				.AndAsync("the steps under the scenario will be collapsed because it was not failing", async (s) => {
 					await browser.WaitTillNotVisible(Pages.HtmlReportPage.Scenario.Steps(1));
 				})
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void Failing()
@@ -73,7 +73,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				.AndAsync("the steps under the scenario will be expanded because it has a failing step", async (s) => {
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Scenario.Steps(1));
 				})
-                .RunAsync();
+                .Run();
 		}
 	}
 }

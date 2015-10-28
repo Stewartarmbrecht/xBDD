@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using xBDD.Model;
 
 namespace xBDD.Reporting.Html
@@ -11,13 +12,15 @@ namespace xBDD.Reporting.Html
         int featureCounter = 0;
         int scenarioCounter = 0;
         int stepCounter = 0;
-        public string WriteToString(TestRun testRun)
+        public Task<string> WriteToString(TestRun testRun)
         {
-            StringBuilder sb = new StringBuilder();
-            //sb.AppendLine(JsonConvert.SerializeObject(testRun));
-            sb.AppendLine("<!DOCTYPE html>");
-            WriteHtml(testRun, sb);
-            return sb.ToString();
+            return Task.Run(() => {
+                StringBuilder sb = new StringBuilder();
+                //sb.AppendLine(JsonConvert.SerializeObject(testRun));
+                sb.AppendLine("<!DOCTYPE html>");
+                WriteHtml(testRun, sb);
+                return sb.ToString();
+            });
         }
         void WriteHtml(TestRun testRun, StringBuilder sb)
         {

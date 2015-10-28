@@ -56,7 +56,7 @@ namespace xBDD.Test
             xB.CurrentRun.TestRun.Name = projectName.Replace(".Test", "").Replace(".", " ");
         }
         public static IConfiguration Configuration { get; set; }
-        public virtual void Dispose()
+        public async virtual void Dispose()
         {
             if(ShouldPublish)
             {
@@ -88,9 +88,9 @@ namespace xBDD.Test
             var baseAreaNameToTrim = (ProjectName + ".Features.").ConvertNamespaceToAreaName(); 
             xB.CurrentRun.TestRun.Areas.ForEach(x => { x.Name = x.Name.Replace(baseAreaNameToTrim, ""); });
             Console.WriteLine("Saving to text file: " + ProjectName + ".TestResults.txt");
-            File.WriteAllText(ProjectName + ".TestResults.txt", xB.CurrentRun.TestRun.WriteToText());
+            File.WriteAllText(ProjectName + ".TestResults.txt", await xB.CurrentRun.TestRun.WriteToText());
             Console.WriteLine("Saving to html file: "+ ProjectName + ".TestResults.html");
-            File.WriteAllText(ProjectName + ".TestResults.html", xB.CurrentRun.TestRun.WriteToHtml());
+            File.WriteAllText(ProjectName + ".TestResults.html", await xB.CurrentRun.TestRun.WriteToHtml());
             Console.WriteLine("Done!");
         }
     }

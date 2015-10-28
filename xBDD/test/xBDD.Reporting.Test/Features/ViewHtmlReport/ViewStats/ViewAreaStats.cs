@@ -57,7 +57,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .And("the failed, red bar should have a width of 33%", (s) => {
 					browser.ElementStyleMatches(Pages.HtmlReportPage.AreaFeatureStats.FailedBar(3), ".*width: 33\\..*");
                	})
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void FailedSkippedAndPassingScenarioStats()
@@ -90,7 +90,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .And("the failed, red bar should have a width of 11%", (s) => {
 					browser.ElementStyleMatches(Pages.HtmlReportPage.AreaScenarioStats.FailedBar(3), ".*width: 11\\..*");
                	})
-                .RunAsync();
+                .Run();
 		}
 	}
 }

@@ -1,24 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <assemblies>
-  <assembly name="xBDD.Reporting.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3179" run-date="2015-10-16" run-time="17:06:52" total="69" passed="69" failed="0" skipped="0" time="19.847" errors="0">
+  <assembly name="xBDD.Reporting.Test.dll" environment="32-bit .NET (unknown version) [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.1.0.3179" run-date="2015-10-27" run-time="22:24:26" total="69" passed="69" failed="0" skipped="0" time="17.051" errors="0">
     <errors />
-    <collection total="69" passed="69" failed="0" skipped="0" name="xBDDReportingTest" time="13.735">
-      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunScenarioWithFailedStep" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunScenarioWithFailedStep" time="0.1111084" result="Pass">
+    <collection total="69" passed="69" failed="0" skipped="0" name="xBDDReportingTest" time="11.578">
+      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunScenarioWithFailedStep" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunScenarioWithFailedStep" time="0.0822256" result="Pass">
         <output><![CDATA[Write Run Scenario With Failed Step
     has the following scenarion definition
         using System;
+        using System.Threading.Tasks;
         using xBDD.Test;
         namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
         {
             public class RunScenarioWithFailedStep : IExecute<string>
             {
-                public string Execute()
+                public async Task<string> Execute()
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     try
                     {
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action", (s) => { throw new Exception("My Error"); }))
@@ -26,7 +27,7 @@
                             .Run();
                     }
                     catch { }
-                    return xBDD.CurrentRun.TestRun.WriteToText();
+                    return await xBDD.CurrentRun.TestRun.WriteToText();
                 }
             }
         }
@@ -46,19 +47,20 @@
         			Then my ending condition [Skipped - Previous Error]
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteEmtpyTestRun" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteEmtpyTestRun" time="0.0019265" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteEmtpyTestRun" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteEmtpyTestRun" time="0.0023248" result="Pass">
         <output><![CDATA[Write Emtpy Test Run
     has the following scenarion definition
+        using System.Threading.Tasks;
         using xBDD.Test;
         namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
         {
             public class EmptyTestRun : IExecute<string>
             {
-                public string Execute()
+                public async Task<string> Execute()
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
-                    return xBDD.CurrentRun.TestRun.WriteToText();
+                    return await xBDD.CurrentRun.TestRun.WriteToText();
                 }
             }
         }
@@ -68,39 +70,40 @@
 
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunMultipleAreas" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunMultipleAreas" time="0.0021971" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunMultipleAreas" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunMultipleAreas" time="0.0030079" result="Pass">
         <output><![CDATA[Write Run Multiple Areas
     has the following scenarion definition
+        using System.Threading.Tasks;
         using xBDD.Test;
         namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
         {
             public class RunMultipleAreas : IExecute<string>
             {
-                public string Execute()
+                public async Task<string> Execute()
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     try
                     {
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario One", "My Feature One", "My.Area.Path.One")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action"))
                             .Then(xBDD.CreateStep("my ending condition"))
                             .Run();
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario Two", "My Feature One", "My.Area.Path.One")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action"))
                             .Then(xBDD.CreateStep("my ending condition"))
                             .Run();
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario One", "My Feature Two", "My.Area.Path.Two")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action"))
                             .Then(xBDD.CreateStep("my ending condition"))
                             .Run();
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario Two", "My Feature Two", "My.Area.Path.Two")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action"))
@@ -108,7 +111,7 @@
                             .Run();
                     }
                     catch { }
-                    return xBDD.CurrentRun.TestRun.WriteToText();
+                    return await xBDD.CurrentRun.TestRun.WriteToText();
                 }
             }
         }
@@ -138,21 +141,22 @@
         			Then my ending condition
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunScenarioWithSteps" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunScenarioWithSteps" time="0.0014616" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunScenarioWithSteps" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunScenarioWithSteps" time="0.0021545" result="Pass">
         <output><![CDATA[Write Run Scenario With Steps
     has the following scenarion definition
+        using System.Threading.Tasks;
         using xBDD.Test;
         namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
         {
             public class RunScenarioWithSteps : IExecute<string>
             {
-                public string Execute()
+                public async Task<string> Execute()
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     try
                     {
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action"))
@@ -160,7 +164,7 @@
                             .Run();
                     }
                     catch { }
-                    return xBDD.CurrentRun.TestRun.WriteToText();
+                    return await xBDD.CurrentRun.TestRun.WriteToText();
                 }
             }
         }
@@ -176,22 +180,23 @@
         			Then my ending condition
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunEmptyScenario" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunEmptyScenario" time="0.0030167" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunEmptyScenario" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunEmptyScenario" time="0.00316" result="Pass">
         <output><![CDATA[Write Run Empty Scenario
     has the following scenarion definition
+        using System.Threading.Tasks;
         using xBDD.Test;
         namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
         {
             public class RunEmptyScenario : IExecute<string>
             {
-                public string Execute()
+                public async Task<string> Execute()
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
-                    xBDD.CurrentRun
+                    await xBDD.CurrentRun
                         .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                         .Run();
-                    return xBDD.CurrentRun.TestRun.WriteToText();
+                    return await xBDD.CurrentRun.TestRun.WriteToText();
                 }
             }
         }
@@ -204,21 +209,22 @@
         		My Scenario
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteSkippedScenarioWithSteps" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteSkippedScenarioWithSteps" time="0.0024693" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteSkippedScenarioWithSteps" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteSkippedScenarioWithSteps" time="0.0037109" result="Pass">
         <output><![CDATA[Write Skipped Scenario With Steps
     has the following scenarion definition
+        using System.Threading.Tasks;
         using xBDD.Test;
         namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
         {
             public class SkippedScenarioWithSteps : IExecute<string>
             {
-                public string Execute()
+                public async Task<string> Execute()
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     try
                     {
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action"))
@@ -226,7 +232,7 @@
                             .Skip("Deferred");
                     }
                     catch { }
-                    return xBDD.CurrentRun.TestRun.WriteToText();
+                    return await xBDD.CurrentRun.TestRun.WriteToText();
                 }
             }
         }
@@ -242,22 +248,24 @@
         			Then my ending condition
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunScenarioWithNotImplementedStep" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunScenarioWithNotImplementedStep" time="0.0043365" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunScenarioWithNotImplementedStep" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunScenarioWithNotImplementedStep" time="0.0028426" result="Pass">
         <output><![CDATA[Write Run Scenario With Not Implemented Step
     has the following scenarion definition
         using System;
+        using System.Threading.Tasks;
         using xBDD.Test;
+
         namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
         {
             public class RunScenarioWithNotImplementedStep : IExecute<string>
             {
-                public string Execute()
+                public async Task<string> Execute()
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     try
                     {
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action", (s) => { throw new NotImplementedException(); }))
@@ -265,7 +273,7 @@
                             .Run();
                     }
                     catch { }
-                    return xBDD.CurrentRun.TestRun.WriteToText();
+                    return await xBDD.CurrentRun.TestRun.WriteToText();
                 }
             }
         }
@@ -281,27 +289,28 @@
         			Then my ending condition [Skipped - Previous Error]
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunMultipleScenariosSameFeature" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunMultipleScenariosSameFeature" time="0.0014341" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunMultipleScenariosSameFeature" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunMultipleScenariosSameFeature" time="0.0024871" result="Pass">
         <output><![CDATA[Write Run Multiple Scenarios Same Feature
     has the following scenarion definition
+        using System.Threading.Tasks;
         using xBDD.Test;
         namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
         {
             public class RunMultipleScenariosSameFeature : IExecute<string>
             {
-                public string Execute()
+                public async Task<string> Execute()
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     try
                     {
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario One", "My Feature", "My.Area.Path")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action"))
                             .Then(xBDD.CreateStep("my ending condition"))
                             .Run();
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario Two", "My Feature", "My.Area.Path")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action"))
@@ -309,7 +318,7 @@
                             .Run();
                     }
                     catch { }
-                    return xBDD.CurrentRun.TestRun.WriteToText();
+                    return await xBDD.CurrentRun.TestRun.WriteToText();
                 }
             }
         }
@@ -329,26 +338,27 @@
         			Then my ending condition
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteSkippedEmptyScenario" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteSkippedEmptyScenario" time="0.0009666" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteSkippedEmptyScenario" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteSkippedEmptyScenario" time="0.0018892" result="Pass">
         <output><![CDATA[Write Skipped Empty Scenario
     has the following scenarion definition
+        using System.Threading.Tasks;
         using xBDD.Test;
         namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
         {
             public class SkippedEmptyScenario : IExecute<string>
             {
-                public string Execute()
+                public async Task<string> Execute()
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     try
                     {
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                             .Skip("Deferred");
                     }
                     catch { }
-                    return xBDD.CurrentRun.TestRun.WriteToText();
+                    return await xBDD.CurrentRun.TestRun.WriteToText();
                 }
             }
         }
@@ -361,25 +371,26 @@
         		My Scenario [Skipped - Deferred]
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunScenarioWithStepWithMultilineParameter" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunScenarioWithStepWithMultilineParameter" time="0.0014962" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunScenarioWithStepWithMultilineParameter" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunScenarioWithStepWithMultilineParameter" time="0.0024328" result="Pass">
         <output><![CDATA[Write Run Scenario With Step With Multiline Parameter
     has the following scenarion definition
+        using System.Threading.Tasks;
         using xBDD.Test;
         namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
         {
             public class RunScenarioWithStepWithMultilineParameter : IExecute<string>
             {
-                public string Execute()
+                public async Task<string> Execute()
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
-                    xBDD.CurrentRun
+                    await xBDD.CurrentRun
                         .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                         .Given(xBDD.CreateStep("my starting condition with the following", (s) => { }, "My\r\nmultiline\r\nparameter"))
                         .When(xBDD.CreateStep("my action"))
                         .Then(xBDD.CreateStep("my ending condition"))
                         .Run();
-                    return xBDD.CurrentRun.TestRun.WriteToText();
+                    return await xBDD.CurrentRun.TestRun.WriteToText();
                 }
             }
         }
@@ -398,39 +409,40 @@
         			Then my ending condition
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunMultipleFeaturesSameArea" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunMultipleFeaturesSameArea" time="0.0014791" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunMultipleFeaturesSameArea" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunMultipleFeaturesSameArea" time="0.0029687" result="Pass">
         <output><![CDATA[Write Run Multiple Features Same Area
     has the following scenarion definition
+        using System.Threading.Tasks;
         using xBDD.Test;
         namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
         {
             public class RunMultipleFeaturesSameArea : IExecute<string>
             {
-                public string Execute()
+                public async Task<string> Execute()
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     try
                     {
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario One", "My Feature One", "My.Area.Path")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action"))
                             .Then(xBDD.CreateStep("my ending condition"))
                             .Run();
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario Two", "My Feature One", "My.Area.Path")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action"))
                             .Then(xBDD.CreateStep("my ending condition"))
                             .Run();
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario One", "My Feature Two", "My.Area.Path")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action"))
                             .Then(xBDD.CreateStep("my ending condition"))
                             .Run();
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario Two", "My Feature Two", "My.Area.Path")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action"))
@@ -438,7 +450,7 @@
                             .Run();
                     }
                     catch { }
-                    return xBDD.CurrentRun.TestRun.WriteToText();
+                    return await xBDD.CurrentRun.TestRun.WriteToText();
                 }
             }
         }
@@ -467,21 +479,22 @@
         			Then my ending condition
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunScenarioWithSkippedStep" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunScenarioWithSkippedStep" time="0.001815" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText.WriteRunScenarioWithSkippedStep" type="xBDD.Reporting.Test.Features.ViewTextReport.WriteToText" method="WriteRunScenarioWithSkippedStep" time="0.0026396" result="Pass">
         <output><![CDATA[Write Run Scenario With Skipped Step
     has the following scenarion definition
+        using System.Threading.Tasks;
         using xBDD.Test;
         namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
         {
             public class RunScenarioWithSkippedStep : IExecute<string>
             {
-                public string Execute()
+                public async Task<string> Execute()
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
                     try
                     {
-                        xBDD.CurrentRun
+                        await xBDD.CurrentRun
                             .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                             .Given(xBDD.CreateStep("my starting condition"))
                             .When(xBDD.CreateStep("my action", (s) => { throw new SkipStepException("Deferred"); }))
@@ -489,7 +502,7 @@
                             .Run();
                     }
                     catch { }
-                    return xBDD.CurrentRun.TestRun.WriteToText();
+                    return await xBDD.CurrentRun.TestRun.WriteToText();
                 }
             }
         }
@@ -505,75 +518,67 @@
         			Then my ending condition [Skipped - Previous Error]
 ]]></output>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.WriteToHtml.StandardFullReport" type="xBDD.Reporting.Test.Features.ViewHtmlReport.WriteToHtml" method="StandardFullReport" time="0.0447353" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Passing" time="2.7807734" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Failing" time="0.1566443" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Skipped" time="0.1380826" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly.SingleScenario" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly" method="SingleScenario" time="0.0004599" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly.SingleAreaMultipleFeatures" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly" method="SingleAreaMultipleFeatures" time="0.0001691" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly.SingleFeatureMultipleScenarios" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly" method="SingleFeatureMultipleScenarios" time="0.0001512" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly.MultipleAreas" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly" method="MultipleAreas" time="0.0001398" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Skipped" time="0.2620648" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Failing" time="0.2004179" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Passing" time="0.3583259" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStatement.PartialStatement" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStatement" method="PartialStatement" time="0.2703681" result="Pass">
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.WriteToHtml.StandardFullReport" type="xBDD.Reporting.Test.Features.ViewHtmlReport.WriteToHtml" method="StandardFullReport" time="0.0136966" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Passing" time="2.6221615" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Failing" time="0.1000924" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewArea" method="Skipped" time="0.1012837" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly.SingleScenario" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly" method="SingleScenario" time="0.0007568" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly.SingleAreaMultipleFeatures" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly" method="SingleAreaMultipleFeatures" time="0.000556" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly.SingleFeatureMultipleScenarios" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly" method="SingleFeatureMultipleScenarios" time="0.0007027" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly.MultipleAreas" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFailureOnly" method="MultipleAreas" time="0.0007222" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Skipped" time="0.2456044" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Failing" time="0.0982179" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeature" method="Passing" time="0.2448875" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStatement.PartialStatement" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStatement" method="PartialStatement" time="0.2152942" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStatement.FullStatement" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStatement" method="FullStatement" time="0.2294323" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStatement.NoStatement" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStatement" method="NoStatement" time="0.6837138" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenario.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenario" method="Skipped" time="0.3378692" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenario.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenario" method="Failing" time="0.100541" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenario.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenario" method="Passing" time="0.371939" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.WithInnerException" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="WithInnerException" time="0.1434201" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.WithException" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="WithException" time="0.1492635" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Passing" time="0.3843284" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Failing" time="0.0791795" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Skipped" time="0.4043518" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput.HtmlWithPreview" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput" method="HtmlWithPreview" time="0.0007545" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput.Code" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput" method="Code" time="0.000599" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput.CollapsedByDefault" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput" method="CollapsedByDefault" time="0.4005325" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput.GeneralText" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput" method="GeneralText" time="0.504951" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun" method="Failing" time="0.0964576" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun.EmptyTestRun" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun" method="EmptyTestRun" time="0.101995" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun.PassingTestRun" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun" method="PassingTestRun" time="0.076433" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun.PassingWithSomeSkipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun" method="PassingWithSomeSkipped" time="0.0751504" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewAreaStats.FailedSkippedAndPassingScenarioStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewAreaStats" method="FailedSkippedAndPassingScenarioStats" time="0.3005583" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewAreaStats.FailedSkippedAndPassingFeatureStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewAreaStats" method="FailedSkippedAndPassingFeatureStats" time="0.3514727" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStats.FailedSkippedAndPassingScenarioStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStats" method="FailedSkippedAndPassingScenarioStats" time="0.4203639" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenarioStats.FailedSkippedAndPassingStepsStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenarioStats" method="FailedSkippedAndPassingStepsStats" time="0.2081062" result="Pass">
         <traits>
           <trait name="category" value="now" />
         </traits>
       </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStatement.FullStatement" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStatement" method="FullStatement" time="0.2726151" result="Pass">
-        <traits>
-          <trait name="category" value="now" />
-        </traits>
-      </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStatement.NoStatement" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStatement" method="NoStatement" time="0.6326693" result="Pass">
-        <traits>
-          <trait name="category" value="now" />
-        </traits>
-      </test>
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenario.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenario" method="Skipped" time="0.3725643" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenario.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenario" method="Failing" time="0.1250462" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenario.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenario" method="Passing" time="0.4656616" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.WithInnerException" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="WithInnerException" time="0.1866121" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.WithException" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="WithException" time="0.2241088" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Passing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Passing" time="0.5010907" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Failing" time="0.1315731" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep.Skipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStep" method="Skipped" time="0.4563155" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput.HtmlWithPreview" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput" method="HtmlWithPreview" time="0.0002812" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput.Code" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput" method="Code" time="0.0001101" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput.CollapsedByDefault" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput" method="CollapsedByDefault" time="0.4583743" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput.GeneralText" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewStepOutput" method="GeneralText" time="0.6056711" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun.Failing" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun" method="Failing" time="0.0934772" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun.EmptyTestRun" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun" method="EmptyTestRun" time="0.1829464" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun.PassingTestRun" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun" method="PassingTestRun" time="0.137406" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun.PassingWithSomeSkipped" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRun" method="PassingWithSomeSkipped" time="0.0914431" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewAreaStats.FailedSkippedAndPassingScenarioStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewAreaStats" method="FailedSkippedAndPassingScenarioStats" time="0.3404792" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewAreaStats.FailedSkippedAndPassingFeatureStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewAreaStats" method="FailedSkippedAndPassingFeatureStats" time="0.4839621" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStats.FailedSkippedAndPassingScenarioStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewFeatureStats" method="FailedSkippedAndPassingScenarioStats" time="0.4007933" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenarioStats.FailedSkippedAndPassingStepsStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewScenarioStats" method="FailedSkippedAndPassingStepsStats" time="0.1811016" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats.FailedSkippedAndPassingScenarioStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats" method="FailedSkippedAndPassingScenarioStats" time="0.3547416" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats.AreaStatsNoAreas" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats" method="AreaStatsNoAreas" time="0.4558935" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats.FailedSkippedAndPassingAreaStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats" method="FailedSkippedAndPassingAreaStats" time="0.5109841" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats.FailedSkippedAndPassingFeatureStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats" method="FailedSkippedAndPassingFeatureStats" time="0.5090207" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="CollapseAll" time="0.0034873" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="Collapse" time="0.6060817" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="ExpandAll" time="0.3870415" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="Expand" time="0.2134837" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="CollapseAll" time="0.0004504" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="Collapse" time="0.0001915" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="ExpandAll" time="0.0001782" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="Expand" time="0.0004306" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="DefaultCollapsedWhenMoreThan5" time="0.0002276" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="DefaultCollapsedWhenMoreThan5" time="0.0006063" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="Expand" time="0.0001797" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="CollapseAll" time="0.0001695" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="ExpandAll" time="0.0001691" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="Collapse" time="0.0001934" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="DefaultCollapsedWhenMoreThan5" time="0.0003789" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="ExpandAll" time="0.0001724" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="Collapse" time="0.0001645" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="CollapseAll" time="0.0001618" result="Pass" />
-      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="Expand" time="0.000171" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats.FailedSkippedAndPassingScenarioStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats" method="FailedSkippedAndPassingScenarioStats" time="0.4115459" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats.AreaStatsNoAreas" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats" method="AreaStatsNoAreas" time="0.3105267" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats.FailedSkippedAndPassingAreaStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats" method="FailedSkippedAndPassingAreaStats" time="0.3711913" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats.FailedSkippedAndPassingFeatureStats" type="xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults.ViewTestRunStats" method="FailedSkippedAndPassingFeatureStats" time="0.3481317" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="CollapseAll" time="0.000848" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="Collapse" time="0.528125" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="ExpandAll" time="0.2690251" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreas" method="Expand" time="0.1520781" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="CollapseAll" time="0.0009145" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="Collapse" time="0.0005576" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="ExpandAll" time="0.0005541" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="Expand" time="0.0005233" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandAreaDescription" method="DefaultCollapsedWhenMoreThan5" time="0.0005534" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="DefaultCollapsedWhenMoreThan5" time="0.0006473" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="Expand" time="0.0005245" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="CollapseAll" time="0.0005271" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="ExpandAll" time="0.0005708" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandException" method="Collapse" time="0.0005233" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.DefaultCollapsedWhenMoreThan5" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="DefaultCollapsedWhenMoreThan5" time="0.0006336" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.ExpandAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="ExpandAll" time="0.0005495" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.Collapse" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="Collapse" time="0.0005332" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.CollapseAll" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="CollapseAll" time="0.0006157" result="Pass" />
+      <test name="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput.Expand" type="xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding.CollapseAndExpandOutput" method="Expand" time="0.0006804" result="Pass" />
     </collection>
   </assembly>
 </assemblies>

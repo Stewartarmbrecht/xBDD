@@ -10,9 +10,9 @@ namespace MyApp.API.Test.Features.Calendar
 	public class GetHolidays
 	{
 		//Scenario
-		public void WhenUSCalendar()
+		public async void WhenUSCalendar()
 		{
-			xB.CurrentRun
+			await xB.CurrentRun
 				.AddScenario(this)
 				.Given("a calendar object is initialized with US holidays", (s) => {
 					//code to create calendar

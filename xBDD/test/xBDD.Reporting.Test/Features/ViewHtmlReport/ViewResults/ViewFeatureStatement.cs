@@ -8,7 +8,6 @@ using xBDD.Reporting.Test.Steps;
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
     [Collection("xBDDReportingTest")]
-	[Trait("category", "now")]
 	public class ViewFeatureStatement
 	{
 		private readonly OutputWriter outputWriter;
@@ -33,7 +32,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Feature.Statement(1));
 					browser.ElementHasText(Pages.HtmlReportPage.Feature.Statement(1), featureStatement);
                 }, featureStatement)
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void PartialStatement()
@@ -50,7 +49,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Feature.Statement(1));
 					browser.ElementHasText(Pages.HtmlReportPage.Feature.Statement(1), featureStatement);
                 }, featureStatement)
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void NoStatement()
@@ -67,7 +66,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Scenario.Name(1));
 					browser.ValidateNotExist(Pages.HtmlReportPage.Feature.Statement(1));
                 })
-                .RunAsync();
+                .Run();
 		}
 	}
 }

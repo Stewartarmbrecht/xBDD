@@ -57,7 +57,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .And("the failed, red bar should have a width of 33%", (s) => {
 					browser.ElementStyleMatches(Pages.HtmlReportPage.TestRunAreaStats.FailedBar, ".*width: 33\\..*");
                	})
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void FailedSkippedAndPassingFeatureStats()
@@ -90,7 +90,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .And("the failed, red bar should have a width of 33%", (s) => {
 					browser.ElementStyleMatches(Pages.HtmlReportPage.TestRunFeatureStats.FailedBar, ".*width: 11\\..*");
                	})
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void FailedSkippedAndPassingScenarioStats()
@@ -123,7 +123,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .And("the failed, red bar should have a width of 4%", (s) => {
 					browser.ElementStyleMatches(Pages.HtmlReportPage.TestRunScenarioStats.FailedBar, ".*width: 3\\.7.*");
                	})
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void AreaStatsNoAreas()
@@ -154,7 +154,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .AndAsync("the section should show a gray bar to indicate there are no areas", async (s) => {
 					await browser.WaitTillVisible(Pages.HtmlReportPage.TestRunAreaStats.EmptyBar);
                	})
-                .RunAsync();
+                .Run();
 		}
 	}
 }

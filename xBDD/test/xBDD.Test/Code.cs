@@ -4,6 +4,7 @@ using Microsoft.Framework.DependencyInjection;
 using System;
 using System.IO;
 using xBDD.Model;
+using System.Threading.Tasks;
 
 namespace xBDD.Test
 {
@@ -24,9 +25,9 @@ namespace xBDD.Test
             return step;
         }
 
-        public static Step IsExecuted(Action<Step> code)
+        public static Step IsExecuted(Func<Step,Task> code)
         {
-            return xB.CreateStep(
+            return xB.CreateAsyncStep(
                 "the method is executed",
                 code);
         }

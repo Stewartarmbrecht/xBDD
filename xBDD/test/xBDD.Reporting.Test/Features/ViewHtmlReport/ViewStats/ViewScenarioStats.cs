@@ -20,6 +20,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
+		[Trait("category", "now")]
 		public async void FailedSkippedAndPassingStepsStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
@@ -33,7 +34,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .And("the badge should show 'Steps' when the user hovers over it", (s) => {
 					browser.ElementHasTitle(Pages.HtmlReportPage.ScenarioStepStats.Total(19), "Steps");
                	})
-                .RunAsync();
+                .Run();
 		}
 	}
 }

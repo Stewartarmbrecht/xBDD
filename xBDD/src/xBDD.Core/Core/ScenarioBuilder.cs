@@ -136,25 +136,25 @@ namespace xBDD.Core
             runner.SetOutputWriter(outputWriter);
             return this;
         }
-        public void Run()
+        //  public void Run()
+        //  {
+        //      runner.Run(false);
+        //  }
+        public async Task Document()
         {
-            runner.Run(false);
+            await runner.RunAsync(true);
         }
-        public void Document()
+        public async Task Run()
         {
-            runner.Run(true);
+            await runner.RunAsync(false);
         }
-        public async Task RunAsync()
+        //  public void Skip(string reason)
+        //  {
+        //      runner.Skip(reason);
+        //  }
+        public async Task Skip(string reason)
         {
-            await runner.RunAsync();
-        }
-        public void Skip(string reason)
-        {
-            runner.Skip(reason);
-        }
-        public async Task SkipAsync(string reason)
-        {
-            await runner.SkipAsync(reason);
+            await runner.Skip(reason);
         }
 
     }

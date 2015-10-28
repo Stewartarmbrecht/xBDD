@@ -15,30 +15,30 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		}
 		
 		[ScenarioFact]
-		public void SingleScenario()
+		public async void SingleScenario()
 		{
-			 xB.CurrentRun.AddScenario(this)
+			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 		
 		[ScenarioFact]
-		public void SingleFeatureMultipleScenarios()
+		public async void SingleFeatureMultipleScenarios()
 		{
-			 xB.CurrentRun.AddScenario(this)
+			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 		
 		[ScenarioFact]
-		public void SingleAreaMultipleFeatures()
+		public async void SingleAreaMultipleFeatures()
 		{
-			 xB.CurrentRun.AddScenario(this)
+			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 		
 		[ScenarioFact]
-		public void MultipleAreas()
+		public async void MultipleAreas()
 		{
-			 xB.CurrentRun.AddScenario(this)
+			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 	}

@@ -2,24 +2,27 @@
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using xBDD.Model;
 
 namespace xBDD.Reporting.TextFile
 {
     public class TextWriter
     {
-        public string WriteToString(TestRun testRun)
+        public async Task<string> WriteToString(TestRun testRun)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine(testRun.Name);
-            sb.AppendLine();
-            Scenario lastScenario = null;
-            foreach(var scenario in testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name))
-            {
-                WriteScenario(lastScenario, scenario, sb);
-                lastScenario = scenario;
-            }
-            return sb.ToString();
+            return await Task.Run(() => {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine(testRun.Name);
+                sb.AppendLine();
+                Scenario lastScenario = null;
+                foreach(var scenario in testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name))
+                {
+                    WriteScenario(lastScenario, scenario, sb);
+                    lastScenario = scenario;
+                }
+                return sb.ToString();
+            });
         }
 
         private void WriteScenario(Scenario lastScenario, Scenario scenario, StringBuilder sb)

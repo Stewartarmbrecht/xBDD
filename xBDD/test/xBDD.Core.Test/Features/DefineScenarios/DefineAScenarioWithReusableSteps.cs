@@ -1,24 +1,21 @@
 using System;
 using System.Text;
-using xBDD;
 using xBDD.Test;
 using xBDD.xUnit;
 using Xunit;
 using Xunit.Abstractions;
 
-[assembly: TestRunName("My App - API")]
-
 namespace xBDD.Core.Test.Features.DefineScenarios
 {
 	[Collection("xBDDCoreTest")]
-	[InOrderTo("leverage xBDD within my testing framework")]
+	[InOrderTo("increase the efficiency and consistency of building scenarios")]
 	[AsA("developer")]
-	[IWouldLikeTo("define and execute a scenario within a unit test")]
-	public class DefineABasicScenario
+	[IWouldLikeTo("use a library of steps that decreases the effort of defining scenarios")]
+	public class DefineAScenarioWithReusableSteps
 	{
 		private readonly OutputWriter outputWriter;
 
-		public DefineABasicScenario(ITestOutputHelper output)
+		public DefineAScenarioWithReusableSteps(ITestOutputHelper output)
 		{
 			outputWriter = new OutputWriter(output);
 		}
@@ -45,7 +42,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
 			sb.AppendLine("Given a calendar object is initialized with US holidays");
 			sb.AppendLine("When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015");
 			sb.AppendLine("Then you should get back a single holiday that is St. Patrick's Day");
-			
+
 			var testRunBuilder = new CoreFactory().CreateTestRunBuilder(null);
             await xB.CurrentRun
                 .AddScenario(this)

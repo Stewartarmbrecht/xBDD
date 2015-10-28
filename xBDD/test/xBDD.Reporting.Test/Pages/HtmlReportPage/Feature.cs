@@ -1,4 +1,3 @@
-using System;
 using xBDD.Browser;
 
 namespace xBDD.Reporting.Test.Pages.HtmlReportPage

@@ -1,4 +1,5 @@
-﻿using xBDD.xUnit;
+﻿using System.Threading.Tasks;
+using xBDD.xUnit;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -15,9 +16,9 @@ namespace xBDD.Test.Features.Environment
         }
 
         [ScenarioFact]
-        public void PublishAfterTestRun ()
+        public async Task PublishAfterTestRun ()
         {
-            xB.CurrentRun
+            await xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given(xB.CreateStep("the developer sets the solution to the Publish configuration"))
@@ -27,9 +28,9 @@ namespace xBDD.Test.Features.Environment
                 .Run();
         }
         [ScenarioFact]
-        public void PublishAfterCITestRun()
+        public async Task PublishAfterCITestRun()
         {
-            xB.CurrentRun
+            await xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .When(xB.CreateStep("the developer pushes a commit to the master branch"))

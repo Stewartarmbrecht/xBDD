@@ -4,6 +4,7 @@ using Xunit.Abstractions;
 using xBDD.Test;
 using xBDD.xUnit;
 using xBDD.Reporting.Test.Steps;
+using System.Threading.Tasks;
 
 namespace xBDD.Reporting.Test.Features.ViewTextReport
 {
@@ -17,17 +18,17 @@ namespace xBDD.Reporting.Test.Features.ViewTextReport
             outputWriter = new OutputWriter(output);
         }
 
-        public void Run(IExecute<string> action, bool writeActual = false, [CallerMemberName]string methodName = "")
+        public async Task Run(IExecute<string> action, bool writeActual = false, [CallerMemberName]string methodName = "")
         {
             var actionName = action.GetType().Name;
             Wrapper<string> text = new Wrapper<string>();
-            xB.CurrentRun
+            await xB.CurrentRun
                 .AddScenario(this, methodName)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasTheFollowingScenario("\\Features\\ViewTextReport\\WriteToTextScenarios\\" + actionName + ".cs"))
-                .When(Code.IsExecuted((s) =>
+                .When(Code.IsExecuted(async (s) =>
                 {
-                    text.Object = action.Execute();
+                    text.Object = await action.Execute();
                 }))
                 .Then(TextReport.ShouldMatch(
                     "\\Features\\ViewTextReport\\WriteToTextScenarios\\" + actionName + ".txt", text, writeActual))
@@ -35,64 +36,64 @@ namespace xBDD.Reporting.Test.Features.ViewTextReport
         }
 
         [ScenarioFact]
-        public void WriteEmtpyTestRun()
+        public async Task WriteEmtpyTestRun()
         {
-            Run(new WriteToTextScenarios.EmptyTestRun());
+            await Run(new  WriteToTextScenarios.EmptyTestRun());
         }
         [ScenarioFact]
-        public void WriteSkippedEmptyScenario()
+        public async Task WriteSkippedEmptyScenario()
         {
-            Run(new WriteToTextScenarios.SkippedEmptyScenario());
+            await Run(new  WriteToTextScenarios.SkippedEmptyScenario());
         }
         [ScenarioFact]
-        public void WriteRunEmptyScenario()
+        public async Task WriteRunEmptyScenario()
         {
-            Run(new WriteToTextScenarios.RunEmptyScenario());
+            await Run(new  WriteToTextScenarios.RunEmptyScenario());
         }
         [ScenarioFact]
-        public void WriteSkippedScenarioWithSteps()
+        public async Task WriteSkippedScenarioWithSteps()
         {
-            Run(new WriteToTextScenarios.SkippedScenarioWithSteps());
+            await Run(new  WriteToTextScenarios.SkippedScenarioWithSteps());
         }
         [ScenarioFact]
-        public void WriteRunScenarioWithSteps()
+        public async Task WriteRunScenarioWithSteps()
         {
-            Run(new WriteToTextScenarios.RunScenarioWithSteps());
+            await Run(new  WriteToTextScenarios.RunScenarioWithSteps());
         }
         [ScenarioFact]
-        public void WriteRunScenarioWithSkippedStep()
+        public async Task WriteRunScenarioWithSkippedStep()
         {
-            Run(new WriteToTextScenarios.RunScenarioWithSkippedStep());
+            await Run(new  WriteToTextScenarios.RunScenarioWithSkippedStep());
         }
         [ScenarioFact]
-        public void WriteRunScenarioWithNotImplementedStep()
+        public async Task WriteRunScenarioWithNotImplementedStep()
         {
-            Run(new WriteToTextScenarios.RunScenarioWithNotImplementedStep());
+            await Run(new  WriteToTextScenarios.RunScenarioWithNotImplementedStep());
         }
         [ScenarioFact]
-        public void WriteRunScenarioWithFailedStep()
+        public async Task WriteRunScenarioWithFailedStep()
         {
-            Run(new WriteToTextScenarios.RunScenarioWithFailedStep());
+            await Run(new  WriteToTextScenarios.RunScenarioWithFailedStep());
         }
         [ScenarioFact]
-        public void WriteRunMultipleScenariosSameFeature()
+        public async Task WriteRunMultipleScenariosSameFeature()
         {
-            Run(new WriteToTextScenarios.RunMultipleScenariosSameFeature());
+            await Run(new  WriteToTextScenarios.RunMultipleScenariosSameFeature());
         }
         [ScenarioFact]
-        public void WriteRunMultipleFeaturesSameArea()
+        public async Task WriteRunMultipleFeaturesSameArea()
         {
-            Run(new WriteToTextScenarios.RunMultipleFeaturesSameArea());
+            await Run(new  WriteToTextScenarios.RunMultipleFeaturesSameArea());
         }
         [ScenarioFact]
-        public void WriteRunMultipleAreas()
+        public async Task WriteRunMultipleAreas()
         {
-            Run(new WriteToTextScenarios.RunMultipleAreas());
+            await Run(new  WriteToTextScenarios.RunMultipleAreas());
         }
         [ScenarioFact]
-        public void WriteRunScenarioWithStepWithMultilineParameter()
+        public async Task WriteRunScenarioWithStepWithMultilineParameter()
         {
-            Run(new WriteToTextScenarios.RunScenarioWithStepWithMultilineParameter());
+            await Run(new  WriteToTextScenarios.RunScenarioWithStepWithMultilineParameter());
         }
     }
 }

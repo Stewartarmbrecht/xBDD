@@ -33,7 +33,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .AndAsync("the report will show the test run name in gray to indicate no scenarios were run", async (s) => {
                     await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.NameGrey);
                 })
-                .RunAsync();
+                .Run();
 		}
 		
 		[ScenarioFact]
@@ -46,7 +46,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .ThenAsync("the report will show the test run name in green to indicate the test run passed", async (s) => {
                     await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.NameGreen);
                 })
-                .RunAsync();
+                .Run();
 		}
 		
 		[ScenarioFact]
@@ -59,7 +59,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .ThenAsync("the report will show the test run name in yellow to indicate the test run had skipped scenarios", async (s) => {
                     await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.NameYellow);
                 })
-                .RunAsync();
+                .Run();
 		}
 		
 		[ScenarioFact]
@@ -72,7 +72,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .ThenAsync("the report will show the test run name in red to indicate the test run has failing scenarios", async (s) => {
                     await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.NameRed);
                 })
-                .RunAsync();
+                .Run();
 		}
 	}
 }

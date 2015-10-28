@@ -15,33 +15,33 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 		}
 		
 		[ScenarioFact]
-		public void Collapse()
+		public async void Collapse()
 		{
-			 xB.CurrentRun.AddScenario(this)
+			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 		[ScenarioFact]
-		public void CollapseAll()
+		public async void CollapseAll()
 		{
-			 xB.CurrentRun.AddScenario(this)
+			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 		[ScenarioFact]
-		public void Expand()
+		public async void Expand()
 		{
-			 xB.CurrentRun.AddScenario(this)
+			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 		[ScenarioFact]
-		public void ExpandAll()
+		public async void ExpandAll()
 		{
-			 xB.CurrentRun.AddScenario(this)
+			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 		[ScenarioFact]
-		public void DefaultCollapsedWhenMoreThan5()
+		public async void DefaultCollapsedWhenMoreThan5()
 		{
-			 xB.CurrentRun.AddScenario(this)
+			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 	}

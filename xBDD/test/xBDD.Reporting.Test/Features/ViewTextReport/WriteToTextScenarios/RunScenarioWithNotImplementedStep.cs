@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Threading.Tasks;
 using xBDD.Test;
+
 namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
 {
     public class RunScenarioWithNotImplementedStep : IExecute<string>
     {
-        public string Execute()
+        public async Task<string> Execute()
         {
             var xBDD = new xBDDMock();
             xBDD.CurrentRun.TestRun.Name = "My Test Run";
             try
             {
-                xBDD.CurrentRun
+                await xBDD.CurrentRun
                     .AddScenario("My Scenario", "My Feature", "My.Area.Path")
                     .Given(xBDD.CreateStep("my starting condition"))
                     .When(xBDD.CreateStep("my action", (s) => { throw new NotImplementedException(); }))
@@ -18,7 +20,7 @@ namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
                     .Run();
             }
             catch { }
-            return xBDD.CurrentRun.TestRun.WriteToText();
+            return await xBDD.CurrentRun.TestRun.WriteToText();
         }
     }
 }

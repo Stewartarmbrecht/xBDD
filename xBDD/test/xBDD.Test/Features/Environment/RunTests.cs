@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using xBDD.xUnit;
 using Xunit;
 using Xunit.Abstractions;
@@ -15,9 +16,9 @@ namespace xBDD.Test.Features.Environment
         }
 
         [ScenarioFact]
-        public void RunAllTests ()
+        public async Task RunAllTests ()
         {
-            xB.CurrentRun
+            await xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given("a contributor has downloaded the solution")
@@ -29,9 +30,9 @@ namespace xBDD.Test.Features.Environment
                 .Document();
         }
         [ScenarioFact]
-        public void RunProjectTests ()
+        public async Task RunProjectTests ()
         {
-            xB.CurrentRun
+            await xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given("a contributor has downloaded the solution")
@@ -45,9 +46,9 @@ namespace xBDD.Test.Features.Environment
                 .Document();
         }
         [ScenarioFact]
-        public void RunFilteredTests ()
+        public async Task RunFilteredTests ()
         {
-            xB.CurrentRun
+            await xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
                 .Given("a contributor has downloaded the solution")

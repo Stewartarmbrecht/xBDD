@@ -3,6 +3,7 @@ using Xunit.Abstractions;
 using xBDD.Browser;
 using xBDD.xUnit;
 using xBDD.Reporting.Test.Steps;
+using System.Threading.Tasks;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 {
@@ -16,7 +17,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 			outputWriter = new OutputWriter(output);
 		}
 		[ScenarioFact]
-		public async void Collapse()
+		public async Task Collapse()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
@@ -28,13 +29,13 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
                 .ThenAsync("the report should collapse the features listed under the area", async (s) => {
 					await browser.WaitTillNotVisible(Pages.HtmlReportPage.Area.Features(1));
                 })
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void CollapseAll()
 		{
 			 await xB.CurrentRun.AddScenario(this)
-				.SkipAsync("Not Started");
+				.Skip("Not Started");
 		}
 		[ScenarioFact]
 		public async void Expand()
@@ -49,7 +50,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
                 .ThenAsync("the report should expand the features listed under the area", async (s) => {
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.Features(1));
                 })
-                .RunAsync();
+                .Run();
 		}
 		[ScenarioFact]
 		public async void ExpandAll()
@@ -68,7 +69,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 					s.Output = browser.GetPageSource();
 					s.OutputFormat = TextFormat.htmlpreview;
                 })
-                .RunAsync();
+                .Run();
 		}
 	}
 }

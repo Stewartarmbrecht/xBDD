@@ -7,7 +7,7 @@ namespace xBDD.Reporting.Test.Steps
     {
         internal static Step ViewsReport(WebBrowser browser)
         {
-            var step = xB.CreateStep(
+            var step = xB.CreateAsyncStep(
                 "the user views the html report",
                 async (s) => {
                     browser.Load(Pages.HtmlReportPage.Location.PageLocation);

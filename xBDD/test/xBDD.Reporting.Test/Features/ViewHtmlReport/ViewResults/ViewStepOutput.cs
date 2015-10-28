@@ -40,7 +40,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .ThenAsync("the report will show an [Output] link to the left of the step name", async (s) => {
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Output.Link(1));
                 })
-                .RunAsync();
+                .Run();
 		}
 		
 		[ScenarioFact]
@@ -73,20 +73,20 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 					s.OutputFormat = TextFormat.htmlpreview;
 					browser.ElementHasText(Pages.HtmlReportPage.Output.Text(1), output);
                 })
-                .RunAsync();
+                .Run();
 		}
 		
 		[ScenarioFact]
-		public void Code()
+		public async void Code()
 		{
-            xB.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Skip("Not Started");
 		}
 		
 		[ScenarioFact]
-		public void HtmlWithPreview()
+		public async void HtmlWithPreview()
 		{
-            xB.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this)
                 .Skip("Not Started");
 		}
 		

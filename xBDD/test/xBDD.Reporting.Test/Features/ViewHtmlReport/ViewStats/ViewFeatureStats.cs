@@ -57,7 +57,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .And("the failed, red bar should have a width of 33%", (s) => {
 					browser.ElementStyleMatches(Pages.HtmlReportPage.FeatureScenarioStats.FailedBar(7), ".*width: 33\\..*");
                	})
-                .RunAsync();
+                .Run();
 		}
 	}
 }
