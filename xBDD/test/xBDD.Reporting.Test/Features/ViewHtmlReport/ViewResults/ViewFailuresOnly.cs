@@ -1,42 +1,43 @@
-using xBDD.xUnit;
-using Xunit;
-using Xunit.Abstractions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
+//using Xunit;
+//using Xunit.Abstractions;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
-	[Collection("xBDDReportingTest")]
+	[TestClass]
 	public class ViewFailureOnly
 	{
-		private readonly OutputWriter outputWriter;
+		private readonly TestContextWriter outputWriter;
 
-		public ViewFailureOnly(ITestOutputHelper output)
+		public ViewFailureOnly()
 		{
-			outputWriter = new OutputWriter(output);
+			outputWriter = new TestContextWriter();
 		}
 		
-		[ScenarioFact]
-		public async void SingleScenario()
-		{
-			 await xB.CurrentRun.AddScenario(this)
-				.Skip("Not Started");
-		}
-		
-		[ScenarioFact]
-		public async void SingleFeatureMultipleScenarios()
+		[TestMethod]
+		public async Task SingleScenario()
 		{
 			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 		
-		[ScenarioFact]
-		public async void SingleAreaMultipleFeatures()
+		[TestMethod]
+		public async Task SingleFeatureMultipleScenarios()
 		{
 			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
 		
-		[ScenarioFact]
-		public async void MultipleAreas()
+		[TestMethod]
+		public async Task SingleAreaMultipleFeatures()
+		{
+			 await xB.CurrentRun.AddScenario(this)
+				.Skip("Not Started");
+		}
+		
+		[TestMethod]
+		public async Task MultipleAreas()
 		{
 			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");

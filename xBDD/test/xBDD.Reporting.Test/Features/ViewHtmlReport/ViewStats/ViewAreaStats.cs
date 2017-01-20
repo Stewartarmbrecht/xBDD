@@ -1,26 +1,27 @@
-using Xunit;
-using Xunit.Abstractions;
+//using Xunit;
+//using Xunit.Abstractions;
 using xBDD.Browser;
-using xBDD.xUnit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Reporting.Test.Steps;
+using System.Threading.Tasks;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
-    [Collection("xBDDReportingTest")]
+    [TestClass]
 	//  [Description("In order to understand how functionality is organized")]
 	//  [Description("As a report reviewer")]
 	//  [Description("I would like to view the areas in the html report")]
 	public class ViewAreaStats
 	{
-		private readonly OutputWriter outputWriter;
+		private readonly TestContextWriter outputWriter;
 
-		public ViewAreaStats(ITestOutputHelper output)
+		public ViewAreaStats()
 		{
-			outputWriter = new OutputWriter(output);
+			outputWriter = new TestContextWriter();
 		}
 		
-		[ScenarioFact]
-		public async void FailedSkippedAndPassingFeatureStats()
+		[TestMethod]
+		public async Task FailedSkippedAndPassingFeatureStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
@@ -59,8 +60,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                	})
                 .Run();
 		}
-		[ScenarioFact]
-		public async void FailedSkippedAndPassingScenarioStats()
+		[TestMethod]
+		public async Task FailedSkippedAndPassingScenarioStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)

@@ -1,24 +1,25 @@
 
-using Xunit;
-using Xunit.Abstractions;
+//using Xunit;
+//using Xunit.Abstractions;
 using xBDD.Browser;
-using xBDD.xUnit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Reporting.Test.Steps;
+using System.Threading.Tasks;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
-    [Collection("xBDDReportingTest")]
+    [TestClass]
 	public class ViewFeatureStatement
 	{
-		private readonly OutputWriter outputWriter;
+		private readonly TestContextWriter outputWriter;
 
-		public ViewFeatureStatement(ITestOutputHelper output)
+		public ViewFeatureStatement()
 		{
-			outputWriter = new OutputWriter(output);
+			outputWriter = new TestContextWriter();
 		}
 		
-		[ScenarioFact]
-		public async void FullStatement()
+		[TestMethod]
+		public async Task FullStatement()
 		{
 			string featureStatement = "In order to derive some value\r\nAs a actor\r\nI would like to perform some action";
             WebBrowser browser = new WebBrowser(WebDriver.Current);
@@ -34,8 +35,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 }, featureStatement)
                 .Run();
 		}
-		[ScenarioFact]
-		public async void PartialStatement()
+		[TestMethod]
+		public async Task PartialStatement()
 		{
 			string featureStatement = "In order to derive some value\r\nAs a [Missing!]\r\nI would like to [Missing!]";
             WebBrowser browser = new WebBrowser(WebDriver.Current);
@@ -51,8 +52,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 }, featureStatement)
                 .Run();
 		}
-		[ScenarioFact]
-		public async void NoStatement()
+		[TestMethod]
+		public async Task NoStatement()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)

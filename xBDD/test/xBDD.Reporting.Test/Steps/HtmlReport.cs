@@ -1,9 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using Microsoft.Dnx.Runtime;
-using Microsoft.Dnx.Runtime.Infrastructure;
-using Microsoft.Framework.DependencyInjection;
 using xBDD.Model;
 
 namespace xBDD.Reporting.Test.Steps
@@ -208,6 +205,7 @@ namespace xBDD.Reporting.Test.Steps
 
         internal static Step OfASinglePassingScenario(string value = null, string actor = null, string capability = null)
         {
+            System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + "OfASinglePassingScenario Start");
             string path = GetReportPath();
 
             var step = xB.CreateAsyncStep(
@@ -227,6 +225,7 @@ namespace xBDD.Reporting.Test.Steps
                     var htmlReport = await xBDD.CurrentRun.TestRun.WriteToHtml();
                     File.WriteAllText(path, htmlReport);
                 });
+            System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + "OfASinglePassingScenario End");
             return step;
         }
 
@@ -294,9 +293,9 @@ namespace xBDD.Reporting.Test.Steps
 
         private static string GetReportPath()
         {
-            var provider = CallContextServiceLocator.Locator.ServiceProvider;
-            var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
-            var path = appEnv.ApplicationBasePath + "\\TestHtmlReport.html";
+            var location = System.Reflection.Assembly.GetEntryAssembly().Location;
+            var directory = System.IO.Path.GetDirectoryName(location);
+            var path = directory + "\\TestHtmlReport.html";
             return path;
         }
     }

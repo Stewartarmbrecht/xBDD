@@ -1,21 +1,19 @@
 using System.Threading.Tasks;
-using xBDD.xUnit;
-using Xunit;
-using Xunit.Abstractions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace xBDD.Test.Features.Environment
 {
-    [Collection("xBDDTest")]
+    [TestClass]
     public class RunTests
     {
-        private readonly OutputWriter outputWriter;
+        private readonly TestContextWriter outputWriter;
 
-        public RunTests(ITestOutputHelper output)
+        public RunTests()
         {
-            outputWriter = new OutputWriter(output);
+            outputWriter = new TestContextWriter();
         }
 
-        [ScenarioFact]
+        [TestMethod]
         public async Task RunAllTests ()
         {
             await xB.CurrentRun
@@ -24,12 +22,13 @@ namespace xBDD.Test.Features.Environment
                 .Given("a contributor has downloaded the solution")
                 .And("the contributor runs the xBDD\\RunJustTests.ps1 powershell script")
                 .Then("all tests will run")
-				.And("the test results will be written in plain text to the <ProjectName>.TestResults.txt file at the root of each project")
-				.And("the test results will be written in html to the <ProjectName>.TestResults.html file at the root of each project")
-				.And("the output from running the tests will be written to the <ProjectName>.Output.txt file at the root of each project")
-                .Document();
+                .And("the test results will be written in plain text to the <ProjectName>.TestResults.txt file at the root of each project")
+                .And("the test results will be written in html to the <ProjectName>.TestResults.html file at the root of each project")
+                .And("the output from running the tests will be written to the <ProjectName>.Output.txt file at the root of each project")
+                .Skip("No Good Reason");
+                //.Document();
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task RunProjectTests ()
         {
             await xB.CurrentRun
@@ -45,7 +44,7 @@ namespace xBDD.Test.Features.Environment
 				.And("the output from running the tests will be written to the <ProjectName>.Output.txt file at the root of the project")
                 .Document();
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task RunFilteredTests ()
         {
             await xB.CurrentRun

@@ -1,22 +1,20 @@
-using Xunit;
-using Xunit.Abstractions;
 using xBDD.Browser;
-using xBDD.xUnit;
 using xBDD.Reporting.Test.Steps;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
 {
-    [Collection("xBDDReportingTest")]
+    [TestClass]
 	public class CollapseAndExpandAreas
 	{
-		private readonly OutputWriter outputWriter;
+		private readonly TestContextWriter outputWriter;
 
-		public CollapseAndExpandAreas(ITestOutputHelper output)
+		public CollapseAndExpandAreas()
 		{
-			outputWriter = new OutputWriter(output);
+			outputWriter = new TestContextWriter();
 		}
-		[ScenarioFact]
+		[TestMethod]
 		public async Task Collapse()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
@@ -31,14 +29,14 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
                 })
                 .Run();
 		}
-		[ScenarioFact]
-		public async void CollapseAll()
+        [TestMethod]
+        public async Task CollapseAll()
 		{
 			 await xB.CurrentRun.AddScenario(this)
 				.Skip("Not Started");
 		}
-		[ScenarioFact]
-		public async void Expand()
+        [TestMethod]
+        public async Task Expand()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
@@ -52,8 +50,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.CollapsingAndExpanding
                 })
                 .Run();
 		}
-		[ScenarioFact]
-		public async void ExpandAll()
+        [TestMethod]
+        public async Task ExpandAll()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "xBDD.Reporting.Test": {
+      "commandName": "Project",
+      "launchBrowser": true
+    }
+  }
+}

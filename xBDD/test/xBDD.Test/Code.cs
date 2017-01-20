@@ -1,6 +1,6 @@
-﻿using Microsoft.Dnx.Runtime;
-using Microsoft.Dnx.Runtime.Infrastructure;
-using Microsoft.Framework.DependencyInjection;
+﻿//using Microsoft.Dnx.Runtime;
+//using Microsoft.Dnx.Runtime.Infrastructure;
+//using Microsoft.Framework.DependencyInjection;
 using System;
 using System.IO;
 using xBDD.Model;
@@ -12,11 +12,12 @@ namespace xBDD.Test
     {
         public static Step HasTheFollowingScenario(string fileName)
         {
-            var provider = CallContextServiceLocator.Locator.ServiceProvider;
-            var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
+            //var provider = CallContextServiceLocator.Locator.ServiceProvider;
+            //var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
 
             
-            var code = File.ReadAllText(appEnv.ApplicationBasePath + fileName);
+            //var code = File.ReadAllText(appEnv.ApplicationBasePath + fileName);
+            var code = "Need to fix this...";
             var step = xB.CreateStep(
                 "has the following scenarion definition",
                 (s) => { },

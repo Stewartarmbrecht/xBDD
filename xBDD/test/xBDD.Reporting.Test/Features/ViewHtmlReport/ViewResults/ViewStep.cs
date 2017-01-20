@@ -1,26 +1,27 @@
-using Xunit;
-using Xunit.Abstractions;
+//using Xunit;
+//using Xunit.Abstractions;
 using xBDD.Browser;
-using xBDD.xUnit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Reporting.Test.Steps;
+using System.Threading.Tasks;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
-    [Collection("xBDDReportingTest")]
+    [TestClass]
 	//  [Description("In order to understand how functionality is organized")]
 	//  [Description("As a report reviewer")]
 	//  [Description("I would like to view the areas in the html report")]
 	public class ViewStep
 	{
-		private readonly OutputWriter outputWriter;
+		private readonly TestContextWriter outputWriter;
 
-		public ViewStep(ITestOutputHelper output)
+		public ViewStep()
 		{
-			outputWriter = new OutputWriter(output);
+			outputWriter = new TestContextWriter();
 		}
 		
-		[ScenarioFact]
-		public async void Passing()
+		[TestMethod]
+		public async Task Passing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
@@ -41,8 +42,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 })
                 .Run();
 		}
-		[ScenarioFact]
-		public async void Skipped()
+		[TestMethod]
+		public async Task Skipped()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
@@ -62,8 +63,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 })
                 .Run();
 		}
-		[ScenarioFact]
-		public async void Failing()
+		[TestMethod]
+		public async Task Failing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
@@ -74,8 +75,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 })
                 .Run();
 		}
-		[ScenarioFact]
-		public async void WithException()
+		[TestMethod]
+		public async Task WithException()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
@@ -95,8 +96,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				})
 				.Run();
 		}
-		[ScenarioFact]
-		public async void WithInnerException()
+		[TestMethod]
+		public async Task WithInnerException()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)

@@ -1,23 +1,24 @@
-using Xunit;
-using Xunit.Abstractions;
+//using Xunit;
+//using Xunit.Abstractions;
 using xBDD.Browser;
-using xBDD.xUnit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Reporting.Test.Steps;
+using System.Threading.Tasks;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
-    [Collection("xBDDReportingTest")]
+    [TestClass]
 	public class ViewFeature
 	{
-		private readonly OutputWriter outputWriter;
+		private readonly TestContextWriter outputWriter;
 
-		public ViewFeature(ITestOutputHelper output)
+		public ViewFeature()
 		{
-			outputWriter = new OutputWriter(output);
+			outputWriter = new TestContextWriter();
 		}
 		
-		[ScenarioFact]
-		public async void Passing()
+		[TestMethod]
+		public async Task Passing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
@@ -35,8 +36,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				})
                 .Run();
 		}
-		[ScenarioFact]
-		public async void Skipped()
+		[TestMethod]
+		public async Task Skipped()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
@@ -53,8 +54,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				})
                 .Run();
 		}
-		[ScenarioFact]
-		public async void Failing()
+		[TestMethod]
+		public async Task Failing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)

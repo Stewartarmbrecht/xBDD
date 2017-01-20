@@ -1,9 +1,7 @@
-﻿using Microsoft.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
-using Microsoft.Framework.DependencyInjection;
-using Microsoft.AspNet.Hosting;
-using Microsoft.Dnx.Runtime.Infrastructure;
-using Microsoft.Dnx.Runtime;
+//using Microsoft.AspNetCore.Hosting;
+//using Microsoft.Framework.DependencyInjection;
 
 namespace xBDD.Reporting.Database.Core
 {
@@ -13,7 +11,7 @@ namespace xBDD.Reporting.Database.Core
 
         public DatabaseContext()
         {
-            connectionStringName = "Data:DefaultConnection:ConnectionString";
+            connectionStringName = "Filename=./xBDD.db";
         }
         public DatabaseContext(string connectionStringName)
         {
@@ -21,24 +19,7 @@ namespace xBDD.Reporting.Database.Core
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if(Startup.Configuration == null)
-            {
-                var provider = CallContextServiceLocator.Locator.ServiceProvider;
-                var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
-                Console.WriteLine("Currently using the " + appEnv.Configuration + " configuration.");
-                var hostEnv = new HostingEnvironment();
-                Console.WriteLine("Writing command line arguments");
-                var environment = Environment.GetEnvironmentVariable("Environment");
-
-                if (environment == null)
-                    hostEnv.EnvironmentName = "Development";
-                else
-                    hostEnv.EnvironmentName = environment;
-                Console.WriteLine("The hosting environment was set to " + hostEnv.EnvironmentName);
-                var statup = new Startup(hostEnv, appEnv);
-            }
-            var connectionString = Startup.Configuration[connectionStringName];
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseSqlite(connectionStringName);
         }
 
         public bool EnsureDatabase()

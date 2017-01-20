@@ -1,42 +1,48 @@
-using Xunit;
-using Xunit.Abstractions;
+//using Xunit;
+//using Xunit.Abstractions;
 using xBDD.Browser;
-using xBDD.xUnit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Reporting.Test.Steps;
+using System.Threading.Tasks;
+using System;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
-    [Collection("xBDDReportingTest")]
+    [TestClass]
 	//  [Description("In order to understand how functionality is organized")]
 	//  [Description("As a report reviewer")]
 	//  [Description("I would like to view the areas in the html report")]
 	public class ViewArea
 	{
-		private readonly OutputWriter outputWriter;
+		private readonly TestContextWriter outputWriter;
 
-		public ViewArea(ITestOutputHelper output)
+		public ViewArea()
 		{
-			outputWriter = new OutputWriter(output);
+			outputWriter = new TestContextWriter();
 		}
 		
-		[ScenarioFact]
-		public async void Passing()
+		[TestMethod]
+		public async Task Passing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario())
                 .When(WebUser.ViewsReport(browser))
                 .ThenAsync("the report will show the area name in green to indicate all features passed", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.NameGreen(1));
+                    System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " Then Start");
+                    await browser.WaitTillVisible(Pages.HtmlReportPage.Area.NameGreen(1));
 					browser.ElementHasText(Pages.HtmlReportPage.Area.Name(1), "My Area 1");
+                    System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " Then End");
                 })
 				.AndAsync("the features under the area will be collapsed because it passed", async (s) => {
-					await browser.WaitTillNotVisible(Pages.HtmlReportPage.Area.Features(1));
-				})
+                    System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " And Start");
+                    await browser.WaitTillNotVisible(Pages.HtmlReportPage.Area.Features(1));
+                    System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " And End");
+                })
                 .Run();
 		}
-		[ScenarioFact]
-		public async void Skipped()
+		[TestMethod]
+		public async Task Skipped()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
@@ -50,8 +56,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				})
                 .Run();
 		}
-		[ScenarioFact]
-		public async void Failing()
+		[TestMethod]
+		public async Task Failing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)

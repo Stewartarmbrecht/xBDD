@@ -1,16 +1,16 @@
-﻿using Xunit.Abstractions;
-using xBDD.xUnit;
+﻿//using Xunit.Abstractions;
+//using xBDD.xUnit;
 
 namespace xBDD.Test.Features
 {
     public class Feature
     {
-        public readonly OutputWriter outputWriter;
+        //public readonly OutputWriter outputWriter;
 
-        public Feature(ITestOutputHelper output)
-        {
-            outputWriter = new OutputWriter(output);
-        }
+        //public Feature(ITestOutputHelper output)
+        //{
+        //    outputWriter = new OutputWriter(output);
+        //}
 
     }
 }

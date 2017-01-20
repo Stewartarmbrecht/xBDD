@@ -1,26 +1,24 @@
 using System;
 using System.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Test;
-using xBDD.xUnit;
-using Xunit;
-using Xunit.Abstractions;
 
 namespace xBDD.Core.Test.Features.DefineScenarios
 {
-	[Collection("xBDDCoreTest")]
+	[TestClass]
 	[InOrderTo("increase the efficiency and consistency of building scenarios")]
 	[AsA("developer")]
 	[IWouldLikeTo("use a library of steps that decreases the effort of defining scenarios")]
 	public class DefineAScenarioWithReusableSteps
 	{
-		private readonly OutputWriter outputWriter;
+		private readonly TestContextWriter outputWriter;
 
-		public DefineAScenarioWithReusableSteps(ITestOutputHelper output)
+		public DefineAScenarioWithReusableSteps()
 		{
-			outputWriter = new OutputWriter(output);
+			outputWriter = new TestContextWriter();
 		}
 		
-		[ScenarioFact]
+		[TestMethod]
 		public async void WithSynchronousExecution()
 		{
 			StringBuilder sb = new StringBuilder();
@@ -57,19 +55,19 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 })
                 .Then("the test run will have the following structure", (s) => {
 					var steps = s.MultilineParameter.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-					Assert.Equal(steps[1], testRunBuilder.TestRun.Areas[0].Name);
-					Assert.Equal(steps[3], testRunBuilder.TestRun.Areas[0].Features[0].Name);
-					Assert.Equal(steps[5].Substring(9,steps[5].Length - 9), testRunBuilder.TestRun.Areas[0].Features[0].Value);
-					Assert.Equal(steps[6].Substring(5,steps[6].Length - 5), testRunBuilder.TestRun.Areas[0].Features[0].Actor);
-					Assert.Equal(steps[7].Substring(16,steps[7].Length - 16), testRunBuilder.TestRun.Areas[0].Features[0].Capability);
-					Assert.Equal(steps[9], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Name);
-					Assert.Equal(steps[11], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[0].FullName);
-					Assert.Equal(steps[12], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[1].FullName);
-					Assert.Equal(steps[13], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[2].FullName);
+					Assert.AreEqual(steps[1], testRunBuilder.TestRun.Areas[0].Name);
+					Assert.AreEqual(steps[3], testRunBuilder.TestRun.Areas[0].Features[0].Name);
+					Assert.AreEqual(steps[5].Substring(9,steps[5].Length - 9), testRunBuilder.TestRun.Areas[0].Features[0].Value);
+					Assert.AreEqual(steps[6].Substring(5,steps[6].Length - 5), testRunBuilder.TestRun.Areas[0].Features[0].Actor);
+					Assert.AreEqual(steps[7].Substring(16,steps[7].Length - 16), testRunBuilder.TestRun.Areas[0].Features[0].Capability);
+					Assert.AreEqual(steps[9], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Name);
+					Assert.AreEqual(steps[11], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[0].FullName);
+					Assert.AreEqual(steps[12], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[1].FullName);
+					Assert.AreEqual(steps[13], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[2].FullName);
 				}, sb.ToString())
                 .Run();
 		}
-		[ScenarioFact]
+		[TestMethod]
 		public async void WithAsynchronousExecution()
 		{
 			StringBuilder sb = new StringBuilder();
@@ -101,12 +99,12 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 })
                 .Then("the test run will have the following structure", (s) => {
 					var steps = s.MultilineParameter.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-					Assert.Equal(steps[1], testRunBuilder.TestRun.Areas[0].Name);
-					Assert.Equal(steps[3], testRunBuilder.TestRun.Areas[0].Features[0].Name);
-					Assert.Equal(steps[5], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Name);
-					Assert.Equal(steps[7], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[0].FullName);
-					Assert.Equal(steps[8], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[1].FullName);
-					Assert.Equal(steps[9], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[2].FullName);
+					Assert.AreEqual(steps[1], testRunBuilder.TestRun.Areas[0].Name);
+					Assert.AreEqual(steps[3], testRunBuilder.TestRun.Areas[0].Features[0].Name);
+					Assert.AreEqual(steps[5], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Name);
+					Assert.AreEqual(steps[7], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[0].FullName);
+					Assert.AreEqual(steps[8], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[1].FullName);
+					Assert.AreEqual(steps[9], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[2].FullName);
 				}, sb.ToString())
                 .Run();
 		}

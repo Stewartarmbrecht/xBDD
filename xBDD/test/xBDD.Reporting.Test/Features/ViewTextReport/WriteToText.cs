@@ -1,21 +1,21 @@
 ﻿using System.Runtime.CompilerServices;
-using Xunit;
-using Xunit.Abstractions;
+//using Xunit;
+//using Xunit.Abstractions;
 using xBDD.Test;
-using xBDD.xUnit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Reporting.Test.Steps;
 using System.Threading.Tasks;
 
 namespace xBDD.Reporting.Test.Features.ViewTextReport
 {
-    [Collection("xBDDReportingTest")]
+    [TestClass]
     public class WriteToText
     {
-        private readonly OutputWriter outputWriter;
+        private readonly TestContextWriter outputWriter;
 
-        public WriteToText(ITestOutputHelper output)
+        public WriteToText()
         {
-            outputWriter = new OutputWriter(output);
+            outputWriter = new TestContextWriter();
         }
 
         public async Task Run(IExecute<string> action, bool writeActual = false, [CallerMemberName]string methodName = "")
@@ -35,62 +35,62 @@ namespace xBDD.Reporting.Test.Features.ViewTextReport
                 .Run();
         }
 
-        [ScenarioFact]
+        [TestMethod]
         public async Task WriteEmtpyTestRun()
         {
             await Run(new  WriteToTextScenarios.EmptyTestRun());
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task WriteSkippedEmptyScenario()
         {
             await Run(new  WriteToTextScenarios.SkippedEmptyScenario());
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task WriteRunEmptyScenario()
         {
             await Run(new  WriteToTextScenarios.RunEmptyScenario());
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task WriteSkippedScenarioWithSteps()
         {
             await Run(new  WriteToTextScenarios.SkippedScenarioWithSteps());
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task WriteRunScenarioWithSteps()
         {
             await Run(new  WriteToTextScenarios.RunScenarioWithSteps());
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task WriteRunScenarioWithSkippedStep()
         {
             await Run(new  WriteToTextScenarios.RunScenarioWithSkippedStep());
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task WriteRunScenarioWithNotImplementedStep()
         {
             await Run(new  WriteToTextScenarios.RunScenarioWithNotImplementedStep());
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task WriteRunScenarioWithFailedStep()
         {
             await Run(new  WriteToTextScenarios.RunScenarioWithFailedStep());
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task WriteRunMultipleScenariosSameFeature()
         {
             await Run(new  WriteToTextScenarios.RunMultipleScenariosSameFeature());
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task WriteRunMultipleFeaturesSameArea()
         {
             await Run(new  WriteToTextScenarios.RunMultipleFeaturesSameArea());
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task WriteRunMultipleAreas()
         {
             await Run(new  WriteToTextScenarios.RunMultipleAreas());
         }
-        [ScenarioFact]
+        [TestMethod]
         public async Task WriteRunScenarioWithStepWithMultilineParameter()
         {
             await Run(new  WriteToTextScenarios.RunScenarioWithStepWithMultilineParameter());

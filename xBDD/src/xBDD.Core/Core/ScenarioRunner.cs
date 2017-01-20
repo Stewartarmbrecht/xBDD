@@ -130,7 +130,7 @@ namespace xBDD.Core
                         }
                     }
                 }
-                catch(Exception ex)
+                catch
                 {
                     foreach(var step in scenario.Steps)
                     {

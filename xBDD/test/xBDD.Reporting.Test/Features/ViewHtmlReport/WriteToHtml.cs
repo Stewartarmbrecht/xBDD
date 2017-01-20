@@ -1,21 +1,21 @@
-using Xunit;
-using Xunit.Abstractions;
-using xBDD.xUnit;
+//using Xunit;
+//using Xunit.Abstractions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport
 {
-    [Collection("xBDDReportingTest")]
+    [TestClass]
     public class WriteToHtml
     {
-        private readonly OutputWriter outputWriter;
+        private readonly TestContextWriter outputWriter;
 
-        public WriteToHtml(ITestOutputHelper output)
+        public WriteToHtml()
         {
-            outputWriter = new OutputWriter(output);
+            outputWriter = new TestContextWriter();
         }
         
-        [ScenarioFact]
+        [TestMethod]
         public async Task StandardFullReport()
         {
             Wrapper<string> html = new Wrapper<string>();            
@@ -28,7 +28,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport
                     html.Object = await xB.CurrentRun.TestRun.WriteToHtml();
                  })
                 .Then("the report variable will be a string that contains the entire HTML report that can be written to a file, or sent via email, or whatever...", (s) => { 
-                    Assert.StartsWith("<!DOCTYPE html>", html.Object);
+                    Assert.AreEqual(html.Object.IndexOf("<!DOCTYPE html>"), 0);
                  })
                 .Run();
         }

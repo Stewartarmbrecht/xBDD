@@ -1,23 +1,24 @@
-using Xunit;
-using Xunit.Abstractions;
+//using Xunit;
+//using Xunit.Abstractions;
 using xBDD.Browser;
-using xBDD.xUnit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Reporting.Test.Steps;
+using System.Threading.Tasks;
 
 namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 {
-    [Collection("xBDDReportingTest")]
+    [TestClass]
 	public class ViewStepOutput
 	{
-		private readonly OutputWriter outputWriter;
+		private readonly TestContextWriter outputWriter;
 
-		public ViewStepOutput(ITestOutputHelper output)
+		public ViewStepOutput()
 		{
-			outputWriter = new OutputWriter(output);
+			outputWriter = new TestContextWriter();
 		}
 		
-		[ScenarioFact]
-		public async void CollapsedByDefault()
+		[TestMethod]
+		public async Task CollapsedByDefault()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
 			string output = "Here\r\n is\r\n my\r\n output!";
@@ -43,8 +44,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .Run();
 		}
 		
-		[ScenarioFact]
-		public async void GeneralText()
+		[TestMethod]
+		public async Task GeneralText()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
 			string output = "Here\r\n is\r\n my\r\n output!";
@@ -76,15 +77,15 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                 .Run();
 		}
 		
-		[ScenarioFact]
-		public async void Code()
+		[TestMethod]
+		public async Task Code()
 		{
             await xB.CurrentRun.AddScenario(this)
                 .Skip("Not Started");
 		}
 		
-		[ScenarioFact]
-		public async void HtmlWithPreview()
+		[TestMethod]
+		public async Task HtmlWithPreview()
 		{
             await xB.CurrentRun.AddScenario(this)
                 .Skip("Not Started");
