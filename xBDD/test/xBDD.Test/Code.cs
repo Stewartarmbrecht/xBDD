@@ -16,8 +16,8 @@ namespace xBDD.Test
             //var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
 
             
-            //var code = File.ReadAllText(appEnv.ApplicationBasePath + fileName);
-            var code = "Need to fix this...";
+            var code = File.ReadAllText(System.IO.Directory.GetCurrentDirectory() + "..\\..\\.." + fileName);
+            //var code = "Need to fix this...";
             var step = xB.CreateStep(
                 "has the following scenarion definition",
                 (s) => { },

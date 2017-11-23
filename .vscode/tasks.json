@@ -7,7 +7,11 @@
             "type": "process",
             "args": [
                 "build",
+<<<<<<< HEAD
                 "${workspaceFolder}/xBDD/test/xBDD.Core.Test/xBDD.Core.Test.csproj"
+=======
+                "${workspaceFolder}/xBDD/test/xBDD.Reporting.Test/xBDD.Reporting.Test.csproj"
+>>>>>>> ce17f1f1dc05e092c69b93b592901c0704482c56
             ],
             "problemMatcher": "$msCompile"
         }

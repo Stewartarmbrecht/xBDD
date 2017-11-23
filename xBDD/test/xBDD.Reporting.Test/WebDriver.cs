@@ -1,6 +1,7 @@
 using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
+using OpenQA.Selenium.Chrome;
 namespace xBDD.Reporting.Test
 
 {
@@ -16,7 +17,11 @@ namespace xBDD.Reporting.Test
 				{
 					if(webDriver == null)
 					{
-						webDriver = new PhantomJSDriver();
+			            System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " Start Load PhantomJSDriver");
+						//webDriver = new ChromeDriver(".\\");
+
+						webDriver = new PhantomJSDriver(".\\");
+			            System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " End Load PhantomJSDriver");
 					}
 					return webDriver;
 				}

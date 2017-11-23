@@ -96,6 +96,7 @@ namespace xBDD.Reporting.Test.Steps
                 "the test results of a full test run with all outcomes",
                 async (s) =>
                 {
+                    System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " Build and Run Full Test Start");
                     int stepCounter = 0;
                     int scenarioCounter = 0;
                     int featureCounter = 0;
@@ -137,6 +138,7 @@ namespace xBDD.Reporting.Test.Steps
                     }
                     var htmlReport = await xBDD.CurrentRun.TestRun.WriteToHtml();
                     File.WriteAllText(path, htmlReport);
+                    System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " Build and Run Full Test End");
                 });
             return step;
         }
@@ -293,9 +295,11 @@ namespace xBDD.Reporting.Test.Steps
 
         private static string GetReportPath()
         {
+            System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " GetReportPath Start");
             var location = System.Reflection.Assembly.GetEntryAssembly().Location;
             var directory = System.IO.Path.GetDirectoryName(location);
             var path = directory + "\\TestHtmlReport.html";
+            System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " GetReportPath End");
             return path;
         }
     }
