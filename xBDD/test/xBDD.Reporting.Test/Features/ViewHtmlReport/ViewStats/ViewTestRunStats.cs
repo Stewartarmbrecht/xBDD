@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Reporting.Test.Steps;
 using System.Threading.Tasks;
 
-namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
+namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewStats
 {
     [TestClass]
 	//  [Description("In order to understand how functionality is organized")]

@@ -9,19 +9,19 @@ namespace xBDD.Test.Features.Environment
     [TestClass]
     public class PublishTestResultsToCentralDatabase
     {
-        //private readonly OutputWriter outputWriter;
+        private readonly TestContextWriter outputWriter;
 
-        //public PublishTestResultsToCentralDatabase(ITestOutputHelper output)
-        //{
-        //    outputWriter = new OutputWriter(output);
-        //}
+        public PublishTestResultsToCentralDatabase()
+        {
+            outputWriter = new TestContextWriter();
+        }
 
         [TestMethod]
         public async Task PublishAfterTestRun ()
         {
             await xB.CurrentRun
                 .AddScenario(this)
-                //.SetOutputWriter(outputWriter)
+                .SetOutputWriter(outputWriter)
                 .Given(xB.CreateStep("the developer sets the solution to the Publish configuration"))
                 .And(xB.CreateStep("the developer defines a valid connection string for an environment variable named 'Data:DefaultConnection:ConnectionString'"))
                 .When(xB.CreateStep("the developer runs the tests"))
@@ -33,7 +33,7 @@ namespace xBDD.Test.Features.Environment
         {
             await xB.CurrentRun
                 .AddScenario(this)
-                //.SetOutputWriter(outputWriter)
+                .SetOutputWriter(outputWriter)
                 .When(xB.CreateStep("the developer pushes a commit to the master branch"))
                 .Then(xB.CreateStep("the CI process should build the solution, run the tests, and publish the results to a central database"))
                 .Run();

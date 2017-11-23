@@ -23,7 +23,7 @@ namespace xBDD.Core
 
         private void WriteStep(Step step)
         {
-            outputWriter.WriteLine("    " + step.Name);
+            outputWriter.WriteLine("    " + step.FullName);
             if (step.MultilineParameter != null)
             {
                 string[] lines = Regex.Split(step.MultilineParameter, "\r\n");

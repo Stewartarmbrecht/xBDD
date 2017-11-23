@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Test;
+using System.Threading.Tasks;
 
 namespace xBDD.Core.Test.Features.DefineScenarios
 {
@@ -19,7 +20,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
 		}
 		
 		[TestMethod]
-		public async void WithSynchronousExecution()
+		public async Task WithSynchronousExecution()
 		{
 			StringBuilder sb = new StringBuilder();
 			sb.AppendLine("Area:");
@@ -68,7 +69,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 .Run();
 		}
 		[TestMethod]
-		public async void WithAsynchronousExecution()
+		public async Task WithAsynchronousExecution()
 		{
 			StringBuilder sb = new StringBuilder();
 			sb.AppendLine("Area:");
