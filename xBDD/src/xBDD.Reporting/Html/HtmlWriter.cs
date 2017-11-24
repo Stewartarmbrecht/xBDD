@@ -342,7 +342,7 @@ namespace xBDD.Reporting.Html
         {
             if(scenario.Feature.Actor != null || scenario.Feature.Value != null || scenario.Feature.Capability != null)
             {
-                var statement = $"In order to {scenario.Feature.Value??"[Missing!]"}\r\nAs a {scenario.Feature.Actor??"[Missing!]"}\r\nI would like to {scenario.Feature.Capability??"[Missing!]"}";
+                var statement = $"In order to {scenario.Feature.Value??"[Missing!]"}{System.Environment.NewLine}As a {scenario.Feature.Actor??"[Missing!]"}{System.Environment.NewLine}I would like to {scenario.Feature.Capability??"[Missing!]"}";
                 WriteTag("pre", sb, 5, "feature-statement", statement, true, $"feature-{featureCounter}-statement");
             }
         }
@@ -553,7 +553,7 @@ namespace xBDD.Reporting.Html
                 stepNumber, 
                 step.MultilineParameter.HtmlEncode(), 
                 step.MultilineParameter
-                .Replace("\r\n", " \\\r\n")
+                .Replace(System.Environment.NewLine, " \\" + System.Environment.NewLine)
                 .Replace(":", "\\:")
                 .Replace("/", "\\/")
                 .Replace("!", "\\!")
@@ -609,7 +609,7 @@ namespace xBDD.Reporting.Html
                 stepNumber, 
                 step.Output.HtmlEncode(), 
                 step.Output
-                .Replace("\r\n", " \\\r\n")
+                .Replace(System.Environment.NewLine, " \\"+System.Environment.NewLine)
                 .Replace(":", "\\:")
                 .Replace("/", "\\/")
                 .Replace("!", "\\!")

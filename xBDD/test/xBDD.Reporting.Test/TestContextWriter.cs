@@ -6,6 +6,7 @@ namespace xBDD.Reporting.Test
     {
         public void WriteLine(string text)
         {
+            text = text.Replace("{", "{{").Replace("}","}}");
             Logger.LogMessage(text);
         }
     }

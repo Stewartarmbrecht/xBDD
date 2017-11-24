@@ -21,7 +21,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		[TestMethod]
 		public async Task FullStatement()
 		{
-			string featureStatement = "In order to derive some value\r\nAs a actor\r\nI would like to perform some action";
+			string featureStatement = "In order to derive some value"+System.Environment.NewLine+"As a actor"+System.Environment.NewLine+"I would like to perform some action";
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario("derive some value", "actor", "perform some action"))
@@ -38,7 +38,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		[TestMethod]
 		public async Task PartialStatement()
 		{
-			string featureStatement = "In order to derive some value\r\nAs a [Missing!]\r\nI would like to [Missing!]";
+			string featureStatement = $"In order to derive some value{System.Environment.NewLine}As a [Missing!]{System.Environment.NewLine}I would like to [Missing!]";
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario("derive some value"))

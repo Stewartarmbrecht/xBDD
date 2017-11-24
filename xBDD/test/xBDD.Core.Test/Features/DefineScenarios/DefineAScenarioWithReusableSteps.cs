@@ -42,11 +42,14 @@ namespace xBDD.Core.Test.Features.DefineScenarios
 			sb.AppendLine("When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015");
 			sb.AppendLine("Then you should get back a single holiday that is St. Patrick's Day");
 
+			var separator = System.IO.Path.DirectorySeparatorChar;
+			var scenarioPath = $"{separator}Features{separator}DefineScenarios{separator}SampleCode{separator}GetHolidays.cs";
+
 			var testRunBuilder = new CoreFactory().CreateTestRunBuilder(null);
             await xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Given(Code.HasTheFollowingScenario("\\Features\\DefineScenarios\\SampleCode\\GetHolidays.cs"))
+                .Given(Code.HasTheFollowingScenario(scenarioPath))
                 .When("the scenario is executed", (s) =>
                 {
 					var currentTestRun = xB.CurrentRun;
@@ -55,7 +58,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
 					xB.CurrentRun = currentTestRun;
                 })
                 .Then("the test run will have the following structure", (s) => {
-					var steps = s.MultilineParameter.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+					var steps = s.MultilineParameter.Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 					Assert.AreEqual(steps[1], testRunBuilder.TestRun.Areas[0].Name);
 					Assert.AreEqual(steps[3], testRunBuilder.TestRun.Areas[0].Features[0].Name);
 					Assert.AreEqual(steps[5].Substring(9,steps[5].Length - 9), testRunBuilder.TestRun.Areas[0].Features[0].Value);
@@ -86,11 +89,14 @@ namespace xBDD.Core.Test.Features.DefineScenarios
 			sb.AppendLine("When the client gets to the account details resource 'http://<site>/api/Accounts/99'");
 			sb.AppendLine("Then the client should get a 401 response");
 
+			var seperator = System.IO.Path.DirectorySeparatorChar;
+			var scenarioPath = $"{seperator}Features{seperator}DefineScenarios{seperator}SampleCode{seperator}GetAccountDetails.cs";
+
 			var testRunBuilder = new CoreFactory().CreateTestRunBuilder(null);
             await xB.CurrentRun
                 .AddScenario(this)
                 .SetOutputWriter(outputWriter)
-                .Given(Code.HasTheFollowingScenario("\\Features\\DefineScenarios\\SampleCode\\GetAccountDetails.cs"))
+                .Given(Code.HasTheFollowingScenario(scenarioPath))
                 .WhenAsync("the scenario is excuted", async (s) =>
                 {
 					var currentTestRun = xB.CurrentRun;
@@ -99,7 +105,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
 					xB.CurrentRun = currentTestRun;
                 })
                 .Then("the test run will have the following structure", (s) => {
-					var steps = s.MultilineParameter.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+					var steps = s.MultilineParameter.Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 					Assert.AreEqual(steps[1], testRunBuilder.TestRun.Areas[0].Name);
 					Assert.AreEqual(steps[3], testRunBuilder.TestRun.Areas[0].Features[0].Name);
 					Assert.AreEqual(steps[5], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Name);

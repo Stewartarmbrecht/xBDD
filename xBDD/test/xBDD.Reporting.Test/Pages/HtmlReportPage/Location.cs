@@ -16,7 +16,7 @@ namespace xBDD.Reporting.Test.Pages.HtmlReportPage
                 {
                     var location = System.Reflection.Assembly.GetEntryAssembly().Location;
                     var directory = System.IO.Path.GetDirectoryName(location);
-                    var path = "file:///" + directory + "\\TestHtmlReport.html";
+                    var path = "file:///" + directory + $"{System.IO.Path.DirectorySeparatorChar}TestHtmlReport.html";
                     pageLocation = new PageLocation("Test Html Report", path);
                 }
                 return pageLocation;

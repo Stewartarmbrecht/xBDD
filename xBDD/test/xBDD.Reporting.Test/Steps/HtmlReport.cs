@@ -298,7 +298,7 @@ namespace xBDD.Reporting.Test.Steps
             System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " GetReportPath Start");
             var location = System.Reflection.Assembly.GetEntryAssembly().Location;
             var directory = System.IO.Path.GetDirectoryName(location);
-            var path = directory + "\\TestHtmlReport.html";
+            var path = directory + $"{System.IO.Path.DirectorySeparatorChar}TestHtmlReport.html";
             System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " GetReportPath End");
             return path;
         }

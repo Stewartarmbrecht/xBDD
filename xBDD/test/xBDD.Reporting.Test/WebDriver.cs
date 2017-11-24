@@ -20,7 +20,7 @@ namespace xBDD.Reporting.Test
 			            System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " Start Load PhantomJSDriver");
 						//webDriver = new ChromeDriver(".\\");
 
-						webDriver = new PhantomJSDriver(".\\");
+						webDriver = new PhantomJSDriver($".{System.IO.Path.DirectorySeparatorChar}");
 			            System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " End Load PhantomJSDriver");
 					}
 					return webDriver;

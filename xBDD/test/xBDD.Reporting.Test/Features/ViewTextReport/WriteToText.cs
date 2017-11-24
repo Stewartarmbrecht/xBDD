@@ -22,16 +22,19 @@ namespace xBDD.Reporting.Test.Features.ViewTextReport
         {
             var actionName = action.GetType().Name;
             Wrapper<string> text = new Wrapper<string>();
+			var seperator = System.IO.Path.DirectorySeparatorChar;
+			var scenarioPath = $"{seperator}Features{seperator}ViewTextReport{seperator}WriteToTextScenarios{seperator}";
+
             await xB.CurrentRun
                 .AddScenario(this, methodName)
                 .SetOutputWriter(outputWriter)
-                .Given(Code.HasTheFollowingScenario("\\Features\\ViewTextReport\\WriteToTextScenarios\\" + actionName + ".cs"))
+                .Given(Code.HasTheFollowingScenario(scenarioPath + actionName + ".cs"))
                 .When(Code.IsExecuted(async (s) =>
                 {
                     text.Object = await action.Execute();
                 }))
                 .Then(TextReport.ShouldMatch(
-                    "\\Features\\ViewTextReport\\WriteToTextScenarios\\" + actionName + ".txt", text, writeActual))
+                    scenarioPath + actionName + ".txt", text, writeActual))
                 .Run();
         }
 

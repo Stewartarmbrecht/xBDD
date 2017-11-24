@@ -26,7 +26,7 @@ namespace xBDD.Core
             outputWriter.WriteLine("    " + step.FullName);
             if (step.MultilineParameter != null)
             {
-                string[] lines = Regex.Split(step.MultilineParameter, "\r\n");
+                string[] lines = Regex.Split(step.MultilineParameter, System.Environment.NewLine);
                 for(int i =0; i < lines.Length; i++)
                 {
                     if (i == lines.Length - 1 && lines[i].Length == 0)

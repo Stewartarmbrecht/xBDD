@@ -91,7 +91,7 @@ namespace xBDD.Reporting.TextFile
             sb.Append("\t\t\t\t   Message: ");
             sb.AppendLine(exception.Message);
             sb.Append("\t\t\t\t     Stack: ");
-            string[] lines = Regex.Split(exception.StackTrace, "\r\n");
+            string[] lines = Regex.Split(exception.StackTrace, System.Environment.NewLine);
             for (int i = 0; i < lines.Length; i++)
             {
                 if (i == 0)
@@ -111,7 +111,7 @@ namespace xBDD.Reporting.TextFile
 
         private void WriteMultilineParameter(string multilineParameter, StringBuilder sb)
         {
-            string[] lines = Regex.Split(multilineParameter, "\r\n");
+            string[] lines = Regex.Split(multilineParameter, System.Environment.NewLine);
             for (int i = 0; i < lines.Length; i++)
             {
                 if (i == lines.Length - 1 && lines[i].Length == 0)

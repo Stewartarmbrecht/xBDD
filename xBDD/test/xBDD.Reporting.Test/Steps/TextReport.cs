@@ -15,9 +15,9 @@ namespace xBDD.Reporting.Test.Steps
             string extension = "txt", TextFormat format = TextFormat.text)
         {
             var directory = System.AppContext.BaseDirectory;
-            directory = directory.Substring(0, directory.LastIndexOf('\\'));
-            directory = directory.Substring(0, directory.LastIndexOf('\\'));
-            directory = directory.Substring(0, directory.LastIndexOf('\\'));
+            // directory = directory.Substring(0, directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar));
+            // directory = directory.Substring(0, directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar));
+            // directory = directory.Substring(0, directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar));
             var templateFilePath = directory + templateFile;
 
             bool createTemplate = false;

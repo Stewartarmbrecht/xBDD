@@ -15,8 +15,13 @@ namespace xBDD.Test
             //var provider = CallContextServiceLocator.Locator.ServiceProvider;
             //var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
 
+            var path = System.IO.Directory.GetCurrentDirectory() + "..\\..\\.." + fileName;
+			if(System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.OSX))
+			{
+                path = System.IO.Directory.GetCurrentDirectory() + "//..//..//.." + fileName;
+            }
             
-            var code = File.ReadAllText(System.IO.Directory.GetCurrentDirectory() + "..\\..\\.." + fileName);
+            var code = File.ReadAllText(path);
             //var code = "Need to fix this...";
             var step = xB.CreateStep(
                 "has the following scenarion definition",

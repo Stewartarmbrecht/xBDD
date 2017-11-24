@@ -29,6 +29,7 @@
     <None Update="Features\ViewTextReport\WriteToTextScenarios\SkippedEmptyScenario.txt" CopyToOutputDirectory="PreserveNewest" />
     <None Update="Features\ViewTextReport\WriteToTextScenarios\SkippedScenarioWithSteps.txt" CopyToOutputDirectory="PreserveNewest" />
     <None Update="phantomjs.exe" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="phantomjs" CopyToOutputDirectory="PreserveNewest" />
     <None Update="chromedriver.exe" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 

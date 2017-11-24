@@ -21,7 +21,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async Task CollapsedByDefault()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-			string output = "Here\r\n is\r\n my\r\n output!";
+			string output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
 			var format = TextFormat.text;
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAStepWithOutput(output, format))
@@ -48,7 +48,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 		public async Task GeneralText()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-			string output = "Here\r\n is\r\n my\r\n output!";
+			string output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
 			var format = TextFormat.text;
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAStepWithOutput(output, format))
