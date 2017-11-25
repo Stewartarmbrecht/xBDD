@@ -15,7 +15,7 @@ namespace xBDD.Test
             //var provider = CallContextServiceLocator.Locator.ServiceProvider;
             //var appEnv = provider.GetRequiredService<IApplicationEnvironment>();
 
-            var path = System.IO.Directory.GetCurrentDirectory() + "..\\..\\.." + fileName;
+            var path = System.IO.Directory.GetCurrentDirectory() + "..\\..\\..\\.." + fileName;
 			if(System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.OSX))
 			{
                 path = System.IO.Directory.GetCurrentDirectory() + "//..//..//.." + fileName;
