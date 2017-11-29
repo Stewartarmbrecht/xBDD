@@ -10,7 +10,7 @@ namespace xBDD.Reporting.Test
         [AssemblyCleanup()]
         public static void TestRunComplete()
         {
-            //xB.CurrentRun.SaveToDatabase();
+            xB.CurrentRun.TestRun.SaveToDatabase(null);
             WebDriver.Close();
         }
     }
