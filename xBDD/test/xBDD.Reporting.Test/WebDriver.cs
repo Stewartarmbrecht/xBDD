@@ -2,8 +2,9 @@ using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
 using OpenQA.Selenium.Chrome;
-namespace xBDD.Reporting.Test
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+namespace xBDD.Reporting.Test
 {
 	public class WebDriver
 	{
@@ -28,14 +29,16 @@ namespace xBDD.Reporting.Test
 			}
 		} 
 		
+		[AssemblyCleanup()]
 		public static void Close()
 		{
 			if(webDriver != null)
 			{
-				Console.WriteLine("Shutting down PhantomJSDriver.");
+				System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " Closing, Quiting, and Disposing Start");
 				webDriver.Close();
 				webDriver.Quit();
 				webDriver.Dispose();
+				System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " Closing, Quiting, and Disposing End");
 			}
 		}
 	}

@@ -25,8 +25,8 @@ namespace xBDD.Test.Features.Environment
                 .And("the test results will be written in plain text to the <ProjectName>.TestResults.txt file at the root of each project")
                 .And("the test results will be written in html to the <ProjectName>.TestResults.html file at the root of each project")
                 .And("the output from running the tests will be written to the <ProjectName>.Output.txt file at the root of each project")
-                .Skip("No Good Reason");
-                //.Document();
+                //.Skip("No Good Reason");
+                .Document();
         }
         [TestMethod]
         public async Task RunProjectTests ()

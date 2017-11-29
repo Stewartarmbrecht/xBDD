@@ -18,6 +18,7 @@ namespace xBDD.Core
             this.factory = factory;
             stepExecutor = factory.CreateStepExecutor(scenario);
             statsCascader = factory.UtilityFactory.CreateStatsCascader();
+            this.SetOutputWriter(new OutputWriter());
         }
 
         //  public void Run(bool passWhenNoAction)

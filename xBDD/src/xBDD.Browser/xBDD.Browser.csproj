@@ -12,5 +12,8 @@
   <ItemGroup>
     <PackageReference Include="Selenium.WebDriver" Version="3.7.0" />
   </ItemGroup>
-
+  <ItemGroup>
+    <None Update="phantomjs.exe" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="phantomjs" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>

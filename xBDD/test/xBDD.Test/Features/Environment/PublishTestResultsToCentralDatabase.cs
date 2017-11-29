@@ -1,7 +1,4 @@
 ﻿using System.Threading.Tasks;
-//using xBDD.xUnit;
-//using Xunit;
-//using Xunit.Abstractions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace xBDD.Test.Features.Environment

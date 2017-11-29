@@ -9,7 +9,7 @@ namespace xBDD
     {
         public void WriteLine(string text)
         {
-            System.Diagnostics.Debug.WriteLine(text);
+            System.Diagnostics.Trace.WriteLine(text);
         }
     }
 }
