@@ -1,7 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\xBDD.Test\xBDD.Test.csproj" />
+    <ProjectReference Include="..\..\src\xBDD.Core\xBDD.Core.csproj" />
+    <ProjectReference Include="..\..\src\xBDD.Reporting\xBDD.Reporting.csproj" />
+    <ProjectReference Include="..\..\src\xBDD.Reporting.Database\xBDD.Reporting.Database.csproj" />
+  </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="TemplateValidator" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Net.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="MSTEst.TestAdapter" Version="1.2.0" />
+    <PackageReference Include="MSTEst.TestFramework" Version="1.2.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
 </Project>
