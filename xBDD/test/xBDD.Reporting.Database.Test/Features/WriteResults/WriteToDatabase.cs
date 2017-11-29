@@ -1,20 +1,19 @@
-﻿using xBDD.xUnit;
-using Xunit;
-using Xunit.Abstractions;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
 
 namespace xBDD.Test.Features.SaveResults
 {
-    [Collection("xBDDReportingDatabaseTest")]
+    [TestClass]
     public class WriteToDatabase
     {
-        private readonly OutputWriter outputWriter;
+        private readonly TestContextWriter outputWriter;
 
-        public WriteToDatabase(ITestOutputHelper output)
+        public WriteToDatabase()
         {
-            outputWriter = new OutputWriter(output);
+            outputWriter = new TestContextWriter();
         }
 
-        [ScenarioFact]
+        [TestMethod]
         public async void ToNewDatabase()
         {
             await xB.CurrentRun
@@ -32,7 +31,7 @@ namespace xBDD.Test.Features.SaveResults
             //    .Run();
         }
 
-        [ScenarioFact]
+        [TestMethod]
         public async void ToExistingDatabase()
         {
             await xB.CurrentRun
@@ -41,7 +40,7 @@ namespace xBDD.Test.Features.SaveResults
                 .Skip("Not Started");
         }
 
-        [ScenarioFact]
+        [TestMethod]
         public async void ToExistingDatabaseFails()
         {
             await xB.CurrentRun
@@ -50,7 +49,7 @@ namespace xBDD.Test.Features.SaveResults
                 .Skip("Not Started");
         }
 
-        [ScenarioFact]
+        [TestMethod]
         public async void GetTestResults()
         {
             await xB.CurrentRun
