@@ -15,5 +15,7 @@
   <ItemGroup>
     <None Update="phantomjs.exe" CopyToOutputDirectory="PreserveNewest" />
     <None Update="phantomjs" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="chromedriver.exe" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="chromedriver" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

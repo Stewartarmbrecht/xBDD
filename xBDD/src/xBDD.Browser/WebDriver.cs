@@ -1,6 +1,7 @@
 using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
+using OpenQA.Selenium.Chrome;
 
 namespace xBDD.Browser
 {
@@ -18,8 +19,27 @@ namespace xBDD.Browser
 					{
 						var sw = new System.Diagnostics.Stopwatch();  
 						sw.Start();
-						webDriver = new PhantomJSDriver($".{System.IO.Path.DirectorySeparatorChar}");
+						// var service = PhantomJSDriverService.CreateDefaultService($".{System.IO.Path.DirectorySeparatorChar}");
+						// service.SuppressInitialDiagnosticInformation = true;
+						// service.LoadImages = false;
+						// service.DiskCache = true;
+						// service.LocalStoragePath = $".{System.IO.Path.DirectorySeparatorChar}";
+						// service.LocalStorageQuota = 1024000;
+						// var options = new PhantomJSOptions();
+						// service.AddArgument("--local-to-remote-url-access true");
+						// service.AddArgument("--disk-cache true");
+						// options.AddAdditionalCapability("takesScreenshot", false);
+						// options.AddAdditionalCapability("applicationCacheEnabled", true);
+
+						// options.AddAdditionalCapability("browserConnectionEnabled", true);
+						// options.AddAdditionalCapability("webStorageEnabled", true);
+						
+						// options.PageLoadStrategy = PageLoadStrategy.None;
+						
+						// webDriver = new PhantomJSDriver(service, options);
+						webDriver = new ChromeDriver($".{System.IO.Path.DirectorySeparatorChar}");
 						sw.Stop();
+						
 						System.Diagnostics.Trace.WriteLine("        Created PhantomJSDriver (" + sw.ElapsedMilliseconds.ToString() + "ms)");
 					}
 					return webDriver;
@@ -31,13 +51,11 @@ namespace xBDD.Browser
 		{
 			if(webDriver != null)
 			{
-						var sw = new System.Diagnostics.Stopwatch();
-						sw.Start();
-						webDriver.Close();
-						webDriver.Quit();
-						webDriver.Dispose();
-						sw.Stop();
-						System.Diagnostics.Trace.WriteLine("        Closed PhantonJSDriver (" + sw.ElapsedMilliseconds.ToString() + "ms)");
+				var sw = new System.Diagnostics.Stopwatch();
+				sw.Start();
+				webDriver.Quit();
+				sw.Stop();
+				System.Diagnostics.Trace.WriteLine("        Closed PhantonJSDriver (" + sw.ElapsedMilliseconds.ToString() + "ms)");
 			}
 		}
 	}

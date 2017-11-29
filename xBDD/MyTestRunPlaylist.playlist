@@ -1,1 +1,0 @@
-<Playlist Version="1.0"><Add Test="xBDD.Core.Test.Features.DefineScenarios.AddAScenario.InAnAsyncScenarioTheory" /><Add Test="xBDD.Test.Features.SaveResults.WriteToDatabase.GetTestResults" /></Playlist>

@@ -5,6 +5,11 @@
     <ProjectReference Include="..\..\src\xBDD.Core\xBDD.Core.csproj" />
     <ProjectReference Include="..\..\src\xBDD.Reporting\xBDD.Reporting.csproj" />
     <ProjectReference Include="..\..\src\xBDD.Browser\xBDD.Browser.csproj" />
+    <ProjectReference Include="..\..\src\xBDD.Reporting.Database\xBDD.Reporting.Database.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
