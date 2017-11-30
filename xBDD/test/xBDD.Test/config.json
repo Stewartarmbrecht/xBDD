@@ -1,0 +1,10 @@
+﻿{
+    "Data": {
+        "DefaultConnection": {
+            "ConnectionString": "Server=.;Database=xBDDTesting;Trusted_Connection=True;"
+        },
+        "TestingConnection": {
+            "ConnectionString": "Server=.;Database=xBDDTesting;Trusted_Connection=True;"
+        }
+    }
+}

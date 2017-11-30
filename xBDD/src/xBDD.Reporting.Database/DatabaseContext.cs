@@ -1,25 +1,34 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-//using Microsoft.AspNetCore.Hosting;
-//using Microsoft.Framework.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 
 namespace xBDD.Reporting.Database.Core
 {
     public class DatabaseContext : DbContext
     {
-        string connectionStringName;
+        string connectionString;
 
         public DatabaseContext()
         {
-            connectionStringName = "Filename=./xBDD.db";
+            this.connectionString = Configuration.DatabaseConnectionString;
         }
-        public DatabaseContext(string connectionStringName)
+        public DatabaseContext(string connectionString)
         {
-            this.connectionStringName = connectionStringName ?? "Data:DefaultConnection:ConnectionString";
+            this.connectionString = connectionString ?? Configuration.DatabaseConnectionString;;
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(connectionStringName);
+            // ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
+            // configurationBuilder.AddJsonFile("Config.json",true); // Bool indicates file is optional
+
+            // System.Diagnostics.Trace.TraceError("hit");
+
+            // var config = configurationBuilder.Build();
+            // foreach(var pair in config.AsEnumerable()) 
+            // {
+            //     System.Diagnostics.Trace.WriteLine(pair.Key + ": " + pair.Value);
+            // }
+            optionsBuilder.UseSqlServer(connectionString);
         }
 
         public bool EnsureDatabase()

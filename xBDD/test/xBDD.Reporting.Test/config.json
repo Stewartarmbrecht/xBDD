@@ -1,10 +1,10 @@
 ﻿{
-	"Data": {
-		"DefaultConnection": {
-			"ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=xBDDTestResults;Trusted_Connection=True;"
-		},
-		"TestingConnection": {
-			"ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=xBDDTesting;Trusted_Connection=True;"
-		}
-	}
+    "Data": {
+        "DefaultConnection": {
+            "ConnectionString": "Server=.;Database=xBDDTestResults;User=sa;Password=reallyStrongPwd123"
+        },
+        "TestingConnection": {
+            "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=xBDDTesting;Trusted_Connection=True;"
+        }
+    }
 }

@@ -12,26 +12,24 @@ else
 	Write-Host "Connection string NOT set."
 }
 
-dnu restore
-
 Write-Host "Upgrading the database"
-Set-Location $PSScriptRoot\src\xBDD.Reporting.Database
-dnx ef database update
+Set-Location $PSScriptRoot\test\xBDD.Test
+dotnet ef database update -s xBDD.Test.csproj -p ../../src/xBDD.Reporting.Database/xBDD.Reporting.Database.csproj -c DatabaseContext
 
 Write-Host "Running xBDD.Test Tests"
 Set-Location $PSScriptRoot\test\xBDD.Test
-dnx test
+dotnet test
 
 Write-Host "Running xBDD.Core.Test Tests"
 Set-Location $PSScriptRoot\test\xBDD.Core.Test 
-dnx test
+dotnet test
 
 Write-Host "Running xBDD.Reporting.Test Tests"
 Set-Location $PSScriptRoot\test\xBDD.Reporting.Test 
-dnx test
+dotnet test
 
 Write-Host "Running xBDD.Reporting.Database.Test Tests"
 Set-Location $PSScriptRoot\test\xBDD.Reporting.Database.Test 
-dnx test
+dotnet test
 
 Set-Location $PSScriptRoot

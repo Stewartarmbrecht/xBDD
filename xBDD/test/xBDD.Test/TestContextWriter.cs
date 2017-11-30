@@ -17,15 +17,5 @@ namespace xBDD.Test
             text = text.Replace("{","{{").Replace("}","}}");
             Logger.LogMessage(text);
         }
-
-        [AssemblyCleanup()]
-        public async static Task WriteHtmlResults() 
-        {
-            var directory = System.IO.Directory.GetCurrentDirectory();
-            var path = directory + $"{System.IO.Path.DirectorySeparatorChar}xBDD.Test.Results.html";
-            var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml();
-            Logger.LogMessage("Writing Html Report to " + path);
-            File.WriteAllText(path, htmlReport);
-        }
     }
 }

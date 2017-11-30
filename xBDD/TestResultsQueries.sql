@@ -48,4 +48,9 @@ SELECT TOP 4 Id
 FROM TestRun
 ORDER bY Id DESC
 
+SELECT @@Version
 
+
+SELECT * FROM TestRuns
+
+SELECT * FROM Scenarios

@@ -1,5 +1,4 @@
 ﻿using System;
-using xb = xBDD.Model;
 
 namespace xBDD.Reporting.Database.Core
 {
@@ -12,14 +11,14 @@ namespace xBDD.Reporting.Database.Core
             this.factory = factory;
             this.connectionName = connectionName;
         }
-        public int SaveTestRun(xb.TestRun testRun)
+        public int SaveTestRun(xBDD.Model.TestRun testRun)
         {
             DatabaseContext dbContext = factory.CreatexBDDDbContext(connectionName);
             DatabaseObjectBuilder dbObjectBuilder = factory.CreateDatabaseObjectBuilder(dbContext);
             TestRun testRunDb = dbObjectBuilder.BuildTestRun(testRun);
             dbContext.EnsureDatabase();
             var count = dbContext.SaveChanges();
-            Console.WriteLine("There were " + count + " entries written to the " + dbContext.DatabaseName + " on the " + dbContext.ServerName);
+            System.Diagnostics.Trace.WriteLine("There were " + count + " entries written to the '" + dbContext.DatabaseName + "' database on the '" + dbContext.ServerName + "' server.");
             return count;
 
         }

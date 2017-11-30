@@ -14,7 +14,7 @@ namespace xBDD.Test.Features.SaveResults
         }
 
         [TestMethod]
-        public async void ToNewDatabase()
+        public async Task ToNewDatabase()
         {
             await xB.CurrentRun
                 .AddScenario(this)
@@ -32,7 +32,7 @@ namespace xBDD.Test.Features.SaveResults
         }
 
         [TestMethod]
-        public async void ToExistingDatabase()
+        public async Task ToExistingDatabase()
         {
             await xB.CurrentRun
                 .AddScenario(this)
@@ -41,7 +41,7 @@ namespace xBDD.Test.Features.SaveResults
         }
 
         [TestMethod]
-        public async void ToExistingDatabaseFails()
+        public async Task ToExistingDatabaseFails()
         {
             await xB.CurrentRun
                 .AddScenario(this)
@@ -50,7 +50,7 @@ namespace xBDD.Test.Features.SaveResults
         }
 
         [TestMethod]
-        public async void GetTestResults()
+        public async Task GetTestResults()
         {
             await xB.CurrentRun
                 .AddScenario(this)

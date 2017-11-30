@@ -1,0 +1,12 @@
+dotnet ef migrations add Initialize -s xBDD.Reporting.Test.csproj -p ../../src/xBDD.Reporting.Database/xBDD.Reporting.Database.csproj -c DatabaseContext
+dotnet ef database update -s xBDD.Reporting.Test.csproj -p ../../src/xBDD.Reporting.Database/xBDD.Reporting.Database.csproj -c DatabaseContext
+
+http://database.guide/how-to-install-sql-server-on-a-mac/
+
+docker run -d --name sql_server_demo -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=reallyStrongPwd123' -p 1433:1433 microsoft/mssql-server-linux
+
+docker restart 469dd9ad0fa0a57ad7a121cbf062cbaceca5d066d9fc23ee9acb19cc12cce748
+
+$env:Data:DefaultConnection:ConnectionString="Server=.;Database=xBDDTestResults;User Id=sa;Password=reallyStrongPwd123"
+
+./RunTests.ps1 "Server=.;Database=xBDDTestResults;User Id=sa;Password=reallyStrongPwd123"
