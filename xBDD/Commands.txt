@@ -10,3 +10,14 @@ docker restart 469dd9ad0fa0a57ad7a121cbf062cbaceca5d066d9fc23ee9acb19cc12cce748
 $env:Data:DefaultConnection:ConnectionString="Server=.;Database=xBDDTestResults;User Id=sa;Password=reallyStrongPwd123"
 
 ./RunTests.ps1 "Server=.;Database=xBDDTestResults;User Id=sa;Password=reallyStrongPwd123"
+
+
+
+Windows
+
+https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker
+
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<password>" -p 1433:1433 --name SqlServer -d microsoft/mssql-server-linux:2017-latest
+
+docker exec -it SqlServer /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "oldpwd" -Q "ALTER LOGIN SA WITH PASSWORD='newpwd'"
+

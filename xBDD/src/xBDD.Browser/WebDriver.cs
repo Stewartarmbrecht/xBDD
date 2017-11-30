@@ -19,28 +19,32 @@ namespace xBDD.Browser
 					{
 						var sw = new System.Diagnostics.Stopwatch();  
 						sw.Start();
-						var service = PhantomJSDriverService.CreateDefaultService($".{System.IO.Path.DirectorySeparatorChar}");
-						service.SuppressInitialDiagnosticInformation = true;
-						service.LoadImages = false;
-						service.DiskCache = true;
-						service.LocalStoragePath = $".{System.IO.Path.DirectorySeparatorChar}";
-						service.LocalStorageQuota = 1024000;
-						var options = new PhantomJSOptions();
-						service.AddArgument("--local-to-remote-url-access true");
-						service.AddArgument("--disk-cache true");
-						options.AddAdditionalCapability("takesScreenshot", false);
-						options.AddAdditionalCapability("applicationCacheEnabled", true);
+						// var service = PhantomJSDriverService.CreateDefaultService($".{System.IO.Path.DirectorySeparatorChar}");
+						// service.SuppressInitialDiagnosticInformation = true;
+						// service.LoadImages = false;
+						// service.DiskCache = true;
+						// service.LocalStoragePath = $".{System.IO.Path.DirectorySeparatorChar}";
+						// service.LocalStorageQuota = 1024000;
+						// var options = new PhantomJSOptions();
+						// service.AddArgument("--local-to-remote-url-access true");
+						// service.AddArgument("--disk-cache true");
+						// options.AddAdditionalCapability("takesScreenshot", false);
+						// options.AddAdditionalCapability("applicationCacheEnabled", true);
 
-						options.AddAdditionalCapability("browserConnectionEnabled", true);
-						options.AddAdditionalCapability("webStorageEnabled", true);
+						// options.AddAdditionalCapability("browserConnectionEnabled", true);
+						// options.AddAdditionalCapability("webStorageEnabled", true);
 						
-						options.PageLoadStrategy = PageLoadStrategy.None;
+						// options.PageLoadStrategy = PageLoadStrategy.None;
 						
-						webDriver = new PhantomJSDriver(service, options);
-						// webDriver = new ChromeDriver($".{System.IO.Path.DirectorySeparatorChar}");
+						// webDriver = new PhantomJSDriver(service, options);
+						ChromeOptions options = new ChromeOptions();
+						options.AddArguments(new string[] {"--start-maximized","--allow-running-insecure-content","--disable-gpu","--headless"});
+						System.Threading.Thread.Sleep(500);
+						webDriver = new ChromeDriver($".{System.IO.Path.DirectorySeparatorChar}", options);
+						System.Threading.Thread.Sleep(500);
 						sw.Stop();
 						
-						System.Diagnostics.Trace.WriteLine("        Created PhantomJSDriver (" + sw.ElapsedMilliseconds.ToString() + "ms)");
+						System.Diagnostics.Trace.WriteLine("        Created ChromeDriver (" + sw.ElapsedMilliseconds.ToString() + "ms)");
 					}
 					return webDriver;
 				}
@@ -55,7 +59,7 @@ namespace xBDD.Browser
 				sw.Start();
 				webDriver.Quit();
 				sw.Stop();
-				System.Diagnostics.Trace.WriteLine("        Closed PhantonJSDriver (" + sw.ElapsedMilliseconds.ToString() + "ms)");
+				System.Diagnostics.Trace.WriteLine("        Closed ChromeDriver (" + sw.ElapsedMilliseconds.ToString() + "ms)");
 			}
 		}
 	}
