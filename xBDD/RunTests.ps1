@@ -14,22 +14,27 @@ else
 
 Write-Host "Upgrading the database"
 Set-Location $PSScriptRoot\test\xBDD.Test
+dotnet build
 dotnet ef database update -s xBDD.Test.csproj -p ../../src/xBDD.Reporting.Database/xBDD.Reporting.Database.csproj -c DatabaseContext
 
 Write-Host "Running xBDD.Test Tests"
 Set-Location $PSScriptRoot\test\xBDD.Test
-dotnet test
+dotnet build
+dotnet test -v n --no-build --no-restore
 
 Write-Host "Running xBDD.Core.Test Tests"
 Set-Location $PSScriptRoot\test\xBDD.Core.Test 
-dotnet test
+dotnet build
+dotnet test -v n --no-build --no-restore
 
 Write-Host "Running xBDD.Reporting.Test Tests"
 Set-Location $PSScriptRoot\test\xBDD.Reporting.Test 
-dotnet test
+dotnet build
+dotnet test -v n --no-build --no-restore
 
 Write-Host "Running xBDD.Reporting.Database.Test Tests"
 Set-Location $PSScriptRoot\test\xBDD.Reporting.Database.Test 
-dotnet test
+dotnet build
+dotnet test -v n --no-build --no-restore
 
 Set-Location $PSScriptRoot
