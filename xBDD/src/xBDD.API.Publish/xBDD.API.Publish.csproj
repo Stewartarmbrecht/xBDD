@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.0-beta3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+    <Target Name="CopyTestRun" AfterTargets="AfterBuild">
+      <Copy SourceFiles="Functions\TestRun\function.json" DestinationFolder="$(OutDir)\TestRun" />
+    </Target>
+    <Target Name="CopyTestRunOnPublish" AfterTargets="Publish">
+      <Copy SourceFiles="Functions\TestRun\function.json" DestinationFolder="$(PublishDir)\TestRun" />
+    </Target>
+    <Target Name="CopyScenarioContent" AfterTargets="AfterBuild">
+      <Copy SourceFiles="Functions\Scenario\function.json" DestinationFolder="$(OutDir)\Scenario" />
+    </Target>
+    <Target Name="CopyScenarioContentOnPublish" AfterTargets="Publish">
+      <Copy SourceFiles="Functions\Scenario\function.json" DestinationFolder="$(PublishDir)\Scenario" />
+    </Target>
+
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,14 @@
+﻿{
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "methods": [
+        "POST"
+      ],
+      "authLevel": "anonymous",
+      "name": "req"
+    }
+  ],
+  "scriptFile": "../xBDD.API.Publish.dll",
+  "entryPoint": "xBDD.API.Publish.Functions.Scenario"
+}
