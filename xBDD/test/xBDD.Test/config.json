@@ -8,7 +8,7 @@
             "ConnectionString": "Server=.;Database=xBDDTesting;Trusted_Connection=True;"
         },
         "xBDDPublishUrl": {
-            "Url": "http://localhost:7071/api/testrun"
+            "Url": "http://localhost:7071/api/"
         }
     }
 }

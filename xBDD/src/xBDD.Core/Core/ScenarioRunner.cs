@@ -97,6 +97,7 @@ namespace xBDD.Core
 
         public async Task RunAsync(bool passWhenNoAction)
         {
+            scenario.StartTime = DateTime.Now;
             if(outputWriter != null)
                 outputWriter.WriteOutput();
 
@@ -113,6 +114,8 @@ namespace xBDD.Core
                         if(passWhenNoAction)
                         {
                             step.Outcome = Outcome.Passed;
+                            step.StartTime = DateTime.Now;
+                            step.EndTime = step.StartTime;
                             statsCascader.CascadeStats(step, false);
                         }
                         else
@@ -121,6 +124,8 @@ namespace xBDD.Core
                             {
                                 var notImplementedException = new NotImplementedException();
                                 var ex = new StepNotImplementedException(step.Name, notImplementedException);
+                                step.StartTime = DateTime.Now;
+                                step.EndTime = step.StartTime;
                                 step.Outcome = Outcome.Failed;
                                 step.Exception = ex;
                                 step.Reason = "No Action";
@@ -137,14 +142,18 @@ namespace xBDD.Core
                     {
                         if(step.Outcome == Outcome.NotRun)
                         {
+                            step.StartTime = DateTime.Now;
+                            step.EndTime = step.StartTime;
                             step.Outcome = Outcome.Skipped;
                             step.Reason = "Previous Error";
                             statsCascader.CascadeStats(step, false);
                         }
                     }
+                    scenario.EndTime = DateTime.Now;
                     throw;
                 }
             }
+            scenario.EndTime = DateTime.Now;
         }
 
         //  public void Skip(string reason)
@@ -166,16 +175,21 @@ namespace xBDD.Core
 
         private void SkipSteps()
         {
+            scenario.StartTime = DateTime.Now;
             foreach (var step in scenario.Steps)
             {
+                step.StartTime = DateTime.Now;
+                step.EndTime = step.StartTime;
                 step.Outcome = Outcome.Skipped;
                 step.Reason = "Scenario Skipped";
                 statsCascader.CascadeStats(step, true);
             }
+            scenario.EndTime = DateTime.Now;
         }
 
         public async Task Skip(string reason)
         {
+            scenario.StartTime = DateTime.Now;
             if (reason == null)
                 throw new ArgumentNullException("reason");
             if(scenario.Steps.Count > 0)
@@ -190,6 +204,7 @@ namespace xBDD.Core
                 statsCascader.CascadeStats(scenario);
             }
             await Task.Run(() => {});
+            scenario.EndTime = DateTime.Now;
         }
 
         public void SetOutputWriter(IOutputWriter outputWriter)

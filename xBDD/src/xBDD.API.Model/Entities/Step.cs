@@ -4,8 +4,9 @@ namespace xBDD.API.Model.Entities
 {
     public class Step
     {
+        public string PartitionKey { get; set; }
+        public string RowKey { get { return Id.ToString(); } }
         public Guid Id { get; set; }
-        public Guid ScenarioId { get; set; }
         public string Name { get; set; }
         public string ActionType { get; set; }
         public DateTime StartTime { get; set; }

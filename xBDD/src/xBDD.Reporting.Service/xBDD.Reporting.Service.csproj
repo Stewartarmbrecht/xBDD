@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\xBDD.Core\xBDD.Core.csproj" />
+    <ProjectReference Include="..\xBDD.API.Model\xBDD.API.Model.csproj" />
   </ItemGroup>
 
 </Project>

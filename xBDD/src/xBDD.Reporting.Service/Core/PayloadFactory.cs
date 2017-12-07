@@ -1,5 +1,7 @@
 ﻿using xb = xBDD.Model;
 using System;
+using xBDD.API.Model.Entities;
+using xBDD.API.Model.Messages;
 
 namespace xBDD.Reporting.Service.Core
 {
@@ -7,6 +9,8 @@ namespace xBDD.Reporting.Service.Core
     {
         public Scenario CreateScenario(xb.Scenario scenario, TestRun testRun)
         {
+            Outcome outcome;
+            Enum.TryParse<Outcome>(Enum.GetName(typeof(xb.Outcome), scenario.Outcome), out outcome);
             return new Scenario()
             {
                 Id = Guid.NewGuid(),
@@ -14,7 +18,7 @@ namespace xBDD.Reporting.Service.Core
                 AreaPath = scenario.Feature.Area.Name,
                 FeatureName = scenario.Feature.Name,
                 Name = scenario.Name,
-                Outcome = scenario.Outcome,
+                Outcome = outcome,
                 Reason = scenario.Reason,
                 EndTime = scenario.EndTime,
                 StartTime = scenario.StartTime
@@ -23,15 +27,17 @@ namespace xBDD.Reporting.Service.Core
 
         public Step CreateStep(xb.Step step, Scenario scenario)
         {
+            Outcome outcome;
+            Enum.TryParse<Outcome>(Enum.GetName(typeof(xb.Outcome), step.Outcome), out outcome);
             return new Step()
             {
                 Id = Guid.NewGuid(),
-                ScenarioId = scenario.Id,
+                PartitionKey = scenario.TestRunId.ToString() + scenario.Id.ToString(),
                 EndTime = step.EndTime,
                 Exception = step.Exception == null ? null : step.Exception.Message + "\n" + step.Exception.StackTrace,
                 ActionType = Enum.GetName(typeof(xBDD.Model.ActionType), step.ActionType),
                 Name = step.Name,
-                Outcome = step.Outcome,
+                Outcome = outcome,
                 Reason = step.Reason,
                 StartTime = step.StartTime,
                 MultilineParameter = step.MultilineParameter
@@ -43,7 +49,7 @@ namespace xBDD.Reporting.Service.Core
             return new TestRun()
             {
                 Id = Guid.NewGuid(),
-                Name = testRun.Name
+                ConfigurationId = new Guid("d67aeda0-2f87-4e50-a476-eedd82a79cb4")
             };
         }
 

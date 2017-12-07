@@ -1,5 +1,9 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 using xb = xBDD.Model;
+using xBDD.API.Model;
+using xBDD.API.Model.Entities;
+using xBDD.API.Model.Messages;
 
 namespace xBDD.Reporting.Service.Core
 {
@@ -19,8 +23,9 @@ namespace xBDD.Reporting.Service.Core
             return testRunPayload;
         }
 
-        private void BuildScenarios(xb.TestRun testRun, TestRun testRunPayload)
+        public List<Scenario> BuildScenarios(xb.TestRun testRun, TestRun testRunPayload)
         {
+            var list = new List<Scenario>();
             var scenarios = from area in testRun.Areas
                             from feature in area.Features
                             from scenario in feature.Scenarios
@@ -28,9 +33,10 @@ namespace xBDD.Reporting.Service.Core
             foreach(xb.Scenario scenario in scenarios)
             {
                 Scenario scenarioPayload = factory.CreateScenario(scenario, testRunPayload);
-                testRunPayload.Scenarios.Add(scenarioPayload);
+                list.Add(scenarioPayload);
                 BuildSteps(scenario, scenarioPayload);
             }
+            return list;
         }
 
         private void BuildSteps(xb.Scenario scenario, Scenario scenarioPayload)
