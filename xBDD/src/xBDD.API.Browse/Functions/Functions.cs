@@ -20,13 +20,13 @@ namespace xBDD.API.Browse
 {
     public class Functions
     {
-        [FunctionName("GetTestRuns")]
-        public static IActionResult GetTestRuns(GetTestRunsRequest req, [Table("testrun")] IQueryable<TestRun> testRunBinding, TraceWriter log)
+        public static IActionResult GetTestRuns(GetTestRunsRequest req,  CloudTable testRunBinding, TraceWriter log)
         {
             log.Info("Processing GetTestRuns.");
             try 
             {
-                return new OkObjectResult(testRunBinding.AsQueryable().ToList());
+            TableQuery<TestRun> tq = new TableQuery().Where(TableQuery.GenerateFilterCondition("PartitionKey",QueryComparisons.Equal,req.ConfigurationId));
+                return new OkObjectResult(testRunBinding.);
             } 
             catch (Exception ex) 
             {
