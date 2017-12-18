@@ -13,7 +13,7 @@ Build the solution.
 
 Move to the build.
 
-        cd bin/debug/netstandard2.0/
+        cd xBDD.API.Publish/bin/debug/netstandard2.0/
 
 Test by running the function.
 

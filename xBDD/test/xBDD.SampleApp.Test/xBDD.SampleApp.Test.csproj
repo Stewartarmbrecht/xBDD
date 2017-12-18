@@ -10,12 +10,6 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.1.18" />
     <PackageReference Include="MSTest.TestFramework" Version="1.1.18" />
+    <PackageReference Include="xBDD.Core" Version="1.0.0-alpha" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\xBDD.Core\xBDD.Core.csproj" />
-    <ProjectReference Include="..\..\src\xBDD.Browser\xBDD.Browser.csproj" />
-    <ProjectReference Include="..\..\src\xBDD.Reporting\xBDD.Reporting.csproj" />
-  </ItemGroup>
-
 </Project>

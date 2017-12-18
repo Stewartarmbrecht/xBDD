@@ -2,24 +2,24 @@
     "bindings": [{
             "type": "httpTrigger",
             "methods": [
-                "POST"
+                "GET"
             ],
             "authLevel": "anonymous",
             "name": "req"
         },
         {
-            "name": "scenarios",
+            "name": "scenariosBinding",
             "type": "table",
             "tableName": "testrun",
-            "direction": "out"
+            "direction": "in"
         },
         {
-            "name": "steps",
+            "name": "stepsBinding",
             "type": "table",
             "tableName": "testrun",
-            "direction": "out"
+            "direction": "in"
         }
     ],
-    "scriptFile": "../xBDD.API.Publish.dll",
-    "entryPoint": "xBDD.API.Publish.Functions.Scenario"
+    "scriptFile": "../xBDD.API.Browse.dll",
+    "entryPoint": "xBDD.API.Browse.Functions.GetScenarios"
 }

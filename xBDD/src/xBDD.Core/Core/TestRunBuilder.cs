@@ -20,6 +20,15 @@ namespace xBDD.Core
             TestRun = testRun;
         }
 
+        /// <summary>
+        /// This method should be called from within the test method.
+        /// It uses reflection to get the calling method name and it expects
+        /// to recieve a reference of the test class to get the name of the 
+        /// feature and namespace.
+        /// </summary>
+        /// <param name="featureClass"></param>
+        /// <param name="methodName"></param>
+        /// <returns></returns>
         public ScenarioBuilder AddScenario(object featureClass, [CallerMemberName]string methodName = "")
         {
             testRunInitializer.InitializeTestRun(featureClass, TestRun);

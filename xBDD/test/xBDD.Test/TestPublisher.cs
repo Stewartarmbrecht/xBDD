@@ -19,10 +19,15 @@ namespace xBDD.Test
                 await xB.CurrentRun.TestRun.SaveToService(TestConfiguration.xBDDPublishURL);
 
                 var directory = System.IO.Directory.GetCurrentDirectory();
-                var path = directory + $"{System.IO.Path.DirectorySeparatorChar}xBDD.Test.Results.html";
+                var htmlPath = directory + $"{System.IO.Path.DirectorySeparatorChar}xBDD.Test.Results.html";
+                Logger.LogMessage("Writing Html Report to " + htmlPath);
                 var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml();
-                Logger.LogMessage("Writing Html Report to " + path);
-                File.WriteAllText(path, htmlReport);
+                File.WriteAllText(htmlPath, htmlReport);
+
+                var textPath = directory + $"{System.IO.Path.DirectorySeparatorChar}xBDD.Test.Results.text";
+                Logger.LogMessage("Writing Html Report to " + textPath);
+                var textReport = await xB.CurrentRun.TestRun.WriteToHtml();
+                File.WriteAllText(textPath, textReport);
             }
         }
     }

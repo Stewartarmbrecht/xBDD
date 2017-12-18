@@ -37,7 +37,7 @@ namespace xBDD.Test.Features.Environment
                 .Given("a contributor has downloaded the solution")
                 .And("opened powershell")
                 .And("has navigated to the root folder of a project in powershell")
-                .When("the contributor runs 'dnx test' in powershell")
+                .When("the contributor runs 'dotnet test' in powershell")
                 .Then("all tests in that project will run")
 				.And("the test results will be written in plain text to the <ProjectName>.TestResults.txt file at the root of the project")
 				.And("the test results will be written in html to the <ProjectName>.TestResults.html file at the root of the project")

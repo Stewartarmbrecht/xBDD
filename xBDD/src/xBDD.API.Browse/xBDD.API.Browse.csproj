@@ -12,16 +12,16 @@
   </ItemGroup>
 
     <Target Name="CopyTestRun" AfterTargets="AfterBuild">
-      <Copy SourceFiles="Functions\TestRun\function.json" DestinationFolder="$(OutDir)\TestRun" />
+      <Copy SourceFiles="Functions\GetTestRuns\function.json" DestinationFolder="$(OutDir)\GetTestRuns" />
     </Target>
     <Target Name="CopyTestRunOnPublish" AfterTargets="Publish">
-      <Copy SourceFiles="Functions\TestRun\function.json" DestinationFolder="$(PublishDir)\TestRun" />
+      <Copy SourceFiles="Functions\GetTestRuns\function.json" DestinationFolder="$(PublishDir)\GetTestRuns" />
     </Target>
     <Target Name="CopyScenarioContent" AfterTargets="AfterBuild">
-      <Copy SourceFiles="Functions\Scenario\function.json" DestinationFolder="$(OutDir)\Scenario" />
+      <Copy SourceFiles="Functions\GetScenarios\function.json" DestinationFolder="$(OutDir)\GetScenarios" />
     </Target>
     <Target Name="CopyScenarioContentOnPublish" AfterTargets="Publish">
-      <Copy SourceFiles="Functions\Scenario\function.json" DestinationFolder="$(PublishDir)\Scenario" />
+      <Copy SourceFiles="Functions\GetScenarios\function.json" DestinationFolder="$(PublishDir)\GetScenarios" />
     </Target>
 
   <ItemGroup>

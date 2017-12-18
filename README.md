@@ -36,3 +36,84 @@ Note: Area, Feature, and Scenario names will expand when clicked.
 2. [xBDD.Reporting.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD/test/xBDD.Reporting.Test/xBDD.Reporting.Test.TestResults.html) - Generating reports from a test run.
 3. [xBDD.Reporting.Database.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD/test/xBDD.Reporting.Database.Test/xBDD.Reporting.Database.Test.TestResults.html) - Writing test results to a database.
 4. [xBDD.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD/test/xBDD.Test/xBDD.Test.TestResults.html) - Features of the project (environment setup and what not).
+
+## Getting Started
+
+### MSTest Setup
+
+#### Run a Test
+
+1. Setup a MS Test project (or open one you already have).  Use [this](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest) link for instructions.
+2. Add a reference to the xBDD nuget package.
+
+        dotnet add package xBDD.Core
+
+3. Add the following test class.
+
+        using Microsoft.VisualStudio.TestTools.UnitTesting;
+        using System.Threading.Tasks;
+        using System.Collections.Generic;
+        using xBDD;
+
+        namespace xBDD.SampleApp.Test.Features.HomePage
+        {
+            [InOrderTo("know how many items are in a List<T>")]
+            [AsA("Developer")]
+            [IWouldLikeTo("use a Count property on the list object.")]
+            [TestClass]
+            public class GenericListCount
+            {
+                [TestMethod]
+                public async Task CallWhenPopulated()
+                {
+                    List<string> list = new List<string>();
+                    int? count = -1;
+                    await xB.CurrentRun
+                        .AddScenario(this)
+                        .Given("A generic list of type string with two string in it", (s) => {
+                            list.Add("String 1");
+                            list.Add("String 2");
+                        })
+                        .When("I call the Count property", (s) => {
+                            count = list.Count;
+                        })
+                        .Then("the return value should be 2;", (s) => {
+                            Assert.AreEqual(2, count);
+                        })
+                        .Run();
+                }
+            }
+        }
+
+4. Run the test and the test will pass.
+    
+        dotnet test
+
+5. Modify the test to fail and view the output.  Do this by commenting out the list.add("String 2"); line.  When you run the test you should see.
+
+        Starting test execution, please wait...
+        Failed   xBDD.SampleApp.Test.Features.HomePage.GenericListCount.CallWhenPopulated
+        Error Message:
+        Test method xBDD.SampleApp.Test.Features.HomePage.GenericListCount.CallWhenPopulated threw exception:
+        xBDD.StepException: The step 'the return value should be 2;' threw a 'AssertFailedException' exception with a message: 'Assert.AreEqual failed. Expected:<2>. Actual:<1>. '. See the inner exception for details. ---> Microsoft.VisualStudio.TestTools.UnitTesting.AssertFailedException: Assert.AreEqual failed. Expected:<2>. Actual:<1>.
+        Stack Trace:
+        --StackTrace Omitted--
+        
+        Standard Output Messages:
+
+
+        Debug Trace:
+        Call When Populated
+            Given A generic list of type string with two string in it
+            When I call the Count property
+            Then the return value should be 2;
+
+
+        Total tests: 1. Passed: 0. Failed: 1. Skipped: 0.
+        Test Run Failed.
+        Test execution time: 1.2571 Seconds
+
+#### Save Test Results to a Text File
+
+
+

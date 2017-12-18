@@ -2,20 +2,19 @@
     "bindings": [{
             "type": "httpTrigger",
             "methods": [
-                "POST"
+                "GET"
             ],
             "authLevel": "anonymous",
             "name": "req"
         },
         {
-            "name": "testRun",
+            "name": "testRunBinding",
             "type": "table",
-            "rowKey": "Id",
-            "partitionKey": "ConfigurationId",
             "tableName": "testrun",
-            "direction": "out"
+            "partitionKey": "{configurationId}",
+            "direction": "in"
         }
     ],
-    "scriptFile": "../xBDD.API.Publish.dll",
-    "entryPoint": "xBDD.API.Publish.Functions.TestRun"
+    "scriptFile": "../xBDD.API.Browse.dll",
+    "entryPoint": "xBDD.API.Browse.Functions.GetTestRuns"
 }

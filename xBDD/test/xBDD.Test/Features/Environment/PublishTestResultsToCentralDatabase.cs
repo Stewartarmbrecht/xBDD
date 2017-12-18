@@ -14,6 +14,7 @@ namespace xBDD.Test.Features.Environment
         }
 
         [TestMethod]
+        //This seems like it should have been in the database project.  Maybe this should be moved.
         public async Task PublishAfterTestRun ()
         {
             await xB.CurrentRun
@@ -33,7 +34,7 @@ namespace xBDD.Test.Features.Environment
                 .SetOutputWriter(outputWriter)
                 .When(xB.CreateStep("the developer pushes a commit to the master branch"))
                 .Then(xB.CreateStep("the CI process should build the solution, run the tests, and publish the results to a central database"))
-                .Run();
+                .Skip("Not Implemented");
         }
     }
 }
