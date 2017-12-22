@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.WindowsAzure.Storage.Table;
 
 namespace xBDD.API.Model.Entities
 {
-    public class Scenario
+    public class Scenario : TableEntity
     {
-        public string PartitionKey { get { return TestRunId.ToString(); } }
-        public string RowKey { get { return Id.ToString(); } }
         public Guid TestRunId { get; set; }
         public Guid Id { get; set; }
         public string AreaPath { get; set; }

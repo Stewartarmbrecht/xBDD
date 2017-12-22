@@ -23,11 +23,8 @@ namespace xBDD.API.Publish
             log.Info("Processing TestRun Publish.");
             try 
             {
-                var testRunPublishedEvent = new TestRunPublishedEvent()
-                {
-                    TestRun = req.TestRun
-                };
-                var json = JsonConvert.SerializeObject(testRunPublishedEvent);
+                req.TestRun.RowKey = req.TestRun.Id.ToString();
+                req.TestRun.PartitionKey = req.TestRun.ConfigurationId.ToString();
                 testRun = req.TestRun;
                 return new OkObjectResult(req.TestRun);
             } 
@@ -43,20 +40,17 @@ namespace xBDD.API.Publish
             log.Info("Processing Scenario Batch Publish.");
             try 
             {
-                var scenarioBatchPublishedEvent = new ScenarioBatchPublishedEvent()
-                {
-                    Scenarios = req.Scenarios
-                };
-                var json = JsonConvert.SerializeObject(scenarioBatchPublishedEvent);
                 foreach(var scenario in req.Scenarios)
                 {
+                    scenario.RowKey = scenario.Id.ToString();
+                    scenario.PartitionKey = scenario.TestRunId.ToString();
                     scenarios.Add(scenario);
                     foreach(var step in scenario.Steps)
                     {
                         steps.Add(step);
                     }
                 }
-                return new OkObjectResult(scenarioBatchPublishedEvent);
+                return new OkObjectResult(req.Scenarios);
             } 
             catch (Exception ex) 
             {

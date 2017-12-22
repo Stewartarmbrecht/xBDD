@@ -20,13 +20,14 @@ namespace xBDD.API.Browse
 {
     public class Functions
     {
-        public static IActionResult GetTestRuns(GetTestRunsRequest req,  CloudTable testRunBinding, TraceWriter log)
+        public static IActionResult GetTestRuns(HttpRequest req,  CloudTable testRunBinding, TraceWriter log)
         {
             log.Info("Processing GetTestRuns.");
             try 
             {
-            TableQuery<TestRun> tq = new TableQuery().Where(TableQuery.GenerateFilterCondition("PartitionKey",QueryComparisons.Equal,req.ConfigurationId));
-                return new OkObjectResult(testRunBinding.);
+                TableQuery<TestRun> tq = new TableQuery<TestRun>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, req.Query["ConfigurationId"]));
+                var token = default(TableContinuationToken);
+                return new OkObjectResult(testRunBinding.ExecuteQuerySegmentedAsync(tq, token));
             } 
             catch (Exception ex) 
             {
@@ -36,12 +37,12 @@ namespace xBDD.API.Browse
             }
         }
         [FunctionName("GetScenarios")]
-        public static IActionResult GetScenarios(GetScenarioBatchRequest req, [Table("testrun")] IQueryable<Scenario> scenariosBinding, [Table("testrun")] IQueryable<Step> stepsBinding, TraceWriter log)
+        public static IActionResult GetScenarios(GetScenarioBatchRequest req, CloudTable scenariosBinding, CloudTable stepsBinding, TraceWriter log)
         {
             log.Info("Processing Scenario Batch Publish.");
             try 
             {
-                return new OkObjectResult(scenariosBinding.AsQueryable().ToList());
+                return new OkObjectResult("Test");
             } 
             catch (Exception ex) 
             {
