@@ -11,7 +11,19 @@
             },
             "type": "process",
             "args": [
-                "${workspaceFolder}/xBDD/RunJustTests.ps1"
+                "${workspaceFolder}/RunJustTests.ps1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
