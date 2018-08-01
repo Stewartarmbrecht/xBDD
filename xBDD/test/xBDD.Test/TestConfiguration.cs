@@ -45,7 +45,7 @@ namespace xBDD.Test
                 var connectionString = config["Data:xBDDPublishUrl:Url"];
                 if(connectionString == null)
                 {
-                    throw new System.Exception("You must set an environment variable named 'Data:xBDDPublishUrl:Url' to a valid xBDD publishing service.\n In powershell run the following command: '$env:Service:DefaultConnection:Url=\"<Url>\"'");
+                    throw new System.Exception("You must set an environment variable named 'Data:xBDDPublishUrl:Url' to a valid xBDD publishing service.\n In powershell run the following command: '$env:Data:xBDDPublishUrl:Url=\"<Url>\"'");
                 }
                 return connectionString;
             }

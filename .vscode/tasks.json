@@ -2,13 +2,20 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "build",
-            "command": "dotnet",
+            "label": "just-test",
+            "windows": {
+                "command": "powershell"
+            },
+            "osx": {
+                "command": "pwsh"
+            },
             "type": "process",
             "args": [
-                "build",
-                "${workspaceFolder}/xBDD/test/xBDD.Core.Test/xBDD.Core.Test.csproj"
+                "${workspaceFolder}/xBDD/RunJustTests.ps1"
             ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
             "problemMatcher": "$msCompile"
         }
     ]
