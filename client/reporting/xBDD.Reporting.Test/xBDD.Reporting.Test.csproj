@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\xBDD.Test\xBDD.Test.csproj" />
+    <ProjectReference Include="..\..\core\xBDD.Core\xBDD.Core.csproj" />
+    <ProjectReference Include="..\xBDD.Reporting\xBDD.Reporting.csproj" />
+    <ProjectReference Include="..\..\browser\xBDD.Browser\xBDD.Browser.csproj" />
+    <ProjectReference Include="..\..\reporting.database\xBDD.Reporting.Database\xBDD.Reporting.Database.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
+    <PackageReference Include="phantomjs" Version="2.1.1" />
+    <PackageReference Include="TemplateValidator" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Net.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="MSTEst.TestAdapter" Version="1.3.2" />
+    <PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Features\ViewTextReport\WriteToTextScenarios\EmptyTestRun.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunEmptyScenario.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunMultipleAreas.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunMultipleFeaturesSameArea.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunMultipleScenariosSameFeature.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunScenarioWithFailedStep.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunScenarioWithNotImplementedStep.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunScenarioWithSkippedStep.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunScenarioWithSteps.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunScenarioWithStepWithMultilineParameter.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Features\ViewTextReport\WriteToTextScenarios\SkippedEmptyScenario.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Features\ViewTextReport\WriteToTextScenarios\SkippedScenarioWithSteps.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="phantomjs.exe" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="phantomjs" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="chromedriver.exe" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="config.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

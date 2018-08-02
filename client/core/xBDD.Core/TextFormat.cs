@@ -1,0 +1,32 @@
+﻿namespace xBDD
+{
+    public enum TextFormat
+    {
+        text,
+        code,
+        bsh,
+        c,
+        cc,
+        cpp,
+        cs,
+        csh,
+        cyc,
+        cv,
+        htm,
+        html,
+        htmlpreview,
+        java,
+        js,
+        m,
+        mxml,
+        perl,
+        pl,
+        pm,
+        py,
+        rb,
+        sh,
+        xhtml,
+        xml,
+        xsl
+    }
+}

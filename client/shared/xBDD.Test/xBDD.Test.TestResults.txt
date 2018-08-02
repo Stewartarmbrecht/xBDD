@@ -1,0 +1,39 @@
+xBDD
+
+Environment
+	Publish Test Results To Central Database
+		Publish After CI Test Run
+			When the developer pushes a commit to the master branch
+			Then the CI process should build the solution, run the tests, and publish the results to a central database
+		Publish After Test Run
+			Given the developer sets the solution to the Publish configuration
+			And the developer defines a valid connection string for an environment variable named 'Data:DefaultConnection:ConnectionString'
+			When the developer runs the tests
+			Then the test results should be published to the database
+	Run Tests
+		Run All Tests
+			Given a contributor has downloaded the solution
+			And the contributor runs the xBDD\RunJustTests.ps1 powershell script
+			Then all tests will run
+			And the test results will be written in plain text to the <ProjectName>.TestResults.txt file at the root of each project
+			And the test results will be written in html to the <ProjectName>.TestResults.html file at the root of each project
+			And the output from running the tests will be written to the <ProjectName>.Output.txt file at the root of each project
+		Run Filtered Tests
+			Given a contributor has downloaded the solution
+			And marked a test method with a trait: '[Trait("category", "now")]'
+			And has opened powershell
+			And has navigated to the root folder of a project in powershell
+			When the contributor runs 'dnx xunit.runner.dnx -trait "category=now"
+			Then only the test that was marked will run
+			And the test results will be written in plain text to the <ProjectName>.TestResults.txt file at the root of the project
+			And the test results will be written in html to the <ProjectName>.TestResults.html file at the root of the project
+			And the output from running the tests will be written to the <ProjectName>.Output.txt file at the root of the project
+		Run Project Tests
+			Given a contributor has downloaded the solution
+			And opened powershell
+			And has navigated to the root folder of a project in powershell
+			When the contributor runs 'dnx test' in powershell
+			Then all tests in that project will run
+			And the test results will be written in plain text to the <ProjectName>.TestResults.txt file at the root of the project
+			And the test results will be written in html to the <ProjectName>.TestResults.html file at the root of the project
+			And the output from running the tests will be written to the <ProjectName>.Output.txt file at the root of the project

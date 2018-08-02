@@ -1,0 +1,25 @@
+﻿{
+    "bindings": [{
+            "type": "httpTrigger",
+            "methods": [
+                "POST"
+            ],
+            "authLevel": "anonymous",
+            "name": "req"
+        },
+        {
+            "name": "scenarios",
+            "type": "table",
+            "tableName": "testrun",
+            "direction": "out"
+        },
+        {
+            "name": "steps",
+            "type": "table",
+            "tableName": "testrun",
+            "direction": "out"
+        }
+    ],
+    "scriptFile": "../xBDD.API.Publish.dll",
+    "entryPoint": "xBDD.API.Publish.Functions.Scenario"
+}

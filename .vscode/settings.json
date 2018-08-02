@@ -1,2 +1,7 @@
 {
+    "terminal.integrated.env.windows": {
+        "namePrefix": "xbdd",
+        "region": "westus2"
+    },
+    "workbench.editor.enablePreviewFromQuickOpen": false
 }

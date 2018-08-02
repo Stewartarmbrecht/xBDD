@@ -1,0 +1,25 @@
+﻿{
+    "bindings": [{
+            "type": "httpTrigger",
+            "methods": [
+                "GET"
+            ],
+            "authLevel": "anonymous",
+            "name": "req"
+        },
+        {
+            "name": "scenariosBinding",
+            "type": "table",
+            "tableName": "testrun",
+            "direction": "in"
+        },
+        {
+            "name": "stepsBinding",
+            "type": "table",
+            "tableName": "testrun",
+            "direction": "in"
+        }
+    ],
+    "scriptFile": "../xBDD.API.Browse.dll",
+    "entryPoint": "xBDD.API.Browse.Functions.GetScenarios"
+}

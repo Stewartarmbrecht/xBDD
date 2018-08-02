@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "test": {
+      "commandName": "test",
+      "environmentVariables": {
+        "PublishConnectionString": "Data:DefaultConnection:ConnectionString",
+        "Environment": "Development"
+      }
+    },
+    "publish": {
+      "commandName": "test",
+      "environmentVariables": {
+        "PublishConnectionString": "Data:DefaultConnection:ConnectionString",
+        "Publish": "True",
+        "Environment": "Publish"
+      }
+    }
+  }
+}

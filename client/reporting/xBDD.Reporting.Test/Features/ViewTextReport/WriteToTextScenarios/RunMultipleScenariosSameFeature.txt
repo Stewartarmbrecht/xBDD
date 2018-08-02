@@ -1,0 +1,12 @@
+﻿My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario One
+			Given my starting condition
+			When my action
+			Then my ending condition
+		My Scenario Two
+			Given my starting condition
+			When my action
+			Then my ending condition

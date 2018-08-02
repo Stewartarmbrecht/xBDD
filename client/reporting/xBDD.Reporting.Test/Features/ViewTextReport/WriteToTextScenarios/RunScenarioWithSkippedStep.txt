@@ -1,0 +1,8 @@
+﻿My Test Run
+
+My.Area.Path
+	My Feature
+		My Scenario [Failed - Step Skipped]
+			Given my starting condition
+			When my action [Skipped - Deferred]
+			Then my ending condition [Skipped - Previous Error]

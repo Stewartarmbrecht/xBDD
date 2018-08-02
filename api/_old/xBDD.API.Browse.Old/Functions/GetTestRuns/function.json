@@ -1,0 +1,19 @@
+﻿{
+    "bindings": [{
+            "type": "httpTrigger",
+            "methods": [
+                "GET"
+            ],
+            "authLevel": "anonymous",
+            "name": "req"
+        },
+        {
+            "name": "testRunBinding",
+            "type": "table",
+            "tableName": "testrun",
+            "direction": "in"
+        }
+    ],
+    "scriptFile": "../xBDD.API.Browse.dll",
+    "entryPoint": "xBDD.API.Browse.Functions.GetTestRuns"
+}

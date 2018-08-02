@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TemplateValidator" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Net.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="MSTEst.TestAdapter" Version="1.3.2" />
+    <PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\xBDD.Test\xBDD.Test.csproj" />
+    <ProjectReference Include="..\..\core\xBDD.Core\xBDD.Core.csproj" />
+    <ProjectReference Include="..\..\reporting\xBDD.Reporting\xBDD.Reporting.csproj" />
+    <ProjectReference Include="..\..\reporting.database\xBDD.Reporting.Database\xBDD.Reporting.Database.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="config.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

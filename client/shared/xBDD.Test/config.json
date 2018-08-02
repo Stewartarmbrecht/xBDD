@@ -1,0 +1,14 @@
+﻿{
+    "Environment": "Publish",
+    "Data": {
+        "DefaultConnection": {
+            "ConnectionString": "Server=.;Database=xBDDTesting;Trusted_Connection=True;"
+        },
+        "TestingConnection": {
+            "ConnectionString": "Server=.;Database=xBDDTesting;Trusted_Connection=True;"
+        },
+        "xBDDPublishUrl": {
+            "Url": "https://xbdd-publish.azurewebsites.net/api/"
+        }
+    }
+}
