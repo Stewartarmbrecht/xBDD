@@ -18,9 +18,9 @@ namespace xBDD.SampleApp.Test.Features.HomePage
             int? count = -1;
             await xB.CurrentRun
                 .AddScenario(this)
-                .Given("A generic list of type string with two string in it", (s) => {
+                .Given("A generic list of type string with two strings in it", (s) => {
                     list.Add("String 1");
-                    //list.Add("String 2");
+                    list.Add("String 2");
                 })
                 .When("I call the Count property", (s) => {
                     count = list.Count;

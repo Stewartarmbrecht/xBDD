@@ -13,10 +13,10 @@ namespace xBDD.Test
         {
             if(TestConfiguration.Publish)
             {
-                Logger.LogMessage("Writing Results to the database.");
+                //Logger.LogMessage("Writing Results to the database.");
                 //xB.CurrentRun.TestRun.SaveToDatabase(TestConfiguration.DatabaseConnectionString);
-                Logger.LogMessage(TestConfiguration.xBDDPublishURL);
-                await xB.CurrentRun.TestRun.SaveToService(TestConfiguration.xBDDPublishURL);
+                //Logger.LogMessage(TestConfiguration.xBDDPublishURL);
+                //await xB.CurrentRun.TestRun.SaveToService(TestConfiguration.xBDDPublishURL);
 
                 var directory = System.IO.Directory.GetCurrentDirectory();
                 var htmlPath = directory + $"{System.IO.Path.DirectorySeparatorChar}xBDD.Test.Results.html";

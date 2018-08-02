@@ -1,6 +1,6 @@
 using System;
+using System.Collections.Generic;
 using OpenQA.Selenium;
-using OpenQA.Selenium.PhantomJS;
 using OpenQA.Selenium.Chrome;
 
 namespace xBDD.Browser
@@ -19,29 +19,27 @@ namespace xBDD.Browser
 					{
 						var sw = new System.Diagnostics.Stopwatch();  
 						sw.Start();
-						// var service = PhantomJSDriverService.CreateDefaultService($".{System.IO.Path.DirectorySeparatorChar}");
-						// service.SuppressInitialDiagnosticInformation = true;
-						// service.LoadImages = false;
-						// service.DiskCache = true;
-						// service.LocalStoragePath = $".{System.IO.Path.DirectorySeparatorChar}";
-						// service.LocalStorageQuota = 1024000;
-						// var options = new PhantomJSOptions();
-						// service.AddArgument("--local-to-remote-url-access true");
-						// service.AddArgument("--disk-cache true");
-						// options.AddAdditionalCapability("takesScreenshot", false);
-						// options.AddAdditionalCapability("applicationCacheEnabled", true);
-
-						// options.AddAdditionalCapability("browserConnectionEnabled", true);
-						// options.AddAdditionalCapability("webStorageEnabled", true);
-						
-						// options.PageLoadStrategy = PageLoadStrategy.None;
-						
-						// webDriver = new PhantomJSDriver(service, options);
 						ChromeOptions options = new ChromeOptions();
-						options.AddArguments(new string[] {"--start-maximized","--allow-running-insecure-content","--disable-gpu","--headless"});
-						System.Threading.Thread.Sleep(500);
+						List<string> chromeArgs = new List<string>();
+						var userArgs = Environment.GetEnvironmentVariable("xBDD:Browser:ChromeArgs");
+						if(userArgs != null){
+							chromeArgs.AddRange(userArgs.Split(';'));
+						} else {
+							var windowSize = Environment.GetEnvironmentVariable("xBDD:Browser:WindowSize");
+							if(windowSize != null) {
+								chromeArgs.Add($"--window-size={windowSize}");
+							} else {
+								chromeArgs.Add("--window-size=400,600");
+							}
+							chromeArgs.Add("--allow-running-insecure-content");
+							chromeArgs.Add("--disable-gpu");
+							var watch = Environment.GetEnvironmentVariable("xBDD:Browser:Watch");
+							if(!(watch != null && Boolean.Parse(watch))) {
+								chromeArgs.Add("--headless");
+							}
+						}
+						options.AddArguments(chromeArgs.ToArray());
 						webDriver = new ChromeDriver($".{System.IO.Path.DirectorySeparatorChar}", options);
-						System.Threading.Thread.Sleep(500);
 						sw.Stop();
 						
 						System.Diagnostics.Trace.WriteLine("        Created ChromeDriver (" + sw.ElapsedMilliseconds.ToString() + "ms)");
