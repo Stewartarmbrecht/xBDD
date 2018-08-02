@@ -3,7 +3,7 @@ using xBDD.Core;
 
 namespace xBDD.Utility
 {
-    public class UtilityFactory
+    internal class UtilityFactory
     {
         internal MethodRetriever GetMethodRetriever()
         {

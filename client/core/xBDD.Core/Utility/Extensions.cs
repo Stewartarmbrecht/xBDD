@@ -2,14 +2,27 @@
 
 namespace xBDD.Utility
 {
-    public static class Extensions
+    /// <summary>
+    /// Extension methods for core processing.
+    /// </summary>
+    internal static class Extensions
     {
-        
-        public static string ConvertNamespaceToAreaName(this string text)
+        /// <summary>
+        /// Converts a namespace to an area name by replacing "." with " - ".
+        /// </summary>
+        /// <param name="text">The namespace value.</param>
+        /// <returns>A matching Area name.</returns>
+        internal static string ConvertNamespaceToAreaName(this string text)
         {
-            return text.AddSpacesToSentence(true).Replace(".", " - ");
+            return text.AddSpacesToSentence().Replace(".", " - ");
         }
-        public static string AddSpacesToSentence(this string text, bool preserveAcronyms)
+
+        /// <summary>
+        /// Adds spaces to a string of words that have no spaces but use Camel Case.
+        /// </summary>
+        /// <param name="text">The camel case string to add spaces to.</param>
+        /// <returns></returns>
+        internal static string AddSpacesToSentence(this string text)
         {
             text = text.Replace('_', ' ');
             if (string.IsNullOrWhiteSpace(text))

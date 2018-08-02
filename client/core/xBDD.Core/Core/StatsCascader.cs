@@ -4,26 +4,26 @@ using xBDD.Utility;
 namespace xBDD.Core
 
 {
-	public class StatsCascader
+	internal class StatsCascader
 	{
         Utility.OutcomeAggregator outcomeAggregator;
-		public StatsCascader(UtilityFactory factory)
+		internal StatsCascader(UtilityFactory factory)
 		{
 			outcomeAggregator = factory.CreateOutcomeAggregator();
 		}
-		public void CascadeStats(Step step, bool scenarioSkipped)
+		internal void CascadeStats(Step step, bool scenarioSkipped)
 		{
 			CascadeOutcome(step, scenarioSkipped);
 			CascadeStartTime(step);
 			CascadeEndTime(step);
 		}
-		public void CascadeStats(Scenario scenario)
+		internal void CascadeStats(Scenario scenario)
 		{
 			CascadeOutcome(scenario);
 			CascadeStartTime(scenario);
 			CascadeEndTime(scenario);
 		}
-        void CascadeOutcome(Step step, bool scenarioSkipped)
+        private void CascadeOutcome(Step step, bool scenarioSkipped)
         {
             UpdateOutcome(Outcome.NotRun, step.Outcome,
 				step.Scenario.StepStats,
@@ -35,7 +35,7 @@ namespace xBDD.Core
 			CascadeAreaOutcome(step);
             step.Scenario.Feature.Area.TestRun.Outcome = outcomeAggregator.GetNewParentOutcome(step.Scenario.Feature.Area.Outcome, step.Scenario.Feature.Outcome);
         }
-        void CascadeOutcome(Scenario scenario)
+        private void CascadeOutcome(Scenario scenario)
         {
             UpdateOutcome(Outcome.NotRun, scenario.Outcome,
                 scenario.Feature.ScenarioStats,
@@ -87,7 +87,7 @@ namespace xBDD.Core
                 scenario.Feature.Area.TestRun.AreaStats);
         }
 
-        void UpdateOutcome(Outcome previousOutcome, Outcome newOutcome, params OutcomeStats[] stats)
+        private void UpdateOutcome(Outcome previousOutcome, Outcome newOutcome, params OutcomeStats[] stats)
 		{
 			if(previousOutcome != newOutcome)
 			{
@@ -98,13 +98,13 @@ namespace xBDD.Core
 			}
 		}
 		
-		void UpdateStats(Outcome previousOutcome, Outcome newOutcome, OutcomeStats stats)
+		private void UpdateStats(Outcome previousOutcome, Outcome newOutcome, OutcomeStats stats)
 		{
 			DecrementStat(previousOutcome, stats);
 			IncrementStat(newOutcome, stats);
 		}
 
-        void DecrementStat(Outcome previousOutcome, OutcomeStats stats)
+        private void DecrementStat(Outcome previousOutcome, OutcomeStats stats)
         {
             switch (previousOutcome)
 			{
@@ -124,7 +124,7 @@ namespace xBDD.Core
 					break;
 			}
         }
-        void IncrementStat(Outcome newOutcome, OutcomeStats stats)
+        private void IncrementStat(Outcome newOutcome, OutcomeStats stats)
         {
             switch (newOutcome)
 			{
@@ -146,7 +146,7 @@ namespace xBDD.Core
         }
 
 
-        void CascadeStartTime(Step step)
+        private void CascadeStartTime(Step step)
         {
 			if(step.Scenario.StartTime.Equals(DateTime.MinValue) || step.Scenario.StartTime > step.StartTime)
             	step.Scenario.StartTime = step.StartTime;
@@ -157,7 +157,7 @@ namespace xBDD.Core
 			if(step.Scenario.Feature.Area.TestRun.StartTime.Equals(DateTime.MinValue) || step.Scenario.Feature.Area.TestRun.StartTime > step.StartTime)
             	step.Scenario.Feature.Area.TestRun.StartTime =  step.StartTime;
         }
-        void CascadeStartTime(Scenario scenario)
+        private void CascadeStartTime(Scenario scenario)
         {
 			if(scenario.Feature.StartTime.Equals(DateTime.MinValue) || scenario.Feature.StartTime > scenario.StartTime)
             	scenario.Feature.StartTime = scenario.StartTime;
@@ -166,7 +166,7 @@ namespace xBDD.Core
 			if(scenario.Feature.Area.TestRun.StartTime.Equals(DateTime.MinValue) || scenario.Feature.Area.TestRun.StartTime > scenario.StartTime)
             	scenario.Feature.Area.TestRun.StartTime =  scenario.StartTime;
         }
-        void CascadeEndTime(Step step)
+        private void CascadeEndTime(Step step)
         {
 			if(step.Scenario.EndTime > DateTime.MinValue)
             	step.Scenario.EndTime =  step.EndTime;
@@ -177,7 +177,7 @@ namespace xBDD.Core
 			if(step.Scenario.Feature.Area.TestRun.EndTime > DateTime.MinValue)
             	step.Scenario.Feature.Area.TestRun.EndTime = step.EndTime;
         }
-        void CascadeEndTime(Scenario scenario)
+        private void CascadeEndTime(Scenario scenario)
         {
 			if(scenario.Feature.EndTime > DateTime.MinValue)
             	scenario.Feature.EndTime =  scenario.EndTime;

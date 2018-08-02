@@ -5,8 +5,14 @@ using xBDD.Utility;
 
 namespace xBDD.Core
 {
+    /// <summary>
+    /// Factory used to create all objects for the core.
+    /// </summary>
     public class CoreFactory
     {
+        /// <summary>
+        /// Creates a new <see cref="CoreFactory"/>
+        /// </summary>
         public CoreFactory()
         {
             UtilityFactory = new UtilityFactory();
@@ -89,6 +95,11 @@ namespace xBDD.Core
             };
         }
 
+        /// <summary>
+        /// Creates a Test Run builder that can be used to build and run scenarios.
+        /// </summary>
+        /// <param name="testRunName">The name of the test run that is executing.</param>
+        /// <returns>A new <see cref="TestRunBuilder"/></returns>
         public TestRunBuilder CreateTestRunBuilder(string testRunName)
         {
             return new TestRunBuilder(this, CreateTestRun(testRunName));

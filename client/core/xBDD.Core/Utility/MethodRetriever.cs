@@ -15,7 +15,7 @@ namespace xBDD.Utility
 
             var method = featureClass.GetType().GetTypeInfo().GetDeclaredMethod(methodName);
             if (method == null)
-                throw new StepMethodNotFoundException();
+                throw new ScenarioMethodNotFoundException();
             return factory.CreateMethod(method);
 
         }

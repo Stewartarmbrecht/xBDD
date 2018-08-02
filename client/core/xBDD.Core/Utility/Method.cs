@@ -20,7 +20,7 @@ namespace xBDD.Utility
 
         internal string GetClassName()
         {
-            return methodBase.DeclaringType.Name.AddSpacesToSentence(true);
+            return methodBase.DeclaringType.Name.AddSpacesToSentence();
         }
 
         internal string GetFeatureActorAction()

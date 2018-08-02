@@ -54,10 +54,10 @@ namespace xBDD.Core
         private ScenarioBuilder AddScenario(Method method, string scenarioName, string featureName, string areaName)
         {
             if (scenarioName == null && method != null)
-                scenarioName = method.Name.AddSpacesToSentence(true);
+                scenarioName = method.Name.AddSpacesToSentence();
 
             if (featureName == null && method != null)
-                featureName = method.GetClassName().AddSpacesToSentence(true);
+                featureName = method.GetClassName().AddSpacesToSentence();
 
             if (areaName == null && method != null)
                 areaName = method.GetNameSpace();

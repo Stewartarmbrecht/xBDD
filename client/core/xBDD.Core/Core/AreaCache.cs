@@ -4,17 +4,17 @@ using xBDD.Model;
 
 namespace xBDD.Core
 {
-	public class AreaCache
+	internal class AreaCache
 	{
 		CoreFactory factory;
 		List<Area> areas;
-		public AreaCache(CoreFactory factory)
+		internal AreaCache(CoreFactory factory)
 		{
 			this.factory = factory;
 			this.areas = new List<Area>();
 		}
 		
-		public Area GetOrCreate(TestRun testRun, string areaName)
+		internal Area GetOrCreate(TestRun testRun, string areaName)
 		{
 			var area = areas.Where(x => x.Name == areaName).FirstOrDefault();
 			if(area == null)
