@@ -3,16 +3,18 @@ using xBDD.Model;
 
 namespace xBDD.Core
 {
-    public class ScenarioOutputWriter
+
+    internal class ScenarioOutputWriter
     {
         Scenario scenario;
         IOutputWriter outputWriter;
-        public ScenarioOutputWriter(Scenario scenario, IOutputWriter outputWriter)
+        
+        internal ScenarioOutputWriter(Scenario scenario, IOutputWriter outputWriter)
         {
             this.scenario = scenario;
             this.outputWriter = outputWriter;
         }
-        public void WriteOutput()
+        internal void WriteOutput()
         {
             outputWriter.WriteLine(scenario.Name);
             foreach (var step in scenario.Steps)

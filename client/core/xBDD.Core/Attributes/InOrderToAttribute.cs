@@ -1,19 +1,33 @@
 
 namespace xBDD
 {
+
+	/// <summary>
+	/// Defines the reason for a feature.
+	/// Should be set on the test class that executes the test methods which are the scenarios.
+	/// </summary>
 	[System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple = false)]
 	public class InOrderToAttribute : System.Attribute
 	{
-		string name;
+		string benefitStatement;
 			
-		public InOrderToAttribute(string name)
+		/// <summary>
+		/// Sets the reason for a feature.
+		/// </summary>
+		/// <param name="benefitStatement">The </param>
+		public InOrderToAttribute(string benefitStatement)
 		{
-			this.name = name;
+			this.benefitStatement = benefitStatement;
 		}
 	
-		public string GetName()
+		/// <summary>
+		/// Returns the statement that captures the benefit
+		/// of the feature.
+		/// </summary>
+		/// <returns>Benefit statement.</returns>
+		public string GetBenefitStatement()
 		{
-			return name;
+			return benefitStatement;
 		}
 	}
 }

@@ -4,6 +4,10 @@ using xBDD.Model;
 
 namespace xBDD.Core
 {
+    /// <summary>
+    /// Provides methods for building scenarios by adding 
+    /// steps for specific types of actions/staements.
+    /// </summary>
     public class ScenarioBuilder
     {
         CoreFactory factory;
@@ -11,6 +15,11 @@ namespace xBDD.Core
         ScenarioRunner runner;
         Scenario scenario;
 
+        /// <summary>
+        /// Gets the Scenario that the builder
+        /// is creating.
+        /// </summary>
+        /// <value>Returns the scenario. <see cref="Scenario"/></value>
         public Scenario Scenario { get { return scenario; } }
 
         internal ScenarioBuilder(string scenarioName, Feature feature, CoreFactory factory)
@@ -21,6 +30,11 @@ namespace xBDD.Core
             runner = factory.CreateScenarioRunner(scenario);
         }
 
+        /// <summary>
+        /// Given synchronous step.
+        /// </summary>
+        /// <param name="step">The step to execute.</param>
+        /// <returns>The scenario builder.</returns>
         public ScenarioBuilder Given(Step step)
         {
             step.ActionType = ActionType.Given;
@@ -28,6 +42,12 @@ namespace xBDD.Core
             scenario.Steps.Add(step);
             return this;
         }
+
+        /// <summary>
+        /// When synchronous step.
+        /// </summary>
+        /// <param name="step">The step to execute.</param>
+        /// <returns>The scenario builder.</returns>
         public ScenarioBuilder When(Step step)
         {
             step.ActionType = ActionType.When;
@@ -35,6 +55,12 @@ namespace xBDD.Core
             scenario.Steps.Add(step);
             return this;
         }
+
+        /// <summary>
+        /// Then synchronous step.
+        /// </summary>
+        /// <param name="step">The step to execute.</param>
+        /// <returns>The scenario builder.</returns>
         public ScenarioBuilder Then(Step step)
         {
             step.ActionType = ActionType.Then;
@@ -43,6 +69,11 @@ namespace xBDD.Core
             return this;
         }
 
+        /// <summary>
+        /// And synchronous step.
+        /// </summary>
+        /// <param name="step">The step to execute.</param>
+        /// <returns>The scenario builder.</returns>
         public ScenarioBuilder And(Step step)
         {
             step.ActionType = ActionType.And;
@@ -51,6 +82,15 @@ namespace xBDD.Core
             return this;
         }
 
+        /// <summary>
+        /// Given synchronous step.
+        /// Creates a step from the required parts.
+        /// </summary>
+        /// <param name="stepName">The displayed text for the step.</param>
+        /// <param name="action">The synchronous action to excute for the step.</param>
+        /// <param name="multilineParameter">Optional paramter to add multi-line text under the step name.</param>
+        /// <param name="multilineParameterFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
+        /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder Given(
             string stepName, 
             Action<Step> action = null, 
@@ -61,6 +101,15 @@ namespace xBDD.Core
             return Given(step);
         }
 
+        /// <summary>
+        /// Given asynchronous step.
+        /// Creates a step from the required parts.
+        /// </summary>
+        /// <param name="stepName">The displayed text for the step.</param>
+        /// <param name="action">The asynchronous action to excute for the step.</param>
+        /// <param name="multilineParameter">Optional paramter to add multi-line text under the step name.</param>
+        /// <param name="multilineParameterFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
+        /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder GivenAsync(
             string stepName, 
             Func<Step, Task> action = null, 
@@ -71,6 +120,15 @@ namespace xBDD.Core
             return Given(step);
         }
 
+        /// <summary>
+        /// When synchronous step.
+        /// Creates a step from the required parts.
+        /// </summary>
+        /// <param name="stepName">The displayed text for the step.</param>
+        /// <param name="action">The synchronous action to excute for the step.</param>
+        /// <param name="multilineParameter">Optional paramter to add multi-line text under the step name.</param>
+        /// <param name="multilineParameterFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
+        /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder When(
             string stepName, 
             Action<Step> action = null, 
@@ -81,6 +139,15 @@ namespace xBDD.Core
             return When(step);
         }
 
+        /// <summary>
+        /// When asynchronous step.
+        /// Creates a step from the required parts.
+        /// </summary>
+        /// <param name="stepName">The displayed text for the step.</param>
+        /// <param name="action">The asynchronous action to excute for the step.</param>
+        /// <param name="multilineParameter">Optional paramter to add multi-line text under the step name.</param>
+        /// <param name="multilineParameterFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
+        /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder WhenAsync(
             string stepName, 
             Func<Step, Task> action = null, 
@@ -91,6 +158,15 @@ namespace xBDD.Core
             return When(step);
         }
 
+        /// <summary>
+        /// Then synchronous step.
+        /// Creates a step from the required parts.
+        /// </summary>
+        /// <param name="stepName">The displayed text for the step.</param>
+        /// <param name="action">The synchronous action to excute for the step.</param>
+        /// <param name="multilineParameter">Optional paramter to add multi-line text under the step name.</param>
+        /// <param name="multilineParameterFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
+        /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder Then(
             string stepName, 
             Action<Step> action = null, 
@@ -101,6 +177,15 @@ namespace xBDD.Core
             return Then(step);
         }
 
+        /// <summary>
+        /// Then asynchronous step.
+        /// Creates a step from the required parts.
+        /// </summary>
+        /// <param name="stepName">The displayed text for the step.</param>
+        /// <param name="action">The asynchronous action to excute for the step.</param>
+        /// <param name="multilineParameter">Optional paramter to add multi-line text under the step name.</param>
+        /// <param name="multilineParameterFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
+        /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder ThenAsync(
             string stepName, 
             Func<Step, Task> action = null, 
@@ -111,6 +196,15 @@ namespace xBDD.Core
             return Then(step);
         }
 
+        /// <summary>
+        /// And synchronous step.
+        /// Creates a step from the required parts.
+        /// </summary>
+        /// <param name="stepName">The displayed text for the step.</param>
+        /// <param name="action">The synchronous action to excute for the step.</param>
+        /// <param name="multilineParameter">Optional paramter to add multi-line text under the step name.</param>
+        /// <param name="multilineParameterFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
+        /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder And(
             string stepName, 
             Action<Step> action = null, 
@@ -121,6 +215,15 @@ namespace xBDD.Core
             return And(step);
         }
 
+        /// <summary>
+        /// And asynchronous step.
+        /// Creates a step from the required parts.
+        /// </summary>
+        /// <param name="stepName">The displayed text for the step.</param>
+        /// <param name="action">The asynchronous action to excute for the step.</param>
+        /// <param name="multilineParameter">Optional paramter to add multi-line text under the step name.</param>
+        /// <param name="multilineParameterFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
+        /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder AndAsync(
             string stepName, 
             Func<Step, Task> action = null, 
@@ -131,27 +234,46 @@ namespace xBDD.Core
             return And(step);
         }
 
+        /// <summary>
+        /// Sets the output writer for the scenario.
+        /// This controls how the framework outputs the information
+        /// about the executing scenario.
+        /// </summary>
+        /// <param name="outputWriter">The output writer to use when executing the scenario.</param>
+        /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder SetOutputWriter(IOutputWriter outputWriter)
         {
             runner.SetOutputWriter(outputWriter);
             return this;
         }
-        //  public void Run()
-        //  {
-        //      runner.Run(false);
-        //  }
+
+        /// <summary>
+        /// Passes the scenario without running any steps and 
+        /// instead just documents the scenario.
+        /// Use this for scenarios that are purely for documentation
+        /// and do not exeucte any code.
+        /// </summary>
+        /// <returns>Task for running the scenario.</returns>
         public async Task Document()
         {
             await runner.RunAsync(true);
         }
+
+        /// <summary>
+        /// Executes the scenario.
+        /// </summary>
+        /// <returns>Returns a task.</returns>
         public async Task Run()
         {
             await runner.RunAsync(false);
         }
-        //  public void Skip(string reason)
-        //  {
-        //      runner.Skip(reason);
-        //  }
+
+        /// <summary>
+        /// Skips the scenario and does not execute it.
+        /// Marks the scenario as skipped.
+        /// </summary>
+        /// <param name="reason">The reason the scenario is being skipped.</param>
+        /// <returns>A task for async execution.</returns>
         public async Task Skip(string reason)
         {
             await runner.Skip(reason);

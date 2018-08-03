@@ -28,7 +28,7 @@ namespace xBDD.Utility
             string text = null;
             var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<IWouldLikeToAttribute>();
             if(attr != null)
-                text = attr.GetName();
+                text = attr.GetCapabilityStatement();
             return text;
         }
 
@@ -37,7 +37,7 @@ namespace xBDD.Utility
             string text = null;
             var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<InOrderToAttribute>();
             if(attr != null)
-                text = attr.GetName();
+                text = attr.GetBenefitStatement();
             return text;
         }
 

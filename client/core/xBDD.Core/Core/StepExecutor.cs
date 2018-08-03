@@ -4,18 +4,18 @@ using xBDD.Model;
 
 namespace xBDD.Core
 {
-    public class StepExecutor
+    internal class StepExecutor
     {
         StepExceptionHandler stepExceptionHandler;
         Scenario scenario;
         StatsCascader statsCascader;
-        public StepExecutor(Scenario scenario, CoreFactory factory)
+        internal StepExecutor(Scenario scenario, CoreFactory factory)
         {
             stepExceptionHandler = factory.CreateStepExceptionHandler(scenario);
             statsCascader = factory.UtilityFactory.CreateStatsCascader();
             this.scenario = scenario;
         }
-        public async Task ExecuteStepAsync(Step step)
+        internal async Task ExecuteStepAsync(Step step)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace xBDD.Core
             }
         }
 
-        public void ExecuteStep(Step step)
+        internal void ExecuteStep(Step step)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace xBDD.Core
             step.StartTime = DateTime.Now;
         }
 
-        void PostExecution(Step step)
+        private void PostExecution(Step step)
         {
             step.EndTime = DateTime.Now;
             step.Outcome = Outcome.Passed;
