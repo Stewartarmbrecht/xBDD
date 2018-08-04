@@ -2,6 +2,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 using xBDD;
 
+[assembly: TestRunName("xBDD Sample")]
+
 namespace xBDD.SampleApp.Test
 {
     [TestClass]
