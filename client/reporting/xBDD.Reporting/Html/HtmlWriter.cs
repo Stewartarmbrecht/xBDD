@@ -12,6 +12,11 @@ namespace xBDD.Reporting.Html
         int featureCounter = 0;
         int scenarioCounter = 0;
         int stepCounter = 0;
+        string areaNameSkip = "";
+        internal HtmlWriter(string areaNameSkip)
+        {
+            this.areaNameSkip = areaNameSkip;
+        }
         public Task<string> WriteToString(TestRun testRun)
         {
             return Task.Run(() => {
@@ -35,8 +40,8 @@ namespace xBDD.Reporting.Html
             sb.AppendLine("    <meta charset=\"utf-8\" />");
             sb.AppendLine("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />");
             WriteTag("title", sb, 1, null, testRun.Name.HtmlEncode(), true);
-            sb.AppendLine("    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css\">");
-            sb.AppendLine("    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css\">");
+            //sb.AppendLine("    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/yeti/bootstrap.min.css\" integrity=\"sha384-y+fLJ0LEudr90hGVs3z3qJscIwBcKSNqDD1DU3CbG6LeKR5pFk7023EUU2cSRsOa\" crossorigin=\"anonymous\">");
+            sb.AppendLine("    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\">");
             WriteStyles(sb);
             sb.AppendLine("</head>");
         }
@@ -44,21 +49,27 @@ namespace xBDD.Reporting.Html
         private void WriteStyles(StringBuilder sb)
         {
             sb.Append("    <style>");
-            sb.Append(" ul.steps, div.output, div.mp, dl.exception { margin-left: 2em }");
+            sb.Append(" ol { margin-left: 2.25rem; }");
+            sb.Append(" span.badge { margin-left: .25rem; }");
+            sb.Append(" span.name { margin-left: .75rem; }");
+            sb.Append(" dl.exception { margin: 1rem 3rem; padding: 1rem; }");
+            sb.Append(" dl.exception dt { margin-bottom: .25rem; }");
+            sb.Append(" ol.features { margin-bottom: 2rem; }");
+            sb.Append(" ol.scenarios { margin-bottom: 1.5rem; }");
+            sb.Append(" ol.steps { margin-bottom: 1rem; }");
             sb.Append(" iframe { border: 1px solid gray; resize: both; overflow: auto; }");
-            sb.Append(" li.scenario h4 { margin: .5em; }");
-            //sb.Append(" ol.features { padding: .5em; }");
-            sb.Append(" li.feature { margin: 1.5em; padding: 1em 2em; box-shadow: 1px 1px 8px 1px rgb(202, 202, 202); }");
-            sb.Append(" li.scenario .panel { margin: 1.5em; }");
+            sb.Append(" h2, h3, h4, h5 { font-size: 1.25rem; margin: .5rem; font-weight: 400; }");
+            sb.Append(" h5 { font-size: 1rem; margin: .25rem .75rem; }");
+            sb.Append(" dl.error-type, dl.error-message, dl.error-stack { padding: .5rem; }");
+            sb.Append(" dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding: .5rem; }");
+            sb.Append(" pre.feature-statement { margin: 0rem 0rem 1rem 3rem; padding: .5rem; }");
             sb.Append(" .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; }");
             sb.Append(" td.graph td { padding: 0px !important; }");
-            sb.Append(" .table { margin: 0px !important; }");
-            sb.Append(" h3 { margin: 8px !important; }");
+            sb.Append(" .table { margin: 0px !important; visibility: collapse; }");
             sb.Append(" .table td.bar { padding: 0px !important; }");
             sb.Append(" .testrun-percent-bar { background-color: #56C1F7; }");
             sb.Append(" .area-percent-bar { background-color: #A4DEFB; }");
             sb.Append(" .pointer { cursor: pointer }");
-            sb.Append(" .feature-statement { margin-top: 1em; }");
             sb.AppendLine("</style>");  
         }
 
@@ -67,8 +78,9 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("body", sb, 0, "container-fluid", false);
             WriteNavBar(sb);
             WriteTestRun(testRun, sb);
-            sb.AppendLine("    <script src=\"https://code.jquery.com/jquery-2.1.4.min.js\"></script>");
-            sb.AppendLine("    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js\"></script>");
+            sb.AppendLine("    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>");
+            sb.AppendLine("    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>");
+            sb.AppendLine("    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\" integrity=\"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy\" crossorigin=\"anonymous\"></script>");
             sb.AppendLine("    <script src=\"https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sunburst\"></script>");
             sb.AppendLine("    <script language=\"javascript\" type=\"text/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }</script>");
             WriteTagClose("body", sb, 0);
@@ -103,34 +115,35 @@ namespace xBDD.Reporting.Html
         {
             var scenarioCount = testRun.Areas.Count;
             var cssClass = "testrun-name";
+            var badgeClass = "";
             if (scenarioCount == 0)
             {
-                cssClass = cssClass + " text-muted";
+                badgeClass = "badge-secondary";
             }
             else
             {
                 switch (testRun.Outcome)
                 {
                     case Outcome.Failed:
-                        cssClass = cssClass + " text-danger";
+                        badgeClass = "badge-danger";
                         break;
                     case Outcome.NotRun:
-                        cssClass = cssClass + " text-info";
+                        badgeClass = "badge-info";
                         break;
                     case Outcome.Passed:
-                        cssClass = cssClass + " text-success";
+                        badgeClass = "badge-success";
                         break;
                     case Outcome.Skipped:
-                        cssClass = cssClass + " text-warning";
+                        badgeClass = "badge-warning";
                         break;
                 }
             }
             WriteTagOpen("div", sb, 1, "page-header", false, null, "margin-top: 0px !important;");
             WriteTagOpen("h1", sb, 2, cssClass, true);
-            WriteTag("small", sb, 2, null, "Test Run", true);
-            sb.Append("<br/>");
+            //WriteTag("small", sb, 2, null, "Test Run", true);
+            //sb.Append("<br/>");
+            WriteTag("span", sb, 0, $"badge badget-pill total {badgeClass}", testRun.AreaStats.Total.ToString(), true, null, null, " title=\"Areas\"");
             WriteTag("span", sb, 0, "name", testRun.Name.HtmlEncode(), true);
-            WriteTag("span", sb, 0, "badge pull-right total", testRun.AreaStats.Total.ToString(), true, null, null, " title=\"Areas\"");
             WriteTagClose("h1", sb, 2);
             WriteTagClose("div", sb, 1);
             WriteStatsTableStart(sb, 1);
@@ -231,7 +244,7 @@ namespace xBDD.Reporting.Html
         private void WriteScenario(Scenario scenario, StringBuilder sb)
         {
             WriteScenarioOpen(scenario, sb);
-            WriteScenarioTitleLine(scenario, sb);
+            //WriteScenarioTitleLine(scenario, sb);
             if (scenario.Steps.Count > 0)
             {
                 WriteSteps(scenario, sb);
@@ -243,23 +256,26 @@ namespace xBDD.Reporting.Html
         {
             string style = null;
             string className = null;
+            string badgeClassName = null;
             switch (scenario.Feature.Area.Outcome)
             {
                 case Outcome.NotRun:
                     style = "#949494";
-                    className = "text-muted";
+                    badgeClassName = "badge-secondary";
                     break;
                 case Outcome.Passed:
                     style = "#5A8B5B";
-                    className = "text-success collapsed";
+                    className = "collapsed";
+                    badgeClassName = "badge-success";
                     break;
                 case Outcome.Failed:
                     style = "#AD4D4B";
-                    className = "text-danger";
+                    badgeClassName = "badge-danger";
                     break;
                 case Outcome.Skipped:
                     style = "#917545";
-                    className = "text-warning";
+                    //className = "text-warning";
+                    badgeClassName = "badge-warning";
                     break;
                 default:
                     break;
@@ -273,9 +289,14 @@ namespace xBDD.Reporting.Html
 
             var areaTitleAttributes = String.Format(" data-toggle=\"collapse\" href=\"#area-{0}-features\" aria-expanded=\"{1}\" aria-controls=\"area-{0}-features\" ", areaCounter, expandedText);
             WriteTagOpen("h2", sb, 3, className, true, null, null, areaTitleAttributes);
-            WriteTag("small", sb, 4, null, "Area", true);
-            WriteTag("span", sb, 4, "name pointer", scenario.Feature.Area.Name.HtmlEncode(), true);
-            WriteTag("span", sb, 4, "badge pull-right total", scenario.Feature.Area.FeatureStats.Total.ToString(), true, null, null, " title=\"Features\"");
+            //WriteTag("small", sb, 4, null, "Area", true);
+
+            WriteTag("span", sb, 4, $"badge total {badgeClassName}", scenario.Feature.Area.FeatureStats.Total.ToString(), true, null, null, " title=\"Features\"");
+            var areaName = scenario.Feature.Area.Name;
+            if(this.areaNameSkip != null && this.areaNameSkip.Length > 0) {
+                areaName = areaName.Replace(this.areaNameSkip, "");
+            }
+            WriteTag("span", sb, 4, "name pointer", areaName.HtmlEncode(), true);
             WriteTagClose("h2", sb, 3);
 
             WriteStatsTableStart(sb, 3);
@@ -293,40 +314,41 @@ namespace xBDD.Reporting.Html
         }
         void WriteFeatureOpen(Scenario scenario, StringBuilder sb)
         {
-            string style = null;
-            string className = null;
+            string badgetClassName = null;
+            string borderStyle = "";
             switch (scenario.Feature.Outcome)
             {
                 case Outcome.NotRun:
-                    style = "#949494";
-                    className = "text-muted";
+                    borderStyle = "#949494";
+                    badgetClassName = "badge-secondary";
                     break;
                 case Outcome.Passed:
-                    style = "#5A8B5B";
-                    className = "text-success";
+                    borderStyle = "#5A8B5B";
+                    badgetClassName = "badge-success";
                     break;
                 case Outcome.Failed:
-                    style = "#AD4D4B";
-                    className = "text-danger";
+                    borderStyle = "#AD4D4B";
+                    badgetClassName = "badge-danger";
                     break;
                 case Outcome.Skipped:
-                    style = "#917545";
-                    className = "text-warning";
+                    borderStyle = "#917545";
+                    badgetClassName = "badge-warning";
                     break;
                 default:
                     break;
             }
-            style = "box-shadow: 1px 1px 8px 1px "+style+";";
+            borderStyle = $"border-left: 2px solid {borderStyle};";
             featureCounter++;
             var expanded = scenario.Feature.Outcome == Outcome.Failed;
             var expandedText = expanded ? "true" : "false";
-            WriteTagOpen("li", sb, 4, "feature", false, "feature-" + featureCounter, style);
+            //WriteTagOpen("li", sb, 4, "feature", false, "feature-" + featureCounter, style);
+            WriteTagOpen("li", sb, 4, "feature", false, "feature-" + featureCounter);
 
             var titleAttributes = String.Format(" data-toggle=\"collapse\" href=\"#feature-{0}-scenarios\" aria-expanded=\"{1}\" aria-controls=\"feature-{0}-scenarios\" ", featureCounter, expandedText);
-            WriteTagOpen("h3", sb, 5, className, true, "vertical-align: top !important;", null, titleAttributes);
-            WriteTag("small", sb, 6,null, "Feature", true);
+            WriteTagOpen("h3", sb, 5, null, true, "vertical-align: top !important;", null, titleAttributes);
+            //WriteTag("small", sb, 6,null, "Feature", true);
+            WriteTag("span", sb, 6, $"badge total {badgetClassName}", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, " title=\"Scenarios\"");
             WriteTag("span", sb, 6, "name pointer", scenario.Feature.Name.HtmlEncode(), true);
-            WriteTag("span", sb, 6, "badge pull-right total", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, " title=\"Scenarios\"");
             WriteTagClose("h3", sb, 5);
 
             WriteStatsTableStart(sb, 5);
@@ -336,14 +358,14 @@ namespace xBDD.Reporting.Html
             WriteFeatureStatement(scenario, sb);
 
             var scenariosClassName = "scenarios list-unstyled collapse" + (expanded ? " in" : "");
-            WriteTagOpen("ol", sb, 5, scenariosClassName, false, "feature-" + featureCounter + "-scenarios", null, String.Format(" aria-expanded=\"{0}\"", expandedText));
+            WriteTagOpen("ol", sb, 5, scenariosClassName, false, "feature-" + featureCounter + "-scenarios", borderStyle, String.Format(" aria-expanded=\"{0}\"", expandedText));
         }
         void WriteFeatureStatement(Scenario scenario, StringBuilder sb)
         {
             if(scenario.Feature.Actor != null || scenario.Feature.Value != null || scenario.Feature.Capability != null)
             {
                 var statement = $"In order to {scenario.Feature.Value??"[Missing!]"}{System.Environment.NewLine}As a {scenario.Feature.Actor??"[Missing!]"}{System.Environment.NewLine}I would like to {scenario.Feature.Capability??"[Missing!]"}";
-                WriteTag("pre", sb, 5, "feature-statement", statement, true, $"feature-{featureCounter}-statement");
+                WriteTag("pre", sb, 5, "feature-statement bg-light rounded", statement, true, $"feature-{featureCounter}-statement");
             }
         }
         void WriteFeatureClose(StringBuilder sb)
@@ -354,30 +376,49 @@ namespace xBDD.Reporting.Html
         void WriteScenarioOpen(Scenario scenario, StringBuilder sb)
         {
             var className = "scenario " + Enum.GetName(typeof(Outcome), scenario.Outcome).ToLower();
-            var panelClassName = "panel ";
+            var badgeClassName = "";
             switch (scenario.Outcome)
             {
                 case Outcome.NotRun:
                     break;
                 case Outcome.Passed:
-                    panelClassName = panelClassName + " panel-success";
+                    badgeClassName = badgeClassName + "badge-success";
                     break;
                 case Outcome.Failed:
-                    panelClassName = panelClassName + " panel-danger";
+                    badgeClassName = badgeClassName + "badge-danger";
                     break;
                 case Outcome.Skipped:
-                    panelClassName = panelClassName + " panel-warning";
+                    badgeClassName = badgeClassName + "badge-warning";
                     break;
                 default:
                     break;
             }
             scenarioCounter++;
             WriteTagOpen("li", sb, 6, className, false, "scenario-" + scenarioCounter);
-            WriteTagOpen("div", sb, 7, panelClassName, false);
+
+            var expanded = scenario.Outcome == Outcome.Failed;
+            var expandedText = expanded ? "true" : "false";
+
+            var titleAttributes = String.Format(" data-toggle=\"collapse\" href=\"#scenario-{0}-steps\" aria-expanded=\"{1}\" aria-controls=\"scenario-{0}-steps\" ", scenarioCounter, expandedText);
+            WriteTagOpen("h4", sb, 7, "panel-heading", true, null, null, titleAttributes);
+
+            WriteTag("span", sb, 8, $"badge total {badgeClassName}", scenario.StepStats.Total.ToString(), true, null, null, " title=\"Steps\"");
+
+            WriteTag("span", sb, 0, "name pointer", scenario.Name.HtmlEncode(), true);
+
+            if (scenario.Outcome != Outcome.Passed)
+            {
+                WriteScenarioStatus(scenario, sb);
+            }
+
+            WriteTagClose("h4", sb, 7);
+
+            var stepsClassName = "steps list-unstyled collapse" + (expanded ? " in" : "");
+            WriteTagOpen("ol", sb, 7, stepsClassName, false, "scenario-" + scenarioCounter + "-steps", null, String.Format(" aria-expanded=\"{0}\"", expandedText));
         }
         void WriteScenarioClose(StringBuilder sb)
         {
-            WriteTagClose("div", sb, 7);
+            WriteTagClose("ol", sb, 7);
             WriteTagClose("li", sb, 6);
         }
         void WriteScenarioStatus(Scenario scenario, StringBuilder sb)
@@ -395,60 +436,45 @@ namespace xBDD.Reporting.Html
         }
         void WriteScenarioTitleLine(Scenario scenario, StringBuilder sb)
         {
-            var expanded = scenario.Outcome == Outcome.Failed;
-            var expandedText = expanded ? "true" : "false";
-
-            var titleAttributes = String.Format(" data-toggle=\"collapse\" href=\"#scenario-{0}-steps\" aria-expanded=\"{1}\" aria-controls=\"scenario-{0}-steps\" ", scenarioCounter, expandedText);
-            WriteTagOpen("div", sb, 7, "panel-heading", true, null, null, titleAttributes);
-            WriteTag("span", sb, 0, "name pointer", scenario.Name.HtmlEncode(), true);
-            if (scenario.Outcome != Outcome.Passed)
-            {
-                WriteScenarioStatus(scenario, sb);
-            }
-
-            WriteTag("span", sb, 8, "badge pull-right total", scenario.StepStats.Total.ToString(), true, null, null, " title=\"Steps\"");
-
-            WriteTagClose("div", sb, 0);
         }
         void WriteSteps(Scenario scenario, StringBuilder sb)
         {
             var expanded = scenario.Outcome == Outcome.Failed;
             var expandedText = expanded ? "true" : "false";
 
-            var scenariosClassName = "panel-body collapse" + (expanded ? " in" : "");
-            WriteTagOpen("div", sb, 7, scenariosClassName, false, "scenario-" + scenarioCounter + "-steps", null, String.Format(" aria-expanded=\"{0}\"", expandedText));
-            WriteTagOpen("ol", sb, 7, "steps list-unstyled", false);
+            var stepsClassName = "steps list-unstyled collapse" + (expanded ? " in" : "");
+            //WriteTagOpen("ol", sb, 8, stepsClassName, false, "scenario-" + scenarioCounter + "-steps", null, String.Format(" aria-expanded=\"{0}\"", expandedText));
             foreach(Step step in scenario.Steps)
             {
                 stepCounter++;
                 WriteStep(step, sb, stepCounter);
             }
-            WriteTagClose("ol", sb, 7);
-            WriteTagClose("div", sb, 7);
+        //WriteTagClose("ol", sb, 8);
         }
         void WriteStep(Step step, StringBuilder sb, int stepNumber)
         {
-            var className = "step " + Enum.GetName(typeof(Outcome), step.Outcome).ToLower();
+            var badgeClassName = "step " + Enum.GetName(typeof(Outcome), step.Outcome).ToLower();
             switch (step.Outcome)
             {
                 case Outcome.NotRun:
-                    className = className + " text-info";
+                    badgeClassName = badgeClassName + " badge-info";
                     break;
                 case Outcome.Passed:
-                    className = className + " text-success";
+                    badgeClassName = badgeClassName + " badge-success";
                     break;
                 case Outcome.Failed:
-                    className = className + " text-danger";
+                    badgeClassName = badgeClassName + " badge-danger";
                     break;
                 case Outcome.Skipped:
-                    className = className + " text-warning";
+                    badgeClassName = badgeClassName + " badge-warning";
                     break;
                 default:
                     break;
             }
-            WriteTagOpen("li", sb, 8, className, false, "step-" + stepNumber);
+            WriteTagOpen("li", sb, 8, null, false, "step-" + stepNumber);
 
             WriteTagOpen("h5", sb, 9, null, true);
+            WriteTag("span", sb, 8, $"badge total badge-pill {badgeClassName}", " ", true, null, null, null);
             WriteTag("span", sb, 0, "name", step.FullName.HtmlEncode(), true);
             
             if (!String.IsNullOrEmpty(step.Output))
@@ -486,13 +512,13 @@ namespace xBDD.Reporting.Html
         }
         void WriteException(Exception exception, StringBuilder sb, int level = 0)
         {
-            WriteTagOpen("dl", sb, 9 + level, "exception dl-horizontal", false);
+            WriteTagOpen("dl", sb, 9 + level, "exception dl-horizontal border border-danger rounded", false);
             WriteTag("dt", sb, 10 + level, null, "Error Type", true);
             WriteTag("dd", sb, 10 + level, "error-type", exception.GetType().Name.HtmlEncode(), true);
             WriteTag("dt", sb, 10 + level, null, "Message", true);
-            WriteTag("dd", sb, 10 + level, "error-message", "<pre>" + exception.Message.HtmlEncode() + "</pre>", true);
+            WriteTag("dd", sb, 10 + level, "error-message bg-light", "<pre><code>" + exception.Message.HtmlEncode() + "</code></pre>", true);
             WriteTag("dt", sb, 10 + level, null, "Stack", true);
-            WriteTag("dd", sb, 10 + level, "error-stack", "<pre>" + exception.StackTrace.HtmlEncode() + "</pre>", true);
+            WriteTag("dd", sb, 10 + level, "error-stack bg-light", "<pre><code>" + exception.StackTrace.HtmlEncode() + "</code></pre>", true);
             if(exception.InnerException != null)
             {
                 WriteTag("dt", sb, 10 + level, null, "Inner Exception", true);

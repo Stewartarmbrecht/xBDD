@@ -10,9 +10,9 @@ namespace xBDD.Reporting
             return new TextWriter();
         }
 
-        internal HtmlWriter GetHtmlFileWriter()
+        internal HtmlWriter GetHtmlFileWriter(string areaNameSkip)
         {
-            return new HtmlWriter();
+            return new HtmlWriter(areaNameSkip);
         }
     }
 }

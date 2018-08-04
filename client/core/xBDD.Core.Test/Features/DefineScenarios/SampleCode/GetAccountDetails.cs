@@ -38,7 +38,7 @@ namespace MyApp.API.Test.Features.Accounts
 					//await client.logOff();
 					await Task.Run(() => { });
 				})
-				.WhenAsync("the client gets to the account details resource 'http://<site>/api/Accounts/99'", async (s) => {
+				.WhenAsync("the client gets to the account details resource 'https://<site>/api/Accounts/99'", async (s) => {
 					//code to issue get request.
 					//var response = await client.Get('http://<site>/api/Accounts/99');
 					//the line below is just to get the example to compile...
