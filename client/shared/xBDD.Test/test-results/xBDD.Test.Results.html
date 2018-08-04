@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style> ol { margin-left: 2.25rem; } span.badge { margin-left: .25rem; } span.name { margin-left: .75rem; } dl.exception { margin: 1rem 3rem; padding: 1rem; } dl.exception dt { margin-bottom: .25rem; } ol.features { margin-bottom: 2rem; } ol.scenarios { margin-bottom: 1.5rem; } ol.steps { margin-bottom: 1rem; } iframe { border: 1px solid gray; resize: both; overflow: auto; } h2, h3, h4, h5 { font-size: 1.25rem; margin: .5rem; font-weight: 400; } h5 { font-size: 1rem; margin: .25rem .75rem; } dl.error-type, dl.error-message, dl.error-stack { padding: .5rem; } dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding: .5rem; } pre.feature-statement { margin: 0rem 0rem 1rem 3rem; padding: .5rem; } .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; } td.graph td { padding: 0px !important; } .table { margin: 0px !important; } .table td.bar { padding: 0px !important; } .testrun-percent-bar { background-color: #56C1F7; } .area-percent-bar { background-color: #A4DEFB; } .pointer { cursor: pointer }</style>
+</head>
+<body class="container-fluid">
+
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">xBDD Test Results</a>
+                    <button id="menu-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="javascript: $('ol.features').collapse('show');" id="expand-all-areas-button">Expand All Areas <span class="sr-only">(current)</span></a>
+                        </div>
+                    </div>
+                    </nav>            
+                <div class="page-header" style="margin-top: 0px !important;">
+        <h1 class="testrun-name"><span class="badge pointer badget-pill total badge-warning" title="Areas">1</span>
+<span class="name"></span>
+        </h1>
+    </div>
+    <table class="table table-condensed " style="width: 100%; empty-cells: show;">
+        <tr id="testrun-area-stats">
+            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+            <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="skipped warning text-center" style="width: 3.3333333333333%;">1</td>
+            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="outcome-bar-chart" style="width: 90%;">
+    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+        <tr>
+            <td class="bar passed-bar bg-success text-center" style="width: 0%"></td>
+            <td class="bar skipped-bar bg-warning text-center" style="width: 100%"></td>
+            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+        </tr>
+    </table>
+        </td>
+    </tr>
+        <tr id="testrun-feature-stats">
+            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+            <td class="passed success text-center" style="width: 3.3333333333333%;">1</td>
+            <td class="skipped warning text-center" style="width: 3.3333333333333%;">1</td>
+            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="outcome-bar-chart" style="width: 90%;">
+    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+        <tr>
+            <td class="bar passed-bar bg-success text-center" style="width: 50%"></td>
+            <td class="bar skipped-bar bg-warning text-center" style="width: 50%"></td>
+            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+        </tr>
+    </table>
+        </td>
+    </tr>
+        <tr id="testrun-scenario-stats">
+            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+            <td class="passed success text-center" style="width: 3.3333333333333%;">4</td>
+            <td class="skipped warning text-center" style="width: 3.3333333333333%;">1</td>
+            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="outcome-bar-chart" style="width: 90%;">
+    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+        <tr>
+            <td class="bar passed-bar bg-success text-center" style="width: 80%"></td>
+            <td class="bar skipped-bar bg-warning text-center" style="width: 20%"></td>
+            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+        </tr>
+    </table>
+        </td>
+    </tr>
+    </table>
+    <ol class="areas list-unstyled">
+        <li class="area" id="area-1">
+            <h2>                <span class="badge pointer total badge-warning" id="area-1-badge" data-toggle="collapse" href="#area-1-stats" aria-expanded="false" aria-controls="area-1-stats"  title="Features">2</span>
+                <span class="name pointer" id="area-1-name" data-toggle="collapse" href="#area-1-features" aria-expanded="false" aria-controls="area-1-features" >xBDD - Test - Features - Environment</span>
+            </h2>
+            <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-1-stats">
+                <tr id="area-1-feature-stats">
+                    <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+                    <td class="passed success text-center" style="width: 3.3333333333333%;">1</td>
+                    <td class="skipped warning text-center" style="width: 3.3333333333333%;">1</td>
+                    <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                    <td class="outcome-bar-chart" style="width: 90%;">
+            <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                <tr>
+                    <td class="bar passed-bar bg-success text-center" style="width: 50%"></td>
+                    <td class="bar skipped-bar bg-warning text-center" style="width: 50%"></td>
+                    <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                </tr>
+            </table>
+                </td>
+            </tr>
+                <tr id="area-1-scenario-stats">
+                    <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+                    <td class="passed success text-center" style="width: 3.3333333333333%;">4</td>
+                    <td class="skipped warning text-center" style="width: 3.3333333333333%;">1</td>
+                    <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                    <td class="outcome-bar-chart" style="width: 90%;">
+            <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                <tr>
+                    <td class="bar passed-bar bg-success text-center" style="width: 80%"></td>
+                    <td class="bar skipped-bar bg-warning text-center" style="width: 20%"></td>
+                    <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                </tr>
+            </table>
+                </td>
+            </tr>
+            </table>
+            <ol class="features list-unstyled collapse" style="border-left: 2px solid #917545;" id="area-1-features" aria-expanded="false">
+                <li class="feature" id="feature-1">
+                    <h3 id="vertical-align: top !important;">                        <span class="badge pointer total badge-warning" data-toggle="collapse" href="#feature-1-stats" aria-expanded="false" aria-controls="feature-1-stats"  title="Scenarios">2</span>
+                        <span class="name pointer" data-toggle="collapse" href="#feature-1-scenarios" aria-expanded="false" aria-controls="feature-1-scenarios" >Publish Test Results To Central Database</span>
+                    </h3>
+                    <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-1-stats">
+                        <tr id="feature-1-scenario-stats">
+                            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+                            <td class="passed success text-center" style="width: 3.3333333333333%;">1</td>
+                            <td class="skipped warning text-center" style="width: 3.3333333333333%;">1</td>
+                            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="outcome-bar-chart" style="width: 90%;">
+                    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="bar passed-bar bg-success text-center" style="width: 50%"></td>
+                            <td class="bar skipped-bar bg-warning text-center" style="width: 50%"></td>
+                            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                    </table>
+                    <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #917545;" id="feature-1-scenarios" aria-expanded="false">
+                        <li class="scenario skipped" id="scenario-1">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-1-steps" aria-expanded="false" aria-controls="scenario-1-steps" >                                <span class="badge pointer total badge-warning" title="Steps">2</span>
+<span class="name pointer">Publish After CI Test Run</span>
+<span class="status">[Skipped - Not Implemented]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-1-steps" aria-expanded="false">
+                                <li id="step-1">
+                                    <h5>                                <span class="badge pointer total badge-pill step skipped badge-warning"> </span>
+<span class="name">When the developer pushes a commit to the master branch</span>
+</h5>
+                                </li>
+                                <li id="step-2">
+                                    <h5>                                <span class="badge pointer total badge-pill step skipped badge-warning"> </span>
+<span class="name">Then the CI process should build the solution, run the tests, and publish the results to a central database</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="scenario passed" id="scenario-2">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-2-steps" aria-expanded="false" aria-controls="scenario-2-steps" >                                <span class="badge pointer total badge-success" title="Steps">4</span>
+<span class="name pointer">Publish After Test Run</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-2-steps" aria-expanded="false">
+                                <li id="step-3">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">Given the developer sets the solution to the Publish configuration</span>
+</h5>
+                                </li>
+                                <li id="step-4">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And the developer defines a valid connection string for an environment variable named 'Data:DefaultConnection:ConnectionString'</span>
+</h5>
+                                </li>
+                                <li id="step-5">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">When the developer runs the tests</span>
+</h5>
+                                </li>
+                                <li id="step-6">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">Then the test results should be published to the database</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li class="feature" id="feature-2">
+                    <h3 id="vertical-align: top !important;">                        <span class="badge pointer total badge-success" data-toggle="collapse" href="#feature-2-stats" aria-expanded="false" aria-controls="feature-2-stats"  title="Scenarios">3</span>
+                        <span class="name pointer" data-toggle="collapse" href="#feature-2-scenarios" aria-expanded="false" aria-controls="feature-2-scenarios" >Run Tests</span>
+                    </h3>
+                    <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-2-stats">
+                        <tr id="feature-2-scenario-stats">
+                            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+                            <td class="passed success text-center" style="width: 3.3333333333333%;">3</td>
+                            <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="outcome-bar-chart" style="width: 90%;">
+                    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+                            <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
+                            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                    </table>
+                    <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="feature-2-scenarios" aria-expanded="false">
+                        <li class="scenario passed" id="scenario-3">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-3-steps" aria-expanded="false" aria-controls="scenario-3-steps" >                                <span class="badge pointer total badge-success" title="Steps">6</span>
+<span class="name pointer">Run All Tests</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-3-steps" aria-expanded="false">
+                                <li id="step-7">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">Given a contributor has downloaded the solution</span>
+</h5>
+                                </li>
+                                <li id="step-8">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And the contributor runs the xBDD\RunJustTests.ps1 powershell script</span>
+</h5>
+                                </li>
+                                <li id="step-9">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">Then all tests will run</span>
+</h5>
+                                </li>
+                                <li id="step-10">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And the test results will be written in plain text to the &lt;ProjectName&gt;.TestResults.txt file at the root of each project</span>
+</h5>
+                                </li>
+                                <li id="step-11">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And the test results will be written in html to the &lt;ProjectName&gt;.TestResults.html file at the root of each project</span>
+</h5>
+                                </li>
+                                <li id="step-12">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And the output from running the tests will be written to the &lt;ProjectName&gt;.Output.txt file at the root of each project</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="scenario passed" id="scenario-4">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-4-steps" aria-expanded="false" aria-controls="scenario-4-steps" >                                <span class="badge pointer total badge-success" title="Steps">9</span>
+<span class="name pointer">Run Filtered Tests</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-4-steps" aria-expanded="false">
+                                <li id="step-13">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">Given a contributor has downloaded the solution</span>
+</h5>
+                                </li>
+                                <li id="step-14">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And marked a test method with a trait: '[Trait(&quot;category&quot;, &quot;now&quot;)]'</span>
+</h5>
+                                </li>
+                                <li id="step-15">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And has opened powershell</span>
+</h5>
+                                </li>
+                                <li id="step-16">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And has navigated to the root folder of a project in powershell</span>
+</h5>
+                                </li>
+                                <li id="step-17">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">When the contributor runs 'dnx xunit.runner.dnx -trait &quot;category=now&quot;</span>
+</h5>
+                                </li>
+                                <li id="step-18">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">Then only the test that was marked will run</span>
+</h5>
+                                </li>
+                                <li id="step-19">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And the test results will be written in plain text to the &lt;ProjectName&gt;.TestResults.txt file at the root of the project</span>
+</h5>
+                                </li>
+                                <li id="step-20">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And the test results will be written in html to the &lt;ProjectName&gt;.TestResults.html file at the root of the project</span>
+</h5>
+                                </li>
+                                <li id="step-21">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And the output from running the tests will be written to the &lt;ProjectName&gt;.Output.txt file at the root of the project</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="scenario passed" id="scenario-5">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-5-steps" aria-expanded="false" aria-controls="scenario-5-steps" >                                <span class="badge pointer total badge-success" title="Steps">8</span>
+<span class="name pointer">Run Project Tests</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-5-steps" aria-expanded="false">
+                                <li id="step-22">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">Given a contributor has downloaded the solution</span>
+</h5>
+                                </li>
+                                <li id="step-23">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And opened powershell</span>
+</h5>
+                                </li>
+                                <li id="step-24">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And has navigated to the root folder of a project in powershell</span>
+</h5>
+                                </li>
+                                <li id="step-25">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">When the contributor runs 'dotnet test' in powershell</span>
+</h5>
+                                </li>
+                                <li id="step-26">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">Then all tests in that project will run</span>
+</h5>
+                                </li>
+                                <li id="step-27">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And the test results will be written in plain text to the &lt;ProjectName&gt;.TestResults.txt file at the root of the project</span>
+</h5>
+                                </li>
+                                <li id="step-28">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And the test results will be written in html to the &lt;ProjectName&gt;.TestResults.html file at the root of the project</span>
+</h5>
+                                </li>
+                                <li id="step-29">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">And the output from running the tests will be written to the &lt;ProjectName&gt;.Output.txt file at the root of the project</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+    </ol>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sunburst"></script>
+    <script language="javascript" type="text/javascript">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }</script>
+</body>
+</html>

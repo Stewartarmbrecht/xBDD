@@ -6,23 +6,27 @@ namespace xBDD.Reporting.Test.Pages.HtmlReportPage
     {
         public static PageElement Name(int areaNumber)
         {
-            return new PageElement("area title line","#area-" + areaNumber + " h2 span.name");
+            return new PageElement("area title line","#area-" + areaNumber + "-name");
         }
-        public static PageElement NameGreen(int areaNumber)
+        public static PageElement Badge(int areaNumber)
         {
-            return new PageElement("area " + areaNumber + " with green name", "#area-" + areaNumber + " h2.text-success");   
+            return new PageElement("area title line","#area-" + areaNumber + "-badge");
         }
-        public static PageElement NameYellow(int areaNumber)
+        public static PageElement BadgeGreen(int areaNumber)
         {
-            return new PageElement("area " + areaNumber + " with yelow name", "#area-" + areaNumber + " h2.text-warning");   
+            return new PageElement("area " + areaNumber + " with green badge", "#area-" + areaNumber + " h2 span.badge-success");   
         }
-        public static PageElement NameRed(int areaNumber)
+        public static PageElement BadgeYellow(int areaNumber)
         {
-            return new PageElement("area " + areaNumber + " with red name", "#area-" + areaNumber + " h2.text-danger");   
+            return new PageElement("area " + areaNumber + " with yelow badge", "#area-" + areaNumber + " h2 span.badge-warning");   
         }
-        public static PageElement NameGray(int areaNumber)
+        public static PageElement BadgeRed(int areaNumber)
         {
-            return new PageElement("area " + areaNumber + " with grey name", "#area-" + areaNumber + " h2.text-muted");   
+            return new PageElement("area " + areaNumber + " with red badge", "#area-" + areaNumber + " h2 span.badge-danger");   
+        }
+        public static PageElement BadgeGray(int areaNumber)
+        {
+            return new PageElement("area " + areaNumber + " with grey badge", "#area-" + areaNumber + " h2 span.badge-secondary");   
         }
         public static PageElement Features(int areaNumber)
         {

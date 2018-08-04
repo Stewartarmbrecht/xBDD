@@ -8,17 +8,17 @@ namespace xBDD.Reporting.Test.Pages.HtmlReportPage
         {
             return new PageElement("step name","#step-" + stepNumber + " h5 span.name");
         }
-        public static PageElement Green(int stepNumber)
+        public static PageElement BadgeGreen(int stepNumber)
         {
-            return new PageElement("step " + stepNumber + " with green name", "#step-" + stepNumber + ".text-success");   
+            return new PageElement("step " + stepNumber + " with green name", "#step-" + stepNumber + " h5 span.badge-success");   
         }
-        public static PageElement Yellow(int stepNumber)
+        public static PageElement BadgeYellow(int stepNumber)
         {
-            return new PageElement("step " + stepNumber + " with yellow name", "#step-" + stepNumber + ".text-warning");   
+            return new PageElement("step " + stepNumber + " with yellow name", "#step-" + stepNumber + " h5 span.badge-warning");   
         }
-        public static PageElement Red(int stepNumber)
+        public static PageElement BadgeRed(int stepNumber)
         {
-            return new PageElement("step " + stepNumber + " with red name", "#step-" + stepNumber + ".text-danger");   
+            return new PageElement("step " + stepNumber + " with red name", "#step-" + stepNumber + " h5 span.badge-danger");   
         }
     }
 }

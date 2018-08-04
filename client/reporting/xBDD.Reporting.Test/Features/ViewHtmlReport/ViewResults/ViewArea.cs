@@ -28,12 +28,12 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario())
                 .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the area name in green to indicate all features passed", async (s) => {
+                .ThenAsync("the report will show the area badge in green to indicate all features passed", (Func<Model.Step, Task>)(async (s) => {
                     System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " Then Start");
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.Area.NameGreen(1));
+                    await browser.WaitTillVisible(Pages.HtmlReportPage.Area.BadgeGreen((int)1));
 					browser.ElementHasText(Pages.HtmlReportPage.Area.Name(1), "My Area 1");
                     System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " Then End");
-                })
+                }))
 				.AndAsync("the features under the area will be collapsed because it passed", async (s) => {
                     System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " And Start");
                     await browser.WaitTillNotVisible(Pages.HtmlReportPage.Area.Features(1));
@@ -48,9 +48,9 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleSkippedScenario())
                 .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the area name in yellow to indicate scenarios were skipped", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.NameYellow(1));
-                })
+                .ThenAsync("the report will show the area badge in yellow to indicate scenarios were skipped", (Func<Model.Step, Task>)(async (s) => {
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.BadgeYellow(1));
+                }))
 				.AndAsync("the features under the area will be collapsed because it was not failing", async (s) => {
 					await browser.WaitTillNotVisible(Pages.HtmlReportPage.Area.Features(1));
 				})
@@ -63,8 +63,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleFailedScenario())
                 .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the area name in red to indicate a scenario failed", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.NameRed(1));
+                .ThenAsync("the report will show the area badge in red to indicate a scenario failed", async (s) => {
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.BadgeRed(1));
                 })
 				.AndAsync("the features under the area will be expanded because it has a failing scenario", async (s) => {
 					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.Features(1));

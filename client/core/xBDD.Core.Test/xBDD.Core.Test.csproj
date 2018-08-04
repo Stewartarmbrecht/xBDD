@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\xBDD.Core\xBDD.Core.csproj" />
     <ProjectReference Include="..\..\shared\xBDD.Test\xBDD.Test.csproj" />
   </ItemGroup>
 

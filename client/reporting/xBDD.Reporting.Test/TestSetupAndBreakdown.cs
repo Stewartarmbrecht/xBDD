@@ -1,11 +1,15 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
+using xBDD;
+
+[assembly: TestRunName("xBDD Reporting")]
 
 namespace xBDD.Core.Test
 {
     [TestClass]
     public class TestSetupAndBreakdown
     {
+
         [AssemblyInitialize]
         public static void TestRunStart(TestContext context)
         {

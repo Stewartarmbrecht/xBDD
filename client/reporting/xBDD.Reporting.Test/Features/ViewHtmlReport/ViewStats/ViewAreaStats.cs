@@ -27,6 +27,9 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewStats
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
 				.When(WebUser.ViewsReport(browser))
+				.And("the user expands the stats by clicking on the area badge", async (s) => {
+					await browser.ClickWhenVisible(Pages.HtmlReportPage.Area.Badge(3));
+				})
                 .ThenAsync("there should be a section under the area name that displays feature statistics about the area", async (s) => {
 					await browser.WaitTillVisible(Pages.HtmlReportPage.AreaFeatureStats.Section(3));
                 })
@@ -67,6 +70,9 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewStats
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
  				.When(WebUser.ViewsReport(browser))
+				.And("the user expands the stats by clicking on the area badge", async (s) => {
+					await browser.ClickWhenVisible(Pages.HtmlReportPage.Area.Badge(3));
+				})
                 .ThenAsync("there should be a section under the area name that displays scenario statistics about the area", async (s) => {
 					await browser.WaitTillVisible(Pages.HtmlReportPage.AreaScenarioStats.Section(3));
                 })

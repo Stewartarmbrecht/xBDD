@@ -1,5 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
+using xBDD;
+
+[assembly: TestRunName("xBDD Core")]
 
 namespace xBDD.Core.Test
 {

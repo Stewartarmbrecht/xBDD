@@ -36,8 +36,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				.AndAsync("the user clicks the first scenario", async (s) => {
 					await browser.ClickWhenVisible(Pages.HtmlReportPage.Scenario.Name(1));
 				})
-                .ThenAsync("the report will show the step name in green to indicate it passed", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Step.Green(1));
+                .ThenAsync("the report will show the step badge in green to indicate it passed", async (s) => {
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Step.BadgeGreen(1));
 					browser.ElementHasText(Pages.HtmlReportPage.Step.Name(1), "Given my step 1");
                 })
                 .Run();
@@ -58,8 +58,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
 				.AndAsync("the user clicks the first scenario", async (s) => {
 					await browser.ClickWhenVisible(Pages.HtmlReportPage.Scenario.Name(1));
 				})
-                .ThenAsync("the report will show the step name in yellow to indicate the step was skipped", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Step.Yellow(1));
+                .ThenAsync("the report will show the step badge in yellow to indicate the step was skipped", async (s) => {
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Step.BadgeYellow(1));
                 })
                 .Run();
 		}
@@ -70,8 +70,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleFailedScenario())
                 .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the step name in red to indicate a step failed", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Step.Red(2));
+                .ThenAsync("the report will show the step badge in red to indicate a step failed", async (s) => {
+					await browser.WaitTillVisible(Pages.HtmlReportPage.Step.BadgeRed(2));
                 })
                 .Run();
 		}

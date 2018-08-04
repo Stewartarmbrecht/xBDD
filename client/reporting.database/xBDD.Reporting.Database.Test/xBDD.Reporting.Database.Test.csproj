@@ -14,9 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\shared\xBDD.Test\xBDD.Test.csproj" />
-    <ProjectReference Include="..\..\core\xBDD.Core\xBDD.Core.csproj" />
-    <ProjectReference Include="..\..\reporting\xBDD.Reporting\xBDD.Reporting.csproj" />
-    <ProjectReference Include="..\..\reporting.database\xBDD.Reporting.Database\xBDD.Reporting.Database.csproj" />
   </ItemGroup>
 
   <ItemGroup>

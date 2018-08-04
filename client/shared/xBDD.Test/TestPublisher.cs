@@ -21,12 +21,12 @@ namespace xBDD.Test
                 var separator = System.IO.Path.DirectorySeparatorChar;
 
                 var directory = System.IO.Directory.GetCurrentDirectory();
-                var htmlPath = directory + $"{separator}../../../testresults/xBDD.Test.Results.html";
+                var htmlPath = directory + $"{separator}../../../test-results/xBDD.Test.Results.html";
                 Logger.LogMessage("Writing Html Report to " + htmlPath);
                 var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml("xBDD - Reporting - Test - Features - ");
                 File.WriteAllText(htmlPath, htmlReport);
 
-                var textPath = directory + $"{separator}../../../testresults/xBDD.Test.Results.txt";
+                var textPath = directory + $"{separator}../../../test-results/xBDD.Test.Results.txt";
                 Logger.LogMessage("Writing Html Report to " + textPath);
                 var textReport = await xB.CurrentRun.TestRun.WriteToText();
                 File.WriteAllText(textPath, textReport);

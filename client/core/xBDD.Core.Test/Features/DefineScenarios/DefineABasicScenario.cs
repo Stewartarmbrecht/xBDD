@@ -5,8 +5,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Test;
 using System.Threading.Tasks;
 
-[assembly: TestRunName("My App - API")]
-
 namespace xBDD.Core.Test.Features.DefineScenarios
 {
 	[TestClass]

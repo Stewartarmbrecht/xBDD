@@ -6,19 +6,19 @@ namespace xBDD.Reporting.Test.Pages.HtmlReportPage
     {
         public static PageElement Name(int scenarioNumber)
         {
-            return new PageElement("scenario name","#scenario-" + scenarioNumber + " div.panel-heading span.name");
+            return new PageElement("scenario name","#scenario-" + scenarioNumber + " h4 span.name");
         }
-        public static PageElement Green(int scenarioNumber)
+        public static PageElement BadgeGreen(int scenarioNumber)
         {
-            return new PageElement("scenario " + scenarioNumber + " with green name", "#scenario-" + scenarioNumber + " div.panel.panel-success");   
+            return new PageElement("scenario " + scenarioNumber + " with green name", "#scenario-" + scenarioNumber + " h4 span.badge-success");   
         }
-        public static PageElement Yellow(int scenarioNumber)
+        public static PageElement BadgeYellow(int scenarioNumber)
         {
-            return new PageElement("scenario " + scenarioNumber + " with yellow name", "#scenario-" + scenarioNumber + " div.panel.panel-warning");   
+            return new PageElement("scenario " + scenarioNumber + " with yellow name", "#scenario-" + scenarioNumber + " h4 span.badge-warning");   
         }
-        public static PageElement Red(int scenarioNumber)
+        public static PageElement BadgeRed(int scenarioNumber)
         {
-            return new PageElement("scenario " + scenarioNumber + " with red name", "#scenario-" + scenarioNumber + " div.panel.panel-danger");   
+            return new PageElement("scenario " + scenarioNumber + " with red name", "#scenario-" + scenarioNumber + " h4 span.badge-danger");   
         }
         public static PageElement Steps(int scenarioNumber)
         {

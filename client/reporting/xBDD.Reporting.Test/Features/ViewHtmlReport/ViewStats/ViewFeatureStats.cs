@@ -27,6 +27,9 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewStats
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfAFullTestRunWithAllOutcomes())
  				.When(WebUser.ViewsReport(browser))
+				.And("the user expands the stats by clicking on the feature badge", async (s) => {
+					await browser.ClickWhenVisible(Pages.HtmlReportPage.Feature.Badge(7));
+				})
                 .ThenAsync("there should be a section under the feature name that displays scenario statistics", async (s) => {
 					await browser.WaitTillVisible(Pages.HtmlReportPage.FeatureScenarioStats.Section(7));
                 })

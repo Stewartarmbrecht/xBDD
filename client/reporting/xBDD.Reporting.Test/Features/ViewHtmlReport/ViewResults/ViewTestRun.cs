@@ -32,7 +32,7 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
                     browser.HasTitle("My Test Run");
                 })
                 .AndAsync("the report will show the test run name in gray to indicate no scenarios were run", async (s) => {
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.NameGrey);
+                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.BadgeGrey);
                 })
                 .Run();
 		}
@@ -44,8 +44,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASinglePassingScenario())
                 .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the test run name in green to indicate the test run passed", async (s) => {
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.NameGreen);
+                .ThenAsync("the report will show the test run badge in green to indicate the test run passed", async (s) => {
+                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.BadgeGreen);
                 })
                 .Run();
 		}
@@ -57,8 +57,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleSkippedScenario())
                 .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the test run name in yellow to indicate the test run had skipped scenarios", async (s) => {
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.NameYellow);
+                .ThenAsync("the report will show the test run badge in yellow to indicate the test run had skipped scenarios", async (s) => {
+                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.BadgeYellow);
                 })
                 .Run();
 		}
@@ -70,8 +70,8 @@ namespace xBDD.Reporting.Test.Features.ViewHtmlReport.ViewResults
             await xB.CurrentRun.AddScenario(this)
                 .Given(HtmlReport.OfASingleFailedScenario())
                 .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the test run name in red to indicate the test run has failing scenarios", async (s) => {
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.NameRed);
+                .ThenAsync("the report will show the test run badge in red to indicate the test run has failing scenarios", async (s) => {
+                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.BadgeRed);
                 })
                 .Run();
 		}

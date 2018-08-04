@@ -1,5 +1,8 @@
 Set-Location $PSScriptRoot
 
+dotnet build ./../shared/xBDD.Test/xBDD.Test.csproj 
+dotnet test ./../shared/xBDD.Test/xBDD.Test.csproj -v n --no-build
+
 dotnet build ./../core/xBDD.Core.Test/xBDD.Core.Test.csproj 
 dotnet test ./../core/xBDD.Core.Test/xBDD.Core.Test.csproj -v n --no-build
 

@@ -86,7 +86,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
 			sb.AppendLine();
 			sb.AppendLine("Steps:");
 			sb.AppendLine("Given the client is not authenticated");
-			sb.AppendLine("When the client gets to the account details resource 'http://<site>/api/Accounts/99'");
+			sb.AppendLine("When the client gets to the account details resource 'https://<site>/api/Accounts/99'");
 			sb.AppendLine("Then the client should get a 401 response");
 
 			var seperator = System.IO.Path.DirectorySeparatorChar;
