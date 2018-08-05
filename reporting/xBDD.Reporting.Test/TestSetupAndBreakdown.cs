@@ -19,7 +19,7 @@ namespace xBDD.Core.Test
         [AssemblyCleanup()]
         public async static Task TestRunComplete()
         {
-            await xBDD.Test.TestPublisher.PublishResults();
+            await xBDD.Test.TestPublisher.PublishResults("xBDD - Reporting - Test - Features - ");
         }
     }
 }

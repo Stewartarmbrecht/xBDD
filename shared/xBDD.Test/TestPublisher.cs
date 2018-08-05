@@ -9,7 +9,7 @@ namespace xBDD.Test
 {
     public class TestPublisher
     {
-        public async static Task PublishResults()
+        public async static Task PublishResults(string skipAreaName)
         {
             if(TestConfiguration.Publish)
             {
@@ -23,7 +23,7 @@ namespace xBDD.Test
                 var directory = System.IO.Directory.GetCurrentDirectory();
                 var htmlPath = directory + $"{separator}../../../test-results/xBDD.Test.Results.html";
                 Logger.LogMessage("Writing Html Report to " + htmlPath);
-                var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml("xBDD - Reporting - Test - Features - ");
+                var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml(skipAreaName);
                 File.WriteAllText(htmlPath, htmlReport);
 
                 var textPath = directory + $"{separator}../../../test-results/xBDD.Test.Results.txt";
