@@ -2,95 +2,52 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "client-build",
+            "label": "build",
+            "group": "build",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build"
             ],
-            "options": {
-                "cwd": "${workspaceFolder}/client"
-            },
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "client-test-root",
-            "command": "dotnet",
+            "label": "test-all",
+            "group": "test",
+            "command": "pwsh",
             "type": "process",
-            "args": [
-                "test -v n"
-            ],
             "options": {
-                "cwd": "${workspaceFolder}/test/xBDD.Test/"
+                "cwd": "${workspaceFolder}"
             },
+            "args": [
+                "${workspaceFolder}/scripts/test-all.ps1"
+            ],
             "problemMatcher": "$msCompile"
-        },        
+        },
         {
-            "label": "api-testrun-pipeline",
-            "windows": {
-                "command": "powershell"
-            },
-            "osx": {
-                "command": "pwsh"
-            },
+            "label": "test-core",
+            "group": "test",
+            "command": "pwsh",
             "type": "process",
-            "args": [
-                "${workspaceFolder}/api/testrun/scripts/deploy.ps1"
-            ],
             "options": {
-                "cwd": "${workspaceFolder}/"
+                "cwd": "${workspaceFolder}"
             },
+            "args": [
+                "${workspaceFolder}/scripts/test-core.ps1"
+            ],
             "problemMatcher": "$msCompile"
-        },        
+        },
         {
-            "label": "api-testrun-apps-pipeline",
-            "windows": {
-                "command": "powershell"
-            },
-            "osx": {
-                "command": "pwsh"
-            },
+            "label": "test-reporting",
+            "group": "test",
+            "command": "pwsh",
             "type": "process",
-            "args": [
-                "${workspaceFolder}/api/testrun/scripts/deploy-apps.ps1"
-            ],
             "options": {
-                "cwd": "${workspaceFolder}/"
+                "cwd": "${workspaceFolder}"
             },
-            "problemMatcher": "$msCompile"
-        },        
-        {
-            "label": "api-testrun-test",
-            "windows": {
-                "command": "powershell"
-            },
-            "osx": {
-                "command": "pwsh"
-            },
-            "type": "process",
             "args": [
-                "${workspaceFolder}/api/testrun/scripts/test.ps1"
+                "${workspaceFolder}/scripts/test-reporting.ps1"
             ],
-            "options": {
-                "cwd": "${workspaceFolder}/"
-            },
-            "problemMatcher": "$msCompile"
-        },        
-        {
-            "label": "api-testrun-build",
-            "windows": {
-                "command": "powershell"
-            },
-            "osx": {
-                "command": "pwsh"
-            },
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/api/testrun/scripts/build.ps1"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/"
-            },
             "problemMatcher": "$msCompile"
         }
     ]
