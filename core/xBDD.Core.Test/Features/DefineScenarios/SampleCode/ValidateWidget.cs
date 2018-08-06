@@ -3,54 +3,58 @@ using xBDD;
 using xBDD.Model;
 
 //Area
-namespace MyApp.API.Test.Features.Calendar
+namespace MyApp.UnitTesting.Accounts
 {
 	//Feature
-	[InOrderTo("to ensure widgets properties conform to all business rules")]
 	[AsA("developer")]
-	[IWouldLikeTo("have a utility that will validate the widget")]
-	public class ValidateWidget
+	[YouCan("ensure a Accounts properties conform to all business rules")]
+	[By("using a AccountValidator utility")]
+	// [TestClass] - for MSTest
+	// [TestFixture] - for nUnit
+	public class AccountValidator
 	{
 		//Scenario
-		public async void WithInvalidName()
+		// [Fact] - for xUnit
+		// [Test] - for nUnit
+		public async void InvalidAccountName()
 		{
-			Wrapper<WidgetValidator> validator = new Wrapper<WidgetValidator>();
-			Wrapper<Widget> widget = new Wrapper<Widget>();
+			Wrapper<AccountValidator> validator = new Wrapper<AccountValidator>();
+			Wrapper<Account> Account = new Wrapper<Account>();
 			Wrapper<Exception> exception = new Wrapper<Exception>();
-			await xB.CurrentRun
-				.AddScenario(this)
-				.Given(WidgetValidatorUser.CreatesAWidgetValidator(validator))
-				.And("the user has a widget with an invalid name", (s) => {
-					widget.Object = new Widget()
-					{
-						Name = 	"1 starts with number"
-					};
-				})
-				.When(WidgetValidatorUser.ValidatesTheWidget(widget, validator, exception))
-				.Then("the validator should throw an exception with the message 'Widget names can not start with a number.'", (s) => {
-					if(exception.Object.Message != "Widget names can not start with a number.")
-					{
-						throw new Exception($"The exception did not have a message of 'Widget names can not start with a number.' it was '{exception.Object.Message}'");
-					}
-				})
+			
+			await xB.AddScenario(this)
+				.Given(You.CreateAAccountValidator(validator))
+				.And(You.CreateAAccountWithTheName("1 stars with a number", Account))
+				.When(You.ValidateTheAccount(Account, validator, exception))
+				.Then(You.WillReceiveAnExceptionWithTheMessage("Account names can not start with a number.", exception))
 				.Run();
 		}
 	}
-    public static class WidgetValidatorUser
+    public static class You
     {
-        internal static Step CreatesAWidgetValidator(Wrapper<WidgetValidator> validator)
+        internal static Step CreateAAccountValidator(Wrapper<AccountValidator> validator)
         {
-            return xB.CreateStep("the user creates an instance of a widget validator", (s) => {
-				validator.Object = new WidgetValidator();
+            return xB.CreateStep("the user creates an instance of a Account validator", (s) => {
+				validator.Object = new AccountValidator();
 			});
         }
 
-        internal static Step ValidatesTheWidget(Wrapper<Widget> widget, Wrapper<WidgetValidator> validator, Wrapper<Exception> exception)
+        internal static Step CreateAAccountWithTheName(string name, Wrapper<Account> Account)
         {
-            return xB.CreateStep("the user validates the widget", (s) => {
+            return xB.CreateStep("the user creates an instance of a Account validator", (s) => {
+				Account.Object = new Account()
+				{
+					Name = 	name
+				};
+			});
+        }
+
+        internal static Step ValidateTheAccount(Wrapper<Account> Account, Wrapper<AccountValidator> validator, Wrapper<Exception> exception)
+        {
+            return xB.CreateStep("the user validates the Account", (s) => {
 				try 
 				{
-					validator.Object.ValidateWidget(widget.Object);
+					validator.Object.ValidateAccount(Account.Object);
 				}
 				catch(Exception ex)
 				{
@@ -58,17 +62,26 @@ namespace MyApp.API.Test.Features.Calendar
 				}
 			});
         }
+        internal static Step WillReceiveAnExceptionWithTheMessage(string message, Wrapper<Exception> exception)
+        {
+            return xB.CreateStep("the user validates the Account", (s) => {
+				if(exception.Object.Message != message)
+				{
+					throw new Exception($"The exception did not have a message of '{message}' it was '{exception.Object.Message}'");
+				}
+			});
+        }
     }
 
-	public class WidgetValidator
+	public class AccountValidator
 	{
-		public void ValidateWidget(Widget widget)
+		public void ValidateAccount(Account Account)
 		{
 			//Code here
 		}
 	}
 	
-	public class Widget
+	public class Account
 	{
 		public string Name { get; set; }
 	}

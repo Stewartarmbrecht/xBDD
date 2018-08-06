@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>xBDD Core</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <style> ol { margin-left: 2.25rem; } span.badge { margin-left: .25rem; } span.name { margin-left: .75rem; } dl.exception { margin: 1rem 3rem; padding: 1rem; } dl.exception dt { margin-bottom: .25rem; } ol.features { margin-bottom: 2rem; } ol.scenarios { margin-bottom: 1.5rem; } ol.steps { margin-bottom: 1rem; } iframe { border: 1px solid gray; resize: both; overflow: auto; } h2, h3, h4, h5 { font-size: 1.25rem; margin: .5rem; font-weight: 400; } h5 { font-size: 1rem; margin: .25rem .75rem; } dl.error-type, dl.error-message, dl.error-stack { padding: .5rem; } dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding: .5rem; } pre.feature-statement { margin: 0rem 0rem 1rem 3rem; padding: .5rem; } .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; } td.graph td { padding: 0px !important; } .table { margin: 0px !important; } .table td.bar { padding: 0px !important; } .testrun-percent-bar { background-color: #56C1F7; } .area-percent-bar { background-color: #A4DEFB; } .pointer { cursor: pointer }</style>
+    <style> ol { margin-left: 2.25rem; } span.badge { margin-left: .25rem; } span.name { margin-left: .75rem; } dl.exception { margin: 1rem 3rem; padding: 1rem; } dl.exception dt { margin-bottom: .25rem; } ol.features { margin-bottom: 2rem; } ol.scenarios { margin-bottom: 1.5rem; } ol.steps { margin-bottom: 1rem; } iframe { border: 1px solid gray; resize: both; overflow: auto; } h2, h3, h4, h5 { font-size: 1.25rem; margin: .5rem; font-weight: 400; } h5 { font-size: 1rem; margin: .25rem .75rem; } dl.error-type, dl.error-message, dl.error-stack { padding: .5rem; } dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding: .5rem; } pre.feature-statement { margin: 0rem 0rem 1rem 3rem; padding: .5rem; } .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; } td.graph td { padding: 0px !important; } .table { margin: 0px !important; } .table td.bar { padding: 0px !important; } .testrun-percent-bar { background-color: #56C1F7; } .area-percent-bar { background-color: #A4DEFB; } .pointer { cursor: pointer } pre.mp { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thin; }</style>
 </head>
 <body class="container-fluid">
 
@@ -21,52 +21,52 @@
                     </div>
                     </nav>            
                 <div class="page-header" style="margin-top: 0px !important;">
-        <h1 class="testrun-name"><span class="badge pointer badget-pill total badge-success" title="Areas">1</span>
+        <h1 class="testrun-name"><span class="badge pointer badget-pill total badge-danger" title="Areas">1</span>
 <span class="name">xBDD Core</span>
         </h1>
     </div>
     <table class="table table-condensed " style="width: 100%; empty-cells: show;">
         <tr id="testrun-area-stats">
             <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
-            <td class="passed success text-center" style="width: 3.3333333333333%;">1</td>
+            <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
             <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
-            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="failed danger text-center" style="width: 3.3333333333333%;">1</td>
             <td class="outcome-bar-chart" style="width: 90%;">
     <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
         <tr>
-            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+            <td class="bar passed-bar bg-success text-center" style="width: 0%"></td>
             <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
-            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+            <td class="bar failed-bar bg-danger text-center" style="width: 100%"></td>
         </tr>
     </table>
         </td>
     </tr>
         <tr id="testrun-feature-stats">
             <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
-            <td class="passed success text-center" style="width: 3.3333333333333%;">2</td>
+            <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
             <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
-            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="failed danger text-center" style="width: 3.3333333333333%;">3</td>
             <td class="outcome-bar-chart" style="width: 90%;">
     <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
         <tr>
-            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+            <td class="bar passed-bar bg-success text-center" style="width: 0%"></td>
             <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
-            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+            <td class="bar failed-bar bg-danger text-center" style="width: 100%"></td>
         </tr>
     </table>
         </td>
     </tr>
         <tr id="testrun-scenario-stats">
             <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
-            <td class="passed success text-center" style="width: 3.3333333333333%;">4</td>
+            <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
             <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
-            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="failed danger text-center" style="width: 3.3333333333333%;">5</td>
             <td class="outcome-bar-chart" style="width: 90%;">
     <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
         <tr>
-            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+            <td class="bar passed-bar bg-success text-center" style="width: 0%"></td>
             <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
-            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+            <td class="bar failed-bar bg-danger text-center" style="width: 100%"></td>
         </tr>
     </table>
         </td>
@@ -74,129 +74,127 @@
     </table>
     <ol class="areas list-unstyled">
         <li class="area" id="area-1">
-            <h2 class="collapsed">                <span class="badge pointer total badge-success" id="area-1-badge" data-toggle="collapse" href="#area-1-stats" aria-expanded="false" aria-controls="area-1-stats"  title="Features">2</span>
-                <span class="name pointer" id="area-1-name" data-toggle="collapse" href="#area-1-features" aria-expanded="false" aria-controls="area-1-features" >Define Scenarios</span>
+            <h2>                <span class="badge pointer total badge-danger" id="area-1-badge" data-toggle="collapse" href="#area-1-stats" aria-expanded="false" aria-controls="area-1-stats"  title="Features">3</span>
+                <span class="name pointer" id="area-1-name" data-toggle="collapse" href="#area-1-features" aria-expanded="true" aria-controls="area-1-features" >Define Scenarios</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-1-stats">
                 <tr id="area-1-feature-stats">
                     <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
-                    <td class="passed success text-center" style="width: 3.3333333333333%;">2</td>
+                    <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
                     <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
-                    <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                    <td class="failed danger text-center" style="width: 3.3333333333333%;">3</td>
                     <td class="outcome-bar-chart" style="width: 90%;">
             <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
                 <tr>
-                    <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+                    <td class="bar passed-bar bg-success text-center" style="width: 0%"></td>
                     <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
-                    <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                    <td class="bar failed-bar bg-danger text-center" style="width: 100%"></td>
                 </tr>
             </table>
                 </td>
             </tr>
                 <tr id="area-1-scenario-stats">
                     <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
-                    <td class="passed success text-center" style="width: 3.3333333333333%;">4</td>
+                    <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
                     <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
-                    <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                    <td class="failed danger text-center" style="width: 3.3333333333333%;">5</td>
                     <td class="outcome-bar-chart" style="width: 90%;">
             <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
                 <tr>
-                    <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+                    <td class="bar passed-bar bg-success text-center" style="width: 0%"></td>
                     <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
-                    <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                    <td class="bar failed-bar bg-danger text-center" style="width: 100%"></td>
                 </tr>
             </table>
                 </td>
             </tr>
             </table>
-            <ol class="features list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="area-1-features" aria-expanded="false">
+            <ol class="features list-unstyled collapse show" style="border-left: 2px solid #AD4D4B;" id="area-1-features" aria-expanded="true">
                 <li class="feature" id="feature-1">
-                    <h3 id="vertical-align: top !important;">                        <span class="badge pointer total badge-success" data-toggle="collapse" href="#feature-1-stats" aria-expanded="false" aria-controls="feature-1-stats"  title="Scenarios">2</span>
-                        <span class="name pointer" data-toggle="collapse" href="#feature-1-scenarios" aria-expanded="false" aria-controls="feature-1-scenarios" >Define A Basic Scenario</span>
+                    <h3 id="vertical-align: top !important;">                        <span class="badge pointer total badge-danger" data-toggle="collapse" href="#feature-1-stats" aria-expanded="false" aria-controls="feature-1-stats"  title="Scenarios">2</span>
+                        <span class="name pointer" data-toggle="collapse" href="#feature-1-scenarios" aria-expanded="true" aria-controls="feature-1-scenarios" >Define A Basic Scenario</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-1-stats">
                         <tr id="feature-1-scenario-stats">
                             <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
-                            <td class="passed success text-center" style="width: 3.3333333333333%;">2</td>
+                            <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
                             <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
-                            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="failed danger text-center" style="width: 3.3333333333333%;">2</td>
                             <td class="outcome-bar-chart" style="width: 90%;">
                     <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
                         <tr>
-                            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+                            <td class="bar passed-bar bg-success text-center" style="width: 0%"></td>
                             <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
-                            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                            <td class="bar failed-bar bg-danger text-center" style="width: 100%"></td>
                         </tr>
                     </table>
                         </td>
                     </tr>
                     </table>
-                    <pre class="feature-statement bg-light rounded" id="feature-1-statement">In order to leverage xBDD within my testing framework
-As a developer
-I would like to define and execute a scenario within a unit test</pre>
-                    <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="feature-1-scenarios" aria-expanded="false">
-                        <li class="scenario passed" id="scenario-1">
-                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-1-steps" aria-expanded="false" aria-controls="scenario-1-steps" >                                <span class="badge pointer total badge-success" title="Steps">3</span>
+                    <pre class="feature-statement bg-light rounded" id="feature-1-statement">As a developer
+In order to automate a basic scenario
+I would like to automate a basic scenario</pre>
+                    <ol class="scenarios list-unstyled collapse show" style="border-left: 2px solid #AD4D4B;" id="feature-1-scenarios" aria-expanded="true">
+                        <li class="scenario failed" id="scenario-1">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-1-steps" aria-expanded="true" aria-controls="scenario-1-steps" >                                <span class="badge pointer total badge-danger" title="Steps">3</span>
 <span class="name pointer">With Asynchronous Execution</span>
+<span class="status">[Failed]</span>
                             </h4>
-                            <ol class="steps list-unstyled collapse" id="scenario-1-steps" aria-expanded="false">
+                            <ol class="steps list-unstyled collapse show" id="scenario-1-steps" aria-expanded="true">
                                 <li id="step-1">
                                     <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
 <span class="name">Given has the following scenarion definition</span>
 </h5>
-                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">using System.Threading.Tasks;
+                                    <div class="mp">                                        <pre class="mp rounded prettyprint lang-cs">using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
 using xBDD;
 
-// The namespace will be converted to an Area name with spaces added 
-// between capitalized words and the periods replaced with 
-// dashes.
-namespace MyApp.API.Test.Features.Accounts
+namespace MyApp.HelpDeskTechnicianFeatures.Accounts
 {
-	// Attributes can be used to define the 
-	// value, actor, and action for the feature
-	[InOrderTo(&quot;review the details of a specific account&quot;)]
-	[AsA(&quot;administrator&quot;)]
-	[IWouldLikeTo(&quot;be able to get the details of any account from the api by account id&quot;)]
-	// The class name will be converted to a feature with 
-	// spaces added between capitalized words
-	public class GetAccountDetails
+	[AsA(&quot;help dedk technician&quot;)]
+	[YouCan(&quot;access user account information faster&quot;)]
+	[By(&quot;clicking the account details link next to the user name in the user search results&quot;)]
+	// [TestClass] - for MSTest
+	// [TestFixture] - for nUnit
+	public class AccessAccountDetailsFromUserSearch
 	{
-		// The containing method will be used to 
-		// set the scenario name by adding spaces
-		// between the capitalized words and numbers.
-		// Usually this method will be attributed to 
-		// identify it as a unit test that will be run 
-		// by the unit testing framework you are using.
-		public async Task WhenUnauthenticated()
+		// [Fact] - for xUnit
+		// [Test] - for nUnit
+		public async Task IfYouAreLoggedInAsAHelpDeskTechnician()
 		{
-			// xB is the static class that provides access to the
-			// current test run.
-			await xB.CurrentRun
-				// AddScenario adds a new scenario to the test run.
-				.AddScenario(this)
-				// Adds a new step to the scenario.  Given, When, Then, and And
-				// all do the same thing.  There are no requirements in how you use them.
-				// The only impact of one versus the other is that the full name for the 
-				// step will start with the Given, When, Then or And based on 
-				// Which one you use.
-				.GivenAsync(&quot;the client is not authenticated&quot;, async (s) =&gt; {
-					//async code to ensure the user session is not authenticated.
-					//await client.logOff();
+			await xB.AddScenario(this)
+				.GivenAsync(&quot;you are logged in as a Help Desk Technician&quot;, async (s) =&gt; {
+					// Replace with actual code that returns a task.
 					await Task.Run(() =&gt; { });
 				})
-				.WhenAsync(&quot;the client gets to the account details resource 'https://&lt;site&gt;/api/Accounts/99'&quot;, async (s) =&gt; {
-					//code to issue get request.
-					//var response = await client.Get('https://&lt;site&gt;/api/Accounts/99');
-					//the line below is just to get the example to compile...
+				.AndAsync(&quot;you execute a user search&quot;, async (s) =&gt; {
+					// Replace with actual code that returns a task.
 					await Task.Run(() =&gt; { });
 				})
-				.Then(&quot;the client should get a 401 response&quot;, (s) =&gt; {
-					//code to validate response 
-					//no need for asynchronous code here
+				.WhenAsync(&quot;you click the information icon next to the user name in the search results&quot;, async (s) =&gt; {
+					// Replace with actual code that returns a task.
+					await Task.Run(() =&gt; { });
 				})
-				// To execute the scenario you need to call Run() or RunAsync()
-				// This will execute each step in order that you added them
-				// to the scenario.
+				.Then(&quot;you will be taken to the user details page&quot;, (s) =&gt; {
+					// Replace with synchronous code.
+				})
+				.Run();
+		}
+		public async Task IfYouAreNotLoggedInAsAHelpDeskTechnician()
+		{
+			await xB.AddScenario(this)
+				.GivenAsync(&quot;you are logged in as a normal user&quot;, async (s) =&gt; {
+					// Replace with actual code that returns a task.
+					await Task.Run(() =&gt; { });
+				})
+				.AndAsync(&quot;you execute a user search&quot;, async (s) =&gt; {
+					// Replace with actual code that returns a task.
+					await Task.Run(() =&gt; { });
+				})
+				.ThenAsync(&quot;you should not see an information icon next to the users name in the search results&quot;, async (s) =&gt; {
+					// Replace with actual code that returns a task.
+					await Task.Run(() =&gt; { });
+				})
 				.Run();
 		}
 	}
@@ -209,10 +207,11 @@ namespace MyApp.API.Test.Features.Accounts
 </h5>
                                 </li>
                                 <li id="step-3">
-                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+                                    <h5>                                <span class="badge pointer total badge-pill step failed badge-danger"> </span>
 <span class="name">Then the test run will have the following structure</span>
+<span class="status">[Failed]</span>
 </h5>
-                                    <div class="mp">                                        <pre class="mp">Area:
+                                    <div class="mp">                                        <pre class="mp rounded">Area:
 My App - API - Test - Features - Accounts
 
 Feature:
@@ -227,35 +226,57 @@ When the client gets to the account details resource 'https://&lt;site&gt;/api/A
 Then the client should get a 401 response
                                         </pre>
 </div>
+                                    <dl class="exception dl-horizontal border border-danger rounded">
+                                        <dt>Error Type</dt>
+                                        <dd class="error-type">AssertFailedException</dd>
+                                        <dt>Message</dt>
+                                        <dd class="error-message bg-light"><pre><code>Assert.AreEqual failed. Expected:&lt;My App - API - Test - Features - Accounts&gt;. Actual:&lt;My App - Help Desk Technician Features - Accounts&gt;. </code></pre></dd>
+                                        <dt>Stack</dt>
+                                        <dd class="error-stack bg-light"><pre><code>   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
+   at xBDD.Core.Test.Features.DefineScenarios.DefineABasicScenario.&lt;&gt;c__DisplayClass6_0.&lt;WithAsynchronousExecution&gt;b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core.Test/Features/DefineScenarios/DefineABasicScenario.cs:line 107
+   at xBDD.Core.StepExecutor.&lt;&gt;c__DisplayClass4_0.&lt;ExecuteStepAsync&gt;b__0() in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task&amp; currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25</code></pre></dd>
+                                    </dl>
                                 </li>
                             </ol>
                         </li>
-                        <li class="scenario passed" id="scenario-2">
-                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-2-steps" aria-expanded="false" aria-controls="scenario-2-steps" >                                <span class="badge pointer total badge-success" title="Steps">3</span>
+                        <li class="scenario failed" id="scenario-2">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-2-steps" aria-expanded="true" aria-controls="scenario-2-steps" >                                <span class="badge pointer total badge-danger" title="Steps">3</span>
 <span class="name pointer">With Synchronous Execution</span>
+<span class="status">[Failed]</span>
                             </h4>
-                            <ol class="steps list-unstyled collapse" id="scenario-2-steps" aria-expanded="false">
+                            <ol class="steps list-unstyled collapse show" id="scenario-2-steps" aria-expanded="true">
                                 <li id="step-4">
                                     <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
 <span class="name">Given has the following scenarion definition</span>
 </h5>
-                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">using xBDD;
+                                    <div class="mp">                                        <pre class="mp rounded prettyprint lang-cs">using Microsoft.VisualStudio.TestTools.UnitTesting;
+using xBDD;
 
 //Area
 namespace MyApp.API.Test.Features.Calendar
 {
 	//Feature
-	[InOrderTo(&quot;to reference culture specific holidays&quot;)]
 	[AsA(&quot;developer&quot;)]
-	[IWouldLikeTo(&quot;get a list of the current user's culture specific holidays&quot;)]
+	[YouCan(&quot;find the holidays for the users culture in a specific time range&quot;)]
+	[By(&quot;using the operations exposed by the User object's Calendar property&quot;)]
+	[TestClass]
+	// [TestClass] - for MSTest
+	// [TestFixture] - for nUnit
 	public class GetHolidays
 	{
 		//Scenario
+		// [Fact] - for xUnit
+		// [Test] - for nUnit
 		public async void WhenUSCalendar()
 		{
-			await xB.CurrentRun
-				.AddScenario(this)
-				.Given(&quot;a calendar object is initialized with US holidays&quot;, (s) =&gt; {
+			await xB.AddScenario(this)
+				.Given(&quot;a user object for a user with a US culture&quot;, (s) =&gt; {
 					//code to create calendar
 				})
 				.When(&quot;you call GetHolidays with a date range of 3/10/2015 to 3/18/2015&quot;, (s) =&gt; {
@@ -276,10 +297,11 @@ namespace MyApp.API.Test.Features.Calendar
 </h5>
                                 </li>
                                 <li id="step-6">
-                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+                                    <h5>                                <span class="badge pointer total badge-pill step failed badge-danger"> </span>
 <span class="name">Then the test run will have the following structure</span>
+<span class="status">[Failed]</span>
 </h5>
-                                    <div class="mp">                                        <pre class="mp">Area:
+                                    <div class="mp">                                        <pre class="mp rounded">Area:
 My App - API - Test - Features - Calendar
 
 Feature:
@@ -299,157 +321,84 @@ When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015
 Then you should get back a single holiday that is St. Patrick's Day
                                         </pre>
 </div>
+                                    <dl class="exception dl-horizontal border border-danger rounded">
+                                        <dt>Error Type</dt>
+                                        <dd class="error-type">AssertFailedException</dd>
+                                        <dt>Message</dt>
+                                        <dd class="error-message bg-light"><pre><code>Assert.AreEqual failed. Expected:&lt;to reference culture specific holidays&gt;. Actual:&lt;find the holidays for the users culture in a specific time range&gt;. </code></pre></dd>
+                                        <dt>Stack</dt>
+                                        <dd class="error-stack bg-light"><pre><code>   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
+   at xBDD.Core.Test.Features.DefineScenarios.DefineABasicScenario.&lt;&gt;c__DisplayClass5_0.&lt;WithSynchronousExecution&gt;b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core.Test/Features/DefineScenarios/DefineABasicScenario.cs:line 63
+   at xBDD.Core.StepExecutor.&lt;&gt;c__DisplayClass4_0.&lt;ExecuteStepAsync&gt;b__0() in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task&amp; currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25</code></pre></dd>
+                                    </dl>
                                 </li>
                             </ol>
                         </li>
                     </ol>
                 </li>
                 <li class="feature" id="feature-2">
-                    <h3 id="vertical-align: top !important;">                        <span class="badge pointer total badge-success" data-toggle="collapse" href="#feature-2-stats" aria-expanded="false" aria-controls="feature-2-stats"  title="Scenarios">2</span>
-                        <span class="name pointer" data-toggle="collapse" href="#feature-2-scenarios" aria-expanded="false" aria-controls="feature-2-scenarios" >Define A Scenario With Reusable Steps</span>
+                    <h3 id="vertical-align: top !important;">                        <span class="badge pointer total badge-danger" data-toggle="collapse" href="#feature-2-stats" aria-expanded="false" aria-controls="feature-2-stats"  title="Scenarios">1</span>
+                        <span class="name pointer" data-toggle="collapse" href="#feature-2-scenarios" aria-expanded="true" aria-controls="feature-2-scenarios" >Define A Documentation Scenario</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-2-stats">
                         <tr id="feature-2-scenario-stats">
                             <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
-                            <td class="passed success text-center" style="width: 3.3333333333333%;">2</td>
+                            <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
                             <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
-                            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="failed danger text-center" style="width: 3.3333333333333%;">1</td>
                             <td class="outcome-bar-chart" style="width: 90%;">
                     <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
                         <tr>
-                            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+                            <td class="bar passed-bar bg-success text-center" style="width: 0%"></td>
                             <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
-                            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                            <td class="bar failed-bar bg-danger text-center" style="width: 100%"></td>
                         </tr>
                     </table>
                         </td>
                     </tr>
                     </table>
-                    <pre class="feature-statement bg-light rounded" id="feature-2-statement">In order to increase the efficiency and consistency of building scenarios
-As a developer
-I would like to use a library of steps that decreases the effort of defining scenarios</pre>
-                    <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="feature-2-scenarios" aria-expanded="false">
-                        <li class="scenario passed" id="scenario-3">
-                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-3-steps" aria-expanded="false" aria-controls="scenario-3-steps" >                                <span class="badge pointer total badge-success" title="Steps">3</span>
-<span class="name pointer">With Asynchronous Execution</span>
+                    <pre class="feature-statement bg-light rounded" id="feature-2-statement">As a developer
+In order to use xBDD to document features
+I would like to use xBDD to document features</pre>
+                    <ol class="scenarios list-unstyled collapse show" style="border-left: 2px solid #AD4D4B;" id="feature-2-scenarios" aria-expanded="true">
+                        <li class="scenario failed" id="scenario-3">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-3-steps" aria-expanded="true" aria-controls="scenario-3-steps" >                                <span class="badge pointer total badge-danger" title="Steps">3</span>
+<span class="name pointer">With Synchronous Execution</span>
+<span class="status">[Failed]</span>
                             </h4>
-                            <ol class="steps list-unstyled collapse" id="scenario-3-steps" aria-expanded="false">
+                            <ol class="steps list-unstyled collapse show" id="scenario-3-steps" aria-expanded="true">
                                 <li id="step-7">
                                     <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
 <span class="name">Given has the following scenarion definition</span>
 </h5>
-                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">using System.Threading.Tasks;
+                                    <div class="mp">                                        <pre class="mp rounded prettyprint lang-cs">using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD;
-
-// The namespace will be converted to an Area name with spaces added 
-// between capitalized words and the periods replaced with 
-// dashes.
-namespace MyApp.API.Test.Features.Accounts
-{
-	// Attributes can be used to define the 
-	// value, actor, and action for the feature
-	[InOrderTo(&quot;review the details of a specific account&quot;)]
-	[AsA(&quot;administrator&quot;)]
-	[IWouldLikeTo(&quot;be able to get the details of any account from the api by account id&quot;)]
-	// The class name will be converted to a feature with 
-	// spaces added between capitalized words
-	public class GetAccountDetails
-	{
-		// The containing method will be used to 
-		// set the scenario name by adding spaces
-		// between the capitalized words and numbers.
-		// Usually this method will be attributed to 
-		// identify it as a unit test that will be run 
-		// by the unit testing framework you are using.
-		public async Task WhenUnauthenticated()
-		{
-			// xB is the static class that provides access to the
-			// current test run.
-			await xB.CurrentRun
-				// AddScenario adds a new scenario to the test run.
-				.AddScenario(this)
-				// Adds a new step to the scenario.  Given, When, Then, and And
-				// all do the same thing.  There are no requirements in how you use them.
-				// The only impact of one versus the other is that the full name for the 
-				// step will start with the Given, When, Then or And based on 
-				// Which one you use.
-				.GivenAsync(&quot;the client is not authenticated&quot;, async (s) =&gt; {
-					//async code to ensure the user session is not authenticated.
-					//await client.logOff();
-					await Task.Run(() =&gt; { });
-				})
-				.WhenAsync(&quot;the client gets to the account details resource 'https://&lt;site&gt;/api/Accounts/99'&quot;, async (s) =&gt; {
-					//code to issue get request.
-					//var response = await client.Get('https://&lt;site&gt;/api/Accounts/99');
-					//the line below is just to get the example to compile...
-					await Task.Run(() =&gt; { });
-				})
-				.Then(&quot;the client should get a 401 response&quot;, (s) =&gt; {
-					//code to validate response 
-					//no need for asynchronous code here
-				})
-				// To execute the scenario you need to call Run() or RunAsync()
-				// This will execute each step in order that you added them
-				// to the scenario.
-				.Run();
-		}
-	}
-}                                        </pre>
-</div>
-                                </li>
-                                <li id="step-8">
-                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
-<span class="name">When the scenario is excuted</span>
-</h5>
-                                </li>
-                                <li id="step-9">
-                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
-<span class="name">Then the test run will have the following structure</span>
-</h5>
-                                    <div class="mp">                                        <pre class="mp">Area:
-My App - API - Test - Features - Accounts
-
-Feature:
-Get Account Details
-
-Scenario:
-When Unauthenticated
-
-Steps:
-Given the client is not authenticated
-When the client gets to the account details resource 'https://&lt;site&gt;/api/Accounts/99'
-Then the client should get a 401 response
-                                        </pre>
-</div>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="scenario passed" id="scenario-4">
-                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-4-steps" aria-expanded="false" aria-controls="scenario-4-steps" >                                <span class="badge pointer total badge-success" title="Steps">3</span>
-<span class="name pointer">With Synchronous Execution</span>
-                            </h4>
-                            <ol class="steps list-unstyled collapse" id="scenario-4-steps" aria-expanded="false">
-                                <li id="step-10">
-                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
-<span class="name">Given has the following scenarion definition</span>
-</h5>
-                                    <div class="mp">                                        <pre class="mp prettyprint lang-cs">using xBDD;
 
 //Area
 namespace MyApp.API.Test.Features.Calendar
 {
 	//Feature
-	[InOrderTo(&quot;to reference culture specific holidays&quot;)]
 	[AsA(&quot;developer&quot;)]
-	[IWouldLikeTo(&quot;get a list of the current user's culture specific holidays&quot;)]
+	[YouCan(&quot;find the holidays for the users culture in a specific time range&quot;)]
+	[By(&quot;using the operations exposed by the User object's Calendar property&quot;)]
+	[TestClass]
+	// [TestClass] - for MSTest
+	// [TestFixture] - for nUnit
 	public class GetHolidays
 	{
 		//Scenario
+		// [Fact] - for xUnit
+		// [Test] - for nUnit
 		public async void WhenUSCalendar()
 		{
-			await xB.CurrentRun
-				.AddScenario(this)
-				.Given(&quot;a calendar object is initialized with US holidays&quot;, (s) =&gt; {
+			await xB.AddScenario(this)
+				.Given(&quot;a user object for a user with a US culture&quot;, (s) =&gt; {
 					//code to create calendar
 				})
 				.When(&quot;you call GetHolidays with a date range of 3/10/2015 to 3/18/2015&quot;, (s) =&gt; {
@@ -464,16 +413,249 @@ namespace MyApp.API.Test.Features.Calendar
 }                                        </pre>
 </div>
                                 </li>
-                                <li id="step-11">
+                                <li id="step-8">
                                     <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
 <span class="name">When the scenario is executed</span>
 </h5>
                                 </li>
-                                <li id="step-12">
-                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+                                <li id="step-9">
+                                    <h5>                                <span class="badge pointer total badge-pill step failed badge-danger"> </span>
 <span class="name">Then the test run will have the following structure</span>
+<span class="status">[Failed]</span>
 </h5>
-                                    <div class="mp">                                        <pre class="mp">Area:
+                                    <div class="mp">                                        <pre class="mp rounded">Area:
+My App - API - Test - Features - Getting Started
+
+Feature:
+Installing The Framework
+
+Feature Description:
+As a developer
+You can install the xBDD framework to reference culture specific holidays
+I would like to get a list of the current user's culture specific holidays
+
+Scenario:
+When US Calendar
+
+Steps:
+Given a calendar object is initialized with US holidays
+When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015
+Then you should get back a single holiday that is St. Patrick's Day
+                                        </pre>
+</div>
+                                    <dl class="exception dl-horizontal border border-danger rounded">
+                                        <dt>Error Type</dt>
+                                        <dd class="error-type">AssertFailedException</dd>
+                                        <dt>Message</dt>
+                                        <dd class="error-message bg-light"><pre><code>Assert.AreEqual failed. Expected:&lt;My App - API - Test - Features - Getting Started&gt;. Actual:&lt;My App - API - Test - Features - Calendar&gt;. </code></pre></dd>
+                                        <dt>Stack</dt>
+                                        <dd class="error-stack bg-light"><pre><code>   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
+   at xBDD.Core.Test.Features.DefineScenarios.DefineADocumentationScenario.&lt;&gt;c__DisplayClass5_0.&lt;WithSynchronousExecution&gt;b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core.Test/Features/DefineScenarios/DefineADocumentationScenario.cs:line 61
+   at xBDD.Core.StepExecutor.&lt;&gt;c__DisplayClass4_0.&lt;ExecuteStepAsync&gt;b__0() in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task&amp; currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25</code></pre></dd>
+                                    </dl>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li class="feature" id="feature-3">
+                    <h3 id="vertical-align: top !important;">                        <span class="badge pointer total badge-danger" data-toggle="collapse" href="#feature-3-stats" aria-expanded="false" aria-controls="feature-3-stats"  title="Scenarios">2</span>
+                        <span class="name pointer" data-toggle="collapse" href="#feature-3-scenarios" aria-expanded="true" aria-controls="feature-3-scenarios" >Define A Scenario With Reusable Steps</span>
+                    </h3>
+                    <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-3-stats">
+                        <tr id="feature-3-scenario-stats">
+                            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+                            <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="failed danger text-center" style="width: 3.3333333333333%;">2</td>
+                            <td class="outcome-bar-chart" style="width: 90%;">
+                    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="bar passed-bar bg-success text-center" style="width: 0%"></td>
+                            <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
+                            <td class="bar failed-bar bg-danger text-center" style="width: 100%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                    </table>
+                    <pre class="feature-statement bg-light rounded" id="feature-3-statement">As a developer
+In order to increase the efficiency and consistency of building scenarios
+I would like to increase the efficiency and consistency of building scenarios</pre>
+                    <ol class="scenarios list-unstyled collapse show" style="border-left: 2px solid #AD4D4B;" id="feature-3-scenarios" aria-expanded="true">
+                        <li class="scenario failed" id="scenario-4">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-4-steps" aria-expanded="true" aria-controls="scenario-4-steps" >                                <span class="badge pointer total badge-danger" title="Steps">3</span>
+<span class="name pointer">With Asynchronous Execution</span>
+<span class="status">[Failed]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse show" id="scenario-4-steps" aria-expanded="true">
+                                <li id="step-10">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">Given has the following scenarion definition</span>
+</h5>
+                                    <div class="mp">                                        <pre class="mp rounded prettyprint lang-cs">using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
+using xBDD;
+
+namespace MyApp.HelpDeskTechnicianFeatures.Accounts
+{
+	[AsA(&quot;help dedk technician&quot;)]
+	[YouCan(&quot;access user account information faster&quot;)]
+	[By(&quot;clicking the account details link next to the user name in the user search results&quot;)]
+	// [TestClass] - for MSTest
+	// [TestFixture] - for nUnit
+	public class AccessAccountDetailsFromUserSearch
+	{
+		// [Fact] - for xUnit
+		// [Test] - for nUnit
+		public async Task IfYouAreLoggedInAsAHelpDeskTechnician()
+		{
+			await xB.AddScenario(this)
+				.GivenAsync(&quot;you are logged in as a Help Desk Technician&quot;, async (s) =&gt; {
+					// Replace with actual code that returns a task.
+					await Task.Run(() =&gt; { });
+				})
+				.AndAsync(&quot;you execute a user search&quot;, async (s) =&gt; {
+					// Replace with actual code that returns a task.
+					await Task.Run(() =&gt; { });
+				})
+				.WhenAsync(&quot;you click the information icon next to the user name in the search results&quot;, async (s) =&gt; {
+					// Replace with actual code that returns a task.
+					await Task.Run(() =&gt; { });
+				})
+				.Then(&quot;you will be taken to the user details page&quot;, (s) =&gt; {
+					// Replace with synchronous code.
+				})
+				.Run();
+		}
+		public async Task IfYouAreNotLoggedInAsAHelpDeskTechnician()
+		{
+			await xB.AddScenario(this)
+				.GivenAsync(&quot;you are logged in as a normal user&quot;, async (s) =&gt; {
+					// Replace with actual code that returns a task.
+					await Task.Run(() =&gt; { });
+				})
+				.AndAsync(&quot;you execute a user search&quot;, async (s) =&gt; {
+					// Replace with actual code that returns a task.
+					await Task.Run(() =&gt; { });
+				})
+				.ThenAsync(&quot;you should not see an information icon next to the users name in the search results&quot;, async (s) =&gt; {
+					// Replace with actual code that returns a task.
+					await Task.Run(() =&gt; { });
+				})
+				.Run();
+		}
+	}
+}                                        </pre>
+</div>
+                                </li>
+                                <li id="step-11">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">When the scenario is excuted</span>
+</h5>
+                                </li>
+                                <li id="step-12">
+                                    <h5>                                <span class="badge pointer total badge-pill step failed badge-danger"> </span>
+<span class="name">Then the test run will have the following structure</span>
+<span class="status">[Failed]</span>
+</h5>
+                                    <div class="mp">                                        <pre class="mp rounded">Area:
+My App - API - Test - Features - Accounts
+
+Feature:
+Get Account Details
+
+Scenario:
+When Unauthenticated
+
+Steps:
+Given the client is not authenticated
+When the client gets to the account details resource 'https://&lt;site&gt;/api/Accounts/99'
+Then the client should get a 401 response
+                                        </pre>
+</div>
+                                    <dl class="exception dl-horizontal border border-danger rounded">
+                                        <dt>Error Type</dt>
+                                        <dd class="error-type">AssertFailedException</dd>
+                                        <dt>Message</dt>
+                                        <dd class="error-message bg-light"><pre><code>Assert.AreEqual failed. Expected:&lt;My App - API - Test - Features - Accounts&gt;. Actual:&lt;My App - Help Desk Technician Features - Accounts&gt;. </code></pre></dd>
+                                        <dt>Stack</dt>
+                                        <dd class="error-stack bg-light"><pre><code>   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
+   at xBDD.Core.Test.Features.DefineScenarios.DefineAScenarioWithReusableSteps.&lt;&gt;c__DisplayClass3_0.&lt;WithAsynchronousExecution&gt;b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core.Test/Features/DefineScenarios/DefineAScenarioWithReusableSteps.cs:line 109
+   at xBDD.Core.StepExecutor.&lt;&gt;c__DisplayClass4_0.&lt;ExecuteStepAsync&gt;b__0() in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task&amp; currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25</code></pre></dd>
+                                    </dl>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="scenario failed" id="scenario-5">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-5-steps" aria-expanded="true" aria-controls="scenario-5-steps" >                                <span class="badge pointer total badge-danger" title="Steps">3</span>
+<span class="name pointer">With Synchronous Execution</span>
+<span class="status">[Failed]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse show" id="scenario-5-steps" aria-expanded="true">
+                                <li id="step-13">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">Given has the following scenarion definition</span>
+</h5>
+                                    <div class="mp">                                        <pre class="mp rounded prettyprint lang-cs">using Microsoft.VisualStudio.TestTools.UnitTesting;
+using xBDD;
+
+//Area
+namespace MyApp.API.Test.Features.Calendar
+{
+	//Feature
+	[AsA(&quot;developer&quot;)]
+	[YouCan(&quot;find the holidays for the users culture in a specific time range&quot;)]
+	[By(&quot;using the operations exposed by the User object's Calendar property&quot;)]
+	[TestClass]
+	// [TestClass] - for MSTest
+	// [TestFixture] - for nUnit
+	public class GetHolidays
+	{
+		//Scenario
+		// [Fact] - for xUnit
+		// [Test] - for nUnit
+		public async void WhenUSCalendar()
+		{
+			await xB.AddScenario(this)
+				.Given(&quot;a user object for a user with a US culture&quot;, (s) =&gt; {
+					//code to create calendar
+				})
+				.When(&quot;you call GetHolidays with a date range of 3/10/2015 to 3/18/2015&quot;, (s) =&gt; {
+					//code to issue get request.
+				})
+				.Then(&quot;you should get back a single holiday that is St. Patrick's Day&quot;, (s) =&gt; {
+					//code to validate response
+				})
+				.Run();
+		}
+	}
+}                                        </pre>
+</div>
+                                </li>
+                                <li id="step-14">
+                                    <h5>                                <span class="badge pointer total badge-pill step passed badge-success"> </span>
+<span class="name">When the scenario is executed</span>
+</h5>
+                                </li>
+                                <li id="step-15">
+                                    <h5>                                <span class="badge pointer total badge-pill step failed badge-danger"> </span>
+<span class="name">Then the test run will have the following structure</span>
+<span class="status">[Failed]</span>
+</h5>
+                                    <div class="mp">                                        <pre class="mp rounded">Area:
 My App - API - Test - Features - Calendar
 
 Feature:
@@ -493,6 +675,22 @@ When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015
 Then you should get back a single holiday that is St. Patrick's Day
                                         </pre>
 </div>
+                                    <dl class="exception dl-horizontal border border-danger rounded">
+                                        <dt>Error Type</dt>
+                                        <dd class="error-type">AssertFailedException</dd>
+                                        <dt>Message</dt>
+                                        <dd class="error-message bg-light"><pre><code>Assert.AreEqual failed. Expected:&lt;to reference culture specific holidays&gt;. Actual:&lt;find the holidays for the users culture in a specific time range&gt;. </code></pre></dd>
+                                        <dt>Stack</dt>
+                                        <dd class="error-stack bg-light"><pre><code>   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
+   at xBDD.Core.Test.Features.DefineScenarios.DefineAScenarioWithReusableSteps.&lt;&gt;c__DisplayClass2_0.&lt;WithSynchronousExecution&gt;b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core.Test/Features/DefineScenarios/DefineAScenarioWithReusableSteps.cs:line 64
+   at xBDD.Core.StepExecutor.&lt;&gt;c__DisplayClass4_0.&lt;ExecuteStepAsync&gt;b__0() in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task&amp; currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25</code></pre></dd>
+                                    </dl>
                                 </li>
                             </ol>
                         </li>

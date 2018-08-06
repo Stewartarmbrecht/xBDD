@@ -70,6 +70,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" .testrun-percent-bar { background-color: #56C1F7; }");
             sb.Append(" .area-percent-bar { background-color: #A4DEFB; }");
             sb.Append(" .pointer { cursor: pointer }");
+            sb.Append(" pre.mp { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thin; }");
             sb.AppendLine("</style>");  
         }
 
@@ -382,7 +383,12 @@ namespace xBDD.Reporting.Html
         {
             if(scenario.Feature.Actor != null || scenario.Feature.Value != null || scenario.Feature.Capability != null)
             {
-                var statement = $"In order to {scenario.Feature.Value??"[Missing!]"}{System.Environment.NewLine}As a {scenario.Feature.Actor??"[Missing!]"}{System.Environment.NewLine}I would like to {scenario.Feature.Capability??"[Missing!]"}";
+                var statement = "";
+                if(scenario.Outcome == Outcome.Passed) {
+                    statement = $"As a {scenario.Feature.Actor??"[Missing!]"}{System.Environment.NewLine}You can {scenario.Feature.Value??"[Missing!]"}{System.Environment.NewLine}By {scenario.Feature.Capability??"[Missing!]"}";
+                } else {
+                    statement = $"As a {scenario.Feature.Actor??"[Missing!]"}{System.Environment.NewLine}In order to {scenario.Feature.Value??"[Missing!]"}{System.Environment.NewLine}I would like to {scenario.Feature.Value??"[Missing!]"}";
+                }
                 WriteTag("pre", sb, 5, "feature-statement bg-light rounded", statement, true, $"feature-{featureCounter}-statement");
             }
         }
@@ -554,7 +560,7 @@ namespace xBDD.Reporting.Html
             }
             else
             {
-                var className = "mp";
+                var className = "mp rounded";
                 if (step.MultilineParameterFormat != TextFormat.text)
                 {
                     className = className + " prettyprint";

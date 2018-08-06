@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace xBDD.Core.Test.Features.DefineScenarios
 {
 	[TestClass]
-	[InOrderTo("increase the efficiency and consistency of building scenarios")]
+	[YouCan("increase the efficiency and consistency of building scenarios")]
 	[AsA("developer")]
-	[IWouldLikeTo("use a library of steps that decreases the effort of defining scenarios")]
+	[By("use a library of steps that decreases the effort of defining scenarios")]
 	public class DefineAScenarioWithReusableSteps
 	{
 		private readonly TestContextWriter outputWriter;
@@ -101,7 +101,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
                 {
 					var currentTestRun = xB.CurrentRun;
 					xB.CurrentRun = testRunBuilder;
-                    await new MyApp.API.Test.Features.Accounts.GetAccountDetails().WhenUnauthenticated();
+                    await new MyApp.HelpDeskTechnicianFeatures.Accounts.AccessAccountDetailsFromUserSearch().IfYouAreNotLoggedInAsAHelpDeskTechnician();
 					xB.CurrentRun = currentTestRun;
                 })
                 .Then("the test run will have the following structure", (s) => {

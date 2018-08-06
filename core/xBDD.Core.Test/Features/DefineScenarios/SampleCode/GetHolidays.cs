@@ -1,20 +1,25 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD;
 
 //Area
 namespace MyApp.API.Test.Features.Calendar
 {
 	//Feature
-	[InOrderTo("to reference culture specific holidays")]
 	[AsA("developer")]
-	[IWouldLikeTo("get a list of the current user's culture specific holidays")]
+	[YouCan("find the holidays for the users culture in a specific time range")]
+	[By("using the operations exposed by the User object's Calendar property")]
+	[TestClass]
+	// [TestClass] - for MSTest
+	// [TestFixture] - for nUnit
 	public class GetHolidays
 	{
 		//Scenario
+		// [Fact] - for xUnit
+		// [Test] - for nUnit
 		public async void WhenUSCalendar()
 		{
-			await xB.CurrentRun
-				.AddScenario(this)
-				.Given("a calendar object is initialized with US holidays", (s) => {
+			await xB.AddScenario(this)
+				.Given("a user object for a user with a US culture", (s) => {
 					//code to create calendar
 				})
 				.When("you call GetHolidays with a date range of 3/10/2015 to 3/18/2015", (s) => {

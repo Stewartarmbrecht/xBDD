@@ -1,10 +1,13 @@
-﻿using System;
-using System.Threading.Tasks;
-using xBDD.Core;
-using xBDD.Model;
-
-namespace xBDD
+﻿namespace xBDD
 {
+
+    using System;
+    using System.Runtime.CompilerServices;
+    using System.Threading.Tasks;
+    using xBDD.Core;
+    using xBDD.Model;
+    using xBDD.Utility;
+
     /// <summary>
     /// Root class of the testing framework.
     /// </summary>
@@ -67,6 +70,46 @@ namespace xBDD
         {
             action = action ?? ((s) => { return Task.Run(() => { }); });
             return factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
+        }
+
+        /// <summary>
+        /// This method should be called from within the test method.
+        /// It uses reflection to get the calling method name and it expects
+        /// to recieve a reference of the test class to get the name of the 
+        /// feature and namespace.
+        /// </summary>
+        /// <param name="featureClass">
+        /// A reference to the parent class that implements the Ifeature interface for the scenario.  
+        /// Usually just pass in 'this'.  The test class represents the feature.ß
+        /// </param>
+        /// <param name="methodName">Optional. The system will attempt to get the method name of the scenario through reflection.</param>
+        /// <returns>The scenario build for a fluent syntax.</returns>
+        public static ScenarioBuilder AddScenario(IFeature featureClass, [CallerMemberName]string methodName = "")
+        {
+            xB.CurrentRun.TestRunInitializer.InitializeTestRun(featureClass, xB.CurrentRun.TestRun);
+            Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
+            var scenarioBuilder = xB.CurrentRun.AddScenario(method, null, null, null);
+            scenarioBuilder.SetOutputWriter(featureClass.OutputWriter);
+            return scenarioBuilder;
+        }
+
+        /// <summary>
+        /// This method should be called from within the test method.
+        /// It uses reflection to get the calling method name and it expects
+        /// to recieve a reference of the test class to get the name of the 
+        /// feature and namespace.
+        /// </summary>
+        /// <param name="featureClass">
+        /// A reference to the parent class that implements the Ifeature interface for the scenario.  
+        /// Usually just pass in 'this'.  The test class represents the feature.ß
+        /// </param>
+        /// <param name="methodName">Optional. The system will attempt to get the method name of the scenario through reflection.</param>
+        /// <returns>The scenario build for a fluent syntax.</returns>
+        public static ScenarioBuilder AddScenario(object featureClass, [CallerMemberName]string methodName = "")
+        {
+            xB.CurrentRun.TestRunInitializer.InitializeTestRun(featureClass, xB.CurrentRun.TestRun);
+            Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
+            return xB.CurrentRun.AddScenario(method, null, null, null);
         }
 
         static void EnsureFactory()

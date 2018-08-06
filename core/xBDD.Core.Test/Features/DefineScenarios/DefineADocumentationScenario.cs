@@ -9,13 +9,13 @@ namespace xBDD.Core.Test.Features.DefineScenarios
 {
 	[TestClass]
 	[AsA("developer")]
-	[YouCan("automate a basic scenario")]
-	[By("using xB.AddScenario and the Given, When, Then, and And operations.")]
-	public class DefineABasicScenario: IFeature
+	[YouCan("use xBDD to document features")]
+	[By("defining a scenario that only produces documentation")]
+	public class DefineADocumentationScenario: IFeature
 	{
 		public IOutputWriter OutputWriter { get; private set; }
 
-		public DefineABasicScenario()
+		public DefineADocumentationScenario()
 		{
 			OutputWriter = new TestContextWriter();
 		}
@@ -25,14 +25,14 @@ namespace xBDD.Core.Test.Features.DefineScenarios
 		{
 			StringBuilder sb = new StringBuilder();
 			sb.AppendLine("Area:");
-			sb.AppendLine("My App - API - Test - Features - Calendar");
+			sb.AppendLine("My App - Standard Help Desk Technician Features - Getting Started");
 			sb.AppendLine();
 			sb.AppendLine("Feature:");
-			sb.AppendLine("Get Holidays");
+			sb.AppendLine("Installing The Framework");
 			sb.AppendLine();
 			sb.AppendLine("Feature Description:");
-			sb.AppendLine("In order to reference culture specific holidays");
 			sb.AppendLine("As a developer");
+			sb.AppendLine("You can install the xBDD framework to reference culture specific holidays");
 			sb.AppendLine("I would like to get a list of the current user's culture specific holidays");
 			sb.AppendLine();
 			sb.AppendLine("Scenario:");
@@ -68,49 +68,6 @@ namespace xBDD.Core.Test.Features.DefineScenarios
 					Assert.AreEqual(steps[12], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[1].FullName);
 					Assert.AreEqual(steps[13], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[2].FullName);
 				}, sb.ToString(), TextFormat.text)
-                .Run();
-		}
-		[TestMethod]
-		public async Task WithAsynchronousExecution()
-		{
-			StringBuilder sb = new StringBuilder();
-			sb.AppendLine("Area:");
-			sb.AppendLine("My App - API - Test - Features - Accounts");
-			sb.AppendLine();
-			sb.AppendLine("Feature:");
-			sb.AppendLine("Get Account Details");
-			sb.AppendLine();
-			sb.AppendLine("Scenario:");
-			sb.AppendLine("When Unauthenticated");
-			sb.AppendLine();
-			sb.AppendLine("Steps:");
-			sb.AppendLine("Given the client is not authenticated");
-			sb.AppendLine("When the client gets to the account details resource 'https://<site>/api/Accounts/99'");
-			sb.AppendLine("Then the client should get a 401 response");
-
-			var separator = System.IO.Path.DirectorySeparatorChar;
-			var scenarioPath = $"{separator}Features{separator}DefineScenarios{separator}SampleCode{separator}GetAccountDetails.cs";
-
-			var testRunBuilder = new CoreFactory().CreateTestRunBuilder(null);
-            await xB.AddScenario(this)
-                .SetOutputWriter(OutputWriter)
-                .Given(Code.HasTheFollowingScenario(scenarioPath))
-                .WhenAsync("the scenario is excuted", async (s) =>
-                {
-					var currentTestRun = xB.CurrentRun;
-					xB.CurrentRun = testRunBuilder;
-                    await new MyApp.HelpDeskTechnicianFeatures.Accounts.AccessAccountDetailsFromUserSearch().IfYouAreLoggedInAsAHelpDeskTechnician();
-					xB.CurrentRun = currentTestRun;
-                })
-                .Then("the test run will have the following structure", (s) => {
-					var steps = s.MultilineParameter.Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-					Assert.AreEqual(steps[1], testRunBuilder.TestRun.Areas[0].Name);
-					Assert.AreEqual(steps[3], testRunBuilder.TestRun.Areas[0].Features[0].Name);
-					Assert.AreEqual(steps[5], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Name);
-					Assert.AreEqual(steps[7], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[0].FullName);
-					Assert.AreEqual(steps[8], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[1].FullName);
-					Assert.AreEqual(steps[9], testRunBuilder.TestRun.Areas[0].Features[0].Scenarios[0].Steps[2].FullName);
-				}, sb.ToString())
                 .Run();
 		}
 	}

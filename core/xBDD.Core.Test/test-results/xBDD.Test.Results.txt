@@ -2,67 +2,64 @@ xBDD Core
 
 xBDD - Core - Test - Features - Define Scenarios
 	Define A Basic Scenario
-		With Asynchronous Execution
+		With Asynchronous Execution [Failed]
 			Given has the following scenarion definition
+				using Microsoft.VisualStudio.TestTools.UnitTesting;
 				using System.Threading.Tasks;
 				using xBDD;
 				
-				// The namespace will be converted to an Area name with spaces added 
-				// between capitalized words and the periods replaced with 
-				// dashes.
-				namespace MyApp.API.Test.Features.Accounts
+				namespace MyApp.HelpDeskTechnicianFeatures.Accounts
 				{
-					// Attributes can be used to define the 
-					// value, actor, and action for the feature
-					[InOrderTo("review the details of a specific account")]
-					[AsA("administrator")]
-					[IWouldLikeTo("be able to get the details of any account from the api by account id")]
-					// The class name will be converted to a feature with 
-					// spaces added between capitalized words
-					public class GetAccountDetails
+					[AsA("help dedk technician")]
+					[YouCan("access user account information faster")]
+					[By("clicking the account details link next to the user name in the user search results")]
+					// [TestClass] - for MSTest
+					// [TestFixture] - for nUnit
+					public class AccessAccountDetailsFromUserSearch
 					{
-						// The containing method will be used to 
-						// set the scenario name by adding spaces
-						// between the capitalized words and numbers.
-						// Usually this method will be attributed to 
-						// identify it as a unit test that will be run 
-						// by the unit testing framework you are using.
-						public async Task WhenUnauthenticated()
+						// [Fact] - for xUnit
+						// [Test] - for nUnit
+						public async Task IfYouAreLoggedInAsAHelpDeskTechnician()
 						{
-							// xB is the static class that provides access to the
-							// current test run.
-							await xB.CurrentRun
-								// AddScenario adds a new scenario to the test run.
-								.AddScenario(this)
-								// Adds a new step to the scenario.  Given, When, Then, and And
-								// all do the same thing.  There are no requirements in how you use them.
-								// The only impact of one versus the other is that the full name for the 
-								// step will start with the Given, When, Then or And based on 
-								// Which one you use.
-								.GivenAsync("the client is not authenticated", async (s) => {
-									//async code to ensure the user session is not authenticated.
-									//await client.logOff();
+							await xB.AddScenario(this)
+								.GivenAsync("you are logged in as a Help Desk Technician", async (s) => {
+									// Replace with actual code that returns a task.
 									await Task.Run(() => { });
 								})
-								.WhenAsync("the client gets to the account details resource 'https://<site>/api/Accounts/99'", async (s) => {
-									//code to issue get request.
-									//var response = await client.Get('https://<site>/api/Accounts/99');
-									//the line below is just to get the example to compile...
+								.AndAsync("you execute a user search", async (s) => {
+									// Replace with actual code that returns a task.
 									await Task.Run(() => { });
 								})
-								.Then("the client should get a 401 response", (s) => {
-									//code to validate response 
-									//no need for asynchronous code here
+								.WhenAsync("you click the information icon next to the user name in the search results", async (s) => {
+									// Replace with actual code that returns a task.
+									await Task.Run(() => { });
 								})
-								// To execute the scenario you need to call Run() or RunAsync()
-								// This will execute each step in order that you added them
-								// to the scenario.
+								.Then("you will be taken to the user details page", (s) => {
+									// Replace with synchronous code.
+								})
+								.Run();
+						}
+						public async Task IfYouAreNotLoggedInAsAHelpDeskTechnician()
+						{
+							await xB.AddScenario(this)
+								.GivenAsync("you are logged in as a normal user", async (s) => {
+									// Replace with actual code that returns a task.
+									await Task.Run(() => { });
+								})
+								.AndAsync("you execute a user search", async (s) => {
+									// Replace with actual code that returns a task.
+									await Task.Run(() => { });
+								})
+								.ThenAsync("you should not see an information icon next to the users name in the search results", async (s) => {
+									// Replace with actual code that returns a task.
+									await Task.Run(() => { });
+								})
 								.Run();
 						}
 					}
 				}
 			When the scenario is excuted
-			Then the test run will have the following structure
+			Then the test run will have the following structure [Failed]
 				Area:
 				My App - API - Test - Features - Accounts
 				
@@ -76,25 +73,41 @@ xBDD - Core - Test - Features - Define Scenarios
 				Given the client is not authenticated
 				When the client gets to the account details resource 'https://<site>/api/Accounts/99'
 				Then the client should get a 401 response
-		With Synchronous Execution
+				Error Type: AssertFailedException
+				   Message: Assert.AreEqual failed. Expected:<My App - API - Test - Features - Accounts>. Actual:<My App - Help Desk Technician Features - Accounts>. 
+				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
+				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
+				               at xBDD.Core.Test.Features.DefineScenarios.DefineABasicScenario.<>c__DisplayClass6_0.<WithAsynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core.Test/Features/DefineScenarios/DefineABasicScenario.cs:line 107
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+		With Synchronous Execution [Failed]
 			Given has the following scenarion definition
+				using Microsoft.VisualStudio.TestTools.UnitTesting;
 				using xBDD;
 				
 				//Area
 				namespace MyApp.API.Test.Features.Calendar
 				{
 					//Feature
-					[InOrderTo("to reference culture specific holidays")]
 					[AsA("developer")]
-					[IWouldLikeTo("get a list of the current user's culture specific holidays")]
+					[YouCan("find the holidays for the users culture in a specific time range")]
+					[By("using the operations exposed by the User object's Calendar property")]
+					[TestClass]
+					// [TestClass] - for MSTest
+					// [TestFixture] - for nUnit
 					public class GetHolidays
 					{
 						//Scenario
+						// [Fact] - for xUnit
+						// [Test] - for nUnit
 						public async void WhenUSCalendar()
 						{
-							await xB.CurrentRun
-								.AddScenario(this)
-								.Given("a calendar object is initialized with US holidays", (s) => {
+							await xB.AddScenario(this)
+								.Given("a user object for a user with a US culture", (s) => {
 									//code to create calendar
 								})
 								.When("you call GetHolidays with a date range of 3/10/2015 to 3/18/2015", (s) => {
@@ -108,7 +121,7 @@ xBDD - Core - Test - Features - Define Scenarios
 					}
 				}
 			When the scenario is executed
-			Then the test run will have the following structure
+			Then the test run will have the following structure [Failed]
 				Area:
 				My App - API - Test - Features - Calendar
 				
@@ -127,68 +140,144 @@ xBDD - Core - Test - Features - Define Scenarios
 				Given a calendar object is initialized with US holidays
 				When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015
 				Then you should get back a single holiday that is St. Patrick's Day
+				Error Type: AssertFailedException
+				   Message: Assert.AreEqual failed. Expected:<to reference culture specific holidays>. Actual:<find the holidays for the users culture in a specific time range>. 
+				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
+				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
+				               at xBDD.Core.Test.Features.DefineScenarios.DefineABasicScenario.<>c__DisplayClass5_0.<WithSynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core.Test/Features/DefineScenarios/DefineABasicScenario.cs:line 63
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+	Define A Documentation Scenario
+		With Synchronous Execution [Failed]
+			Given has the following scenarion definition
+				using Microsoft.VisualStudio.TestTools.UnitTesting;
+				using xBDD;
+				
+				//Area
+				namespace MyApp.API.Test.Features.Calendar
+				{
+					//Feature
+					[AsA("developer")]
+					[YouCan("find the holidays for the users culture in a specific time range")]
+					[By("using the operations exposed by the User object's Calendar property")]
+					[TestClass]
+					// [TestClass] - for MSTest
+					// [TestFixture] - for nUnit
+					public class GetHolidays
+					{
+						//Scenario
+						// [Fact] - for xUnit
+						// [Test] - for nUnit
+						public async void WhenUSCalendar()
+						{
+							await xB.AddScenario(this)
+								.Given("a user object for a user with a US culture", (s) => {
+									//code to create calendar
+								})
+								.When("you call GetHolidays with a date range of 3/10/2015 to 3/18/2015", (s) => {
+									//code to issue get request.
+								})
+								.Then("you should get back a single holiday that is St. Patrick's Day", (s) => {
+									//code to validate response
+								})
+								.Run();
+						}
+					}
+				}
+			When the scenario is executed
+			Then the test run will have the following structure [Failed]
+				Area:
+				My App - API - Test - Features - Getting Started
+				
+				Feature:
+				Installing The Framework
+				
+				Feature Description:
+				As a developer
+				You can install the xBDD framework to reference culture specific holidays
+				I would like to get a list of the current user's culture specific holidays
+				
+				Scenario:
+				When US Calendar
+				
+				Steps:
+				Given a calendar object is initialized with US holidays
+				When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015
+				Then you should get back a single holiday that is St. Patrick's Day
+				Error Type: AssertFailedException
+				   Message: Assert.AreEqual failed. Expected:<My App - API - Test - Features - Getting Started>. Actual:<My App - API - Test - Features - Calendar>. 
+				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
+				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
+				               at xBDD.Core.Test.Features.DefineScenarios.DefineADocumentationScenario.<>c__DisplayClass5_0.<WithSynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core.Test/Features/DefineScenarios/DefineADocumentationScenario.cs:line 61
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
 	Define A Scenario With Reusable Steps
-		With Asynchronous Execution
+		With Asynchronous Execution [Failed]
 			Given has the following scenarion definition
+				using Microsoft.VisualStudio.TestTools.UnitTesting;
 				using System.Threading.Tasks;
 				using xBDD;
 				
-				// The namespace will be converted to an Area name with spaces added 
-				// between capitalized words and the periods replaced with 
-				// dashes.
-				namespace MyApp.API.Test.Features.Accounts
+				namespace MyApp.HelpDeskTechnicianFeatures.Accounts
 				{
-					// Attributes can be used to define the 
-					// value, actor, and action for the feature
-					[InOrderTo("review the details of a specific account")]
-					[AsA("administrator")]
-					[IWouldLikeTo("be able to get the details of any account from the api by account id")]
-					// The class name will be converted to a feature with 
-					// spaces added between capitalized words
-					public class GetAccountDetails
+					[AsA("help dedk technician")]
+					[YouCan("access user account information faster")]
+					[By("clicking the account details link next to the user name in the user search results")]
+					// [TestClass] - for MSTest
+					// [TestFixture] - for nUnit
+					public class AccessAccountDetailsFromUserSearch
 					{
-						// The containing method will be used to 
-						// set the scenario name by adding spaces
-						// between the capitalized words and numbers.
-						// Usually this method will be attributed to 
-						// identify it as a unit test that will be run 
-						// by the unit testing framework you are using.
-						public async Task WhenUnauthenticated()
+						// [Fact] - for xUnit
+						// [Test] - for nUnit
+						public async Task IfYouAreLoggedInAsAHelpDeskTechnician()
 						{
-							// xB is the static class that provides access to the
-							// current test run.
-							await xB.CurrentRun
-								// AddScenario adds a new scenario to the test run.
-								.AddScenario(this)
-								// Adds a new step to the scenario.  Given, When, Then, and And
-								// all do the same thing.  There are no requirements in how you use them.
-								// The only impact of one versus the other is that the full name for the 
-								// step will start with the Given, When, Then or And based on 
-								// Which one you use.
-								.GivenAsync("the client is not authenticated", async (s) => {
-									//async code to ensure the user session is not authenticated.
-									//await client.logOff();
+							await xB.AddScenario(this)
+								.GivenAsync("you are logged in as a Help Desk Technician", async (s) => {
+									// Replace with actual code that returns a task.
 									await Task.Run(() => { });
 								})
-								.WhenAsync("the client gets to the account details resource 'https://<site>/api/Accounts/99'", async (s) => {
-									//code to issue get request.
-									//var response = await client.Get('https://<site>/api/Accounts/99');
-									//the line below is just to get the example to compile...
+								.AndAsync("you execute a user search", async (s) => {
+									// Replace with actual code that returns a task.
 									await Task.Run(() => { });
 								})
-								.Then("the client should get a 401 response", (s) => {
-									//code to validate response 
-									//no need for asynchronous code here
+								.WhenAsync("you click the information icon next to the user name in the search results", async (s) => {
+									// Replace with actual code that returns a task.
+									await Task.Run(() => { });
 								})
-								// To execute the scenario you need to call Run() or RunAsync()
-								// This will execute each step in order that you added them
-								// to the scenario.
+								.Then("you will be taken to the user details page", (s) => {
+									// Replace with synchronous code.
+								})
+								.Run();
+						}
+						public async Task IfYouAreNotLoggedInAsAHelpDeskTechnician()
+						{
+							await xB.AddScenario(this)
+								.GivenAsync("you are logged in as a normal user", async (s) => {
+									// Replace with actual code that returns a task.
+									await Task.Run(() => { });
+								})
+								.AndAsync("you execute a user search", async (s) => {
+									// Replace with actual code that returns a task.
+									await Task.Run(() => { });
+								})
+								.ThenAsync("you should not see an information icon next to the users name in the search results", async (s) => {
+									// Replace with actual code that returns a task.
+									await Task.Run(() => { });
+								})
 								.Run();
 						}
 					}
 				}
 			When the scenario is excuted
-			Then the test run will have the following structure
+			Then the test run will have the following structure [Failed]
 				Area:
 				My App - API - Test - Features - Accounts
 				
@@ -202,25 +291,41 @@ xBDD - Core - Test - Features - Define Scenarios
 				Given the client is not authenticated
 				When the client gets to the account details resource 'https://<site>/api/Accounts/99'
 				Then the client should get a 401 response
-		With Synchronous Execution
+				Error Type: AssertFailedException
+				   Message: Assert.AreEqual failed. Expected:<My App - API - Test - Features - Accounts>. Actual:<My App - Help Desk Technician Features - Accounts>. 
+				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
+				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
+				               at xBDD.Core.Test.Features.DefineScenarios.DefineAScenarioWithReusableSteps.<>c__DisplayClass3_0.<WithAsynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core.Test/Features/DefineScenarios/DefineAScenarioWithReusableSteps.cs:line 109
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+		With Synchronous Execution [Failed]
 			Given has the following scenarion definition
+				using Microsoft.VisualStudio.TestTools.UnitTesting;
 				using xBDD;
 				
 				//Area
 				namespace MyApp.API.Test.Features.Calendar
 				{
 					//Feature
-					[InOrderTo("to reference culture specific holidays")]
 					[AsA("developer")]
-					[IWouldLikeTo("get a list of the current user's culture specific holidays")]
+					[YouCan("find the holidays for the users culture in a specific time range")]
+					[By("using the operations exposed by the User object's Calendar property")]
+					[TestClass]
+					// [TestClass] - for MSTest
+					// [TestFixture] - for nUnit
 					public class GetHolidays
 					{
 						//Scenario
+						// [Fact] - for xUnit
+						// [Test] - for nUnit
 						public async void WhenUSCalendar()
 						{
-							await xB.CurrentRun
-								.AddScenario(this)
-								.Given("a calendar object is initialized with US holidays", (s) => {
+							await xB.AddScenario(this)
+								.Given("a user object for a user with a US culture", (s) => {
 									//code to create calendar
 								})
 								.When("you call GetHolidays with a date range of 3/10/2015 to 3/18/2015", (s) => {
@@ -234,7 +339,7 @@ xBDD - Core - Test - Features - Define Scenarios
 					}
 				}
 			When the scenario is executed
-			Then the test run will have the following structure
+			Then the test run will have the following structure [Failed]
 				Area:
 				My App - API - Test - Features - Calendar
 				
@@ -253,3 +358,14 @@ xBDD - Core - Test - Features - Define Scenarios
 				Given a calendar object is initialized with US holidays
 				When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015
 				Then you should get back a single holiday that is St. Patrick's Day
+				Error Type: AssertFailedException
+				   Message: Assert.AreEqual failed. Expected:<to reference culture specific holidays>. Actual:<find the holidays for the users culture in a specific time range>. 
+				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
+				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
+				               at xBDD.Core.Test.Features.DefineScenarios.DefineAScenarioWithReusableSteps.<>c__DisplayClass2_0.<WithSynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core.Test/Features/DefineScenarios/DefineAScenarioWithReusableSteps.cs:line 64
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/core/xBDD.Core/Core/StepExecutor.cs:line 25

@@ -7,7 +7,7 @@ namespace xBDD
 	/// Should be set on the test class that executes the test methods which are the scenarios.
 	/// </summary>
 	[System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple = false)]
-	public class InOrderToAttribute : System.Attribute
+	public class YouCan : System.Attribute
 	{
 		string benefitStatement;
 			
@@ -15,7 +15,7 @@ namespace xBDD
 		/// Sets the reason for a feature.
 		/// </summary>
 		/// <param name="benefitStatement">The </param>
-		public InOrderToAttribute(string benefitStatement)
+		public YouCan(string benefitStatement)
 		{
 			this.benefitStatement = benefitStatement;
 		}

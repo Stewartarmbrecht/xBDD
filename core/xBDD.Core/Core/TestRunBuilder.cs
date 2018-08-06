@@ -11,7 +11,7 @@ namespace xBDD.Core
         CoreFactory factory;
         AreaCache areaCache;
         FeatureCache featureCache;
-        TestRunInitializer testRunInitializer;
+        internal TestRunInitializer TestRunInitializer { get; private set; }
 
         /// <summary>
         /// Provides access the test run being built.
@@ -27,10 +27,10 @@ namespace xBDD.Core
         internal TestRunBuilder(CoreFactory factory, TestRun testRun)
         {
             this.factory = factory;
-            areaCache = factory.CreateAreaCache();
-            featureCache = factory.CreateFeatureCache();
-            testRunInitializer = factory.CreateTestRunInitializer();
-            TestRun = testRun;
+            this.areaCache = factory.CreateAreaCache();
+            this.featureCache = factory.CreateFeatureCache();
+            this.TestRunInitializer = factory.CreateTestRunInitializer();
+            this.TestRun = testRun;
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace xBDD.Core
         /// <returns>The scenario build for a fluent syntax.</returns>
         public ScenarioBuilder AddScenario(object featureClass, [CallerMemberName]string methodName = "")
         {
-            testRunInitializer.InitializeTestRun(featureClass, TestRun);
+            this.TestRunInitializer.InitializeTestRun(featureClass, TestRun);
             Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
             return AddScenario(method, null, null, null);
         }
@@ -128,7 +128,7 @@ namespace xBDD.Core
             return AddScenario(null, scenarioName, featureName, areaPath);
         }
 
-        private ScenarioBuilder AddScenario(Method method, string scenarioName, string featureName, string areaName)
+        internal ScenarioBuilder AddScenario(Method method, string scenarioName, string featureName, string areaName)
         {
             if (scenarioName == null && method != null)
                 scenarioName = method.Name.AddSpacesToSentence();
