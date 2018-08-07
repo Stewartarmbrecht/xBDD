@@ -8,7 +8,7 @@ dotnet test -v n | Out-File xBDD.Core.Test.Output.txt
 
 Write-Host "Running xBDD.Reporting.Test Tests"
 Set-Location $PSScriptRoot\test\xBDD.Reporting.Test 
-dotnet test -v n | Out-File xBDD.Reporting.Test.Output.txt
+dotnet test -v n | Out-File xBDD.Reporting.FeaturesOutput.txt
 
 Write-Host "Running xBDD.Reporting.Database.Test Tests"
 Set-Location $PSScriptRoot\test\xBDD.Reporting.Database.Test 

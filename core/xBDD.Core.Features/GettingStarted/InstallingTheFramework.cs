@@ -29,8 +29,8 @@ namespace xBDD.Core.Features.GettingStarted
 				.And("you execute the following commands:", (s) => {}, "dotnet add package xBDD", TextFormat.sh)
 				.And("you install the xBDD nuget package by executing:", (s) => {}, "dotnet add package xBDD", TextFormat.sh)
 				.And("you modify the default test class to look like:", (s) => {}, "...add code.", TextFormat.cs)
-				.When("you run the test project using:",null,"dotnet test -v n")
-				.Run();
+				.When("you run the test project using:",null,"dotnet test -v n", TextFormat.sh)
+				.Document();
 		}
 		[TestMethod]
 		public async Task ForAnXunitProject()

@@ -2,7 +2,7 @@ using System;
 using xBDD.Browser;
 using xBDD.Model;
 
-namespace xBDD.Reporting.Test.Steps
+namespace xBDD.Reporting.Features.Steps
 {
     public static class WebUser
     {

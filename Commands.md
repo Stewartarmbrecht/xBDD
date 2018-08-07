@@ -1,8 +1,8 @@
 ## Database Setup
 
-    dotnet ef migrations add Initialize -s xBDD.Reporting.Test.csproj -p ../../src/xBDD.Reporting.Database/xBDD.Reporting.Database.csproj -c DatabaseContext
+    dotnet ef migrations add Initialize -s xBDD.Reporting.Featurescsproj -p ../../src/xBDD.Reporting.Database/xBDD.Reporting.Database.csproj -c DatabaseContext
     
-    dotnet ef database update -s xBDD.Reporting.Test.csproj -p ../../src/xBDD.Reporting.Database/xBDD.Reporting.Database.csproj -c DatabaseContext
+    dotnet ef database update -s xBDD.Reporting.Featurescsproj -p ../../src/xBDD.Reporting.Database/xBDD.Reporting.Database.csproj -c DatabaseContext
 
 http://database.guide/how-to-install-sql-server-on-a-mac/
 

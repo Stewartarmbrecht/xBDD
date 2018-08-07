@@ -355,7 +355,7 @@ xBDD - Reporting - Test - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class EmptyTestRun : IExecute<string>
 				    {
@@ -375,7 +375,7 @@ xBDD - Reporting - Test - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunEmptyScenario : IExecute<string>
 				    {
@@ -401,7 +401,7 @@ xBDD - Reporting - Test - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunMultipleAreas : IExecute<string>
 				    {
@@ -469,7 +469,7 @@ xBDD - Reporting - Test - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunMultipleFeaturesSameArea : IExecute<string>
 				    {
@@ -536,7 +536,7 @@ xBDD - Reporting - Test - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunMultipleScenariosSameFeature : IExecute<string>
 				    {
@@ -583,7 +583,7 @@ xBDD - Reporting - Test - Features - View Text Report
 				using System;
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithFailedStep : IExecute<string>
 				    {
@@ -625,7 +625,7 @@ xBDD - Reporting - Test - Features - View Text Report
 				using System.Threading.Tasks;
 				using xBDD.Test;
 				
-				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithNotImplementedStep : IExecute<string>
 				    {
@@ -661,7 +661,7 @@ xBDD - Reporting - Test - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithSkippedStep : IExecute<string>
 				    {
@@ -697,7 +697,7 @@ xBDD - Reporting - Test - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithStepWithMultilineParameter : IExecute<string>
 				    {
@@ -732,7 +732,7 @@ xBDD - Reporting - Test - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithSteps : IExecute<string>
 				    {
@@ -768,7 +768,7 @@ xBDD - Reporting - Test - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class SkippedEmptyScenario : IExecute<string>
 				    {
@@ -798,7 +798,7 @@ xBDD - Reporting - Test - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Test.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
 				{
 				    public class SkippedScenarioWithSteps : IExecute<string>
 				    {

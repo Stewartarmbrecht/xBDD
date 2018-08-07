@@ -72,7 +72,7 @@ xBDD - Core - Features - Getting Started
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\core\xBDD.Core\Core\StepExecutor.cs:line 25
 	Installing The Framework
-		If You Use An MS Test Project [Failed]
+		If You Use An MS Test Project
 			Given you create an MSTest project by following the directions here:
 				https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest
 			And you execute the following commands:
@@ -81,15 +81,8 @@ xBDD - Core - Features - Getting Started
 				dotnet add package xBDD
 			And you modify the default test class to look like:
 				...add code.
-			When you run the test project using: [Failed]
+			When you run the test project using:
 				dotnet test -v n
-				Error Type: StepNotImplementedException
-				   Message: The 'you run the test project using:' step is not implemented.
-				     Stack:    at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in C:\Users\stearm01\source\xBDD\core\xBDD.Core\Core\ScenarioRunner.cs:line 135
-				               at xBDD.Core.ScenarioBuilder.Run() in C:\Users\stearm01\source\xBDD\core\xBDD.Core\Core\ScenarioBuilder.cs:line 268
-				               at xBDD.Core.Features.GettingStarted.InstallingTheFramework.IfYouUseAnMSTestProject() in C:\Users\stearm01\source\xBDD\core\xBDD.Core.Features\GettingStarted\InstallingTheFramework.cs:line 26
-				               at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.Extensions.MethodInfoExtensions.InvokeAsSynchronousTask(MethodInfo methodInfo, Object classInstance, Object[] parameters)
-				               at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.Execution.TestMethodInfo.ExecuteInternal(Object[] arguments)
 xBDD - Core - Test - Features - Define Scenarios
 	Define A Documentation Scenario
 		With Synchronous Execution [Failed]

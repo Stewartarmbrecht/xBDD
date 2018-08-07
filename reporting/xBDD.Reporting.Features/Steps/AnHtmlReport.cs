@@ -3,13 +3,13 @@ using System.IO;
 using System.Linq;
 using xBDD.Model;
 
-namespace xBDD.Reporting.Test.Steps
+namespace xBDD.Reporting.Features.Steps
 {
     public static class AnHtmlReport
     {
         internal static Step OfAFailingStepWithAnException()
         {
-            string path = GetReportPath();
+            string path = GetReportPath("FailingStepWithAnException");
 
             var step = xB.CreateAsyncStep(
                 "the test results with a failed step with an exception",
@@ -34,7 +34,7 @@ namespace xBDD.Reporting.Test.Steps
 
         internal static Step OfAPassingFullTestRun()
         {
-            string path = GetReportPath();
+            string path = GetReportPath("PassingFullTestRun");
 
             var step = xB.CreateAsyncStep(
                 "the test results of a passing full test run",
@@ -90,7 +90,7 @@ namespace xBDD.Reporting.Test.Steps
 
         internal static Step OfAFullTestRunWithAllOutcomes()
         {
-            string path = GetReportPath();
+            string path = GetReportPath("FullTestRunWithAllOutcomes");
 
             var step = xB.CreateAsyncStep(
                 "the test results of a full test run with all outcomes",
@@ -143,7 +143,7 @@ namespace xBDD.Reporting.Test.Steps
 
         internal static Step OfAFailingStepWithANestedException()
         {
-            string path = GetReportPath();
+            string path = GetReportPath("FailingStepWithANestedException");
 
             var step = xB.CreateAsyncStep(
                 "the test results with a failed step with an exception",
@@ -177,7 +177,7 @@ namespace xBDD.Reporting.Test.Steps
 
         internal static Step OfAStepWithOutput(string output, TextFormat format)
         {
-            string path = GetReportPath();
+            string path = GetReportPath("StepWithOutput");
 
             var step = xB.CreateAsyncStep(
                 "the test results of a step with a/an " + Enum.GetName(typeof(TextFormat), format) + " output of ",
@@ -205,7 +205,7 @@ namespace xBDD.Reporting.Test.Steps
 
         internal static Step OfASinglePassingScenario(string value = null, string actor = null, string capability = null, string areaNameSkip = null)
         {
-            string path = GetReportPath();
+            string path = GetReportPath("SinglePassingScenario");
 
             var step = xB.CreateAsyncStep(
                 "the test results of a single passing scenario",
@@ -229,7 +229,7 @@ namespace xBDD.Reporting.Test.Steps
 
         internal static Step OfASingleFailedScenario()
         {
-            string path = GetReportPath();
+            string path = GetReportPath("SingleFailedScenario");
 
             var step = xB.CreateAsyncStep(
                 "the test results of a single failed scenario",
@@ -254,7 +254,7 @@ namespace xBDD.Reporting.Test.Steps
 
         internal static Step OfASingleSkippedScenario()
         {
-            string path = GetReportPath();
+            string path = GetReportPath("SingleSkippedScenario");
 
             var step = xB.CreateAsyncStep(
                 "the test results of a single skipped scenario",
@@ -275,7 +275,7 @@ namespace xBDD.Reporting.Test.Steps
 
         internal static Step OfAnEmptyTestRun()
         {
-            string path = GetReportPath();
+            string path = GetReportPath("EmptyTestRun");
 
             var step = xB.CreateAsyncStep(
                 "the test results of an empty test run",
@@ -289,11 +289,11 @@ namespace xBDD.Reporting.Test.Steps
             return step;
         }
 
-        private static string GetReportPath()
+        private static string GetReportPath(string reportName)
         {
             var location = System.Reflection.Assembly.GetEntryAssembly().Location;
             var directory = System.IO.Path.GetDirectoryName(location);
-            var path = directory + $"{System.IO.Path.DirectorySeparatorChar}TestHtmlReport.html";
+            var path = directory + $"{System.IO.Path.DirectorySeparatorChar}TestResults{reportName}.html";
             return path;
         }
     }

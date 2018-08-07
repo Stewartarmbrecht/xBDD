@@ -1,6 +1,6 @@
 using xBDD.Browser;
 
-namespace xBDD.Reporting.Test.Pages.HtmlReportPage
+namespace xBDD.Reporting.Features.Pages.HtmlReportPage
 {
     public class TestRun
     {
