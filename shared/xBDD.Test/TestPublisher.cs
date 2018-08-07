@@ -27,7 +27,7 @@ namespace xBDD.Test
                 File.WriteAllText(htmlPath, htmlReport);
 
                 var textPath = directory + $"{separator}../../../test-results/xBDD.Test.Results.txt";
-                Logger.LogMessage("Writing Html Report to " + textPath);
+                Logger.LogMessage("Writing Text Report to " + textPath);
                 var textReport = await xB.CurrentRun.TestRun.WriteToText();
                 File.WriteAllText(textPath, textReport);
             }

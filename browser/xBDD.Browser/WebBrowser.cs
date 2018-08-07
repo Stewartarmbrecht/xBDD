@@ -51,7 +51,7 @@ namespace xBDD.Browser
         {
             var sw = new System.Diagnostics.Stopwatch();  
             sw.Start();
-            IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
+            IWebElement webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
             if (webElement == null)
                 throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
             else
@@ -69,7 +69,7 @@ namespace xBDD.Browser
         {
             var sw = new System.Diagnostics.Stopwatch();  
             sw.Start();
-            IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
+            IWebElement webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
             if (webElement == null)
                 throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
             else
@@ -86,7 +86,7 @@ namespace xBDD.Browser
         {
             var sw = new System.Diagnostics.Stopwatch();  
             sw.Start();
-            IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
+            IWebElement webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
             if (webElement == null)
                 throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
             else
@@ -107,15 +107,24 @@ namespace xBDD.Browser
                 sw.Start();
                 if (waitMilliseconds == -1)
                     waitMilliseconds = DefaultWait;
-                IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
-                if (webElement == null)
-                    throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
+                IWebElement webElement = null;
+                try {
+                    webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
+                } catch(NoSuchElementException ex) {
+                }
                 var hidden = false;
                 Stopwatch sw2 = new Stopwatch();
                 sw2.Start();
                 while (sw2.ElapsedMilliseconds < waitMilliseconds && hidden == false)
                 {
-                    if (!webElement.Displayed)
+                    if (webElement == null)
+                    {
+                        try {
+                            webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
+                        } catch(NoSuchElementException ex) {
+                        }
+                    }
+                    if (webElement != null && !webElement.Displayed)
                         hidden = true;
                 }
                 if (!hidden)
@@ -129,7 +138,7 @@ namespace xBDD.Browser
         {
             var sw = new System.Diagnostics.Stopwatch();  
             sw.Start();
-            var webElement = driver.FindElements(By.CssSelector(element.Selector));
+            var webElement = driver.FindElements(OpenQA.Selenium.By.CssSelector(element.Selector));
             if (webElement.Count != 0)
                 throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was found.");
             sw.Stop();
@@ -145,7 +154,11 @@ namespace xBDD.Browser
                 if (waitMilliseconds == -1)
                     waitMilliseconds = DefaultWait;
 
-                IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
+                IWebElement webElement = null;
+                try {
+                    webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
+                } catch(NoSuchElementException ex) {
+                }
 
                 var visible = false;
                 Stopwatch sw2 = new Stopwatch();
@@ -156,7 +169,10 @@ namespace xBDD.Browser
                     ++passCount;
                     if(webElement == null)
                     {
-                        webElement = driver.FindElement(By.CssSelector(element.Selector));
+                        try {
+                            webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
+                        } catch(NoSuchElementException ex) {
+                        }
                     }
                     if(webElement != null)
                     {
@@ -182,7 +198,7 @@ namespace xBDD.Browser
                 sw.Start();
                 if (waitMilliseconds == -1)
                     waitMilliseconds = DefaultWait;
-                IWebElement webElement = driver.FindElement(By.CssSelector(element.Selector));
+                IWebElement webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
                 var clicked = false;
                 Stopwatch sw2 = new Stopwatch();
                 sw2.Start();
@@ -190,7 +206,7 @@ namespace xBDD.Browser
                 {
                     if (webElement == null)
                     {
-                        webElement = driver.FindElement(By.CssSelector(element.Selector));
+                        webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
                     }
                     if(webElement != null)
                     {
@@ -209,6 +225,18 @@ namespace xBDD.Browser
                     if (!clicked)
                         throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not visible and was not clicked");
                 }
+                sw.Stop();
+                System.Diagnostics.Trace.WriteLine("        ClickWhenVisible (" + sw.ElapsedMilliseconds.ToString() + "ms): " + element.Selector);
+            });
+        }
+        public Task Click(PageElement element)
+        {
+            return Task.Run(() =>
+            {
+                var sw = new System.Diagnostics.Stopwatch();  
+                sw.Start();
+                IWebElement webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
+                webElement.Click();
                 sw.Stop();
                 System.Diagnostics.Trace.WriteLine("        ClickWhenVisible (" + sw.ElapsedMilliseconds.ToString() + "ms): " + element.Selector);
             });
