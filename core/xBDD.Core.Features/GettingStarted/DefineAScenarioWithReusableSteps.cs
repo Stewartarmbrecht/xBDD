@@ -90,7 +90,7 @@ namespace xBDD.Core.Test.Features.DefineScenarios
 			sb.AppendLine("Then the client should get a 401 response");
 
 			var seperator = System.IO.Path.DirectorySeparatorChar;
-			var scenarioPath = $"{seperator}Features{seperator}DefineScenarios{seperator}SampleCode{seperator}GetAccountDetails.cs";
+			var scenarioPath = $"{seperator}GettingStarted{seperator}SampleCode{seperator}GetAccountDetails.cs";
 
 			var testRunBuilder = new CoreFactory().CreateTestRunBuilder(null);
             await xB.CurrentRun

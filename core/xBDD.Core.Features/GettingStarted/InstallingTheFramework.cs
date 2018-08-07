@@ -21,7 +21,7 @@ namespace xBDD.Core.Features.GettingStarted
 		}
 		
 		[TestMethod]
-		public async void IfYouUseAnMSTestProject()
+		public async Task IfYouUseAnMSTestProject()
 		{
 			await xB.AddScenario(this)
 				.Given("you create an MSTest project by following the directions here:",

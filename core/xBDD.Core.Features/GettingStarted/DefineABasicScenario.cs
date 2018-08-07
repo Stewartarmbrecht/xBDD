@@ -44,7 +44,7 @@ namespace xBDD.Core.Features.GettingStarted
 			sb.AppendLine("Then you should get back a single holiday that is St. Patrick's Day");
 
 			var separator = System.IO.Path.DirectorySeparatorChar;
-			var scenarioPath = $"{separator}Features{separator}DefineScenarios{separator}SampleCode{separator}GetHolidays.cs";
+			var scenarioPath = $"{separator}GettingStarted{separator}SampleCode{separator}GetHolidays.cs";
 
 			var testRunBuilder = new CoreFactory().CreateTestRunBuilder(null);
             await xB.AddScenario(this)
