@@ -2,7 +2,7 @@ using xBDD.Test;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 
-namespace xBDD.Reporting.Features.ViewHtmlReport
+namespace xBDD.Reporting.Features.GenerateHtmlReport
 {
     [TestClass]
     public class WriteToHtml

@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Reporting.Features.Steps;
 using System.Threading.Tasks;
 
-namespace xBDD.Reporting.Features.ViewTextReport
+namespace xBDD.Reporting.Features.GenerateTextReport
 {
     [TestClass]
     public class WriteToText

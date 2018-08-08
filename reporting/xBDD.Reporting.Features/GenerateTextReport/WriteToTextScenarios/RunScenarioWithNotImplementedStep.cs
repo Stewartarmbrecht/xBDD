@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using xBDD.Test;
 
-namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 {
     public class RunScenarioWithNotImplementedStep : IExecute<string>
     {
