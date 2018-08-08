@@ -179,7 +179,7 @@ xBDD - Reporting - Features - Browse Html Report
 		Failing
 			Given the test results of a single failed scenario
 			When you navigate to the test html report with a single failed scenario
-			Then you will see the step 2 with red badge is visible because the report will be expanded to the faild step
+			Then you will see the step 2 with red badge is visible because the report will be expanded to the failed step
 		Passing
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
@@ -316,20 +316,17 @@ xBDD - Reporting - Features - Browse Html Report
 xBDD - Reporting - Features - Customize Html Report
 	Shorten Area Name
 		Matches All Of Area Name
-			Given the test results of a single passing scenario
-			And you set the HTML writer was set to skip 'My Area 1' when writing the area name
+			Given the test results of a single passing scenario set to skip the string 'My Area 1' in the area name
 			When you navigate to the test html report with a single passing scenario
 			Then you will see the area title line is visible
 			And you will see the area title line is visible
 		Matches None Of Area Name
-			Given the test results of a single passing scenario
-			And you set the HTML writer was set to skip 'No Match' when writing the area name
+			Given the test results of a single passing scenario set to skip the string 'No Match' in the area name
 			When you navigate to the test html report with a single passing scenario
 			Then you will see the area title line is visible
 			And you will see the area title line is visible
 		Matches Start Of Area Name
-			Given the test results of a single passing scenario
-			And you set the HTML writer was set to skip 'My ' when writing the area name
+			Given the test results of a single passing scenario set to skip the string 'My ' in the area name
 			When you navigate to the test html report with a single passing scenario
 			Then you will see the area title line is visible
 			And you will see the area title line is visible
@@ -337,25 +334,32 @@ xBDD - Reporting - Features - Customize Html Report
 		Not Sorted [Skipped - Not Started]
 		Partially Sorted [Skipped - Not Started]
 		Sorted [Skipped - Not Started]
-xBDD - Reporting - Features - View Html Report
+	Write Failures Only
+		Failing
+			Given the test results of a full test run with all outcomes set to only report on failures
+			When you navigate to the test html report with a single failed scenario
+			Then you will see the step 2 with red badge is visible because the step failed and the report will be expanded to the failed step
+		Passing
+			Given the test results of a single passing scenario set to report only failures
+			When you navigate to the test html report with a single passing scenario
+			Then you will see test run areas list is not there
+		Skipped
+			Given the test results of a single skipped scenario set to only report on failures
+			When you navigate to the test html report with a single skipped scenario
+			Then you will see test run areas list is not there
+xBDD - Reporting - Features - Generate Html Report
 	Write To Html
 		Standard Full Report
 			Given a completed test run
 			When the following code executes 'var report = xBDD.CurrentRun.WriteToHTML()'
 			Then the report variable will be a string that contains the entire HTML report that can be written to a file, or sent via email, or whatever...
-xBDD - Reporting - Features - View Html Report - View Results
-	Write Failures Only
-		Multiple Areas [Skipped - Not Started]
-		Single Area Multiple Features [Skipped - Not Started]
-		Single Feature Multiple Scenarios [Skipped - Not Started]
-		Single Scenario [Skipped - Not Started]
-xBDD - Reporting - Features - View Text Report
+xBDD - Reporting - Features - Generate Text Report
 	Write To Text
 		Write Emtpy Test Run
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 				{
 				    public class EmptyTestRun : IExecute<string>
 				    {
@@ -375,7 +379,7 @@ xBDD - Reporting - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 				{
 				    public class RunEmptyScenario : IExecute<string>
 				    {
@@ -401,7 +405,7 @@ xBDD - Reporting - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 				{
 				    public class RunMultipleAreas : IExecute<string>
 				    {
@@ -469,7 +473,7 @@ xBDD - Reporting - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 				{
 				    public class RunMultipleFeaturesSameArea : IExecute<string>
 				    {
@@ -536,7 +540,7 @@ xBDD - Reporting - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 				{
 				    public class RunMultipleScenariosSameFeature : IExecute<string>
 				    {
@@ -583,7 +587,7 @@ xBDD - Reporting - Features - View Text Report
 				using System;
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithFailedStep : IExecute<string>
 				    {
@@ -625,7 +629,7 @@ xBDD - Reporting - Features - View Text Report
 				using System.Threading.Tasks;
 				using xBDD.Test;
 				
-				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithNotImplementedStep : IExecute<string>
 				    {
@@ -661,7 +665,7 @@ xBDD - Reporting - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithSkippedStep : IExecute<string>
 				    {
@@ -697,7 +701,7 @@ xBDD - Reporting - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithStepWithMultilineParameter : IExecute<string>
 				    {
@@ -732,7 +736,7 @@ xBDD - Reporting - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 				{
 				    public class RunScenarioWithSteps : IExecute<string>
 				    {
@@ -768,7 +772,7 @@ xBDD - Reporting - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 				{
 				    public class SkippedEmptyScenario : IExecute<string>
 				    {
@@ -798,7 +802,7 @@ xBDD - Reporting - Features - View Text Report
 			Given has the following scenarion definition
 				using System.Threading.Tasks;
 				using xBDD.Test;
-				namespace xBDD.Reporting.Features.ViewTextReport.WriteToTextScenarios
+				namespace xBDD.Reporting.Features.GenerateTextReport.WriteToTextScenarios
 				{
 				    public class SkippedScenarioWithSteps : IExecute<string>
 				    {
