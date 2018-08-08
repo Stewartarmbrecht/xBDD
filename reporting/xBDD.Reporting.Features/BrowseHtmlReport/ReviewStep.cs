@@ -57,7 +57,7 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
             await xB.AddScenario(this)
                 .Given(AnHtmlReport.WithASingleFailedScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
-				.Then(you.WillSee(the.Step.BadgeRed(2)).IsVisible().Because("the report will be expanded to the faild step"))
+				.Then(you.WillSee(the.Step.BadgeRed(2)).IsVisible().Because("the report will be expanded to the failed step"))
                 .Run();
 		}
 		[TestMethod]
