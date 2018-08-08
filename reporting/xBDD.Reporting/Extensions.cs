@@ -14,10 +14,10 @@ namespace xBDD
             TextWriter saver = factory.GetTextFileWriter();
             return await saver.WriteToString(testRun);
         }
-        public static async Task<string> WriteToHtml(this TestRun testRun, string areaNameSkip = "")
+        public static async Task<string> WriteToHtml(this TestRun testRun, string areaNameSkip = "", bool failuresOnly = false)
         {
             ReportingFactory factory = new ReportingFactory();
-            HtmlWriter saver = factory.GetHtmlFileWriter(areaNameSkip);
+            HtmlWriter saver = factory.GetHtmlFileWriter(areaNameSkip, failuresOnly);
             return await saver.WriteToString(testRun);
         }
     }

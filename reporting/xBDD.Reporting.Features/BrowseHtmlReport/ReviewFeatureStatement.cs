@@ -54,7 +54,7 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1)).IsVisible())
 				.Then(you.WillSee(the.Scenario.Name(1)).IsVisible())
-				.And(you.WillSee(the.Feature.Statement(1)).IsNotVisible())
+				.And(you.WillSee(the.Feature.Statement(1)).IsNotThere())
                 .Run();
 		}
 	}

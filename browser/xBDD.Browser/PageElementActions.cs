@@ -24,9 +24,11 @@ namespace xBDD.Browser
                 async (s) => {
                     try {
                         await this.webBrowser.WaitTillVisible(this.pageElement, waitMilliseconds);
-                        s.Output = this.webBrowser.GetPageSource();
-                        s.OutputFormat = TextFormat.htmlpreview;
                         this.webBrowser.ElementHasText(this.pageElement, text);
+                        if(s.Outcome == Outcome.Failed) {
+                            s.Output = this.webBrowser.GetPageSource();
+                            s.OutputFormat = TextFormat.htmlpreview;
+                        }
                     } catch (System.Exception) {
                         s.Output = this.webBrowser.GetPageSource();
                         s.OutputFormat = TextFormat.htmlpreview;
@@ -45,9 +47,11 @@ namespace xBDD.Browser
                 async (s) => {
                     try {
                         await this.webBrowser.WaitTillVisible(this.pageElement, waitMilliseconds);
-                        s.Output = this.webBrowser.GetPageSource();
-                        s.OutputFormat = TextFormat.htmlpreview;
                         this.webBrowser.ElementStyleMatches(this.pageElement, match);
+                        if(s.Outcome == Outcome.Failed) {
+                            s.Output = this.webBrowser.GetPageSource();
+                            s.OutputFormat = TextFormat.htmlpreview;
+                        }
                     } catch (System.Exception) {
                         s.Output = this.webBrowser.GetPageSource();
                         s.OutputFormat = TextFormat.htmlpreview;
@@ -66,9 +70,11 @@ namespace xBDD.Browser
                 async (s) => {
                     try {
                         await this.webBrowser.WaitTillVisible(this.pageElement, waitMilliseconds);
-                        s.Output = this.webBrowser.GetPageSource();
-                        s.OutputFormat = TextFormat.htmlpreview;
                         this.webBrowser.ElementHasTitle(this.pageElement, text);
+                        if(s.Outcome == Outcome.Failed) {
+                            s.Output = this.webBrowser.GetPageSource();
+                            s.OutputFormat = TextFormat.htmlpreview;
+                        }
                     } catch (System.Exception) {
                         s.Output = this.webBrowser.GetPageSource();
                         s.OutputFormat = TextFormat.htmlpreview;
@@ -87,15 +93,17 @@ namespace xBDD.Browser
                 async (s) => {
                     try {
                         await this.webBrowser.WaitTillVisible(this.pageElement, waitMilliseconds);
-                        s.Output = this.webBrowser.GetPageSource();
-                        s.OutputFormat = TextFormat.htmlpreview;
+                        if(click) {
+                            this.webBrowser.Click(this.pageElement);
+                        }
+                        if(s.Outcome == Outcome.Failed) {
+                            s.Output = this.webBrowser.GetPageSource();
+                            s.OutputFormat = TextFormat.htmlpreview;
+                        }
                     } catch (System.Exception) {
                         s.Output = this.webBrowser.GetPageSource();
                         s.OutputFormat = TextFormat.htmlpreview;
                         throw;
-                    }
-                    if(click) {
-                        this.webBrowser.Click(this.pageElement);
                     }
                 }
             );
@@ -107,10 +115,32 @@ namespace xBDD.Browser
                 async (s) => {
                     try {
                         await this.webBrowser.WaitTillNotVisible(this.pageElement, waitMilliseconds);
-                        s.Output = this.webBrowser.GetPageSource();
-                        s.OutputFormat = TextFormat.htmlpreview;
                         if(click) {
                             this.webBrowser.Click(this.pageElement);
+                        }
+                        if(s.Outcome == Outcome.Failed) {
+                            s.Output = this.webBrowser.GetPageSource();
+                            s.OutputFormat = TextFormat.htmlpreview;
+                        }
+                    } catch(System.Exception)
+                    {
+                        s.Output = this.webBrowser.GetPageSource();
+                        s.OutputFormat = TextFormat.htmlpreview;
+                        throw;
+                    }
+                }
+            );
+        }
+        public Step IsNotThere(int waitMilliseconds = -1)
+        {
+            return xB.CreateStep(
+                $"{this.stepNamePrefix}{this.pageElement.Description} is not there",
+                (s) => {
+                    try {
+                        this.webBrowser.ValidateNotExist(this.pageElement);
+                        if(s.Outcome == Outcome.Failed) {
+                            s.Output = this.webBrowser.GetPageSource();
+                            s.OutputFormat = TextFormat.htmlpreview;
                         }
                     } catch(System.Exception)
                     {

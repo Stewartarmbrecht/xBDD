@@ -23,7 +23,13 @@ namespace xBDD.Test
                 var directory = System.IO.Directory.GetCurrentDirectory();
                 var htmlPath = directory + $"{separator}../../../test-results/xBDD.Test.Results.html";
                 Logger.LogMessage("Writing Html Report to " + htmlPath);
-                var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml(skipAreaName);
+                var failuresOnlyEnv = System.Environment.GetEnvironmentVariable("XBDD_FAILURES_ONLY");
+                var failuresOnly = false;
+                if(failuresOnlyEnv != null)
+                {
+                    System.Boolean.TryParse(failuresOnlyEnv, out failuresOnly);
+                }
+                var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml(skipAreaName, failuresOnly);
                 File.WriteAllText(htmlPath, htmlReport);
 
                 var textPath = directory + $"{separator}../../../test-results/xBDD.Test.Results.txt";

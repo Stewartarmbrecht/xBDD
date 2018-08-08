@@ -94,57 +94,47 @@ xBDD - Reporting - Features - Browse Html Report
 		Failing
 			Given the test results of a single failed scenario
 			When you navigate to the test html report with a single failed scenario
-			Then you will see feature 1 with red name is visible
-			And you will see feature 1 scenarios is visible
+			Then you will see the feature 1 with red badge is visible
+			And you will see the feature 1 scenarios is visible
 		Passing
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
-			Then you will see feature name is visible
-			And you will see feature 1 with green name is visible
-			And you will see feature 1 scenarios is not visible because none were failing
+			Then you will see the feature name is visible
+			And you will see the feature 1 with green badge is visible
+			And you will see the feature 1 scenarios is not visible because none were failing
 		Skipped
 			Given the test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
 			And you click when the area title line is visible
-			Then you will see feature name is visible
-			And you will see feature 1 with yellow name is visible
-			And you will see feature 1 scenarios is not visible because none were failing
+			Then you will see the feature name is visible
+			And you will see the feature 1 with yellow badge is visible
+			And you will see the feature 1 scenarios is not visible because none were failing
 	Review Feature Statement
 		Full Statement
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
-			Then you will see feature 1 scenarios is visible
-			And you will see feature 1 scenarios is visible
-		No Statement [Failed]
+			Then you will see the feature 1 statement is visible
+			And you will see the feature 1 statement is visible
+		No Statement
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
-			And you click when feature name is visible
+			And you click when the feature name is visible
 			Then you will see the scenario name is visible
-			And you will see feature 1 scenarios is not visible [Failed]
-				Error Type: Exception
-				   Message: The web element (feature 1 scenarios - #feature-1-statement) was not hidden.
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass10_0.<WaitTillNotVisible>b__0() in C:\Users\stearm01\source\xBDD\browser\xBDD.Browser\WebBrowser.cs:line 132
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass9_0.<<IsNotVisible>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\browser\xBDD.Browser\PageElementActions.cs:line 109
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\core\xBDD.Core\Core\StepExecutor.cs:line 29
+			And you will see the feature 1 statement is not there
 		Partial Statement
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
-			Then you will see feature 1 scenarios is visible
-			And you will see feature 1 scenarios is visible
+			Then you will see the feature 1 statement is visible
+			And you will see the feature 1 statement is visible
 	Review Feature Stats
 		Failed Skipped And Passing Scenario Stats
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
-			And you click when feature name is visible
+			And you click when the feature badge is visible
 			Then you will see feature scenario stats is visible
 			And you will see feature scenario stats total is visible
 			And you will see feature scenario stats total is visible
@@ -166,7 +156,7 @@ xBDD - Reporting - Features - Browse Html Report
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
-			And you click when feature name is visible
+			And you click when the feature name is visible
 			Then you will see the scenario 1 with green badge is visible
 			And you will see the scenario name is visible
 			And you will see the scenario name is visible
@@ -175,7 +165,7 @@ xBDD - Reporting - Features - Browse Html Report
 			Given the test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
 			And you click when the area title line is visible
-			And you click when feature name is visible
+			And you click when the feature name is visible
 			Then you will see the scenario 1 with yellow badge is visible
 			And you will see the scenario 1 steps is not visible because no steps failed
 	Review Scenario Stats
@@ -194,7 +184,7 @@ xBDD - Reporting - Features - Browse Html Report
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
-			And you click when feature name is visible
+			And you click when the feature name is visible
 			And you click when the scenario name is visible
 			Then you will see the step 1 with green badge is visible
 			And you will see the step name is visible
@@ -202,7 +192,7 @@ xBDD - Reporting - Features - Browse Html Report
 			Given the test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
 			And you click when the area title line is visible
-			And you click when feature name is visible
+			And you click when the feature name is visible
 			And you click when the scenario name is visible
 			Then you will see the step 1 with yellow badge is visible
 			And you will see the step name is visible
@@ -213,23 +203,13 @@ xBDD - Reporting - Features - Browse Html Report
 			Then you will see exception type is visible
 			Then you will see exception message is visible
 			Then you will see exception stack trace is visible
-		With Inner Exception [Failed]
+		With Inner Exception
 			Given the test results with a failed step with an exception
-			When you navigate to the test html report with a failing step with an exception
-			Then you will see inner exception is visible [Failed]
-				Error Type: Exception
-				   Message: The web element (inner exception - #step-2 dl.exception>dd.inner-exception>dl.exception) was not found.
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in C:\Users\stearm01\source\xBDD\browser\xBDD.Browser\WebBrowser.cs:line 187
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass8_0.<<IsVisible>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\browser\xBDD.Browser\PageElementActions.cs:line 89
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\core\xBDD.Core\Core\StepExecutor.cs:line 29
-			Then you will see inner exception type is visible [Skipped - Previous Error]
-			Then you will see inner exception message is visible [Skipped - Previous Error]
-			Then you will see inner exception stack trace is visible [Skipped - Previous Error]
+			When you navigate to the test html report with a failing step with a nested exception
+			Then you will see inner exception is visible
+			Then you will see inner exception type is visible
+			Then you will see inner exception message is visible
+			Then you will see inner exception stack trace is visible
 	Review Step Exception
 		Collapse [Skipped - Not Started]
 		Collapse All [Skipped - Not Started]
@@ -248,7 +228,7 @@ xBDD - Reporting - Features - Browse Html Report
 				 output!
 			When you navigate to the test html report with a step with output
 			And you click when the area title line is visible
-			And you click when feature name is visible
+			And you click when the feature name is visible
 			And you click when the scenario name is visible
 			Then you will see step output link is visible
 		Expand [Skipped - Not Started]
@@ -261,7 +241,7 @@ xBDD - Reporting - Features - Browse Html Report
 				 output!
 			When you navigate to the test html report with a step with output
 			And you click when the area title line is visible
-			And you click when feature name is visible
+			And you click when the feature name is visible
 			And you click when the scenario name is visible
 			And you click when step output link is visible
 			Then you will see step output is visible

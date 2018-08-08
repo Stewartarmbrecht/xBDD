@@ -76,8 +76,8 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
 		public async Task WithInnerException()
 		{
             await xB.AddScenario(this)
-                .Given(AnHtmlReport.WithAFailingStepWithAnException())
-                .When(you.NavigateTo(theHtmlReport.WithAFailingStepWithAnException))
+                .Given(AnHtmlReport.WithAFailingStepWithANestedException())
+                .When(you.NavigateTo(theHtmlReport.WithAFailingStepWithANestedException))
 				.Then(you.WillSee(the.StepException.InnerException(2)).IsVisible())
 				.Then(you.WillSee(the.StepException.InnerExceptionType(2)).IsVisible())
 				.Then(you.WillSee(the.StepException.InnerExceptionMessage(2)).IsVisible())

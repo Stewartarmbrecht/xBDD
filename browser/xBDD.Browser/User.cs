@@ -49,10 +49,14 @@ namespace xBDD.Browser
             var step = xB.CreateAsyncStep(
                 $"you click the {pageElement.Description}",
                 async (s) => {
-                    await this.browser.WaitTillVisible(pageElement, waitTillVisibleMilliseconds);
-                    s.Output = this.browser.GetPageSource();
-                    s.OutputFormat = TextFormat.htmlpreview;
-                    this.browser.Click(pageElement);
+                    try {
+                        await this.browser.WaitTillVisible(pageElement, waitTillVisibleMilliseconds);
+                        this.browser.Click(pageElement);
+                    } catch (System.Exception) {
+                        s.Output = this.browser.GetPageSource();
+                        s.OutputFormat = TextFormat.htmlpreview;
+                        throw;
+                    }
                 });
             return step;
         }

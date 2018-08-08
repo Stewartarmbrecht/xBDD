@@ -13,9 +13,11 @@ namespace xBDD.Reporting.Html
         int scenarioCounter = 0;
         int stepCounter = 0;
         string areaNameSkip = "";
-        internal HtmlWriter(string areaNameSkip)
+        bool failuresOnly = false;
+        internal HtmlWriter(string areaNameSkip, bool failuresOnly)
         {
             this.areaNameSkip = areaNameSkip;
+            this.failuresOnly = failuresOnly;
         }
         public Task<string> WriteToString(TestRun testRun)
         {
@@ -226,8 +228,11 @@ namespace xBDD.Reporting.Html
             Scenario lastScenario = null;
             foreach (var scenario in testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name))
             {
-                WriteAreaFeatureAndScenario(lastScenario, scenario, sb);
-                lastScenario = scenario;
+                if(!failuresOnly || failuresOnly && scenario.Outcome == Outcome.Failed)
+                {
+                    WriteAreaFeatureAndScenario(lastScenario, scenario, sb);
+                    lastScenario = scenario;
+                }
             }
 
             WriteFeatureClose(sb);
