@@ -35,10 +35,14 @@ namespace xBDD.Core.Features.GettingStarted
 		[TestMethod]
 		public async Task ForAnXunitProject()
 		{
+			 await xB.CurrentRun.AddScenario(this)
+				.Skip("Not Started");
 		}
 		[TestMethod]
 		public async Task ForAnNUnitProject()
 		{
+			 await xB.CurrentRun.AddScenario(this)
+				.Skip("Not Started");
 		}
 	}
 }
