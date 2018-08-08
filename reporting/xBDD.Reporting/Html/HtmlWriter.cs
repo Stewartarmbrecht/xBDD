@@ -224,20 +224,29 @@ namespace xBDD.Reporting.Html
 
         void WriteAreas(TestRun testRun, StringBuilder sb)
         {
-            WriteTagOpen("ol", sb, 1, "areas list-unstyled", false);
+            var areasOpenWritten = false;
+            var scenarioWritten = false;
             Scenario lastScenario = null;
             foreach (var scenario in testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name))
             {
                 if(!failuresOnly || failuresOnly && scenario.Outcome == Outcome.Failed)
                 {
+                    if(!areasOpenWritten) {
+                        WriteTagOpen("ol", sb, 1, "areas list-unstyled", false);
+                        areasOpenWritten = true;
+                    }
                     WriteAreaFeatureAndScenario(lastScenario, scenario, sb);
+                    scenarioWritten = true;
                     lastScenario = scenario;
                 }
             }
 
-            WriteFeatureClose(sb);
-            WriteAreaClose(sb);
-            WriteTagClose("ol", sb, 1);//areas
+            if(scenarioWritten)
+            {
+                WriteFeatureClose(sb);
+                WriteAreaClose(sb);
+                WriteTagClose("ol", sb, 1);//areas
+            }
         }
         void WriteAreaFeatureAndScenario(Scenario lastScenario, Scenario scenario, StringBuilder sb)
         {

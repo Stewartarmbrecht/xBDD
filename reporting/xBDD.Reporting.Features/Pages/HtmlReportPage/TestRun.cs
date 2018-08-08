@@ -9,5 +9,6 @@ namespace xBDD.Reporting.Features.Pages.HtmlReportPage
         public PageElement BadgeYellow = new PageElement("test run name - yellow",".testrun-name span.badge-warning");
         public PageElement BadgeRed = new PageElement("test run name - red",".testrun-name span.badge-danger");
         public PageElement BadgeGrey = new PageElement("test run name - grey",".testrun-name span.badge-secondary");
+        public PageElement Areas = new PageElement("test run areas list",".areas");
     }
 }

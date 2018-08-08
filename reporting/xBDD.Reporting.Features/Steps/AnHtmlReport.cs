@@ -88,12 +88,18 @@ namespace xBDD.Reporting.Features.Steps
             return step;
         }
 
-        internal static Step WithAFullTestRunWithAllOutcomes()
+        internal static Step WithAFullTestRunWithAllOutcomes(bool failuresOnly = false)
         {
             string path = GetReportPath("WithAFullTestRunWithAllOutcomes");
 
+            var stepName = "the test results of a full test run with all outcomes";
+            if(failuresOnly)
+            {
+                stepName = stepName + " set to only report on failures";
+            }
+
             var step = xB.CreateAsyncStep(
-                "the test results of a full test run with all outcomes",
+                stepName,
                 async (s) =>
                 {
                     int stepCounter = 0;
@@ -135,7 +141,7 @@ namespace xBDD.Reporting.Features.Steps
                             }                            
                         }
                     }
-                    var htmlReport = await xBDD.CurrentRun.TestRun.WriteToHtml();
+                    var htmlReport = await xBDD.CurrentRun.TestRun.WriteToHtml(null, failuresOnly);
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
@@ -203,12 +209,25 @@ namespace xBDD.Reporting.Features.Steps
             return step;
         }
 
-        internal static Step WithASinglePassingScenario(string value = null, string actor = null, string capability = null, string areaNameSkip = null)
+        internal static Step WithASinglePassingScenario(
+            string value = null, string actor = null, string capability = null, 
+            string areaNameSkip = null, bool failuresOnly = false)
         {
             string path = GetReportPath("WithASinglePassingScenario");
 
+            var stepName = "the test results of a single passing scenario";
+            if(areaNameSkip != null)
+            {
+                stepName = stepName + $" set to skip the string '{areaNameSkip}' in the area name";
+            }
+
+            if(failuresOnly)
+            {
+                stepName = stepName + " set to report only failures";
+            }
+
             var step = xB.CreateAsyncStep(
-                "the test results of a single passing scenario",
+                stepName,
                 async (s) =>
                 {
                     var xBDD = new xBDDMock();
@@ -221,7 +240,7 @@ namespace xBDD.Reporting.Features.Steps
                     xBDD.CurrentRun.TestRun.Areas[0].Features[0].Actor = actor;
                     xBDD.CurrentRun.TestRun.Areas[0].Features[0].Value = value;
                     xBDD.CurrentRun.TestRun.Areas[0].Features[0].Capability = capability;
-                    var htmlReport = await xBDD.CurrentRun.TestRun.WriteToHtml(areaNameSkip);
+                    var htmlReport = await xBDD.CurrentRun.TestRun.WriteToHtml(areaNameSkip, failuresOnly);
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
@@ -252,12 +271,18 @@ namespace xBDD.Reporting.Features.Steps
             return step;
         }
 
-        internal static Step WithASingleSkippedScenario()
+        internal static Step WithASingleSkippedScenario(bool failuresOnly = false)
         {
             string path = GetReportPath("WithASingleSkippedScenario");
 
+            var stepName = "the test results of a single skipped scenario";
+            if(failuresOnly)
+            {
+                stepName = stepName + " set to only report on failures";
+            }
+
             var step = xB.CreateAsyncStep(
-                "the test results of a single skipped scenario",
+                stepName,
                 async (s) =>
                 {
                     var xBDD = new xBDDMock();
@@ -267,7 +292,7 @@ namespace xBDD.Reporting.Features.Steps
                         .When("my step 2", (s2) => { })
                         .Then("my step 3", (s2) => { })
                         .Skip("Not Started");
-                    var htmlReport = await xBDD.CurrentRun.TestRun.WriteToHtml();
+                    var htmlReport = await xBDD.CurrentRun.TestRun.WriteToHtml(null, failuresOnly);
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
