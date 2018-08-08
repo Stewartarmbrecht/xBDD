@@ -16,7 +16,7 @@ namespace xBDD.Browser
         {
             this.driver = driver;
         }
-        public static int DefaultWait = 500;
+        public static int DefaultWait = 2000;
         
         public void Load(PageLocation location)
         {
@@ -110,7 +110,7 @@ namespace xBDD.Browser
                 IWebElement webElement = null;
                 try {
                     webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
-                } catch(NoSuchElementException ex) {
+                } catch(NoSuchElementException) {
                 }
                 var hidden = false;
                 Stopwatch sw2 = new Stopwatch();
@@ -121,7 +121,7 @@ namespace xBDD.Browser
                     {
                         try {
                             webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
-                        } catch(NoSuchElementException ex) {
+                        } catch(NoSuchElementException) {
                         }
                     }
                     if (webElement != null && !webElement.Displayed)
@@ -157,7 +157,7 @@ namespace xBDD.Browser
                 IWebElement webElement = null;
                 try {
                     webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
-                } catch(NoSuchElementException ex) {
+                } catch(NoSuchElementException) {
                 }
 
                 var visible = false;
@@ -171,7 +171,7 @@ namespace xBDD.Browser
                     {
                         try {
                             webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
-                        } catch(NoSuchElementException ex) {
+                        } catch(NoSuchElementException) {
                         }
                     }
                     if(webElement != null)
@@ -198,7 +198,10 @@ namespace xBDD.Browser
                 sw.Start();
                 if (waitMilliseconds == -1)
                     waitMilliseconds = DefaultWait;
-                IWebElement webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
+                IWebElement webElement = null;
+                try {
+                    webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
+                } catch(NoSuchElementException) { }
                 var clicked = false;
                 Stopwatch sw2 = new Stopwatch();
                 sw2.Start();
@@ -206,7 +209,9 @@ namespace xBDD.Browser
                 {
                     if (webElement == null)
                     {
-                        webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
+                        try {
+                            webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
+                        } catch(NoSuchElementException) {}
                     }
                     if(webElement != null)
                     {
@@ -229,17 +234,14 @@ namespace xBDD.Browser
                 System.Diagnostics.Trace.WriteLine("        ClickWhenVisible (" + sw.ElapsedMilliseconds.ToString() + "ms): " + element.Selector);
             });
         }
-        public Task Click(PageElement element)
+        public void Click(PageElement element)
         {
-            return Task.Run(() =>
-            {
-                var sw = new System.Diagnostics.Stopwatch();  
-                sw.Start();
-                IWebElement webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
-                webElement.Click();
-                sw.Stop();
-                System.Diagnostics.Trace.WriteLine("        ClickWhenVisible (" + sw.ElapsedMilliseconds.ToString() + "ms): " + element.Selector);
-            });
+            var sw = new System.Diagnostics.Stopwatch();  
+            sw.Start();
+            IWebElement webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
+            webElement.Click();
+            sw.Stop();
+            System.Diagnostics.Trace.WriteLine("        Click (" + sw.ElapsedMilliseconds.ToString() + "ms): " + element.Selector);
         }
     }
 }

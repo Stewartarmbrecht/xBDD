@@ -1,17 +1,22 @@
-using xBDD.Test;
-using xBDD.Browser;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using xBDD.Reporting.Features.Steps;
-using System.Threading.Tasks;
-
 namespace xBDD.Reporting.Features.BrowseHtmlReport
 {
+	using xBDD.Test;
+	using xBDD.Browser;
+	using xBDD.Reporting.Features.Pages.HtmlReportPage;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using xBDD.Reporting.Features.Steps;
+	using System.Threading.Tasks;
+
     [TestClass]
 	//  [Description("In order to understand how functionality is organized")]
 	//  [Description("As a report reviewer")]
 	//  [Description("I would like to view the areas in the html report")]
 	public class ReviewStep
 	{
+        private User you = new User();
+        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
+        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+
 		private readonly TestContextWriter outputWriter;
 
 		public ReviewStep()
@@ -23,98 +28,61 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
 		public async Task Passing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASinglePassingScenario())
-                .When(WebUser.ViewsReport(browser))
-				.AndAsync("the user clicks the first area", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Area.Name(1));
-				})
-				.AndAsync("the user clicks the first feature", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Feature.Name(1));
-				})
-				.AndAsync("the user clicks the first scenario", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Scenario.Name(1));
-				})
-                .ThenAsync("the report will show the step badge in green to indicate it passed", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Step.BadgeGreen(1));
-					browser.ElementHasText(Pages.HtmlReportPage.Step.Name(1), "Given my step 1");
-                })
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithASinglePassingScenario())
+                .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(1)).IsVisible())
+				.Then(you.WillSee(the.Step.BadgeGreen(1)).IsVisible())
+				.And(you.WillSee(the.Step.Name(1)).HasText("Given my step 1"))
                 .Run();
 		}
 		[TestMethod]
 		public async Task Skipped()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASingleSkippedScenario())
-                .When(WebUser.ViewsReport(browser))
-				.AndAsync("the user clicks the first area", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Area.Name(1));
-				})
-				.AndAsync("the user clicks the first feature", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Feature.Name(1));
-				})
-				.AndAsync("the user clicks the first scenario", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Scenario.Name(1));
-				})
-                .ThenAsync("the report will show the step badge in yellow to indicate the step was skipped", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Step.BadgeYellow(1));
-                })
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithASingleSkippedScenario())
+                .When(you.NavigateTo(theHtmlReport.WithASingleSkippedScenario))
+				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(1)).IsVisible())
+				.Then(you.WillSee(the.Step.BadgeYellow(1)).IsVisible())
+				.And(you.WillSee(the.Step.Name(1)).HasText("Given my step 1"))
                 .Run();
 		}
 		[TestMethod]
 		public async Task Failing()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASingleFailedScenario())
-                .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the step badge in red to indicate a step failed", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Step.BadgeRed(2));
-                })
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithASingleFailedScenario())
+                .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
+				.Then(you.WillSee(the.Step.BadgeRed(2)).IsVisible().Because("the report will be expanded to the faild step"))
                 .Run();
 		}
 		[TestMethod]
 		public async Task WithException()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfAFailingStepWithAnException())
-				.When(WebUser.ViewsReport(browser))
-                .ThenAsync("the user should see a section for the exception", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Exception.Section(2));
-				})
-       			.AndAsync("the section should display the exception type", async (s) => { 
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Exception.Type(2));
-				})
-       			.AndAsync("the section should display the exception message", async (s) => { 
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Exception.Message(2));
-				})
-       			.AndAsync("the section should display the exception stack trace", async (s) => { 
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Exception.StackTrace(2));
-				})
-				.Run();
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithAFailingStepWithAnException())
+                .When(you.NavigateTo(theHtmlReport.WithAFailingStepWithAnException))
+				.Then(you.WillSee(the.StepException.Section(2)).IsVisible())
+				.Then(you.WillSee(the.StepException.Type(2)).IsVisible())
+				.Then(you.WillSee(the.StepException.Message(2)).IsVisible())
+				.Then(you.WillSee(the.StepException.StackTrace(2)).IsVisible())
+                .Run();
 		}
 		[TestMethod]
 		public async Task WithInnerException()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfAFailingStepWithANestedException())
-				.When(WebUser.ViewsReport(browser))
-                .ThenAsync("the user should see a section for the nsted exception", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Exception.InnerException(2));
-				})
-       			.AndAsync("the section should display the exception type", async (s) => { 
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Exception.InnerExceptionType(2));
-				})
-       			.AndAsync("the section should display the exception message", async (s) => { 
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Exception.InnerExceptionMessage(2));
-				})
-       			.AndAsync("the section should display the exception stack trace", async (s) => { 
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Exception.InnerExceptionStackTrace(2));
-				})
-				.Run();
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithAFailingStepWithAnException())
+                .When(you.NavigateTo(theHtmlReport.WithAFailingStepWithAnException))
+				.Then(you.WillSee(the.StepException.InnerException(2)).IsVisible())
+				.Then(you.WillSee(the.StepException.InnerExceptionType(2)).IsVisible())
+				.Then(you.WillSee(the.StepException.InnerExceptionMessage(2)).IsVisible())
+				.Then(you.WillSee(the.StepException.InnerExceptionStackTrace(2)).IsVisible())
+                .Run();
 		}
 	}
 }

@@ -1,15 +1,20 @@
 
-using xBDD.Test;
-using xBDD.Browser;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using xBDD.Reporting.Features.Steps;
-using System.Threading.Tasks;
-
 namespace xBDD.Reporting.Features.BrowseHtmlReport
 {
+	using xBDD.Test;
+	using xBDD.Browser;
+	using xBDD.Reporting.Features.Pages.HtmlReportPage;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using xBDD.Reporting.Features.Steps;
+	using System.Threading.Tasks;
+
     [TestClass]
 	public class ReviewFeature
 	{
+        private User you = new User();
+        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
+        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+
 		private readonly TestContextWriter outputWriter;
 
 		public ReviewFeature()
@@ -21,37 +26,26 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
 		public async Task Passing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASinglePassingScenario())
-                .When(WebUser.ViewsReport(browser))
-				.AndAsync("the user clicks the first area", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Area.Name(1));
-				})
-                .ThenAsync("the report will show the feature badge in green to indicate all scenarios passed", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Feature.BadgeGreen(1));
-					browser.ElementHasText(Pages.HtmlReportPage.Feature.Name(1), "My Feature 1");
-                })
-				.AndAsync("the scenarios under the feature will be collapsed because it passed", async (s) => {
-					await browser.WaitTillNotVisible(Pages.HtmlReportPage.Feature.Scenarios(1));
-				})
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithASinglePassingScenario())
+                .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
+				.Then(you.WillSee(the.Feature.Name(1)).HasText("My Feature 1"))
+				.And(you.WillSee(the.Feature.BadgeGreen(1)).IsVisible())
+				.And(you.WillSee(the.Feature.Scenarios(1)).IsNotVisible().Because("none were failing"))
                 .Run();
 		}
 		[TestMethod]
 		public async Task Skipped()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASingleSkippedScenario())
-                .When(WebUser.ViewsReport(browser))
-				.AndAsync("the user clicks the first area", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Area.Name(1));
-				})
-                .ThenAsync("the report will show the feature badge in yellow to indicate scenarios were skipped", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Feature.BadgeYellow(1));
-                })
-				.AndAsync("the scenarios under the feature will be collapsed because it was not failing", async (s) => {
-					await browser.WaitTillNotVisible(Pages.HtmlReportPage.Feature.Scenarios(1));
-				})
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithASingleSkippedScenario())
+                .When(you.NavigateTo(theHtmlReport.WithASingleSkippedScenario))
+				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
+				.Then(you.WillSee(the.Feature.Name(1)).HasText("My Feature 1"))
+				.And(you.WillSee(the.Feature.BadgeYellow(1)).IsVisible())
+				.And(you.WillSee(the.Feature.Scenarios(1)).IsNotVisible().Because("none were failing"))
                 .Run();
 		}
 		[TestMethod]
@@ -59,14 +53,10 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASingleFailedScenario())
-                .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the feature badge in red to indicate a scenario failed", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Feature.BadgeRed(1));
-                })
-				.AndAsync("the scenarios under the feature will be expanded because it has a failing scenario", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Feature.Scenarios(1));
-				})
+                .Given(AnHtmlReport.WithASingleFailedScenario())
+                .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
+				.Then(you.WillSee(the.Feature.BadgeRed(1)).IsVisible())
+				.And(you.WillSee(the.Feature.Scenarios(1)).IsVisible())
                 .Run();
 		}
 	}

@@ -4,37 +4,37 @@ namespace xBDD.Reporting.Features.Pages.HtmlReportPage
 {
     public class Feature
     {
-        public static PageElement Name(int featureNumber)
+        public PageElement Name(int featureNumber)
         {
-            return new PageElement("feature name","#feature-" + featureNumber + " h3 span.name");
+            return new PageElement("the feature name","#feature-" + featureNumber + " h3 span.name");
         }
-        public static PageElement Badge(int featureNumber)
+        public PageElement Badge(int featureNumber)
         {
-            return new PageElement("feature name","#feature-" + featureNumber + " h3 span.badge");
+            return new PageElement("the feature badge","#feature-" + featureNumber + " h3 span.badge");
         }
-        public static PageElement BadgeGreen(int featureNumber)
+        public PageElement BadgeGreen(int featureNumber)
         {
-            return new PageElement("feature " + featureNumber + " with green name", "#feature-" + featureNumber + " h3 span.badge-success");   
+            return new PageElement("the feature " + featureNumber + " with green badge", "#feature-" + featureNumber + " h3 span.badge-success");   
         }
-        public static PageElement BadgeYellow(int featureNumber)
+        public PageElement BadgeYellow(int featureNumber)
         {
-            return new PageElement("feature " + featureNumber + " with yellow name", "#feature-" + featureNumber + " h3 span.badge-warning");   
+            return new PageElement("the feature " + featureNumber + " with yellow badge", "#feature-" + featureNumber + " h3 span.badge-warning");   
         }
-        public static PageElement BadgeRed(int featureNumber)
+        public PageElement BadgeRed(int featureNumber)
         {
-            return new PageElement("feature " + featureNumber + " with red name", "#feature-" + featureNumber + " h3 span.badge-danger");   
+            return new PageElement("the feature " + featureNumber + " with red badge", "#feature-" + featureNumber + " h3 span.badge-danger");   
         }
-        public static PageElement BadgeGray(int featureNumber)
+        public PageElement BadgeGray(int featureNumber)
         {
-            return new PageElement("feature " + featureNumber + " with grey name", "#feature-" + featureNumber + " h3 span.badge-secondary");   
+            return new PageElement("the feature " + featureNumber + " with grey badge", "#feature-" + featureNumber + " h3 span.badge-secondary");   
         }
-        public static PageElement Scenarios(int featureNumber)
+        public PageElement Scenarios(int featureNumber)
         {
-            return new PageElement("feature " + featureNumber + " scenarios", "#feature-" + featureNumber + "-scenarios");   
+            return new PageElement("the feature " + featureNumber + " scenarios", "#feature-" + featureNumber + "-scenarios");   
         }
-        internal static PageElement Statement(int featureNumber)
+        internal PageElement Statement(int featureNumber)
         {
-            return new PageElement("feature " + featureNumber + " scenarios", "#feature-" + featureNumber + "-statement");   
+            return new PageElement("the feature " + featureNumber + " statement", "#feature-" + featureNumber + "-statement");   
         }
     }
 }

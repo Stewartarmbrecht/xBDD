@@ -314,6 +314,9 @@ namespace xBDD.Reporting.Html
             if(this.areaNameSkip != null && this.areaNameSkip.Length > 0) {
                 areaName = areaName.Replace(this.areaNameSkip, "");
             }
+            if(areaName.Length == 0) {
+                areaName = "[Missing! (or Full Name Skipped)]";
+            }
             WriteTag("span", sb, 4, "name pointer", areaName.HtmlEncode(), true,  $"area-{areaCounter}-name", null, areaTitleAttributes);
             WriteTagClose("h2", sb, 3);
 

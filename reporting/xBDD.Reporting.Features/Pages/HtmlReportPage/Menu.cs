@@ -4,8 +4,8 @@ namespace xBDD.Reporting.Features.Pages.HtmlReportPage
 {
     public class Menu
     {
-        public static PageElement Section = new PageElement("menu","#menu");
-        public static PageElement MenuButton = new PageElement("menu button","#menu-button");
-        public static PageElement ExpandAllAreasButton = new PageElement("expand all areas button","#expand-all-areas-button");
+        public PageElement Section = new PageElement("menu","#menu");
+        public PageElement MenuButton = new PageElement("menu button","#menu-button");
+        public PageElement ExpandAllAreasButton = new PageElement("expand all areas button","#expand-all-areas-button");
     }
 }

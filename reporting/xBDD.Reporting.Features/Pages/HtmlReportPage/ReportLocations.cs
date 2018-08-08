@@ -30,7 +30,7 @@ namespace xBDD.Reporting.Features.Pages.HtmlReportPage
             $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithASingleSkippedScenario.html");
         public PageLocation WithAnEmptyTestRun => new PageLocation(
             "the test html report with an empty test run", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithAEmptyTestRun.html");
+            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithAnEmptyTestRun.html");
 
         private string location;
         private string directory; 

@@ -23,18 +23,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Features\ViewTextReport\WriteToTextScenarios\EmptyTestRun.txt" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunEmptyScenario.txt" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunMultipleAreas.txt" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunMultipleFeaturesSameArea.txt" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunMultipleScenariosSameFeature.txt" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunScenarioWithFailedStep.txt" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunScenarioWithNotImplementedStep.txt" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunScenarioWithSkippedStep.txt" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunScenarioWithSteps.txt" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="Features\ViewTextReport\WriteToTextScenarios\RunScenarioWithStepWithMultilineParameter.txt" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="Features\ViewTextReport\WriteToTextScenarios\SkippedEmptyScenario.txt" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="Features\ViewTextReport\WriteToTextScenarios\SkippedScenarioWithSteps.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateTextReport\WriteToTextScenarios\EmptyTestRun.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateTextReport\WriteToTextScenarios\RunEmptyScenario.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateTextReport\WriteToTextScenarios\RunMultipleAreas.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateTextReport\WriteToTextScenarios\RunMultipleFeaturesSameArea.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateTextReport\WriteToTextScenarios\RunMultipleScenariosSameFeature.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateTextReport\WriteToTextScenarios\RunScenarioWithFailedStep.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateTextReport\WriteToTextScenarios\RunScenarioWithNotImplementedStep.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateTextReport\WriteToTextScenarios\RunScenarioWithSkippedStep.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateTextReport\WriteToTextScenarios\RunScenarioWithSteps.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateTextReport\WriteToTextScenarios\RunScenarioWithStepWithMultilineParameter.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateTextReport\WriteToTextScenarios\SkippedEmptyScenario.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateTextReport\WriteToTextScenarios\SkippedScenarioWithSteps.txt" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>

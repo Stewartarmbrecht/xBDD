@@ -20,6 +20,15 @@ namespace xBDD.Model
         /// </summary>
         /// <value><see cref="string"/></value>
         public string Name { get; internal set; }
+
+        /// <summary>
+        /// Adds text to the end of the step name.
+        /// </summary>
+        /// <param name="text"></param>
+        public void AppendToName(string text)
+        {
+            this.Name = this.Name + text;
+        }
         
         /// <summary>
         /// The full name of the step that will displayed to the user in the scenario.

@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 using xBDD.Model;
 
 namespace xBDD.Core
@@ -211,6 +212,10 @@ namespace xBDD.Core
             string multilineParameter = "",
             TextFormat multilineParameterFormat = TextFormat.text)
         {
+            if(action.Method.IsDefined(typeof(AsyncStateMachineAttribute),false))
+            {
+                throw new AsyncStepInSyncScenarioException(stepName);
+            }
             var step = factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
             return And(step);
         }

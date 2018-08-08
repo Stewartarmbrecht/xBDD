@@ -1,9 +1,12 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Threading.Tasks;
-using xBDD.Test;
-
 namespace xBDD.Reporting.Features.BrowseHtmlReport
 {
+	using xBDD.Test;
+	using xBDD.Browser;
+	using xBDD.Reporting.Features.Pages.HtmlReportPage;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using xBDD.Reporting.Features.Steps;
+	using System.Threading.Tasks;
+
 	[TestClass]
 	public class ReviewAreaDescription
 	{

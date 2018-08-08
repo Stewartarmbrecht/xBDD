@@ -4,21 +4,21 @@ namespace xBDD.Reporting.Features.Pages.HtmlReportPage
 {
     public class Step
     {
-        public static PageElement Name(int stepNumber)
+        public PageElement Name(int stepNumber)
         {
-            return new PageElement("step name","#step-" + stepNumber + " h5 span.name");
+            return new PageElement("the step name","#step-" + stepNumber + " h5 span.name");
         }
-        public static PageElement BadgeGreen(int stepNumber)
+        public PageElement BadgeGreen(int stepNumber)
         {
-            return new PageElement("step " + stepNumber + " with green name", "#step-" + stepNumber + " h5 span.badge-success");   
+            return new PageElement("the step " + stepNumber + " with green badge", "#step-" + stepNumber + " h5 span.badge-success");   
         }
-        public static PageElement BadgeYellow(int stepNumber)
+        public PageElement BadgeYellow(int stepNumber)
         {
-            return new PageElement("step " + stepNumber + " with yellow name", "#step-" + stepNumber + " h5 span.badge-warning");   
+            return new PageElement("the step " + stepNumber + " with yellow badge", "#step-" + stepNumber + " h5 span.badge-warning");   
         }
-        public static PageElement BadgeRed(int stepNumber)
+        public PageElement BadgeRed(int stepNumber)
         {
-            return new PageElement("step " + stepNumber + " with red name", "#step-" + stepNumber + " h5 span.badge-danger");   
+            return new PageElement("the step " + stepNumber + " with red badge", "#step-" + stepNumber + " h5 span.badge-danger");   
         }
     }
 }

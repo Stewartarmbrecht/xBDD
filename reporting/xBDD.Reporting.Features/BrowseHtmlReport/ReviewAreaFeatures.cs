@@ -29,7 +29,7 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
         public async Task Expand()
 		{
             await xB.AddScenario(this)
-				.Given(AnHtmlReport.OfAPassingFullTestRun())
+				.Given(AnHtmlReport.WithAPassingFullTestRun())
                 .When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
                 .And(you.WaitTill(the.FirstAreaName).IsVisible(5000))
                 .And(you.Click(the.FirstAreaName))
@@ -41,7 +41,7 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
         public async Task ExpandAll()
 		{
             await xB.AddScenario(this)
-				.Given(AnHtmlReport.OfAPassingFullTestRun())
+				.Given(AnHtmlReport.WithAPassingFullTestRun())
                 .When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
                 .And(you.WaitTill(the.FirstAreaName).IsVisible(5000))
                 .And(you.Click(the.MenuButton,1000))
@@ -55,7 +55,7 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
 		public async Task Collapse()
 		{
             await xB.AddScenario(this)
-				.Given(AnHtmlReport.OfAPassingFullTestRun())
+				.Given(AnHtmlReport.WithAPassingFullTestRun())
                 .When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
                 .And(you.WaitTill(the.FirstAreaName).IsVisible(5000))
                 .And(you.Click(the.MenuButton))
@@ -70,7 +70,7 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
         public async Task CollapseAll()
 		{
             await xB.AddScenario(this)
-				.Given(AnHtmlReport.OfAPassingFullTestRun())
+				.Given(AnHtmlReport.WithAPassingFullTestRun())
                 .When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
                 .And(you.WaitTill(the.FirstAreaName).IsVisible(5000))
                 .And(you.Click(the.MenuButton))

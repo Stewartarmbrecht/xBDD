@@ -4,25 +4,25 @@ namespace xBDD.Reporting.Features.Pages.HtmlReportPage
 {
     public class Scenario
     {
-        public static PageElement Name(int scenarioNumber)
+        public PageElement Name(int scenarioNumber)
         {
-            return new PageElement("scenario name","#scenario-" + scenarioNumber + " h4 span.name");
+            return new PageElement("the scenario name","#scenario-" + scenarioNumber + " h4 span.name");
         }
-        public static PageElement BadgeGreen(int scenarioNumber)
+        public PageElement BadgeGreen(int scenarioNumber)
         {
-            return new PageElement("scenario " + scenarioNumber + " with green name", "#scenario-" + scenarioNumber + " h4 span.badge-success");   
+            return new PageElement("the scenario " + scenarioNumber + " with green badge", "#scenario-" + scenarioNumber + " h4 span.badge-success");   
         }
-        public static PageElement BadgeYellow(int scenarioNumber)
+        public PageElement BadgeYellow(int scenarioNumber)
         {
-            return new PageElement("scenario " + scenarioNumber + " with yellow name", "#scenario-" + scenarioNumber + " h4 span.badge-warning");   
+            return new PageElement("the scenario " + scenarioNumber + " with yellow badge", "#scenario-" + scenarioNumber + " h4 span.badge-warning");   
         }
-        public static PageElement BadgeRed(int scenarioNumber)
+        public PageElement BadgeRed(int scenarioNumber)
         {
-            return new PageElement("scenario " + scenarioNumber + " with red name", "#scenario-" + scenarioNumber + " h4 span.badge-danger");   
+            return new PageElement("the scenario " + scenarioNumber + " with red badge", "#scenario-" + scenarioNumber + " h4 span.badge-danger");   
         }
-        public static PageElement Steps(int scenarioNumber)
+        public PageElement Steps(int scenarioNumber)
         {
-            return new PageElement("scenario " + scenarioNumber + " steps", "#scenario-" + scenarioNumber + "-steps");   
+            return new PageElement("the scenario " + scenarioNumber + " steps", "#scenario-" + scenarioNumber + "-steps");   
         }
     }
 }

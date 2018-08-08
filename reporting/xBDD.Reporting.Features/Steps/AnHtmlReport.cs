@@ -7,9 +7,9 @@ namespace xBDD.Reporting.Features.Steps
 {
     public static class AnHtmlReport
     {
-        internal static Step OfAFailingStepWithAnException()
+        internal static Step WithAFailingStepWithAnException()
         {
-            string path = GetReportPath("FailingStepWithAnException");
+            string path = GetReportPath("WithAFailingStepWithAnException");
 
             var step = xB.CreateAsyncStep(
                 "the test results with a failed step with an exception",
@@ -32,9 +32,9 @@ namespace xBDD.Reporting.Features.Steps
             return step;
         }
 
-        internal static Step OfAPassingFullTestRun()
+        internal static Step WithAPassingFullTestRun()
         {
-            string path = GetReportPath("PassingFullTestRun");
+            string path = GetReportPath("WithAPassingFullTestRun");
 
             var step = xB.CreateAsyncStep(
                 "the test results of a passing full test run",
@@ -88,9 +88,9 @@ namespace xBDD.Reporting.Features.Steps
             return step;
         }
 
-        internal static Step OfAFullTestRunWithAllOutcomes()
+        internal static Step WithAFullTestRunWithAllOutcomes()
         {
-            string path = GetReportPath("FullTestRunWithAllOutcomes");
+            string path = GetReportPath("WithAFullTestRunWithAllOutcomes");
 
             var step = xB.CreateAsyncStep(
                 "the test results of a full test run with all outcomes",
@@ -141,9 +141,9 @@ namespace xBDD.Reporting.Features.Steps
             return step;
         }
 
-        internal static Step OfAFailingStepWithANestedException()
+        internal static Step WithAFailingStepWithANestedException()
         {
-            string path = GetReportPath("FailingStepWithANestedException");
+            string path = GetReportPath("WithAFailingStepWithANestedException");
 
             var step = xB.CreateAsyncStep(
                 "the test results with a failed step with an exception",
@@ -175,9 +175,9 @@ namespace xBDD.Reporting.Features.Steps
             return step;
         }
 
-        internal static Step OfAStepWithOutput(string output, TextFormat format)
+        internal static Step WithAStepWithOutput(string output, TextFormat format)
         {
-            string path = GetReportPath("StepWithOutput");
+            string path = GetReportPath("WithAStepWithOutput");
 
             var step = xB.CreateAsyncStep(
                 "the test results of a step with a/an " + Enum.GetName(typeof(TextFormat), format) + " output of ",
@@ -203,9 +203,9 @@ namespace xBDD.Reporting.Features.Steps
             return step;
         }
 
-        internal static Step OfASinglePassingScenario(string value = null, string actor = null, string capability = null, string areaNameSkip = null)
+        internal static Step WithASinglePassingScenario(string value = null, string actor = null, string capability = null, string areaNameSkip = null)
         {
-            string path = GetReportPath("SinglePassingScenario");
+            string path = GetReportPath("WithASinglePassingScenario");
 
             var step = xB.CreateAsyncStep(
                 "the test results of a single passing scenario",
@@ -227,9 +227,9 @@ namespace xBDD.Reporting.Features.Steps
             return step;
         }
 
-        internal static Step OfASingleFailedScenario()
+        internal static Step WithASingleFailedScenario()
         {
-            string path = GetReportPath("SingleFailedScenario");
+            string path = GetReportPath("WithASingleFailedScenario");
 
             var step = xB.CreateAsyncStep(
                 "the test results of a single failed scenario",
@@ -252,9 +252,9 @@ namespace xBDD.Reporting.Features.Steps
             return step;
         }
 
-        internal static Step OfASingleSkippedScenario()
+        internal static Step WithASingleSkippedScenario()
         {
-            string path = GetReportPath("SingleSkippedScenario");
+            string path = GetReportPath("WithASingleSkippedScenario");
 
             var step = xB.CreateAsyncStep(
                 "the test results of a single skipped scenario",
@@ -273,9 +273,9 @@ namespace xBDD.Reporting.Features.Steps
             return step;
         }
 
-        internal static Step OfAnEmptyTestRun()
+        internal static Step WithAnEmptyTestRun()
         {
-            string path = GetReportPath("EmptyTestRun");
+            string path = GetReportPath("WithAnEmptyTestRun");
 
             var step = xB.CreateAsyncStep(
                 "the test results of an empty test run",

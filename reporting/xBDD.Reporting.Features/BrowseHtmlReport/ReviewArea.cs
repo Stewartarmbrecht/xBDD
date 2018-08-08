@@ -1,14 +1,13 @@
-//using Xunit;
-//using Xunit.Abstractions;
-using xBDD.Browser;
-using xBDD.Test;
-using xBDD.Reporting.Features.Steps;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Threading.Tasks;
-using System;
-
 namespace xBDD.Reporting.Features.BrowseHtmlReport
 {
+	using xBDD.Browser;
+	using xBDD.Test;
+	using xBDD.Reporting.Features.Steps;
+	using xBDD.Reporting.Features.Pages.HtmlReportPage;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using System.Threading.Tasks;
+	using System;
+
     [TestClass]
 	//  [Description("In order to understand how functionality is organized")]
 	//  [Description("As a report reviewer")]
@@ -16,6 +15,10 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
 	public class ReviewArea
 	{
 		private readonly TestContextWriter outputWriter;
+
+        private User you = new User();
+        private Area the = new Pages.HtmlReportPage.Area();
+        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
 
 		public ReviewArea()
 		{
@@ -25,51 +28,34 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
 		[TestMethod]
 		public async Task Passing()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASinglePassingScenario())
-                .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the area badge in green to indicate all features passed", (Func<Model.Step, Task>)(async (s) => {
-                    System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " Then Start");
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.Area.BadgeGreen((int)1));
-					browser.ElementHasText(Pages.HtmlReportPage.Area.Name(1), "My Area 1");
-                    System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " Then End");
-                }))
-				.AndAsync("the features under the area will be collapsed because it passed", async (s) => {
-                    System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " And Start");
-                    await browser.WaitTillNotVisible(Pages.HtmlReportPage.Area.Features(1));
-                    System.Diagnostics.Trace.TraceInformation(DateTime.Now.ToString("HH:mm:ss.fff") + " And End");
-                })
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithASinglePassingScenario())
+                .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+				.Then(you.WillSee(the.FirstAreaName).HasText("My Area 1"))
+				.And(you.WillSee(the.FirstAreaGreenBadge).IsVisible())
+				.And(you.WillSee(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsNotVisible().Because(" the area is not failing"))
                 .Run();
 		}
 		[TestMethod]
 		public async Task Skipped()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASingleSkippedScenario())
-                .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the area badge in yellow to indicate scenarios were skipped", (Func<Model.Step, Task>)(async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.BadgeYellow(1));
-                }))
-				.AndAsync("the features under the area will be collapsed because it was not failing", async (s) => {
-					await browser.WaitTillNotVisible(Pages.HtmlReportPage.Area.Features(1));
-				})
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithASingleSkippedScenario())
+                .When(you.NavigateTo(theHtmlReport.WithASingleSkippedScenario))
+				.Then(you.WillSee(the.FirstAreaName).HasText("My Area 1"))
+				.And(you.WillSee(the.FirstAreaYellowBadge).IsVisible())
+				.And(you.WillSee(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsNotVisible().Because(" the area is not failing"))
                 .Run();
 		}
 		[TestMethod]
 		public async Task Failing()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASingleFailedScenario())
-                .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the area badge in red to indicate a scenario failed", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.BadgeRed(1));
-                })
-				.AndAsync("the features under the area will be expanded because it has a failing scenario", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.Features(1));
-				})
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithASingleFailedScenario())
+                .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
+				.Then(you.WillSee(the.FirstAreaName).HasText("My Area 1"))
+				.And(you.WillSee(the.FirstAreaRedBadge).IsVisible())
+				.And(you.WillSee(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsVisible().Because(" the area is failing"))
                 .Run();
 		}
 	}

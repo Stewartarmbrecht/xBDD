@@ -1,18 +1,22 @@
-using xBDD.Test;
-using xBDD.Browser;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using xBDD.Reporting.Features.Steps;
-using System.Threading.Tasks;
-using System;
-
 namespace xBDD.Reporting.Features.CustomizeHtmlReport
 {
+	using xBDD.Test;
+	using xBDD.Browser;
+	using xBDD.Reporting.Features.Pages.HtmlReportPage;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using xBDD.Reporting.Features.Steps;
+	using System.Threading.Tasks;
+
     [TestClass]
 	[AsA("Developer")]
-	[By("control the sort of the Areas in the html report")]
-	[YouCan("use the test resutls as a user guide.")]
+	[YouCan("control the order areas are displayed")]
+	[By("setting an AreaSort attribute on the namespace")]
 	public class SortAreas
 	{
+        private User you = new User();
+        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
+        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+
 		private readonly TestContextWriter outputWriter;
 
 		public SortAreas()
@@ -21,46 +25,22 @@ namespace xBDD.Reporting.Features.CustomizeHtmlReport
 		}
 		
 		[TestMethod]
-		public async Task MatchesStartOfAreaName()
+		public async Task NotSorted()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASinglePassingScenario(null,null,null,"My "))
-				.And("the HTML writer was set to skip 'My ' when writing the area name", (s) => {})
-                .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the area name without 'My ' as 'Area 1'", async (s) => {
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.Area.Name(1));
-					browser.ElementHasText(Pages.HtmlReportPage.Area.Name(1), "Area 1");
-                })
-                .Run();
+			 await xB.AddScenario(this)
+				.Skip("Not Started");
 		}
 		[TestMethod]
-		public async Task MatchesNoneOfAreaName()
+		public async Task Sorted()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASinglePassingScenario(null,null,null,"No Match"))
-				.And("the HTML writer was set to skip 'No Match' when writing the area name", (s) => {})
-                .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the area name unmodified as 'My Area 1'", async (s) => {
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.Area.Name(1));
-					browser.ElementHasText(Pages.HtmlReportPage.Area.Name(1), "My Area 1");
-                })
-                .Run();
+			 await xB.AddScenario(this)
+				.Skip("Not Started");
 		}
 		[TestMethod]
-		public async Task MatchesAllOfAreaName()
+		public async Task PartiallySorted()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASinglePassingScenario(null,null,null,"My Area 1"))
-				.And("the HTML writer was set to skip 'My Area 1' when writing the area name", (s) => {})
-                .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the area name unmodified as ''", async (s) => {
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.Area.BadgeGreen(1));
-					browser.ElementHasText(Pages.HtmlReportPage.Area.Name(1), "");
-                })
-                .Run();
+			 await xB.AddScenario(this)
+				.Skip("Not Started");
 		}
 	}
 }

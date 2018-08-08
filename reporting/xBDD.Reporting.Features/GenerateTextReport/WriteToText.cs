@@ -23,7 +23,7 @@ namespace xBDD.Reporting.Features.ViewTextReport
             var actionName = action.GetType().Name;
             Wrapper<string> text = new Wrapper<string>();
 			var seperator = System.IO.Path.DirectorySeparatorChar;
-			var scenarioPath = $"{seperator}Features{seperator}ViewTextReport{seperator}WriteToTextScenarios{seperator}";
+			var scenarioPath = $"{seperator}GenerateTextReport{seperator}WriteToTextScenarios{seperator}";
 
             await xB.CurrentRun
                 .AddScenario(this, methodName)

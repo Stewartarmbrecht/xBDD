@@ -1,14 +1,19 @@
-using xBDD.Test;
-using xBDD.Browser;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using xBDD.Reporting.Features.Steps;
-using System.Threading.Tasks;
-
 namespace xBDD.Reporting.Features.BrowseHtmlReport
 {
+	using xBDD.Test;
+	using xBDD.Browser;
+	using xBDD.Reporting.Features.Pages.HtmlReportPage;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using xBDD.Reporting.Features.Steps;
+	using System.Threading.Tasks;
+
     [TestClass]
 	public class ReviewStepOutput
 	{
+        private User you = new User();
+        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
+        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+
 		private readonly TestContextWriter outputWriter;
 
 		public ReviewStepOutput()
@@ -19,60 +24,32 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
 		[TestMethod]
 		public async Task CollapsedByDefault()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-			string output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
+			var output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
 			var format = TextFormat.text;
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfAStepWithOutput(output, format))
-                .When(WebUser.ViewsReport(browser))
-				.AndAsync("the user clicks the first area", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Area.Name(1));
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.Features(1));
-				})
-				.AndAsync("the user clicks the first feature", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Feature.Name(1));
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Feature.Scenarios(1));
-				})
-				.AndAsync("the user clicks the first scenario", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Scenario.Name(1));
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Scenario.Steps(1));
-				})
-                .ThenAsync("the report will show an [Output] link to the left of the step name", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Output.Link(1));
-                })
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithAStepWithOutput(output, format))
+				.When(you.NavigateTo(theHtmlReport.WithAStepWithOutput))
+				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(1)).IsVisible())
+				.Then(you.WillSee(the.Output.Link(1)).IsVisible())
                 .Run();
 		}
 		
 		[TestMethod]
 		public async Task GeneralText()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-			string output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
+			var output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
 			var format = TextFormat.text;
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfAStepWithOutput(output, format))
-                .When(WebUser.ViewsReport(browser))
-				.AndAsync("the user clicks the first area", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Area.Name(1));
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Area.Features(1));
-				})
-				.AndAsync("the user clicks the first feature", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Feature.Name(1));
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Feature.Scenarios(1));
-				})
-				.AndAsync("the user clicks the first scenario", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Scenario.Name(1));
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Scenario.Steps(1));
-				})
-				.AndAsync("the user clicks the first scenario", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Output.Link(1));
-					await browser.WaitTillVisible(Pages.HtmlReportPage.Output.Section(1));
-				})
-                .Then("the report will show the output indented under the step", (s) => {
-					s.Output = browser.GetPageSource();
-					s.OutputFormat = TextFormat.htmlpreview;
-					browser.ElementHasText(Pages.HtmlReportPage.Output.Text(1), output);
-                })
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithAStepWithOutput(output, format))
+				.When(you.NavigateTo(theHtmlReport.WithAStepWithOutput))
+				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Output.Link(1)).IsVisible())
+				.Then(you.WillSee(the.Output.Section(1)).IsVisible())
+				.And(you.WillSee(the.Output.Text(1)).HasText(output))
                 .Run();
 		}
 		

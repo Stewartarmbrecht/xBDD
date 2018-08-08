@@ -12,33 +12,36 @@ namespace xBDD.Reporting.Features.Pages.HtmlReportPage
         public readonly PageElement SecondAreasFeatureList = new PageElement("the second area's feature list", "#area-2-features");
         public readonly PageElement SecondAreasFeatureListNotExpandingOrCollapsing = new PageElement("the second area's feature list that is not expanding or collapsing", "#area-2-features:not(.collapsing)");
         public readonly PageElement FirstAreaName = new PageElement("the first area name", "#area-1-name");
-        public static PageElement Name(int areaNumber)
+        public readonly PageElement FirstAreaGreenBadge = new PageElement("the first area green badge", "#area-1-badge.badge-success");
+        public readonly PageElement FirstAreaYellowBadge = new PageElement("the first area yellow badge", "#area-1-badge.badge-warning");
+        public readonly PageElement FirstAreaRedBadge = new PageElement("the first area red badge", "#area-1-badge.badge-danger");
+        public PageElement Name(int areaNumber)
         {
-            return new PageElement("area title line","#area-" + areaNumber + "-name");
+            return new PageElement("the area title line","#area-" + areaNumber + "-name");
         }
-        public static PageElement Badge(int areaNumber)
+        public PageElement Badge(int areaNumber)
         {
-            return new PageElement("area title line","#area-" + areaNumber + "-badge");
+            return new PageElement("the area title line","#area-" + areaNumber + "-badge");
         }
-        public static PageElement BadgeGreen(int areaNumber)
+        public PageElement BadgeGreen(int areaNumber)
         {
-            return new PageElement("area " + areaNumber + " with green badge", "#area-" + areaNumber + " h2 span.badge-success");   
+            return new PageElement("the area " + areaNumber + " with green badge", "#area-" + areaNumber + "-badge.badge-success");   
         }
-        public static PageElement BadgeYellow(int areaNumber)
+        public PageElement BadgeYellow(int areaNumber)
         {
-            return new PageElement("area " + areaNumber + " with yelow badge", "#area-" + areaNumber + " h2 span.badge-warning");   
+            return new PageElement("the area " + areaNumber + " with yelow badge", "#area-" + areaNumber + "-badge.badge-warning");   
         }
-        public static PageElement BadgeRed(int areaNumber)
+        public PageElement BadgeRed(int areaNumber)
         {
-            return new PageElement("area " + areaNumber + " with red badge", "#area-" + areaNumber + " h2 span.badge-danger");   
+            return new PageElement("the area " + areaNumber + " with red badge", "#area-" + areaNumber + "-badge.badge-danger");   
         }
-        public static PageElement BadgeGray(int areaNumber)
+        public PageElement BadgeGray(int areaNumber)
         {
-            return new PageElement("area " + areaNumber + " with grey badge", "#area-" + areaNumber + " h2 span.badge-secondary");   
+            return new PageElement("the area " + areaNumber + " with grey badge", "#area-" + areaNumber + "-badge.badge-secondary");   
         }
-        public static PageElement Features(int areaNumber)
+        public PageElement Features(int areaNumber)
         {
-            return new PageElement("area " + areaNumber + " features", "#area-" + areaNumber + "-features");   
+            return new PageElement("the area " + areaNumber + " features", "#area-" + areaNumber + "-features");   
         }
     }
 }

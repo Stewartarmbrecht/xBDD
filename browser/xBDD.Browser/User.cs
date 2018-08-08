@@ -3,6 +3,14 @@ using xBDD.Browser;
 
 namespace xBDD.Browser
 {
+    public static class StepExtensions
+    {
+        public static Step Because(this Step step, string explanation)
+        {
+            step.AppendToName($" because {explanation}");
+            return step;
+        }
+    }
 
     public class User 
     {
@@ -32,6 +40,10 @@ namespace xBDD.Browser
         {
             return new PageElementConditions(this.browser, pageElement, "you will see ");
         }
+        public PageElementConditions ClickWhen(PageElement pageElement)
+        {
+            return new PageElementConditions(this.browser, pageElement, "you click when ", true);
+        }
         public Step Click(PageElement pageElement, int waitTillVisibleMilliseconds = -1)
         {
             var step = xB.CreateAsyncStep(
@@ -40,7 +52,16 @@ namespace xBDD.Browser
                     await this.browser.WaitTillVisible(pageElement, waitTillVisibleMilliseconds);
                     s.Output = this.browser.GetPageSource();
                     s.OutputFormat = TextFormat.htmlpreview;
-                    await this.browser.Click(pageElement);
+                    this.browser.Click(pageElement);
+                });
+            return step;
+        }
+        public Step AreViewingAPageWithTheTitle(string text)
+        {
+            var step = xB.CreateStep(
+                $"you are viewing a page with the title '{text}'",
+                (s) => {
+                    this.browser.HasTitle(text);
                 });
             return step;
         }

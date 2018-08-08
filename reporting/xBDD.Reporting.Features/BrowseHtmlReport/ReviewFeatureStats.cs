@@ -1,17 +1,22 @@
-using xBDD.Test;
-using xBDD.Browser;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using xBDD.Reporting.Features.Steps;
-using System.Threading.Tasks;
-
 namespace xBDD.Reporting.Features.BrowseHtmlReport
 {
+	using xBDD.Test;
+	using xBDD.Browser;
+	using xBDD.Reporting.Features.Pages.HtmlReportPage;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using xBDD.Reporting.Features.Steps;
+	using System.Threading.Tasks;
+
     [TestClass]
 	//  [Description("In order to understand how functionality is organized")]
 	//  [Description("As a report reviewer")]
 	//  [Description("I would like to view the features in the html report")]
 	public class ReviewFeatureStats
 	{
+        private User you = new User();
+        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
+        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+
 		private readonly TestContextWriter outputWriter;
 
 		public ReviewFeatureStats()
@@ -24,42 +29,20 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfAFullTestRunWithAllOutcomes())
- 				.When(WebUser.ViewsReport(browser))
-				.And("the user expands the stats by clicking on the feature badge", async (s) => {
-					await browser.ClickWhenVisible(Pages.HtmlReportPage.Feature.Badge(7));
-				})
-                .ThenAsync("there should be a section under the feature name that displays scenario statistics", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.FeatureScenarioStats.Section(7));
-                })
-                .AndAsync("the total number of scenarios should show as a badge to the right of the feature name with a value of 3", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.FeatureScenarioStats.Total(7));
-					browser.ElementHasText(Pages.HtmlReportPage.FeatureScenarioStats.Total(7), "3");
-               	})
-                .And("the badge should show 'Scenarios' when the user hovers over it", (s) => {
-					browser.ElementHasTitle(Pages.HtmlReportPage.FeatureScenarioStats.Total(7), "Scenarios");
-               	})
-                .And("the section should show the number of passed scenarios with a value of 1", (s) => {
-					browser.ElementHasText(Pages.HtmlReportPage.FeatureScenarioStats.Passed(7), "1");
-               	})
-                .And("the section should show the number of skipped scenarios with a value of 1", (s) => {
-					browser.ElementHasText(Pages.HtmlReportPage.FeatureScenarioStats.Skipped(7), "1");
-               	})
-                .And("the section should show the number of failed scenarios with a value of 1", (s) => {
-					browser.ElementHasText(Pages.HtmlReportPage.FeatureScenarioStats.Failed(7), "1");
-               	})
-                .AndAsync("the section should a green, yellow, and red bar chart of the percentages of passed, skipped, and failed scenarios", async (s) => {
-					await browser.WaitTillVisible(Pages.HtmlReportPage.FeatureScenarioStats.BarChart(7));
-               	})
-                .And("the passed, green bar should have a width of 33%", (s) => {
-					browser.ElementStyleMatches(Pages.HtmlReportPage.FeatureScenarioStats.SuccessBar(7), ".*width: 33\\..*");
-               	})
-                .And("the skipped, yellow bar should have a width of 33%", (s) => {
-					browser.ElementStyleMatches(Pages.HtmlReportPage.FeatureScenarioStats.SkippedBar(7), ".*width: 33\\..*");
-               	})
-                .And("the failed, red bar should have a width of 33%", (s) => {
-					browser.ElementStyleMatches(Pages.HtmlReportPage.FeatureScenarioStats.FailedBar(7), ".*width: 33\\..*");
-               	})
+                .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
+ 				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
+				.And(you.ClickWhen(the.Feature.Badge(7)).IsVisible())
+				.Then(you.WillSee(the.FeatureScenarioStats.Section(7)).IsVisible())
+				.And(you.WillSee(the.FeatureScenarioStats.Total(7)).IsVisible())
+				.And(you.WillSee(the.FeatureScenarioStats.Total(7)).HasText("3"))
+				.And(you.WillSee(the.FeatureScenarioStats.Total(7)).HasTitleAKAHoverText("Scenarios"))
+				.And(you.WillSee(the.FeatureScenarioStats.Passed(7)).HasText("1"))
+				.And(you.WillSee(the.FeatureScenarioStats.Skipped(7)).HasText("1"))
+				.And(you.WillSee(the.FeatureScenarioStats.Failed(7)).HasText("1"))
+				.And(you.WillSee(the.FeatureScenarioStats.BarChart(7)).IsVisible())
+				.And(you.WillSee(the.FeatureScenarioStats.SuccessBar(7)).Style("has a width of 33%", ".*width: 33\\..*"))
+				.And(you.WillSee(the.FeatureScenarioStats.SkippedBar(7)).Style("has a width of 33%", ".*width: 33\\..*"))
+				.And(you.WillSee(the.FeatureScenarioStats.FailedBar(7)).Style("has a width of 33%", ".*width: 33\\..*"))
                 .Run();
 		}
 	}

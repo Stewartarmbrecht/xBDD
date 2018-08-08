@@ -1,14 +1,19 @@
-using xBDD.Test;
-using xBDD.Browser;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using xBDD.Reporting.Features.Steps;
-using System.Threading.Tasks;
-
 namespace xBDD.Reporting.Features.BrowseHtmlReport
 {
+	using xBDD.Test;
+	using xBDD.Browser;
+	using xBDD.Reporting.Features.Pages.HtmlReportPage;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using xBDD.Reporting.Features.Steps;
+	using System.Threading.Tasks;
+
     [TestClass]
 	public class ReviewTestRun
 	{
+        private User you = new User();
+        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
+        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+
 		private readonly TestContextWriter outputWriter;
 
 		public ReviewTestRun()
@@ -19,59 +24,43 @@ namespace xBDD.Reporting.Features.BrowseHtmlReport
 		[TestMethod]
 		public async Task EmptyTestRun()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfAnEmptyTestRun())
-                .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the test run name at the top", async (s) => {
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.Name);
-                    browser.ElementHasText(Pages.HtmlReportPage.TestRun.Name, "My Test Run");
-                })
-                .And("the report will show the test run name as the title for the page", (s) => {
-                    browser.HasTitle("My Test Run");
-                })
-                .AndAsync("the report will show the test run name in gray to indicate no scenarios were run", async (s) => {
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.BadgeGrey);
-                })
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithAnEmptyTestRun())
+                .When(you.NavigateTo(theHtmlReport.WithAnEmptyTestRun))
+                .Then(you.WillSee(the.TestRun.Name).IsVisible())
+                .And(you.WillSee(the.TestRun.Name).HasText("My Test Run"))
+                .And(you.AreViewingAPageWithTheTitle("My Test Run"))
+                .And(you.WillSee(the.TestRun.BadgeGrey).IsVisible().Because("no scenarios were run"))
                 .Run();
 		}
 		
 		[TestMethod]
 		public async Task PassingTestRun()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASinglePassingScenario())
-                .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the test run badge in green to indicate the test run passed", async (s) => {
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.BadgeGreen);
-                })
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithASinglePassingScenario())
+                .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+                .Then(you.WillSee(the.TestRun.BadgeGreen).IsVisible())
                 .Run();
 		}
 		
 		[TestMethod]
 		public async Task PassingWithSomeSkipped()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASingleSkippedScenario())
-                .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the test run badge in yellow to indicate the test run had skipped scenarios", async (s) => {
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.BadgeYellow);
-                })
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithASingleSkippedScenario())
+                .When(you.NavigateTo(theHtmlReport.WithASingleSkippedScenario))
+                .Then(you.WillSee(the.TestRun.BadgeYellow).IsVisible())
                 .Run();
 		}
 		
 		[TestMethod]
 		public async Task Failing()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
-                .Given(AnHtmlReport.OfASingleFailedScenario())
-                .When(WebUser.ViewsReport(browser))
-                .ThenAsync("the report will show the test run badge in red to indicate the test run has failing scenarios", async (s) => {
-                    await browser.WaitTillVisible(Pages.HtmlReportPage.TestRun.BadgeRed);
-                })
+            await xB.AddScenario(this)
+                .Given(AnHtmlReport.WithASingleFailedScenario())
+                .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
+                .Then(you.WillSee(the.TestRun.BadgeRed).IsVisible())
                 .Run();
 		}
 	}

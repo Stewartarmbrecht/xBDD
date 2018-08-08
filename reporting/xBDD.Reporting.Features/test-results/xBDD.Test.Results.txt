@@ -1,10 +1,35 @@
 xBDD Reporting
 
-xBDD - Reporting - Features - Browse Test Results
+xBDD - Reporting - Features - Browse Html Report
+	Review Area
+		Failing
+			Given the test results of a single failed scenario
+			When you navigate to the test html report with a single failed scenario
+			Then you will see the first area name is visible
+			And you will see the first area red badge is visible
+			And you will see the first area's feature list that is not expanding or collapsing is visible because  the area is failing
+		Passing
+			Given the test results of a single passing scenario
+			When you navigate to the test html report with a single passing scenario
+			Then you will see the first area name is visible
+			And you will see the first area green badge is visible
+			And you will see the first area's feature list that is not expanding or collapsing is not visible because  the area is not failing
+		Skipped
+			Given the test results of a single skipped scenario
+			When you navigate to the test html report with a single skipped scenario
+			Then you will see the first area name is visible
+			And you will see the first area yellow badge is visible
+			And you will see the first area's feature list that is not expanding or collapsing is not visible because  the area is not failing
+	Review Area Description
+		Collapse [Skipped - Not Started]
+		Collapse All [Skipped - Not Started]
+		Default Collapsed When More Than5 [Skipped - Not Started]
+		Expand [Skipped - Not Started]
+		Expand All [Skipped - Not Started]
 	Review Area Features
 		Collapse
 			Given the test results of a passing full test run
-			When you navigate to the Test Html Report
+			When you navigate to the test html report with a passing full test run
 			And you wait till the first area name is visible
 			And you click the the menu button
 			And you click the the expand all areas link
@@ -13,7 +38,7 @@ xBDD - Reporting - Features - Browse Test Results
 			Then you will see the first area's feature list that is not expanding or collapsing is not visible
 		Collapse All [Skipped - Not Implemented]
 			Given the test results of a passing full test run
-			When you navigate to the Test Html Report
+			When you navigate to the test html report with a passing full test run
 			And you wait till the first area name is visible
 			And you click the the menu button
 			And you click the the expand all areas link
@@ -24,332 +49,327 @@ xBDD - Reporting - Features - Browse Test Results
 			And you will see the second area's feature list that is not expanding or collapsing is not visible
 		Expand
 			Given the test results of a passing full test run
-			When you navigate to the Test Html Report
+			When you navigate to the test html report with a passing full test run
 			And you wait till the first area name is visible
 			And you click the the first area name
 			Then you will see the first area's feature list that is not expanding or collapsing is visible
 		Expand All
 			Given the test results of a passing full test run
-			When you navigate to the Test Html Report
+			When you navigate to the test html report with a passing full test run
 			And you wait till the first area name is visible
 			And you click the the menu button
 			And you click the the expand all areas link
 			Then you will see the first area's feature list that is not expanding or collapsing is visible
 			And you will see the second area's feature list that is not expanding or collapsing is visible
-xBDD - Reporting - Test - Features - Customize Html Report
-	Shorten Area Name
-		Matches All Of Area Name
-			Given the test results of a single passing scenario
-			And the HTML writer was set to skip 'My Area 1' when writing the area name
-			When the user views the html report
-			Then the report will show the area name unmodified as ''
-		Matches None Of Area Name
-			Given the test results of a single passing scenario
-			And the HTML writer was set to skip 'No Match' when writing the area name
-			When the user views the html report
-			Then the report will show the area name unmodified as 'My Area 1'
-		Matches Start Of Area Name
-			Given the test results of a single passing scenario
-			And the HTML writer was set to skip 'My ' when writing the area name
-			When the user views the html report
-			Then the report will show the area name without 'My ' as 'Area 1'
-	Sort Areas
-		Matches All Of Area Name
-			Given the test results of a single passing scenario
-			And the HTML writer was set to skip 'My Area 1' when writing the area name
-			When the user views the html report
-			Then the report will show the area name unmodified as ''
-		Matches None Of Area Name
-			Given the test results of a single passing scenario
-			And the HTML writer was set to skip 'No Match' when writing the area name
-			When the user views the html report
-			Then the report will show the area name unmodified as 'My Area 1'
-		Matches Start Of Area Name
-			Given the test results of a single passing scenario
-			And the HTML writer was set to skip 'My ' when writing the area name
-			When the user views the html report
-			Then the report will show the area name without 'My ' as 'Area 1'
-xBDD - Reporting - Test - Features - View Html Report
-	Write To Html
-		Standard Full Report
-			Given a completed test run
-			When the following code executes 'var report = xBDD.CurrentRun.WriteToHTML()'
-			Then the report variable will be a string that contains the entire HTML report that can be written to a file, or sent via email, or whatever...
-xBDD - Reporting - Test - Features - View Html Report - Collapsing And Expanding
-	Collapse And Expand Area Description
-		Collapse [Skipped - Not Started]
-		Collapse All [Skipped - Not Started]
-		Default Collapsed When More Than5 [Skipped - Not Started]
-		Expand [Skipped - Not Started]
-		Expand All [Skipped - Not Started]
-	Collapse And Expand Exception
-		Collapse [Skipped - Not Started]
-		Collapse All [Skipped - Not Started]
-		Default Collapsed When More Than5 [Skipped - Not Started]
-		Expand [Skipped - Not Started]
-		Expand All [Skipped - Not Started]
-	Collapse And Expand Output
-		Collapse [Skipped - Not Started]
-		Collapse All [Skipped - Not Started]
-		Default Collapsed When More Than5 [Skipped - Not Started]
-		Expand [Skipped - Not Started]
-		Expand All [Skipped - Not Started]
-xBDD - Reporting - Test - Features - View Html Report - View Results
-	View Area
+	Review Area Stats
+		Failed Skipped And Passing Feature Stats
+			Given the test results of a full test run with all outcomes
+			When you navigate to the test html report with a full test run with all outcomes
+			And you wait till the area title line is visible
+			And you click the the area title line
+			Then you will see area feature stats is visible
+			And you will see area feature total is visible
+			And you will see area feature total is visible
+			And you will see area feature passed count is visible
+			And you will see area feature skipped count is visible
+			And you will see area feature failed count is visible
+			And you will see area feature stats bar chart is visible
+			And you will see area feature success bar is visible
+			And you will see area feature skipped bar is visible
+			And you will see area feature failed bar is visible
+		Failed Skipped And Passing Scenario Stats
+			Given the test results of a full test run with all outcomes
+			When you navigate to the test html report with a full test run with all outcomes
+			And you wait till the area title line is visible
+			And you click the the area title line
+			Then you will see area scenario stats is visible
+			And you will see area scenario stats passed count is visible
+			And you will see area scenario stats skipped count is visible
+			And you will see area scenario stats failed count is visible
+			And you will see area scenario stats bar chart is visible
+			And you will see area scenario stats success bar is visible
+			And you will see area scenario stats skipped bar is visible
+			And you will see area scenario stats failed bar is visible
+	Review Feature
 		Failing
 			Given the test results of a single failed scenario
-			When the user views the html report
-			Then the report will show the area badge in red to indicate a scenario failed
-			And the features under the area will be expanded because it has a failing scenario
+			When you navigate to the test html report with a single failed scenario
+			Then you will see feature 1 with red name is visible
+			And you will see feature 1 scenarios is visible
 		Passing
 			Given the test results of a single passing scenario
-			When the user views the html report
-			Then the report will show the area badge in green to indicate all features passed
-			And the features under the area will be collapsed because it passed
+			When you navigate to the test html report with a single passing scenario
+			And you click when the area title line is visible
+			Then you will see feature name is visible
+			And you will see feature 1 with green name is visible
+			And you will see feature 1 scenarios is not visible because none were failing
 		Skipped
 			Given the test results of a single skipped scenario
-			When the user views the html report
-			Then the report will show the area badge in yellow to indicate scenarios were skipped
-			And the features under the area will be collapsed because it was not failing
-	View Failure Only
-		Multiple Areas [Skipped - Not Started]
-		Single Area Multiple Features [Skipped - Not Started]
-		Single Feature Multiple Scenarios [Skipped - Not Started]
-		Single Scenario [Skipped - Not Started]
-	View Feature
-		Failing
-			Given the test results of a single failed scenario
-			When the user views the html report
-			Then the report will show the feature badge in red to indicate a scenario failed
-			And the scenarios under the feature will be expanded because it has a failing scenario
-		Passing
-			Given the test results of a single passing scenario
-			When the user views the html report
-			And the user clicks the first area
-			Then the report will show the feature badge in green to indicate all scenarios passed
-			And the scenarios under the feature will be collapsed because it passed
-		Skipped
-			Given the test results of a single skipped scenario
-			When the user views the html report
-			And the user clicks the first area
-			Then the report will show the feature badge in yellow to indicate scenarios were skipped
-			And the scenarios under the feature will be collapsed because it was not failing
-	View Feature Statement
+			When you navigate to the test html report with a single skipped scenario
+			And you click when the area title line is visible
+			Then you will see feature name is visible
+			And you will see feature 1 with yellow name is visible
+			And you will see feature 1 scenarios is not visible because none were failing
+	Review Feature Statement
 		Full Statement
 			Given the test results of a single passing scenario
-			When the user views the html report
-			And the user expands to view a feature with a feature statement
-			Then the report should show the feature statement of:
-				As a actor
-				You can derive some value
-				By perform some action
-		No Statement
+			When you navigate to the test html report with a single passing scenario
+			And you click when the area title line is visible
+			Then you will see feature 1 scenarios is visible
+			And you will see feature 1 scenarios is visible
+		No Statement [Failed]
 			Given the test results of a single passing scenario
-			When the user views the html report
-			And the user expands to view a feature with a feature statement
-			Then the report should not show the feature statement
+			When you navigate to the test html report with a single passing scenario
+			And you click when the area title line is visible
+			And you click when feature name is visible
+			Then you will see the scenario name is visible
+			And you will see feature 1 scenarios is not visible [Failed]
+				Error Type: Exception
+				   Message: The web element (feature 1 scenarios - #feature-1-statement) was not hidden.
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass10_0.<WaitTillNotVisible>b__0() in C:\Users\stearm01\source\xBDD\browser\xBDD.Browser\WebBrowser.cs:line 132
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass9_0.<<IsNotVisible>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\browser\xBDD.Browser\PageElementActions.cs:line 109
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\core\xBDD.Core\Core\StepExecutor.cs:line 29
 		Partial Statement
 			Given the test results of a single passing scenario
-			When the user views the html report
-			And the user expands to view a feature with a feature statement
-			Then the report should show the feature statement of:
-				As a [Missing!]
-				You can derive some value
-				By [Missing!]
-	View Scenario
+			When you navigate to the test html report with a single passing scenario
+			And you click when the area title line is visible
+			Then you will see feature 1 scenarios is visible
+			And you will see feature 1 scenarios is visible
+	Review Feature Stats
+		Failed Skipped And Passing Scenario Stats
+			Given the test results of a full test run with all outcomes
+			When you navigate to the test html report with a full test run with all outcomes
+			And you click when feature name is visible
+			Then you will see feature scenario stats is visible
+			And you will see feature scenario stats total is visible
+			And you will see feature scenario stats total is visible
+			And you will see feature scenario stats total is visible
+			And you will see feature scenario stats passed count is visible
+			And you will see feature scenario stats skipped count is visible
+			And you will see feature scenario stats failed count is visible
+			And you will see feature scenario stats bar chart is visible
+			And you will see feature scenario stats success bar is visible
+			And you will see feature scenario stats skipped bar is visible
+			And you will see feature scenario stats failed bar is visible
+	Review Scenario
 		Failing
 			Given the test results of a single failed scenario
-			When the user views the html report
-			Then the report will show the scenario badge in red to indicate a scenario failed
-			And the steps under the scenario will be expanded because it has a failing step
+			When you navigate to the test html report with a single failed scenario
+			Then you will see the scenario 1 with red badge is visible
+			And you will see the scenario 1 steps is visible because a step failed
 		Passing
 			Given the test results of a single passing scenario
-			When the user views the html report
-			And the user clicks the first area
-			And the user clicks the first feature
-			Then the report will show the scenario badge in green to indicate all steps passed
-			And the steps under the scenario will be collapsed because it passed
+			When you navigate to the test html report with a single passing scenario
+			And you click when the area title line is visible
+			And you click when feature name is visible
+			Then you will see the scenario 1 with green badge is visible
+			And you will see the scenario name is visible
+			And you will see the scenario name is visible
+			And you will see the scenario 1 steps is not visible because no steps failed
 		Skipped
 			Given the test results of a single skipped scenario
-			When the user views the html report
-			And the user clicks the first area
-			And the user clicks the first feature
-			Then the report will show the scenario badge in yellow to indicate the scenario was skipped
-			And the steps under the scenario will be collapsed because it was not failing
-	View Step
+			When you navigate to the test html report with a single skipped scenario
+			And you click when the area title line is visible
+			And you click when feature name is visible
+			Then you will see the scenario 1 with yellow badge is visible
+			And you will see the scenario 1 steps is not visible because no steps failed
+	Review Scenario Stats
+		Failed Skipped And Passing Steps Stats
+			Given the test results of a full test run with all outcomes
+			When you navigate to the test html report with a full test run with all outcomes
+			Then you will see scenario steps total is visible
+			And you will see scenario steps total is visible
+			And you will see scenario steps total is visible
+	Review Step
 		Failing
 			Given the test results of a single failed scenario
-			When the user views the html report
-			Then the report will show the step badge in red to indicate a step failed
+			When you navigate to the test html report with a single failed scenario
+			Then you will see the step 2 with red badge is visible because the report will be expanded to the faild step
 		Passing
 			Given the test results of a single passing scenario
-			When the user views the html report
-			And the user clicks the first area
-			And the user clicks the first feature
-			And the user clicks the first scenario
-			Then the report will show the step badge in green to indicate it passed
+			When you navigate to the test html report with a single passing scenario
+			And you click when the area title line is visible
+			And you click when feature name is visible
+			And you click when the scenario name is visible
+			Then you will see the step 1 with green badge is visible
+			And you will see the step name is visible
 		Skipped
 			Given the test results of a single skipped scenario
-			When the user views the html report
-			And the user clicks the first area
-			And the user clicks the first feature
-			And the user clicks the first scenario
-			Then the report will show the step badge in yellow to indicate the step was skipped
+			When you navigate to the test html report with a single skipped scenario
+			And you click when the area title line is visible
+			And you click when feature name is visible
+			And you click when the scenario name is visible
+			Then you will see the step 1 with yellow badge is visible
+			And you will see the step name is visible
 		With Exception
 			Given the test results with a failed step with an exception
-			When the user views the html report
-			Then the user should see a section for the exception
-			And the section should display the exception type
-			And the section should display the exception message
-			And the section should display the exception stack trace
-		With Inner Exception
+			When you navigate to the test html report with a failing step with an exception
+			Then you will see exception is visible
+			Then you will see exception type is visible
+			Then you will see exception message is visible
+			Then you will see exception stack trace is visible
+		With Inner Exception [Failed]
 			Given the test results with a failed step with an exception
-			When the user views the html report
-			Then the user should see a section for the nsted exception
-			And the section should display the exception type
-			And the section should display the exception message
-			And the section should display the exception stack trace
-	View Step Output
+			When you navigate to the test html report with a failing step with an exception
+			Then you will see inner exception is visible [Failed]
+				Error Type: Exception
+				   Message: The web element (inner exception - #step-2 dl.exception>dd.inner-exception>dl.exception) was not found.
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in C:\Users\stearm01\source\xBDD\browser\xBDD.Browser\WebBrowser.cs:line 187
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass8_0.<<IsVisible>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\browser\xBDD.Browser\PageElementActions.cs:line 89
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\core\xBDD.Core\Core\StepExecutor.cs:line 29
+			Then you will see inner exception type is visible [Skipped - Previous Error]
+			Then you will see inner exception message is visible [Skipped - Previous Error]
+			Then you will see inner exception stack trace is visible [Skipped - Previous Error]
+	Review Step Exception
+		Collapse [Skipped - Not Started]
+		Collapse All [Skipped - Not Started]
+		Default Collapsed When More Than5 [Skipped - Not Started]
+		Expand [Skipped - Not Started]
+		Expand All [Skipped - Not Started]
+	Review Step Output
 		Code [Skipped - Not Started]
+		Collapse [Skipped - Not Started]
+		Collapse All [Skipped - Not Started]
 		Collapsed By Default
 			Given the test results of a step with a/an text output of 
 				Here
 				 is
 				 my
 				 output!
-			When the user views the html report
-			And the user clicks the first area
-			And the user clicks the first feature
-			And the user clicks the first scenario
-			Then the report will show an [Output] link to the left of the step name
+			When you navigate to the test html report with a step with output
+			And you click when the area title line is visible
+			And you click when feature name is visible
+			And you click when the scenario name is visible
+			Then you will see step output link is visible
+		Expand [Skipped - Not Started]
+		Expand All [Skipped - Not Started]
 		General Text
 			Given the test results of a step with a/an text output of 
 				Here
 				 is
 				 my
 				 output!
-			When the user views the html report
-			And the user clicks the first area
-			And the user clicks the first feature
-			And the user clicks the first scenario
-			And the user clicks the first scenario
-			Then the report will show the output indented under the step
+			When you navigate to the test html report with a step with output
+			And you click when the area title line is visible
+			And you click when feature name is visible
+			And you click when the scenario name is visible
+			And you click when step output link is visible
+			Then you will see step output is visible
+			And you will see step text output is visible
 		Html With Preview [Skipped - Not Started]
-	View Test Run
+	Review Test Run
 		Empty Test Run
 			Given the test results of an empty test run
-			When the user views the html report
-			Then the report will show the test run name at the top
-			And the report will show the test run name as the title for the page
-			And the report will show the test run name in gray to indicate no scenarios were run
+			When you navigate to the test html report with an empty test run
+			Then you will see test run name is visible
+			And you will see test run name is visible
+			And you are viewing a page with the title 'My Test Run'
+			And you will see test run name - grey is visible because no scenarios were run
 		Failing
 			Given the test results of a single failed scenario
-			When the user views the html report
-			Then the report will show the test run badge in red to indicate the test run has failing scenarios
+			When you navigate to the test html report with a single failed scenario
+			Then you will see test run name - red is visible
 		Passing Test Run
 			Given the test results of a single passing scenario
-			When the user views the html report
-			Then the report will show the test run badge in green to indicate the test run passed
+			When you navigate to the test html report with a single passing scenario
+			Then you will see test run name - green is visible
 		Passing With Some Skipped
 			Given the test results of a single skipped scenario
-			When the user views the html report
-			Then the report will show the test run badge in yellow to indicate the test run had skipped scenarios
-xBDD - Reporting - Test - Features - View Html Report - View Stats
-	View Area Stats
-		Failed Skipped And Passing Feature Stats
-			Given the test results of a full test run with all outcomes
-			When the user views the html report
-			And the user expands the stats by clicking on the area badge
-			Then there should be a section under the area name that displays feature statistics about the area
-			And the total number of features should show as a badge to the right of the area name with a value of 3
-			And the badge should show 'Features' when the user hovers over it
-			And the section should show the number of passed features with a value of 1
-			And the section should show the number of skipped features with a value of 1
-			And the section should show the number of failed features with a value of 1
-			And the section should a green, yellow, and red bar chart of the percentages of passed, skipped, and failed features
-			And the passed, green bar should have a width of 33%
-			And the skipped, yellow bar should have a width of 33%
-			And the failed, red bar should have a width of 33%
-		Failed Skipped And Passing Scenario Stats
-			Given the test results of a full test run with all outcomes
-			When the user views the html report
-			And the user expands the stats by clicking on the area badge
-			Then there should be a section under the area name that displays scenario statistics about the area
-			And the section should show the number of passed scenarios with a value of 5
-			And the section should show the number of skipped scenarios with a value of 3
-			And the section should show the number of failed scenarios with a value of 1
-			And the section should a green, yellow, and red bar chart of the percentages of passed, skipped, and failed scenarios
-			And the passed, green bar should have a width of 55%
-			And the skipped, yellow bar should have a width of 33%
-			And the failed, red bar should have a width of 11%
-	View Feature Stats
-		Failed Skipped And Passing Scenario Stats
-			Given the test results of a full test run with all outcomes
-			When the user views the html report
-			And the user expands the stats by clicking on the feature badge
-			Then there should be a section under the feature name that displays scenario statistics
-			And the total number of scenarios should show as a badge to the right of the feature name with a value of 3
-			And the badge should show 'Scenarios' when the user hovers over it
-			And the section should show the number of passed scenarios with a value of 1
-			And the section should show the number of skipped scenarios with a value of 1
-			And the section should show the number of failed scenarios with a value of 1
-			And the section should a green, yellow, and red bar chart of the percentages of passed, skipped, and failed scenarios
-			And the passed, green bar should have a width of 33%
-			And the skipped, yellow bar should have a width of 33%
-			And the failed, red bar should have a width of 33%
-	View Scenario Stats
-		Failed Skipped And Passing Steps Stats
-			Given the test results of a full test run with all outcomes
-			When the user views the html report
-			Then the total number of steps should show as a badge to the right of the scenario name with a value of 3
-			And the badge should show 'Steps' when the user hovers over it
-	View Test Run Stats
+			When you navigate to the test html report with a single skipped scenario
+			Then you will see test run name - yellow is visible
+	Review Test Run Stats
 		Area Stats No Areas
 			Given the test results of an empty test run
-			When the user views the html report
-			Then there should be a section under the test run name that displays area statistics
-			And the total number of areas should show as a badge to the right of the test run name with a value of 0
-			And the badge should show 'Areas' when the user hovers over it
-			And the section should show the number of passed areas with a value of 0
-			And the section should show the number of areas with skipped scenarios with a value of 0
-			And the section should show the number of areas with failed scenarios with a value of 0
-			And the section should show a gray bar to indicate there are no areas
+			When you navigate to the test html report with an empty test run
+			Then you will see test run area stats is visible
+			And you will see test run area stats total count is visible
+			And you will see test run area stats total count is visible
+			And you will see test run area stats passed count is visible
+			And you will see test run area stats skipped count is visible
+			And you will see test run area stats failed count is visible
+			And you will see test run area stats empty bar is visible
 		Failed Skipped And Passing Area Stats
 			Given the test results of a full test run with all outcomes
-			When the user views the html report
-			Then there should be a section under the test run name that displays area statistics
-			And the total number of areas should show as a badge to the right of the test run name with a value of 3
-			And the badge should show 'Areas' when the user hovers over it
-			And the section should show the number of passed areas with a value of 1
-			And the section should show the number of areas with skipped scenarios with a value of 1
-			And the section should show the number of areas with failed scenarios with a value of 1
-			And the section should show a green, yellow, and red bar chart of the percentages of passed, skipped, and failed areas
-			And the passed, green bar should have a width of 33%
-			And the skipped, yellow bar should have a width of 33%
-			And the failed, red bar should have a width of 33%
+			When you navigate to the test html report with a full test run with all outcomes
+			Then you will see test run area stats is visible
+			And you will see test run area stats total count is visible
+			And you will see test run area stats total count is visible
+			And you will see test run area stats passed count is visible
+			And you will see test run area stats skipped count is visible
+			And you will see test run area stats failed count is visible
+			And you will see test run area stats bar chart is visible
+			And you will see test run area stats success bar is visible
+			And you will see test run area stats skipped bar is visible
+			And you will see test run area stats failed bar is visible
 		Failed Skipped And Passing Feature Stats
 			Given the test results of a full test run with all outcomes
-			When the user views the html report
-			Then there should be a section under the test run name that displays feature statistics about the test run
-			And the section should show the number of passed features with a value of 5
-			And the section should show the number of skipped features with a value of 3
-			And the section should show the number of failed features with a value of 1
-			And the section should show a green, yellow, and red bar chart of the percentages of passed, skipped, and failed features
-			And the passed, green bar should have a width of 33%
-			And the skipped, yellow bar should have a width of 33%
-			And the failed, red bar should have a width of 33%
+			When you navigate to the test html report with a full test run with all outcomes
+			Then you will see test run feature stats is visible
+			And you will see test run feature stats passed count is visible
+			And you will see test run feature stats skipped count is visible
+			And you will see test run feature stats failed count is visible
+			And you will see test run feature stats bar chart is visible
+			And you will see test run feature stats success bar is visible
+			And you will see test run feature stats skipped bar is visible
+			And you will see test run feature stats failed bar is visible
 		Failed Skipped And Passing Scenario Stats
 			Given the test results of a full test run with all outcomes
-			When the user views the html report
-			Then there should be a section under the test run name that displays scenario statistics about the test run
-			And the section should show the number of passed scenarios with a value of 19
-			And the section should show the number of skipped scenarios with a value of 7
-			And the section should show the number of failed scenarios with a value of 1
-			And the section should show a green, yellow, and red bar chart of the percentages of passed, skipped, and failed scenarios
-			And the passed, green bar should have a width of 70%
-			And the skipped, yellow bar should have a width of 26%
-			And the failed, red bar should have a width of 4%
-xBDD - Reporting - Test - Features - View Text Report
+			When you navigate to the test html report with a full test run with all outcomes
+			Then you will see test run scenario stats is visible
+			And you will see test run scenario stats passed count is visible
+			And you will see test run scenario stats skipped count is visible
+			And you will see test run scenario stats failed count is visible
+			And you will see test run scenario stats bar chart is visible
+			And you will see test run scenario stats success bar is visible
+			And you will see test run scenario stats skipped bar is visible
+			And you will see test run scenario stats failed bar is visible
+xBDD - Reporting - Features - Customize Html Report
+	Shorten Area Name
+		Matches All Of Area Name
+			Given the test results of a single passing scenario
+			And you set the HTML writer was set to skip 'My Area 1' when writing the area name
+			When you navigate to the test html report with a single passing scenario
+			Then you will see the area title line is visible
+			And you will see the area title line is visible
+		Matches None Of Area Name
+			Given the test results of a single passing scenario
+			And you set the HTML writer was set to skip 'No Match' when writing the area name
+			When you navigate to the test html report with a single passing scenario
+			Then you will see the area title line is visible
+			And you will see the area title line is visible
+		Matches Start Of Area Name
+			Given the test results of a single passing scenario
+			And you set the HTML writer was set to skip 'My ' when writing the area name
+			When you navigate to the test html report with a single passing scenario
+			Then you will see the area title line is visible
+			And you will see the area title line is visible
+	Sort Areas
+		Not Sorted [Skipped - Not Started]
+		Partially Sorted [Skipped - Not Started]
+		Sorted [Skipped - Not Started]
+xBDD - Reporting - Features - View Html Report
+	Write To Html
+		Standard Full Report
+			Given a completed test run
+			When the following code executes 'var report = xBDD.CurrentRun.WriteToHTML()'
+			Then the report variable will be a string that contains the entire HTML report that can be written to a file, or sent via email, or whatever...
+xBDD - Reporting - Features - View Html Report - View Results
+	Write Failures Only
+		Multiple Areas [Skipped - Not Started]
+		Single Area Multiple Features [Skipped - Not Started]
+		Single Feature Multiple Scenarios [Skipped - Not Started]
+		Single Scenario [Skipped - Not Started]
+xBDD - Reporting - Features - View Text Report
 	Write To Text
 		Write Emtpy Test Run
 			Given has the following scenarion definition
