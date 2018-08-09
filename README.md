@@ -44,11 +44,7 @@ initial version of this platform is released.
 
 Note: Area, Feature, and Scenario names will expand when clicked.
 
-
-1. [xBDD.Core.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/core/xBDD.Features/test-results/xBDD.Features.Results.html) - Writing and running scenarios.
-2. [xBDD.Reporting.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/reporting/xBDD.Features/test-results/xBDD.Features.Results.html) - Generating reports from a test run.
-3. [xBDD.Reporting.Database.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/reporting.database/xBDD.Reporting.Database.Test/test-results/xBDD.Features.Results.html) - Writing test results to a database.
-4. [xBDD.Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/shared/xBDD.Features/test-results/xBDD.Features.Results.html) - Features of the project (environment setup and what not).
+[xBDD.Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features/test-results/xBDD.Features.Results.html) - Writing and running scenarios.
 
 ## Getting Started
 
@@ -70,9 +66,9 @@ Note: Area, Feature, and Scenario names will expand when clicked.
 
         namespace xBDD.SampleApp.Test.Features.HomePage
         {
-            [InOrderTo("know how many items are in a List<T>")]
             [AsA("Developer")]
-            [IWouldLikeTo("use a Count property on the list object.")]
+            [YouCan("use a Count property on the list object.")]
+            [By("know how many items are in a List<T>")]
             [TestClass]
             public class GenericListCount
             {
@@ -81,8 +77,7 @@ Note: Area, Feature, and Scenario names will expand when clicked.
                 {
                     List<string> list = new List<string>();
                     int? count = -1;
-                    await xB.CurrentRun
-                        .AddScenario(this)
+                    await xB.AddScenario(this)
                         .Given("A generic list of type string with two string in it", (s) => {
                             list.Add("String 1");
                             list.Add("String 2");
@@ -125,8 +120,3 @@ Note: Area, Feature, and Scenario names will expand when clicked.
         Total tests: 1. Passed: 0. Failed: 1. Skipped: 0.
         Test Run Failed.
         Test execution time: 1.2571 Seconds
-
-#### Save Test Results to a Text File
-
-
-
