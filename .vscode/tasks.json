@@ -12,7 +12,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "test-all",
+            "label": "test",
             "group": "test",
             "command": "pwsh",
             "type": "process",
@@ -20,25 +20,12 @@
                 "cwd": "${workspaceFolder}"
             },
             "args": [
-                "${workspaceFolder}/scripts/test-all.ps1"
+                "${workspaceFolder}/scripts/test.ps1"
             ],
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "test-core",
-            "group": "test",
-            "command": "pwsh",
-            "type": "process",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "args": [
-                "${workspaceFolder}/scripts/test-core.ps1"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "test-core-failures-only",
+            "label": "test-failures-only",
             "group": "test",
             "command": "pwsh",
             "type": "process",
@@ -49,36 +36,7 @@
                 }
             },
             "args": [
-                "${workspaceFolder}/scripts/test-core.ps1"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "test-reporting",
-            "group": "test",
-            "command": "pwsh",
-            "type": "process",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "args": [
-                "${workspaceFolder}/scripts/test-reporting.ps1"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "test-reporting-failures-only",
-            "group": "test",
-            "command": "pwsh",
-            "type": "process",
-            "options": {
-                "cwd": "${workspaceFolder}",
-                "env": {
-                    "XBDD_FAILURES_ONLY": "true"
-                }
-            },
-            "args": [
-                "${workspaceFolder}/scripts/test-reporting.ps1"
+                "${workspaceFolder}/scripts/test.ps1"
             ],
             "problemMatcher": "$msCompile"
         }

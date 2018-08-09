@@ -1,0 +1,993 @@
+xBDD Features
+
+xBDD - Features - Generate Reports - Browse Html Report
+	Review Area
+		Failing
+			Given the test results of a single failed scenario
+			When you navigate to the test html report with a single failed scenario
+			Then you will see the first area name is visible
+			And you will see the first area red badge is visible
+			And you will see the first area's feature list that is not expanding or collapsing is visible because  the area is failing
+		Passing
+			Given the test results of a single passing scenario
+			When you navigate to the test html report with a single passing scenario
+			Then you will see the first area name is visible
+			And you will see the first area green badge is visible
+			And you will see the first area's feature list that is not expanding or collapsing is not visible because  the area is not failing
+		Skipped
+			Given the test results of a single skipped scenario
+			When you navigate to the test html report with a single skipped scenario
+			Then you will see the first area name is visible
+			And you will see the first area yellow badge is visible
+			And you will see the first area's feature list that is not expanding or collapsing is not visible because  the area is not failing
+	Review Area Description
+		Collapse [Skipped - Not Started]
+		Collapse All [Skipped - Not Started]
+		Default Collapsed When More Than5 [Skipped - Not Started]
+		Expand [Skipped - Not Started]
+		Expand All [Skipped - Not Started]
+	Review Area Features
+		Collapse
+			Given the test results of a passing full test run
+			When you navigate to the test html report with a passing full test run
+			And you wait till the first area name is visible
+			And you click the the menu button
+			And you click the the expand all areas link
+			And you wait till the first area's feature list that is not expanding or collapsing is visible
+			And you click the the first area name
+			Then you will see the first area's feature list that is not expanding or collapsing is not visible
+		Collapse All [Skipped - Not Implemented]
+			Given the test results of a passing full test run
+			When you navigate to the test html report with a passing full test run
+			And you wait till the first area name is visible
+			And you click the the menu button
+			And you click the the expand all areas link
+			And you wait till the first area's feature list that is not expanding or collapsing is visible
+			And you wait till the second area's feature list that is not expanding or collapsing is visible
+			And you click the the collapse all areas link
+			Then you will see the first area's feature list that is not expanding or collapsing is not visible
+			And you will see the second area's feature list that is not expanding or collapsing is not visible
+		Expand
+			Given the test results of a passing full test run
+			When you navigate to the test html report with a passing full test run
+			And you wait till the first area name is visible
+			And you click the the first area name
+			Then you will see the first area's feature list that is not expanding or collapsing is visible
+		Expand All
+			Given the test results of a passing full test run
+			When you navigate to the test html report with a passing full test run
+			And you wait till the first area name is visible
+			And you click the the menu button
+			And you click the the expand all areas link
+			Then you will see the first area's feature list that is not expanding or collapsing is visible
+			And you will see the second area's feature list that is not expanding or collapsing is visible
+	Review Area Stats
+		Failed Skipped And Passing Feature Stats
+			Given the test results of a full test run with all outcomes
+			When you navigate to the test html report with a full test run with all outcomes
+			And you wait till the area title line is visible
+			And you click the the area title line
+			Then you will see area feature stats is visible
+			And you will see area feature total is visible
+			And you will see area feature total is visible
+			And you will see area feature passed count is visible
+			And you will see area feature skipped count is visible
+			And you will see area feature failed count is visible
+			And you will see area feature stats bar chart is visible
+			And you will see area feature success bar is visible
+			And you will see area feature skipped bar is visible
+			And you will see area feature failed bar is visible
+		Failed Skipped And Passing Scenario Stats
+			Given the test results of a full test run with all outcomes
+			When you navigate to the test html report with a full test run with all outcomes
+			And you wait till the area title line is visible
+			And you click the the area title line
+			Then you will see area scenario stats is visible
+			And you will see area scenario stats passed count is visible
+			And you will see area scenario stats skipped count is visible
+			And you will see area scenario stats failed count is visible
+			And you will see area scenario stats bar chart is visible
+			And you will see area scenario stats success bar is visible
+			And you will see area scenario stats skipped bar is visible
+			And you will see area scenario stats failed bar is visible
+	Review Feature
+		Failing
+			Given the test results of a single failed scenario
+			When you navigate to the test html report with a single failed scenario
+			Then you will see the feature 1 with red badge is visible
+			And you will see the feature 1 scenarios is visible
+		Passing
+			Given the test results of a single passing scenario
+			When you navigate to the test html report with a single passing scenario
+			And you click when the area title line is visible
+			Then you will see the feature name is visible
+			And you will see the feature 1 with green badge is visible
+			And you will see the feature 1 scenarios is not visible because none were failing
+		Skipped
+			Given the test results of a single skipped scenario
+			When you navigate to the test html report with a single skipped scenario
+			And you click when the area title line is visible
+			Then you will see the feature name is visible
+			And you will see the feature 1 with yellow badge is visible
+			And you will see the feature 1 scenarios is not visible because none were failing
+	Review Feature Statement
+		Full Statement
+			Given the test results of a single passing scenario
+			When you navigate to the test html report with a single passing scenario
+			And you click when the area title line is visible
+			Then you will see the feature 1 statement is visible
+			And you will see the feature 1 statement is visible
+		No Statement
+			Given the test results of a single passing scenario
+			When you navigate to the test html report with a single passing scenario
+			And you click when the area title line is visible
+			And you click when the feature name is visible
+			Then you will see the scenario name is visible
+			And you will see the feature 1 statement is not there
+		Partial Statement
+			Given the test results of a single passing scenario
+			When you navigate to the test html report with a single passing scenario
+			And you click when the area title line is visible
+			Then you will see the feature 1 statement is visible
+			And you will see the feature 1 statement is visible
+	Review Feature Stats
+		Failed Skipped And Passing Scenario Stats
+			Given the test results of a full test run with all outcomes
+			When you navigate to the test html report with a full test run with all outcomes
+			And you click when the feature badge is visible
+			Then you will see feature scenario stats is visible
+			And you will see feature scenario stats total is visible
+			And you will see feature scenario stats total is visible
+			And you will see feature scenario stats total is visible
+			And you will see feature scenario stats passed count is visible
+			And you will see feature scenario stats skipped count is visible
+			And you will see feature scenario stats failed count is visible
+			And you will see feature scenario stats bar chart is visible
+			And you will see feature scenario stats success bar is visible
+			And you will see feature scenario stats skipped bar is visible
+			And you will see feature scenario stats failed bar is visible
+	Review Scenario
+		Failing
+			Given the test results of a single failed scenario
+			When you navigate to the test html report with a single failed scenario
+			Then you will see the scenario 1 with red badge is visible
+			And you will see the scenario 1 steps is visible because a step failed
+		Passing
+			Given the test results of a single passing scenario
+			When you navigate to the test html report with a single passing scenario
+			And you click when the area title line is visible
+			And you click when the feature name is visible
+			Then you will see the scenario 1 with green badge is visible
+			And you will see the scenario name is visible
+			And you will see the scenario name is visible
+			And you will see the scenario 1 steps is not visible because no steps failed
+		Skipped
+			Given the test results of a single skipped scenario
+			When you navigate to the test html report with a single skipped scenario
+			And you click when the area title line is visible
+			And you click when the feature name is visible
+			Then you will see the scenario 1 with yellow badge is visible
+			And you will see the scenario 1 steps is not visible because no steps failed
+	Review Scenario Stats
+		Failed Skipped And Passing Steps Stats
+			Given the test results of a full test run with all outcomes
+			When you navigate to the test html report with a full test run with all outcomes
+			Then you will see scenario steps total is visible
+			And you will see scenario steps total is visible
+			And you will see scenario steps total is visible
+	Review Step
+		Failing
+			Given the test results of a single failed scenario
+			When you navigate to the test html report with a single failed scenario
+			Then you will see the step 2 with red badge is visible because the report will be expanded to the failed step
+		Passing
+			Given the test results of a single passing scenario
+			When you navigate to the test html report with a single passing scenario
+			And you click when the area title line is visible
+			And you click when the feature name is visible
+			And you click when the scenario name is visible
+			Then you will see the step 1 with green badge is visible
+			And you will see the step name is visible
+		Skipped
+			Given the test results of a single skipped scenario
+			When you navigate to the test html report with a single skipped scenario
+			And you click when the area title line is visible
+			And you click when the feature name is visible
+			And you click when the scenario name is visible
+			Then you will see the step 1 with yellow badge is visible
+			And you will see the step name is visible
+		With Exception
+			Given the test results with a failed step with an exception
+			When you navigate to the test html report with a failing step with an exception
+			Then you will see exception is visible
+			Then you will see exception type is visible
+			Then you will see exception message is visible
+			Then you will see exception stack trace is visible
+		With Inner Exception
+			Given the test results with a failed step with an exception
+			When you navigate to the test html report with a failing step with a nested exception
+			Then you will see inner exception is visible
+			Then you will see inner exception type is visible
+			Then you will see inner exception message is visible
+			Then you will see inner exception stack trace is visible
+	Review Step Exception
+		Collapse [Skipped - Not Started]
+		Collapse All [Skipped - Not Started]
+		Default Collapsed When More Than5 [Skipped - Not Started]
+		Expand [Skipped - Not Started]
+		Expand All [Skipped - Not Started]
+	Review Step Output
+		Code [Skipped - Not Started]
+		Collapse [Skipped - Not Started]
+		Collapse All [Skipped - Not Started]
+		Collapsed By Default
+			Given the test results of a step with a/an text output of 
+				Here
+				 is
+				 my
+				 output!
+			When you navigate to the test html report with a step with output
+			And you click when the area title line is visible
+			And you click when the feature name is visible
+			And you click when the scenario name is visible
+			Then you will see step output link is visible
+		Expand [Skipped - Not Started]
+		Expand All [Skipped - Not Started]
+		General Text
+			Given the test results of a step with a/an text output of 
+				Here
+				 is
+				 my
+				 output!
+			When you navigate to the test html report with a step with output
+			And you click when the area title line is visible
+			And you click when the feature name is visible
+			And you click when the scenario name is visible
+			And you click when step output link is visible
+			Then you will see step output is visible
+			And you will see step text output is visible
+		Html With Preview [Skipped - Not Started]
+	Review Test Run
+		Empty Test Run
+			Given the test results of an empty test run
+			When you navigate to the test html report with an empty test run
+			Then you will see test run name is visible
+			And you will see test run name is visible
+			And you are viewing a page with the title 'My Test Run'
+			And you will see test run name - grey is visible because no scenarios were run
+		Failing
+			Given the test results of a single failed scenario
+			When you navigate to the test html report with a single failed scenario
+			Then you will see test run name - red is visible
+		Passing Test Run
+			Given the test results of a single passing scenario
+			When you navigate to the test html report with a single passing scenario
+			Then you will see test run name - green is visible
+		Passing With Some Skipped
+			Given the test results of a single skipped scenario
+			When you navigate to the test html report with a single skipped scenario
+			Then you will see test run name - yellow is visible
+	Review Test Run Stats
+		Area Stats No Areas
+			Given the test results of an empty test run
+			When you navigate to the test html report with an empty test run
+			Then you will see test run area stats is visible
+			And you will see test run area stats total count is visible
+			And you will see test run area stats total count is visible
+			And you will see test run area stats passed count is visible
+			And you will see test run area stats skipped count is visible
+			And you will see test run area stats failed count is visible
+			And you will see test run area stats empty bar is visible
+		Failed Skipped And Passing Area Stats
+			Given the test results of a full test run with all outcomes
+			When you navigate to the test html report with a full test run with all outcomes
+			Then you will see test run area stats is visible
+			And you will see test run area stats total count is visible
+			And you will see test run area stats total count is visible
+			And you will see test run area stats passed count is visible
+			And you will see test run area stats skipped count is visible
+			And you will see test run area stats failed count is visible
+			And you will see test run area stats bar chart is visible
+			And you will see test run area stats success bar is visible
+			And you will see test run area stats skipped bar is visible
+			And you will see test run area stats failed bar is visible
+		Failed Skipped And Passing Feature Stats
+			Given the test results of a full test run with all outcomes
+			When you navigate to the test html report with a full test run with all outcomes
+			Then you will see test run feature stats is visible
+			And you will see test run feature stats passed count is visible
+			And you will see test run feature stats skipped count is visible
+			And you will see test run feature stats failed count is visible
+			And you will see test run feature stats bar chart is visible
+			And you will see test run feature stats success bar is visible
+			And you will see test run feature stats skipped bar is visible
+			And you will see test run feature stats failed bar is visible
+		Failed Skipped And Passing Scenario Stats
+			Given the test results of a full test run with all outcomes
+			When you navigate to the test html report with a full test run with all outcomes
+			Then you will see test run scenario stats is visible
+			And you will see test run scenario stats passed count is visible
+			And you will see test run scenario stats skipped count is visible
+			And you will see test run scenario stats failed count is visible
+			And you will see test run scenario stats bar chart is visible
+			And you will see test run scenario stats success bar is visible
+			And you will see test run scenario stats skipped bar is visible
+			And you will see test run scenario stats failed bar is visible
+xBDD - Features - Generate Reports - Customize Html Report
+	Shorten Area Name
+		Matches All Of Area Name
+			Given the test results of a single passing scenario set to skip the string 'My Area 1' in the area name
+			When you navigate to the test html report with a single passing scenario
+			Then you will see the area title line is visible
+			And you will see the area title line is visible
+		Matches None Of Area Name
+			Given the test results of a single passing scenario set to skip the string 'No Match' in the area name
+			When you navigate to the test html report with a single passing scenario
+			Then you will see the area title line is visible
+			And you will see the area title line is visible
+		Matches Start Of Area Name
+			Given the test results of a single passing scenario set to skip the string 'My ' in the area name
+			When you navigate to the test html report with a single passing scenario
+			Then you will see the area title line is visible
+			And you will see the area title line is visible
+	Sort Areas
+		Not Sorted [Skipped - Not Started]
+		Partially Sorted [Skipped - Not Started]
+		Sorted [Skipped - Not Started]
+	Write Failures Only
+		Failing
+			Given the test results of a full test run with all outcomes set to only report on failures
+			When you navigate to the test html report with a single failed scenario
+			Then you will see the step 2 with red badge is visible because the step failed and the report will be expanded to the failed step
+		Passing
+			Given the test results of a single passing scenario set to report only failures
+			When you navigate to the test html report with a single passing scenario
+			Then you will see test run areas list is not there
+		Skipped
+			Given the test results of a single skipped scenario set to only report on failures
+			When you navigate to the test html report with a single skipped scenario
+			Then you will see test run areas list is not there
+xBDD - Features - Generate Reports - Generate Html Report
+	Write To Html
+		Standard Full Report
+			Given a completed test run
+			When the following code executes 'var report = xBDD.CurrentRun.WriteToHTML()'
+			Then the report variable will be a string that contains the entire HTML report that can be written to a file, or sent via email, or whatever...
+xBDD - Features - Generate Reports - Generate Text Report
+	Write To Text
+		Write Emtpy Test Run
+			Given has the following scenarion definition
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class EmptyTestRun : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written should match the template:
+				My Test Run
+				
+		Write Run Empty Scenario
+			Given has the following scenarion definition
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunEmptyScenario : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            await xBDD.CurrentRun
+				                .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                .Run();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario
+		Write Run Multiple Areas
+			Given has the following scenarion definition
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunMultipleAreas : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature One", "My.Area.Path.One")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature One", "My.Area.Path.One")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature Two", "My.Area.Path.Two")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature Two", "My.Area.Path.Two")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written should match the template:
+				My Test Run
+				
+				My.Area.Path.One
+					My Feature One
+						My Scenario One
+							Given my starting condition
+							When my action
+							Then my ending condition
+						My Scenario Two
+							Given my starting condition
+							When my action
+							Then my ending condition
+				My.Area.Path.Two
+					My Feature Two
+						My Scenario One
+							Given my starting condition
+							When my action
+							Then my ending condition
+						My Scenario Two
+							Given my starting condition
+							When my action
+							Then my ending condition
+		Write Run Multiple Features Same Area
+			Given has the following scenarion definition
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunMultipleFeaturesSameArea : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature One", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature One", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature Two", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature Two", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature One
+						My Scenario One
+							Given my starting condition
+							When my action
+							Then my ending condition
+						My Scenario Two
+							Given my starting condition
+							When my action
+							Then my ending condition
+					My Feature Two
+						My Scenario One
+							Given my starting condition
+							When my action
+							Then my ending condition
+						My Scenario Two
+							Given my starting condition
+							When my action
+							Then my ending condition
+		Write Run Multiple Scenarios Same Feature
+			Given has the following scenarion definition
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunMultipleScenariosSameFeature : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario One
+							Given my starting condition
+							When my action
+							Then my ending condition
+						My Scenario Two
+							Given my starting condition
+							When my action
+							Then my ending condition
+		Write Run Scenario With Failed Step
+			Given has the following scenarion definition
+				using System;
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunScenarioWithFailedStep : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action", (s) => { throw new Exception("My Error"); }))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario [Failed]
+							Given my starting condition
+							When my action [Failed]
+								Error Type: Exception
+								   Message: My Error
+				{{				     Stack\: .*}}
+				{{.*}}/rl
+							Then my ending condition [Skipped - Previous Error]
+		Write Run Scenario With Not Implemented Step
+			Given has the following scenarion definition
+				using System;
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunScenarioWithNotImplementedStep : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action", (s) => { throw new NotImplementedException(); }))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario [Failed - Step Not Implemented]
+							Given my starting condition
+							When my action [Failed - Not Implemented]
+							Then my ending condition [Skipped - Previous Error]
+		Write Run Scenario With Skipped Step
+			Given has the following scenarion definition
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunScenarioWithSkippedStep : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action", (s) => { throw new SkipStepException("Deferred"); }))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario [Failed - Step Skipped]
+							Given my starting condition
+							When my action [Skipped - Deferred]
+							Then my ending condition [Skipped - Previous Error]
+		Write Run Scenario With Step With Multiline Parameter
+			Given has the following scenarion definition
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunScenarioWithStepWithMultilineParameter : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            await xBDD.CurrentRun
+				                .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                .Given(xBDD.CreateStep("my starting condition with the following", (s) => { }, $"My{System.Environment.NewLine}multiline{System.Environment.NewLine}parameter"))
+				                .When(xBDD.CreateStep("my action"))
+				                .Then(xBDD.CreateStep("my ending condition"))
+				                .Run();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario
+							Given my starting condition with the following
+								My
+								multiline
+								parameter
+							When my action
+							Then my ending condition
+		Write Run Scenario With Steps
+			Given has the following scenarion definition
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunScenarioWithSteps : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario
+							Given my starting condition
+							When my action
+							Then my ending condition
+		Write Skipped Empty Scenario
+			Given has the following scenarion definition
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class SkippedEmptyScenario : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Skip("Deferred");
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario [Skipped - Deferred]
+		Write Skipped Scenario With Steps
+			Given has the following scenarion definition
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class SkippedScenarioWithSteps : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Skip("Deferred");
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
+			When the method is executed
+			Then the test results written should match the template:
+				My Test Run
+				
+				My.Area.Path
+					My Feature
+						My Scenario [Skipped - Deferred]
+							Given my starting condition
+							When my action
+							Then my ending condition
+xBDD - Features - Getting Started
+	Define A Basic Scenario
+		With Asynchronous Execution [NotRun]
+		With Synchronous Execution [Failed]
+			Given has the following scenarion definition
+				using Microsoft.VisualStudio.TestTools.UnitTesting;
+				using xBDD;
+				
+				//Area
+				namespace MyApp.API.Test.Features.Calendar
+				{
+					//Feature
+					[AsA("developer")]
+					[YouCan("find the holidays for the users culture in a specific time range")]
+					[By("using the operations exposed by the User object's Calendar property")]
+					[TestClass]
+					// [TestClass] - for MSTest
+					// [TestFixture] - for nUnit
+					public class GetHolidays
+					{
+						//Scenario
+						// [Fact] - for xUnit
+						// [Test] - for nUnit
+						public async void WhenUSCalendar()
+						{
+							await xB.AddScenario(this)
+								.Given("a user object for a user with a US culture", (s) => {
+									//code to create calendar
+								})
+								.When("you call GetHolidays with a date range of 3/10/2015 to 3/18/2015", (s) => {
+									//code to issue get request.
+								})
+								.Then("you should get back a single holiday that is St. Patrick's Day", (s) => {
+									//code to validate response
+								})
+								.Run();
+						}
+					}
+				}
+			When the scenario is executed
+			Then the test run will have the following structure [Failed]
+				Area:
+				My App - API - Test - Features - Calendar
+				
+				Feature:
+				Get Holidays
+				
+				Feature Description:
+				In order to reference culture specific holidays
+				As a developer
+				I would like to get a list of the current user's culture specific holidays
+				
+				Scenario:
+				When US Calendar
+				
+				Steps:
+				Given a calendar object is initialized with US holidays
+				When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015
+				Then you should get back a single holiday that is St. Patrick's Day
+				Error Type: AssertFailedException
+				   Message: Assert.AreEqual failed. Expected:<to reference culture specific holidays>. Actual:<find the holidays for the users culture in a specific time range>. 
+				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
+				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
+				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
+				               at xBDD.Features.GettingStarted.DefineABasicScenario.<>c__DisplayClass5_0.<WithSynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineABasicScenario.cs:line 63
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+	Define A Documentation Scenario
+		With Synchronous Execution [Failed]
+			Given has the following scenarion definition
+				using Microsoft.VisualStudio.TestTools.UnitTesting;
+				using xBDD;
+				
+				//Area
+				namespace MyApp.API.Test.Features.Calendar
+				{
+					//Feature
+					[AsA("developer")]
+					[YouCan("find the holidays for the users culture in a specific time range")]
+					[By("using the operations exposed by the User object's Calendar property")]
+					[TestClass]
+					// [TestClass] - for MSTest
+					// [TestFixture] - for nUnit
+					public class GetHolidays
+					{
+						//Scenario
+						// [Fact] - for xUnit
+						// [Test] - for nUnit
+						public async void WhenUSCalendar()
+						{
+							await xB.AddScenario(this)
+								.Given("a user object for a user with a US culture", (s) => {
+									//code to create calendar
+								})
+								.When("you call GetHolidays with a date range of 3/10/2015 to 3/18/2015", (s) => {
+									//code to issue get request.
+								})
+								.Then("you should get back a single holiday that is St. Patrick's Day", (s) => {
+									//code to validate response
+								})
+								.Run();
+						}
+					}
+				}
+			When the scenario is executed
+			Then the test run will have the following structure [Failed]
+				Area:
+				My App - Standard Help Desk Technician Features - Getting Started
+				
+				Feature:
+				Installing The Framework
+				
+				Feature Description:
+				As a developer
+				You can install the xBDD framework to reference culture specific holidays
+				I would like to get a list of the current user's culture specific holidays
+				
+				Scenario:
+				When US Calendar
+				
+				Steps:
+				Given a calendar object is initialized with US holidays
+				When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015
+				Then you should get back a single holiday that is St. Patrick's Day
+				Error Type: AssertFailedException
+				   Message: Assert.AreEqual failed. Expected:<My App - Standard Help Desk Technician Features - Getting Started>. Actual:<My App - API - Test - Features - Calendar>. 
+				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
+				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
+				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
+				               at xBDD.Features.GettingStarted.DefineADocumentationScenario.<>c__DisplayClass5_0.<WithSynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineADocumentationScenario.cs:line 61
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+	Define A Scenario With Reusable Steps
+		With Asynchronous Execution [NotRun]
+		With Synchronous Execution [NotRun]
+	Installing The Framework
+		For An N Unit Project [Skipped - Not Started]
+		For An Xunit Project [Skipped - Not Started]
+		If You Use An MS Test Project
+			Given you create an MSTest project by following the directions here:
+				https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest
+			And you execute the following commands:
+				dotnet add package xBDD
+			And you install the xBDD nuget package by executing:
+				dotnet add package xBDD
+			And you modify the default test class to look like:
+				...add code.
+			When you run the test project using:
+				dotnet test -v n

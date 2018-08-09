@@ -1,8 +1,0 @@
-xBDD Reporting Database
-
-xBDD - Test - Features - Save Results
-	Write To Database
-		Get Test Results [Skipped - Not Started]
-		To Existing Database [Skipped - Not Started]
-		To Existing Database Fails [Skipped - Not Started]
-		To New Database [Skipped - Re-writing]

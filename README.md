@@ -45,10 +45,10 @@ initial version of this platform is released.
 Note: Area, Feature, and Scenario names will expand when clicked.
 
 
-1. [xBDD.Core.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/core/xBDD.Core.Features/test-results/xBDD.Test.Results.html) - Writing and running scenarios.
-2. [xBDD.Reporting.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/reporting/xBDD.Reporting.Features/test-results/xBDD.Test.Results.html) - Generating reports from a test run.
-3. [xBDD.Reporting.Database.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/reporting.database/xBDD.Reporting.Database.Test/test-results/xBDD.Test.Results.html) - Writing test results to a database.
-4. [xBDD.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/shared/xBDD.Test/test-results/xBDD.Test.Results.html) - Features of the project (environment setup and what not).
+1. [xBDD.Core.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/core/xBDD.Features/test-results/xBDD.Features.Results.html) - Writing and running scenarios.
+2. [xBDD.Reporting.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/reporting/xBDD.Features/test-results/xBDD.Features.Results.html) - Generating reports from a test run.
+3. [xBDD.Reporting.Database.Test](https://rawgit.com/Stewartarmbrecht/xBDD/master/reporting.database/xBDD.Reporting.Database.Test/test-results/xBDD.Features.Results.html) - Writing test results to a database.
+4. [xBDD.Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/shared/xBDD.Features/test-results/xBDD.Features.Results.html) - Features of the project (environment setup and what not).
 
 ## Getting Started
 
