@@ -9,6 +9,10 @@ namespace xBDD.Features
         public FeatureSort()
         {
             List<string> SortedFeatureNames = new List<string>() {
+                typeof(xBDD.Features.GettingStarted.InstallingTheFramework).FullName,
+                typeof(xBDD.Features.GettingStarted.DefineABasicScenario).FullName,
+                typeof(xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps).FullName,
+                typeof(xBDD.Features.GettingStarted.DefineADocumentationScenario).FullName,
                 typeof(xBDD.Features.GenerateReports.GenerateHtmlReport.WriteToHtml).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewTestRun).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewTestRunStats).FullName,
@@ -26,9 +30,11 @@ namespace xBDD.Features
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewStepOutput).FullName,
                 typeof(xBDD.Features.GenerateReports.CustomizeHtmlReport.WriteFailuresOnly).FullName,
                 typeof(xBDD.Features.GenerateReports.CustomizeHtmlReport.ShortenAreaName).FullName,
-                typeof(xBDD.Features.GenerateReports.CustomizeHtmlReport.SortAreas).FullName,
+                typeof(xBDD.Features.GenerateReports.CustomizeHtmlReport.SortTestRunResults).FullName,
                 typeof(xBDD.Features.GenerateReports.GenerateTextReport.WriteToText).FullName,
             };
+
+            this.SortedFeatureNames = SortedFeatureNames.ToArray();
 
         }
     }

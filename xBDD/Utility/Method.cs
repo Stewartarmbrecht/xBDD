@@ -23,6 +23,11 @@ namespace xBDD.Utility
             return methodBase.DeclaringType.Name.AddSpacesToSentence();
         }
 
+        internal string GetFullClassName()
+        {
+            return methodBase.DeclaringType.FullName;
+        }
+
         internal string GetFeatureActorAction()
         {
             string text = null;

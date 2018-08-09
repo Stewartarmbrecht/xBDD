@@ -47,7 +47,7 @@ namespace xBDD.Features.GettingStarted
 			var scenarioPath = $"{separator}GettingStarted{separator}SampleCode{separator}GetHolidays.cs";
 
 			var testRunBuilder = new xBDD.Core.CoreFactory().CreateTestRunBuilder(null);
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 1)
                 .Given(Code.HasTheFollowingScenario(scenarioPath))
                 .When("the scenario is executed", (s) =>
                 {

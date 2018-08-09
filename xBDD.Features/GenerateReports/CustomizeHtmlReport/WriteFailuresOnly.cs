@@ -28,7 +28,7 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		public async Task Passing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithASinglePassingScenario(null, null, null, null, true))
                 .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
 				.Then(you.WillSee(the.TestRun.Areas).IsNotThere())
@@ -37,7 +37,7 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		[TestMethod]
 		public async Task Skipped()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 2)
                 .Given(AnHtmlReport.WithASingleSkippedScenario(true))
                 .When(you.NavigateTo(theHtmlReport.WithASingleSkippedScenario))
 				.Then(you.WillSee(the.TestRun.Areas).IsNotThere())
@@ -46,7 +46,7 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		[TestMethod]
 		public async Task Failing()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 3)
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes(true))
                 .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
 				.Then(you.WillSee(the.Step.BadgeRed(2)).IsVisible().Because("the step failed and the report will be expanded to the failed step"))

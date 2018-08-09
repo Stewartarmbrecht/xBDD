@@ -29,6 +29,7 @@ namespace xBDD.Features
                 {
                     System.Boolean.TryParse(failuresOnlyEnv, out failuresOnly);
                 }
+                xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
                 var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml(skipAreaName, failuresOnly);
                 File.WriteAllText(htmlPath, htmlReport);
 

@@ -227,7 +227,10 @@ namespace xBDD.Reporting.Html
             var areasOpenWritten = false;
             var scenarioWritten = false;
             Scenario lastScenario = null;
-            foreach (var scenario in testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name))
+            var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
+            if(testRun.Sorted)
+                sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
+            foreach (var scenario in sortedScenarios)
             {
                 if(!failuresOnly || failuresOnly && scenario.Outcome == Outcome.Failed)
                 {

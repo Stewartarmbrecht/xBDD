@@ -28,7 +28,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
         [TestMethod]
         public async Task Expand()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 1)
 				.Given(AnHtmlReport.WithAPassingFullTestRun())
                 .When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
                 .And(you.WaitTill(the.FirstAreaName).IsVisible(5000))
@@ -40,7 +40,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
         [TestMethod]
         public async Task ExpandAll()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 2)
 				.Given(AnHtmlReport.WithAPassingFullTestRun())
                 .When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
                 .And(you.WaitTill(the.FirstAreaName).IsVisible(5000))
@@ -54,7 +54,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task Collapse()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 3)
 				.Given(AnHtmlReport.WithAPassingFullTestRun())
                 .When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
                 .And(you.WaitTill(the.FirstAreaName).IsVisible(5000))
@@ -69,7 +69,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
         [TestMethod]
         public async Task CollapseAll()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 4)
 				.Given(AnHtmlReport.WithAPassingFullTestRun())
                 .When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
                 .And(you.WaitTill(the.FirstAreaName).IsVisible(5000))

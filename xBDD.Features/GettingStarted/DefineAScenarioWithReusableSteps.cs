@@ -47,7 +47,7 @@ namespace xBDD.Features.GettingStarted
 
 			var testRunBuilder = new xBDD.Core.CoreFactory().CreateTestRunBuilder(null);
             await xB.CurrentRun
-                .AddScenario(this)
+                .AddScenario(this, 1)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasTheFollowingScenario(scenarioPath))
                 .When("the scenario is executed", (s) =>
@@ -94,7 +94,7 @@ namespace xBDD.Features.GettingStarted
 
 			var testRunBuilder = new xBDD.Core.CoreFactory().CreateTestRunBuilder(null);
             await xB.CurrentRun
-                .AddScenario(this)
+                .AddScenario(this, 2)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasTheFollowingScenario(scenarioPath))
                 .WhenAsync("the scenario is excuted", async (s) =>

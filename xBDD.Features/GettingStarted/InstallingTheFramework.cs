@@ -23,7 +23,7 @@ namespace xBDD.Features.GettingStarted
 		[TestMethod]
 		public async Task IfYouUseAnMSTestProject()
 		{
-			await xB.AddScenario(this)
+			await xB.AddScenario(this, 1)
 				.Given("you create an MSTest project by following the directions here:",
 					(s) => {}, "https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest")
 				.And("you execute the following commands:", (s) => {}, "dotnet add package xBDD", TextFormat.sh)
@@ -35,13 +35,13 @@ namespace xBDD.Features.GettingStarted
 		[TestMethod]
 		public async Task ForAnXunitProject()
 		{
-			 await xB.CurrentRun.AddScenario(this)
+			 await xB.CurrentRun.AddScenario(this, 2)
 				.Skip("Not Started");
 		}
 		[TestMethod]
 		public async Task ForAnNUnitProject()
 		{
-			 await xB.CurrentRun.AddScenario(this)
+			 await xB.CurrentRun.AddScenario(this, 3)
 				.Skip("Not Started");
 		}
 	}

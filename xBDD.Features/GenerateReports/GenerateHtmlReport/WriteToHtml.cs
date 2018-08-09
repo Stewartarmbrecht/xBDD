@@ -18,7 +18,7 @@ namespace xBDD.Features.GenerateReports.GenerateHtmlReport
         public async Task StandardFullReport()
         {
             Wrapper<string> html = new Wrapper<string>();            
-            await xB.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this, 1)
                 .Given("a completed test run", (s) => {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";

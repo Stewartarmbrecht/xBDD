@@ -28,6 +28,18 @@ namespace xBDD.Model
 		public string Name { get; internal set; }
 
 		/// <summary>
+		/// Name of the feature class.
+		/// </summary>
+		/// <value><see cref="String"/></value>
+		public string ClassName { get; internal set; }
+
+		/// <summary>
+		/// Value used to sort the features.
+		/// </summary>
+		/// <value>Int value used to sort the feature.</value>
+		public int Sort { get; set; }
+
+		/// <summary>
 		/// The actor name who executes the feature.
 		/// As a [BLANK]
 		/// </summary>

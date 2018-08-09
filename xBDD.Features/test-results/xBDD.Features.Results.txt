@@ -5,19 +5,19 @@ xBDD - Features - Generate Reports - Browse Html Report
 		Failing
 			Given the test results of a single failed scenario
 			When you navigate to the test html report with a single failed scenario
-			Then you will see the first area name is visible
+			Then you will see the first area name has text 'My Area 1'
 			And you will see the first area red badge is visible
 			And you will see the first area's feature list that is not expanding or collapsing is visible because  the area is failing
 		Passing
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
-			Then you will see the first area name is visible
+			Then you will see the first area name has text 'My Area 1'
 			And you will see the first area green badge is visible
 			And you will see the first area's feature list that is not expanding or collapsing is not visible because  the area is not failing
 		Skipped
 			Given the test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
-			Then you will see the first area name is visible
+			Then you will see the first area name has text 'My Area 1'
 			And you will see the first area yellow badge is visible
 			And you will see the first area's feature list that is not expanding or collapsing is not visible because  the area is not failing
 	Review Area Description
@@ -68,11 +68,11 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you wait till the area title line is visible
 			And you click the the area title line
 			Then you will see area feature stats is visible
+			And you will see area feature total has text '3'
 			And you will see area feature total is visible
-			And you will see area feature total is visible
-			And you will see area feature passed count is visible
-			And you will see area feature skipped count is visible
-			And you will see area feature failed count is visible
+			And you will see area feature passed count has text '1'
+			And you will see area feature skipped count has text '1'
+			And you will see area feature failed count has text '1'
 			And you will see area feature stats bar chart is visible
 			And you will see area feature success bar is visible
 			And you will see area feature skipped bar is visible
@@ -83,9 +83,9 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you wait till the area title line is visible
 			And you click the the area title line
 			Then you will see area scenario stats is visible
-			And you will see area scenario stats passed count is visible
-			And you will see area scenario stats skipped count is visible
-			And you will see area scenario stats failed count is visible
+			And you will see area scenario stats passed count has text '5'
+			And you will see area scenario stats skipped count has text '3'
+			And you will see area scenario stats failed count has text '1'
 			And you will see area scenario stats bar chart is visible
 			And you will see area scenario stats success bar is visible
 			And you will see area scenario stats skipped bar is visible
@@ -100,14 +100,14 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
-			Then you will see the feature name is visible
+			Then you will see the feature name has text 'My Feature 1'
 			And you will see the feature 1 with green badge is visible
 			And you will see the feature 1 scenarios is not visible because none were failing
 		Skipped
 			Given the test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
 			And you click when the area title line is visible
-			Then you will see the feature name is visible
+			Then you will see the feature name has text 'My Feature 1'
 			And you will see the feature 1 with yellow badge is visible
 			And you will see the feature 1 scenarios is not visible because none were failing
 	Review Feature Statement
@@ -116,7 +116,9 @@ xBDD - Features - Generate Reports - Browse Html Report
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			Then you will see the feature 1 statement is visible
-			And you will see the feature 1 statement is visible
+			And you will see the feature 1 statement has text 'As a actor
+You can derive some value
+By perform some action'
 		No Statement
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
@@ -129,7 +131,9 @@ xBDD - Features - Generate Reports - Browse Html Report
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			Then you will see the feature 1 statement is visible
-			And you will see the feature 1 statement is visible
+			And you will see the feature 1 statement has text 'As a [Missing!]
+You can derive some value
+By [Missing!]'
 	Review Feature Stats
 		Failed Skipped And Passing Scenario Stats
 			Given the test results of a full test run with all outcomes
@@ -137,11 +141,11 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you click when the feature badge is visible
 			Then you will see feature scenario stats is visible
 			And you will see feature scenario stats total is visible
+			And you will see feature scenario stats total has text '3'
 			And you will see feature scenario stats total is visible
-			And you will see feature scenario stats total is visible
-			And you will see feature scenario stats passed count is visible
-			And you will see feature scenario stats skipped count is visible
-			And you will see feature scenario stats failed count is visible
+			And you will see feature scenario stats passed count has text '1'
+			And you will see feature scenario stats skipped count has text '1'
+			And you will see feature scenario stats failed count has text '1'
 			And you will see feature scenario stats bar chart is visible
 			And you will see feature scenario stats success bar is visible
 			And you will see feature scenario stats skipped bar is visible
@@ -159,7 +163,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you click when the feature name is visible
 			Then you will see the scenario 1 with green badge is visible
 			And you will see the scenario name is visible
-			And you will see the scenario name is visible
+			And you will see the scenario name has text 'My Scenario 1'
 			And you will see the scenario 1 steps is not visible because no steps failed
 		Skipped
 			Given the test results of a single skipped scenario
@@ -173,7 +177,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			Then you will see scenario steps total is visible
-			And you will see scenario steps total is visible
+			And you will see scenario steps total has text '3'
 			And you will see scenario steps total is visible
 	Review Step
 		Failing
@@ -187,7 +191,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
 			Then you will see the step 1 with green badge is visible
-			And you will see the step name is visible
+			And you will see the step name has text 'Given my step 1'
 		Skipped
 			Given the test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
@@ -195,7 +199,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
 			Then you will see the step 1 with yellow badge is visible
-			And you will see the step name is visible
+			And you will see the step name has text 'Given my step 1'
 		With Exception
 			Given the test results with a failed step with an exception
 			When you navigate to the test html report with a failing step with an exception
@@ -245,14 +249,17 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you click when the scenario name is visible
 			And you click when step output link is visible
 			Then you will see step output is visible
-			And you will see step text output is visible
+			And you will see step text output has text 'Here
+ is
+ my
+ output!'
 		Html With Preview [Skipped - Not Started]
 	Review Test Run
 		Empty Test Run
 			Given the test results of an empty test run
 			When you navigate to the test html report with an empty test run
 			Then you will see test run name is visible
-			And you will see test run name is visible
+			And you will see test run name has text 'My Test Run'
 			And you are viewing a page with the title 'My Test Run'
 			And you will see test run name - grey is visible because no scenarios were run
 		Failing
@@ -272,21 +279,21 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Given the test results of an empty test run
 			When you navigate to the test html report with an empty test run
 			Then you will see test run area stats is visible
+			And you will see test run area stats total count has text '0'
 			And you will see test run area stats total count is visible
-			And you will see test run area stats total count is visible
-			And you will see test run area stats passed count is visible
-			And you will see test run area stats skipped count is visible
-			And you will see test run area stats failed count is visible
+			And you will see test run area stats passed count has text '0'
+			And you will see test run area stats skipped count has text '0'
+			And you will see test run area stats failed count has text '0'
 			And you will see test run area stats empty bar is visible
 		Failed Skipped And Passing Area Stats
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			Then you will see test run area stats is visible
+			And you will see test run area stats total count has text '3'
 			And you will see test run area stats total count is visible
-			And you will see test run area stats total count is visible
-			And you will see test run area stats passed count is visible
-			And you will see test run area stats skipped count is visible
-			And you will see test run area stats failed count is visible
+			And you will see test run area stats passed count has text '1'
+			And you will see test run area stats skipped count has text '1'
+			And you will see test run area stats failed count has text '1'
 			And you will see test run area stats bar chart is visible
 			And you will see test run area stats success bar is visible
 			And you will see test run area stats skipped bar is visible
@@ -295,9 +302,9 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			Then you will see test run feature stats is visible
-			And you will see test run feature stats passed count is visible
-			And you will see test run feature stats skipped count is visible
-			And you will see test run feature stats failed count is visible
+			And you will see test run feature stats passed count has text '5'
+			And you will see test run feature stats skipped count has text '3'
+			And you will see test run feature stats failed count has text '1'
 			And you will see test run feature stats bar chart is visible
 			And you will see test run feature stats success bar is visible
 			And you will see test run feature stats skipped bar is visible
@@ -306,9 +313,9 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			Then you will see test run scenario stats is visible
-			And you will see test run scenario stats passed count is visible
-			And you will see test run scenario stats skipped count is visible
-			And you will see test run scenario stats failed count is visible
+			And you will see test run scenario stats passed count has text '19'
+			And you will see test run scenario stats skipped count has text '7'
+			And you will see test run scenario stats failed count has text '1'
 			And you will see test run scenario stats bar chart is visible
 			And you will see test run scenario stats success bar is visible
 			And you will see test run scenario stats skipped bar is visible
@@ -319,21 +326,35 @@ xBDD - Features - Generate Reports - Customize Html Report
 			Given the test results of a single passing scenario set to skip the string 'My Area 1' in the area name
 			When you navigate to the test html report with a single passing scenario
 			Then you will see the area title line is visible
-			And you will see the area title line is visible
+			And you will see the area title line has text '[Missing! (or Full Name Skipped)]'
 		Matches None Of Area Name
 			Given the test results of a single passing scenario set to skip the string 'No Match' in the area name
 			When you navigate to the test html report with a single passing scenario
 			Then you will see the area title line is visible
-			And you will see the area title line is visible
+			And you will see the area title line has text 'My Area 1'
 		Matches Start Of Area Name
 			Given the test results of a single passing scenario set to skip the string 'My ' in the area name
 			When you navigate to the test html report with a single passing scenario
 			Then you will see the area title line is visible
-			And you will see the area title line is visible
-	Sort Areas
-		Not Sorted [Skipped - Not Started]
-		Partially Sorted [Skipped - Not Started]
-		Sorted [Skipped - Not Started]
+			And you will see the area title line has text 'Area 1'
+	Sort Test Run Results
+		Not Sorted
+			Given a sample executed test run that is not sorted
+			When you navigate to the sample test html report that is not sorted
+			Then you will see the feature name has text 'Sample All Outcome Feature' because it was the first feature alphabetically
+			And you will see the scenario name has text 'Failed Scenario' because it is the first scenario alphabetically
+		Partially Sorted
+			Given a sample executed test run that is not sorted
+			When you navigate to the sample test html report that is sorted
+			And you click when the feature name is visible
+			Then you will see the feature name has text 'Sample Skipped Feature' because it was the second in the feature sort
+			And you will see the scenario name has text 'Passing Scenario2' because it was not provided a sort when the scenario was created and was placed after the sorted scenarios
+		Sorted
+			Given a sample executed test run that is not sorted
+			When you navigate to the sample test html report that is sorted
+			And you click when the feature name is visible
+			Then you will see the feature name has text 'Sample Passing Feature' because it was the first in the feature sort
+			And you will see the scenario name has text 'Passing Scenario3' because it is the first in the feature class definition
 	Write Failures Only
 		Failing
 			Given the test results of a full test run with all outcomes set to only report on failures
@@ -899,12 +920,12 @@ xBDD - Features - Getting Started
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
 				               at xBDD.Features.GettingStarted.DefineABasicScenario.<>c__DisplayClass5_0.<WithSynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineABasicScenario.cs:line 63
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 	Define A Documentation Scenario
 		With Synchronous Execution [Failed]
 			Given has the following scenarion definition
@@ -968,12 +989,12 @@ xBDD - Features - Getting Started
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
 				               at xBDD.Features.GettingStarted.DefineADocumentationScenario.<>c__DisplayClass5_0.<WithSynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineADocumentationScenario.cs:line 61
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 	Define A Scenario With Reusable Steps
 		With Asynchronous Execution [NotRun]
 		With Synchronous Execution [NotRun]

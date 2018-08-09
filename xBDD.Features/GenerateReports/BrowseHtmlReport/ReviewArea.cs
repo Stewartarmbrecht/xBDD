@@ -28,7 +28,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task Passing()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithASinglePassingScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
 				.Then(you.WillSee(the.FirstAreaName).HasText("My Area 1"))
@@ -39,7 +39,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task Skipped()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 2)
                 .Given(AnHtmlReport.WithASingleSkippedScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASingleSkippedScenario))
 				.Then(you.WillSee(the.FirstAreaName).HasText("My Area 1"))
@@ -50,7 +50,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task Failing()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 3)
                 .Given(AnHtmlReport.WithASingleFailedScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
 				.Then(you.WillSee(the.FirstAreaName).HasText("My Area 1"))

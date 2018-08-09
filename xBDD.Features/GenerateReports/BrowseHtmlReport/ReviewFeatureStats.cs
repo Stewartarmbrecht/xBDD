@@ -28,7 +28,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task FailedSkippedAndPassingScenarioStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
  				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
 				.And(you.ClickWhen(the.Feature.Badge(7)).IsVisible())

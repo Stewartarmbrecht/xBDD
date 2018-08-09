@@ -30,7 +30,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task FailedSkippedAndPassingFeatureStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
 				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
 				.And(you.WaitTill(the.Area.Badge(3)).IsVisible())
@@ -51,7 +51,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task FailedSkippedAndPassingScenarioStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this, 2)
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
  				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
 				.And(you.WaitTill(the.Area.Badge(3)).IsVisible())

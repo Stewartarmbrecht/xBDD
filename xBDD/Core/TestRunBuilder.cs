@@ -1,8 +1,14 @@
-using System.Runtime.CompilerServices;
-using xBDD.Model;
-using xBDD.Utility;
 namespace xBDD.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Reflection;
+    using System.Runtime.CompilerServices;
+    using xBDD.Model;
+    using xBDD.Utility;
+
     /// <summary>
     /// Provides methods for building a test run by adding scenarios.
     /// </summary>
@@ -44,12 +50,14 @@ namespace xBDD.Core
         /// Usually just pass in 'this'.  The test class represents the feature.
         /// </param>
         /// <param name="methodName">Optional. The system will attempt to get the method name of the scenario through reflection.</param>
+        /// <param name="sortOrder">Optional. Used by the test run when sorting the results
+        /// if you call SortTestRunResults on the test run. Default value is 1,000,000.</param>
         /// <returns>The scenario build for a fluent syntax.</returns>
-        public ScenarioBuilder AddScenario(object featureClass, [CallerMemberName]string methodName = "")
+        public ScenarioBuilder AddScenario(object featureClass, int sortOrder = 1000000, [CallerMemberName]string methodName = "")
         {
             this.TestRunInitializer.InitializeTestRun(featureClass, TestRun);
             Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
-            return AddScenario(method, null, null, null);
+            return AddScenario(method, null, null, null, sortOrder);
         }
 
         /// <summary>
@@ -67,12 +75,14 @@ namespace xBDD.Core
         /// Usually just pass in 'this'.  The test class represents the feature.
         /// </param>
         /// <param name="methodName">Optional. The system will attempt to get the method name of the scenario through reflection.</param>
+        /// <param name="sortOrder">Optional. Used by the test run when sorting the results
+        /// if you call SortTestRunResults on the test run. Default value is 1,000,000</param>
         /// <returns>The scenario build for a fluent syntax.</returns>
         public ScenarioBuilder AddScenario(string scenarioName, 
-            object featureClass, [CallerMemberName]string methodName = "")
+            object featureClass, int sortOrder = 1000000, [CallerMemberName]string methodName = "")
         {
             Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
-            return AddScenario(method, scenarioName, null, null);
+            return AddScenario(method, scenarioName, null, null, sortOrder);
         }
 
         /// <summary>
@@ -96,12 +106,14 @@ namespace xBDD.Core
         /// <param name="methodName">
         /// Optional. The system will attempt to get the method name of the scenario through reflection.
         /// </param>
+        /// <param name="sortOrder">Optional. Used by the test run when sorting the results
+        /// if you call SortTestRunResults on the test run. Default value is 1,000,000.</param>
         /// <returns>The scenario build for a fluent syntax.</returns>
         public ScenarioBuilder AddScenario(string scenarioName, string featureName, 
-            object featureClass, [CallerMemberName]string methodName = "")
+            object featureClass, int sortOrder = 1000000, [CallerMemberName]string methodName = "")
         {
             Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureName, methodName);
-            return AddScenario(method, scenarioName, featureName, null);
+            return AddScenario(method, scenarioName, featureName, null, sortOrder);
         }
 
         /// <summary>
@@ -122,14 +134,43 @@ namespace xBDD.Core
         /// The name of the area to add the feature to.  Use this to override the namespace 
         /// from becoming the area name.
         /// </param>
+        /// <param name="sortOrder">Optional. Used by the test run when sorting the results
+        /// if you call SortTestRunResults on the test run. Default value is 1,000,000.</param>
         /// <returns>The scenario build for a fluent syntax.</returns>
-        public ScenarioBuilder AddScenario(string scenarioName, string featureName, string areaPath)
+        public ScenarioBuilder AddScenario(string scenarioName, string featureName, string areaPath, int sortOrder = 1000000)
         {
-            return AddScenario(null, scenarioName, featureName, areaPath);
+            return AddScenario(null, scenarioName, featureName, areaPath, sortOrder);
         }
 
-        internal ScenarioBuilder AddScenario(Method method, string scenarioName, string featureName, string areaName)
+        /// <summary>
+        /// Updates the features sort property.  Features are sorted based on the 
+        /// list of feature names you provide.  Scenarios are sorted based on thier 
+        /// sort order that you can provide when creating the scenario xB.AddScenario(this, 1 [sortOrder])
+        /// </summary>
+        /// <param name="sortedFeatureNames">The sorted list of feature names to use for sorting features.</param>
+        public void SortTestRunResults(System.String[] sortedFeatureNames)
         {
+            List<string> featureNames = new List<string>(sortedFeatureNames);
+            var featureIndex = 0;
+            featureNames.ForEach(featureName => {
+                
+                var feature = this.featureCache.GetByClassName(featureName);
+
+                if(feature != null)
+                {
+                    featureIndex++;
+                
+                    feature.Sort = featureIndex;
+                }
+
+            });
+
+            this.TestRun.Sorted = true;
+        }
+
+        internal ScenarioBuilder AddScenario(Method method, string scenarioName, string featureName, string areaName, int sortOrder)
+        {
+
             if (scenarioName == null && method != null)
                 scenarioName = method.Name.AddSpacesToSentence();
 
@@ -139,9 +180,13 @@ namespace xBDD.Core
             if (areaName == null && method != null)
                 areaName = method.GetNameSpace();
             
+            var methodName = scenarioName;
+            if(method != null)
+                methodName = method.Name;
+
             var area = areaCache.GetOrCreate(TestRun, areaName);
             var feature = featureCache.GetOrCreate(area, featureName, method);
-            return factory.CreateScenarioBuilder(scenarioName, feature);
+            return factory.CreateScenarioBuilder(scenarioName, feature, methodName, sortOrder);
         }
     }
 }

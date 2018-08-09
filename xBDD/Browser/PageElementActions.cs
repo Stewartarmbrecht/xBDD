@@ -17,15 +17,15 @@ namespace xBDD.Browser
             this.click = click;
         }
 
-        public Step HasText(string text, int waitMilliseconds = -1)
+        public Step HasText(string text, int waitMilliseconds = -1, bool captureOutput = false)
         {
             return xB.CreateAsyncStep(
-                $"{this.stepNamePrefix}{this.pageElement.Description} is visible",
+                $"{this.stepNamePrefix}{this.pageElement.Description} has text '{text}'",
                 async (s) => {
                     try {
                         await this.webBrowser.WaitTillVisible(this.pageElement, waitMilliseconds);
                         this.webBrowser.ElementHasText(this.pageElement, text);
-                        if(s.Outcome == Outcome.Failed) {
+                        if(s.Outcome == Outcome.Failed || captureOutput) {
                             s.Output = this.webBrowser.GetPageSource();
                             s.OutputFormat = TextFormat.htmlpreview;
                         }
@@ -40,7 +40,7 @@ namespace xBDD.Browser
                 }
             );
         }
-        public Step Style(string text, string match, int waitMilliseconds = -1)
+        public Step Style(string text, string match, int waitMilliseconds = -1, bool captureOutput = false)
         {
             return xB.CreateAsyncStep(
                 $"{this.stepNamePrefix}{this.pageElement.Description} is visible",
@@ -48,7 +48,7 @@ namespace xBDD.Browser
                     try {
                         await this.webBrowser.WaitTillVisible(this.pageElement, waitMilliseconds);
                         this.webBrowser.ElementStyleMatches(this.pageElement, match);
-                        if(s.Outcome == Outcome.Failed) {
+                        if(s.Outcome == Outcome.Failed || captureOutput) {
                             s.Output = this.webBrowser.GetPageSource();
                             s.OutputFormat = TextFormat.htmlpreview;
                         }
@@ -63,7 +63,7 @@ namespace xBDD.Browser
                 }
             );
         }
-        public Step HasTitleAKAHoverText(string text, int waitMilliseconds = -1)
+        public Step HasTitleAKAHoverText(string text, int waitMilliseconds = -1, bool captureOutput = false)
         {
             return xB.CreateAsyncStep(
                 $"{this.stepNamePrefix}{this.pageElement.Description} is visible",
@@ -71,7 +71,7 @@ namespace xBDD.Browser
                     try {
                         await this.webBrowser.WaitTillVisible(this.pageElement, waitMilliseconds);
                         this.webBrowser.ElementHasTitle(this.pageElement, text);
-                        if(s.Outcome == Outcome.Failed) {
+                        if(s.Outcome == Outcome.Failed || captureOutput) {
                             s.Output = this.webBrowser.GetPageSource();
                             s.OutputFormat = TextFormat.htmlpreview;
                         }
@@ -86,7 +86,7 @@ namespace xBDD.Browser
                 }
             );
         }
-        public Step IsVisible(int waitMilliseconds = -1)
+        public Step IsVisible(int waitMilliseconds = -1, bool captureOutput = false)
         {
             return xB.CreateAsyncStep(
                 $"{this.stepNamePrefix}{this.pageElement.Description} is visible",
@@ -96,7 +96,7 @@ namespace xBDD.Browser
                         if(click) {
                             this.webBrowser.Click(this.pageElement);
                         }
-                        if(s.Outcome == Outcome.Failed) {
+                        if(s.Outcome == Outcome.Failed || captureOutput) {
                             s.Output = this.webBrowser.GetPageSource();
                             s.OutputFormat = TextFormat.htmlpreview;
                         }
@@ -108,7 +108,7 @@ namespace xBDD.Browser
                 }
             );
         }
-        public Step IsNotVisible(int waitMilliseconds = -1)
+        public Step IsNotVisible(int waitMilliseconds = -1, bool captureOutput = false)
         {
             return xB.CreateAsyncStep(
                 $"{this.stepNamePrefix}{this.pageElement.Description} is not visible",
@@ -118,7 +118,7 @@ namespace xBDD.Browser
                         if(click) {
                             this.webBrowser.Click(this.pageElement);
                         }
-                        if(s.Outcome == Outcome.Failed) {
+                        if(s.Outcome == Outcome.Failed || captureOutput) {
                             s.Output = this.webBrowser.GetPageSource();
                             s.OutputFormat = TextFormat.htmlpreview;
                         }
@@ -131,14 +131,14 @@ namespace xBDD.Browser
                 }
             );
         }
-        public Step IsNotThere(int waitMilliseconds = -1)
+        public Step IsNotThere(int waitMilliseconds = -1, bool captureOutput = false)
         {
             return xB.CreateStep(
                 $"{this.stepNamePrefix}{this.pageElement.Description} is not there",
                 (s) => {
                     try {
                         this.webBrowser.ValidateNotExist(this.pageElement);
-                        if(s.Outcome == Outcome.Failed) {
+                        if(s.Outcome == Outcome.Failed || captureOutput) {
                             s.Output = this.webBrowser.GetPageSource();
                             s.OutputFormat = TextFormat.htmlpreview;
                         }

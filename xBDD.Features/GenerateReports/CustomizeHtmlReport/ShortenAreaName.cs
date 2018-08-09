@@ -27,7 +27,7 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		[TestMethod]
 		public async Task MatchesStartOfAreaName()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithASinglePassingScenario(null,null,null,"My "))
                 .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
 				.Then(you.WillSee(the.Area.Name(1)).IsVisible())
@@ -37,7 +37,7 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		[TestMethod]
 		public async Task MatchesNoneOfAreaName()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 2)
                 .Given(AnHtmlReport.WithASinglePassingScenario(null,null,null,"No Match"))
                 .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
 				.Then(you.WillSee(the.Area.Name(1)).IsVisible())
@@ -47,7 +47,7 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		[TestMethod]
 		public async Task MatchesAllOfAreaName()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 3)
                 .Given(AnHtmlReport.WithASinglePassingScenario(null,null,null,"My Area 1"))
                 .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
 				.Then(you.WillSee(the.Area.Name(1)).IsVisible())

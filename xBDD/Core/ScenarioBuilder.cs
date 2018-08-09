@@ -23,11 +23,11 @@ namespace xBDD.Core
         /// <value>Returns the scenario. <see cref="Scenario"/></value>
         public Scenario Scenario { get { return scenario; } }
 
-        internal ScenarioBuilder(string scenarioName, Feature feature, CoreFactory factory)
+        internal ScenarioBuilder(string scenarioName, Feature feature, CoreFactory factory, string methodName, int sortOrder)
         {
             this.factory = factory;
             outcomeAggregator = factory.UtilityFactory.CreateOutcomeAggregator();
-            scenario = factory.CreateScenario(scenarioName, feature);
+            scenario = factory.CreateScenario(scenarioName, feature, methodName, sortOrder);
             runner = factory.CreateScenarioRunner(scenario);
         }
 

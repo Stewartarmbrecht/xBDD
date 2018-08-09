@@ -26,7 +26,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		{
 			var output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
 			var format = TextFormat.text;
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithAStepWithOutput(output, format))
 				.When(you.NavigateTo(theHtmlReport.WithAStepWithOutput))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
@@ -41,7 +41,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		{
 			var output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
 			var format = TextFormat.text;
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 2)
                 .Given(AnHtmlReport.WithAStepWithOutput(output, format))
 				.When(you.NavigateTo(theHtmlReport.WithAStepWithOutput))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
@@ -56,39 +56,39 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task Code()
 		{
-            await xB.CurrentRun.AddScenario(this)
+            await xB.AddScenario(this, 3)
                 .Skip("Not Started");
 		}
 		
 		[TestMethod]
 		public async Task HtmlWithPreview()
 		{
-            await xB.CurrentRun.AddScenario(this)
+            await xB.AddScenario(this, 4)
                 .Skip("Not Started");
 		}
 		
 		[TestMethod]
 		public async Task Collapse()
 		{
-			 await xB.CurrentRun.AddScenario(this)
+			 await xB.AddScenario(this, 5)
 				.Skip("Not Started");
 		}
 		[TestMethod]
 		public async Task CollapseAll()
 		{
-			 await xB.CurrentRun.AddScenario(this)
+			 await xB.AddScenario(this, 6)
 				.Skip("Not Started");
 		}
 		[TestMethod]
 		public async Task Expand()
 		{
-			 await xB.CurrentRun.AddScenario(this)
+			 await xB.AddScenario(this, 7)
 				.Skip("Not Started");
 		}
 		[TestMethod]
 		public async Task ExpandAll()
 		{
-			 await xB.CurrentRun.AddScenario(this)
+			 await xB.AddScenario(this, 8)
 				.Skip("Not Started");
 		}
 	}

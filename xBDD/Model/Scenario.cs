@@ -31,6 +31,19 @@ namespace xBDD.Model
         public string Name { get; internal set; }
 
         /// <summary>
+        /// The name of the scenario test method.
+        /// If one is not provided it will match the scenario name.
+        /// </summary>
+        /// <value><see cref="String"/></value>
+        public string MethodName { get; internal set; }
+
+		/// <summary>
+		/// String value used to sort the scenario.
+		/// </summary>
+		/// <value>String value used to sort the scenario.</value>
+		public int Sort { get; set; }
+
+        /// <summary>
         /// The outcome of executing the scenario.
         /// </summary>
         /// <value><see cref="Outcome"/></value>

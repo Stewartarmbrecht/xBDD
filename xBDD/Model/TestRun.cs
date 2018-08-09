@@ -40,6 +40,12 @@ namespace xBDD.Model
 		public string Name { get; set; }
         
         /// <summary>
+        /// Indicates whether the test run has been explicitly
+        /// </summary>
+        /// <value>Boolean value indicating whether the test run has been explicitly sorted.</value>
+        public bool Sorted { get; set; }
+
+        /// <summary>
         /// Highest level outcome of the test run.
         /// </summary>
         /// <value>Passed, Failed, Skipped, or Not Run <see cref="Outcome"/></value>

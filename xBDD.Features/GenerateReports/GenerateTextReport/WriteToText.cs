@@ -18,7 +18,7 @@ namespace xBDD.Features.GenerateReports.GenerateTextReport
             outputWriter = new TestContextWriter();
         }
 
-        public async Task Run(IExecute<string> action, bool writeActual = false, [CallerMemberName]string methodName = "")
+        public async Task Run(IExecute<string> action, bool writeActual = false, int sortOrder = 0, [CallerMemberName]string methodName = "")
         {
             var actionName = action.GetType().Name;
             Wrapper<string> text = new Wrapper<string>();
@@ -26,7 +26,7 @@ namespace xBDD.Features.GenerateReports.GenerateTextReport
 			var scenarioPath = $"{seperator}GenerateReports{seperator}GenerateTextReport{seperator}WriteToTextScenarios{seperator}";
 
             await xB.CurrentRun
-                .AddScenario(this, methodName)
+                .AddScenario(this, sortOrder, methodName)
                 .SetOutputWriter(outputWriter)
                 .Given(Code.HasTheFollowingScenario(scenarioPath + actionName + ".cs"))
                 .When(Code.IsExecuted(async (s) =>
@@ -41,62 +41,62 @@ namespace xBDD.Features.GenerateReports.GenerateTextReport
         [TestMethod]
         public async Task WriteEmtpyTestRun()
         {
-            await Run(new  WriteToTextScenarios.EmptyTestRun());
+            await Run(new  WriteToTextScenarios.EmptyTestRun(), false, 1);
         }
         [TestMethod]
         public async Task WriteSkippedEmptyScenario()
         {
-            await Run(new  WriteToTextScenarios.SkippedEmptyScenario());
+            await Run(new  WriteToTextScenarios.SkippedEmptyScenario(), false, 2);
         }
         [TestMethod]
         public async Task WriteRunEmptyScenario()
         {
-            await Run(new  WriteToTextScenarios.RunEmptyScenario());
+            await Run(new  WriteToTextScenarios.RunEmptyScenario(), false, 3);
         }
         [TestMethod]
         public async Task WriteSkippedScenarioWithSteps()
         {
-            await Run(new  WriteToTextScenarios.SkippedScenarioWithSteps());
+            await Run(new  WriteToTextScenarios.SkippedScenarioWithSteps(), false, 4);
         }
         [TestMethod]
         public async Task WriteRunScenarioWithSteps()
         {
-            await Run(new  WriteToTextScenarios.RunScenarioWithSteps());
+            await Run(new  WriteToTextScenarios.RunScenarioWithSteps(), false, 5);
         }
         [TestMethod]
         public async Task WriteRunScenarioWithSkippedStep()
         {
-            await Run(new  WriteToTextScenarios.RunScenarioWithSkippedStep());
+            await Run(new  WriteToTextScenarios.RunScenarioWithSkippedStep(), false, 6);
         }
         [TestMethod]
         public async Task WriteRunScenarioWithNotImplementedStep()
         {
-            await Run(new  WriteToTextScenarios.RunScenarioWithNotImplementedStep());
+            await Run(new  WriteToTextScenarios.RunScenarioWithNotImplementedStep(), false, 7);
         }
         [TestMethod]
         public async Task WriteRunScenarioWithFailedStep()
         {
-            await Run(new  WriteToTextScenarios.RunScenarioWithFailedStep());
+            await Run(new  WriteToTextScenarios.RunScenarioWithFailedStep(), false, 8);
         }
         [TestMethod]
         public async Task WriteRunMultipleScenariosSameFeature()
         {
-            await Run(new  WriteToTextScenarios.RunMultipleScenariosSameFeature());
+            await Run(new  WriteToTextScenarios.RunMultipleScenariosSameFeature(), false, 9);
         }
         [TestMethod]
         public async Task WriteRunMultipleFeaturesSameArea()
         {
-            await Run(new  WriteToTextScenarios.RunMultipleFeaturesSameArea());
+            await Run(new  WriteToTextScenarios.RunMultipleFeaturesSameArea(), false, 10);
         }
         [TestMethod]
         public async Task WriteRunMultipleAreas()
         {
-            await Run(new  WriteToTextScenarios.RunMultipleAreas());
+            await Run(new  WriteToTextScenarios.RunMultipleAreas(), false, 11);
         }
         [TestMethod]
         public async Task WriteRunScenarioWithStepWithMultilineParameter()
         {
-            await Run(new  WriteToTextScenarios.RunScenarioWithStepWithMultilineParameter());
+            await Run(new  WriteToTextScenarios.RunScenarioWithStepWithMultilineParameter(), false, 12);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task EmptyTestRun()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithAnEmptyTestRun())
                 .When(you.NavigateTo(theHtmlReport.WithAnEmptyTestRun))
                 .Then(you.WillSee(the.TestRun.Name).IsVisible())
@@ -37,7 +37,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task PassingTestRun()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 2)
                 .Given(AnHtmlReport.WithASinglePassingScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
                 .Then(you.WillSee(the.TestRun.BadgeGreen).IsVisible())
@@ -47,7 +47,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task PassingWithSomeSkipped()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 3)
                 .Given(AnHtmlReport.WithASingleSkippedScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASingleSkippedScenario))
                 .Then(you.WillSee(the.TestRun.BadgeYellow).IsVisible())
@@ -57,7 +57,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task Failing()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 4)
                 .Given(AnHtmlReport.WithASingleFailedScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
                 .Then(you.WillSee(the.TestRun.BadgeRed).IsVisible())

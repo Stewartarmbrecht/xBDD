@@ -32,6 +32,14 @@ namespace xBDD.Features.Pages.HtmlReportPage
             "the test html report with an empty test run", 
             $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithAnEmptyTestRun.html");
 
+        public PageLocation ThatIsNotSorted => new PageLocation(
+            "the sample test html report that is not sorted", 
+            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsThatIsNotSorted.html");
+
+        public PageLocation ThatIsSorted => new PageLocation(
+            "the sample test html report that is sorted", 
+            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsThatIsSorted.html");
+
         private string location;
         private string directory; 
         public ReportLocations()

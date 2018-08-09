@@ -26,7 +26,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Passing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithASinglePassingScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
@@ -39,7 +39,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Skipped()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 2)
                 .Given(AnHtmlReport.WithASingleSkippedScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASingleSkippedScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
@@ -52,7 +52,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Failing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this, 3)
                 .Given(AnHtmlReport.WithASingleFailedScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
 				.Then(you.WillSee(the.Feature.BadgeRed(1)).IsVisible())

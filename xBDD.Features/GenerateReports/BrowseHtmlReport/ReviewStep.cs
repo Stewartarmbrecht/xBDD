@@ -28,7 +28,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Passing()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithASinglePassingScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
@@ -41,7 +41,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task Skipped()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 2)
                 .Given(AnHtmlReport.WithASingleSkippedScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASingleSkippedScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
@@ -54,7 +54,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task Failing()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 3)
                 .Given(AnHtmlReport.WithASingleFailedScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
 				.Then(you.WillSee(the.Step.BadgeRed(2)).IsVisible().Because("the report will be expanded to the failed step"))
@@ -63,7 +63,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task WithException()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 4)
                 .Given(AnHtmlReport.WithAFailingStepWithAnException())
                 .When(you.NavigateTo(theHtmlReport.WithAFailingStepWithAnException))
 				.Then(you.WillSee(the.StepException.Section(2)).IsVisible())
@@ -75,7 +75,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task WithInnerException()
 		{
-            await xB.AddScenario(this)
+            await xB.AddScenario(this, 5)
                 .Given(AnHtmlReport.WithAFailingStepWithANestedException())
                 .When(you.NavigateTo(theHtmlReport.WithAFailingStepWithANestedException))
 				.Then(you.WillSee(the.StepException.InnerException(2)).IsVisible())

@@ -27,7 +27,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task FailedSkippedAndPassingAreaStats()
 		{
-            await xB.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
 				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
 				.Then(you.WillSee(the.TestRunAreaStats.Section).IsVisible())
@@ -45,7 +45,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task FailedSkippedAndPassingFeatureStats()
 		{
-            await xB.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this, 2)
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
 				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
 				.Then(you.WillSee(the.TestRunFeatureStats.Section).IsVisible())
@@ -61,7 +61,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task FailedSkippedAndPassingScenarioStats()
 		{
-            await xB.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this, 3)
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
 				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
 				.Then(you.WillSee(the.TestRunScenarioStats.Section).IsVisible())
@@ -77,7 +77,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task AreaStatsNoAreas()
 		{
-            await xB.CurrentRun.AddScenario(this)
+            await xB.CurrentRun.AddScenario(this, 4)
                 .Given(AnHtmlReport.WithAnEmptyTestRun())
 				.When(you.NavigateTo(theHtmlReport.WithAnEmptyTestRun))
 				.Then(you.WillSee(the.TestRunAreaStats.Section).IsVisible())

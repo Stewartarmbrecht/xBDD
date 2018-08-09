@@ -83,12 +83,14 @@
         /// Usually just pass in 'this'.  The test class represents the feature.ß
         /// </param>
         /// <param name="methodName">Optional. The system will attempt to get the method name of the scenario through reflection.</param>
+        /// <param name="sortOrder">Optional. Used by the test run when sorting the results
+        /// if you call SortTestRunResults on the test run. Default value is 1,000,000.</param>
         /// <returns>The scenario build for a fluent syntax.</returns>
-        public static ScenarioBuilder AddScenario(IFeature featureClass, [CallerMemberName]string methodName = "")
+        public static ScenarioBuilder AddScenario(IFeature featureClass, int sortOrder = 1000000, [CallerMemberName]string methodName = "")
         {
             xB.CurrentRun.TestRunInitializer.InitializeTestRun(featureClass, xB.CurrentRun.TestRun);
             Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
-            var scenarioBuilder = xB.CurrentRun.AddScenario(method, null, null, null);
+            var scenarioBuilder = xB.CurrentRun.AddScenario(method, null, null, null, sortOrder);
             scenarioBuilder.SetOutputWriter(featureClass.OutputWriter);
             return scenarioBuilder;
         }
@@ -104,12 +106,14 @@
         /// Usually just pass in 'this'.  The test class represents the feature.ß
         /// </param>
         /// <param name="methodName">Optional. The system will attempt to get the method name of the scenario through reflection.</param>
+        /// <param name="sortOrder">Optional. Used by the test run when sorting the results
+        /// if you call SortTestRunResults on the test run. Default value is 1,000,000.</param>
         /// <returns>The scenario build for a fluent syntax.</returns>
-        public static ScenarioBuilder AddScenario(object featureClass, [CallerMemberName]string methodName = "")
+        public static ScenarioBuilder AddScenario(object featureClass, int sortOrder = 0, [CallerMemberName]string methodName = "")
         {
             xB.CurrentRun.TestRunInitializer.InitializeTestRun(featureClass, xB.CurrentRun.TestRun);
             Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
-            return xB.CurrentRun.AddScenario(method, null, null, null);
+            return xB.CurrentRun.AddScenario(method, null, null, null, sortOrder);
         }
 
         static void EnsureFactory()
