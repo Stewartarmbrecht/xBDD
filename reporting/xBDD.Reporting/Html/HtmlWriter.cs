@@ -400,12 +400,7 @@ namespace xBDD.Reporting.Html
         {
             if(scenario.Feature.Actor != null || scenario.Feature.Value != null || scenario.Feature.Capability != null)
             {
-                var statement = "";
-                if(scenario.Outcome == Outcome.Passed) {
-                    statement = $"As a {scenario.Feature.Actor??"[Missing!]"}{System.Environment.NewLine}You can {scenario.Feature.Value??"[Missing!]"}{System.Environment.NewLine}By {scenario.Feature.Capability??"[Missing!]"}";
-                } else {
-                    statement = $"As a {scenario.Feature.Actor??"[Missing!]"}{System.Environment.NewLine}In order to {scenario.Feature.Value??"[Missing!]"}{System.Environment.NewLine}I would like to {scenario.Feature.Value??"[Missing!]"}";
-                }
+                var statement = $"As a {scenario.Feature.Actor??"[Missing!]"}{System.Environment.NewLine}You can {scenario.Feature.Value??"[Missing!]"}{System.Environment.NewLine}By {scenario.Feature.Capability??"[Missing!]"}";
                 WriteTag("pre", sb, 5, "feature-statement bg-light rounded", statement, true, $"feature-{featureCounter}-statement");
             }
         }
