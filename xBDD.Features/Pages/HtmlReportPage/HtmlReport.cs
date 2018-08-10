@@ -9,6 +9,7 @@ namespace xBDD.Features.Pages.HtmlReportPage
         public FeatureScenarioStats FeatureScenarioStats = new FeatureScenarioStats();
         public Menu Menu = new Menu();
         public Output Output = new Output();
+        public Input Input = new Input();
         public Scenario Scenario = new Scenario();
         public ScenarioStepStats ScenarioStepStats = new ScenarioStepStats();
         public Step Step = new Step();

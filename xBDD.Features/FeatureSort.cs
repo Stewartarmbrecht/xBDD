@@ -10,9 +10,10 @@ namespace xBDD.Features
         {
             List<string> SortedFeatureNames = new List<string>() {
                 typeof(xBDD.Features.GettingStarted.InstallingTheFramework).FullName,
-                typeof(xBDD.Features.GettingStarted.DefineABasicScenario).FullName,
+                typeof(xBDD.Features.GettingStarted.ExecutingYourFirstScenario).FullName,
                 typeof(xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps).FullName,
                 typeof(xBDD.Features.GettingStarted.DefineADocumentationScenario).FullName,
+                typeof(xBDD.Features.GettingStarted.FindingThexBDDProjectSite).FullName,
                 typeof(xBDD.Features.GenerateReports.GenerateHtmlReport.WriteToHtml).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewTestRun).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewTestRunStats).FullName,
@@ -27,6 +28,7 @@ namespace xBDD.Features
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewScenarioStats).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewStep).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewStepException).FullName,
+                typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewStepMultilineParameter).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewStepOutput).FullName,
                 typeof(xBDD.Features.GenerateReports.CustomizeHtmlReport.WriteFailuresOnly).FullName,
                 typeof(xBDD.Features.GenerateReports.CustomizeHtmlReport.ShortenAreaName).FullName,

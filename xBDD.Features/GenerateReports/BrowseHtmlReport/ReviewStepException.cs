@@ -21,10 +21,25 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 			outputWriter = new TestContextWriter();
 		}
 		[TestMethod]
+		public async Task CollapsedByDefault()
+		{
+            await xB.AddScenario(this, 1)
+                .Given(AnHtmlReport.WithAFailingStepWithAnException())
+				.When(you.NavigateTo(theHtmlReport.WithAFailingStepWithAnException))
+				.Then(you.WillSee(the.StepException.Message(2)).IsNotVisible().Because("the exception is collapsed by default."))
+                .Run();
+		}
+		
+		
+		[TestMethod]
 		public async Task Collapse()
 		{
-			 await xB.CurrentRun.AddScenario(this, 1)
-				.Skip("Not Started");
+            await xB.AddScenario(this, 1)
+                .Given(AnHtmlReport.WithAFailingStepWithAnException())
+				.And(you.NavigateTo(theHtmlReport.WithAFailingStepWithAnException))
+				.When(you.ClickWhen(the.StepException.Link(2)).IsVisible())
+				.Then(you.WillSee(the.StepException.Section(2)).IsVisible())
+                .Run();
 		}
 		[TestMethod]
 		public async Task CollapseAll()

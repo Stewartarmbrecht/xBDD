@@ -388,23 +388,29 @@ namespace xBDD.Reporting.Html
             //WriteTag("small", sb, 6,null, "Feature", true);
             WriteTag("span", sb, 6, $"badge pointer total {badgetClassName}", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, $"{badgeAttributes} title=\"Scenarios\"");
             WriteTag("span", sb, 6, "name pointer", scenario.Feature.Name.HtmlEncode(), true, null, null, titleAttributes);
+            if (scenario.Feature.Actor != null || scenario.Feature.Value != null || scenario.Feature.Capability != null)
+            {
+                sb.Append($"<a class=\"feature-statement-link\" id=\"feature-{featureCounter}-statement-link\" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-statement\" aria-expanded=\"false\" aria-controls=\"feature-{featureCounter}-statement\">[Description]</a>");
+            }
             WriteTagClose("h3", sb, 5);
 
             WriteStatsTableStart(sb, 5, "feature-"+featureCounter+"-stats");
             WriteStats(sb, scenario.Feature.ScenarioStats, 5, "feature-"+featureCounter+"-scenario-stats", "Scenarios");
             WriteStatsTableClose(sb, 5);
             
-            WriteFeatureStatement(scenario, sb);
+            WriteFeatureStatement(scenario, sb, featureCounter);
 
             var scenariosClassName = "scenarios list-unstyled collapse" + (expanded ? " show" : "");
             WriteTagOpen("ol", sb, 5, scenariosClassName, false, "feature-" + featureCounter + "-scenarios", borderStyle, $" aria-expanded=\"{expandedText}\"");
         }
-        void WriteFeatureStatement(Scenario scenario, StringBuilder sb)
+        void WriteFeatureStatement(Scenario scenario, StringBuilder sb, int featureNumber)
         {
             if(scenario.Feature.Actor != null || scenario.Feature.Value != null || scenario.Feature.Capability != null)
             {
+                WriteTagOpen("div", sb, 5, "output collapse", false, "feature-" + featureNumber + "-statement", null, " aria-expanded=\"false\"");
                 var statement = $"As a {scenario.Feature.Actor??"[Missing!]"}{System.Environment.NewLine}You can {scenario.Feature.Value??"[Missing!]"}{System.Environment.NewLine}By {scenario.Feature.Capability??"[Missing!]"}";
-                WriteTag("pre", sb, 5, "feature-statement bg-light rounded", statement, true, $"feature-{featureCounter}-statement");
+                WriteTag("pre", sb, 6, "feature-statement bg-light rounded", statement, true, $"feature-{featureCounter}-statement");
+                WriteTagClose("div", sb, 0);
             }
         }
         void WriteFeatureClose(StringBuilder sb)
@@ -516,6 +522,11 @@ namespace xBDD.Reporting.Html
             WriteTag("span", sb, 8, $"badge pointer total badge-pill {badgeClassName}", " ", true, null, null, null);
             WriteTag("span", sb, 0, "name", step.FullName.HtmlEncode(), true);
             
+            if (!String.IsNullOrEmpty(step.MultilineParameter))
+            {
+                sb.Append(String.Format("<a class=\"step-input-link\" data-toggle=\"collapse\" href=\"#step-{0}-input\" aria-expanded=\"false\" aria-controls=\"step-{0}-input\">[Input]</a>", stepNumber));
+            }
+            
             if (!String.IsNullOrEmpty(step.Output))
             {
                 sb.Append(String.Format("<a class=\"step-output-link\" data-toggle=\"collapse\" href=\"#step-{0}-output\" aria-expanded=\"false\" aria-controls=\"step-{0}-output\">[Output]</a>", stepNumber));
@@ -523,15 +534,21 @@ namespace xBDD.Reporting.Html
             
             if (step.Scenario.Outcome == Outcome.Failed && step.Outcome != Outcome.Passed)
             {
-                WriteTagOpen("span", sb, 0, "status", true);
-                sb.Append("[");
-                sb.Append(Enum.GetName(typeof(Outcome), step.Outcome));
-                if (step.Reason != null && (step.Outcome != Outcome.Failed || step.Reason == "Not Implemented"))
+                if(step.Exception != null)
                 {
-                    sb.Append(" - ");
-                    sb.Append(step.Reason.HtmlEncode());
+                    sb.Append($"<a class=\"step-error-link\" data-toggle=\"collapse\" href=\"#step-{stepNumber}-error\" aria-expanded=\"false\" aria-controls=\"step-{stepNumber}-error\">[Error!]</a>");
+                } else 
+                {
+                    WriteTagOpen("span", sb, 0, "status", true);
+                    sb.Append("[");
+                    sb.Append(Enum.GetName(typeof(Outcome), step.Outcome));
+                    if (step.Reason != null && (step.Outcome != Outcome.Failed || step.Reason == "Not Implemented"))
+                    {
+                        sb.Append(" - ");
+                        sb.Append(step.Reason.HtmlEncode());
+                    }
+                    sb.Append("]");
                 }
-                sb.Append("]");
                 WriteTagClose("span", sb, 0);
             }
 
@@ -541,7 +558,7 @@ namespace xBDD.Reporting.Html
                 WriteMultilineParameter(step, sb, stepNumber);
             }
             if (step.Exception != null && !(step.Exception is NotImplementedException) && step.Outcome != Outcome.Skipped)
-                WriteException(step.Exception, sb);
+                WriteException(step.Exception, sb, 0, stepNumber);
 
             if (!String.IsNullOrEmpty(step.Output))
             {
@@ -549,8 +566,12 @@ namespace xBDD.Reporting.Html
             }
             WriteTagClose("li", sb, 8);
         }
-        void WriteException(Exception exception, StringBuilder sb, int level = 0)
+        void WriteException(Exception exception, StringBuilder sb, int level, int stepNumber, bool innerException = false)
         {
+            if(!innerException)
+            {
+                WriteTagOpen("div", sb, 9, "error collapse", false, "step-" + stepNumber + "-error", null, " aria-expanded=\"false\"");
+            }
             WriteTagOpen("dl", sb, 9 + level, "exception dl-horizontal border border-danger rounded", false);
             WriteTag("dt", sb, 10 + level, null, "Error Type", true);
             WriteTag("dd", sb, 10 + level, "error-type", exception.GetType().Name.HtmlEncode(), true);
@@ -562,13 +583,18 @@ namespace xBDD.Reporting.Html
             {
                 WriteTag("dt", sb, 10 + level, null, "Inner Exception", true);
                 WriteTagOpen("dd", sb, 10 + level, "inner-exception", true);
-                WriteException(exception.InnerException, sb,  level++);
+                WriteException(exception.InnerException, sb,  level++, stepNumber, true);
                 WriteTagClose("dd", sb, 10 + level);
             }
             WriteTagClose("dl", sb, 9 + level);
+            if(!innerException)
+            {
+                WriteTagClose("div", sb, 0);
+            }
         }
         void WriteMultilineParameter(Step step, StringBuilder sb, int stepNumber)
         {
+            WriteTagOpen("div", sb, 9, "input collapse", false, "step-" + stepNumber + "-input", null, " aria-expanded=\"false\"");
             if(step.MultilineParameterFormat == TextFormat.htmlpreview)
             {
                 WriteMultilineParameterWithHtmlPreview(step, sb, stepNumber);
@@ -582,12 +608,11 @@ namespace xBDD.Reporting.Html
                     if (step.MultilineParameterFormat != TextFormat.code)
                         className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.MultilineParameterFormat);
                 }
-                WriteTagOpen("div", sb, 9, "mp", true);
-                WriteTagOpen("pre", sb, 10, className, true);
+                WriteTagOpen("pre", sb, 10, className, true, $"input-{stepNumber}");
                 sb.Append(step.MultilineParameter.HtmlEncode());
-                WriteTagClose("pre", sb, 10);
-                WriteTagClose("div", sb, 0);
+                WriteTagClose("pre", sb, 0);
             }
+            WriteTagClose("div", sb, 0);
         }
 
         void WriteMultilineParameterWithHtmlPreview(Step step, StringBuilder sb, int stepNumber)

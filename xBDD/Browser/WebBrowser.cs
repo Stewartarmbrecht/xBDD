@@ -53,16 +53,16 @@ namespace xBDD.Browser
             sw.Start();
             IWebElement webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
             if (webElement == null)
-                throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
+                throw new Exception($"The web element ({element.Description} - {element.Selector}) was not found.");
             else
             {
                 var foundText = webElement.Text;
                 if(foundText.CompareTo(text) != 0)
-                throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") did not have text '" + text + "' it was '" + foundText + "'.");
+                throw new Exception($"The web element ({element.Description} - {element.Selector}) did not have text '{text}' it was '{foundText}'.");
                 
             }
             sw.Stop();
-            System.Diagnostics.Trace.WriteLine("        ElementHasText (" + sw.ElapsedMilliseconds.ToString() + "ms): " + text);
+            System.Diagnostics.Trace.WriteLine($"        ElementHasText ({sw.ElapsedMilliseconds.ToString()}ms): {text}");
         }
 
         public void ElementStyleMatches(PageElement element, string styleRegEx)
@@ -242,6 +242,21 @@ namespace xBDD.Browser
             webElement.Click();
             sw.Stop();
             System.Diagnostics.Trace.WriteLine("        Click (" + sw.ElapsedMilliseconds.ToString() + "ms): " + element.Selector);
+        }
+        /// <summary>
+        /// Sends keys (enters text) to the provided page element
+        /// using the text you provide.
+        /// </summary>
+        /// <param name="element">The element you want to send the keys to.</param>
+        /// <param name="text">The text you want to send.</param>
+        public void SendKeys(PageElement element, string text)
+        {
+            var sw = new System.Diagnostics.Stopwatch();  
+            sw.Start();
+            IWebElement webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
+            webElement.SendKeys(text);
+            sw.Stop();
+            System.Diagnostics.Trace.WriteLine($"        SendKeys '{text}' ({sw.ElapsedMilliseconds.ToString()}ms): {element.Selector}");
         }
     }
 }

@@ -55,7 +55,9 @@ namespace xBDD.Browser
 			{
 				var sw = new System.Diagnostics.Stopwatch();
 				sw.Start();
+				webDriver.Close();
 				webDriver.Quit();
+				webDriver.Dispose();
 				sw.Stop();
 				System.Diagnostics.Trace.WriteLine("        Closed ChromeDriver (" + sw.ElapsedMilliseconds.ToString() + "ms)");
 			}

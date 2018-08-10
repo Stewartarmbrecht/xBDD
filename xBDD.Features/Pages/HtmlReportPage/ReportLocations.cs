@@ -40,6 +40,10 @@ namespace xBDD.Features.Pages.HtmlReportPage
             "the sample test html report that is sorted", 
             $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsThatIsSorted.html");
 
+        public PageLocation WithAStepWithAMultilineParameter => new PageLocation(
+            "the sample test html report with a step with a multiline parameter", 
+            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithAStepWithAMultilineParameter.html");
+
         private string location;
         private string directory; 
         public ReportLocations()

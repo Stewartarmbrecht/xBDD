@@ -28,8 +28,8 @@ namespace xBDD.Features.GenerateReports.GenerateTextReport
             await xB.CurrentRun
                 .AddScenario(this, sortOrder, methodName)
                 .SetOutputWriter(outputWriter)
-                .Given(Code.HasTheFollowingScenario(scenarioPath + actionName + ".cs"))
-                .When(Code.IsExecuted(async (s) =>
+                .Given(You.CodeTheFollowingMSTestFeatureDefinition(scenarioPath + actionName + ".cs"))
+                .When(You.IsExecuted(async (s) =>
                 {
                     text.Object = await action.Execute();
                 }))

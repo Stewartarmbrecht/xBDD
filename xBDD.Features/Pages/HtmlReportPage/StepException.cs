@@ -4,6 +4,11 @@ namespace xBDD.Features.Pages.HtmlReportPage
 {
     public class StepException
     {
+        public PageElement Link(int stepNumber)
+        {
+            return new PageElement("step error link", "#step-" + stepNumber + " a.step-error-link");
+        }
+
         public PageElement Section(int stepNumber)
         {
             return  new PageElement("exception", "#step-" + stepNumber + " dl.exception");

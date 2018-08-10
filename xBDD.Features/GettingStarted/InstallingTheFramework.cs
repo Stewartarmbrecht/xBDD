@@ -24,12 +24,9 @@ namespace xBDD.Features.GettingStarted
 		public async Task IfYouUseAnMSTestProject()
 		{
 			await xB.AddScenario(this, 1)
-				.Given("you create an MSTest project by following the directions here:",
-					(s) => {}, "https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest")
-				.And("you execute the following commands:", (s) => {}, "dotnet add package xBDD", TextFormat.sh)
-				.And("you install the xBDD nuget package by executing:", (s) => {}, "dotnet add package xBDD", TextFormat.sh)
-				.And("you modify the default test class to look like:", (s) => {}, "...add code.", TextFormat.cs)
-				.When("you run the test project using:",null,"dotnet test -v n", TextFormat.sh)
+				.Then("you create an MSTest project by following the directions here: https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest",
+					(s) => {})
+				.And("you can install xBDD by executing:", (s) => {}, "dotnet add package xBDD", TextFormat.sh)
 				.Document();
 		}
 		[TestMethod]

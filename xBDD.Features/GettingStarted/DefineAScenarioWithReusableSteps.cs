@@ -49,7 +49,7 @@ namespace xBDD.Features.GettingStarted
             await xB.CurrentRun
                 .AddScenario(this, 1)
                 .SetOutputWriter(outputWriter)
-                .Given(Code.HasTheFollowingScenario(scenarioPath))
+                .Given(You.CodeTheFollowingMSTestFeatureDefinition(scenarioPath))
                 .When("the scenario is executed", (s) =>
                 {
 					var currentTestRun = xB.CurrentRun;
@@ -96,7 +96,7 @@ namespace xBDD.Features.GettingStarted
             await xB.CurrentRun
                 .AddScenario(this, 2)
                 .SetOutputWriter(outputWriter)
-                .Given(Code.HasTheFollowingScenario(scenarioPath))
+                .Given(You.CodeTheFollowingMSTestFeatureDefinition(scenarioPath))
                 .WhenAsync("the scenario is excuted", async (s) =>
                 {
 					var currentTestRun = xB.CurrentRun;

@@ -48,7 +48,7 @@ namespace xBDD.Features.GettingStarted
 
 			var testRunBuilder = new xBDD.Core.CoreFactory().CreateTestRunBuilder(null);
             await xB.AddScenario(this, 1)
-                .Given(Code.HasTheFollowingScenario(scenarioPath))
+                .Given(You.CodeTheFollowingMSTestFeatureDefinition(scenarioPath))
                 .When("the scenario is executed", (s) =>
                 {
 					var currentTestRun = xB.CurrentRun;

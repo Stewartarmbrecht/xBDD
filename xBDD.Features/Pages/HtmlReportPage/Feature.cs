@@ -36,5 +36,9 @@ namespace xBDD.Features.Pages.HtmlReportPage
         {
             return new PageElement("the feature " + featureNumber + " statement", "#feature-" + featureNumber + "-statement");   
         }
+        internal PageElement StatementLink(int featureNumber)
+        {
+            return new PageElement("the feature " + featureNumber + " statement link", "#feature-" + featureNumber + "-statement-link");   
+        }
     }
 }

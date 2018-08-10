@@ -194,7 +194,7 @@ namespace xBDD.Features.Steps
                     await xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 1")
                         .Given("my step 1", (s2) => { 
                             s2.Output = output;
-                            s2.OutputFormat = TextFormat.text; 
+                            s2.OutputFormat = format; 
                         })
                         .When("my step 2", (s2) => {
                             
@@ -205,6 +205,32 @@ namespace xBDD.Features.Steps
                     File.WriteAllText(path, htmlReport);
                 },
                 output,
+                format);
+            return step;
+        }
+
+        internal static Step WithAStepWithAMultilineParameter(string input, TextFormat format)
+        {
+            string path = GetReportPath("WithAStepWithAMultilineParameter");
+
+            var step = xB.CreateAsyncStep(
+                $"the test results of a step with a {Enum.GetName(typeof(TextFormat), format)} formated multiline parameter of",
+                async (s) =>
+                {
+                    var xBDD = new xBDDMock();
+                    xBDD.CurrentRun.TestRun.Name = "My Test Run";
+                    await xBDD.CurrentRun.AddScenario("My Scenario 1", "My Feature 1", "My Area 1")
+                        .Given("my step 1", (s2) => { 
+                        }, input, format)
+                        .When("my step 2", (s2) => {
+                            
+                         })
+                        .Then("my step 3", (s2) => { })
+                        .Run();
+                    var htmlReport = await xBDD.CurrentRun.TestRun.WriteToHtml();
+                    File.WriteAllText(path, htmlReport);
+                },
+                input,
                 format);
             return step;
         }

@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 using xBDD;
+using xBDD.Browser;
 
 [assembly: TestRunName("xBDD Features")]
 
@@ -13,12 +14,13 @@ namespace xBDD.Features
         [AssemblyInitialize]
         public static void TestRunStart(TestContext context)
         {
-            //System.Environment.SetEnvironmentVariable("xBDD:Browser:Watch","true");
-            System.Environment.SetEnvironmentVariable("xBDD:Browser:Watch","false");
+            System.Environment.SetEnvironmentVariable("xBDD:Browser:Watch","true");
+            //System.Environment.SetEnvironmentVariable("xBDD:Browser:Watch","false");
         }
         [AssemblyCleanup()]
         public async static Task TestRunComplete()
         {
+            WebDriver.Close();
             await xBDD.Features.TestPublisher.PublishResults("xBDD - Features - ");
         }
     }
