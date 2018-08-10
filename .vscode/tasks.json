@@ -25,6 +25,22 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "test-watch",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "xBDD:Browser:Watch": "true"
+                }
+            },
+            "args": [
+                "${workspaceFolder}/scripts/test.ps1"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "test-failures-only",
             "group": "test",
             "command": "pwsh",
