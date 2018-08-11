@@ -42,7 +42,7 @@ namespace xBDD.Reporting.Html
             sb.AppendLine("    <meta charset=\"utf-8\" />");
             sb.AppendLine("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />");
             WriteTag("title", sb, 1, null, testRun.Name.HtmlEncode(), true);
-            //sb.AppendLine("    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/yeti/bootstrap.min.css\" integrity=\"sha384-y+fLJ0LEudr90hGVs3z3qJscIwBcKSNqDD1DU3CbG6LeKR5pFk7023EUU2cSRsOa\" crossorigin=\"anonymous\">");
+            sb.AppendLine("    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css\" integrity=\"sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=\" crossorigin=\"anonymous\" />");
             sb.AppendLine("    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\">");
             WriteStyles(sb);
             sb.AppendLine("</head>");
@@ -50,7 +50,12 @@ namespace xBDD.Reporting.Html
 
         private void WriteStyles(StringBuilder sb)
         {
+
             sb.Append("    <style>");
+            sb.Append(" span.area.badge { width: 2rem }");
+            sb.Append(" span.feature.badge { width: 2rem }");
+            sb.Append(" span.scenario.badge { width: 2rem }");
+            sb.Append(" span.oi.oi-info { font-size: 80% }");
             sb.Append(" ol { margin-left: 2.25rem; }");
             sb.Append(" span.badge { margin-left: .25rem; }");
             sb.Append(" span.name { margin-left: .75rem; }");
@@ -160,7 +165,7 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("h1", sb, 2, cssClass, true);
             //WriteTag("small", sb, 2, null, "Test Run", true);
             //sb.Append("<br/>");
-            WriteTag("span", sb, 0, $"badge pointer badget-pill total {badgeClass}", testRun.AreaStats.Total.ToString(), true, null, null, " title=\"Areas\"");
+            WriteTag("span", sb, 0, $"testrun badge pointer badget-pill total {badgeClass}", testRun.AreaStats.Total.ToString(), true, null, null, " title=\"Areas\"");
             WriteTag("span", sb, 0, "name", testRun.Name.HtmlEncode(), true);
             WriteTagClose("h1", sb, 2);
             WriteTagClose("div", sb, 1);
@@ -326,7 +331,7 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("h2", sb, 3, className, true, null, null, null);
             //WriteTag("small", sb, 4, null, "Area", true);
 
-            WriteTag("span", sb, 4, $"badge pointer total {badgeClassName}", scenario.Feature.Area.FeatureStats.Total.ToString(), true, $"area-{areaCounter}-badge", null, $"{areaBadgeAttributes} title=\"Features\"");
+            WriteTag("span", sb, 4, $"area badge pointer total {badgeClassName}", scenario.Feature.Area.FeatureStats.Total.ToString(), true, $"area-{areaCounter}-badge", null, $"{areaBadgeAttributes} title=\"Features\"");
             var areaName = scenario.Feature.Area.Name;
             if(this.areaNameSkip != null && this.areaNameSkip.Length > 0) {
                 areaName = areaName.Replace(this.areaNameSkip, "");
@@ -386,12 +391,12 @@ namespace xBDD.Reporting.Html
             var badgeAttributes = $" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-stats\" aria-expanded=\"false\" aria-controls=\"feature-{featureCounter}-stats\" ";
             WriteTagOpen("h3", sb, 5, null, true, "vertical-align: top !important;", null, null);
             //WriteTag("small", sb, 6,null, "Feature", true);
-            WriteTag("span", sb, 6, $"badge pointer total {badgetClassName}", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, $"{badgeAttributes} title=\"Scenarios\"");
-            WriteTag("span", sb, 6, "name pointer", scenario.Feature.Name.HtmlEncode(), true, null, null, titleAttributes);
+            WriteTag("span", sb, 6, $"feature badge pointer total {badgetClassName}", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, $"{badgeAttributes} title=\"Scenarios\"");
             if (scenario.Feature.Actor != null || scenario.Feature.Value != null || scenario.Feature.Capability != null)
             {
-                sb.Append($"<a class=\"feature-statement-link\" id=\"feature-{featureCounter}-statement-link\" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-statement\" aria-expanded=\"false\" aria-controls=\"feature-{featureCounter}-statement\">[Description]</a>");
+                sb.Append($"<span class=\"feature-statement-link badge badge-secondary\" id=\"feature-{featureCounter}-statement-link\" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-statement\" aria-expanded=\"false\" aria-controls=\"feature-{featureCounter}-statement\"><span class=\"oi oi-info\" aria-hidden=\"true\"></span></span>");
             }
+            WriteTag("span", sb, 6, "name pointer", scenario.Feature.Name.HtmlEncode(), true, null, null, titleAttributes);
             WriteTagClose("h3", sb, 5);
 
             WriteStatsTableStart(sb, 5, "feature-"+featureCounter+"-stats");
@@ -447,7 +452,7 @@ namespace xBDD.Reporting.Html
             var titleAttributes = $" data-toggle=\"collapse\" href=\"#scenario-{scenarioCounter}-steps\" aria-expanded=\"{expandedText}\" aria-controls=\"scenario-{scenarioCounter}-steps\" ";
             WriteTagOpen("h4", sb, 7, "panel-heading", true, null, null, titleAttributes);
 
-            WriteTag("span", sb, 8, $"badge pointer total {badgeClassName}", scenario.StepStats.Total.ToString(), true, null, null, " title=\"Steps\"");
+            WriteTag("span", sb, 8, $"scenario badge pointer total {badgeClassName}", scenario.StepStats.Total.ToString(), true, null, null, " title=\"Steps\"");
 
             WriteTag("span", sb, 0, "name pointer", scenario.Name.HtmlEncode(), true);
 
@@ -519,7 +524,7 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("li", sb, 8, null, false, "step-" + stepNumber);
 
             WriteTagOpen("h5", sb, 9, null, true);
-            WriteTag("span", sb, 8, $"badge pointer total badge-pill {badgeClassName}", " ", true, null, null, null);
+            WriteTag("span", sb, 8, $"step badge pointer total badge-pill {badgeClassName}", " ", true, null, null, null);
             WriteTag("span", sb, 0, "name", step.FullName.HtmlEncode(), true);
             
             if (!String.IsNullOrEmpty(step.MultilineParameter))

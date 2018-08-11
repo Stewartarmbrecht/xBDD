@@ -14,8 +14,8 @@ namespace xBDD.Features
         [AssemblyInitialize]
         public static void TestRunStart(TestContext context)
         {
-            System.Environment.SetEnvironmentVariable("xBDD:Browser:Watch","true");
-            //System.Environment.SetEnvironmentVariable("xBDD:Browser:Watch","false");
+            //System.Environment.SetEnvironmentVariable("xBDD:Browser:Watch","true");
+            System.Environment.SetEnvironmentVariable("xBDD:Browser:Watch","false");
         }
         [AssemblyCleanup()]
         public async static Task TestRunComplete()
