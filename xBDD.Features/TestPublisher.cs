@@ -11,8 +11,8 @@ namespace xBDD.Features
     {
         public async static Task PublishResults(string skipAreaName)
         {
-            if(TestConfiguration.Publish)
-            {
+            //if(TestConfiguration.Publish)
+            //{
                 //Logger.LogMessage("Writing Results to the database.");
                 //xB.CurrentRun.TestRun.SaveToDatabase(TestConfiguration.DatabaseConnectionString);
                 //Logger.LogMessage(TestConfiguration.xBDDPublishURL);
@@ -37,7 +37,7 @@ namespace xBDD.Features
                 Logger.LogMessage("Writing Text Report to " + textPath);
                 var textReport = await xB.CurrentRun.TestRun.WriteToText();
                 File.WriteAllText(textPath, textReport);
-            }
+            //}
         }
     }
 }

@@ -56,7 +56,7 @@ namespace xBDD.Browser
         public Step In(PageElement pageElement, int waitTillVisibleMilliseconds = -1, bool captureOutput = false)
         {
             return xB.CreateAsyncStep(
-                $"you enter the text {this.text} into the {pageElement.Description} input",
+                $"you enter the text '{this.text[0]}' into the {pageElement.Description} input",
                 async (s) => {
                     try {
                         await this.browser.WaitTillVisible(pageElement, waitTillVisibleMilliseconds);

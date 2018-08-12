@@ -78,6 +78,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" .area-percent-bar { background-color: #A4DEFB; }");
             sb.Append(" .pointer { cursor: pointer }");
             sb.Append(" pre.mp { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thin; }");
+            sb.Append(" pre.output { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thins; }");
             sb.AppendLine("</style>");  
         }
 
@@ -622,7 +623,7 @@ namespace xBDD.Reporting.Html
 
         void WriteMultilineParameterWithHtmlPreview(Step step, StringBuilder sb, int stepNumber)
         {
-            var html = @"                                    <div class=""mp"">
+            var html = @"                                    <div class=""mp rounded"">
                                         <ul class=""nav nav-tabs"" role=""tablist"">
                                             <li role=""presentation"" class=""active""><a href=""#preview{0}"" aria-controls=""preview{0}"" role=""tab"" data-toggle=""tab"">Preview</a></li>
                                             <li role=""presentation""><a href=""#code{0}"" aria-controls=""code{0}"" role=""tab"" data-toggle=""tab"">Code</a></li>
@@ -664,10 +665,10 @@ namespace xBDD.Reporting.Html
             }
             else
             {
-                var className = "text";
+                var className = "output rounded text";
                 if (step.OutputFormat != TextFormat.text)
                 {
-                    className = Enum.GetName(typeof(TextFormat), step.OutputFormat) + " prettyprint";
+                    className = "prettyprint";
                     if (step.OutputFormat != TextFormat.code)
                         className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.OutputFormat);
                 }

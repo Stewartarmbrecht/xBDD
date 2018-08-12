@@ -1,0 +1,25 @@
+{{.*}}/rl
+Failed   SearchWithSearchButton_Failing
+Error Message:
+ Test method Amazon.Features.SearchingProducts.SearchingAllProducts_Failing.SearchWithSearchButton_Failing threw exception: 
+xBDD.StepException: The step 'you will see the search results section is visible' threw a 'Exception' exception with a message: 'The web element (the search results section - #BAD_SELECTOR) was not found.'. See the inner exception for details. ---> System.Exception: The web element (the search results section - #BAD_SELECTOR) was not found.
+Stack Trace:
+{{.*}}/rl
+
+Standard Output Messages:
+ Search With Search Button Failing
+     Given you navigate to the amazon home page
+     When you enter the text 'echo' into the the search box input
+     And you click the the search button
+     Then you will see the search results section is visible
+ 
+ 
+ Debug Trace:
+{{         Created ChromeDriver \(\d+ms\)}}
+{{         Loading Page \(\d+ms\): https\://www\.amazon\.com}}
+{{         WaitTillVisible \(\d+ms\): \#twotabsearchtextbox}}
+{{         SendKeys 'echo' \(\d+ms\): \#twotabsearchtextbox}}
+{{         WaitTillVisible \(\d+ms\): input\[type\=submit\]}}
+{{         Click \(\d+ms\): input\[type\=submit\]}}
+{{         GetPageSource \(\d+ms\)}}
+{{.*}}/rl

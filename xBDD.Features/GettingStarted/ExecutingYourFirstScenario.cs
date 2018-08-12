@@ -22,16 +22,34 @@ namespace xBDD.Features.GettingStarted
 		}
 		
 		[TestMethod]
-		public async Task ThatWillTestAWebInterface()
+		[TestCategory("Long")]
+		public async Task RunningASuccessWebUITest()
 		{
-			var codePath = "..\\..\\Amazon.Features\\SearchingProducts\\SearchingAllProducts.cs";
-			var outputFilePath = "..\\..\\Amazon.Features\\bin\\debug\\netcoreapp2.1\\Amazon.Features.TestOutput.txt";
-			var templateFilePath = "..\\GettingStarted\\SampleCode\\MSTestFirstPassingScenarioOutputTemplate.txt";
+			var codePath = "../Amazon.Features/SearchingProducts/SearchingAllProducts.cs";
+			var templateFilePath = "./GettingStarted/SampleCode/MSTestFirstPassingScenarioOutputTemplate.txt";
+
+			Wrapper<string> output = new Wrapper<string>();
 			
 			await xB.AddScenario(this, 1)
 				.Given(You.CodeTheFollowingMSTestFeatureDefinition(codePath))
-				.When(You.RunTheMSTestProject())
-				.Then(You.WillSeeTheOutputMatches(templateFilePath,outputFilePath))
+				.When(You.RunTheMSTestProject("dotnet test -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton", "../../../../Amazon.Features/", output))
+				.Then(You.WillSeeTheOutputMatches(templateFilePath,output))
+				.Run();
+
+		}
+		[TestMethod]
+		[TestCategory("Long")]
+		public async Task RunningAFailingWebUITest()
+		{
+			var codePath = "../Amazon.Features/SearchingProducts/SearchingAllProducts_Failing.cs";
+			var templateFilePath = "./GettingStarted/SampleCode/MSTestFirstFailingScenarioOutputTemplate.txt";
+
+			Wrapper<string> output = new Wrapper<string>();
+			
+			await xB.AddScenario(this, 1)
+				.Given(You.CodeTheFollowingMSTestFeatureDefinition(codePath))
+				.When(You.RunTheMSTestProject("dotnet test --filter Name~SearchWithSearchButton_Failing", "../../../../Amazon.Features/", output))
+				.Then(You.WillSeeTheOutputMatches(templateFilePath,output))
 				.Run();
 
 		}

@@ -1,6 +1,7 @@
 ﻿namespace xBDD.Features
 {
     using System;
+    using System.Diagnostics;
     using System.IO;
     using System.Threading.Tasks;
     using TemplateValidator;
@@ -8,44 +9,59 @@
 
     public static class You
     {
-        public static Step RunTheMSTestProject()
+        public static Step RunTheMSTestProject(string command, string changeDirectory, Wrapper<string> output)
         {
             var step = xB.CreateStep(
-                "you run the MS Test Project",
-                (s) => { });
+                "you run the MS Test Project with the following command:",
+                (s) => { 
+                    Process cmd = new Process();
+                    cmd.StartInfo.FileName = "pwsh";
+                    cmd.StartInfo.RedirectStandardInput = true;
+                    cmd.StartInfo.RedirectStandardOutput = true;
+                    cmd.StartInfo.CreateNoWindow = true;
+                    cmd.StartInfo.UseShellExecute = false;
+                    cmd.Start();
+
+                    cmd.StandardInput.WriteLine($"Set-Location {changeDirectory}");
+                    cmd.StandardInput.Flush();
+                    cmd.StandardInput.WriteLine(command);
+                    cmd.StandardInput.Flush();
+                    cmd.StandardInput.Close();
+                    cmd.WaitForExit();
+                    output.Object = cmd.StandardOutput.ReadToEnd();
+                    s.Output = output.Object;
+                    s.OutputFormat = TextFormat.text;
+                },
+                command,
+                TextFormat.sh);
             return step;
         }
 
-        public static Step WillSeeTheOutputMatches(string templateFilePath, string outputFilePath)
+        public static Step WillSeeTheOutputMatches(string templateFilePath, Wrapper<string> output)
         {
             var template = You.LoadFileContent(templateFilePath);
-            var output = You.LoadFileContent(outputFilePath);
             var step = xB.CreateStep(
                 "you will see the output matches this template (See TemplateValidator project on Nuget):",
                 (s) => {
                     try {
-                        output.ValidateToTemplate(template);   
-                        s.Output = output;
-                        s.OutputFormat = TextFormat.sh;                 
+                        output.Object.ValidateToTemplate(template);   
+                        s.Output = output.Object;
+                        s.OutputFormat = TextFormat.text;                 
                     } catch(System.Exception)
                     {
-                        s.Output = output;
-                        s.OutputFormat = TextFormat.sh;
+                        s.Output = output.Object;
+                        s.OutputFormat = TextFormat.text;
                         throw;
                     }
                 },
                 template,
-                TextFormat.sh);
+                TextFormat.text);
             return step;
         }
 
         private static string LoadFileContent(string filePath)
         {
-            var path = System.IO.Directory.GetCurrentDirectory() + "..\\..\\..\\" + filePath;
-			if(System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.OSX))
-			{
-                path = System.IO.Directory.GetCurrentDirectory() + "//..//..//..//..//" + filePath;
-            }
+            var path = System.IO.Directory.GetCurrentDirectory() + "../../../../" + filePath;
             
             string code = null;
             try {

@@ -12,7 +12,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "test",
+            "label": "test-all",
             "group": "test",
             "command": "pwsh",
             "type": "process",
@@ -20,7 +20,33 @@
                 "cwd": "${workspaceFolder}"
             },
             "args": [
-                "${workspaceFolder}/scripts/test.ps1"
+                "${workspaceFolder}/scripts/test-all.ps1"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test-long",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "${workspaceFolder}/scripts/test-long.ps1"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test-short",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "${workspaceFolder}/scripts/test-short.ps1"
             ],
             "problemMatcher": "$msCompile"
         },

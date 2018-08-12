@@ -121,14 +121,14 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Then you will see the feature 1 statement is not visible [Failed]
 				Error Type: Exception
 				   Message: The web element (the feature 1 statement - #feature-1-statement) was not hidden.
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass10_0.<WaitTillNotVisible>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 132
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass10_0.<WaitTillNotVisible>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/WebBrowser.cs:line 132
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass9_0.<<IsNotVisible>b__0>d.MoveNext() in c:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 117
+				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass9_0.<<IsNotVisible>b__0>d.MoveNext() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/PageElementConditions.cs:line 117
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 29
 		Collapse All [Skipped - Not Started]
 		Collapsed By Default
 			Given the test results of a single passing scenario
@@ -240,14 +240,14 @@ By [Missing!]'
 			Then you will see exception is visible [Failed]
 				Error Type: Exception
 				   Message: The web element (exception - #step-2 dl.exception) was not visible
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 189
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/WebBrowser.cs:line 189
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass8_0.<<IsVisible>b__0>d.MoveNext() in c:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 95
+				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass8_0.<<IsVisible>b__0>d.MoveNext() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/PageElementConditions.cs:line 95
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 29
 			Then you will see exception type is visible [Skipped - Previous Error]
 			Then you will see exception message is visible [Skipped - Previous Error]
 			Then you will see exception stack trace is visible [Skipped - Previous Error]
@@ -257,14 +257,14 @@ By [Missing!]'
 			Then you will see inner exception is visible [Failed]
 				Error Type: Exception
 				   Message: The web element (inner exception - #step-2 dl.exception>dd.inner-exception>dl.exception) was not visible
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 189
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/WebBrowser.cs:line 189
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass8_0.<<IsVisible>b__0>d.MoveNext() in c:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 95
+				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass8_0.<<IsVisible>b__0>d.MoveNext() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/PageElementConditions.cs:line 95
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 29
 			Then you will see inner exception type is visible [Skipped - Previous Error]
 			Then you will see inner exception message is visible [Skipped - Previous Error]
 			Then you will see inner exception stack trace is visible [Skipped - Previous Error]
@@ -299,7 +299,7 @@ By [Missing!]'
 			Then you will see step input link is visible
 		Expand [Skipped - Not Started]
 		Expand All [Skipped - Not Started]
-		General Text [Failed]
+		General Text
 			Given the test results of a step with a text formated multiline parameter of
 				Here
 				 is
@@ -309,28 +309,18 @@ By [Missing!]'
 			And you click when the area title line is visible
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
-			And you click when step input link is visible [Failed]
-				Error Type: Exception
-				   Message: The web element (step input link - #step-1 a.step-input-link) was not visible
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 189
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass8_0.<<IsVisible>b__0>d.MoveNext() in c:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 95
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
-			Then you will see step input is visible [Skipped - Previous Error]
+			And you click when step input link is visible
+			Then you will see step input is visible
 			And you will see step text input has text 'Here
  is
  my
- Input!' [Skipped - Previous Error]
+ Input!'
 		Html With Preview [Skipped - Not Started]
 	Review Step Output
 		Code [Skipped - Not Started]
 		Collapse [Skipped - Not Started]
 		Collapse All [Skipped - Not Started]
-		Collapsed By Default [Failed]
+		Collapsed By Default
 			Given the test results of a step with a/an text output of 
 				Here
 				 is
@@ -340,17 +330,7 @@ By [Missing!]'
 			And you click when the area title line is visible
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
-			Then you will see step output link is visible [Failed]
-				Error Type: Exception
-				   Message: The web element (step output link - #step-1 a.step-output-link) was not visible
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 189
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass8_0.<<IsVisible>b__0>d.MoveNext() in c:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 95
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
+			Then you will see step output link is visible
 		Expand [Skipped - Not Started]
 		Expand All [Skipped - Not Started]
 		General Text
@@ -494,14 +474,43 @@ xBDD - Features - Generate Reports - Generate Text Report
 	Write To Text
 		Write Emtpy Test Run
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GenerateReports\GenerateTextReport\WriteToTextScenarios\EmptyTestRun.cs'.
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class EmptyTestRun : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
 			When the method is executed
 			Then the test results written should match the template:
 				My Test Run
 				
 		Write Run Empty Scenario
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GenerateReports\GenerateTextReport\WriteToTextScenarios\RunEmptyScenario.cs'.
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunEmptyScenario : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            await xBDD.CurrentRun
+				                .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                .Run();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
 			When the method is executed
 			Then the test results written should match the template:
 				My Test Run
@@ -511,7 +520,48 @@ xBDD - Features - Generate Reports - Generate Text Report
 						My Scenario
 		Write Run Multiple Areas
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GenerateReports\GenerateTextReport\WriteToTextScenarios\RunMultipleAreas.cs'.
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunMultipleAreas : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature One", "My.Area.Path.One")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature One", "My.Area.Path.One")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature Two", "My.Area.Path.Two")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature Two", "My.Area.Path.Two")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
 			When the method is executed
 			Then the test results written should match the template:
 				My Test Run
@@ -538,7 +588,48 @@ xBDD - Features - Generate Reports - Generate Text Report
 							Then my ending condition
 		Write Run Multiple Features Same Area
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GenerateReports\GenerateTextReport\WriteToTextScenarios\RunMultipleFeaturesSameArea.cs'.
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunMultipleFeaturesSameArea : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature One", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature One", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature Two", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature Two", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
 			When the method is executed
 			Then the test results written should match the template:
 				My Test Run
@@ -564,7 +655,36 @@ xBDD - Features - Generate Reports - Generate Text Report
 							Then my ending condition
 		Write Run Multiple Scenarios Same Feature
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GenerateReports\GenerateTextReport\WriteToTextScenarios\RunMultipleScenariosSameFeature.cs'.
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunMultipleScenariosSameFeature : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario One", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario Two", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
 			When the method is executed
 			Then the test results written should match the template:
 				My Test Run
@@ -581,7 +701,31 @@ xBDD - Features - Generate Reports - Generate Text Report
 							Then my ending condition
 		Write Run Scenario With Failed Step
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GenerateReports\GenerateTextReport\WriteToTextScenarios\RunScenarioWithFailedStep.cs'.
+				using System;
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunScenarioWithFailedStep : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action", (s) => { throw new Exception("My Error"); }))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
 			When the method is executed
 			Then the test results written should match the template:
 				My Test Run
@@ -598,7 +742,32 @@ xBDD - Features - Generate Reports - Generate Text Report
 							Then my ending condition [Skipped - Previous Error]
 		Write Run Scenario With Not Implemented Step
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GenerateReports\GenerateTextReport\WriteToTextScenarios\RunScenarioWithNotImplementedStep.cs'.
+				using System;
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunScenarioWithNotImplementedStep : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action", (s) => { throw new NotImplementedException(); }))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
 			When the method is executed
 			Then the test results written should match the template:
 				My Test Run
@@ -611,7 +780,30 @@ xBDD - Features - Generate Reports - Generate Text Report
 							Then my ending condition [Skipped - Previous Error]
 		Write Run Scenario With Skipped Step
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GenerateReports\GenerateTextReport\WriteToTextScenarios\RunScenarioWithSkippedStep.cs'.
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunScenarioWithSkippedStep : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action", (s) => { throw new SkipStepException("Deferred"); }))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
 			When the method is executed
 			Then the test results written should match the template:
 				My Test Run
@@ -624,7 +816,26 @@ xBDD - Features - Generate Reports - Generate Text Report
 							Then my ending condition [Skipped - Previous Error]
 		Write Run Scenario With Step With Multiline Parameter
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GenerateReports\GenerateTextReport\WriteToTextScenarios\RunScenarioWithStepWithMultilineParameter.cs'.
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunScenarioWithStepWithMultilineParameter : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            await xBDD.CurrentRun
+				                .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                .Given(xBDD.CreateStep("my starting condition with the following", (s) => { }, $"My{System.Environment.NewLine}multiline{System.Environment.NewLine}parameter"))
+				                .When(xBDD.CreateStep("my action"))
+				                .Then(xBDD.CreateStep("my ending condition"))
+				                .Run();
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
 			When the method is executed
 			Then the test results written should match the template:
 				My Test Run
@@ -640,7 +851,30 @@ xBDD - Features - Generate Reports - Generate Text Report
 							Then my ending condition
 		Write Run Scenario With Steps
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GenerateReports\GenerateTextReport\WriteToTextScenarios\RunScenarioWithSteps.cs'.
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class RunScenarioWithSteps : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Run();
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
 			When the method is executed
 			Then the test results written should match the template:
 				My Test Run
@@ -653,7 +887,27 @@ xBDD - Features - Generate Reports - Generate Text Report
 							Then my ending condition
 		Write Skipped Empty Scenario
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GenerateReports\GenerateTextReport\WriteToTextScenarios\SkippedEmptyScenario.cs'.
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class SkippedEmptyScenario : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Skip("Deferred");
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
 			When the method is executed
 			Then the test results written should match the template:
 				My Test Run
@@ -663,7 +917,30 @@ xBDD - Features - Generate Reports - Generate Text Report
 						My Scenario [Skipped - Deferred]
 		Write Skipped Scenario With Steps
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GenerateReports\GenerateTextReport\WriteToTextScenarios\SkippedScenarioWithSteps.cs'.
+				using System.Threading.Tasks;
+				using xBDD.Features;
+				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
+				{
+				    public class SkippedScenarioWithSteps : IExecute<string>
+				    {
+				        public async Task<string> Execute()
+				        {
+				            var xBDD = new xBDDMock();
+				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
+				            try
+				            {
+				                await xBDD.CurrentRun
+				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
+				                    .Given(xBDD.CreateStep("my starting condition"))
+				                    .When(xBDD.CreateStep("my action"))
+				                    .Then(xBDD.CreateStep("my ending condition"))
+				                    .Skip("Deferred");
+				            }
+				            catch { }
+				            return await xBDD.CurrentRun.TestRun.WriteToText();
+				        }
+				    }
+				}
 			When the method is executed
 			Then the test results written should match the template:
 				My Test Run
@@ -678,7 +955,40 @@ xBDD - Features - Getting Started
 	Define A Documentation Scenario
 		With Synchronous Execution [Failed]
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GettingStarted\SampleCode\GetHolidays.cs'.
+				using Microsoft.VisualStudio.TestTools.UnitTesting;
+				using xBDD;
+				
+				//Area
+				namespace MyApp.API.Test.Features.Calendar
+				{
+					//Feature
+					[AsA("developer")]
+					[YouCan("find the holidays for the users culture in a specific time range")]
+					[By("using the operations exposed by the User object's Calendar property")]
+					[TestClass]
+					// [TestClass] - for MSTest
+					// [TestFixture] - for nUnit
+					public class GetHolidays
+					{
+						//Scenario
+						// [Fact] - for xUnit
+						// [Test] - for nUnit
+						public async void WhenUSCalendar()
+						{
+							await xB.AddScenario(this)
+								.Given("a user object for a user with a US culture", (s) => {
+									//code to create calendar
+								})
+								.When("you call GetHolidays with a date range of 3/10/2015 to 3/18/2015", (s) => {
+									//code to issue get request.
+								})
+								.Then("you should get back a single holiday that is St. Patrick's Day", (s) => {
+									//code to validate response
+								})
+								.Run();
+						}
+					}
+				}
 			When the scenario is executed
 			Then the test run will have the following structure [Failed]
 				Area:
@@ -703,18 +1013,17 @@ xBDD - Features - Getting Started
 				   Message: Assert.AreEqual failed. Expected:<My App - Standard Help Desk Technician Features - Getting Started>. Actual:<My App - API - Test - Features - Calendar>. 
 				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
-				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
-				               at xBDD.Features.GettingStarted.DefineADocumentationScenario.<>c__DisplayClass5_0.<WithSynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineADocumentationScenario.cs:line 61
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Features.GettingStarted.DefineADocumentationScenario.<>c__DisplayClass5_0.<WithSynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features/GettingStarted/DefineADocumentationScenario.cs:line 61
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 	Define A Scenario With Reusable Steps
 		With Asynchronous Execution [Failed]
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\GettingStarted\SampleCode\GetAccountDetails.cs'.
+				Exception encountered getting file content: Could not find file '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features/GettingStarted/SampleCode/GetAccountDetails.cs'.
 			When the scenario is excuted
 			Then the test run will have the following structure [Failed]
 				Area:
@@ -734,17 +1043,16 @@ xBDD - Features - Getting Started
 				   Message: Assert.AreEqual failed. Expected:<My App - API - Test - Features - Accounts>. Actual:<My App - Features - Help Desk Technician - Access User Account Information>. 
 				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
-				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
-				               at xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps.<>c__DisplayClass3_0.<WithAsynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineAScenarioWithReusableSteps.cs:line 109
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps.<>c__DisplayClass3_0.<WithAsynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features/GettingStarted/DefineAScenarioWithReusableSteps.cs:line 109
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 		With Synchronous Execution [Failed]
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\bin\Features\DefineScenarios\SampleCode\GetHolidays.cs'.
+				Exception encountered getting file content: Could not find a part of the path '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features/Features/DefineScenarios/SampleCode/GetHolidays.cs'.
 			When the scenario is executed
 			Then the test run will have the following structure [Failed]
 				Area:
@@ -769,16 +1077,79 @@ xBDD - Features - Getting Started
 				   Message: Assert.AreEqual failed. Expected:<to reference culture specific holidays>. Actual:<find the holidays for the users culture in a specific time range>. 
 				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
-				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
-				               at xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps.<>c__DisplayClass2_0.<WithSynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineAScenarioWithReusableSteps.cs:line 64
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps.<>c__DisplayClass2_0.<WithSynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features/GettingStarted/DefineAScenarioWithReusableSteps.cs:line 64
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 	Executing Your First Scenario
-		That Will Test A Web Interface
+		Running A Failing Web UI Test
+			Given you code the following feature definition:
+				namespace Amazon.Features.SearchingProducts
+				{
+				    using Microsoft.VisualStudio.TestTools.UnitTesting;
+				    using System;
+				    using System.Threading.Tasks;
+				    using xBDD;
+				    using xBDD.Browser;
+				
+					[TestClass]
+					[AsA("anonymous user")]
+					[YouCan("search across all amazon products")]
+					[By("using primary search bar on the home page")]
+					public class SearchingAllProducts_Failing: IFeature
+					{
+						private User you = new User();
+						public IOutputWriter OutputWriter { get; private set; }
+				
+						public SearchingAllProducts_Failing()
+						{
+							OutputWriter = new TestContextWriter();
+						}
+						
+						[TestMethod]
+						public async Task SearchWithSearchButton_Failing()
+						{
+							await xB.AddScenario(this)
+								.Given(you.NavigateTo("the amazon home page","https://www.amazon.com"))
+								.When(you.EnterTheText("echo").In("the search box", "#twotabsearchtextbox"))
+								.And(you.Click("the search button", "input[type=submit]"))
+								.Then(you.WillSee("the search results section", "#BAD_SELECTOR").IsVisible())
+								.Run();
+						}
+					}
+				}
+			When you run the MS Test Project with the following command:
+				dotnet test --filter Name~SearchWithSearchButton_Failing
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
+				{{.*}}/rl
+				Failed   SearchWithSearchButton_Failing
+				Error Message:
+				 Test method Amazon.Features.SearchingProducts.SearchingAllProducts_Failing.SearchWithSearchButton_Failing threw exception: 
+				xBDD.StepException: The step 'you will see the search results section is visible' threw a 'Exception' exception with a message: 'The web element (the search results section - #BAD_SELECTOR) was not found.'. See the inner exception for details. ---> System.Exception: The web element (the search results section - #BAD_SELECTOR) was not found.
+				Stack Trace:
+				{{.*}}/rl
+				
+				Standard Output Messages:
+				 Search With Search Button Failing
+				     Given you navigate to the amazon home page
+				     When you enter the text 'echo' into the the search box input
+				     And you click the the search button
+				     Then you will see the search results section is visible
+				 
+				 
+				 Debug Trace:
+				{{         Created ChromeDriver \(\d+ms\)}}
+				{{         Loading Page \(\d+ms\): https\://www\.amazon\.com}}
+				{{         WaitTillVisible \(\d+ms\): \#twotabsearchtextbox}}
+				{{         SendKeys 'echo' \(\d+ms\): \#twotabsearchtextbox}}
+				{{         WaitTillVisible \(\d+ms\): input\[type\=submit\]}}
+				{{         Click \(\d+ms\): input\[type\=submit\]}}
+				{{         GetPageSource \(\d+ms\)}}
+				{{.*}}/rl
+		Running A Success Web UI Test
 			Given you code the following feature definition:
 				namespace Amazon.Features.SearchingProducts
 				{
@@ -809,12 +1180,13 @@ xBDD - Features - Getting Started
 								.Given(you.NavigateTo("the amazon home page","https://www.amazon.com"))
 								.When(you.EnterTheText("echo").In("the search box", "#twotabsearchtextbox"))
 								.And(you.Click("the search button", "input[type=submit]"))
-								.Then(you.WillSee("the search results", "#s-results-list-atf").IsVisible())
+								.Then(you.WillSee("the search results section", "#s-results-list-atf").IsVisible())
 								.Run();
 						}
 					}
 				}
-			When you run the MS Test Project
+			When you run the MS Test Project with the following command:
+				dotnet test -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton
 			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				{{.*}}/rl
 				Passed   SearchWithSearchButton
@@ -824,7 +1196,7 @@ xBDD - Features - Getting Started
 	Finding Thex BDD Project Site
 		Search For XBDD
 			Given you navigate to the google search page
-			When you enter the text System.Collections.Generic.List`1[System.String] into the the search box input
+			When you enter the text 'xBDD C#' into the the search box input
 			Then you will see the first results has text 'GitHub - Stewartarmbrecht/xBDD: Behavior Driven Development ...'
 	Installing The Framework
 		For An N Unit Project [Skipped - Not Started]
