@@ -2,6 +2,8 @@
 {
 
     using System.Threading.Tasks;
+    using System.Linq;
+    using System.Linq.Expressions;
     using xBDD.Model;
     using xBDD.Reporting;
     using xBDD.Reporting.Html;
@@ -14,6 +16,30 @@
     /// </summary>
     public static class TestRunExtensions
     {
+        /// <summary>
+        /// Calculates the start and end time for the test run, 
+        /// areas, and features.
+        /// </summary>
+        /// <param name="testrun">The test run to set the start and end times for.</param>
+        public static void CalculateStartAndEndTimes(this xBDD.Model.TestRun testrun)
+        {
+            testrun.Areas.ForEach(area => {
+                var featuresStart = area.Features.OrderBy(feature => feature.StartTime);
+                featuresStart.ToList().ForEach(feature => {
+                    var scenariosStart = feature.Scenarios.OrderBy(scenario => scenario.StartTime);
+                    feature.StartTime = scenariosStart.First().StartTime;
+                    var scenariosEnd = feature.Scenarios.OrderByDescending(scenario => scenario.EndTime);
+                    feature.EndTime = scenariosEnd.First().EndTime;
+                });
+                area.StartTime = featuresStart.First().StartTime;
+                var featuresEnd = area.Features.OrderByDescending(feature => feature.EndTime);
+                area.EndTime = featuresEnd.First().EndTime;
+            });
+            var areasStart = testrun.Areas.OrderBy(area => area.StartTime);
+            testrun.StartTime = areasStart.First().StartTime;
+            var areasEnd = testrun.Areas.OrderByDescending(area => area.EndTime);
+            testrun.EndTime = areasStart.First().EndTime;
+        }
         /// <summary>
         /// Writes a text representation of a test run's test results.
         /// </summary>

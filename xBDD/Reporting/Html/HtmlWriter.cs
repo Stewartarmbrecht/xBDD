@@ -22,6 +22,7 @@ namespace xBDD.Reporting.Html
         public Task<string> WriteToString(TestRun testRun)
         {
             return Task.Run(() => {
+                testRun.CalculateStartAndEndTimes();
                 StringBuilder sb = new StringBuilder();
                 //sb.AppendLine(JsonConvert.SerializeObject(testRun));
                 sb.AppendLine("<!DOCTYPE html>");
@@ -55,6 +56,10 @@ namespace xBDD.Reporting.Html
             sb.Append(" span.area.badge { width: 2rem }");
             sb.Append(" span.feature.badge { width: 2rem }");
             sb.Append(" span.scenario.badge { width: 2rem }");
+            sb.Append(" span.area.duration { font-size: 1rem; color: gray; }");
+            sb.Append(" span.feature.duration { font-size: 1rem; color: gray; }");
+            sb.Append(" span.scenario.duration { font-size: 1rem; color: gray; }");
+            sb.Append(" span.step.duration { font-size: .75rem; color: gray; }");
             sb.Append(" span.oi.oi-info { font-size: 80% }");
             sb.Append(" ol { margin-left: 2.25rem; }");
             sb.Append(" span.badge { margin-left: .25rem; }");
@@ -402,6 +407,12 @@ namespace xBDD.Reporting.Html
                 sb.Append($"<span class=\"feature-statement-link badge badge-secondary\" id=\"feature-{featureCounter}-statement-link\" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-statement\" aria-expanded=\"false\" aria-controls=\"feature-{featureCounter}-statement\"><span class=\"oi oi-info\" aria-hidden=\"true\"></span></span>");
             }
             WriteTag("span", sb, 6, "name pointer", scenario.Feature.Name.HtmlEncode(), true, null, null, titleAttributes);
+
+            var duration = scenario.Feature.EndTime - scenario.Feature.StartTime;
+            var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
+            formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
+            WriteTag("span", sb, 0, "feature duration", $" [{formattedDuration} ms]",true);
+
             WriteTagClose("h3", sb, 5);
 
             WriteStatsTableStart(sb, 5, "feature-"+featureCounter+"-stats");
@@ -465,6 +476,11 @@ namespace xBDD.Reporting.Html
             {
                 WriteScenarioStatus(scenario, sb);
             }
+
+            var duration = scenario.EndTime - scenario.StartTime;
+            var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
+            formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
+            WriteTag("span", sb, 0, "scenario duration", $" [{formattedDuration} ms]",true);
 
             WriteTagClose("h4", sb, 7);
 
@@ -563,9 +579,9 @@ namespace xBDD.Reporting.Html
             }
 
             var duration = step.EndTime - step.StartTime;
-            var formattedDuration = duration.Milliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
+            var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
             formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
-            WriteTag("span", sb, 0, "step-stats-duration", $" [{formattedDuration}ms]",true);
+            WriteTag("span", sb, 0, "step duration", $" [{formattedDuration} ms]",true);
             WriteTagClose("h5", sb, 0);
             if (!String.IsNullOrEmpty(step.MultilineParameter))
             {

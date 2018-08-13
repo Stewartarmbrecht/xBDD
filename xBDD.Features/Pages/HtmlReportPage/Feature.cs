@@ -40,5 +40,9 @@ namespace xBDD.Features.Pages.HtmlReportPage
         {
             return new PageElement("the feature " + featureNumber + " statement link", "#feature-" + featureNumber + "-statement-link");   
         }
+        public PageElement Duration(int featureNumber)
+        {
+            return new PageElement("the feature " + featureNumber + " duration", "#feature-" + featureNumber + " span.feature.duration");   
+        }
     }
 }

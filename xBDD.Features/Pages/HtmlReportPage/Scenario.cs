@@ -20,6 +20,10 @@ namespace xBDD.Features.Pages.HtmlReportPage
         {
             return new PageElement("the scenario " + scenarioNumber + " with red badge", "#scenario-" + scenarioNumber + " h4 span.badge-danger");   
         }
+        public PageElement Duration(int scenarioNumber)
+        {
+            return new PageElement("the scenario " + scenarioNumber + " duration", "#scenario-" + scenarioNumber + " h4 span.scenario.duration");   
+        }
         public PageElement Steps(int scenarioNumber)
         {
             return new PageElement("the scenario " + scenarioNumber + " steps", "#scenario-" + scenarioNumber + "-steps");   

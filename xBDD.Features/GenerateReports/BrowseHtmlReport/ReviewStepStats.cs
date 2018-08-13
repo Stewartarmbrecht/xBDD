@@ -31,7 +31,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
             await xB.CurrentRun.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
  				.And(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
-				.Then(you.WillSee(the.StepStats.Section(56)).IsVisible())
+				.Then(you.WillSee(the.Step.Duration(56)).IsVisible())
                 .Run();
 		}
 	}

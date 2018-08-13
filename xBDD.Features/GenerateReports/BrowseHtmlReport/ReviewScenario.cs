@@ -33,6 +33,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.And(you.WillSee(the.Scenario.Name(1)).IsVisible())
 				.And(you.WillSee(the.Scenario.Name(1)).HasText("My Scenario 1"))
 				.And(you.WillSee(the.Scenario.Steps(1)).IsNotVisible().Because("no steps failed"))
+				.And(you.WillSee(the.Scenario.Duration(1)).IsVisible())
                 .Run();
 		}
 		[TestMethod]

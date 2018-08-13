@@ -20,5 +20,9 @@ namespace xBDD.Features.Pages.HtmlReportPage
         {
             return new PageElement("the step " + stepNumber + " with red badge", "#step-" + stepNumber + " h5 span.badge-danger");   
         }
+        public PageElement Duration(int stepNumber)
+        {
+            return new PageElement("step duration",$"#step-{stepNumber} span.step.duration");
+        }
     }
 }
