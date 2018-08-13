@@ -170,6 +170,10 @@ namespace xBDD.Reporting.Html
             WriteTag("span", sb, 0, "name", testRun.Name.HtmlEncode(), true);
             WriteTagClose("h1", sb, 2);
             WriteTagClose("div", sb, 1);
+            //WriteTagOpen("div", sb, 1, "test-run-time", false, null, "margin-top: 0px !important;");
+            //WriteTag("span", sb, 2, "test-run-start-time", testRun.StartTime.ToString("yyyy-MM-dd hh:mm:ss"), true);
+            //WriteTag("span", sb, 2, "test-run-end-time", testRun.EndTime.ToString("yyyy-MM-dd hh:mm:ss"), true);
+            //WriteTagClose("div", sb, 1);
             WriteStatsTableStart(sb, 1, null, false);
             WriteStats(sb, testRun.AreaStats, 1, "testrun-area-stats", "Areas");
             WriteStats(sb, testRun.FeatureStats, 1, "testrun-feature-stats", "Features");
@@ -525,28 +529,28 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("li", sb, 8, null, false, "step-" + stepNumber);
 
             WriteTagOpen("h5", sb, 9, null, true);
-            WriteTag("span", sb, 8, $"step badge pointer total badge-pill {badgeClassName}", " ", true, null, null, null);
+            WriteTag("span", sb, 10, $"step badge pointer total badge-pill {badgeClassName}", " ", true, $"step-{stepNumber}-badge");
             WriteTag("span", sb, 0, "name", step.FullName.HtmlEncode(), true);
             
             if (!String.IsNullOrEmpty(step.MultilineParameter))
             {
-                sb.Append(String.Format("<a class=\"step-input-link\" data-toggle=\"collapse\" href=\"#step-{0}-input\" aria-expanded=\"false\" aria-controls=\"step-{0}-input\">[Input]</a>", stepNumber));
+                sb.Append(String.Format("<a class=\"step-input-link\" data-toggle=\"collapse\" href=\"#step-{0}-input\" aria-expanded=\"false\" aria-controls=\"step-{0}-input\"> [Input]</a>", stepNumber));
             }
             
             if (!String.IsNullOrEmpty(step.Output))
             {
-                sb.Append(String.Format("<a class=\"step-output-link\" data-toggle=\"collapse\" href=\"#step-{0}-output\" aria-expanded=\"false\" aria-controls=\"step-{0}-output\">[Output]</a>", stepNumber));
+                sb.Append(String.Format("<a class=\"step-output-link\" data-toggle=\"collapse\" href=\"#step-{0}-output\" aria-expanded=\"false\" aria-controls=\"step-{0}-output\"> [Output]</a>", stepNumber));
             }
             
             if (step.Scenario.Outcome == Outcome.Failed && step.Outcome != Outcome.Passed)
             {
                 if(step.Exception != null)
                 {
-                    sb.Append($"<a class=\"step-error-link\" data-toggle=\"collapse\" href=\"#step-{stepNumber}-error\" aria-expanded=\"false\" aria-controls=\"step-{stepNumber}-error\">[Error!]</a>");
+                    sb.Append($"<a class=\"step-error-link\" data-toggle=\"collapse\" href=\"#step-{stepNumber}-error\" aria-expanded=\"false\" aria-controls=\"step-{stepNumber}-error\"> [Error!]</a>");
                 } else 
                 {
                     WriteTagOpen("span", sb, 0, "status", true);
-                    sb.Append("[");
+                    sb.Append(" [");
                     sb.Append(Enum.GetName(typeof(Outcome), step.Outcome));
                     if (step.Reason != null && (step.Outcome != Outcome.Failed || step.Reason == "Not Implemented"))
                     {
@@ -558,6 +562,10 @@ namespace xBDD.Reporting.Html
                 WriteTagClose("span", sb, 0);
             }
 
+            var duration = step.EndTime - step.StartTime;
+            var formattedDuration = duration.Milliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
+            formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
+            WriteTag("span", sb, 0, "step-stats-duration", $" [{formattedDuration}ms]",true);
             WriteTagClose("h5", sb, 0);
             if (!String.IsNullOrEmpty(step.MultilineParameter))
             {

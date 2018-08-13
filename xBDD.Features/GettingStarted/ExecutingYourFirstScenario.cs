@@ -46,7 +46,7 @@ namespace xBDD.Features.GettingStarted
 
 			Wrapper<string> output = new Wrapper<string>();
 			
-			await xB.AddScenario(this, 1)
+			await xB.AddScenario(this, 2)
 				.Given(You.CodeTheFollowingMSTestFeatureDefinition(codePath))
 				.When(You.RunTheMSTestProject("dotnet test --filter Name~SearchWithSearchButton_Failing", "../../../../Amazon.Features/", output))
 				.Then(You.WillSeeTheOutputMatches(templateFilePath,output))

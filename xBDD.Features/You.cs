@@ -27,7 +27,7 @@
                     cmd.StandardInput.WriteLine(command);
                     cmd.StandardInput.Flush();
                     cmd.StandardInput.Close();
-                    cmd.WaitForExit();
+                    cmd.WaitForExit(20000);
                     output.Object = cmd.StandardOutput.ReadToEnd();
                     s.Output = output.Object;
                     s.OutputFormat = TextFormat.text;

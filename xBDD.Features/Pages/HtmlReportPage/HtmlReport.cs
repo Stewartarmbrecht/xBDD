@@ -13,6 +13,7 @@ namespace xBDD.Features.Pages.HtmlReportPage
         public Scenario Scenario = new Scenario();
         public ScenarioStepStats ScenarioStepStats = new ScenarioStepStats();
         public Step Step = new Step();
+        public StepStats StepStats = new StepStats();
         public StepException StepException = new StepException();
         public TestRun TestRun = new TestRun();
         public TestRunAreaStats TestRunAreaStats = new TestRunAreaStats();
