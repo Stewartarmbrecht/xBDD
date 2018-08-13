@@ -43,5 +43,9 @@ namespace xBDD.Features.Pages.HtmlReportPage
         {
             return new PageElement("the area " + areaNumber + " features", "#area-" + areaNumber + "-features");   
         }
+        public PageElement Duration(int areaNumber)
+        {
+            return new PageElement("the area " + areaNumber + " duration", "#area-" + areaNumber + " span.area.duration");   
+        }
     }
 }

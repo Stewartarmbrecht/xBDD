@@ -350,6 +350,11 @@ namespace xBDD.Reporting.Html
                 areaName = "[Missing! (or Full Name Skipped)]";
             }
             WriteTag("span", sb, 4, "name pointer", areaName.HtmlEncode(), true,  $"area-{areaCounter}-name", null, areaTitleAttributes);
+            var duration = scenario.Feature.Area.EndTime - scenario.Feature.Area.StartTime;
+            var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
+            formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
+            WriteTag("span", sb, 0, "area duration", $" [{formattedDuration} ms]",true);
+
             WriteTagClose("h2", sb, 3);
 
             WriteStatsTableStart(sb, 3, "area-"+areaCounter+"-stats");

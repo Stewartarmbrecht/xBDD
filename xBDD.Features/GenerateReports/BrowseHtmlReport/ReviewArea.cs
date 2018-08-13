@@ -31,8 +31,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
             await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithASinglePassingScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
-				.Then(you.WillSee(the.FirstAreaName).HasText("My Area 1"))
-				.And(you.WillSee(the.FirstAreaGreenBadge).IsVisible())
+				.Then(you.WillSee(the.Name(1)).HasText("My Area 1"))
+				.And(you.WillSee(the.BadgeGreen(1)).IsVisible())
+				.And(you.WillSee(the.Duration(1)).IsVisible())
 				.And(you.WillSee(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsNotVisible().Because(" the area is not failing"))
                 .Run();
 		}

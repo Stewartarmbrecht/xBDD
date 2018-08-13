@@ -27,6 +27,7 @@ namespace xBDD.Features
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewScenario).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewScenarioStats).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewStep).FullName,
+                typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewStepStats).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewStepException).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewStepMultilineParameter).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewStepOutput).FullName,
