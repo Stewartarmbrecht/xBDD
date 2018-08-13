@@ -56,6 +56,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" span.area.badge { width: 2rem }");
             sb.Append(" span.feature.badge { width: 2rem }");
             sb.Append(" span.scenario.badge { width: 2rem }");
+            sb.Append(" span.testrun.duration { font-size: 1rem; color: gray; }");
             sb.Append(" span.area.duration { font-size: 1rem; color: gray; }");
             sb.Append(" span.feature.duration { font-size: 1rem; color: gray; }");
             sb.Append(" span.scenario.duration { font-size: 1rem; color: gray; }");
@@ -173,12 +174,14 @@ namespace xBDD.Reporting.Html
             //sb.Append("<br/>");
             WriteTag("span", sb, 0, $"testrun badge pointer badget-pill total {badgeClass}", testRun.AreaStats.Total.ToString(), true, null, null, " title=\"Areas\"");
             WriteTag("span", sb, 0, "name", testRun.Name.HtmlEncode(), true);
+
+            var duration = testRun.EndTime - testRun.StartTime;
+            var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
+            formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
+            WriteTag("span", sb, 0, "testrun duration", $" [{formattedDuration} ms]",true);
+
             WriteTagClose("h1", sb, 2);
             WriteTagClose("div", sb, 1);
-            //WriteTagOpen("div", sb, 1, "test-run-time", false, null, "margin-top: 0px !important;");
-            //WriteTag("span", sb, 2, "test-run-start-time", testRun.StartTime.ToString("yyyy-MM-dd hh:mm:ss"), true);
-            //WriteTag("span", sb, 2, "test-run-end-time", testRun.EndTime.ToString("yyyy-MM-dd hh:mm:ss"), true);
-            //WriteTagClose("div", sb, 1);
             WriteStatsTableStart(sb, 1, null, false);
             WriteStats(sb, testRun.AreaStats, 1, "testrun-area-stats", "Areas");
             WriteStats(sb, testRun.FeatureStats, 1, "testrun-feature-stats", "Features");

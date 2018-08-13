@@ -41,6 +41,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
                 .Given(AnHtmlReport.WithASinglePassingScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
                 .Then(you.WillSee(the.TestRun.BadgeGreen).IsVisible())
+				.And(you.WillSee(the.TestRun.Duration).IsVisible())
                 .Run();
 		}
 		

@@ -38,7 +38,7 @@
             var areasStart = testrun.Areas.OrderBy(area => area.StartTime);
             testrun.StartTime = areasStart.First().StartTime;
             var areasEnd = testrun.Areas.OrderByDescending(area => area.EndTime);
-            testrun.EndTime = areasStart.First().EndTime;
+            testrun.EndTime = areasEnd.First().EndTime;
         }
         /// <summary>
         /// Writes a text representation of a test run's test results.
