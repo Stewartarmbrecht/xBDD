@@ -23,6 +23,7 @@ namespace xBDD.Features
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewAreaFeatures).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewAreaStats).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewFeature).FullName,
+                typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewFeatureScenarioDistribution).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewFeatureStatement).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewFeatureStats).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewScenario).FullName,

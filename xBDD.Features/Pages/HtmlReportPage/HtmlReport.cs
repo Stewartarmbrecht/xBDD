@@ -7,6 +7,7 @@ namespace xBDD.Features.Pages.HtmlReportPage
         public AreaFeatureDistro AreaFeatureDistro = new AreaFeatureDistro();
         public AreaScenarioStats AreaScenarioStats = new AreaScenarioStats();
         public Feature Feature = new Feature();
+        public FeatureScenarioDistro FeatureScenarioDistro = new FeatureScenarioDistro();
         public FeatureScenarioStats FeatureScenarioStats = new FeatureScenarioStats();
         public Menu Menu = new Menu();
         public Output Output = new Output();

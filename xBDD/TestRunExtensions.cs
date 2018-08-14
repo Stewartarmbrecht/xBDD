@@ -35,10 +35,12 @@
                 var featuresEnd = area.Features.OrderByDescending(feature => feature.EndTime);
                 area.EndTime = featuresEnd.First().EndTime;
             });
-            var areasStart = testrun.Areas.OrderBy(area => area.StartTime);
-            testrun.StartTime = areasStart.First().StartTime;
-            var areasEnd = testrun.Areas.OrderByDescending(area => area.EndTime);
-            testrun.EndTime = areasEnd.First().EndTime;
+            if(testrun.Areas.Count > 0) {
+                var areasStart = testrun.Areas.OrderBy(area => area.StartTime);
+                testrun.StartTime = areasStart.First().StartTime;
+                var areasEnd = testrun.Areas.OrderByDescending(area => area.EndTime);
+                testrun.EndTime = areasEnd.First().EndTime;
+            }
         }
         /// <summary>
         /// Writes a text representation of a test run's test results.

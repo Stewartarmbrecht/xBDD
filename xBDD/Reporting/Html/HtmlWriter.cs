@@ -56,7 +56,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" span.area.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; }");
             sb.Append(" span.badge-distro { width: 3.5rem; display: inline-block; height: 1.5rem; vertical-align: bottom; }");
             sb.Append(" span.area.stats { font-size: 75%; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; border-radius: .25rem; height: 1.5em; display: inline-block; width: 1.75rem; position: absolute; margin-left: 2rem; z-index: -1; vertical-align: middle; }");
-            sb.Append(" span.feature.badge { width: 2rem }");
+            sb.Append(" span.feature.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; }");
             sb.Append(" span.scenario.badge { width: 2rem }");
             sb.Append(" span.testrun.duration { font-size: 1rem; color: gray; }");
             sb.Append(" span.area.duration { font-size: 1rem; color: gray; }");
@@ -347,15 +347,42 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("h2", sb, 3, className, true, null, null, null);
             //WriteTag("small", sb, 4, null, "Area", true);
 
-            WriteTagOpen("span", sb, 0, "area badge-distro", true, null, null, $"{areaBadgeAttributes} title=\"Features\"");
+            WriteBadge("area", "Features", areaCounter, scenario.Feature.Area.FeatureStats, sb, scenario, areaBadgeAttributes, badgeClassName);
+
+            var areaName = scenario.Feature.Area.Name;
+            if(this.areaNameSkip != null && this.areaNameSkip.Length > 0) {
+                areaName = areaName.Replace(this.areaNameSkip, "");
+            }
+            if(areaName.Length == 0) {
+                areaName = "[Missing! (or Full Name Skipped)]";
+            }
+            WriteTag("span", sb, 4, "name pointer", areaName.HtmlEncode(), true,  $"area-{areaCounter}-name", null, areaTitleAttributes);
+            var duration = scenario.Feature.Area.EndTime - scenario.Feature.Area.StartTime;
+            var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
+            formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
+            WriteTag("span", sb, 0, "area duration", $" [{formattedDuration} ms]",true);
+
+            WriteTagClose("h2", sb, 3);
+
+            WriteStatsTableStart(sb, 3, "area-"+areaCounter+"-stats");
+            WriteStats(sb, scenario.Feature.Area.FeatureStats, 3, $"area-{areaCounter}-feature-stats", "Features");
+            WriteStats(sb, scenario.Feature.Area.ScenarioStats, 3, $"area-{areaCounter}-scenario-stats", "Scenarios");
+            WriteStatsTableClose(sb, 3);
+
+            var featuresClasName = "features list-unstyled collapse" + (expanded ? " show" : "");
+            WriteTagOpen("ol", sb, 3, featuresClasName, false, "area-" + areaCounter + "-features", style, String.Format(" aria-expanded=\"{0}\"", expandedText));
+        }
+
+        void WriteBadge(string type, string title, int count, OutcomeStats stats, StringBuilder sb, Scenario scenario, string badgeAttributes, string badgeClassName) {
+            WriteTagOpen("span", sb, 0, $"{type} badge-distro", true, null, null, $"{badgeAttributes} title=\"{title}\"");
 
             //Create Badge with distribution 
-            WriteTag("span", sb, 0, $"area badge badge-pill pointer total {badgeClassName}", scenario.Feature.Area.FeatureStats.Total.ToString(), true, $"area-{areaCounter}-badge", null);
-            WriteTagOpen("span", sb, 0, $"area distro pointer", true, $"area-{areaCounter}-distro");
-            double totalCount = scenario.Feature.Area.Features.Count();
-            double passedPercent = ((double)scenario.Feature.Area.Features.Where(x => x.Outcome == Outcome.Passed).Count()/totalCount)*100;
-            double skippedPercent = ((double)scenario.Feature.Area.Features.Where(x => x.Outcome == Outcome.Skipped).Count()/totalCount)*100;
-            double failedPercent = ((double)scenario.Feature.Area.Features.Where(x => x.Outcome == Outcome.Failed).Count()/totalCount)*100;
+            WriteTag("span", sb, 0, $"{type} badge badge-pill pointer total {badgeClassName}", count.ToString(), true, $"{type}-{count}-badge", null);
+            WriteTagOpen("span", sb, 0, $"{type} distro pointer", true, $"{type}-{count}-distro");
+            double totalCount = stats.Total;
+            double passedPercent = ((double)stats.Passed/totalCount)*100;
+            double skippedPercent = ((double)stats.Skipped/totalCount)*100;
+            double failedPercent = ((double)stats.Failed/totalCount)*100;
             var skippedRadius = "";
             if(skippedPercent > 0) {
                 if(passedPercent == 0) {
@@ -384,29 +411,6 @@ namespace xBDD.Reporting.Html
             }
             WriteTagClose("span", sb, 0);//distribution graph
             WriteTagClose("span", sb, 0);//badge and distro graph
-
-            var areaName = scenario.Feature.Area.Name;
-            if(this.areaNameSkip != null && this.areaNameSkip.Length > 0) {
-                areaName = areaName.Replace(this.areaNameSkip, "");
-            }
-            if(areaName.Length == 0) {
-                areaName = "[Missing! (or Full Name Skipped)]";
-            }
-            WriteTag("span", sb, 4, "name pointer", areaName.HtmlEncode(), true,  $"area-{areaCounter}-name", null, areaTitleAttributes);
-            var duration = scenario.Feature.Area.EndTime - scenario.Feature.Area.StartTime;
-            var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
-            formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
-            WriteTag("span", sb, 0, "area duration", $" [{formattedDuration} ms]",true);
-
-            WriteTagClose("h2", sb, 3);
-
-            WriteStatsTableStart(sb, 3, "area-"+areaCounter+"-stats");
-            WriteStats(sb, scenario.Feature.Area.FeatureStats, 3, $"area-{areaCounter}-feature-stats", "Features");
-            WriteStats(sb, scenario.Feature.Area.ScenarioStats, 3, $"area-{areaCounter}-scenario-stats", "Scenarios");
-            WriteStatsTableClose(sb, 3);
-
-            var featuresClasName = "features list-unstyled collapse" + (expanded ? " show" : "");
-            WriteTagOpen("ol", sb, 3, featuresClasName, false, "area-" + areaCounter + "-features", style, String.Format(" aria-expanded=\"{0}\"", expandedText));
         }
         void WriteAreaClose(StringBuilder sb)
         {
@@ -442,14 +446,16 @@ namespace xBDD.Reporting.Html
             featureCounter++;
             var expanded = scenario.Feature.Outcome == Outcome.Failed;
             var expandedText = expanded ? "true" : "false";
-            //WriteTagOpen("li", sb, 4, "feature", false, "feature-" + featureCounter, style);
+
             WriteTagOpen("li", sb, 4, "feature", false, "feature-" + featureCounter);
 
             var titleAttributes = $" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-scenarios\" aria-expanded=\"{expandedText}\" aria-controls=\"feature-{featureCounter}-scenarios\" ";
             var badgeAttributes = $" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-stats\" aria-expanded=\"false\" aria-controls=\"feature-{featureCounter}-stats\" ";
             WriteTagOpen("h3", sb, 5, null, true, "vertical-align: top !important;", null, null);
-            //WriteTag("small", sb, 6,null, "Feature", true);
-            WriteTag("span", sb, 6, $"feature badge pointer total {badgeClassName}", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, $"{badgeAttributes} title=\"Scenarios\"");
+
+            WriteBadge("feature", "Scenarios", featureCounter, scenario.Feature.ScenarioStats, sb, scenario, badgeAttributes, badgeClassName);
+
+            //WriteTag("span", sb, 6, $"feature badge pointer total {badgeClassName}", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, $"{badgeAttributes} title=\"Scenarios\"");
             if (scenario.Feature.Actor != null || scenario.Feature.Value != null || scenario.Feature.Capability != null)
             {
                 sb.Append($"<span class=\"feature-statement-link badge badge-secondary\" id=\"feature-{featureCounter}-statement-link\" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-statement\" aria-expanded=\"false\" aria-controls=\"feature-{featureCounter}-statement\"><span class=\"oi oi-info\" aria-hidden=\"true\"></span></span>");
