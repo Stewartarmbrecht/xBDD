@@ -3,6 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>xBDD</PackageId>
+    <Version>0.0.1-alpha</Version>
+    <Authors>Stewart Armbrecht</Authors>
+    <Company>Bound by Better</Company>
+    <Description>Behaviour Driven Development UI and API testing framework designed to help developers document thier applications functionality.</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Early alpha release for testing.</PackageReleaseNotes>
+    <Copyright>Copyright 2016 (c) Stewart Armbrecht. All rights reserved.</Copyright>
+    <PackageTags>BDD, unit test, MSTest, xUnit</PackageTags>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/StewartArmbrecht/xBDD/master/xBDD/xBDD/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Stewartarmbrecht/xBDD</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
