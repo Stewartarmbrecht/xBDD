@@ -98,7 +98,7 @@ namespace xBDD.Browser
         public Step HasTitleAKAHoverText(string text, int waitMilliseconds = -1, bool captureOutput = false)
         {
             return xB.CreateAsyncStep(
-                $"{this.stepNamePrefix}{this.pageElement.Description} is visible",
+                $"{this.stepNamePrefix}{this.pageElement.Description} has a title attribute of {text}",
                 async (s) => {
                     try {
                         await this.webBrowser.WaitTillVisible(this.pageElement, waitMilliseconds);

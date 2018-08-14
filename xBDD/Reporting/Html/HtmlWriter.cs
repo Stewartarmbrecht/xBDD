@@ -377,7 +377,7 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("span", sb, 0, $"{type} badge-distro", true, null, null, $"{badgeAttributes} title=\"{title}\"");
 
             //Create Badge with distribution 
-            WriteTag("span", sb, 0, $"{type} badge badge-pill pointer total {badgeClassName}", count.ToString(), true, $"{type}-{count}-badge", null);
+            WriteTag("span", sb, 0, $"{type} badge badge-pill pointer total {badgeClassName}", stats.Total.ToString(), true, $"{type}-{count}-badge", null);
             WriteTagOpen("span", sb, 0, $"{type} distro pointer", true, $"{type}-{count}-distro");
             double totalCount = stats.Total;
             double passedPercent = ((double)stats.Passed/totalCount)*100;
