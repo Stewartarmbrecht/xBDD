@@ -40,6 +40,38 @@ namespace xBDD.Browser
                 }
             );
         }
+        /// <summary>
+        /// Verifies that the previously selected element's style
+        /// matches using the regex expression you provide.
+        /// </summary>
+        /// <param name="description">The description to display in the step name.</param>
+        /// <param name="regexMatch">The regex expressions to use to match against the style property.</param>
+        /// <param name="waitMilliseconds">The time in milliseconds to wait until the element is visible.</param>
+        /// <param name="captureOutput">Triggers the system to capture the web page source in the output of the step.</param>
+        /// <returns>Step to add to your scenario.</returns>
+        public Step HasStyle(string description, string regexMatch, int waitMilliseconds = -1, bool captureOutput = false)
+        {
+            return xB.CreateAsyncStep(
+                $"{this.stepNamePrefix}{this.pageElement.Description} {description}",
+                async (s) => {
+                    try {
+                        await this.webBrowser.WaitTillVisible(this.pageElement, waitMilliseconds);
+                        this.webBrowser.ElementStyleMatches(this.pageElement, regexMatch);
+                        if(s.Outcome == Outcome.Failed || captureOutput) {
+                            s.Output = this.webBrowser.GetPageSource();
+                            s.OutputFormat = TextFormat.htmlpreview;
+                        }
+                    } catch (System.Exception) {
+                        s.Output = this.webBrowser.GetPageSource();
+                        s.OutputFormat = TextFormat.htmlpreview;
+                        throw;
+                    }
+                    if(click) {
+                        this.webBrowser.Click(this.pageElement);
+                    }
+                }
+            );
+        }
         public Step Style(string text, string match, int waitMilliseconds = -1, bool captureOutput = false)
         {
             return xB.CreateAsyncStep(

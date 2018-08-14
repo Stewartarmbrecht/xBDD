@@ -4,6 +4,7 @@ namespace xBDD.Features.Pages.HtmlReportPage
     {
         public Area Area = new Area();
         public AreaFeatureStats AreaFeatureStats = new AreaFeatureStats();
+        public AreaFeatureDistro AreaFeatureDistro = new AreaFeatureDistro();
         public AreaScenarioStats AreaScenarioStats = new AreaScenarioStats();
         public Feature Feature = new Feature();
         public FeatureScenarioStats FeatureScenarioStats = new FeatureScenarioStats();

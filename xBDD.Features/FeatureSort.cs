@@ -18,6 +18,7 @@ namespace xBDD.Features
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewTestRun).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewTestRunStats).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewArea).FullName,
+                typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewAreaFeatureDistribution).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewAreaDescription).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewAreaFeatures).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewAreaStats).FullName,

@@ -53,7 +53,9 @@ namespace xBDD.Reporting.Html
         {
 
             sb.Append("    <style>");
-            sb.Append(" span.area.badge { width: 2rem }");
+            sb.Append(" span.area.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; }");
+            sb.Append(" span.badge-distro { width: 3.5rem; display: inline-block; height: 1.5rem; vertical-align: bottom; }");
+            sb.Append(" span.area.stats { font-size: 75%; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; border-radius: .25rem; height: 1.5em; display: inline-block; width: 1.75rem; position: absolute; margin-left: 2rem; z-index: -1; vertical-align: middle; }");
             sb.Append(" span.feature.badge { width: 2rem }");
             sb.Append(" span.scenario.badge { width: 2rem }");
             sb.Append(" span.testrun.duration { font-size: 1rem; color: gray; }");
@@ -64,6 +66,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" span.oi.oi-info { font-size: 80% }");
             sb.Append(" ol { margin-left: 2.25rem; }");
             sb.Append(" span.badge { margin-left: .25rem; }");
+            sb.Append(" span.distro { width: 1.5rem; height: 1.5rem; display: inline-block; margin-left: 2rem; border: 1px solid white; }");
             sb.Append(" span.name { margin-left: .75rem; }");
             sb.Append(" dl.exception { margin: 1rem 3rem; padding: 1rem; }");
             sb.Append(" dl.exception dt { margin-bottom: .25rem; }");
@@ -172,7 +175,7 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("h1", sb, 2, cssClass, true);
             //WriteTag("small", sb, 2, null, "Test Run", true);
             //sb.Append("<br/>");
-            WriteTag("span", sb, 0, $"testrun badge pointer badget-pill total {badgeClass}", testRun.AreaStats.Total.ToString(), true, null, null, " title=\"Areas\"");
+            WriteTag("span", sb, 0, $"testrun badge pointer badge-pill total {badgeClass}", testRun.AreaStats.Total.ToString(), true, null, null, " title=\"Areas\"");
             WriteTag("span", sb, 0, "name", testRun.Name.HtmlEncode(), true);
 
             var duration = testRun.EndTime - testRun.StartTime;
@@ -344,7 +347,44 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("h2", sb, 3, className, true, null, null, null);
             //WriteTag("small", sb, 4, null, "Area", true);
 
-            WriteTag("span", sb, 4, $"area badge pointer total {badgeClassName}", scenario.Feature.Area.FeatureStats.Total.ToString(), true, $"area-{areaCounter}-badge", null, $"{areaBadgeAttributes} title=\"Features\"");
+            WriteTagOpen("span", sb, 0, "area badge-distro", true, null, null, $"{areaBadgeAttributes} title=\"Features\"");
+
+            //Create Badge with distribution 
+            WriteTag("span", sb, 0, $"area badge badge-pill pointer total {badgeClassName}", scenario.Feature.Area.FeatureStats.Total.ToString(), true, $"area-{areaCounter}-badge", null);
+            WriteTagOpen("span", sb, 0, $"area distro pointer", true, $"area-{areaCounter}-distro");
+            double totalCount = scenario.Feature.Area.Features.Count();
+            double passedPercent = ((double)scenario.Feature.Area.Features.Where(x => x.Outcome == Outcome.Passed).Count()/totalCount)*100;
+            double skippedPercent = ((double)scenario.Feature.Area.Features.Where(x => x.Outcome == Outcome.Skipped).Count()/totalCount)*100;
+            double failedPercent = ((double)scenario.Feature.Area.Features.Where(x => x.Outcome == Outcome.Failed).Count()/totalCount)*100;
+            var skippedRadius = "";
+            if(skippedPercent > 0) {
+                if(passedPercent == 0) {
+                    skippedRadius = "border-top-right-radius: .25em;";
+                }
+                if(failedPercent == 0) {
+                    skippedRadius = $"{skippedRadius} border-bottom-right-radius: .25em;";
+                }
+            }
+            var passedRadius = "border-top-right-radius: .25em;";
+            if(skippedPercent == 0 && failedPercent == 0) {
+                passedRadius = $"{passedRadius} border-bottom-right-radius: .25em;";
+            }
+            var failedRadius = "border-bottom-right-radius: .25em;";
+            if(passedPercent == 0 && skippedPercent == 0) {
+                failedRadius = $"{failedRadius} border-top-right-radius: .25em;";
+            }
+            if(passedPercent > 0) {
+                WriteTag("div", sb, 0, "distro bg-success", null, true, null, $"height: {passedPercent}%; width: 100%; {passedRadius}");
+            }
+            if(skippedPercent > 0) {
+                WriteTag("div", sb, 0, "distro bg-warning", null, true, null, $"height: {skippedPercent}%; width: 100%; {skippedRadius}");
+            }
+            if(failedPercent > 0) {
+                WriteTag("div", sb, 0, "distro bg-danger", null, true, null, $"height: {failedPercent}%; width: 100%; {failedRadius}");
+            }
+            WriteTagClose("span", sb, 0);//distribution graph
+            WriteTagClose("span", sb, 0);//badge and distro graph
+
             var areaName = scenario.Feature.Area.Name;
             if(this.areaNameSkip != null && this.areaNameSkip.Length > 0) {
                 areaName = areaName.Replace(this.areaNameSkip, "");
@@ -375,25 +415,25 @@ namespace xBDD.Reporting.Html
         }
         void WriteFeatureOpen(Scenario scenario, StringBuilder sb)
         {
-            string badgetClassName = null;
+            string badgeClassName = null;
             string borderStyle = "";
             switch (scenario.Feature.Outcome)
             {
                 case Outcome.NotRun:
                     borderStyle = "#949494";
-                    badgetClassName = "badge-secondary";
+                    badgeClassName = "badge-secondary";
                     break;
                 case Outcome.Passed:
                     borderStyle = "#5A8B5B";
-                    badgetClassName = "badge-success";
+                    badgeClassName = "badge-success";
                     break;
                 case Outcome.Failed:
                     borderStyle = "#AD4D4B";
-                    badgetClassName = "badge-danger";
+                    badgeClassName = "badge-danger";
                     break;
                 case Outcome.Skipped:
                     borderStyle = "#917545";
-                    badgetClassName = "badge-warning";
+                    badgeClassName = "badge-warning";
                     break;
                 default:
                     break;
@@ -409,7 +449,7 @@ namespace xBDD.Reporting.Html
             var badgeAttributes = $" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-stats\" aria-expanded=\"false\" aria-controls=\"feature-{featureCounter}-stats\" ";
             WriteTagOpen("h3", sb, 5, null, true, "vertical-align: top !important;", null, null);
             //WriteTag("small", sb, 6,null, "Feature", true);
-            WriteTag("span", sb, 6, $"feature badge pointer total {badgetClassName}", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, $"{badgeAttributes} title=\"Scenarios\"");
+            WriteTag("span", sb, 6, $"feature badge pointer total {badgeClassName}", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, $"{badgeAttributes} title=\"Scenarios\"");
             if (scenario.Feature.Actor != null || scenario.Feature.Value != null || scenario.Feature.Capability != null)
             {
                 sb.Append($"<span class=\"feature-statement-link badge badge-secondary\" id=\"feature-{featureCounter}-statement-link\" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-statement\" aria-expanded=\"false\" aria-controls=\"feature-{featureCounter}-statement\"><span class=\"oi oi-info\" aria-hidden=\"true\"></span></span>");
