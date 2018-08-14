@@ -11,6 +11,7 @@
     {
         public static Step RunTheMSTestProject(string command, string changeDirectory, Wrapper<string> output)
         {
+            var fullCommand = $"{command} | Out-File ./test-output/testoutput.txt";
             var step = xB.CreateStep(
                 "you run the MS Test Project with the following command:",
                 (s) => { 
@@ -24,13 +25,19 @@
 
                     cmd.StandardInput.WriteLine($"Set-Location {changeDirectory}");
                     cmd.StandardInput.Flush();
-                    cmd.StandardInput.WriteLine(command);
+                    cmd.StandardInput.WriteLine(fullCommand);
                     cmd.StandardInput.Flush();
                     cmd.StandardInput.Close();
                     cmd.WaitForExit(20000);
-                    output.Object = cmd.StandardOutput.ReadToEnd();
-                    s.Output = output.Object;
-                    s.OutputFormat = TextFormat.text;
+                    cmd.Close();
+                    cmd.Dispose();
+                    using (var fileStream = new FileStream("../../../../Amazon.Features/test-output/testoutput.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    using (var textReader = new StreamReader(fileStream))
+                    {
+                        output.Object = textReader.ReadToEnd();
+                        s.Output = output.Object;
+                        s.OutputFormat = TextFormat.text;
+                    }
                 },
                 command,
                 TextFormat.sh);

@@ -32,7 +32,7 @@ namespace xBDD.Features.GettingStarted
 			
 			await xB.AddScenario(this, 1)
 				.Given(You.CodeTheFollowingMSTestFeatureDefinition(codePath))
-				.When(You.RunTheMSTestProject("dotnet test -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton", "../../../../Amazon.Features/", output))
+				.When(You.RunTheMSTestProject("dotnet test --no-build -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton", "../../../../Amazon.Features/", output))
 				.Then(You.WillSeeTheOutputMatches(templateFilePath,output))
 				.Run();
 
@@ -48,7 +48,7 @@ namespace xBDD.Features.GettingStarted
 			
 			await xB.AddScenario(this, 2)
 				.Given(You.CodeTheFollowingMSTestFeatureDefinition(codePath))
-				.When(You.RunTheMSTestProject("dotnet test --filter Name~SearchWithSearchButton_Failing", "../../../../Amazon.Features/", output))
+				.When(You.RunTheMSTestProject("dotnet test --no-build --filter Name~SearchWithSearchButton_Failing", "../../../../Amazon.Features/", output))
 				.Then(You.WillSeeTheOutputMatches(templateFilePath,output))
 				.Run();
 

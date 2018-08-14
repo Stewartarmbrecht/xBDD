@@ -29,7 +29,7 @@ namespace xBDD.Browser
 							if(windowSize != null) {
 								chromeArgs.Add($"--window-size={windowSize}");
 							} else {
-								chromeArgs.Add("--window-size=400,600");
+								chromeArgs.Add("--window-size=1024,768");
 							}
 							chromeArgs.Add("--allow-running-insecure-content");
 							chromeArgs.Add("--disable-gpu");

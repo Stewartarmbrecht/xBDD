@@ -67,7 +67,6 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Given the test results of a passing full test run
 			When you navigate to the test html report with a passing full test run
 			And you wait till the first area name is visible
-			And you click the the menu button
 			And you click the the expand all areas link
 			And you wait till the first area's feature list that is not expanding or collapsing is visible
 			And you click the the first area name
@@ -76,7 +75,6 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Given the test results of a passing full test run
 			When you navigate to the test html report with a passing full test run
 			And you wait till the first area name is visible
-			And you click the the menu button
 			And you click the the expand all areas link
 			And you wait till the first area's feature list that is not expanding or collapsing is visible
 			And you wait till the second area's feature list that is not expanding or collapsing is visible
@@ -93,7 +91,6 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Given the test results of a passing full test run
 			When you navigate to the test html report with a passing full test run
 			And you wait till the first area name is visible
-			And you click the the menu button
 			And you click the the expand all areas link
 			Then you will see the first area's feature list that is not expanding or collapsing is visible
 			And you will see the second area's feature list that is not expanding or collapsing is visible
@@ -1104,12 +1101,12 @@ xBDD - Features - Getting Started
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
 				               at xBDD.Features.GettingStarted.DefineADocumentationScenario.<>c__DisplayClass5_0.<WithSynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineADocumentationScenario.cs:line 61
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 	Define A Scenario With Reusable Steps
 		With Asynchronous Execution [Failed]
 			Given you code the following feature definition:
@@ -1135,12 +1132,12 @@ xBDD - Features - Getting Started
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
 				               at xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps.<>c__DisplayClass3_0.<WithAsynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineAScenarioWithReusableSteps.cs:line 109
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 		With Synchronous Execution [Failed]
 			Given you code the following feature definition:
 				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\Features\DefineScenarios\SampleCode\GetHolidays.cs'.
@@ -1170,12 +1167,12 @@ xBDD - Features - Getting Started
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
 				               at xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps.<>c__DisplayClass2_0.<WithSynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineAScenarioWithReusableSteps.cs:line 64
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 	Executing Your First Scenario
 		Running A Failing Web UI Test
 			Given you code the following feature definition:
@@ -1214,7 +1211,7 @@ xBDD - Features - Getting Started
 					}
 				}
 			When you run the MS Test Project with the following command:
-				dotnet test --filter Name~SearchWithSearchButton_Failing
+				dotnet test --no-build --filter Name~SearchWithSearchButton_Failing
 			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				{{.*}}/rl
 				Failed   SearchWithSearchButton_Failing
@@ -1278,7 +1275,7 @@ xBDD - Features - Getting Started
 					}
 				}
 			When you run the MS Test Project with the following command:
-				dotnet test -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton
+				dotnet test --no-build -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton
 			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				{{.*}}/rl
 				Passed   SearchWithSearchButton
