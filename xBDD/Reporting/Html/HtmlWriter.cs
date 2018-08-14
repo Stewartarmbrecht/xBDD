@@ -374,7 +374,7 @@ namespace xBDD.Reporting.Html
         }
 
         void WriteBadge(string type, string title, int count, OutcomeStats stats, StringBuilder sb, Scenario scenario, string badgeAttributes, string badgeClassName) {
-            WriteTagOpen("span", sb, 0, $"{type} badge-distro", true, null, null, $"{badgeAttributes} title=\"{title}\"");
+            WriteTagOpen("span", sb, 0, $"{type} badge-distro", true, $"{type}-{count}-badge-distro", null, $"{badgeAttributes} title=\"{title}\"");
 
             //Create Badge with distribution 
             WriteTag("span", sb, 0, $"{type} badge badge-pill pointer total {badgeClassName}", stats.Total.ToString(), true, $"{type}-{count}-badge", null);

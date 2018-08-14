@@ -4,6 +4,10 @@ namespace xBDD.Features.Pages.HtmlReportPage
 {
     public partial class FeatureScenarioDistro
     {
+        public PageElement BadgeDistro(int featureNumber)
+        {
+            return new PageElement("feature badge and distribution chart", $"#feature-{featureNumber}-badge-distro");
+        }
         public PageElement Chart(int featureNumber)
         {
             return new PageElement("feature scenario distribution chart", $"#feature-{featureNumber}-distro");

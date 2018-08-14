@@ -35,7 +35,6 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.Then(you.WillSee(the.FeatureScenarioStats.Section(7)).IsVisible())
 				.And(you.WillSee(the.FeatureScenarioStats.Total(7)).IsVisible())
 				.And(you.WillSee(the.FeatureScenarioStats.Total(7)).HasText("3"))
-				.And(you.WillSee(the.FeatureScenarioStats.Total(7)).HasTitleAKAHoverText("Scenarios"))
 				.And(you.WillSee(the.FeatureScenarioStats.Passed(7)).HasText("1"))
 				.And(you.WillSee(the.FeatureScenarioStats.Skipped(7)).HasText("1"))
 				.And(you.WillSee(the.FeatureScenarioStats.Failed(7)).HasText("1"))

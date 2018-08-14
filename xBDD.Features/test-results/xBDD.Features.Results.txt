@@ -56,7 +56,9 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			And you wait till the area title line is visible
-			Then you will see area feature distribution chart is visible
+			Then you will see area badge and distribution chart is visible
+			And you will see area badge and distribution chart has a title attribute of Features
+			And you will see area feature distribution chart is visible
 			And you will see area feature distribution passed bar has a heigth of 33%
 			And you will see area feature distribution skipped bar has a heigth of 33%
 			And you will see area feature distribution failed bar has a heigth of 33%
@@ -96,27 +98,20 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Then you will see the first area's feature list that is not expanding or collapsing is visible
 			And you will see the second area's feature list that is not expanding or collapsing is visible
 	Review Area Stats
-		Failed Skipped And Passing Feature Stats [Failed]
+		Failed Skipped And Passing Feature Stats
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			And you wait till the area title line is visible
 			And you click the the area title line
 			Then you will see area feature stats is visible
 			And you will see area feature total has text '3'
-			And you will see area feature total is visible [Failed]
-				Error Type: Exception
-				   Message: The web element (area feature total - #area-3 span.badge.total) did not have text 'Features' it was ''.
-				     Stack:    at xBDD.Browser.WebBrowser.ElementHasTitle(PageElement element, String title) in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 97
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass8_0.<<HasTitleAKAHoverText>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 105
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
-			And you will see area feature passed count has text '1' [Skipped - Previous Error]
-			And you will see area feature skipped count has text '1' [Skipped - Previous Error]
-			And you will see area feature failed count has text '1' [Skipped - Previous Error]
-			And you will see area feature stats bar chart is visible [Skipped - Previous Error]
-			And you will see area feature success bar is visible [Skipped - Previous Error]
-			And you will see area feature skipped bar is visible [Skipped - Previous Error]
-			And you will see area feature failed bar is visible [Skipped - Previous Error]
+			And you will see area feature passed count has text '1'
+			And you will see area feature skipped count has text '1'
+			And you will see area feature failed count has text '1'
+			And you will see area feature stats bar chart is visible
+			And you will see area feature success bar is visible
+			And you will see area feature skipped bar is visible
+			And you will see area feature failed bar is visible
 		Failed Skipped And Passing Scenario Stats
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
@@ -182,19 +177,31 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			And you wait till the area title line is visible
-			Then you will see feature scenario distribution chart is visible
+			Then you will see feature badge and distribution chart is visible
+			And you will see feature badge and distribution chart has a title attribute of Scenarios
+			And you will see feature scenario distribution chart is visible
 			And you will see feature scenario distribution passed bar has a heigth of 33%
 			And you will see feature scenario distribution skipped bar has a heigth of 33%
 			And you will see feature scenario distribution failed bar has a heigth of 33%
 	Review Feature Statement
-		Collapse
+		Collapse [Failed]
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			And you click when the feature 1 statement link is visible
 			And you wait till the feature 1 statement is visible
 			When you click the the feature 1 statement link
-			Then you will see the feature 1 statement is not visible
+			Then you will see the feature 1 statement is not visible [Failed]
+				Error Type: Exception
+				   Message: The web element (the feature 1 statement - #feature-1-statement) was not hidden.
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass10_0.<WaitTillNotVisible>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 132
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass10_0.<<IsNotVisible>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 149
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
 		Collapse All [Skipped - Not Started]
 		Collapsed By Default
 			Given the test results of a single passing scenario
@@ -235,27 +242,20 @@ By perform some action'
 You can derive some value
 By [Missing!]'
 	Review Feature Stats
-		Failed Skipped And Passing Scenario Stats [Failed]
+		Failed Skipped And Passing Scenario Stats
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			And you click when the feature badge is visible
 			Then you will see feature scenario stats is visible
 			And you will see feature scenario stats total is visible
-			And you will see feature scenario stats total has text '3' [Failed]
-				Error Type: Exception
-				   Message: The web element (feature scenario stats total - #feature-7 span.badge.total) did not have text '3' it was '7'.
-				     Stack:    at xBDD.Browser.WebBrowser.ElementHasText(PageElement element, String text) in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 63
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass5_0.<<HasText>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 27
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
-			And you will see feature scenario stats total is visible [Skipped - Previous Error]
-			And you will see feature scenario stats passed count has text '1' [Skipped - Previous Error]
-			And you will see feature scenario stats skipped count has text '1' [Skipped - Previous Error]
-			And you will see feature scenario stats failed count has text '1' [Skipped - Previous Error]
-			And you will see feature scenario stats bar chart is visible [Skipped - Previous Error]
-			And you will see feature scenario stats success bar is visible [Skipped - Previous Error]
-			And you will see feature scenario stats skipped bar is visible [Skipped - Previous Error]
-			And you will see feature scenario stats failed bar is visible [Skipped - Previous Error]
+			And you will see feature scenario stats total has text '3'
+			And you will see feature scenario stats passed count has text '1'
+			And you will see feature scenario stats skipped count has text '1'
+			And you will see feature scenario stats failed count has text '1'
+			And you will see feature scenario stats bar chart is visible
+			And you will see feature scenario stats success bar is visible
+			And you will see feature scenario stats skipped bar is visible
+			And you will see feature scenario stats failed bar is visible
 	Review Scenario
 		Failing
 			Given the test results of a single failed scenario
@@ -285,7 +285,7 @@ By [Missing!]'
 			When you navigate to the test html report with a full test run with all outcomes
 			Then you will see scenario steps total is visible
 			And you will see scenario steps total has text '3'
-			And you will see scenario steps total is visible
+			And you will see scenario steps total has a title attribute of Steps
 	Review Step
 		Failing
 			Given the test results of a single failed scenario
@@ -307,40 +307,22 @@ By [Missing!]'
 			And you click when the scenario name is visible
 			Then you will see the step 1 with yellow badge is visible
 			And you will see the step name has text 'Given my step 1'
-		With Exception [Failed]
+		With Exception
 			Given the test results with a failed step with an exception
 			When you navigate to the test html report with a failing step with an exception
-			Then you will see exception is visible [Failed]
-				Error Type: Exception
-				   Message: The web element (exception - #step-2 dl.exception) was not visible
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 189
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass9_0.<<IsVisible>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 127
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
-			Then you will see exception type is visible [Skipped - Previous Error]
-			Then you will see exception message is visible [Skipped - Previous Error]
-			Then you will see exception stack trace is visible [Skipped - Previous Error]
-		With Inner Exception [Failed]
+			And you click when step error link is visible
+			Then you will see exception is visible
+			Then you will see exception type is visible
+			Then you will see exception message is visible
+			Then you will see exception stack trace is visible
+		With Inner Exception
 			Given the test results with a failed step with an exception
 			When you navigate to the test html report with a failing step with a nested exception
-			Then you will see inner exception is visible [Failed]
-				Error Type: Exception
-				   Message: The web element (inner exception - #step-2 dl.exception>dd.inner-exception>dl.exception) was not visible
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 189
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass9_0.<<IsVisible>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 127
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
-			Then you will see inner exception type is visible [Skipped - Previous Error]
-			Then you will see inner exception message is visible [Skipped - Previous Error]
-			Then you will see inner exception stack trace is visible [Skipped - Previous Error]
+			And you click when step error link is visible
+			Then you will see inner exception is visible
+			Then you will see inner exception type is visible
+			Then you will see inner exception message is visible
+			Then you will see inner exception stack trace is visible
 	Review Step Exception
 		Collapse
 			Given the test results with a failed step with an exception
@@ -455,7 +437,7 @@ By [Missing!]'
 			When you navigate to the test html report with an empty test run
 			Then you will see test run area stats is visible
 			And you will see test run area stats total count has text '0'
-			And you will see test run area stats total count is visible
+			And you will see test run area stats total count has a title attribute of Areas
 			And you will see test run area stats passed count has text '0'
 			And you will see test run area stats skipped count has text '0'
 			And you will see test run area stats failed count has text '0'
@@ -465,7 +447,7 @@ By [Missing!]'
 			When you navigate to the test html report with a full test run with all outcomes
 			Then you will see test run area stats is visible
 			And you will see test run area stats total count has text '3'
-			And you will see test run area stats total count is visible
+			And you will see test run area stats total count has a title attribute of Areas
 			And you will see test run area stats passed count has text '1'
 			And you will see test run area stats skipped count has text '1'
 			And you will see test run area stats failed count has text '1'

@@ -37,7 +37,6 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.And(you.Click(the.Area.Badge(3)))
 				.Then(you.WillSee(the.AreaFeatureStats.Section(3)).IsVisible())
 				.And(you.WillSee(the.AreaFeatureStats.Total(3)).HasText("3"))
-				.And(you.WillSee(the.AreaFeatureStats.Total(3)).HasTitleAKAHoverText("Features"))
 				.And(you.WillSee(the.AreaFeatureStats.Passed(3)).HasText("1"))
 				.And(you.WillSee(the.AreaFeatureStats.Skipped(3)).HasText("1"))
 				.And(you.WillSee(the.AreaFeatureStats.Failed(3)).HasText("1"))

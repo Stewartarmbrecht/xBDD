@@ -4,6 +4,10 @@ namespace xBDD.Features.Pages.HtmlReportPage
 {
     public partial class AreaFeatureDistro
     {
+        public PageElement BadgeDistro(int areaNumber)
+        {
+            return new PageElement("area badge and distribution chart", $"#area-{areaNumber}-badge-distro");
+        }
         public PageElement Chart(int areaNumber)
         {
             return new PageElement("area feature distribution chart", $"#area-{areaNumber}-distro");
