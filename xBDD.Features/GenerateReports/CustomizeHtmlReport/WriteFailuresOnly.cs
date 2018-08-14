@@ -48,7 +48,7 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		{
             await xB.AddScenario(this, 3)
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes(true))
-                .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
+                .When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
 				.Then(you.WillSee(the.Step.BadgeRed(2)).IsVisible().Because("the step failed and the report will be expanded to the failed step"))
                 .Run();
 		}

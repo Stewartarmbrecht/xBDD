@@ -26,6 +26,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
             await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithAFailingStepWithAnException())
 				.When(you.NavigateTo(theHtmlReport.WithAFailingStepWithAnException))
+				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(1)).IsVisible())
 				.Then(you.WillSee(the.StepException.Message(2)).IsNotVisible().Because("the exception is collapsed by default."))
                 .Run();
 		}
@@ -37,8 +40,14 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
             await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithAFailingStepWithAnException())
 				.And(you.NavigateTo(theHtmlReport.WithAFailingStepWithAnException))
+				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(1)).IsVisible())
 				.When(you.ClickWhen(the.StepException.Link(2)).IsVisible())
-				.Then(you.WillSee(the.StepException.Section(2)).IsVisible())
+				.And(you.WaitTill(the.StepException.Section(2)).IsVisible())
+				.And(you.Wait(250))
+				.And(you.Click(the.StepException.Link(2)))
+				.Then(you.WillSee(the.StepException.Section(2)).IsNotVisible())
                 .Run();
 		}
 		[TestMethod]
@@ -50,19 +59,20 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task Expand()
 		{
-			 await xB.CurrentRun.AddScenario(this, 3)
-				.Skip("Not Started");
+            await xB.AddScenario(this, 1)
+                .Given(AnHtmlReport.WithAFailingStepWithAnException())
+				.And(you.NavigateTo(theHtmlReport.WithAFailingStepWithAnException))
+				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(1)).IsVisible())
+				.When(you.ClickWhen(the.StepException.Link(2)).IsVisible())
+				.Then(you.WillSee(the.StepException.Section(2)).IsVisible())
+                .Run();
 		}
 		[TestMethod]
 		public async Task ExpandAll()
 		{
 			 await xB.CurrentRun.AddScenario(this, 4)
-				.Skip("Not Started");
-		}
-		[TestMethod]
-		public async Task DefaultCollapsedWhenMoreThan5()
-		{
-			 await xB.CurrentRun.AddScenario(this, 5)
 				.Skip("Not Started");
 		}
 	}

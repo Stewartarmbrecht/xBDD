@@ -56,6 +56,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.StatementLink(1)).IsVisible(-1, true))
 				.And(you.WaitTill(the.Feature.Statement(1)).IsVisible(-1, true))
+				.And(you.Wait(250))
 				.When(you.Click(the.Feature.StatementLink(1)))
 				.Then(you.WillSee(the.Feature.Statement(1)).IsNotVisible(-1, true))
                 .Run();

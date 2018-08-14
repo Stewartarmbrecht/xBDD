@@ -25,13 +25,14 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		}
 		
 		[TestMethod]
-		[TestCategory("now")]
 		public async Task FailedSkippedAndPassingStepsStats()
 		{
             WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.CurrentRun.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
  				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
+				.And(you.ClickWhen(the.Area.Name(3)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(7)).IsVisible())
 				.Then(you.WillSee(the.ScenarioStepStats.Total(19)).IsVisible())
 				.And(you.WillSee(the.ScenarioStepStats.Total(19)).HasText("3"))
 				.And(you.WillSee(the.ScenarioStepStats.Total(19)).HasTitleAKAHoverText("Steps"))

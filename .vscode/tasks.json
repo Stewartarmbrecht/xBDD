@@ -78,7 +78,7 @@
                 }
             },
             "args": [
-                "${workspaceFolder}/scripts/test.ps1"
+                "${workspaceFolder}/scripts/test-all.ps1"
             ],
             "problemMatcher": "$msCompile"
         }

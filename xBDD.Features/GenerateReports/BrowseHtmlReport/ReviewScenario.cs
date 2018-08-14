@@ -54,8 +54,10 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
             await xB.AddScenario(this, 3)
                 .Given(AnHtmlReport.WithASingleFailedScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
+				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(1)).IsVisible())
 				.Then(you.WillSee(the.Scenario.BadgeRed(1)).IsVisible())
-				.And(you.WillSee(the.Scenario.Steps(1)).IsVisible().Because("a step failed"))
+				.And(you.WillSee(the.Scenario.Steps(1)).IsNotVisible().Because("while the step failed the Failures Only options was not set to true"))
                 .Run();
 		}
 	}

@@ -36,12 +36,33 @@ namespace xBDD.Browser
             return NavigateTo(pageLocation);
         }
 
+        /// <summary>
+        /// Navigates the browser the location specified.
+        /// </summary>
+        /// <param name="pageLocation">The location to load into the browser.</param>
+        /// <returns>Step to add to the scenario.</returns>
         public Step NavigateTo(PageLocation pageLocation)
         {
             var step = xB.CreateStep(
                 $"you navigate to {pageLocation.Description}",
                 (s) => {
                     browser.Load(pageLocation);
+                    return;
+                });
+            return step;
+        }
+
+        /// <summary>
+        /// Simulates a user waiting.
+        /// </summary>
+        /// <param name="milliseconds">The number of milliseconds the user should wait.</param>
+        /// <returns>Step to add to the scenario.</returns>
+        public Step Wait(int milliseconds)
+        {
+            var step = xB.CreateStep(
+                $"you wait {milliseconds} milliseconds",
+                (s) => {
+                    System.Threading.Thread.Sleep(milliseconds);
                     return;
                 });
             return step;

@@ -106,9 +106,13 @@ namespace xBDD.Reporting.Html
 
         private void WriteNavBar(StringBuilder sb)
         {
-            var html = @"
+            var failuresOnlyText = "";
+            if(this.failuresOnly) {
+                failuresOnlyText = " [Failures Only]";
+            }
+            var html = $@"
                     <nav class=""navbar navbar-expand-lg navbar-light bg-light"">
-                    <a class=""navbar-brand"" href=""#"">xBDD Test Results</a>
+                    <a class=""navbar-brand"" href=""#"">xBDD Test Results{failuresOnlyText}</a>
                     <button id=""menu-button"" class=""navbar-toggler"" type=""button"" data-toggle=""collapse"" data-target=""#navbarNavAltMarkup"" aria-controls=""navbarNavAltMarkup"" aria-expanded=""false"" aria-label=""Toggle navigation"">
                         <span class=""navbar-toggler-icon""></span>
                     </button>
@@ -253,7 +257,7 @@ namespace xBDD.Reporting.Html
                 sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
             foreach (var scenario in sortedScenarios)
             {
-                if(!failuresOnly || failuresOnly && scenario.Outcome == Outcome.Failed)
+                if(!this.failuresOnly || this.failuresOnly && scenario.Outcome == Outcome.Failed)
                 {
                     if(!areasOpenWritten) {
                         WriteTagOpen("ol", sb, 1, "areas list-unstyled", false);
@@ -338,7 +342,7 @@ namespace xBDD.Reporting.Html
             style = "border-left: 2px solid "+style+";";
             //  style = "box-shadow: inset 1px 1px 8px 1px "+style+";";
             areaCounter++;
-            var expanded = scenario.Feature.Area.Outcome == Outcome.Failed;
+            var expanded = scenario.Feature.Area.Outcome == Outcome.Failed && this.failuresOnly;
             var expandedText = expanded ? "true" : "false";
             WriteTagOpen("li", sb, 2, "area", false, "area-" + areaCounter);
 
@@ -444,7 +448,7 @@ namespace xBDD.Reporting.Html
             }
             borderStyle = $"border-left: 2px solid {borderStyle};";
             featureCounter++;
-            var expanded = scenario.Feature.Outcome == Outcome.Failed;
+            var expanded = scenario.Feature.Outcome == Outcome.Failed && this.failuresOnly;
             var expandedText = expanded ? "true" : "false";
 
             WriteTagOpen("li", sb, 4, "feature", false, "feature-" + featureCounter);
@@ -516,7 +520,7 @@ namespace xBDD.Reporting.Html
             scenarioCounter++;
             WriteTagOpen("li", sb, 6, className, false, "scenario-" + scenarioCounter);
 
-            var expanded = scenario.Outcome == Outcome.Failed;
+            var expanded = scenario.Outcome == Outcome.Failed && this.failuresOnly;
             var expandedText = expanded ? "true" : "false";
 
             var titleAttributes = $" data-toggle=\"collapse\" href=\"#scenario-{scenarioCounter}-steps\" aria-expanded=\"{expandedText}\" aria-controls=\"scenario-{scenarioCounter}-steps\" ";
@@ -564,7 +568,7 @@ namespace xBDD.Reporting.Html
         }
         void WriteSteps(Scenario scenario, StringBuilder sb)
         {
-            var expanded = scenario.Outcome == Outcome.Failed;
+            var expanded = scenario.Outcome == Outcome.Failed && failuresOnly;
             var expandedText = expanded ? "true" : "false";
 
             var stepsClassName = "steps list-unstyled collapse" + (expanded ? " in" : "");

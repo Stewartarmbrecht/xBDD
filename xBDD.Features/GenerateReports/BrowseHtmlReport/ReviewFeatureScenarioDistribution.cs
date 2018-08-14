@@ -33,7 +33,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
             await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
 				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
-				.And(you.WaitTill(the.Area.Badge(3)).IsVisible())
+				.And(you.ClickWhen(the.Area.Name(3)).IsVisible())
 				.Then(you.WillSee(the.FeatureScenarioDistro.BadgeDistro(7)).IsVisible())
 				.And(you.WillSee(the.FeatureScenarioDistro.BadgeDistro(7)).HasTitleAKAHoverText("Scenarios"))
 				.And(you.WillSee(the.FeatureScenarioDistro.Chart(7)).IsVisible())
@@ -52,7 +52,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.And(you.WaitTill(the.Area.Badge(1)).IsVisible())
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.Then(you.WillSee(the.FeatureScenarioDistro.Chart(1)).IsVisible())
-				.And(you.WillSee(the.FeatureScenarioDistro.PassedBar(1)).HasStyle("has a heigth of 33%", ".*height\\: 100\\%\\;.*"))
+				.And(you.WillSee(the.FeatureScenarioDistro.PassedBar(1)).HasStyle("has a heigth of 100%", ".*height\\: 100\\%\\;.*"))
 				.And(you.WillSee(the.FeatureScenarioDistro.SkippedBar(1)).IsNotThere())
 				.And(you.WillSee(the.FeatureScenarioDistro.FailedBar(1)).IsNotThere())
                 .Run();
@@ -67,7 +67,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.And(you.WaitTill(the.Area.Badge(1)).IsVisible())
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.Then(you.WillSee(the.FeatureScenarioDistro.Chart(1)).IsVisible())
-				.And(you.WillSee(the.FeatureScenarioDistro.SkippedBar(1)).HasStyle("has a heigth of 33%", ".*height\\: 100\\%\\;.*"))
+				.And(you.WillSee(the.FeatureScenarioDistro.SkippedBar(1)).HasStyle("has a heigth of 100%", ".*height\\: 100\\%\\;.*"))
 				.And(you.WillSee(the.FeatureScenarioDistro.PassedBar(1)).IsNotThere())
 				.And(you.WillSee(the.FeatureScenarioDistro.FailedBar(1)).IsNotThere())
                 .Run();
@@ -79,9 +79,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
             await xB.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithASingleFailedScenario())
 				.When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
-				.And(you.WaitTill(the.Area.Badge(1)).IsVisible())
+				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.Then(you.WillSee(the.FeatureScenarioDistro.Chart(1)).IsVisible())
-				.And(you.WillSee(the.FeatureScenarioDistro.FailedBar(1)).HasStyle("has a heigth of 33%", ".*height\\: 100\\%\\;.*"))
+				.And(you.WillSee(the.FeatureScenarioDistro.FailedBar(1)).HasStyle("has a heigth of 100%", ".*height\\: 100\\%\\;.*"))
 				.And(you.WillSee(the.FeatureScenarioDistro.PassedBar(1)).IsNotThere())
 				.And(you.WillSee(the.FeatureScenarioDistro.SkippedBar(1)).IsNotThere())
                 .Run();

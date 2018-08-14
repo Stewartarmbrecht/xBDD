@@ -31,6 +31,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
             await xB.CurrentRun.AddScenario(this, 1)
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
  				.And(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
+				.And(you.ClickWhen(the.Area.Name(3)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(7)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(19)).IsVisible())
 				.Then(you.WillSee(the.Step.Duration(56)).IsVisible())
                 .Run();
 		}

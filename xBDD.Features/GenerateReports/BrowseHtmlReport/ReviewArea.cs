@@ -56,7 +56,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
                 .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
 				.Then(you.WillSee(the.FirstAreaName).HasText("My Area 1"))
 				.And(you.WillSee(the.FirstAreaRedBadge).IsVisible())
-				.And(you.WillSee(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsVisible().Because(" the area is failing"))
+				.And(you.WillSee(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsNotVisible().Because(" the area is failing but the Failures Only option was not set to true"))
                 .Run();
 		}
 	}

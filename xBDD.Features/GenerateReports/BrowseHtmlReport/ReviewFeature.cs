@@ -56,8 +56,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
             await xB.CurrentRun.AddScenario(this, 3)
                 .Given(AnHtmlReport.WithASingleFailedScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
+				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.Then(you.WillSee(the.Feature.BadgeRed(1)).IsVisible())
-				.And(you.WillSee(the.Feature.Scenarios(1)).IsVisible())
+				.And(you.WillSee(the.Feature.Scenarios(1)).IsNotVisible().Because("the Failures Only option was not set to true that would cause the failred feature to automatically expand."))
                 .Run();
 		}
 	}
