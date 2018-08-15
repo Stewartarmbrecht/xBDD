@@ -5,14 +5,15 @@ namespace xBDD.Features.GettingStarted
 	using System.Threading.Tasks;
 	using xBDD;
 	using xBDD.Browser;
+	using xBDD.Features.Actors;
 
 	[TestClass]
-	[AsA("developer")]
+	[AsA(Developer.Name)]
 	[YouCan("add a scenario that only creates documentation and does not run any code")]
 	[By("calling the Document method on the scenario")]
 	public class UsingAScenarioToCreateDocumentation: IFeature
 	{
-		private User you = new User();
+		private Developer you = new Developer();
 
 		public IOutputWriter OutputWriter { get; private set; }
 
@@ -31,9 +32,9 @@ namespace xBDD.Features.GettingStarted
 			Wrapper<string> output = new Wrapper<string>();
 			
 			await xB.AddScenario(this, 2)
-				.Given(You.CodeTheFollowingMSTestFeatureDefinition(codePath))
-				.When(You.RunTheMSTestProject("dotnet test -v n --filter Name~PassingCheckIn", "../../../../Amazon.Features/", output))
-				.Then(You.WillSeeTheOutputMatches(templateFilePath,output))
+				.Given(you.HaveTheFollowingClass("that executes a documentation scenario", codePath))
+				.When(you.RunTheMSTestProject("dotnet test -v n --filter Name~PassingCheckIn", "../../../../Amazon.Features/", output))
+				.Then(you.WillSeeTheOutputMatches(templateFilePath,output))
 				.Run();
 
 		}

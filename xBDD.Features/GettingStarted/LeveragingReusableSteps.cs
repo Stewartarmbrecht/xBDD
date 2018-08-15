@@ -28,8 +28,8 @@ namespace xBDD.Features.GettingStarted
 		[TestMethod]
 		public async Task ByInheritingFromTheUserClass()
 		{
-			var pathToActorClass = "Amazon.Features/Actors/AnonymousUser.cs";
-			var pathToFeatureClass = "Amazon.Features/SearchingProducts/SearchingAllProducts_ReusableSteps.cs";
+			var pathToActorClass = "../Amazon.Features/Actors/AnonymousUser.cs";
+			var pathToFeatureClass = "../Amazon.Features/SearchingProducts/SearchingAllProducts_ReusableSteps.cs";
 			List<Func<Task>> scenarios = new List<Func<Task>>();
 			var feature = new SearchingAllProducts_ReusableSteps();
 			scenarios.Add(feature.SearchWithSearchButton_ReusableSteps);

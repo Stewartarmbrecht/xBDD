@@ -566,97 +566,24 @@ xBDD - Features - Generate Reports - Generate Json Report
 xBDD - Features - Generate Reports - Generate Text Report
 	Write To Text
 		Write Emtpy Test Run
-			Given you code the following feature definition:
-				using System.Threading.Tasks;
-				using xBDD.Features;
-				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
-				{
-				    public class EmptyTestRun : IExecute<string>
-				    {
-				        public async Task<string> Execute()
-				        {
-				            var xBDD = new xBDDMock();
-				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            return await xBDD.CurrentRun.TestRun.WriteToText();
-				        }
-				    }
-				}
-			When the method is executed
-			Then the test results written should match the template:
+			Given you have a similar class in your test project :
+			When you execute the scenario
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				My Test Run
 				
 		Write Run Empty Scenario
-			Given you code the following feature definition:
-				using System.Threading.Tasks;
-				using xBDD.Features;
-				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
-				{
-				    public class RunEmptyScenario : IExecute<string>
-				    {
-				        public async Task<string> Execute()
-				        {
-				            var xBDD = new xBDDMock();
-				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            await xBDD.CurrentRun
-				                .AddScenario("My Scenario", "My Feature", "My.Area.Path")
-				                .Run();
-				            return await xBDD.CurrentRun.TestRun.WriteToText();
-				        }
-				    }
-				}
-			When the method is executed
-			Then the test results written should match the template:
+			Given you have a similar class in your test project :
+			When you execute the scenario
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				My Test Run
 				
 				My.Area.Path
 					My Feature
 						My Scenario
 		Write Run Multiple Areas
-			Given you code the following feature definition:
-				using System.Threading.Tasks;
-				using xBDD.Features;
-				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
-				{
-				    public class RunMultipleAreas : IExecute<string>
-				    {
-				        public async Task<string> Execute()
-				        {
-				            var xBDD = new xBDDMock();
-				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            try
-				            {
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario One", "My Feature One", "My.Area.Path.One")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action"))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario Two", "My Feature One", "My.Area.Path.One")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action"))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario One", "My Feature Two", "My.Area.Path.Two")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action"))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario Two", "My Feature Two", "My.Area.Path.Two")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action"))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				            }
-				            catch { }
-				            return await xBDD.CurrentRun.TestRun.WriteToText();
-				        }
-				    }
-				}
-			When the method is executed
-			Then the test results written should match the template:
+			Given you have a similar class in your test project :
+			When you execute the scenario
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				My Test Run
 				
 				My.Area.Path.One
@@ -680,51 +607,9 @@ xBDD - Features - Generate Reports - Generate Text Report
 							When my action
 							Then my ending condition
 		Write Run Multiple Features Same Area
-			Given you code the following feature definition:
-				using System.Threading.Tasks;
-				using xBDD.Features;
-				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
-				{
-				    public class RunMultipleFeaturesSameArea : IExecute<string>
-				    {
-				        public async Task<string> Execute()
-				        {
-				            var xBDD = new xBDDMock();
-				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            try
-				            {
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario One", "My Feature One", "My.Area.Path")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action"))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario Two", "My Feature One", "My.Area.Path")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action"))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario One", "My Feature Two", "My.Area.Path")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action"))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario Two", "My Feature Two", "My.Area.Path")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action"))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				            }
-				            catch { }
-				            return await xBDD.CurrentRun.TestRun.WriteToText();
-				        }
-				    }
-				}
-			When the method is executed
-			Then the test results written should match the template:
+			Given you have a similar class in your test project :
+			When you execute the scenario
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				My Test Run
 				
 				My.Area.Path
@@ -747,39 +632,9 @@ xBDD - Features - Generate Reports - Generate Text Report
 							When my action
 							Then my ending condition
 		Write Run Multiple Scenarios Same Feature
-			Given you code the following feature definition:
-				using System.Threading.Tasks;
-				using xBDD.Features;
-				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
-				{
-				    public class RunMultipleScenariosSameFeature : IExecute<string>
-				    {
-				        public async Task<string> Execute()
-				        {
-				            var xBDD = new xBDDMock();
-				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            try
-				            {
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario One", "My Feature", "My.Area.Path")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action"))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario Two", "My Feature", "My.Area.Path")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action"))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				            }
-				            catch { }
-				            return await xBDD.CurrentRun.TestRun.WriteToText();
-				        }
-				    }
-				}
-			When the method is executed
-			Then the test results written should match the template:
+			Given you have a similar class in your test project :
+			When you execute the scenario
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				My Test Run
 				
 				My.Area.Path
@@ -793,34 +648,9 @@ xBDD - Features - Generate Reports - Generate Text Report
 							When my action
 							Then my ending condition
 		Write Run Scenario With Failed Step
-			Given you code the following feature definition:
-				using System;
-				using System.Threading.Tasks;
-				using xBDD.Features;
-				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
-				{
-				    public class RunScenarioWithFailedStep : IExecute<string>
-				    {
-				        public async Task<string> Execute()
-				        {
-				            var xBDD = new xBDDMock();
-				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            try
-				            {
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action", (s) => { throw new Exception("My Error"); }))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				            }
-				            catch { }
-				            return await xBDD.CurrentRun.TestRun.WriteToText();
-				        }
-				    }
-				}
-			When the method is executed
-			Then the test results written should match the template:
+			Given you have a similar class in your test project :
+			When you execute the scenario
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				My Test Run
 				
 				My.Area.Path
@@ -834,35 +664,9 @@ xBDD - Features - Generate Reports - Generate Text Report
 				{{.*}}/rl
 							Then my ending condition [Skipped - Previous Error]
 		Write Run Scenario With Not Implemented Step
-			Given you code the following feature definition:
-				using System;
-				using System.Threading.Tasks;
-				using xBDD.Features;
-				
-				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
-				{
-				    public class RunScenarioWithNotImplementedStep : IExecute<string>
-				    {
-				        public async Task<string> Execute()
-				        {
-				            var xBDD = new xBDDMock();
-				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            try
-				            {
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action", (s) => { throw new NotImplementedException(); }))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				            }
-				            catch { }
-				            return await xBDD.CurrentRun.TestRun.WriteToText();
-				        }
-				    }
-				}
-			When the method is executed
-			Then the test results written should match the template:
+			Given you have a similar class in your test project :
+			When you execute the scenario
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				My Test Run
 				
 				My.Area.Path
@@ -872,33 +676,9 @@ xBDD - Features - Generate Reports - Generate Text Report
 							When my action [Failed - Not Implemented]
 							Then my ending condition [Skipped - Previous Error]
 		Write Run Scenario With Skipped Step
-			Given you code the following feature definition:
-				using System.Threading.Tasks;
-				using xBDD.Features;
-				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
-				{
-				    public class RunScenarioWithSkippedStep : IExecute<string>
-				    {
-				        public async Task<string> Execute()
-				        {
-				            var xBDD = new xBDDMock();
-				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            try
-				            {
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action", (s) => { throw new SkipStepException("Deferred"); }))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				            }
-				            catch { }
-				            return await xBDD.CurrentRun.TestRun.WriteToText();
-				        }
-				    }
-				}
-			When the method is executed
-			Then the test results written should match the template:
+			Given you have a similar class in your test project :
+			When you execute the scenario
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				My Test Run
 				
 				My.Area.Path
@@ -908,29 +688,9 @@ xBDD - Features - Generate Reports - Generate Text Report
 							When my action [Skipped - Deferred]
 							Then my ending condition [Skipped - Previous Error]
 		Write Run Scenario With Step With Multiline Parameter
-			Given you code the following feature definition:
-				using System.Threading.Tasks;
-				using xBDD.Features;
-				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
-				{
-				    public class RunScenarioWithStepWithMultilineParameter : IExecute<string>
-				    {
-				        public async Task<string> Execute()
-				        {
-				            var xBDD = new xBDDMock();
-				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            await xBDD.CurrentRun
-				                .AddScenario("My Scenario", "My Feature", "My.Area.Path")
-				                .Given(xBDD.CreateStep("my starting condition with the following", (s) => { }, $"My{System.Environment.NewLine}multiline{System.Environment.NewLine}parameter"))
-				                .When(xBDD.CreateStep("my action"))
-				                .Then(xBDD.CreateStep("my ending condition"))
-				                .Run();
-				            return await xBDD.CurrentRun.TestRun.WriteToText();
-				        }
-				    }
-				}
-			When the method is executed
-			Then the test results written should match the template:
+			Given you have a similar class in your test project :
+			When you execute the scenario
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				My Test Run
 				
 				My.Area.Path
@@ -943,33 +703,9 @@ xBDD - Features - Generate Reports - Generate Text Report
 							When my action
 							Then my ending condition
 		Write Run Scenario With Steps
-			Given you code the following feature definition:
-				using System.Threading.Tasks;
-				using xBDD.Features;
-				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
-				{
-				    public class RunScenarioWithSteps : IExecute<string>
-				    {
-				        public async Task<string> Execute()
-				        {
-				            var xBDD = new xBDDMock();
-				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            try
-				            {
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action"))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Run();
-				            }
-				            catch { }
-				            return await xBDD.CurrentRun.TestRun.WriteToText();
-				        }
-				    }
-				}
-			When the method is executed
-			Then the test results written should match the template:
+			Given you have a similar class in your test project :
+			When you execute the scenario
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				My Test Run
 				
 				My.Area.Path
@@ -979,63 +715,18 @@ xBDD - Features - Generate Reports - Generate Text Report
 							When my action
 							Then my ending condition
 		Write Skipped Empty Scenario
-			Given you code the following feature definition:
-				using System.Threading.Tasks;
-				using xBDD.Features;
-				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
-				{
-				    public class SkippedEmptyScenario : IExecute<string>
-				    {
-				        public async Task<string> Execute()
-				        {
-				            var xBDD = new xBDDMock();
-				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            try
-				            {
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
-					    			.Skip("Deferred", reason => { } );
-				            }
-				            catch { }
-				            return await xBDD.CurrentRun.TestRun.WriteToText();
-				        }
-				    }
-				}
-			When the method is executed
-			Then the test results written should match the template:
+			Given you have a similar class in your test project :
+			When you execute the scenario
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				My Test Run
 				
 				My.Area.Path
 					My Feature
 						My Scenario [Skipped - Deferred]
 		Write Skipped Scenario With Steps
-			Given you code the following feature definition:
-				using System.Threading.Tasks;
-				using xBDD.Features;
-				namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
-				{
-				    public class SkippedScenarioWithSteps : IExecute<string>
-				    {
-				        public async Task<string> Execute()
-				        {
-				            var xBDD = new xBDDMock();
-				            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-				            try
-				            {
-				                await xBDD.CurrentRun
-				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
-				                    .Given(xBDD.CreateStep("my starting condition"))
-				                    .When(xBDD.CreateStep("my action"))
-				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Skip("Deferred", reason => { } );
-				            }
-				            catch { }
-				            return await xBDD.CurrentRun.TestRun.WriteToText();
-				        }
-				    }
-				}
-			When the method is executed
-			Then the test results written should match the template:
+			Given you have a similar class in your test project :
+			When you execute the scenario
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				My Test Run
 				
 				My.Area.Path
@@ -1047,41 +738,7 @@ xBDD - Features - Generate Reports - Generate Text Report
 xBDD - Features - Getting Started
 	Executing Your First Scenario
 		Executing A Failing Web UI Scenario In An MS Test Project
-			Given you code the following feature definition:
-				namespace Amazon.Features.SearchingProducts
-				{
-				    using Microsoft.VisualStudio.TestTools.UnitTesting;
-				    using System;
-				    using System.Threading.Tasks;
-				    using xBDD;
-				    using xBDD.Browser;
-				
-					[TestClass]
-					[AsA("anonymous user")]
-					[YouCan("search across all amazon products")]
-					[By("using primary search bar on the home page")]
-					public class SearchingAllProducts_Failing: IFeature
-					{
-						private User you = new User();
-						public IOutputWriter OutputWriter { get; private set; }
-				
-						public SearchingAllProducts_Failing()
-						{
-							OutputWriter = new TestContextWriter();
-						}
-						
-						[TestMethod]
-						public async Task SearchWithSearchButton_Failing()
-						{
-							await xB.AddScenario(this)
-								.Given(you.NavigateTo("the amazon home page","https://www.amazon.com"))
-								.When(you.EnterTheText("echo").In("the search box", "#twotabsearchtextbox"))
-								.And(you.Click("the search button", "input[type=submit]"))
-								.Then(you.WillSee("the search results section", "#BAD_SELECTOR").IsVisible())
-								.Run();
-						}
-					}
-				}
+			Given you have a similar class in your test project that defines a failing scenario:
 			When you run the MS Test Project with the following command:
 				dotnet test --filter Name~SearchWithSearchButton_Failing
 			Then you will see the output matches this template (See TemplateValidator project on Nuget):
@@ -1111,41 +768,7 @@ xBDD - Features - Getting Started
 				{{         GetPageSource \(\d+ms\)}}
 				{{.*}}/rl
 		Executing A Passing Web UI Scenario In An MS Test Project
-			Given you code the following feature definition:
-				namespace Amazon.Features.SearchingProducts
-				{
-				    using Microsoft.VisualStudio.TestTools.UnitTesting;
-				    using System;
-				    using System.Threading.Tasks;
-				    using xBDD;
-				    using xBDD.Browser;
-				
-					[TestClass]
-					[AsA("anonymous user")]
-					[YouCan("search across all amazon products")]
-					[By("using primary search bar on the home page")]
-					public class SearchingAllProducts: IFeature
-					{
-						private User you = new User();
-						public IOutputWriter OutputWriter { get; private set; }
-				
-						public SearchingAllProducts()
-						{
-							OutputWriter = new TestContextWriter();
-						}
-						
-						[TestMethod]
-						public async Task SearchWithSearchButton()
-						{
-							await xB.AddScenario(this)
-								.Given(you.NavigateTo("the amazon home page","https://www.amazon.com"))
-								.When(you.EnterTheText("echo").In("the search box", "#twotabsearchtextbox"))
-								.And(you.Click("the search button", "input[type=submit]"))
-								.Then(you.WillSee("the search results section", "#s-results-list-atf").IsVisible())
-								.Run();
-						}
-					}
-				}
+			Given you have a similar class in your test project for defining a passing scenario:
 			When you run the MS Test Project with the following command:
 				dotnet test -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton
 			Then you will see the output matches this template (See TemplateValidator project on Nuget):
@@ -1157,7 +780,7 @@ xBDD - Features - Getting Started
 	Installing The Framework
 		Via A Nuget Package
 			Given you have created a test project
-			When you excute the following command in the project director:
+			When you excute the following command in the project directory:
 				dotnet add package xBDD
 			Then you will install the xBDD framework
 	Leveraging Reusable Steps
@@ -1169,41 +792,7 @@ xBDD - Features - Getting Started
 			Then you will execute the scenarios and get the results
 	Skipping A Scenario
 		Running A Skipped Scenario
-			Given you code the following feature definition:
-				namespace Amazon.Features.SearchingProducts
-				{
-				    using Microsoft.VisualStudio.TestTools.UnitTesting;
-				    using System;
-				    using System.Threading.Tasks;
-				    using xBDD;
-				    using xBDD.Browser;
-				
-					[TestClass]
-					[AsA("anonymous user")]
-					[YouCan("search across all amazon products")]
-					[By("using primary search bar on the home page")]
-					public class SearchingAllProducts_Skipped: IFeature
-					{
-						private User you = new User();
-						public IOutputWriter OutputWriter { get; private set; }
-				
-						public SearchingAllProducts_Skipped()
-						{
-							OutputWriter = new TestContextWriter();
-						}
-						
-						[TestMethod]
-						public async Task SearchWithSearchButton_Skipped()
-						{
-							await xB.AddScenario(this)
-								.Given(you.NavigateTo("the amazon home page","https://www.amazon.com"))
-								.When(you.EnterTheText("echo").In("the search box", "#twotabsearchtextbox"))
-								.And(you.Click("the search button", "input[type=submit]"))
-								.Then(you.WillSee("the search results section", "#BAD_SELECTOR").IsVisible())
-								.Skip("Not implemented", Assert.Inconclusive);
-						}
-					}
-				}
+			Given you have a similar class in your test project that defines a skipped scenario:
 			When you run the MS Test Project with the following command:
 				dotnet test --filter Name~SearchWithSearchButton_Skipped
 			Then you will see the output matches this template (See TemplateValidator project on Nuget):
@@ -1215,40 +804,7 @@ xBDD - Features - Getting Started
 				{{.*}}/rl
 	Using A Scenario To Create Documentation
 		Running A Documentation Scenario
-			Given you code the following feature definition:
-				namespace Amazon.Features.SearchingProducts
-				{
-				    using Microsoft.VisualStudio.TestTools.UnitTesting;
-				    using System;
-				    using System.Threading.Tasks;
-				    using xBDD;
-				    using xBDD.Browser;
-				
-					[TestClass]
-					[AsA("developer")]
-					[YouCan("verify that your code changes did not cause a regression")]
-					[By("using the continuous integration pipeline")]
-					public class ContinuousIntegration: IFeature
-					{
-						private User you = new User();
-						public IOutputWriter OutputWriter { get; private set; }
-				
-						public ContinuousIntegration()
-						{
-							OutputWriter = new TestContextWriter();
-						}
-						
-						[TestMethod]
-						public async Task PassingCheckIn()
-						{
-							await xB.AddScenario(this)
-								.Given("you have made a code change")
-								.When("you check in the change")
-								.Then("the build server will build and run all tests")
-								.Document();
-						}
-					}
-				}
+			Given you have a similar class in your test project that executes a documentation scenario:
 			When you run the MS Test Project with the following command:
 				dotnet test -v n --filter Name~PassingCheckIn
 			Then you will see the output matches this template (See TemplateValidator project on Nuget):

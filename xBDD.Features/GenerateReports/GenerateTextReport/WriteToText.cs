@@ -4,18 +4,21 @@
 using xBDD.Features;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using xBDD.Features.Steps;
+using xBDD.Features.Actors;
 using System.Threading.Tasks;
 
 namespace xBDD.Features.GenerateReports.GenerateTextReport
 {
     [TestClass]
-    public class WriteToText
+    public class WriteToText: IFeature
     {
-        private readonly TestContextWriter outputWriter;
+        private Developer you = new Developer();
+
+		public IOutputWriter OutputWriter { get; private set; }
 
         public WriteToText()
         {
-            outputWriter = new TestContextWriter();
+            this.OutputWriter = new TestContextWriter();
         }
 
         public async Task Run(IExecute<string> action, bool writeActual = false, int sortOrder = 0, [CallerMemberName]string methodName = "")
@@ -27,14 +30,11 @@ namespace xBDD.Features.GenerateReports.GenerateTextReport
 
             await xB.CurrentRun
                 .AddScenario(this, sortOrder, methodName)
-                .SetOutputWriter(outputWriter)
-                .Given(You.CodeTheFollowingMSTestFeatureDefinition(scenarioPath + actionName + ".cs"))
-                .When(You.IsExecuted(async (s) =>
-                {
+                .Given(you.HaveTheFollowingClass("",scenarioPath + actionName + ".cs"))
+                .WhenAsync("you execute the scenario", async step => {
                     text.Object = await action.Execute();
-                }))
-                .Then(TextReport.ShouldMatch(
-                    scenarioPath + actionName + ".txt", text, writeActual))
+                })
+                .Then(you.WillSeeTheOutputMatches(scenarioPath + actionName + ".txt", text))
                 .Run();
         }
 

@@ -24,8 +24,7 @@ namespace xBDD.Features.GettingStarted
 		public async Task ViaANugetPackage()
 		{
 			await xB.AddScenario(this, 1)
-				.Given("you have created a test project",
-					(s) => {})
+				.Given("you have created a test project", (s) => {})
 				.When("you excute the following command in the project directory:", (s) => {}, "dotnet add package xBDD", TextFormat.sh)
 				.Then("you will install the xBDD framework")
 				.Document();
