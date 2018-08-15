@@ -88,6 +88,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" .pointer { cursor: pointer }");
             sb.Append(" pre.mp { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thin; }");
             sb.Append(" pre.output { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thins; }");
+            sb.Append(" .collapsing { -webkit-transition: none; transition: none; display: none; }");
             sb.AppendLine("</style>");  
         }
 
@@ -125,27 +126,6 @@ namespace xBDD.Reporting.Html
             ";
 
             sb.Append(html);
-            // WriteTagOpen("nav", sb, 1, "navbar navbar-expand-lg navbar-light bg-light", false, "menu");
-            // WriteTagOpen("div", sb, 2, "container-fluid", false);
-            // WriteTagOpen("div", sb, 3, "navbar-header", false);
-            // WriteTagOpen("button", sb, 4, "navbar-toggle collapsed", false, "menu-button", null,
-            //     " type=\"button\" data-toggle=\"collapse\" data-target=\"#menu-body\" aria-expanded=\"false\"");
-            // WriteTag("span", sb, 5, "sr-only", "Toggle Navigation", true);
-            // WriteTag("span", sb, 5, "icon-bar", null, true);
-            // WriteTag("span", sb, 5, "icon-bar", null, true);
-            // WriteTag("span", sb, 5, "icon-bar", null, true);
-            // WriteTagClose("button", sb, 4);
-            // WriteTagClose("div", sb, 3);
-
-            // WriteTagOpen("div", sb, 3, "collapse navbar-collapse", false, "menu-body");
-            // WriteTagOpen("ul", sb, 4, "nav navbar-nav", false);
-            // WriteTagOpen("li", sb, 5, null, false);
-            // WriteTag("a", sb, 5, null, "Expand All Areas", true, "expand-all-areas-button", null, " href=\"\"");
-            // WriteTagClose("li", sb, 5);
-            // WriteTagClose("ul", sb, 4);
-            // WriteTagClose("div", sb, 3);
-            // WriteTagClose("div", sb, 2);
-            // WriteTagClose("nav", sb, 1);
         }
 
         private void WriteTestRun(TestRun testRun, StringBuilder sb)
