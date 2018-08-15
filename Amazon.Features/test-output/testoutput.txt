@@ -1,30 +1,30 @@
-Test run for C:\Users\stearm01\source\xBDD\Amazon.Features\bin\Debug\netcoreapp2.1\Amazon.Features.dll(.NETCoreApp,Version=v2.1)
+Test run for /Users/stewartarmbrecht/Source/xBDD/Amazon.Features/bin/Debug/netcoreapp2.1/Amazon.Features.dll(.NETCoreApp,Version=v2.1)
 Microsoft (R) Test Execution Command Line Tool Version 15.7.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
 
 Starting test execution, please wait...
-Starting ChromeDriver 2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e) on port 53784
+Starting ChromeDriver 2.41.578706 (5f725d1b4f0a4acbf5259df887244095596231db) on port 57737
 Only local connections are allowed.
 Failed   SearchWithSearchButton_Failing
 Error Message:
  Test method Amazon.Features.SearchingProducts.SearchingAllProducts_Failing.SearchWithSearchButton_Failing threw exception: 
 xBDD.StepException: The step 'you will see the search results section is visible' threw a 'Exception' exception with a message: 'The web element (the search results section - #BAD_SELECTOR) was not found.'. See the inner exception for details. ---> System.Exception: The web element (the search results section - #BAD_SELECTOR) was not found.
 Stack Trace:
-    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 187
+    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/WebBrowser.cs:line 187
    at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 --- End of stack trace from previous location where exception was thrown ---
    at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 --- End of stack trace from previous location where exception was thrown ---
-   at xBDD.Browser.PageElementConditions.<>c__DisplayClass9_0.<<IsVisible>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 127
+   at xBDD.Browser.PageElementConditions.<>c__DisplayClass9_0.<<IsVisible>b__0>d.MoveNext() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/PageElementConditions.cs:line 127
 --- End of stack trace from previous location where exception was thrown ---
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 29
 --- End of inner exception stack trace ---
-    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 63
-   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 29
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
-   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 135
-   at xBDD.Core.ScenarioBuilder.Run() in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 273
-   at Amazon.Features.SearchingProducts.SearchingAllProducts_Failing.SearchWithSearchButton_Failing() in C:\Users\stearm01\source\xBDD\Amazon.Features\SearchingProducts\SearchingAllProducts_Failing.cs:line 26
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExceptionHandler.cs:line 63
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExceptionHandler.cs:line 29
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/ScenarioRunner.cs:line 135
+   at xBDD.Core.ScenarioBuilder.Run() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/ScenarioBuilder.cs:line 273
+   at Amazon.Features.SearchingProducts.SearchingAllProducts_Failing.SearchWithSearchButton_Failing() in /Users/stewartarmbrecht/Source/xBDD/Amazon.Features/SearchingProducts/SearchingAllProducts_Failing.cs:line 26
 
 Standard Output Messages:
  Search With Search Button Failing
@@ -33,17 +33,17 @@ Standard Output Messages:
      And you click the the search button
      Then you will see the search results section is visible
  
-
-Debug Trace:
-        Created ChromeDriver (1904ms)
-         Loading Page (8879ms): https://www.amazon.com
-         WaitTillVisible (95ms): #twotabsearchtextbox
-         SendKeys 'echo' (1658ms): #twotabsearchtextbox
-         WaitTillVisible (39ms): input[type=submit]
-         Click (3861ms): input[type=submit]
-         GetPageSource (117ms)
+ 
+ Debug Trace:
+         Created ChromeDriver (434ms)
+         Loading Page (6354ms): https://www.amazon.com
+         WaitTillVisible (2098ms): #twotabsearchtextbox
+         SendKeys 'echo' (95ms): #twotabsearchtextbox
+         WaitTillVisible (40ms): input[type=submit]
+         Click (2717ms): input[type=submit]
+         GetPageSource (112ms)
 
 
 
 Total tests: 1. Passed: 0. Failed: 1. Skipped: 0.
-Test execution time: 21.9066 Seconds
+Test execution time: 15.3996 Seconds

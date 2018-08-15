@@ -1106,18 +1106,17 @@ xBDD - Features - Getting Started
 				   Message: Assert.AreEqual failed. Expected:<My App - Standard Help Desk Technician Features - Getting Started>. Actual:<My App - API - Test - Features - Calendar>. 
 				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
-				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
-				               at xBDD.Features.GettingStarted.DefineADocumentationScenario.<>c__DisplayClass5_0.<WithSynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineADocumentationScenario.cs:line 61
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Features.GettingStarted.DefineADocumentationScenario.<>c__DisplayClass5_0.<WithSynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features/GettingStarted/DefineADocumentationScenario.cs:line 61
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 	Define A Scenario With Reusable Steps
 		With Asynchronous Execution [Failed]
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find file 'C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\SampleCode\GetAccountDetails.cs'.
+				Exception encountered getting file content: Could not find file '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features/GettingStarted/SampleCode/GetAccountDetails.cs'.
 			When the scenario is excuted
 			Then the test run will have the following structure [Failed]
 				Area:
@@ -1137,17 +1136,16 @@ xBDD - Features - Getting Started
 				   Message: Assert.AreEqual failed. Expected:<My App - API - Test - Features - Accounts>. Actual:<My App - Features - Help Desk Technician - Access User Account Information>. 
 				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
-				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
-				               at xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps.<>c__DisplayClass3_0.<WithAsynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineAScenarioWithReusableSteps.cs:line 109
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps.<>c__DisplayClass3_0.<WithAsynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features/GettingStarted/DefineAScenarioWithReusableSteps.cs:line 109
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 		With Synchronous Execution [Failed]
 			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features\Features\DefineScenarios\SampleCode\GetHolidays.cs'.
+				Exception encountered getting file content: Could not find a part of the path '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features/Features/DefineScenarios/SampleCode/GetHolidays.cs'.
 			When the scenario is executed
 			Then the test run will have the following structure [Failed]
 				Area:
@@ -1172,14 +1170,13 @@ xBDD - Features - Getting Started
 				   Message: Assert.AreEqual failed. Expected:<to reference culture specific holidays>. Actual:<find the holidays for the users culture in a specific time range>. 
 				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
 				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
-				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual)
-				               at xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps.<>c__DisplayClass2_0.<WithSynchronousExecution>b__1(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features\GettingStarted\DefineAScenarioWithReusableSteps.cs:line 64
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps.<>c__DisplayClass2_0.<WithSynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features/GettingStarted/DefineAScenarioWithReusableSteps.cs:line 64
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 	Executing Your First Scenario
 		Running A Failing Web UI Test
 			Given you code the following feature definition:
@@ -1235,8 +1232,8 @@ xBDD - Features - Getting Started
 				     And you click the the search button
 				     Then you will see the search results section is visible
 				 
-				
-				Debug Trace:
+				{{.*}}
+				{{.*Debug Trace\:}}
 				{{        Created ChromeDriver \(\d+ms\)}}
 				{{         Loading Page \(\d+ms\): https\://www\.amazon\.com}}
 				{{         WaitTillVisible \(\d+ms\): \#twotabsearchtextbox}}

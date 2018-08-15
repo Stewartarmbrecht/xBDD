@@ -13,8 +13,8 @@ Standard Output Messages:
      And you click the the search button
      Then you will see the search results section is visible
  
-
-Debug Trace:
+{{.*}}
+{{.*Debug Trace\:}}
 {{        Created ChromeDriver \(\d+ms\)}}
 {{         Loading Page \(\d+ms\): https\://www\.amazon\.com}}
 {{         WaitTillVisible \(\d+ms\): \#twotabsearchtextbox}}
