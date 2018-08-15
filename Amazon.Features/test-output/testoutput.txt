@@ -3,7 +3,7 @@ Microsoft (R) Test Execution Command Line Tool Version 15.7.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
 
 Starting test execution, please wait...
-Starting ChromeDriver 2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e) on port 62932
+Starting ChromeDriver 2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e) on port 52687
 Only local connections are allowed.
 Failed   SearchWithSearchButton_Failing
 Error Message:
@@ -35,15 +35,15 @@ Standard Output Messages:
  
 
 Debug Trace:
-        Created ChromeDriver (1959ms)
-         Loading Page (5487ms): https://www.amazon.com
-         WaitTillVisible (1725ms): #twotabsearchtextbox
-         SendKeys 'echo' (699ms): #twotabsearchtextbox
-         WaitTillVisible (56ms): input[type=submit]
-         Click (2068ms): input[type=submit]
-         GetPageSource (98ms)
+        Created ChromeDriver (2491ms)
+         Loading Page (4213ms): https://www.amazon.com
+         WaitTillVisible (215ms): #twotabsearchtextbox
+         SendKeys 'echo' (1373ms): #twotabsearchtextbox
+         WaitTillVisible (66ms): input[type=submit]
+         Click (1899ms): input[type=submit]
+         GetPageSource (122ms)
 
 
 
 Total tests: 1. Passed: 0. Failed: 1. Skipped: 0.
-Test execution time: 17.5717 Seconds
+Test execution time: 17.9256 Seconds

@@ -37,6 +37,7 @@ namespace xBDD.Features
                 typeof(xBDD.Features.GenerateReports.CustomizeHtmlReport.ShortenAreaName).FullName,
                 typeof(xBDD.Features.GenerateReports.CustomizeHtmlReport.SortTestRunResults).FullName,
                 typeof(xBDD.Features.GenerateReports.GenerateTextReport.WriteToText).FullName,
+                typeof(xBDD.Features.GenerateReports.GenerateJsonReport.WriteToJson).FullName,
             };
 
             this.SortedFeatureNames = SortedFeatureNames.ToArray();

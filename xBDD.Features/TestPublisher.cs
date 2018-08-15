@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 using xBDD;
 using System.IO;
 using System.Threading.Tasks;
+using System.Runtime.Serialization.Json;
 
 namespace xBDD.Features
 {
@@ -37,6 +38,11 @@ namespace xBDD.Features
                 Logger.LogMessage("Writing Text Report to " + textPath);
                 var textReport = await xB.CurrentRun.TestRun.WriteToText();
                 File.WriteAllText(textPath, textReport);
+ 
+                var jsonPath = directory + $"{separator}../../../test-results/xBDD.Features.Results.json";
+                Logger.LogMessage("Writing Json Report to " + jsonPath);
+                var jsonReport = xB.CurrentRun.TestRun.WriteToJson();
+                File.WriteAllText(jsonPath, jsonReport);
             //}
         }
     }

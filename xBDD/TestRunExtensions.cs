@@ -1,9 +1,10 @@
 ﻿namespace xBDD
 {
-
     using System.Threading.Tasks;
     using System.Linq;
     using System.Linq.Expressions;
+    using System.Runtime.Serialization.Json;
+    using System.Text;
     using xBDD.Model;
     using xBDD.Reporting;
     using xBDD.Reporting.Html;
@@ -80,6 +81,24 @@
             DatabaseFactory factory = new DatabaseFactory();
             TestRunDatabaseSaver saver = factory.CreateTestRunDatabaseSaver(connectionName);
             return saver.SaveTestRun(testRun);
+        }
+        /// <summary>
+        /// Writes the test run results to json.
+        /// Only writes the bare minimum properties and does not 
+        /// write calculated properties like test stats.
+        /// </summary>
+        /// <param name="testRun">The test run to serialize.</param>
+        /// <returns>A json string representation of the test results.</returns>
+        public static string WriteToJson(this xBDD.Model.TestRun testRun)
+        {
+            var ms = new System.IO.MemoryStream();  
+
+            // Serializer the User object to the stream.  
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Model.TestRun));  
+            ser.WriteObject(ms, testRun);  
+            byte[] json = ms.ToArray();
+            ms.Close();
+            return Encoding.UTF8.GetString(json, 0, json.Length);
         }
     }
 }

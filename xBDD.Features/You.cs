@@ -28,7 +28,7 @@
                     cmd.StandardInput.WriteLine(fullCommand);
                     cmd.StandardInput.Flush();
                     cmd.StandardInput.Close();
-                    cmd.WaitForExit(20000);
+                    cmd.WaitForExit(30000);
                     cmd.Close();
                     cmd.Dispose();
                     using (var fileStream = new FileStream("../../../../Amazon.Features/test-output/testoutput.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))

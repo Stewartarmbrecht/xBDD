@@ -17,17 +17,24 @@ namespace xBDD.Features.GenerateReports.GenerateHtmlReport
         [TestMethod]
         public async Task StandardFullReport()
         {
+            var xBDD = new xBDDMock();
             Wrapper<string> html = new Wrapper<string>();            
             await xB.CurrentRun.AddScenario(this, 1)
-                .Given("a completed test run", (s) => {
-                    var xBDD = new xBDDMock();
+                .GivenAsync("you execute a test run", async (s) => {
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
+                    await xBDD.CurrentRun.AddScenario("My Scenario", "My Feature", "My Area")
+                        .Given("My Step 1",(ms)=> {})
+                        .When("My Step 2",(ms)=> {})
+                        .Then("My Step 3", (ms) => {})
+                        .Run();
                 })
-                .WhenAsync("the following code executes 'var report = xBDD.CurrentRun.WriteToHTML()'", async (s) => { 
-                    html.Object = await xB.CurrentRun.TestRun.WriteToHtml();
-                 })
-                .Then("the report variable will be a string that contains the entire HTML report that can be written to a file, or sent via email, or whatever...", (s) => { 
+                .WhenAsync("you execute the following code:", async (s) => { 
+                    html.Object = await xBDD.CurrentRun.TestRun.WriteToHtml();
+                 }, "string report = xB.CurrentRun.WriteToHTML()", TextFormat.sh)
+                .Then("the report string will contain the entire HTML report that can be written to a file, sent via email, etc.", (s) => { 
                     Assert.AreEqual(html.Object.IndexOf("<!DOCTYPE html>"), 0);
+                    s.Output = html.Object;
+                    s.OutputFormat = TextFormat.sh;
                  })
                 .Run();
         }

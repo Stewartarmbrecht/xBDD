@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace xBDD.Model
 {
@@ -7,6 +8,7 @@ namespace xBDD.Model
 	/// <summary>
 	/// Contains metadata about a feature executed during a test run.
 	/// </summary>
+	[DataContract]
 	public class Feature
 	{
 		internal Feature()
@@ -25,18 +27,21 @@ namespace xBDD.Model
 		/// Built from the name of the class.
 		/// </summary>
 		/// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
 		public string Name { get; internal set; }
 
 		/// <summary>
 		/// Name of the feature class.
 		/// </summary>
 		/// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
 		public string ClassName { get; internal set; }
 
 		/// <summary>
 		/// Value used to sort the features.
 		/// </summary>
 		/// <value>Int value used to sort the feature.</value>
+		[DataMember(EmitDefaultValue=false)]
 		public int Sort { get; set; }
 
 		/// <summary>
@@ -44,6 +49,7 @@ namespace xBDD.Model
 		/// As a [BLANK]
 		/// </summary>
 		/// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
 		public string Actor { get; set; }
 
 		/// <summary>
@@ -51,6 +57,7 @@ namespace xBDD.Model
 		/// I would like to [BLANK]
 		/// </summary>
 		/// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
 		public string Capability { get; set; }
 
 		/// <summary>
@@ -58,6 +65,7 @@ namespace xBDD.Model
 		/// In order to [BLANK]
 		/// </summary>
 		/// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
 		public string Value { get; set; }
 
 		/// <summary>
@@ -88,6 +96,7 @@ namespace xBDD.Model
 		/// The scenarios executed as part of the feature.
 		/// </summary>
 		/// <value><see cref="List{Scenario}"/></value>
+        [DataMember]
 		public List<Scenario> Scenarios { get; internal set; }
 
 		/// <summary>

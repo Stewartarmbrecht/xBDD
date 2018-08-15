@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace xBDD.Model
 {
@@ -7,6 +8,7 @@ namespace xBDD.Model
     /// <summary>
     /// Tracks metadata about a scenario.
     /// </summary>
+    [DataContract]
     public class Scenario
     {
         /// <summary>
@@ -28,6 +30,7 @@ namespace xBDD.Model
         /// Built from the name of the test method.
         /// </summary>
         /// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
         public string Name { get; internal set; }
 
         /// <summary>
@@ -35,24 +38,28 @@ namespace xBDD.Model
         /// If one is not provided it will match the scenario name.
         /// </summary>
         /// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
         public string MethodName { get; internal set; }
 
 		/// <summary>
 		/// String value used to sort the scenario.
 		/// </summary>
 		/// <value>String value used to sort the scenario.</value>
+		[DataMember(EmitDefaultValue=false)]
 		public int Sort { get; set; }
 
         /// <summary>
         /// The outcome of executing the scenario.
         /// </summary>
         /// <value><see cref="Outcome"/></value>
+		[DataMember(EmitDefaultValue=false)]
         public Outcome Outcome { get; internal set; }
 
         /// <summary>
         /// The reason for the outcome.
         /// </summary>
         /// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
         public string Reason { get; internal set; }
 
         /// <summary>
@@ -77,6 +84,7 @@ namespace xBDD.Model
         /// The steps executed for the scenario.
         /// </summary>
         /// <value><see cref="List{Step}"/></value>
+        [DataMember]
         public List<Step> Steps { get; private set; }
 
         /// <summary>

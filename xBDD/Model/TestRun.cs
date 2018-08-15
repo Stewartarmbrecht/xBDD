@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace xBDD.Model
 {
     /// <summary>
     /// Has meta-data and statistics about a single test run.
     /// </summary>
+    [DataContract]
     public class TestRun
     {
         /// <summary>
@@ -37,6 +39,7 @@ namespace xBDD.Model
         /// Name of the test run.
         /// </summary>
         /// <value></value>
+		[DataMember(EmitDefaultValue=false)]
 		public string Name { get; set; }
         
         /// <summary>
@@ -70,6 +73,7 @@ namespace xBDD.Model
         /// The areas covered by the test run.
         /// </summary>
         /// <value>List of areas <see cref="List{Area}" /></value>
+        [DataMember]
 		public List<Area> Areas { get; set; }
 
         /// <summary>

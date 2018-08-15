@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace xBDD.Model
 {
@@ -7,6 +8,7 @@ namespace xBDD.Model
 	/// <summary>
 	/// Contains metadata about an area.
 	/// </summary>
+	[DataContract]
 	public class Area
 	{
 		internal Area()
@@ -25,6 +27,7 @@ namespace xBDD.Model
 		/// Built from the code's namespace.
 		/// </summary>
 		/// <value></value>
+		[DataMember(EmitDefaultValue=false)]
 		public string Name { get; set; }
 
 		/// <summary>
@@ -55,6 +58,7 @@ namespace xBDD.Model
 		/// The features executed within the area.
 		/// </summary>
 		/// <value><see cref="List{Feature}"/></value>
+		[DataMember]
 		public List<Feature> Features { get; set; }
 
 		/// <summary>

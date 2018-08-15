@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace xBDD.Model
 {
     /// <summary>
     /// Holds details about a step.
     /// </summary>
+    [DataContract]
     public class Step
     {
 
@@ -19,6 +21,7 @@ namespace xBDD.Model
         /// The name of the step.
         /// </summary>
         /// <value><see cref="string"/></value>
+		[DataMember(EmitDefaultValue=false)]
         public string Name { get; internal set; }
 
         /// <summary>
@@ -41,6 +44,7 @@ namespace xBDD.Model
         /// Multiline string value displayed below the step to explain the input to the step.
         /// </summary>
         /// <value><see cref="string"/></value>
+		[DataMember(EmitDefaultValue=false)]
         public string MultilineParameter { get; internal set; }
 
         /// <summary>
@@ -48,6 +52,7 @@ namespace xBDD.Model
         /// This is used to set the Prettify option in the browser if the text is a programming language.
         /// </summary>
         /// <value><see cref="TextFormat"/></value>
+		[DataMember(EmitDefaultValue=false)]
         public TextFormat MultilineParameterFormat { get; internal set; }
 
         /// <summary>
@@ -67,18 +72,21 @@ namespace xBDD.Model
         /// This can be either Given, When, Then, or And.
         /// </summary>
         /// <value><see cref="ActionType"/></value>
+		[DataMember(EmitDefaultValue=false)]
         public ActionType ActionType { get; internal set; }
 
         /// <summary>
         /// The time when the step started execution.
         /// </summary>
         /// <value><see cref="DateTime"/></value>
+		[DataMember(EmitDefaultValue=false)]
         public DateTime StartTime { get; internal set; }
 
         /// <summary>
         /// The time when the step completed execution.
         /// </summary>
         /// <value></value>
+		[DataMember(EmitDefaultValue=false)]
         public DateTime EndTime { get; internal set; }
 
         /// <summary>
@@ -91,30 +99,35 @@ namespace xBDD.Model
         /// The outcome of the step.
         /// </summary>
         /// <value></value>
+		[DataMember(EmitDefaultValue=false)]
         public Outcome Outcome { get; internal set; }
 
         /// <summary>
         /// The reason the step had the outcome it did.
         /// </summary>
         /// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
         public string Reason { get; internal set; }
 
         /// <summary>
         /// The execption thrown by the step if it threw an exception when executing.
         /// </summary>
         /// <value><see cref="Exception"/></value>
+        //[DataMember]
         public Exception Exception { get; internal set; }
 
         /// <summary>
         /// Any output created by the step during execution.
         /// </summary>
         /// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
         public string Output { get; set; }
 
         /// <summary>
         /// The format to use when displaying the output to the user.
         /// </summary>
         /// <value><see cref="TextFormat"/></value>
+		[DataMember(EmitDefaultValue=false)]
         public TextFormat OutputFormat { get; set; }
     }
 }

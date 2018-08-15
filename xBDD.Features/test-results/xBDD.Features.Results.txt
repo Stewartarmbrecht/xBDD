@@ -288,14 +288,24 @@ By [Missing!]'
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
 			Then you will see the step 2 with red badge is visible because the report will be expanded to the failed step
-		Passing
+		Passing [Failed]
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
-			Then you will see the step 1 with green badge is visible
-			And you will see the step name has text 'Given my step 1'
+			Then you will see the step 1 with green badge is visible [Failed]
+				Error Type: Exception
+				   Message: The web element (the step 1 with green badge - #step-1 h5 span.badge-success) was not visible
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 189
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass9_0.<<IsVisible>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 127
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
+			And you will see the step name has text 'Given my step 1' [Skipped - Previous Error]
 		Skipped
 			Given the test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
@@ -346,14 +356,24 @@ By [Missing!]'
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
 			Then you will see exception message is not visible because the exception is collapsed by default.
-		Expand
+		Expand [Failed]
 			Given the test results with a failed step with an exception
 			And you navigate to the test html report with a failing step with an exception
 			And you click when the area title line is visible
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
-			When you click when step error link is visible
-			Then you will see exception is visible
+			When you click when step error link is visible [Failed]
+				Error Type: Exception
+				   Message: The web element (step error link - #step-2 a.step-error-link) was not visible
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 189
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass9_0.<<IsVisible>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 127
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
+			Then you will see exception is visible [Skipped - Previous Error]
 		Expand All [Skipped - Not Started]
 	Review Step Multiline Parameter
 		Code [Skipped - Not Started]
@@ -553,9 +573,17 @@ xBDD - Features - Generate Reports - Customize Html Report
 xBDD - Features - Generate Reports - Generate Html Report
 	Write To Html
 		Standard Full Report
-			Given a completed test run
-			When the following code executes 'var report = xBDD.CurrentRun.WriteToHTML()'
-			Then the report variable will be a string that contains the entire HTML report that can be written to a file, or sent via email, or whatever...
+			Given you execute a test run
+			When you execute the following code:
+				string report = xB.CurrentRun.WriteToHTML()
+			Then the report string will contain the entire HTML report that can be written to a file, sent via email, etc.
+xBDD - Features - Generate Reports - Generate Json Report
+	Write To Json
+		Standard Full Report
+			Given you execute a test run
+			When you execute the following code:
+				string report = xBDD.CurrentRun.WriteToJson()
+			Then the report string will contains the entire Json representation of the test run
 xBDD - Features - Generate Reports - Generate Text Report
 	Write To Text
 		Write Emtpy Test Run
