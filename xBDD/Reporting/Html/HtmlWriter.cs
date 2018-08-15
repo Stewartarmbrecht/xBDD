@@ -64,7 +64,8 @@ namespace xBDD.Reporting.Html
             sb.Append(" span.scenario.duration { font-size: 1rem; color: gray; }");
             sb.Append(" span.step.duration { font-size: .75rem; color: gray; }");
             sb.Append(" span.oi.oi-info { font-size: 80% }");
-            sb.Append(" ol { margin-left: 2.25rem; }");
+            sb.Append(" ol.areas { margin-left: 0rem; }");
+            sb.Append(" ol { margin-left: 3rem; }");
             sb.Append(" span.badge { margin-left: .25rem; }");
             sb.Append(" span.distro { width: 1.5rem; height: 1.5rem; display: inline-block; margin-left: 2rem; border: 1px solid white; }");
             sb.Append(" span.name { margin-left: .75rem; }");

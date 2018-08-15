@@ -23,7 +23,7 @@ namespace xBDD.Features.GettingStarted
 		
 		[TestMethod]
 		[TestCategory("Long")]
-		public async Task ExecutingAPassingWebUIScenario()
+		public async Task ExecutingAPassingWebUIScenarioInAnMSTestProject()
 		{
 			var codePath = "../Amazon.Features/SearchingProducts/SearchingAllProducts.cs";
 			var templateFilePath = "./GettingStarted/MSTestFirstPassingScenarioOutputTemplate.txt";
@@ -39,7 +39,7 @@ namespace xBDD.Features.GettingStarted
 		}
 		[TestMethod]
 		[TestCategory("Long")]
-		public async Task ExecutingAFailingWebUIScenario()
+		public async Task ExecutingAFailingWebUIScenarioInAnMSTestProject()
 		{
 			var codePath = "../Amazon.Features/SearchingProducts/SearchingAllProducts_Failing.cs";
 			var templateFilePath = "./GettingStarted/MSTestFirstFailingScenarioOutputTemplate.txt";

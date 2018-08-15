@@ -1,10 +1,12 @@
 ﻿namespace xBDD
 {
+    using System.Globalization;
     using System.Threading.Tasks;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Runtime.Serialization.Json;
     using System.Text;
+    using System.Threading;
     using xBDD.Model;
     using xBDD.Reporting;
     using xBDD.Reporting.Html;
@@ -88,17 +90,28 @@
         /// write calculated properties like test stats.
         /// </summary>
         /// <param name="testRun">The test run to serialize.</param>
+        /// <param name="addIndentation">Adds indentation to the json.</param>
         /// <returns>A json string representation of the test results.</returns>
-        public static string WriteToJson(this xBDD.Model.TestRun testRun)
+        public static string WriteToJson(this xBDD.Model.TestRun testRun, bool addIndentation = false)
         {
-            var ms = new System.IO.MemoryStream();  
-
-            // Serializer the User object to the stream.  
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Model.TestRun));  
-            ser.WriteObject(ms, testRun);  
-            byte[] json = ms.ToArray();
-            ms.Close();
-            return Encoding.UTF8.GetString(json, 0, json.Length);
+            var json = "";
+            using(var ms = new System.IO.MemoryStream()) {
+                using(var writer = JsonReaderWriterFactory.CreateJsonWriter(ms, Encoding.UTF8, true, addIndentation))
+                {
+                    var currentCulture = Thread.CurrentThread.CurrentCulture;
+                    Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+                    try {
+                        DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Model.TestRun));  
+                        ser.WriteObject(writer, testRun);
+                        writer.Flush();
+                        byte[] jsonBytes = ms.ToArray();
+                        json = Encoding.UTF8.GetString(jsonBytes, 0, jsonBytes.Length);
+                    } finally {
+                        Thread.CurrentThread.CurrentCulture = currentCulture;
+                    }
+                }
+            }
+            return json;
         }
     }
 }

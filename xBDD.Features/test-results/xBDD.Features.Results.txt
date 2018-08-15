@@ -1045,72 +1045,8 @@ xBDD - Features - Generate Reports - Generate Text Report
 							When my action
 							Then my ending condition
 xBDD - Features - Getting Started
-	Define A Scenario With Reusable Steps
-		With Asynchronous Execution [Failed]
-			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find file '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features/GettingStarted/SampleCode/GetAccountDetails.cs'.
-			When the scenario is excuted
-			Then the test run will have the following structure [Failed]
-				Area:
-				My App - API - Test - Features - Accounts
-				
-				Feature:
-				Get Account Details
-				
-				Scenario:
-				When Unauthenticated
-				
-				Steps:
-				Given the client is not authenticated
-				When the client gets to the account details resource 'https://<site>/api/Accounts/99'
-				Then the client should get a 401 response
-				Error Type: AssertFailedException
-				   Message: Assert.AreEqual failed. Expected:<My App - API - Test - Features - Accounts>. Actual:<My App - Features - Help Desk Technician - Access User Account Information>. 
-				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
-				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
-				               at xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps.<>c__DisplayClass3_0.<WithAsynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features/GettingStarted/DefineAScenarioWithReusableSteps.cs:line 109
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
-		With Synchronous Execution [Failed]
-			Given you code the following feature definition:
-				Exception encountered getting file content: Could not find a part of the path '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features/Features/DefineScenarios/SampleCode/GetHolidays.cs'.
-			When the scenario is executed
-			Then the test run will have the following structure [Failed]
-				Area:
-				My App - API - Test - Features - Calendar
-				
-				Feature:
-				Get Holidays
-				
-				Feature Description:
-				In order to reference culture specific holidays
-				As a developer
-				I would like to get a list of the current user's culture specific holidays
-				
-				Scenario:
-				When US Calendar
-				
-				Steps:
-				Given a calendar object is initialized with US holidays
-				When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015
-				Then you should get back a single holiday that is St. Patrick's Day
-				Error Type: AssertFailedException
-				   Message: Assert.AreEqual failed. Expected:<to reference culture specific holidays>. Actual:<find the holidays for the users culture in a specific time range>. 
-				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
-				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
-				               at xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps.<>c__DisplayClass2_0.<WithSynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features/GettingStarted/DefineAScenarioWithReusableSteps.cs:line 64
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 	Executing Your First Scenario
-		Executing A Failing Web UI Scenario
+		Executing A Failing Web UI Scenario In An MS Test Project
 			Given you code the following feature definition:
 				namespace Amazon.Features.SearchingProducts
 				{
@@ -1174,7 +1110,7 @@ xBDD - Features - Getting Started
 				{{         Click \(\d+ms\): input\[type\=submit\]}}
 				{{         GetPageSource \(\d+ms\)}}
 				{{.*}}/rl
-		Executing A Passing Web UI Scenario
+		Executing A Passing Web UI Scenario In An MS Test Project
 			Given you code the following feature definition:
 				namespace Amazon.Features.SearchingProducts
 				{
@@ -1218,18 +1154,19 @@ xBDD - Features - Getting Started
 				{{.*}}/rl
 				Test Run Successful.
 				{{.*}}/rl
-	Finding Thex BDD Project Site
-		Search For XBDD
-			Given you navigate to the google search page
-			When you enter the text 'xBDD C#' into the the search box input
-			Then you will see the first results has text 'GitHub - Stewartarmbrecht/xBDD: Behavior Driven Development ...'
 	Installing The Framework
-		For An N Unit Project [Skipped - Not Started]
-		For An Xunit Project [Skipped - Not Started]
-		If You Use An MS Test Project
-			Then you create an MSTest project by following the directions here: https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest
-			And you can install xBDD by executing:
+		Via A Nuget Package
+			Given you have created a test project
+			When you excute the following command in the project director:
 				dotnet add package xBDD
+			Then you will install the xBDD framework
+	Leveraging Reusable Steps
+		By Inheriting From The User Class
+			Given you have a similar class in your test project for defining reusable steps:
+			And you have a similar class in your test project that defines a feature using the reusable steps:
+			When run the tests
+				dotnet test
+			Then you will execute the scenarios and get the results
 	Skipping A Scenario
 		Running A Skipped Scenario
 			Given you code the following feature definition:
@@ -1276,7 +1213,7 @@ xBDD - Features - Getting Started
 				Total tests: 1. Passed: 0. Failed: 0. Skipped: 1.
 				Test Run Successful.
 				{{.*}}/rl
-	Use A Scenario To Create Documentation
+	Using A Scenario To Create Documentation
 		Running A Documentation Scenario
 			Given you code the following feature definition:
 				namespace Amazon.Features.SearchingProducts

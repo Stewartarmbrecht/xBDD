@@ -21,25 +21,14 @@ namespace xBDD.Features.GettingStarted
 		}
 		
 		[TestMethod]
-		public async Task IfYouUseAnMSTestProject()
+		public async Task ViaANugetPackage()
 		{
 			await xB.AddScenario(this, 1)
-				.Then("you create an MSTest project by following the directions here: https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest",
+				.Given("you have created a test project",
 					(s) => {})
-				.And("you can install xBDD by executing:", (s) => {}, "dotnet add package xBDD", TextFormat.sh)
+				.When("you excute the following command in the project directory:", (s) => {}, "dotnet add package xBDD", TextFormat.sh)
+				.Then("you will install the xBDD framework")
 				.Document();
-		}
-		[TestMethod]
-		public async Task ForAnXunitProject()
-		{
-			 await xB.CurrentRun.AddScenario(this, 2)
-				.Skip("Not Started", Assert.Inconclusive);
-		}
-		[TestMethod]
-		public async Task ForAnNUnitProject()
-		{
-			 await xB.CurrentRun.AddScenario(this, 3)
-				.Skip("Not Started", Assert.Inconclusive);
 		}
 	}
 }

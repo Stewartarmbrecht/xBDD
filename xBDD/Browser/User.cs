@@ -1,5 +1,6 @@
 using xBDD.Model;
 using xBDD.Browser;
+using OpenQA.Selenium;
 
 namespace xBDD.Browser
 {
@@ -134,6 +135,32 @@ namespace xBDD.Browser
         public TextActions EnterTheText(string text)
         {
             return new TextActions(browser, text);
+        }
+
+        public Step PressTheEnterKey(string description, string selector, int waitTillVisibleMilliseconds = -1, bool captureOutput = false)
+        {
+            var pageElement = new PageElement(description, selector);
+            return PressTheEnterKey(pageElement, waitTillVisibleMilliseconds, captureOutput);
+        }
+        public Step PressTheEnterKey(PageElement pageElement, int waitTillVisibleMilliseconds = -1, bool captureOutput = false)
+        {
+            return xB.CreateAsyncStep(
+                $"you press the enter key with the focus on the {pageElement.Description}",
+                async (s) => {
+                    try {
+                        await this.browser.WaitTillVisible(pageElement, waitTillVisibleMilliseconds);
+                        this.browser.SendKeys(pageElement, Keys.Enter);
+                        if(s.Outcome == Outcome.Failed || captureOutput)
+                        {
+                            s.Output = this.browser.GetPageSource();
+                            s.OutputFormat = TextFormat.htmlpreview;
+                        }
+                    } catch (System.Exception) {
+                        s.Output = this.browser.GetPageSource();
+                        s.OutputFormat = TextFormat.htmlpreview;
+                        throw;
+                    }
+                });
         }
         public Step AreViewingAPageWithTheTitle(string text)
         {
