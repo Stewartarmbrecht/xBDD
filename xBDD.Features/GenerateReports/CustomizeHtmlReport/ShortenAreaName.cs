@@ -1,11 +1,9 @@
 namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 {
-	using xBDD.Features;
-	using xBDD.Browser;
-	using xBDD.Features.Pages.HtmlReportPage;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using xBDD.Features.Steps;
 	using System.Threading.Tasks;
+	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
 
     [TestClass]
 	[AsA("Developer")]
@@ -13,9 +11,9 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 	[YouCan("shorten the area name in the Html report.")]
 	public class ShortenAreaName
 	{
-        private User you = new User();
-        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
-        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+        private HtmlReportUser you = new HtmlReportUser();
+        private HtmlReportPageModel the = new HtmlReportPageModel();
+        
 
 		private readonly TestContextWriter outputWriter;
 
@@ -28,8 +26,8 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		public async Task MatchesStartOfAreaName()
 		{
             await xB.AddScenario(this, 1)
-                .Given(AnHtmlReport.WithASinglePassingScenario(null,null,null,"My "))
-                .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+                .Given(you.GenerateAReportWithASinglePassingScenario(null,null,null,"My "))
+                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
 				.Then(you.WillSee(the.Area.Name(1)).IsVisible())
 				.And(you.WillSee(the.Area.Name(1)).HasText("Area 1"))
                 .Run();
@@ -38,8 +36,8 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		public async Task MatchesNoneOfAreaName()
 		{
             await xB.AddScenario(this, 2)
-                .Given(AnHtmlReport.WithASinglePassingScenario(null,null,null,"No Match"))
-                .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+                .Given(you.GenerateAReportWithASinglePassingScenario(null,null,null,"No Match"))
+                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
 				.Then(you.WillSee(the.Area.Name(1)).IsVisible())
 				.And(you.WillSee(the.Area.Name(1)).HasText("My Area 1"))
                 .Run();
@@ -48,8 +46,8 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		public async Task MatchesAllOfAreaName()
 		{
             await xB.AddScenario(this, 3)
-                .Given(AnHtmlReport.WithASinglePassingScenario(null,null,null,"My Area 1"))
-                .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+                .Given(you.GenerateAReportWithASinglePassingScenario(null,null,null,"My Area 1"))
+                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
 				.Then(you.WillSee(the.Area.Name(1)).IsVisible())
 				.And(you.WillSee(the.Area.Name(1)).HasText("[Missing! (or Full Name Skipped)]"))
                 .Run();

@@ -1,13 +1,10 @@
 
 namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 {
-	using xBDD;
-	using xBDD.Features;
-	using xBDD.Browser;
-	using xBDD.Features.Steps;
-    using xBDD.Features.Pages.HtmlReportPage;
-	using System.Threading.Tasks;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using System.Threading.Tasks;
+	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
 
     [TestClass]
 	[AsA("Developer")]
@@ -15,9 +12,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	[By("reviewing the distribution graph next to the area badge")]
 	public class ReviewAreaFeatureDistribution
 	{
-        private User you = new User();
-        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
-        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+        private HtmlReportUser you = new HtmlReportUser();
+	    private HtmlReportPageModel the = new HtmlReportPageModel();
+        
 
 		private readonly TestContextWriter outputWriter;
 
@@ -29,10 +26,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task FailedSkippedAndPassingFeatureStats()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.AddScenario(this, 1)
-                .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
-				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
+                .Given(you.GenerateAReportWithAFullTestRunWithAllOutcomes())
+				.When(you.NavigateTo(the.HtmlReport.WithAFullTestRunWithAllOutcomes))
 				.And(you.WaitTill(the.Area.Badge(3)).IsVisible())
 				.Then(you.WillSee(the.AreaFeatureDistro.BadgeDistro(3)).IsVisible())
 				.And(you.WillSee(the.AreaFeatureDistro.BadgeDistro(3)).HasTitleAKAHoverText("Features"))
@@ -45,10 +41,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task AllPassingFeatureStats()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.AddScenario(this, 1)
-                .Given(AnHtmlReport.WithAPassingFullTestRun())
-				.When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
+                .Given(you.GenerateAReportWithAPassingFullTestRun())
+				.When(you.NavigateTo(the.HtmlReport.WithAPassingFullTestRun))
 				.And(you.WaitTill(the.Area.Badge(1)).IsVisible())
 				.Then(you.WillSee(the.AreaFeatureDistro.Chart(1)).IsVisible())
 				.And(you.WillSee(the.AreaFeatureDistro.PassedBar(1)).HasStyle("has a heigth of 33%", ".*height\\: 100\\%\\;.*"))
@@ -59,10 +54,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task AllSkippedFeatureStats()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.AddScenario(this, 1)
-                .Given(AnHtmlReport.WithASingleSkippedScenario())
-				.When(you.NavigateTo(theHtmlReport.WithASingleSkippedScenario))
+                .Given(you.GenerateAReportWithASingleSkippedScenario())
+				.When(you.NavigateTo(the.HtmlReport.WithASingleSkippedScenario))
 				.And(you.WaitTill(the.Area.Badge(1)).IsVisible())
 				.Then(you.WillSee(the.AreaFeatureDistro.Chart(1)).IsVisible())
 				.And(you.WillSee(the.AreaFeatureDistro.SkippedBar(1)).HasStyle("has a heigth of 33%", ".*height\\: 100\\%\\;.*"))
@@ -73,10 +67,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task AllFailedFeatureStats()
 		{
-            WebBrowser browser = new WebBrowser(WebDriver.Current);
             await xB.AddScenario(this, 1)
-                .Given(AnHtmlReport.WithASingleFailedScenario())
-				.When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
+                .Given(you.GenerateAReportWithASingleFailedScenario())
+				.When(you.NavigateTo(the.HtmlReport.WithASingleFailedScenario))
 				.And(you.WaitTill(the.Area.Badge(1)).IsVisible())
 				.Then(you.WillSee(the.AreaFeatureDistro.Chart(1)).IsVisible())
 				.And(you.WillSee(the.AreaFeatureDistro.FailedBar(1)).HasStyle("has a heigth of 33%", ".*height\\: 100\\%\\;.*"))

@@ -1,16 +1,14 @@
-using Amazon.Features.SearchingProducts;
-using System;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using xBDD;
-using xBDD.Model;
-using xBDD.Features;
-using xBDD.Features.Actors;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-
 namespace xBDD.Features.GettingStarted
 {
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using Amazon.Features.SearchingProducts;
+	using System;
+	using System.Collections.Generic;
+	using System.Threading.Tasks;
+	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
+	using xBDD.Model;
+
 	[TestClass]
 	[AsA(Developer.Name)]
 	[YouCan("simplify the development of tests")]

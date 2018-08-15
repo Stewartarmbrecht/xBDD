@@ -1,9 +1,10 @@
-using xBDD.Features;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Threading.Tasks;
-
 namespace xBDD.Features.GenerateReports.GenerateHtmlReport
 {
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using System.Threading.Tasks;
+	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
+
     [TestClass]
     public class WriteToHtml
     {

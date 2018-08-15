@@ -1,11 +1,9 @@
 namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 {
-	using xBDD.Features;
-	using xBDD.Browser;
-	using xBDD.Features.Pages.HtmlReportPage;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using xBDD.Features.Steps;
 	using System.Threading.Tasks;
+	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
 
 	[AsA("Developer")]
 	[YouCan("understand more detail about a feature")]
@@ -13,9 +11,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
     [TestClass]
 	public class ReviewFeatureStatement
 	{
-        private User you = new User();
-        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
-        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+        private HtmlReportUser you = new HtmlReportUser();
+        private HtmlReportPageModel the = new HtmlReportPageModel();
+        
 
 		private readonly TestContextWriter outputWriter;
 
@@ -28,8 +26,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task CollapsedByDefault()
 		{
             await xB.AddScenario(this, 1)
-                .Given(AnHtmlReport.WithASinglePassingScenario("derive some value", "actor", "perform some action"))
-				.When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+                .Given(you.GenerateAReportWithASinglePassingScenario("derive some value", "actor", "perform some action"))
+				.When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.Then(you.WillSee(the.Feature.Statement(1)).IsNotVisible().Because("the statement is collapsed by default."))
                 .Run();
@@ -39,8 +37,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Expand()
 		{
             await xB.AddScenario(this, 2)
-                .Given(AnHtmlReport.WithASinglePassingScenario("derive some value", "actor", "perform some action"))
-				.When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+                .Given(you.GenerateAReportWithASinglePassingScenario("derive some value", "actor", "perform some action"))
+				.When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.StatementLink(1)).IsVisible())
 				.Then(you.WillSee(the.Feature.Statement(1)).IsVisible())
@@ -51,8 +49,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Collapse()
 		{
             await xB.AddScenario(this, 2)
-                .Given(AnHtmlReport.WithASinglePassingScenario("derive some value", "actor", "perform some action"))
-				.When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+                .Given(you.GenerateAReportWithASinglePassingScenario("derive some value", "actor", "perform some action"))
+				.When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.StatementLink(1)).IsVisible(-1, true))
 				.And(you.WaitTill(the.Feature.Statement(1)).IsVisible(-1, true))
@@ -78,8 +76,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		{
 			string featureStatement = $"As a actor{System.Environment.NewLine}You can derive some value{System.Environment.NewLine}By perform some action";
             await xB.CurrentRun.AddScenario(this, 6)
-                .Given(AnHtmlReport.WithASinglePassingScenario("derive some value", "actor", "perform some action"))
-                .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+                .Given(you.GenerateAReportWithASinglePassingScenario("derive some value", "actor", "perform some action"))
+                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.StatementLink(1)).IsVisible())
 				.Then(you.WillSee(the.Feature.Statement(1)).IsVisible())
@@ -91,8 +89,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		{
 			string featureStatement = $"As a [Missing!]{System.Environment.NewLine}You can derive some value{System.Environment.NewLine}By [Missing!]";
             await xB.CurrentRun.AddScenario(this, 7)
-                .Given(AnHtmlReport.WithASinglePassingScenario("derive some value"))
-                .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+                .Given(you.GenerateAReportWithASinglePassingScenario("derive some value"))
+                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.StatementLink(1)).IsVisible())
 				.Then(you.WillSee(the.Feature.Statement(1)).IsVisible())
@@ -103,8 +101,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task NoStatement()
 		{
             await xB.CurrentRun.AddScenario(this, 8)
-                .Given(AnHtmlReport.WithASinglePassingScenario())
-                .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+                .Given(you.GenerateAReportWithASinglePassingScenario())
+                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.Then(you.WillSee(the.Scenario.Name(1,1)).IsVisible())

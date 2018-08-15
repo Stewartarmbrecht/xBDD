@@ -1,6 +1,7 @@
-namespace xBDD.Features.Pages.HtmlReportPage
+namespace xBDD.Features.Pages
 {
-    public class HtmlReport
+    using xBDD.Features.Pages.HtmlReportPage;
+    public class HtmlReportPageModel
     {
         public Area Area = new Area();
         public AreaFeatureStats AreaFeatureStats = new AreaFeatureStats();
@@ -20,5 +21,6 @@ namespace xBDD.Features.Pages.HtmlReportPage
         public TestRunAreaStats TestRunAreaStats = new TestRunAreaStats();
         public TestRunFeatureStats TestRunFeatureStats = new TestRunFeatureStats();
         public TestRunScenarioStats TestRunScenarioStats = new TestRunScenarioStats();
+        public ReportLocations HtmlReport = new ReportLocations();
     }
 }

@@ -1,11 +1,9 @@
 namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 {
-	using xBDD.Features;
-	using xBDD.Browser;
-	using xBDD.Features.Pages.HtmlReportPage;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using xBDD.Features.Steps;
 	using System.Threading.Tasks;
+	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
 
     [TestClass]
 	//  [Description("In order to understand how functionality is organized")]
@@ -13,9 +11,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	//  [Description("I would like to view the areas in the html report")]
 	public class ReviewTestRunStats
 	{
-        private User you = new User();
-        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
-        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+        private HtmlReportUser you = new HtmlReportUser();
+        private HtmlReportPageModel the = new HtmlReportPageModel();
+        
 
 		private readonly TestContextWriter outputWriter;
 
@@ -28,8 +26,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task FailedSkippedAndPassingAreaStats()
 		{
             await xB.CurrentRun.AddScenario(this, 1)
-                .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
-				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
+                .Given(you.GenerateAReportWithAFullTestRunWithAllOutcomes())
+				.When(you.NavigateTo(the.HtmlReport.WithAFullTestRunWithAllOutcomes))
 				.Then(you.WillSee(the.TestRunAreaStats.Section).IsVisible())
 				.And(you.WillSee(the.TestRunAreaStats.Total).HasText("3"))
 				.And(you.WillSee(the.TestRunAreaStats.Total).HasTitleAKAHoverText("Areas"))
@@ -46,8 +44,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task FailedSkippedAndPassingFeatureStats()
 		{
             await xB.CurrentRun.AddScenario(this, 2)
-                .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
-				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
+                .Given(you.GenerateAReportWithAFullTestRunWithAllOutcomes())
+				.When(you.NavigateTo(the.HtmlReport.WithAFullTestRunWithAllOutcomes))
 				.Then(you.WillSee(the.TestRunFeatureStats.Section).IsVisible())
 				.And(you.WillSee(the.TestRunFeatureStats.Passed).HasText("5"))
 				.And(you.WillSee(the.TestRunFeatureStats.Skipped).HasText("3"))
@@ -62,8 +60,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task FailedSkippedAndPassingScenarioStats()
 		{
             await xB.CurrentRun.AddScenario(this, 3)
-                .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
-				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
+                .Given(you.GenerateAReportWithAFullTestRunWithAllOutcomes())
+				.When(you.NavigateTo(the.HtmlReport.WithAFullTestRunWithAllOutcomes))
 				.Then(you.WillSee(the.TestRunScenarioStats.Section).IsVisible())
 				.And(you.WillSee(the.TestRunScenarioStats.Passed).HasText("19"))
 				.And(you.WillSee(the.TestRunScenarioStats.Skipped).HasText("7"))
@@ -78,8 +76,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task AreaStatsNoAreas()
 		{
             await xB.CurrentRun.AddScenario(this, 4)
-                .Given(AnHtmlReport.WithAnEmptyTestRun())
-				.When(you.NavigateTo(theHtmlReport.WithAnEmptyTestRun))
+                .Given(you.GenerateAReportWithAnEmptyTestRun())
+				.When(you.NavigateTo(the.HtmlReport.WithAnEmptyTestRun))
 				.Then(you.WillSee(the.TestRunAreaStats.Section).IsVisible())
 				.And(you.WillSee(the.TestRunAreaStats.Total).HasText("0"))
 				.And(you.WillSee(the.TestRunAreaStats.Total).HasTitleAKAHoverText("Areas"))

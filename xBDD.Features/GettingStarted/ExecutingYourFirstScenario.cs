@@ -1,11 +1,9 @@
 namespace xBDD.Features.GettingStarted
 {
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using System;
 	using System.Threading.Tasks;
-	using xBDD;
-	using xBDD.Browser;
 	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
 
 	[TestClass]
 	[AsA("developer")]

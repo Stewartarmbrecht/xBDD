@@ -1,18 +1,16 @@
 namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 {
-	using xBDD.Features;
-	using xBDD.Browser;
-	using xBDD.Features.Pages.HtmlReportPage;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using xBDD.Features.Steps;
 	using System.Threading.Tasks;
+	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
 
     [TestClass]
 	public class ReviewScenario
 	{
-        private User you = new User();
-        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
-        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+        private HtmlReportUser you = new HtmlReportUser();
+        private HtmlReportPageModel the = new HtmlReportPageModel();
+        
 
 		private readonly TestContextWriter outputWriter;
 
@@ -25,8 +23,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Passing()
 		{
             await xB.AddScenario(this, 1)
-                .Given(AnHtmlReport.WithASinglePassingScenario())
-                .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
+                .Given(you.GenerateAReportWithASinglePassingScenario())
+                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.Then(you.WillSee(the.Scenario.BadgeGreen(1)).IsVisible())
@@ -40,8 +38,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Skipped()
 		{
             await xB.AddScenario(this, 2)
-                .Given(AnHtmlReport.WithASingleSkippedScenario())
-                .When(you.NavigateTo(theHtmlReport.WithASingleSkippedScenario))
+                .Given(you.GenerateAReportWithASingleSkippedScenario())
+                .When(you.NavigateTo(the.HtmlReport.WithASingleSkippedScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.Then(you.WillSee(the.Scenario.BadgeYellow(1)).IsVisible())
@@ -52,8 +50,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Failing()
 		{
             await xB.AddScenario(this, 3)
-                .Given(AnHtmlReport.WithASingleFailedScenario())
-                .When(you.NavigateTo(theHtmlReport.WithASingleFailedScenario))
+                .Given(you.GenerateAReportWithASingleFailedScenario())
+                .When(you.NavigateTo(the.HtmlReport.WithASingleFailedScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.Then(you.WillSee(the.Scenario.BadgeRed(1)).IsVisible())

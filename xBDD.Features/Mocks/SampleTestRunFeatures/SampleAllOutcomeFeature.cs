@@ -1,7 +1,6 @@
 namespace SampleApp.Features.SampleTestRunFeatures
 {
 	using xBDD;
-	using xBDD.Features.Steps;
 	using System.Threading.Tasks;
 
 	[AsA("actor")]

@@ -1,11 +1,9 @@
 namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 {
-	using xBDD.Features;
-	using xBDD.Browser;
-	using xBDD.Features.Pages.HtmlReportPage;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using xBDD.Features.Steps;
 	using System.Threading.Tasks;
+	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
 
     [TestClass]
 	[AsA("Developer")]
@@ -13,9 +11,9 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 	[By("calling the SortTestRunResults method on the test run: 'xB.CurrentRun.SortTestRunResults' before running the html report")]
 	public class SortTestRunResults
 	{
-        private User you = new User();
-        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
-        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+        private HtmlReportUser you = new HtmlReportUser();
+        private HtmlReportPageModel the = new HtmlReportPageModel();
+        
 
 		private readonly TestContextWriter outputWriter;
 
@@ -28,8 +26,8 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		public async Task NotSorted()
 		{
 			 await xB.AddScenario(this, 1)
-			 	.Given(ASampleTestRun.ThatIsNotSorted())
-				.When(you.NavigateTo(theHtmlReport.ThatIsNotSorted))
+			 	.Given(you.GenerateAnHtmlReportUsingATestRunThatIsNotSorted())
+				.When(you.NavigateTo(the.HtmlReport.ThatIsNotSorted))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.Then(you.WillSee(the.Feature.Name(1,1)).HasText("Sample All Outcome Feature").Because("it was the first feature alphabetically"))
@@ -40,8 +38,8 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		public async Task Sorted()
 		{
 			 await xB.AddScenario(this, 2)
-			 	.Given(ASampleTestRun.ThatIsSorted())
-				.When(you.NavigateTo(theHtmlReport.ThatIsSorted))
+			 	.Given(you.GenerateAnHtmlReportUsingATestRunThatIsSorted())
+				.When(you.NavigateTo(the.HtmlReport.ThatIsSorted))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.Then(you.WillSee(the.Feature.Name(1,1)).HasText("Sample Passing Feature",-1, true).Because("it was the first in the feature sort"))
@@ -52,8 +50,8 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		public async Task PartiallySorted()
 		{
 			 await xB.AddScenario(this, 2)
-			 	.Given(ASampleTestRun.ThatIsSorted())
-				.When(you.NavigateTo(theHtmlReport.ThatIsSorted))
+			 	.Given(you.GenerateAnHtmlReportUsingATestRunThatIsSorted())
+				.When(you.NavigateTo(the.HtmlReport.ThatIsSorted))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(2,1)).IsVisible())
 				.Then(you.WillSee(the.Feature.Name(2,1)).HasText("Sample Skipped Feature",-1, true).Because("it was the second in the feature sort"))

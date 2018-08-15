@@ -4,13 +4,6 @@ namespace xBDD.Features.Pages.HtmlReportPage
 {
     public class Area
     {
-        public readonly PageElement FirstAreasFeatureListNotExpandingOrCollapsing = new PageElement("the first area's feature list that is not expanding or collapsing", "#area-1-features:not(.collapsing)");
-        public readonly PageElement ExpandAllAreasLink = new PageElement("the expand all areas link", "#expand-all-areas-button");
-        public readonly PageElement CollapseAllAreasLink = new PageElement("the collapse all areas link", "#collapse-all-areas-button");
-        public readonly PageElement SecondAreasFeatureListNotExpandingOrCollapsing = new PageElement("the second area's feature list that is not expanding or collapsing", "#area-2-features:not(.collapsing)");
-        public readonly PageElement FirstAreaName = new PageElement("the first area name", "#area-1-name");
-        public readonly PageElement FirstAreaYellowBadge = new PageElement("the first area yellow badge", "#area-1-badge.badge-warning");
-        public readonly PageElement FirstAreaRedBadge = new PageElement("the first area red badge", "#area-1-badge.badge-danger");
         public PageElement Name(int areaNumber)
         {
             return new PageElement("the area title line","#area-" + areaNumber + "-name");

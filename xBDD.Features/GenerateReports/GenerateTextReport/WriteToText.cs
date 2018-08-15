@@ -1,14 +1,11 @@
-﻿using System.Runtime.CompilerServices;
-//using Xunit;
-//using Xunit.Abstractions;
-using xBDD.Features;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using xBDD.Features.Steps;
-using xBDD.Features.Actors;
-using System.Threading.Tasks;
-
-namespace xBDD.Features.GenerateReports.GenerateTextReport
+﻿namespace xBDD.Features.GenerateReports.GenerateTextReport
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Runtime.CompilerServices;
+    using System.Threading.Tasks;
+    using xBDD.Features;
+    using xBDD.Features.Actors;
+
     [TestClass]
     public class WriteToText: IFeature
     {

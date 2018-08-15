@@ -1,12 +1,9 @@
 namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 {
-	using xBDD;
-	using xBDD.Features;
-	using xBDD.Browser;
-	using xBDD.Features.Steps;
-    using xBDD.Features.Pages.HtmlReportPage;
-	using System.Threading.Tasks;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using System.Threading.Tasks;
+	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
 
     [TestClass]
 	[AsA("test results reviewer")]
@@ -15,10 +12,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	public class ReviewAreaFeatures
 	{
 		private readonly TestContextWriter outputWriter;
-        private User you = new User();
-        private Area the = new Pages.HtmlReportPage.Area();
-        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
-
+        private HtmlReportUser you = new HtmlReportUser();
+        private HtmlReportPageModel the = new HtmlReportPageModel();
 
 		public ReviewAreaFeatures()
 		{
@@ -29,11 +24,11 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
         public async Task Expand()
 		{
             await xB.AddScenario(this, 1)
-				.Given(AnHtmlReport.WithAPassingFullTestRun())
-                .When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
-                .And(you.WaitTill(the.FirstAreaName).IsVisible(5000))
-                .And(you.Click(the.FirstAreaName))
-                .Then(you.WillSee(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsVisible(2000))
+				.Given(you.GenerateAReportWithAPassingFullTestRun())
+                .When(you.NavigateTo(the.HtmlReport.WithAPassingFullTestRun))
+                .And(you.WaitTill(the.Area.Name(1)).IsVisible())
+                .And(you.Click(the.Area.Name(1)))
+                .Then(you.WillSee(the.Area.Features(1)).IsVisible())
                 .Run();
 		}
 
@@ -41,12 +36,12 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
         public async Task ExpandAll()
 		{
             await xB.AddScenario(this, 2)
-				.Given(AnHtmlReport.WithAPassingFullTestRun())
-                .When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
-                .And(you.WaitTill(the.FirstAreaName).IsVisible(5000))
-                .And(you.Click(the.ExpandAllAreasLink,1000))
-                .Then(you.WillSee(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsVisible(2000))
-                .And(you.WillSee(the.SecondAreasFeatureListNotExpandingOrCollapsing).IsVisible(2000))
+				.Given(you.GenerateAReportWithAPassingFullTestRun())
+                .When(you.NavigateTo(the.HtmlReport.WithAPassingFullTestRun))
+                .And(you.WaitTill(the.Area.Name(1)).IsVisible())
+                .And(you.Click(the.Menu.ExpandAllAreasLink))
+                .Then(you.WillSee(the.Area.Features(1)).IsVisible())
+                .And(you.WillSee(the.Area.Features(2)).IsVisible())
                 .Run();
 		}
 
@@ -54,13 +49,13 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Collapse()
 		{
             await xB.AddScenario(this, 3)
-				.Given(AnHtmlReport.WithAPassingFullTestRun())
-                .When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
-                .And(you.WaitTill(the.FirstAreaName).IsVisible(5000))
-                .And(you.Click(the.ExpandAllAreasLink))
-                .And(you.WaitTill(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsVisible(2000))
-                .And(you.Click(the.FirstAreaName))
-                .Then(you.WillSee(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsNotVisible(1000))
+				.Given(you.GenerateAReportWithAPassingFullTestRun())
+                .When(you.NavigateTo(the.HtmlReport.WithAPassingFullTestRun))
+                .And(you.WaitTill(the.Area.Name(1)).IsVisible())
+                .And(you.Click(the.Menu.ExpandAllAreasLink))
+                .And(you.WaitTill(the.Area.Features(1)).IsVisible())
+                .And(you.Click(the.Area.Name(1)))
+                .Then(you.WillSee(the.Area.Features(1)).IsNotThere())
                 .Run();
 		}
 
@@ -68,15 +63,15 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
         public async Task CollapseAll()
 		{
             await xB.AddScenario(this, 4)
-				.Given(AnHtmlReport.WithAPassingFullTestRun())
-                .When(you.NavigateTo(theHtmlReport.WithAPassingFullTestRun))
-                .And(you.WaitTill(the.FirstAreaName).IsVisible(5000))
-                .And(you.Click(the.ExpandAllAreasLink))
-                .And(you.WaitTill(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsVisible(2000))
-                .And(you.WaitTill(the.SecondAreasFeatureListNotExpandingOrCollapsing).IsVisible(2000))
-                .And(you.Click(the.CollapseAllAreasLink))
-                .Then(you.WillSee(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsNotVisible(2000))
-                .And(you.WillSee(the.SecondAreasFeatureListNotExpandingOrCollapsing).IsNotVisible(2000))
+				.Given(you.GenerateAReportWithAPassingFullTestRun())
+                .When(you.NavigateTo(the.HtmlReport.WithAPassingFullTestRun))
+                .And(you.WaitTill(the.Area.Name(1)).IsVisible())
+                .And(you.Click(the.Menu.ExpandAllAreasLink))
+                .And(you.WaitTill(the.Area.Features(1)).IsVisible())
+                .And(you.WaitTill(the.Area.Features(2)).IsVisible())
+                .And(you.Click(the.Menu.CollapseAllAreasLink))
+                .And(you.WaitTill(the.Area.Features(1)).IsNotVisible())
+                .And(you.WaitTill(the.Area.Features(2)).IsNotVisible())
 				.Skip("Not Implemented", Assert.Inconclusive);
 		}
 

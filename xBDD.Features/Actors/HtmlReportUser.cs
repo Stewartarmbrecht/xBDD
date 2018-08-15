@@ -2,17 +2,18 @@
 using System.IO;
 using System.Linq;
 using xBDD.Model;
+using xBDD.Browser;
 
-namespace xBDD.Features.Steps
+namespace xBDD.Features.Actors
 {
-    public static class AnHtmlReport
+    public class HtmlReportUser: User
     {
-        internal static Step WithAFailingStepWithAnException()
+        internal Step GenerateAReportWithAFailingStepWithAnException()
         {
-            string path = GetReportPath("WithAFailingStepWithAnException");
+            string path = this.GetReportPath("WithAFailingStepWithAnException");
 
             var step = xB.CreateAsyncStep(
-                "the test results with a failed step with an exception",
+                "you generate an html report from test results with a failed step with an exception",
                 async (s) =>
                 {
                     var xBDD = new xBDDMock();
@@ -32,12 +33,12 @@ namespace xBDD.Features.Steps
             return step;
         }
 
-        internal static Step WithAPassingFullTestRun()
+        internal Step GenerateAReportWithAPassingFullTestRun()
         {
-            string path = GetReportPath("WithAPassingFullTestRun");
+            string path = this.GetReportPath("WithAPassingFullTestRun");
 
             var step = xB.CreateAsyncStep(
-                "the test results of a passing full test run",
+                "you generate an html report from test results of a passing full test run",
                 async (s) =>
                 {
                     var xBDD = new xBDDMock();
@@ -88,11 +89,11 @@ namespace xBDD.Features.Steps
             return step;
         }
 
-        internal static Step WithAFullTestRunWithAllOutcomes(bool failuresOnly = false)
+        internal Step GenerateAReportWithAFullTestRunWithAllOutcomes(bool failuresOnly = false)
         {
-            string path = GetReportPath("WithAFullTestRunWithAllOutcomes");
+            string path = this.GetReportPath("WithAFullTestRunWithAllOutcomes");
 
-            var stepName = "the test results of a full test run with all outcomes";
+            var stepName = "you generate an html report from test results of a full test run with all outcomes";
             if(failuresOnly)
             {
                 stepName = stepName + " set to only report on failures";
@@ -147,12 +148,12 @@ namespace xBDD.Features.Steps
             return step;
         }
 
-        internal static Step WithAFailingStepWithANestedException()
+        internal Step GenerateAReportWithAFailingStepWithANestedException()
         {
-            string path = GetReportPath("WithAFailingStepWithANestedException");
+            string path = this.GetReportPath("WithAFailingStepWithANestedException");
 
             var step = xB.CreateAsyncStep(
-                "the test results with a failed step with an exception",
+                "you generate an html report from test results with a failed step with an exception",
                 async (s) =>
                 {
                     var xBDD = new xBDDMock();
@@ -181,12 +182,12 @@ namespace xBDD.Features.Steps
             return step;
         }
 
-        internal static Step WithAStepWithOutput(string output, TextFormat format)
+        internal Step GenerateAReportWithAStepWithOutput(string output, TextFormat format)
         {
-            string path = GetReportPath("WithAStepWithOutput");
+            string path = this.GetReportPath("WithAStepWithOutput");
 
             var step = xB.CreateAsyncStep(
-                "the test results of a step with a/an " + Enum.GetName(typeof(TextFormat), format) + " output of ",
+                "you generate an html report from test results of a step with a/an " + Enum.GetName(typeof(TextFormat), format) + " output of ",
                 async (s) =>
                 {
                     var xBDD = new xBDDMock();
@@ -209,12 +210,12 @@ namespace xBDD.Features.Steps
             return step;
         }
 
-        internal static Step WithAStepWithAMultilineParameter(string input, TextFormat format)
+        internal Step GenerateAReportWithAStepWithAMultilineParameter(string input, TextFormat format)
         {
-            string path = GetReportPath("WithAStepWithAMultilineParameter");
+            string path = this.GetReportPath("WithAStepWithAMultilineParameter");
 
             var step = xB.CreateAsyncStep(
-                $"the test results of a step with a {Enum.GetName(typeof(TextFormat), format)} formated multiline parameter of",
+                $"you generate an html report from test results of a step with a {Enum.GetName(typeof(TextFormat), format)} formated multiline parameter of",
                 async (s) =>
                 {
                     var xBDD = new xBDDMock();
@@ -235,13 +236,13 @@ namespace xBDD.Features.Steps
             return step;
         }
 
-        internal static Step WithASinglePassingScenario(
+        internal Step GenerateAReportWithASinglePassingScenario(
             string value = null, string actor = null, string capability = null, 
             string areaNameSkip = null, bool failuresOnly = false)
         {
-            string path = GetReportPath("WithASinglePassingScenario");
+            string path = this.GetReportPath("WithASinglePassingScenario");
 
-            var stepName = "the test results of a single passing scenario";
+            var stepName = "you generate an html report from test results of a single passing scenario";
             if(areaNameSkip != null)
             {
                 stepName = stepName + $" set to skip the string '{areaNameSkip}' in the area name";
@@ -272,12 +273,12 @@ namespace xBDD.Features.Steps
             return step;
         }
 
-        internal static Step WithASingleFailedScenario()
+        internal Step GenerateAReportWithASingleFailedScenario()
         {
-            string path = GetReportPath("WithASingleFailedScenario");
+            string path = this.GetReportPath("WithASingleFailedScenario");
 
             var step = xB.CreateAsyncStep(
-                "the test results of a single failed scenario",
+                "you generate an html report from test results of a single failed scenario",
                 async (s) =>
                 {
                     var xBDD = new xBDDMock();
@@ -297,11 +298,11 @@ namespace xBDD.Features.Steps
             return step;
         }
 
-        internal static Step WithASingleSkippedScenario(bool failuresOnly = false)
+        internal Step GenerateAReportWithASingleSkippedScenario(bool failuresOnly = false)
         {
-            string path = GetReportPath("WithASingleSkippedScenario");
+            string path = this.GetReportPath("WithASingleSkippedScenario");
 
-            var stepName = "the test results of a single skipped scenario";
+            var stepName = "you generate an html report from test results of a single skipped scenario";
             if(failuresOnly)
             {
                 stepName = stepName + " set to only report on failures";
@@ -324,12 +325,12 @@ namespace xBDD.Features.Steps
             return step;
         }
 
-        internal static Step WithAnEmptyTestRun()
+        internal Step GenerateAReportWithAnEmptyTestRun()
         {
-            string path = GetReportPath("WithAnEmptyTestRun");
+            string path = this.GetReportPath("WithAnEmptyTestRun");
 
             var step = xB.CreateAsyncStep(
-                "the test results of an empty test run",
+                "you generate an html report from test results of an empty test run",
                 async (s) =>
                 {
                     var xBDD = new xBDDMock();
@@ -340,7 +341,37 @@ namespace xBDD.Features.Steps
             return step;
         }
 
-        private static string GetReportPath(string reportName)
+        internal Step GenerateAnHtmlReportUsingATestRunThatIsNotSorted()
+        {
+            string path = this.GetReportPath("ThatIsNotSorted");
+
+            var step = xB.CreateAsyncStep(
+                "you generate an html report from a test run that is not sorted",
+                async (s) =>
+                {
+                    var sampleTestRun = await SampleApp.Features.SampleTestRun.RunTests();
+                    var htmlReport = await sampleTestRun.CurrentRun.TestRun.WriteToHtml();
+                    File.WriteAllText(path, htmlReport);
+                });
+            return step;
+        }
+
+        internal Step GenerateAnHtmlReportUsingATestRunThatIsSorted()
+        {
+            string path = this.GetReportPath("ThatIsSorted");
+
+            var step = xB.CreateAsyncStep(
+                "you generate an html report from a test run that is sorted",
+                async (s) =>
+                {
+                    var sampleTestRun = await SampleApp.Features.SampleTestRun.RunTests();
+                    sampleTestRun.CurrentRun.SortTestRunResults(SampleApp.Features.SampleFeatureSort.SortedFeatureNames);
+                    var htmlReport = await sampleTestRun.CurrentRun.TestRun.WriteToHtml();
+                    File.WriteAllText(path, htmlReport);
+                });
+            return step;
+        }
+        private string GetReportPath(string reportName)
         {
             var location = System.Reflection.Assembly.GetEntryAssembly().Location;
             var directory = System.IO.Path.GetDirectoryName(location);

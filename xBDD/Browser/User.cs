@@ -4,15 +4,6 @@ using OpenQA.Selenium;
 
 namespace xBDD.Browser
 {
-    public static class StepExtensions
-    {
-        public static Step Because(this Step step, string explanation)
-        {
-            step.AppendToName($" because {explanation}");
-            return step;
-        }
-    }
-
     public class User 
     {
         private WebBrowser browserHolder;

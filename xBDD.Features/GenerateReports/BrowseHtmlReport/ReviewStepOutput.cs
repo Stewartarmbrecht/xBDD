@@ -1,18 +1,15 @@
 namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 {
-	using xBDD.Features;
-	using xBDD.Browser;
-	using xBDD.Features.Pages.HtmlReportPage;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using xBDD.Features.Steps;
 	using System.Threading.Tasks;
+	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
 
     [TestClass]
 	public class ReviewStepOutput
 	{
-        private User you = new User();
-        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
-        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+        private HtmlReportUser you = new HtmlReportUser();
+        private HtmlReportPageModel the = new HtmlReportPageModel();
 
 		private readonly TestContextWriter outputWriter;
 
@@ -27,8 +24,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 			var output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
 			var format = TextFormat.text;
             await xB.AddScenario(this, 1)
-                .Given(AnHtmlReport.WithAStepWithOutput(output, format))
-				.When(you.NavigateTo(theHtmlReport.WithAStepWithOutput))
+                .Given(you.GenerateAReportWithAStepWithOutput(output, format))
+				.When(you.NavigateTo(the.HtmlReport.WithAStepWithOutput))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
@@ -42,8 +39,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 			var output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
 			var format = TextFormat.text;
             await xB.AddScenario(this, 2)
-                .Given(AnHtmlReport.WithAStepWithOutput(output, format))
-				.When(you.NavigateTo(theHtmlReport.WithAStepWithOutput))
+                .Given(you.GenerateAReportWithAStepWithOutput(output, format))
+				.When(you.NavigateTo(the.HtmlReport.WithAStepWithOutput))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())

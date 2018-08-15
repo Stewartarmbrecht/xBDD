@@ -1,12 +1,10 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Text;
-using System.Threading.Tasks;
-using xBDD;
-using xBDD.Features;
-
 namespace xBDD.Features.GettingStarted
 {
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using System.Threading.Tasks;
+	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
+
 	[TestClass]
 	[AsA("developer")]
 	[YouCan("leverage xBDD within your .Net testing projects")]

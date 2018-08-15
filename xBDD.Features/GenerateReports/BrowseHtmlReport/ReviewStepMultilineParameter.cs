@@ -1,18 +1,16 @@
 namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 {
-	using xBDD.Features;
-	using xBDD.Browser;
-	using xBDD.Features.Pages.HtmlReportPage;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using xBDD.Features.Steps;
 	using System.Threading.Tasks;
+	using xBDD.Features.Actors;
+	using xBDD.Features.Pages;
 
     [TestClass]
 	public class ReviewStepMultilineParameter
 	{
-        private User you = new User();
-        private HtmlReport the = new Pages.HtmlReportPage.HtmlReport();
-        private ReportLocations theHtmlReport = new Pages.HtmlReportPage.ReportLocations();
+        private HtmlReportUser you = new HtmlReportUser();
+        private HtmlReportPageModel the = new HtmlReportPageModel();
+        
 
 		private readonly TestContextWriter InputWriter;
 
@@ -27,8 +25,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 			var input = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} input!";
 			var format = TextFormat.text;
             await xB.AddScenario(this, 1)
-                .Given(AnHtmlReport.WithAStepWithAMultilineParameter(input, format))
-				.When(you.NavigateTo(theHtmlReport.WithAStepWithAMultilineParameter))
+                .Given(you.GenerateAReportWithAStepWithAMultilineParameter(input, format))
+				.When(you.NavigateTo(the.HtmlReport.WithAStepWithAMultilineParameter))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
@@ -42,8 +40,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 			var input = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} Input!";
 			var format = TextFormat.text;
             await xB.AddScenario(this, 2)
-                .Given(AnHtmlReport.WithAStepWithAMultilineParameter(input, format))
-				.When(you.NavigateTo(theHtmlReport.WithAStepWithAMultilineParameter))
+                .Given(you.GenerateAReportWithAStepWithAMultilineParameter(input, format))
+				.When(you.NavigateTo(the.HtmlReport.WithAStepWithAMultilineParameter))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())

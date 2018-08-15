@@ -1,11 +1,10 @@
 namespace xBDD.Features.GettingStarted
 {
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using System;
-	using System.Threading.Tasks;
-	using xBDD;
-	using xBDD.Browser;
-	using xBDD.Features.Actors;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Runtime.CompilerServices;
+    using System.Threading.Tasks;
+    using xBDD.Features;
+    using xBDD.Features.Actors;
 
 	[TestClass]
 	[AsA(Developer.Name)]

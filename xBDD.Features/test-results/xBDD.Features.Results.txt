@@ -3,24 +3,21 @@ xBDD Features
 xBDD - Features - Generate Reports - Browse Html Report
 	Review Area
 		Failing
-			Given the test results of a single failed scenario
+			Given you generate an html report from test results of a single failed scenario
 			When you navigate to the test html report with a single failed scenario
-			Then you will see the first area name has text 'My Area 1'
-			And you will see the first area red badge is visible
-			And you will see the first area's feature list that is not expanding or collapsing is not visible because  the area is failing but the Failures Only option was not set to true
+			Then you will see the area title line has text 'My Area 1'
+			And you will see the area 1 with red badge is visible
 		Passing
-			Given the test results of a single passing scenario
+			Given you generate an html report from test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			Then you will see the area title line has text 'My Area 1'
 			And you will see the area 1 with green badge is visible
 			And you will see the area 1 duration is visible
-			And you will see the first area's feature list that is not expanding or collapsing is not visible because  the area is not failing
 		Skipped
-			Given the test results of a single skipped scenario
+			Given you generate an html report from test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
-			Then you will see the first area name has text 'My Area 1'
-			And you will see the first area yellow badge is visible
-			And you will see the first area's feature list that is not expanding or collapsing is not visible because  the area is not failing
+			Then you will see the area title line has text 'My Area 1'
+			And you will see the area 1 with yelow badge is visible
 	Review Area Description
 		Collapse [Skipped - Not Started]
 		Collapse All [Skipped - Not Started]
@@ -29,7 +26,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 		Expand All [Skipped - Not Started]
 	Review Area Feature Distribution
 		All Failed Feature Stats
-			Given the test results of a single failed scenario
+			Given you generate an html report from test results of a single failed scenario
 			When you navigate to the test html report with a single failed scenario
 			And you wait till the area title line is visible
 			Then you will see area feature distribution chart is visible
@@ -37,7 +34,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see area feature distribution passed bar is not there
 			And you will see area feature distribution skipped bar is not there
 		All Passing Feature Stats
-			Given the test results of a passing full test run
+			Given you generate an html report from test results of a passing full test run
 			When you navigate to the test html report with a passing full test run
 			And you wait till the area title line is visible
 			Then you will see area feature distribution chart is visible
@@ -45,7 +42,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see area feature distribution skipped bar is not there
 			And you will see area feature distribution failed bar is not there
 		All Skipped Feature Stats
-			Given the test results of a single skipped scenario
+			Given you generate an html report from test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
 			And you wait till the area title line is visible
 			Then you will see area feature distribution chart is visible
@@ -53,7 +50,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see area feature distribution passed bar is not there
 			And you will see area feature distribution failed bar is not there
 		Failed Skipped And Passing Feature Stats
-			Given the test results of a full test run with all outcomes
+			Given you generate an html report from test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			And you wait till the area title line is visible
 			Then you will see area badge and distribution chart is visible
@@ -64,39 +61,39 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see area feature distribution failed bar has a heigth of 33%
 	Review Area Features
 		Collapse
-			Given the test results of a passing full test run
+			Given you generate an html report from test results of a passing full test run
 			When you navigate to the test html report with a passing full test run
-			And you wait till the first area name is visible
+			And you wait till the area title line is visible
 			And you click the the expand all areas link
-			And you wait till the first area's feature list that is not expanding or collapsing is visible
-			And you click the the first area name
-			Then you will see the first area's feature list that is not expanding or collapsing is not visible
+			And you wait till the area 1 features is visible
+			And you click the the area title line
+			Then you will see the area 1 features is not there
 		Collapse All [Skipped - Not Implemented]
-			Given the test results of a passing full test run
+			Given you generate an html report from test results of a passing full test run
 			When you navigate to the test html report with a passing full test run
-			And you wait till the first area name is visible
+			And you wait till the area title line is visible
 			And you click the the expand all areas link
-			And you wait till the first area's feature list that is not expanding or collapsing is visible
-			And you wait till the second area's feature list that is not expanding or collapsing is visible
+			And you wait till the area 1 features is visible
+			And you wait till the area 2 features is visible
 			And you click the the collapse all areas link
-			Then you will see the first area's feature list that is not expanding or collapsing is not visible
-			And you will see the second area's feature list that is not expanding or collapsing is not visible
+			And you wait till the area 1 features is not visible
+			And you wait till the area 2 features is not visible
 		Expand
-			Given the test results of a passing full test run
+			Given you generate an html report from test results of a passing full test run
 			When you navigate to the test html report with a passing full test run
-			And you wait till the first area name is visible
-			And you click the the first area name
-			Then you will see the first area's feature list that is not expanding or collapsing is visible
+			And you wait till the area title line is visible
+			And you click the the area title line
+			Then you will see the area 1 features is visible
 		Expand All
-			Given the test results of a passing full test run
+			Given you generate an html report from test results of a passing full test run
 			When you navigate to the test html report with a passing full test run
-			And you wait till the first area name is visible
+			And you wait till the area title line is visible
 			And you click the the expand all areas link
-			Then you will see the first area's feature list that is not expanding or collapsing is visible
-			And you will see the second area's feature list that is not expanding or collapsing is visible
+			Then you will see the area 1 features is visible
+			And you will see the area 2 features is visible
 	Review Area Stats
 		Failed Skipped And Passing Feature Stats
-			Given the test results of a full test run with all outcomes
+			Given you generate an html report from test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			And you wait till the area title line is visible
 			And you click the the area title line
@@ -110,7 +107,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see area feature skipped bar has a width of 33%
 			And you will see area feature failed bar has a width of 33%
 		Failed Skipped And Passing Scenario Stats
-			Given the test results of a full test run with all outcomes
+			Given you generate an html report from test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			And you wait till the area title line is visible
 			And you click the the area title line
@@ -124,13 +121,13 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see area scenario stats failed bar has a width of 11%
 	Review Feature
 		Failing
-			Given the test results of a single failed scenario
+			Given you generate an html report from test results of a single failed scenario
 			When you navigate to the test html report with a single failed scenario
 			And you click when the area title line is visible
 			Then you will see the feature 1 with red badge is visible
 			And you will see the feature 1 scenarios is not visible because the Failures Only option was not set to true that would cause the failred feature to automatically expand.
 		Passing
-			Given the test results of a single passing scenario
+			Given you generate an html report from test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			Then you will see the feature name has text 'My Feature 1'
@@ -138,7 +135,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see the feature 1 duration is visible
 			And you will see the feature 1 scenarios is not visible because none were failing
 		Skipped
-			Given the test results of a single skipped scenario
+			Given you generate an html report from test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
 			And you click when the area title line is visible
 			Then you will see the feature name has text 'My Feature 1'
@@ -146,7 +143,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see the feature 1 scenarios is not visible because none were failing
 	Review Feature Scenario Distribution
 		All Failed Scenario Stats
-			Given the test results of a single failed scenario
+			Given you generate an html report from test results of a single failed scenario
 			When you navigate to the test html report with a single failed scenario
 			And you click when the area title line is visible
 			Then you will see feature scenario distribution chart is visible
@@ -154,7 +151,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see feature scenario distribution passed bar is not there
 			And you will see feature scenario distribution skipped bar is not there
 		All Passing Scenario Stats
-			Given the test results of a passing full test run
+			Given you generate an html report from test results of a passing full test run
 			When you navigate to the test html report with a passing full test run
 			And you wait till the area title line is visible
 			And you click when the area title line is visible
@@ -163,7 +160,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see feature scenario distribution skipped bar is not there
 			And you will see feature scenario distribution failed bar is not there
 		All Skipped Scenario Stats
-			Given the test results of a single skipped scenario
+			Given you generate an html report from test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
 			And you wait till the area title line is visible
 			And you click when the area title line is visible
@@ -172,7 +169,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see feature scenario distribution passed bar is not there
 			And you will see feature scenario distribution failed bar is not there
 		Failed Skipped And Passing Scenario Stats
-			Given the test results of a full test run with all outcomes
+			Given you generate an html report from test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			And you click when the area title line is visible
 			Then you will see feature badge and distribution chart is visible
@@ -183,7 +180,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see feature scenario distribution failed bar has a heigth of 33%
 	Review Feature Statement
 		Collapse
-			Given the test results of a single passing scenario
+			Given you generate an html report from test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			And you click when the feature 1 statement link is visible
@@ -193,19 +190,19 @@ xBDD - Features - Generate Reports - Browse Html Report
 			Then you will see the feature 1 statement is not visible
 		Collapse All [Skipped - Not Started]
 		Collapsed By Default
-			Given the test results of a single passing scenario
+			Given you generate an html report from test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			Then you will see the feature 1 statement is not visible because the statement is collapsed by default.
 		Expand
-			Given the test results of a single passing scenario
+			Given you generate an html report from test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			And you click when the feature 1 statement link is visible
 			Then you will see the feature 1 statement is visible
 		Expand All [Skipped - Not Started]
 		Full Statement
-			Given the test results of a single passing scenario
+			Given you generate an html report from test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			And you click when the feature 1 statement link is visible
@@ -214,7 +211,7 @@ xBDD - Features - Generate Reports - Browse Html Report
 You can derive some value
 By perform some action'
 		No Statement
-			Given the test results of a single passing scenario
+			Given you generate an html report from test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			And you click when the feature name is visible
@@ -222,7 +219,7 @@ By perform some action'
 			And you will see the feature 1 statement is not there
 			And you will see the feature 1 statement link is not there
 		Partial Statement
-			Given the test results of a single passing scenario
+			Given you generate an html report from test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			And you click when the feature 1 statement link is visible
@@ -232,7 +229,7 @@ You can derive some value
 By [Missing!]'
 	Review Feature Stats
 		Failed Skipped And Passing Scenario Stats
-			Given the test results of a full test run with all outcomes
+			Given you generate an html report from test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			And you click when the area title line is visible
 			And you click when the feature badge is visible
@@ -248,14 +245,14 @@ By [Missing!]'
 			And you will see feature scenario stats failed bar has a width of 33%
 	Review Scenario
 		Failing
-			Given the test results of a single failed scenario
+			Given you generate an html report from test results of a single failed scenario
 			When you navigate to the test html report with a single failed scenario
 			And you click when the area title line is visible
 			And you click when the feature name is visible
 			Then you will see the scenario 1 with red badge is visible
 			And you will see the scenario 1 steps is not visible because while the step failed the Failures Only options was not set to true
 		Passing
-			Given the test results of a single passing scenario
+			Given you generate an html report from test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			And you click when the feature name is visible
@@ -265,7 +262,7 @@ By [Missing!]'
 			And you will see the scenario 1 steps is not visible because no steps failed
 			And you will see the scenario 1 duration is visible
 		Skipped
-			Given the test results of a single skipped scenario
+			Given you generate an html report from test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
 			And you click when the area title line is visible
 			And you click when the feature name is visible
@@ -273,7 +270,7 @@ By [Missing!]'
 			And you will see the scenario 1 steps is not visible because no steps failed
 	Review Scenario Stats
 		Failed Skipped And Passing Steps Stats
-			Given the test results of a full test run with all outcomes
+			Given you generate an html report from test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			And you click when the area title line is visible
 			And you click when the feature name is visible
@@ -282,14 +279,14 @@ By [Missing!]'
 			And you will see scenario steps total has a title attribute of Steps
 	Review Step
 		Failing
-			Given the test results of a single failed scenario
+			Given you generate an html report from test results of a single failed scenario
 			When you navigate to the test html report with a single failed scenario
 			And you click when the area title line is visible
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
 			Then you will see the step 2 with red badge is visible because the report will be expanded to the failed step
 		Passing
-			Given the test results of a single passing scenario
+			Given you generate an html report from test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			And you click when the feature name is visible
@@ -297,7 +294,7 @@ By [Missing!]'
 			Then you will see the step 1 with green badge is visible
 			And you will see the step name has text 'Given my step 1'
 		Skipped
-			Given the test results of a single skipped scenario
+			Given you generate an html report from test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
 			And you click when the area title line is visible
 			And you click when the feature name is visible
@@ -305,7 +302,7 @@ By [Missing!]'
 			Then you will see the step 1 with yellow badge is visible
 			And you will see the step name has text 'Given my step 1'
 		With Exception
-			Given the test results with a failed step with an exception
+			Given you generate an html report from test results with a failed step with an exception
 			When you navigate to the test html report with a failing step with an exception
 			And you click when the area title line is visible
 			And you click when the feature name is visible
@@ -316,7 +313,7 @@ By [Missing!]'
 			Then you will see exception message is visible
 			Then you will see exception stack trace is visible
 		With Inner Exception
-			Given the test results with a failed step with an exception
+			Given you generate an html report from test results with a failed step with an exception
 			When you navigate to the test html report with a failing step with a nested exception
 			And you click when the area title line is visible
 			And you click when the feature name is visible
@@ -328,7 +325,7 @@ By [Missing!]'
 			Then you will see inner exception stack trace is visible
 	Review Step Exception
 		Collapse
-			Given the test results with a failed step with an exception
+			Given you generate an html report from test results with a failed step with an exception
 			And you navigate to the test html report with a failing step with an exception
 			And you click when the area title line is visible
 			And you click when the feature name is visible
@@ -339,14 +336,14 @@ By [Missing!]'
 			Then you will see exception is not there
 		Collapse All [Skipped - Not Started]
 		Collapsed By Default
-			Given the test results with a failed step with an exception
+			Given you generate an html report from test results with a failed step with an exception
 			When you navigate to the test html report with a failing step with an exception
 			And you click when the area title line is visible
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
 			Then you will see exception message is not visible because the exception is collapsed by default.
 		Expand
-			Given the test results with a failed step with an exception
+			Given you generate an html report from test results with a failed step with an exception
 			And you navigate to the test html report with a failing step with an exception
 			And you click when the area title line is visible
 			And you click when the feature name is visible
@@ -359,7 +356,7 @@ By [Missing!]'
 		Collapse [Skipped - Not Started]
 		Collapse All [Skipped - Not Started]
 		Collapsed By Default
-			Given the test results of a step with a text formated multiline parameter of
+			Given you generate an html report from test results of a step with a text formated multiline parameter of
 				Here
 				 is
 				 my
@@ -372,7 +369,7 @@ By [Missing!]'
 		Expand [Skipped - Not Started]
 		Expand All [Skipped - Not Started]
 		General Text
-			Given the test results of a step with a text formated multiline parameter of
+			Given you generate an html report from test results of a step with a text formated multiline parameter of
 				Here
 				 is
 				 my
@@ -393,7 +390,7 @@ By [Missing!]'
 		Collapse [Skipped - Not Started]
 		Collapse All [Skipped - Not Started]
 		Collapsed By Default
-			Given the test results of a step with a/an text output of 
+			Given you generate an html report from test results of a step with a/an text output of 
 				Here
 				 is
 				 my
@@ -406,7 +403,7 @@ By [Missing!]'
 		Expand [Skipped - Not Started]
 		Expand All [Skipped - Not Started]
 		General Text
-			Given the test results of a step with a/an text output of 
+			Given you generate an html report from test results of a step with a/an text output of 
 				Here
 				 is
 				 my
@@ -424,7 +421,7 @@ By [Missing!]'
 		Html With Preview [Skipped - Not Started]
 	Review Step Stats
 		Failed Skipped And Passing Steps Stats
-			Given the test results of a full test run with all outcomes
+			Given you generate an html report from test results of a full test run with all outcomes
 			And you navigate to the test html report with a full test run with all outcomes
 			And you click when the area title line is visible
 			And you click when the feature name is visible
@@ -432,28 +429,28 @@ By [Missing!]'
 			Then you will see step duration is visible
 	Review Test Run
 		Empty Test Run
-			Given the test results of an empty test run
+			Given you generate an html report from test results of an empty test run
 			When you navigate to the test html report with an empty test run
 			Then you will see the test run name is visible
 			And you will see the test run name has text 'My Test Run'
 			And you are viewing a page with the title 'My Test Run'
 			And you will see the test run badge - grey is visible because no scenarios were run
 		Failing
-			Given the test results of a single failed scenario
+			Given you generate an html report from test results of a single failed scenario
 			When you navigate to the test html report with a single failed scenario
 			Then you will see the test run badge - red is visible
 		Passing Test Run
-			Given the test results of a single passing scenario
+			Given you generate an html report from test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			Then you will see the test run badge - green is visible
 			And you will see the test run duration is visible
 		Passing With Some Skipped
-			Given the test results of a single skipped scenario
+			Given you generate an html report from test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
 			Then you will see the test run badge - yellow is visible
 	Review Test Run Stats
 		Area Stats No Areas
-			Given the test results of an empty test run
+			Given you generate an html report from test results of an empty test run
 			When you navigate to the test html report with an empty test run
 			Then you will see test run area stats is visible
 			And you will see test run area stats total count has text '0'
@@ -463,7 +460,7 @@ By [Missing!]'
 			And you will see test run area stats failed count has text '0'
 			And you will see test run area stats empty bar is visible
 		Failed Skipped And Passing Area Stats
-			Given the test results of a full test run with all outcomes
+			Given you generate an html report from test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			Then you will see test run area stats is visible
 			And you will see test run area stats total count has text '3'
@@ -476,7 +473,7 @@ By [Missing!]'
 			And you will see test run area stats skipped bar has a width of 33%
 			And you will see test run area stats failed bar has a width of 33%
 		Failed Skipped And Passing Feature Stats
-			Given the test results of a full test run with all outcomes
+			Given you generate an html report from test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			Then you will see test run feature stats is visible
 			And you will see test run feature stats passed count has text '5'
@@ -487,7 +484,7 @@ By [Missing!]'
 			And you will see test run feature stats skipped bar has a width of 33%
 			And you will see test run feature stats failed bar has a width of 11%
 		Failed Skipped And Passing Scenario Stats
-			Given the test results of a full test run with all outcomes
+			Given you generate an html report from test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
 			Then you will see test run scenario stats is visible
 			And you will see test run scenario stats passed count has text '19'
@@ -500,37 +497,37 @@ By [Missing!]'
 xBDD - Features - Generate Reports - Customize Html Report
 	Shorten Area Name
 		Matches All Of Area Name
-			Given the test results of a single passing scenario set to skip the string 'My Area 1' in the area name
+			Given you generate an html report from test results of a single passing scenario set to skip the string 'My Area 1' in the area name
 			When you navigate to the test html report with a single passing scenario
 			Then you will see the area title line is visible
 			And you will see the area title line has text '[Missing! (or Full Name Skipped)]'
 		Matches None Of Area Name
-			Given the test results of a single passing scenario set to skip the string 'No Match' in the area name
+			Given you generate an html report from test results of a single passing scenario set to skip the string 'No Match' in the area name
 			When you navigate to the test html report with a single passing scenario
 			Then you will see the area title line is visible
 			And you will see the area title line has text 'My Area 1'
 		Matches Start Of Area Name
-			Given the test results of a single passing scenario set to skip the string 'My ' in the area name
+			Given you generate an html report from test results of a single passing scenario set to skip the string 'My ' in the area name
 			When you navigate to the test html report with a single passing scenario
 			Then you will see the area title line is visible
 			And you will see the area title line has text 'Area 1'
 	Sort Test Run Results
 		Not Sorted
-			Given a sample executed test run that is not sorted
+			Given you generate an html report from a test run that is not sorted
 			When you navigate to the sample test html report that is not sorted
 			And you click when the area title line is visible
 			And you click when the feature name is visible
 			Then you will see the feature name has text 'Sample All Outcome Feature' because it was the first feature alphabetically
 			And you will see the scenario name has text 'Failed Scenario' because it is the first scenario alphabetically
 		Partially Sorted
-			Given a sample executed test run that is not sorted
+			Given you generate an html report from a test run that is sorted
 			When you navigate to the sample test html report that is sorted
 			And you click when the area title line is visible
 			And you click when the feature name is visible
 			Then you will see the feature name has text 'Sample Skipped Feature' because it was the second in the feature sort
 			And you will see the scenario name has text 'Passing Scenario2' because it was not provided a sort when the scenario was created and was placed after the sorted scenarios
 		Sorted
-			Given a sample executed test run that is not sorted
+			Given you generate an html report from a test run that is sorted
 			When you navigate to the sample test html report that is sorted
 			And you click when the area title line is visible
 			And you click when the feature name is visible
@@ -538,15 +535,15 @@ xBDD - Features - Generate Reports - Customize Html Report
 			And you will see the scenario name has text 'Passing Scenario3' because it is the first in the feature class definition
 	Write Failures Only
 		Failing
-			Given the test results of a full test run with all outcomes set to only report on failures
+			Given you generate an html report from test results of a full test run with all outcomes set to only report on failures
 			When you navigate to the test html report with a full test run with all outcomes
 			Then you will see the step 2 with red badge is visible because the step failed and the report will be expanded to the failed step
 		Passing
-			Given the test results of a single passing scenario set to report only failures
+			Given you generate an html report from test results of a single passing scenario set to report only failures
 			When you navigate to the test html report with a single passing scenario
 			Then you will see the test run areas list is not there
 		Skipped
-			Given the test results of a single skipped scenario set to only report on failures
+			Given you generate an html report from test results of a single skipped scenario set to only report on failures
 			When you navigate to the test html report with a single skipped scenario
 			Then you will see the test run areas list is not there
 xBDD - Features - Generate Reports - Generate Html Report
