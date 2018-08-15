@@ -32,7 +32,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
                 .Given(AnHtmlReport.WithAFullTestRunWithAllOutcomes())
  				.When(you.NavigateTo(theHtmlReport.WithAFullTestRunWithAllOutcomes))
 				.And(you.ClickWhen(the.Area.Name(3)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(7)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(7,3)).IsVisible())
 				.Then(you.WillSee(the.ScenarioStepStats.Total(19)).IsVisible())
 				.And(you.WillSee(the.ScenarioStepStats.Total(19)).HasText("3"))
 				.And(you.WillSee(the.ScenarioStepStats.Total(19)).HasTitleAKAHoverText("Steps"))

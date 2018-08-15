@@ -4,9 +4,9 @@ namespace xBDD.Features.Pages.HtmlReportPage
 {
     public class Scenario
     {
-        public PageElement Name(int scenarioNumber)
+        public PageElement Name(int scenarioNumber, int featureNumber)
         {
-            return new PageElement("the scenario name","#scenario-" + scenarioNumber + " h4 span.name");
+            return new PageElement("the scenario name",$"#feature-{featureNumber}-scenarios.collapse.show #scenario-{scenarioNumber} h4 span.name");
         }
         public PageElement BadgeGreen(int scenarioNumber)
         {

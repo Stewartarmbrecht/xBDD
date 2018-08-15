@@ -30,7 +30,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
                 .Given(AnHtmlReport.WithASinglePassingScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASinglePassingScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.Then(you.WillSee(the.Feature.Name(1)).HasText("My Feature 1"))
+				.Then(you.WillSee(the.Feature.Name(1,1)).HasText("My Feature 1"))
 				.And(you.WillSee(the.Feature.BadgeGreen(1)).IsVisible())
 				.And(you.WillSee(the.Feature.Duration(1)).IsVisible())
 				.And(you.WillSee(the.Feature.Scenarios(1)).IsNotVisible().Because("none were failing"))
@@ -44,7 +44,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
                 .Given(AnHtmlReport.WithASingleSkippedScenario())
                 .When(you.NavigateTo(theHtmlReport.WithASingleSkippedScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.Then(you.WillSee(the.Feature.Name(1)).HasText("My Feature 1"))
+				.Then(you.WillSee(the.Feature.Name(1,1)).HasText("My Feature 1"))
 				.And(you.WillSee(the.Feature.BadgeYellow(1)).IsVisible())
 				.And(you.WillSee(the.Feature.Scenarios(1)).IsNotVisible().Because("none were failing"))
                 .Run();

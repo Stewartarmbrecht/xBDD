@@ -4,15 +4,11 @@ namespace xBDD.Features.Pages.HtmlReportPage
 {
     public class Area
     {
-        public readonly PageElement FirstAreasFeatureList = new PageElement("the first area's feature list", "#area-1-features");
         public readonly PageElement FirstAreasFeatureListNotExpandingOrCollapsing = new PageElement("the first area's feature list that is not expanding or collapsing", "#area-1-features:not(.collapsing)");
         public readonly PageElement ExpandAllAreasLink = new PageElement("the expand all areas link", "#expand-all-areas-button");
-        public readonly PageElement MenuButton = new PageElement("the menu button", "#menu-button");
         public readonly PageElement CollapseAllAreasLink = new PageElement("the collapse all areas link", "#collapse-all-areas-button");
-        public readonly PageElement SecondAreasFeatureList = new PageElement("the second area's feature list", "#area-2-features");
         public readonly PageElement SecondAreasFeatureListNotExpandingOrCollapsing = new PageElement("the second area's feature list that is not expanding or collapsing", "#area-2-features:not(.collapsing)");
         public readonly PageElement FirstAreaName = new PageElement("the first area name", "#area-1-name");
-        public readonly PageElement FirstAreaGreenBadge = new PageElement("the first area green badge", "#area-1-badge.badge-success");
         public readonly PageElement FirstAreaYellowBadge = new PageElement("the first area yellow badge", "#area-1-badge.badge-warning");
         public readonly PageElement FirstAreaRedBadge = new PageElement("the first area red badge", "#area-1-badge.badge-danger");
         public PageElement Name(int areaNumber)
@@ -41,7 +37,7 @@ namespace xBDD.Features.Pages.HtmlReportPage
         }
         public PageElement Features(int areaNumber)
         {
-            return new PageElement("the area " + areaNumber + " features", "#area-" + areaNumber + "-features");   
+            return new PageElement("the area " + areaNumber + " features", "#area-" + areaNumber + "-features.collapse.show");   
         }
         public PageElement Duration(int areaNumber)
         {

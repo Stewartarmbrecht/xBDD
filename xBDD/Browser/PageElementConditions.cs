@@ -75,7 +75,7 @@ namespace xBDD.Browser
         public Step Style(string text, string match, int waitMilliseconds = -1, bool captureOutput = false)
         {
             return xB.CreateAsyncStep(
-                $"{this.stepNamePrefix}{this.pageElement.Description} is visible",
+                $"{this.stepNamePrefix}{this.pageElement.Description} {text}",
                 async (s) => {
                     try {
                         await this.webBrowser.WaitTillVisible(this.pageElement, waitMilliseconds);

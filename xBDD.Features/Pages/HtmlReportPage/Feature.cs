@@ -4,9 +4,9 @@ namespace xBDD.Features.Pages.HtmlReportPage
 {
     public class Feature
     {
-        public PageElement Name(int featureNumber)
+        public PageElement Name(int featureNumber, int areaNumber)
         {
-            return new PageElement("the feature name","#feature-" + featureNumber + " h3 span.name");
+            return new PageElement("the feature name",$"#area-{areaNumber}-features.collapse.show #feature-{featureNumber} h3 span.name");
         }
         public PageElement Badge(int featureNumber)
         {

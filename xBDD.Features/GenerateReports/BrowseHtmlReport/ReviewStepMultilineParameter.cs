@@ -30,8 +30,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
                 .Given(AnHtmlReport.WithAStepWithAMultilineParameter(input, format))
 				.When(you.NavigateTo(theHtmlReport.WithAStepWithAMultilineParameter))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Scenario.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
 				.Then(you.WillSee(the.Input.Link(1)).IsVisible())
                 .Run();
 		}
@@ -45,8 +45,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
                 .Given(AnHtmlReport.WithAStepWithAMultilineParameter(input, format))
 				.When(you.NavigateTo(theHtmlReport.WithAStepWithAMultilineParameter))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Scenario.Name(1)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
 				.And(you.ClickWhen(the.Input.Link(1)).IsVisible())
 				.Then(you.WillSee(the.Input.Section(1)).IsVisible())
 				.And(you.WillSee(the.Input.Text(1)).HasText(input))

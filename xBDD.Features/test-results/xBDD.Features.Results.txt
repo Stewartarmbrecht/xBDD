@@ -106,9 +106,9 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see area feature skipped count has text '1'
 			And you will see area feature failed count has text '1'
 			And you will see area feature stats bar chart is visible
-			And you will see area feature success bar is visible
-			And you will see area feature skipped bar is visible
-			And you will see area feature failed bar is visible
+			And you will see area feature success bar has a width of 33%
+			And you will see area feature skipped bar has a width of 33%
+			And you will see area feature failed bar has a width of 33%
 		Failed Skipped And Passing Scenario Stats
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
@@ -119,9 +119,9 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see area scenario stats skipped count has text '3'
 			And you will see area scenario stats failed count has text '1'
 			And you will see area scenario stats bar chart is visible
-			And you will see area scenario stats success bar is visible
-			And you will see area scenario stats skipped bar is visible
-			And you will see area scenario stats failed bar is visible
+			And you will see area scenario stats success bar has a width of 55%
+			And you will see area scenario stats skipped bar has a width of 33%
+			And you will see area scenario stats failed bar has a width of 11%
 	Review Feature
 		Failing
 			Given the test results of a single failed scenario
@@ -243,9 +243,9 @@ By [Missing!]'
 			And you will see feature scenario stats skipped count has text '1'
 			And you will see feature scenario stats failed count has text '1'
 			And you will see feature scenario stats bar chart is visible
-			And you will see feature scenario stats success bar is visible
-			And you will see feature scenario stats skipped bar is visible
-			And you will see feature scenario stats failed bar is visible
+			And you will see feature scenario stats success bar has a width of 33%
+			And you will see feature scenario stats skipped bar has a width of 33%
+			And you will see feature scenario stats failed bar has a width of 33%
 	Review Scenario
 		Failing
 			Given the test results of a single failed scenario
@@ -288,24 +288,14 @@ By [Missing!]'
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
 			Then you will see the step 2 with red badge is visible because the report will be expanded to the failed step
-		Passing [Failed]
+		Passing
 			Given the test results of a single passing scenario
 			When you navigate to the test html report with a single passing scenario
 			And you click when the area title line is visible
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
-			Then you will see the step 1 with green badge is visible [Failed]
-				Error Type: Exception
-				   Message: The web element (the step 1 with green badge - #step-1 h5 span.badge-success) was not visible
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 189
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass9_0.<<IsVisible>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 127
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
-			And you will see the step name has text 'Given my step 1' [Skipped - Previous Error]
+			Then you will see the step 1 with green badge is visible
+			And you will see the step name has text 'Given my step 1'
 		Skipped
 			Given the test results of a single skipped scenario
 			When you navigate to the test html report with a single skipped scenario
@@ -345,9 +335,8 @@ By [Missing!]'
 			And you click when the scenario name is visible
 			When you click when step error link is visible
 			And you wait till exception is visible
-			And you wait 250 milliseconds
 			And you click the step error link
-			Then you will see exception is not visible
+			Then you will see exception is not there
 		Collapse All [Skipped - Not Started]
 		Collapsed By Default
 			Given the test results with a failed step with an exception
@@ -356,24 +345,14 @@ By [Missing!]'
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
 			Then you will see exception message is not visible because the exception is collapsed by default.
-		Expand [Failed]
+		Expand
 			Given the test results with a failed step with an exception
 			And you navigate to the test html report with a failing step with an exception
 			And you click when the area title line is visible
 			And you click when the feature name is visible
 			And you click when the scenario name is visible
-			When you click when step error link is visible [Failed]
-				Error Type: Exception
-				   Message: The web element (step error link - #step-2 a.step-error-link) was not visible
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass12_0.<WaitTillVisible>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 189
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementConditions.<>c__DisplayClass9_0.<<IsVisible>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementConditions.cs:line 127
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
-			Then you will see exception is visible [Skipped - Previous Error]
+			When you click when step error link is visible
+			Then you will see exception is visible
 		Expand All [Skipped - Not Started]
 	Review Step Multiline Parameter
 		Code [Skipped - Not Started]
@@ -493,9 +472,9 @@ By [Missing!]'
 			And you will see test run area stats skipped count has text '1'
 			And you will see test run area stats failed count has text '1'
 			And you will see test run area stats bar chart is visible
-			And you will see test run area stats success bar is visible
-			And you will see test run area stats skipped bar is visible
-			And you will see test run area stats failed bar is visible
+			And you will see test run area stats success bar has a width of 33%
+			And you will see test run area stats skipped bar has a width of 33%
+			And you will see test run area stats failed bar has a width of 33%
 		Failed Skipped And Passing Feature Stats
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
@@ -504,9 +483,9 @@ By [Missing!]'
 			And you will see test run feature stats skipped count has text '3'
 			And you will see test run feature stats failed count has text '1'
 			And you will see test run feature stats bar chart is visible
-			And you will see test run feature stats success bar is visible
-			And you will see test run feature stats skipped bar is visible
-			And you will see test run feature stats failed bar is visible
+			And you will see test run feature stats success bar has a width of 55%
+			And you will see test run feature stats skipped bar has a width of 33%
+			And you will see test run feature stats failed bar has a width of 11%
 		Failed Skipped And Passing Scenario Stats
 			Given the test results of a full test run with all outcomes
 			When you navigate to the test html report with a full test run with all outcomes
@@ -515,9 +494,9 @@ By [Missing!]'
 			And you will see test run scenario stats skipped count has text '7'
 			And you will see test run scenario stats failed count has text '1'
 			And you will see test run scenario stats bar chart is visible
-			And you will see test run scenario stats success bar is visible
-			And you will see test run scenario stats skipped bar is visible
-			And you will see test run scenario stats failed bar is visible
+			And you will see test run scenario stats success bar has a width of 70%
+			And you will see test run scenario stats skipped bar has a width of 26%
+			And you will see test run scenario stats failed bar has a width of 4%
 xBDD - Features - Generate Reports - Customize Html Report
 	Shorten Area Name
 		Matches All Of Area Name
