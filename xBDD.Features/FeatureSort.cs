@@ -11,8 +11,9 @@ namespace xBDD.Features
             List<string> SortedFeatureNames = new List<string>() {
                 typeof(xBDD.Features.GettingStarted.InstallingTheFramework).FullName,
                 typeof(xBDD.Features.GettingStarted.ExecutingYourFirstScenario).FullName,
+                typeof(xBDD.Features.GettingStarted.SkippingAScenario).FullName,
+                typeof(xBDD.Features.GettingStarted.UseAScenarioToCreateDocumentation).FullName,
                 typeof(xBDD.Features.GettingStarted.DefineAScenarioWithReusableSteps).FullName,
-                typeof(xBDD.Features.GettingStarted.DefineADocumentationScenario).FullName,
                 typeof(xBDD.Features.GettingStarted.FindingThexBDDProjectSite).FullName,
                 typeof(xBDD.Features.GenerateReports.GenerateHtmlReport.WriteToHtml).FullName,
                 typeof(xBDD.Features.GenerateReports.BrowseHtmlReport.ReviewTestRun).FullName,

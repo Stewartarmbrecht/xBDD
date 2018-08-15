@@ -36,7 +36,7 @@ namespace SampleApp.Features.SampleTestRunFeatures
 			 	.Given("Step 1", s => {})
 				.When("Step 2", s => {})
 				.Then("Step 3", s => {})
-				.Skip("No reason");
+				.Skip("No reason", reason => { } );
 		}
 	}
 }

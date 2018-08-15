@@ -11,7 +11,7 @@
     {
         public static Step RunTheMSTestProject(string command, string changeDirectory, Wrapper<string> output)
         {
-            var fullCommand = $"{command} | Out-File ./test-output/testoutput.txt";
+            var fullCommand = $"{command} --no-build | Out-File ./test-output/testoutput.txt";
             var step = xB.CreateStep(
                 "you run the MS Test Project with the following command:",
                 (s) => { 
@@ -52,8 +52,8 @@
                 (s) => {
                     try {
                         output.Object.ValidateToTemplate(template);   
-                        s.Output = output.Object;
-                        s.OutputFormat = TextFormat.text;                 
+                        //s.Output = output.Object;
+                        //s.OutputFormat = TextFormat.text;                 
                     } catch(System.Exception)
                     {
                         s.Output = output.Object;

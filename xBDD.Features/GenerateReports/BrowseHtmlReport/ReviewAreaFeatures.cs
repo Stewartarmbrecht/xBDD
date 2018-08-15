@@ -77,7 +77,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
                 .And(you.Click(the.CollapseAllAreasLink))
                 .Then(you.WillSee(the.FirstAreasFeatureListNotExpandingOrCollapsing).IsNotVisible(2000))
                 .And(you.WillSee(the.SecondAreasFeatureListNotExpandingOrCollapsing).IsNotVisible(2000))
-                .Skip("Not Implemented");
+				.Skip("Not Implemented", Assert.Inconclusive);
 		}
 
 	}

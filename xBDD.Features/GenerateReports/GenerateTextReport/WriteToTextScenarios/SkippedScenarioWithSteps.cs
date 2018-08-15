@@ -15,7 +15,7 @@ namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
                     .Given(xBDD.CreateStep("my starting condition"))
                     .When(xBDD.CreateStep("my action"))
                     .Then(xBDD.CreateStep("my ending condition"))
-                    .Skip("Deferred");
+                    .Skip("Deferred", reason => { } );
             }
             catch { }
             return await xBDD.CurrentRun.TestRun.WriteToText();

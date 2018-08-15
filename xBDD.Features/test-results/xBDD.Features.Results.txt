@@ -994,7 +994,7 @@ xBDD - Features - Generate Reports - Generate Text Report
 				            {
 				                await xBDD.CurrentRun
 				                    .AddScenario("My Scenario", "My Feature", "My.Area.Path")
-				                    .Skip("Deferred");
+					    			.Skip("Deferred", reason => { } );
 				            }
 				            catch { }
 				            return await xBDD.CurrentRun.TestRun.WriteToText();
@@ -1027,7 +1027,7 @@ xBDD - Features - Generate Reports - Generate Text Report
 				                    .Given(xBDD.CreateStep("my starting condition"))
 				                    .When(xBDD.CreateStep("my action"))
 				                    .Then(xBDD.CreateStep("my ending condition"))
-				                    .Skip("Deferred");
+				                    .Skip("Deferred", reason => { } );
 				            }
 				            catch { }
 				            return await xBDD.CurrentRun.TestRun.WriteToText();
@@ -1045,74 +1045,6 @@ xBDD - Features - Generate Reports - Generate Text Report
 							When my action
 							Then my ending condition
 xBDD - Features - Getting Started
-	Define A Documentation Scenario
-		With Synchronous Execution [Failed]
-			Given you code the following feature definition:
-				using Microsoft.VisualStudio.TestTools.UnitTesting;
-				using xBDD;
-				
-				//Area
-				namespace MyApp.API.Test.Features.Calendar
-				{
-					//Feature
-					[AsA("developer")]
-					[YouCan("find the holidays for the users culture in a specific time range")]
-					[By("using the operations exposed by the User object's Calendar property")]
-					[TestClass]
-					// [TestClass] - for MSTest
-					// [TestFixture] - for nUnit
-					public class GetHolidays
-					{
-						//Scenario
-						// [Fact] - for xUnit
-						// [Test] - for nUnit
-						public async void WhenUSCalendar()
-						{
-							await xB.AddScenario(this)
-								.Given("a user object for a user with a US culture", (s) => {
-									//code to create calendar
-								})
-								.When("you call GetHolidays with a date range of 3/10/2015 to 3/18/2015", (s) => {
-									//code to issue get request.
-								})
-								.Then("you should get back a single holiday that is St. Patrick's Day", (s) => {
-									//code to validate response
-								})
-								.Run();
-						}
-					}
-				}
-			When the scenario is executed
-			Then the test run will have the following structure [Failed]
-				Area:
-				My App - Standard Help Desk Technician Features - Getting Started
-				
-				Feature:
-				Installing The Framework
-				
-				Feature Description:
-				As a developer
-				You can install the xBDD framework to reference culture specific holidays
-				I would like to get a list of the current user's culture specific holidays
-				
-				Scenario:
-				When US Calendar
-				
-				Steps:
-				Given a calendar object is initialized with US holidays
-				When you call GetHolidays with a date range of 3/10/2015 to 3/18/2015
-				Then you should get back a single holiday that is St. Patrick's Day
-				Error Type: AssertFailedException
-				   Message: Assert.AreEqual failed. Expected:<My App - Standard Help Desk Technician Features - Getting Started>. Actual:<My App - API - Test - Features - Calendar>. 
-				     Stack:    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.HandleFail(String assertionName, String message, Object[] parameters)
-				               at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, Object[] parameters)
-				               at xBDD.Features.GettingStarted.DefineADocumentationScenario.<>c__DisplayClass5_0.<WithSynchronousExecution>b__1(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features/GettingStarted/DefineADocumentationScenario.cs:line 61
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 	Define A Scenario With Reusable Steps
 		With Asynchronous Execution [Failed]
 			Given you code the following feature definition:
@@ -1178,7 +1110,7 @@ xBDD - Features - Getting Started
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 	Executing Your First Scenario
-		Running A Failing Web UI Test
+		Executing A Failing Web UI Scenario
 			Given you code the following feature definition:
 				namespace Amazon.Features.SearchingProducts
 				{
@@ -1215,7 +1147,7 @@ xBDD - Features - Getting Started
 					}
 				}
 			When you run the MS Test Project with the following command:
-				dotnet test --no-build --filter Name~SearchWithSearchButton_Failing
+				dotnet test --filter Name~SearchWithSearchButton_Failing
 			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				{{.*}}/rl
 				Failed   SearchWithSearchButton_Failing
@@ -1242,7 +1174,7 @@ xBDD - Features - Getting Started
 				{{         Click \(\d+ms\): input\[type\=submit\]}}
 				{{         GetPageSource \(\d+ms\)}}
 				{{.*}}/rl
-		Running A Success Web UI Test
+		Executing A Passing Web UI Scenario
 			Given you code the following feature definition:
 				namespace Amazon.Features.SearchingProducts
 				{
@@ -1279,7 +1211,7 @@ xBDD - Features - Getting Started
 					}
 				}
 			When you run the MS Test Project with the following command:
-				dotnet test --no-build -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton
+				dotnet test -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton
 			Then you will see the output matches this template (See TemplateValidator project on Nuget):
 				{{.*}}/rl
 				Passed   SearchWithSearchButton
@@ -1298,3 +1230,94 @@ xBDD - Features - Getting Started
 			Then you create an MSTest project by following the directions here: https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest
 			And you can install xBDD by executing:
 				dotnet add package xBDD
+	Skipping A Scenario
+		Running A Skipped Scenario
+			Given you code the following feature definition:
+				namespace Amazon.Features.SearchingProducts
+				{
+				    using Microsoft.VisualStudio.TestTools.UnitTesting;
+				    using System;
+				    using System.Threading.Tasks;
+				    using xBDD;
+				    using xBDD.Browser;
+				
+					[TestClass]
+					[AsA("anonymous user")]
+					[YouCan("search across all amazon products")]
+					[By("using primary search bar on the home page")]
+					public class SearchingAllProducts_Skipped: IFeature
+					{
+						private User you = new User();
+						public IOutputWriter OutputWriter { get; private set; }
+				
+						public SearchingAllProducts_Skipped()
+						{
+							OutputWriter = new TestContextWriter();
+						}
+						
+						[TestMethod]
+						public async Task SearchWithSearchButton_Skipped()
+						{
+							await xB.AddScenario(this)
+								.Given(you.NavigateTo("the amazon home page","https://www.amazon.com"))
+								.When(you.EnterTheText("echo").In("the search box", "#twotabsearchtextbox"))
+								.And(you.Click("the search button", "input[type=submit]"))
+								.Then(you.WillSee("the search results section", "#BAD_SELECTOR").IsVisible())
+								.Skip("Not implemented", Assert.Inconclusive);
+						}
+					}
+				}
+			When you run the MS Test Project with the following command:
+				dotnet test --filter Name~SearchWithSearchButton_Skipped
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
+				{{.*}}/rl
+				{{Skipped\s+SearchWithSearchButton_Skipped}}
+				{{.*}}/rl
+				Total tests: 1. Passed: 0. Failed: 0. Skipped: 1.
+				Test Run Successful.
+				{{.*}}/rl
+	Use A Scenario To Create Documentation
+		Running A Documentation Scenario
+			Given you code the following feature definition:
+				namespace Amazon.Features.SearchingProducts
+				{
+				    using Microsoft.VisualStudio.TestTools.UnitTesting;
+				    using System;
+				    using System.Threading.Tasks;
+				    using xBDD;
+				    using xBDD.Browser;
+				
+					[TestClass]
+					[AsA("developer")]
+					[YouCan("verify that your code changes did not cause a regression")]
+					[By("using the continuous integration pipeline")]
+					public class ContinuousIntegration: IFeature
+					{
+						private User you = new User();
+						public IOutputWriter OutputWriter { get; private set; }
+				
+						public ContinuousIntegration()
+						{
+							OutputWriter = new TestContextWriter();
+						}
+						
+						[TestMethod]
+						public async Task PassingCheckIn()
+						{
+							await xB.AddScenario(this)
+								.Given("you have made a code change")
+								.When("you check in the change")
+								.Then("the build server will build and run all tests")
+								.Document();
+						}
+					}
+				}
+			When you run the MS Test Project with the following command:
+				dotnet test -v n --filter Name~PassingCheckIn
+			Then you will see the output matches this template (See TemplateValidator project on Nuget):
+				{{.*}}/rl
+				{{Passed\s+PassingCheckIn}}
+				{{.*}}/rl
+				Total tests: 1. Passed: 1. Failed: 0. Skipped: 0.
+				Test Run Successful.
+				{{.*}}/rl

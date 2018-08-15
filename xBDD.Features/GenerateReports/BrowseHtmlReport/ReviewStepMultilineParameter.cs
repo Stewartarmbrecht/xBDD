@@ -57,39 +57,39 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Code()
 		{
             await xB.AddScenario(this, 3)
-                .Skip("Not Started");
+				.Skip("Not Started", Assert.Inconclusive);
 		}
 		
 		[TestMethod]
 		public async Task HtmlWithPreview()
 		{
             await xB.AddScenario(this, 4)
-                .Skip("Not Started");
+				.Skip("Not Started", Assert.Inconclusive);
 		}
 		
 		[TestMethod]
 		public async Task Collapse()
 		{
 			 await xB.AddScenario(this, 5)
-				.Skip("Not Started");
+				.Skip("Not Started", Assert.Inconclusive);
 		}
 		[TestMethod]
 		public async Task CollapseAll()
 		{
 			 await xB.AddScenario(this, 6)
-				.Skip("Not Started");
+				.Skip("Not Started", Assert.Inconclusive);
 		}
 		[TestMethod]
 		public async Task Expand()
 		{
 			 await xB.AddScenario(this, 7)
-				.Skip("Not Started");
+				.Skip("Not Started", Assert.Inconclusive);
 		}
 		[TestMethod]
 		public async Task ExpandAll()
 		{
 			 await xB.AddScenario(this, 8)
-				.Skip("Not Started");
+				.Skip("Not Started", Assert.Inconclusive);
 		}
 	}
 }

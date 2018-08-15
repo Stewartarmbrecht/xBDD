@@ -278,10 +278,15 @@ namespace xBDD.Core
         /// Marks the scenario as skipped.
         /// </summary>
         /// <param name="reason">The reason the scenario is being skipped.</param>
+        /// <param name="testFrameworkSkipAction">The final action to take after skipping the scenario.null
+        /// This action will be called with the reason passed to it. 
+        /// It is designed for passing in MSTest's Assert.Inconcolusive so that the 
+        /// Test method will be marked as skipped.</param>
         /// <returns>A task for async execution.</returns>
-        public async Task Skip(string reason)
+        public async Task Skip(string reason, Action<string> testFrameworkSkipAction)
         {
             await runner.Skip(reason);
+            testFrameworkSkipAction(reason);
         }
 
     }

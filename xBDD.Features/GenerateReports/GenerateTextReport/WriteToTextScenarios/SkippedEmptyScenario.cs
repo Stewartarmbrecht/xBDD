@@ -12,7 +12,7 @@ namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
             {
                 await xBDD.CurrentRun
                     .AddScenario("My Scenario", "My Feature", "My.Area.Path")
-                    .Skip("Deferred");
+	    			.Skip("Deferred", reason => { } );
             }
             catch { }
             return await xBDD.CurrentRun.TestRun.WriteToText();

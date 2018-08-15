@@ -133,7 +133,7 @@ namespace xBDD.Features.Steps
                                 try
                                 {
                                     if(skippedScenarios.Contains(scenarioCounter))
-                                        await scenario.Skip("Deferred");
+                                        await scenario.Skip("Deferred", reason => { } );
                                     else
                                         await scenario.Run();
                                 }
@@ -317,7 +317,7 @@ namespace xBDD.Features.Steps
                         .Given("my step 1", (s2) => { })
                         .When("my step 2", (s2) => { })
                         .Then("my step 3", (s2) => { })
-                        .Skip("Not Started");
+                        .Skip("Not Started", reason => { } );
                     var htmlReport = await xBDD.CurrentRun.TestRun.WriteToHtml(null, failuresOnly);
                     File.WriteAllText(path, htmlReport);
                 });

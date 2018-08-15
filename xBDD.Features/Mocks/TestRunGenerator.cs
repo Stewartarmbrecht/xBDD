@@ -39,7 +39,7 @@ namespace xBDD.Mock
                         try
                         {
                             if(skippedScenarios.Contains(scenarioCounter))
-                                await scenario.Skip("Deferred");
+                                await scenario.Skip("Deferred", reason => { } );
                             else
                                 await scenario.Run();
                         }

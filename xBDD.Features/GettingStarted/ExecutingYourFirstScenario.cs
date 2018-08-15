@@ -23,32 +23,32 @@ namespace xBDD.Features.GettingStarted
 		
 		[TestMethod]
 		[TestCategory("Long")]
-		public async Task RunningASuccessWebUITest()
+		public async Task ExecutingAPassingWebUIScenario()
 		{
 			var codePath = "../Amazon.Features/SearchingProducts/SearchingAllProducts.cs";
-			var templateFilePath = "./GettingStarted/SampleCode/MSTestFirstPassingScenarioOutputTemplate.txt";
+			var templateFilePath = "./GettingStarted/MSTestFirstPassingScenarioOutputTemplate.txt";
 
 			Wrapper<string> output = new Wrapper<string>();
 			
 			await xB.AddScenario(this, 1)
 				.Given(You.CodeTheFollowingMSTestFeatureDefinition(codePath))
-				.When(You.RunTheMSTestProject("dotnet test --no-build -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton", "../../../../Amazon.Features/", output))
+				.When(You.RunTheMSTestProject("dotnet test -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton", "../../../../Amazon.Features/", output))
 				.Then(You.WillSeeTheOutputMatches(templateFilePath,output))
 				.Run();
 
 		}
 		[TestMethod]
 		[TestCategory("Long")]
-		public async Task RunningAFailingWebUITest()
+		public async Task ExecutingAFailingWebUIScenario()
 		{
 			var codePath = "../Amazon.Features/SearchingProducts/SearchingAllProducts_Failing.cs";
-			var templateFilePath = "./GettingStarted/SampleCode/MSTestFirstFailingScenarioOutputTemplate.txt";
+			var templateFilePath = "./GettingStarted/MSTestFirstFailingScenarioOutputTemplate.txt";
 
 			Wrapper<string> output = new Wrapper<string>();
 			
 			await xB.AddScenario(this, 2)
 				.Given(You.CodeTheFollowingMSTestFeatureDefinition(codePath))
-				.When(You.RunTheMSTestProject("dotnet test --no-build --filter Name~SearchWithSearchButton_Failing", "../../../../Amazon.Features/", output))
+				.When(You.RunTheMSTestProject("dotnet test --filter Name~SearchWithSearchButton_Failing", "../../../../Amazon.Features/", output))
 				.Then(You.WillSeeTheOutputMatches(templateFilePath,output))
 				.Run();
 
