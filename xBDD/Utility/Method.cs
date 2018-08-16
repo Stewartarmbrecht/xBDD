@@ -31,7 +31,7 @@ namespace xBDD.Utility
         internal string GetFeatureActorAction()
         {
             string text = null;
-            var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<By>();
+            var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<ByAttribute>();
             if(attr != null)
                 text = attr.GetCapabilityStatement();
             return text;
@@ -40,7 +40,7 @@ namespace xBDD.Utility
         internal string GetFeatureActorValue()
         {
             string text = null;
-            var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<YouCan>();
+            var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<YouCanAttribute>();
             if(attr != null)
                 text = attr.GetBenefitStatement();
             return text;

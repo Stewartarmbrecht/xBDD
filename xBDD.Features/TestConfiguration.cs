@@ -62,8 +62,15 @@ namespace xBDD.Features
             get 
             {
                 var value = false;
-                bool.TryParse(config["xBDD:FailuresOnly"], out value);
+                bool.TryParse(config["xBDD:HtmlReport:FailuresOnly"], out value);
                 return value;
+            }
+        }
+        public static string TestRunName
+        {
+            get 
+            {
+                return config["xBDD:TestRunName"];
             }
         }
         public static bool WatchBrowswer
@@ -75,11 +82,11 @@ namespace xBDD.Features
                 return value;
             }
         }
-        public static string SkipAreaName
+        public static string RemoveFromAreaNameStart
         {
             get 
             {
-                return config["xBDD:HtmlReport:RemoveAreaPrefix"];
+                return config["xBDD:HtmlReport:RemoveFromAreaNameStart"];
             }
         }
     }

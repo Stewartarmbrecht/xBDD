@@ -7,8 +7,8 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 
     [TestClass]
 	[AsA("Developer")]
-	[By("shorten the area name by removing the beginning of the name that matches a provided string")]
 	[YouCan("shorten the area name in the Html report.")]
+	[By("shorten the area name by removing the beginning of the name that matches a provided string")]
 	public class ShortenAreaName
 	{
         private HtmlReportUser you = new HtmlReportUser();

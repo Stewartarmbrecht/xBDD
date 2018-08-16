@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="config.json" CopyToOutputDirectory="PreserveNewest" />
     <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\EmptyTestRun.txt" CopyToOutputDirectory="PreserveNewest" />
     <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\RunEmptyScenario.txt" CopyToOutputDirectory="PreserveNewest" />
     <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\RunMultipleAreas.txt" CopyToOutputDirectory="PreserveNewest" />

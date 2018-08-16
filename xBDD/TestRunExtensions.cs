@@ -61,13 +61,13 @@
         /// Writes a text representation of a test run's test results.
         /// </summary>
         /// <param name="testRun">The test run whose results you want to write to text.</param>
-        /// <param name="areaNameSkip">The starting part of the area names you want to remove.</param>
+        /// <param name="removeFromAreaNameStart">The starting part of the area names you want to remove.</param>
         /// <param name="failuresOnly">Tells the html writer to only write out failed scenarios.</param>
         /// <returns>String that is a multiline text format of the test results.</returns>
-        public static async Task<string> WriteToHtml(this xBDD.Model.TestRun testRun, string areaNameSkip = "", bool failuresOnly = false)
+        public static async Task<string> WriteToHtml(this xBDD.Model.TestRun testRun, string removeFromAreaNameStart = "", bool failuresOnly = false)
         {
             ReportingFactory factory = new ReportingFactory();
-            HtmlWriter saver = factory.GetHtmlFileWriter(areaNameSkip, failuresOnly);
+            HtmlWriter saver = factory.GetHtmlFileWriter(removeFromAreaNameStart, failuresOnly);
             return await saver.WriteToString(testRun);
         }
         /// <summary>

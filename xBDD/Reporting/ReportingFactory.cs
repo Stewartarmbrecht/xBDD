@@ -10,9 +10,9 @@ namespace xBDD.Reporting
             return new TextWriter();
         }
 
-        internal HtmlWriter GetHtmlFileWriter(string areaNameSkip, bool failuresOnly)
+        internal HtmlWriter GetHtmlFileWriter(string removeFromAreaNameStart, bool failuresOnly)
         {
-            return new HtmlWriter(areaNameSkip, failuresOnly);
+            return new HtmlWriter(removeFromAreaNameStart, failuresOnly);
         }
     }
 }

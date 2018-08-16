@@ -6,7 +6,7 @@ namespace xBDD
 	/// This attribute should be added to the test class for a feature.
 	/// </summary>
 	[System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple = false)]
-	public class By : System.Attribute
+	public class ByAttribute : System.Attribute
 	{
 		string capabilityStatement;
 		
@@ -16,7 +16,7 @@ namespace xBDD
 		/// <param name="capabilityStatement">
 		/// Single statement that captures the capability that a feature provides.
 		/// </param>
-		public By(string capabilityStatement)
+		public ByAttribute(string capabilityStatement)
 		{
 			this.capabilityStatement = capabilityStatement;
 		}

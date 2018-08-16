@@ -2,6 +2,7 @@ namespace xBDD.Features
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
+    using System;
     using System.IO;
     using System.Threading.Tasks;
     using xBDD;
@@ -23,10 +24,12 @@ namespace xBDD.Features
 
             var directory = System.IO.Directory.GetCurrentDirectory();
 
+            xB.CurrentRun.TestRun.Name = TestConfiguration.TestRunName;
+
             var htmlPath = directory + $"/../../../test-results/xBDD.Features.Results.html";
             Logger.LogMessage("Writing Html Report to " + htmlPath);
             xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
-            var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml(TestConfiguration.SkipAreaName, TestConfiguration.FailuresOnly);
+            var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml(TestConfiguration.RemoveFromAreaNameStart, TestConfiguration.FailuresOnly);
             File.WriteAllText(htmlPath, htmlReport);
 
             var textPath = directory + $"/../../../test-results/xBDD.Features.Results.txt";
