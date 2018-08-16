@@ -1,19 +1,19 @@
-Build started 8/16/2018 9:47:47 AM.
+Build started 8/16/2018 10:51:09 AM.
 Test run for C:\Users\stearm01\source\xBDD\Amazon.Features\bin\Debug\netcoreapp2.1\Amazon.Features.dll(.NETCoreApp,Version=v2.1)
 Microsoft (R) Test Execution Command Line Tool Version 15.7.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
 
 Starting test execution, please wait...
-Starting ChromeDriver 2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e) on port 58345
+Starting ChromeDriver 2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e) on port 57087
 Only local connections are allowed.
 Passed   PassingCheckIn
 
 Total tests: 1. Passed: 1. Failed: 0. Skipped: 0.
 Test Run Successful.
-Test execution time: 5.2251 Seconds
+Test execution time: 6.8119 Seconds
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:05.88
+Time Elapsed 00:00:07.71

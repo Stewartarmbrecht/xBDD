@@ -53,6 +53,8 @@ namespace xBDD.Reporting.Html
         {
 
             sb.Append("    <style>");
+            sb.Append(" div#testrun-dates { margin: 0rem 0rem .5rem 5rem; }");
+            sb.Append(" h1.testrun-name { margin: .5rem 0rem 0rem 0rem; }");
             sb.Append(" span.area.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; }");
             sb.Append(" span.badge-distro { width: 3.5rem; display: inline-block; height: 1.5rem; vertical-align: bottom; }");
             sb.Append(" span.area.stats { font-size: 75%; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; border-radius: .25rem; height: 1.5em; display: inline-block; width: 1.75rem; position: absolute; margin-left: 2rem; z-index: -1; vertical-align: middle; }");
@@ -64,7 +66,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" span.scenario.duration { font-size: 1rem; color: gray; }");
             sb.Append(" span.step.duration { font-size: .75rem; color: gray; }");
             sb.Append(" span.oi.oi-info { font-size: 80% }");
-            sb.Append(" ol.areas { margin-left: 0rem; }");
+            sb.Append(" ol.areas { margin: .5rem 0rem; }");
             sb.Append(" ol { margin-left: 3rem; }");
             sb.Append(" span.badge { margin-left: .25rem; }");
             sb.Append(" span.distro { width: 1.5rem; height: 1.5rem; display: inline-block; margin-left: 2rem; border: 1px solid white; }");
@@ -87,6 +89,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" .testrun-percent-bar { background-color: #56C1F7; }");
             sb.Append(" .area-percent-bar { background-color: #A4DEFB; }");
             sb.Append(" .pointer { cursor: pointer }");
+            sb.Append(" pre { white-space: pre !important; }");
             sb.Append(" pre.mp { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thin; }");
             sb.Append(" pre.output { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thins; }");
             sb.Append(" .collapsing { -webkit-transition: none; transition: none; display: none; }");
@@ -158,8 +161,7 @@ namespace xBDD.Reporting.Html
             }
             WriteTagOpen("div", sb, 1, "page-header", false, null, "margin-top: 0px !important;");
             WriteTagOpen("h1", sb, 2, cssClass, true);
-            //WriteTag("small", sb, 2, null, "Test Run", true);
-            //sb.Append("<br/>");
+
             WriteTag("span", sb, 0, $"testrun badge pointer badge-pill total {badgeClass}", testRun.AreaStats.Total.ToString(), true, null, null, " title=\"Areas\"");
             WriteTag("span", sb, 0, "name", testRun.Name.HtmlEncode(), true);
 
@@ -170,6 +172,11 @@ namespace xBDD.Reporting.Html
 
             WriteTagClose("h1", sb, 2);
             WriteTagClose("div", sb, 1);
+            if(testRun.StartTime != DateTime.MinValue) {
+                WriteTagOpen("div", sb, 1, null, false, "testrun-dates", "margin-top: 0px !important;");
+                WriteTag("span", sb, 0, null, testRun.StartTime.ToString("yyyy-MM-dd hh:mm tt \"GMT\"zzz"), true, "testrun-start-date", null, " title=\"Start\"");
+                WriteTagClose("div", sb, 1);
+            }
             WriteStatsTableStart(sb, 1, null, false);
             WriteStats(sb, testRun.AreaStats, 1, "testrun-area-stats", "Areas");
             WriteStats(sb, testRun.FeatureStats, 1, "testrun-feature-stats", "Features");
@@ -443,7 +450,7 @@ namespace xBDD.Reporting.Html
             //WriteTag("span", sb, 6, $"feature badge pointer total {badgeClassName}", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, $"{badgeAttributes} title=\"Scenarios\"");
             if (scenario.Feature.Actor != null || scenario.Feature.Value != null || scenario.Feature.Capability != null)
             {
-                sb.Append($"<span class=\"feature-statement-link badge badge-secondary\" id=\"feature-{featureCounter}-statement-link\" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-statement\" aria-expanded=\"false\" aria-controls=\"feature-{featureCounter}-statement\"><span class=\"oi oi-info\" aria-hidden=\"true\"></span></span>");
+                sb.Append($"<span class=\"feature-statement-link badge pointer badge-secondary\" id=\"feature-{featureCounter}-statement-link\" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-statement\" aria-expanded=\"false\" aria-controls=\"feature-{featureCounter}-statement\"><span class=\"oi oi-info\" aria-hidden=\"true\"></span></span>");
             }
             WriteTag("span", sb, 6, "name pointer", scenario.Feature.Name.HtmlEncode(), true, null, null, titleAttributes);
 
