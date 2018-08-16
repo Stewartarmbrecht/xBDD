@@ -5,10 +5,23 @@ using OpenQA.Selenium.Chrome;
 
 namespace xBDD.Browser
 {
+	/// <summary>
+	/// Singleton for holding a reference to the current web dirver.
+	/// </summary>
+	/// <remarks>
+	/// Launching an instance of a browser through the web driver is expensive and can take up to 2 seconds.
+	/// For that reason we reuse the same web browser across tests.  This means your tests can not run concurrently.
+	/// To achieve test concurrency run multiple test runs at the same time by passing different filters into the 
+	/// same test project.
+	/// </remarks>
 	public class WebDriver
 	{
 		static object locker = new object();
 		static IWebDriver webDriver;
+		/// <summary>
+		/// The current web driver used by all tests.
+		/// </summary>
+		/// <value></value>
 		public static IWebDriver Current 
 		{
 			get
@@ -33,8 +46,7 @@ namespace xBDD.Browser
 							}
 							chromeArgs.Add("--allow-running-insecure-content");
 							chromeArgs.Add("--disable-gpu");
-							var watch = Environment.GetEnvironmentVariable("xBDD:Browser:Watch");
-							if(!(watch != null && Boolean.Parse(watch))) {
+							if(!WebBrowser.WatchBrowser) {
 								chromeArgs.Add("--headless");
 							}
 						}
@@ -48,7 +60,10 @@ namespace xBDD.Browser
 				}
 			}
 		} 
-		
+		/// <summary>
+		/// Closes the web driver.  
+		/// BE SURE to use this method in the AssmblyCleanup method for the test project.
+		/// </summary>
 		public static void Close()
 		{
 			if(webDriver != null)

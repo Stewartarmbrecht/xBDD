@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace xBDD.Features
 {
-    public class TestConfiguration
+    public static class TestConfiguration
     {
         private static IConfigurationRoot configHolder;
         private static IConfigurationRoot config 
@@ -55,6 +55,31 @@ namespace xBDD.Features
             get 
             {
                 return config["Environment"] == "Publish";
+            }
+        }
+        public static bool FailuresOnly 
+        {
+            get 
+            {
+                var value = false;
+                bool.TryParse(config["xBDD:FailuresOnly"], out value);
+                return value;
+            }
+        }
+        public static bool WatchBrowswer
+        {
+            get 
+            {
+                var value = false;
+                bool.TryParse(config["xBDD:Browser:Watch"], out value);
+                return value;
+            }
+        }
+        public static string SkipAreaName
+        {
+            get 
+            {
+                return config["xBDD:HtmlReport:RemoveAreaPrefix"];
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace xBDD.Features
+namespace xBDD.Features.GenerateReports.GenerateTextReport
 {
     public interface IExecute<TResult>
     {

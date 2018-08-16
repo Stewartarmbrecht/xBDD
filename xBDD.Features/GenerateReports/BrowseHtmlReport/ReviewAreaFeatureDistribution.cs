@@ -33,9 +33,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.Then(you.WillSee(the.AreaFeatureDistro.BadgeDistro(3)).IsVisible())
 				.And(you.WillSee(the.AreaFeatureDistro.BadgeDistro(3)).HasTitleAKAHoverText("Features"))
 				.And(you.WillSee(the.AreaFeatureDistro.Chart(3)).IsVisible())
-				.And(you.WillSee(the.AreaFeatureDistro.PassedBar(3)).HasStyle("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
-				.And(you.WillSee(the.AreaFeatureDistro.SkippedBar(3)).HasStyle("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
-				.And(you.WillSee(the.AreaFeatureDistro.FailedBar(3)).HasStyle("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
+				.And(you.WillSee(the.AreaFeatureDistro.PassedBar(3)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
+				.And(you.WillSee(the.AreaFeatureDistro.SkippedBar(3)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
+				.And(you.WillSee(the.AreaFeatureDistro.FailedBar(3)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
                 .Run();
 		}
 		[TestMethod]
@@ -46,7 +46,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.When(you.NavigateTo(the.HtmlReport.WithAPassingFullTestRun))
 				.And(you.WaitTill(the.Area.Badge(1)).IsVisible())
 				.Then(you.WillSee(the.AreaFeatureDistro.Chart(1)).IsVisible())
-				.And(you.WillSee(the.AreaFeatureDistro.PassedBar(1)).HasStyle("has a heigth of 33%", ".*height\\: 100\\%\\;.*"))
+				.And(you.WillSee(the.AreaFeatureDistro.PassedBar(1)).Style("has a heigth of 33%", ".*height\\: 100\\%\\;.*"))
 				.And(you.WillSee(the.AreaFeatureDistro.SkippedBar(1)).IsNotThere())
 				.And(you.WillSee(the.AreaFeatureDistro.FailedBar(1)).IsNotThere())
                 .Run();
@@ -59,7 +59,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.When(you.NavigateTo(the.HtmlReport.WithASingleSkippedScenario))
 				.And(you.WaitTill(the.Area.Badge(1)).IsVisible())
 				.Then(you.WillSee(the.AreaFeatureDistro.Chart(1)).IsVisible())
-				.And(you.WillSee(the.AreaFeatureDistro.SkippedBar(1)).HasStyle("has a heigth of 33%", ".*height\\: 100\\%\\;.*"))
+				.And(you.WillSee(the.AreaFeatureDistro.SkippedBar(1)).Style("has a heigth of 33%", ".*height\\: 100\\%\\;.*"))
 				.And(you.WillSee(the.AreaFeatureDistro.PassedBar(1)).IsNotThere())
 				.And(you.WillSee(the.AreaFeatureDistro.FailedBar(1)).IsNotThere())
                 .Run();
@@ -72,7 +72,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.When(you.NavigateTo(the.HtmlReport.WithASingleFailedScenario))
 				.And(you.WaitTill(the.Area.Badge(1)).IsVisible())
 				.Then(you.WillSee(the.AreaFeatureDistro.Chart(1)).IsVisible())
-				.And(you.WillSee(the.AreaFeatureDistro.FailedBar(1)).HasStyle("has a heigth of 33%", ".*height\\: 100\\%\\;.*"))
+				.And(you.WillSee(the.AreaFeatureDistro.FailedBar(1)).Style("has a heigth of 33%", ".*height\\: 100\\%\\;.*"))
 				.And(you.WillSee(the.AreaFeatureDistro.PassedBar(1)).IsNotThere())
 				.And(you.WillSee(the.AreaFeatureDistro.SkippedBar(1)).IsNotThere())
                 .Run();

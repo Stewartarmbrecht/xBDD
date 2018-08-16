@@ -33,9 +33,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.Then(you.WillSee(the.FeatureScenarioDistro.BadgeDistro(7)).IsVisible())
 				.And(you.WillSee(the.FeatureScenarioDistro.BadgeDistro(7)).HasTitleAKAHoverText("Scenarios"))
 				.And(you.WillSee(the.FeatureScenarioDistro.Chart(7)).IsVisible())
-				.And(you.WillSee(the.FeatureScenarioDistro.PassedBar(7)).HasStyle("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
-				.And(you.WillSee(the.FeatureScenarioDistro.SkippedBar(7)).HasStyle("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
-				.And(you.WillSee(the.FeatureScenarioDistro.FailedBar(7)).HasStyle("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
+				.And(you.WillSee(the.FeatureScenarioDistro.PassedBar(7)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
+				.And(you.WillSee(the.FeatureScenarioDistro.SkippedBar(7)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
+				.And(you.WillSee(the.FeatureScenarioDistro.FailedBar(7)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
                 .Run();
 		}
 		[TestMethod]
@@ -47,7 +47,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.And(you.WaitTill(the.Area.Badge(1)).IsVisible())
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.Then(you.WillSee(the.FeatureScenarioDistro.Chart(1)).IsVisible())
-				.And(you.WillSee(the.FeatureScenarioDistro.PassedBar(1)).HasStyle("has a heigth of 100%", ".*height\\: 100\\%\\;.*"))
+				.And(you.WillSee(the.FeatureScenarioDistro.PassedBar(1)).Style("has a heigth of 100%", ".*height\\: 100\\%\\;.*"))
 				.And(you.WillSee(the.FeatureScenarioDistro.SkippedBar(1)).IsNotThere())
 				.And(you.WillSee(the.FeatureScenarioDistro.FailedBar(1)).IsNotThere())
                 .Run();
@@ -61,7 +61,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.And(you.WaitTill(the.Area.Badge(1)).IsVisible())
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.Then(you.WillSee(the.FeatureScenarioDistro.Chart(1)).IsVisible())
-				.And(you.WillSee(the.FeatureScenarioDistro.SkippedBar(1)).HasStyle("has a heigth of 100%", ".*height\\: 100\\%\\;.*"))
+				.And(you.WillSee(the.FeatureScenarioDistro.SkippedBar(1)).Style("has a heigth of 100%", ".*height\\: 100\\%\\;.*"))
 				.And(you.WillSee(the.FeatureScenarioDistro.PassedBar(1)).IsNotThere())
 				.And(you.WillSee(the.FeatureScenarioDistro.FailedBar(1)).IsNotThere())
                 .Run();
@@ -74,7 +74,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.When(you.NavigateTo(the.HtmlReport.WithASingleFailedScenario))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.Then(you.WillSee(the.FeatureScenarioDistro.Chart(1)).IsVisible())
-				.And(you.WillSee(the.FeatureScenarioDistro.FailedBar(1)).HasStyle("has a heigth of 100%", ".*height\\: 100\\%\\;.*"))
+				.And(you.WillSee(the.FeatureScenarioDistro.FailedBar(1)).Style("has a heigth of 100%", ".*height\\: 100\\%\\;.*"))
 				.And(you.WillSee(the.FeatureScenarioDistro.PassedBar(1)).IsNotThere())
 				.And(you.WillSee(the.FeatureScenarioDistro.SkippedBar(1)).IsNotThere())
                 .Run();
