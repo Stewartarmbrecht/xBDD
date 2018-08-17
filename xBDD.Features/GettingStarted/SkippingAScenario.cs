@@ -10,17 +10,10 @@ namespace xBDD.Features.GettingStarted
 	[AsA(Developer.Name)]
 	[YouCan("include (document) scenarios that are not ready to run")]
 	[By("calling the Skip method on the scenario instead of the Run method.")]
-	public class SkippingAScenario: IFeature
+	public class SkippingAScenario: FeatureTestClass
 	{
 		private Developer you = new Developer();
 
-		public IOutputWriter OutputWriter { get; private set; }
-
-		public SkippingAScenario()
-		{
-			OutputWriter = new TestContextWriter();
-		}
-		
 		[TestMethod]
 		[TestCategory("Long")]
 		public async Task RunningASkippedScenario()

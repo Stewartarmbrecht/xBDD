@@ -9,18 +9,10 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 	[AsA("Developer")]
 	[YouCan("control the order test results are rendered")]
 	[By("calling the SortTestRunResults method on the test run: 'xB.CurrentRun.SortTestRunResults' before running the html report")]
-	public class SortTestRunResults
+	public class SortTestRunResults: FeatureTestClass
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();
-        
-
-		private readonly TestContextWriter outputWriter;
-
-		public SortTestRunResults()
-		{
-			outputWriter = new TestContextWriter();
-		}
 		
 		[TestMethod]
 		public async Task NotSorted()

@@ -39,5 +39,10 @@ namespace xBDD.Core
 				return feature.ClassName == featureFullName;
 			}).FirstOrDefault();
 		}
+
+		internal List<Feature> GetAllFeatures()
+		{
+			return this.features;
+		}
 	}
 }

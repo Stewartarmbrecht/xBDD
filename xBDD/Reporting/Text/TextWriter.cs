@@ -5,11 +5,19 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using xBDD.Model;
 
-namespace xBDD.Reporting.TextFile
+namespace xBDD.Reporting.Text
 {
+    /// <summary>
+    /// Writes test run results in a text format to a string.
+    /// </summary>
     public class TextWriter
     {
-        public async Task<string> WriteToString(TestRun testRun)
+        /// <summary>
+        /// Writes test run results in a text format to a string.
+        /// </summary>
+        /// <param name="testRun">The test run to write to a text string.</param>
+        /// <returns>The text respresentation of the test run results.</returns>
+        public async Task<string> WriteToText(TestRun testRun)
         {
             return await Task.Run(() => {
                 StringBuilder sb = new StringBuilder();

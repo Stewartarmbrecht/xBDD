@@ -6,19 +6,11 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	using xBDD.Features.Pages;
 
     [TestClass]
-	public class ReviewStepMultilineParameter
+	public class ReviewStepMultilineParameter: FeatureTestClass
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();
-        
 
-		private readonly TestContextWriter InputWriter;
-
-		public ReviewStepMultilineParameter()
-		{
-			InputWriter = new TestContextWriter();
-		}
-		
 		[TestMethod]
 		public async Task CollapsedByDefault()
 		{

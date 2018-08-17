@@ -7,18 +7,11 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	using xBDD.Features.Pages;
 
     [TestClass]
-	public class ReviewFeature
+	public class ReviewFeature: FeatureTestClass
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();
 
-		private readonly TestContextWriter outputWriter;
-
-		public ReviewFeature()
-		{
-			outputWriter = new TestContextWriter();
-		}
-		
 		[TestMethod]
 		public async Task Passing()
 		{

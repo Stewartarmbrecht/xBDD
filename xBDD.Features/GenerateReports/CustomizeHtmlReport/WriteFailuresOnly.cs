@@ -9,19 +9,11 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
     [AsA("Developer")]
     [YouCan("set the html report to only report on failures")]
     [By("passing the report writer a true value for the failuresOnly parameter.")]
-	public class WriteFailuresOnly
+	public class WriteFailuresOnly: FeatureTestClass
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();
         
-
-		private readonly TestContextWriter outputWriter;
-
-		public WriteFailuresOnly()
-		{
-			outputWriter = new TestContextWriter();
-		}
-		
 		[TestMethod]
 		public async Task Passing()
 		{

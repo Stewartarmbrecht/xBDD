@@ -14,8 +14,8 @@ namespace xBDD.Features.Actors
 
 	public class Developer: User
 	{
-		public const string Name = "developer";
-		public Step HaveTheFollowingClass(string description, string pathToFile)
+		internal const string Name = "developer";
+		internal Step HaveTheFollowingClass(string description, string pathToFile)
 		{
             var step = xB.CreateStep(
                 $"you have a similar class in your test project {description}:",
@@ -38,7 +38,7 @@ namespace xBDD.Features.Actors
             return step;
 
 		}
-		public Step RunTheTests(List<Func<Task>> scenarios, xBDDMock xBMock)
+		internal Step RunTheTests(List<Func<Task>> scenarios, xBDDMock xBMock)
 		{
             var step = xB.CreateAsyncStep(
                 $"run the tests",
@@ -60,7 +60,7 @@ namespace xBDD.Features.Actors
             return step;
 
 		}
-        public Step RunTheMSTestProject(string command, string changeDirectory, Wrapper<string> output)
+        internal Step RunTheMSTestProject(string command, string changeDirectory, Wrapper<string> output)
         {
             var fullCommand = $"{command} --no-build | Out-File ./test-output/testoutput.txt";
             var step = xB.CreateStep(
@@ -97,7 +97,21 @@ namespace xBDD.Features.Actors
             return step;
         }
 
-        public Step WillSeeTheOutputMatches(string templateFilePath, Wrapper<string> output)
+        internal Step ExecuteATestRunWithAFullTestRunWithAllOutcomes(xBDDMock xBDD)
+        {
+
+            var stepName = "you execute a full test run with all outcomes";
+
+            var step = xB.CreateAsyncStep(
+                stepName,
+                async (s) =>
+                {
+                    await xBDD.RunATestRunWithAFullTestRunWithAllOutcomes();
+                });
+            return step;
+        }
+
+        internal Step WillSeeTheOutputMatches(string templateFilePath, Wrapper<string> output)
         {
             var path = $"{System.IO.Directory.GetCurrentDirectory()}../../../../{templateFilePath}";
             var template = File.ReadAllText(path);

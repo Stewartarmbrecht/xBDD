@@ -9,17 +9,10 @@ namespace xBDD.Features.GettingStarted
 	[AsA("developer")]
 	[YouCan("automate a basic scenario")]
 	[By("using xB.AddScenario and the Given, When, Then, and And operations.")]
-	public class ExecutingYourFirstScenario: IFeature
+	public class ExecutingYourFirstScenario: FeatureTestClass
 	{
 		private Developer you = new Developer();
 
-		public IOutputWriter OutputWriter { get; private set; }
-
-		public ExecutingYourFirstScenario()
-		{
-			OutputWriter = new TestContextWriter();
-		}
-		
 		[TestMethod]
 		[TestCategory("Long")]
 		public async Task ExecutingAPassingWebUIScenarioInAnMSTestProject()

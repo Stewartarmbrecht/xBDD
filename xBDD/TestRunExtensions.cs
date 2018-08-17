@@ -10,9 +10,10 @@
     using xBDD.Model;
     using xBDD.Reporting;
     using xBDD.Reporting.Html;
-    using xBDD.Reporting.TextFile;
+    using xBDD.Reporting.Text;
     using xBDD.Reporting.Database;
     using xBDD.Reporting.Database.Core;
+    using xBDD.Reporting.Code;
 
     /// <summary>
     /// List of extension methods for the TestRun class.
@@ -54,7 +55,23 @@
         {
             ReportingFactory factory = new ReportingFactory();
             TextWriter saver = factory.GetTextFileWriter();
-            return await saver.WriteToString(testRun);
+            return await saver.WriteToText(testRun);
+        }
+
+        /// <summary>
+        /// Writes a code representation of a test run's test results.
+        /// This includes all the files for a fully functional test project.
+        /// The generated code files can be used to execute a test run that
+        /// would regenerate the test results.
+        /// </summary>
+        /// <param name="testRun">The test run whose results you want to write to code.</param>
+        /// <param name="rootNamespace">The root namespace to use for generating the project files.</param>
+        /// <param name="directory">The directory to write the files to.</param>
+        public static async Task WriteToCode(this xBDD.Model.TestRun testRun, string rootNamespace, string directory, string removeFromAreaNameStart)
+        {
+            ReportingFactory factory = new ReportingFactory();
+            CodeWriter saver = factory.GetCodeWriter();
+            await saver.WriteToCode(testRun, rootNamespace, directory, removeFromAreaNameStart);
         }
 
         /// <summary>
@@ -68,7 +85,7 @@
         {
             ReportingFactory factory = new ReportingFactory();
             HtmlWriter saver = factory.GetHtmlFileWriter(removeFromAreaNameStart, failuresOnly);
-            return await saver.WriteToString(testRun);
+            return await saver.WriteToHtml(testRun);
         }
         /// <summary>
         /// Writes a a test run's test results to a sql database.

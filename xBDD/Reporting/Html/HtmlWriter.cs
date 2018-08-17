@@ -6,6 +6,9 @@ using xBDD.Model;
 
 namespace xBDD.Reporting.Html
 {
+    /// <summary>
+    /// Writes the results of a test run to an HTML represenation.
+    /// </summary>
     public class HtmlWriter
     {
         int areaCounter = 0;
@@ -19,12 +22,17 @@ namespace xBDD.Reporting.Html
             this.areaNameSkip = areaNameSkip;
             this.failuresOnly = failuresOnly;
         }
-        public Task<string> WriteToString(TestRun testRun)
+
+        /// <summary>
+        /// Writes the results of a test run to an HTML represenation.
+        /// </summary>
+        /// <param name="testRun">The test run to write to HTML.</param>
+        /// <returns>The HTML string representation of the test run results.</returns>
+        public Task<string> WriteToHtml(TestRun testRun)
         {
             return Task.Run(() => {
                 testRun.CalculateStartAndEndTimes();
                 StringBuilder sb = new StringBuilder();
-                //sb.AppendLine(JsonConvert.SerializeObject(testRun));
                 sb.AppendLine("<!DOCTYPE html>");
                 WriteHtml(testRun, sb);
                 return sb.ToString();

@@ -9,19 +9,11 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	//  [Description("In order to understand how functionality is organized")]
 	//  [Description("As a report reviewer")]
 	//  [Description("I would like to view the features in the html report")]
-	public class ReviewStepStats
+	public class ReviewStepStats: FeatureTestClass
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();
         
-
-		private readonly TestContextWriter outputWriter;
-
-		public ReviewStepStats()
-		{
-			outputWriter = new TestContextWriter();
-		}
-		
 		[TestMethod]
 		public async Task FailedSkippedAndPassingStepsStats()
 		{

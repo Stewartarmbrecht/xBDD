@@ -9,16 +9,10 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	[AsA("test results reviewer")]
 	[YouCan("review area features")]
 	[By("clicking on the area name to expand and collapse the area's feature list")]
-	public class ReviewAreaFeatures
+	public class ReviewAreaFeatures: FeatureTestClass
 	{
-		private readonly TestContextWriter outputWriter;
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();
-
-		public ReviewAreaFeatures()
-		{
-			outputWriter = new TestContextWriter();
-		}
 
         [TestMethod]
         public async Task Expand()

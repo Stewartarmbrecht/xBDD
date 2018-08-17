@@ -9,15 +9,8 @@ namespace xBDD.Features.GettingStarted
 	[AsA("developer")]
 	[YouCan("leverage xBDD within your .Net testing projects")]
 	[By("installing the xBDD.Core nuget package")]
-	public class InstallingTheFramework: IFeature
+	public class InstallingTheFramework: FeatureTestClass
 	{
-		public IOutputWriter OutputWriter { get; private set; }
-
-		public InstallingTheFramework()
-		{
-			OutputWriter = new TestContextWriter();
-		}
-		
 		[TestMethod]
 		public async Task ViaANugetPackage()
 		{

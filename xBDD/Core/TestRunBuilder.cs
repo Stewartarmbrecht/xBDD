@@ -165,6 +165,10 @@ namespace xBDD.Core
 
             });
 
+            this.featureCache.GetAllFeatures().Where(x => x.Sort == 0).ToList().ForEach(feature => {
+                feature.Sort = 1000000;
+            });
+
             this.TestRun.Sorted = true;
         }
 

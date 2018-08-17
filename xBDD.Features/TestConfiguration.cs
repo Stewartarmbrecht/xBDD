@@ -1,12 +1,12 @@
-using Microsoft.Extensions.Configuration;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
-using xBDD;
-using System.IO;
-using System.Threading.Tasks;
-
 namespace xBDD.Features
 {
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
+    using xBDD;
+    using System.IO;
+    using System.Threading.Tasks;
+
     public static class TestConfiguration
     {
         private static IConfigurationRoot configHolder;

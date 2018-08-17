@@ -9,19 +9,11 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	[YouCan("understand more detail about a feature")]
 	[By("reviewing the feature statement")]
     [TestClass]
-	public class ReviewFeatureStatement
+	public class ReviewFeatureStatement: FeatureTestClass
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();
-        
-
-		private readonly TestContextWriter outputWriter;
-
-		public ReviewFeatureStatement()
-		{
-			outputWriter = new TestContextWriter();
-		}
-		
+        		
 		[TestMethod]
 		public async Task CollapsedByDefault()
 		{

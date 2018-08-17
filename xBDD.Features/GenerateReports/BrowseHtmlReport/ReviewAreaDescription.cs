@@ -6,15 +6,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	using xBDD.Features.Pages;
 
 	[TestClass]
-	public class ReviewAreaDescription
+	public class ReviewAreaDescription: FeatureTestClass
 	{
-		private readonly TestContextWriter outputWriter;
-
-		public ReviewAreaDescription()
-		{
-			outputWriter = new TestContextWriter();
-		}
-
 		[TestMethod]
 		public async Task Expand()
 		{

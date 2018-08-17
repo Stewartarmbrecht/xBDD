@@ -6,15 +6,9 @@ namespace xBDD.Features.GenerateReports.GenerateHtmlReport
 	using xBDD.Features.Pages;
 
     [TestClass]
-    public class WriteToHtml
+    public class WriteToHtml: FeatureTestClass
     {
-        private readonly TestContextWriter outputWriter;
 
-        public WriteToHtml()
-        {
-            outputWriter = new TestContextWriter();
-        }
-        
         [TestMethod]
         public async Task StandardFullReport()
         {

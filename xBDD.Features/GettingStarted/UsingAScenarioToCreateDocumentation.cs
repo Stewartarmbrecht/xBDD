@@ -10,17 +10,10 @@ namespace xBDD.Features.GettingStarted
 	[AsA(Developer.Name)]
 	[YouCan("add a scenario that only creates documentation and does not run any code")]
 	[By("calling the Document method on the scenario")]
-	public class UsingAScenarioToCreateDocumentation: IFeature
+	public class UsingAScenarioToCreateDocumentation: FeatureTestClass
 	{
 		private Developer you = new Developer();
 
-		public IOutputWriter OutputWriter { get; private set; }
-
-		public UsingAScenarioToCreateDocumentation()
-		{
-			OutputWriter = new TestContextWriter();
-		}
-		
 		[TestMethod]
 		[TestCategory("Long")]
 		public async Task RunningADocumentationScenario()

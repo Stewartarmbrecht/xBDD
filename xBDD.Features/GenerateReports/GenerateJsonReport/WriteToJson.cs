@@ -6,15 +6,8 @@ namespace xBDD.Features.GenerateReports.GenerateJsonReport
 	using xBDD.Features.Pages;
 
     [TestClass]
-    public class WriteToJson
+    public class WriteToJson: FeatureTestClass
     {
-        private readonly TestContextWriter outputWriter;
-
-        public WriteToJson()
-        {
-            outputWriter = new TestContextWriter();
-        }
-        
         [TestMethod]
         public async Task StandardFullReport()
         {

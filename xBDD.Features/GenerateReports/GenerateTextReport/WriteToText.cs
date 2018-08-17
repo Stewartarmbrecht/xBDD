@@ -7,16 +7,9 @@
     using xBDD.Features.Actors;
 
     [TestClass]
-    public class WriteToText: IFeature
+    public class WriteToText: FeatureTestClass
     {
         private Developer you = new Developer();
-
-		public IOutputWriter OutputWriter { get; private set; }
-
-        public WriteToText()
-        {
-            this.OutputWriter = new TestContextWriter();
-        }
 
         public async Task Run(IExecute<string> action, bool writeActual = false, int sortOrder = 0, [CallerMemberName]string methodName = "")
         {

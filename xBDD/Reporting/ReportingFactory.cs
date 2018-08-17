@@ -1,13 +1,19 @@
 ﻿using xBDD.Reporting.Html;
-using xBDD.Reporting.TextFile;
+using xBDD.Reporting.Text;
+using xBDD.Reporting.Code;
 
 namespace xBDD.Reporting
 {
-    public class ReportingFactory
+    internal class ReportingFactory
     {
-        public TextWriter GetTextFileWriter()
+        internal TextWriter GetTextFileWriter()
         {
             return new TextWriter();
+        }
+
+        internal CodeWriter GetCodeWriter()
+        {
+            return new CodeWriter();
         }
 
         internal HtmlWriter GetHtmlFileWriter(string removeFromAreaNameStart, bool failuresOnly)

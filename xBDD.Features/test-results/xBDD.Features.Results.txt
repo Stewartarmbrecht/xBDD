@@ -1,5 +1,20 @@
 xBDD Features
 
+xBDD - Features - Generate Code
+	Generate Project Files From Test Run Results
+		Standard Full Report [Failed]
+			Given you execute a full test run with all outcomes
+			When you execute the following code: [Failed]
+				xBDD.CurrentRun.WriteToCode("", "./FullTestRunWithAllOutcomesCode/")
+				Error Type: NullReferenceException
+				   Message: Object reference not set to an instance of an object.
+				     Stack:    at xBDD.Reporting.Code.CodeWriter.WriteScenario(String rootNamespace, String directory, Scenario lastScenario, Scenario scenario, StringBuilder sb, StringBuilder sbFeatureSort) in C:\Users\stearm01\source\xBDD\xBDD\Reporting\Code\CodeWriter.cs:line 374
+				               at xBDD.Reporting.Code.CodeWriter.WriteToCode(TestRun testRun, String rootNamespace, String directory, String removeFromAreaNameStart) in C:\Users\stearm01\source\xBDD\xBDD\Reporting\Code\CodeWriter.cs:line 39
+				               at xBDD.TestRunExtensions.WriteToCode(TestRun testRun, String rootNamespace, String directory, String removeFromAreaNameStart) in C:\Users\stearm01\source\xBDD\xBDD\TestRunExtensions.cs:line 74
+				               at xBDD.Features.GenerateCode.GenerateProjectFilesFromTestRunResults.<>c__DisplayClass1_0.<<StandardFullReport>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD.Features\GenerateCode\GenerateProjectFilesFromTestRunResults.cs:line 23
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
+			Then the following files will be generated. [Skipped - Previous Error]
 xBDD - Features - Generate Reports - Browse Html Report
 	Review Area
 		Failing

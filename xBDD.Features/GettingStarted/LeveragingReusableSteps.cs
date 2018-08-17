@@ -13,16 +13,10 @@ namespace xBDD.Features.GettingStarted
 	[AsA(Developer.Name)]
 	[YouCan("simplify the development of tests")]
 	[By("using a library of reusable steps")]
-	public class LeveragingReusableSteps
+	public class LeveragingReusableSteps: FeatureTestClass
 	{
 		Developer you = new Developer();
-		private readonly TestContextWriter outputWriter;
 
-		public LeveragingReusableSteps()
-		{
-			outputWriter = new TestContextWriter();
-		}
-		
 		[TestMethod]
 		public async Task ByInheritingFromTheUserClass()
 		{

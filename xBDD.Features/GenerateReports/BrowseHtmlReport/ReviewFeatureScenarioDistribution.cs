@@ -10,19 +10,11 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	[AsA("Developer")]
 	[YouCan("see the distribution of feature outcomes for an area")]
 	[By("reviewing the distribution graph next to the area badge")]
-	public class ReviewFeatureScenarioDistribution
+	public class ReviewFeatureScenarioDistribution: FeatureTestClass
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();
-        
-
-		private readonly TestContextWriter outputWriter;
-
-		public ReviewFeatureScenarioDistribution()
-		{
-			outputWriter = new TestContextWriter();
-		}
-		
+        		
 		[TestMethod]
 		public async Task FailedSkippedAndPassingScenarioStats()
 		{
