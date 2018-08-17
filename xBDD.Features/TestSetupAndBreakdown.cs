@@ -29,9 +29,10 @@ namespace xBDD.Features
 
             System.IO.Directory.CreateDirectory($"{directory}/../../../test-results");
 
+            xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
+
             var htmlPath = $"{directory}/../../../test-results/xBDD.Features.Results.html";
             Logger.LogMessage("Writing Html Report to " + htmlPath);
-            xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
             var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml(TestConfiguration.RemoveFromAreaNameStart, TestConfiguration.FailuresOnly);
             File.WriteAllText(htmlPath, htmlReport);
 
@@ -44,6 +45,12 @@ namespace xBDD.Features
             Logger.LogMessage("Writing Json Report to " + jsonPath);
             var jsonReport = xB.CurrentRun.TestRun.WriteToJson();
             File.WriteAllText(jsonPath, jsonReport);
+
+            var opmlPath = $"{directory}/../../../test-results/xBDD.Features.Results.opml";
+            Logger.LogMessage("Writing OPML Report to " + opmlPath);
+            xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
+            var opmlReport = await xB.CurrentRun.TestRun.WriteToOpml();
+            File.WriteAllText(opmlPath, opmlReport);
 
             await xB.CurrentRun.TestRun.WriteToCode("xBDD.Features", "./Code/", "xBDD - Features - ");
         }

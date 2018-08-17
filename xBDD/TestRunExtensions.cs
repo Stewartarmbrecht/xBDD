@@ -14,6 +14,7 @@
     using xBDD.Reporting.Database;
     using xBDD.Reporting.Database.Core;
     using xBDD.Reporting.Code;
+    using xBDD.Reporting.Outline;
 
     /// <summary>
     /// List of extension methods for the TestRun class.
@@ -54,8 +55,20 @@
         public static async Task<string> WriteToText(this xBDD.Model.TestRun testRun)
         {
             ReportingFactory factory = new ReportingFactory();
-            TextWriter saver = factory.GetTextFileWriter();
+            TextWriter saver = factory.GetTextWriter();
             return await saver.WriteToText(testRun);
+        }
+
+        /// <summary>
+        /// Writes an OMPL representation of a test run's test results.
+        /// </summary>
+        /// <param name="testRun">The test run whose results you want to write to text.</param>
+        /// <returns>String that is a OPML format of the test results.</returns>
+        public static async Task<string> WriteToOpml(this xBDD.Model.TestRun testRun)
+        {
+            ReportingFactory factory = new ReportingFactory();
+            OpmlWriter saver = factory.GetOpmlWriter();
+            return await saver.WriteToOpml(testRun);
         }
 
         /// <summary>

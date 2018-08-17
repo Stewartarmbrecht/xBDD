@@ -24,7 +24,10 @@ namespace xBDD.Reporting.Text
                 sb.AppendLine(testRun.Name);
                 sb.AppendLine();
                 Scenario lastScenario = null;
-                foreach(var scenario in testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name))
+                var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
+                if(testRun.Sorted)
+                    sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
+                foreach(var scenario in sortedScenarios)
                 {
                     WriteScenario(lastScenario, scenario, sb);
                     lastScenario = scenario;
@@ -69,7 +72,7 @@ namespace xBDD.Reporting.Text
 
         private void WriteStep(Step step, StringBuilder sb)
         {
-            sb.Append("\t\t\t" + step.FullName);
+            sb.Append("\t\t\t" + step.FullName.Replace(System.Environment.NewLine, ""));
             if (step.Scenario.Outcome == Outcome.Failed)
             {
                 if (step.Outcome != Outcome.Passed)
