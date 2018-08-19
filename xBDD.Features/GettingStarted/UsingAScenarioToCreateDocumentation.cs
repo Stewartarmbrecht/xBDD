@@ -14,21 +14,23 @@ namespace xBDD.Features.GettingStarted
 	{
 		private Developer you = new Developer();
 
-		[TestMethod]
-		[TestCategory("Long")]
-		public async Task RunningADocumentationScenario()
-		{
-			var codePath = "../Amazon.Features/TestEnvironmentSetup/ContinuousIntegration.cs";
-			var templateFilePath = "./GettingStarted/MSTestFirstDocumentationScenarioOutputTemplate.txt";
+		//TODO: Move to run build prior to running tests.
 
-			Wrapper<string> output = new Wrapper<string>();
+		// [TestMethod]
+		// [TestCategory("Long")]
+		// public async Task RunningADocumentationScenario()
+		// {
+		// 	var codePath = "../Amazon.Features/TestEnvironmentSetup/ContinuousIntegration.cs";
+		// 	var templateFilePath = "./GettingStarted/MSTestFirstDocumentationScenarioOutputTemplate.txt";
+
+		// 	Wrapper<string> output = new Wrapper<string>();
 			
-			await xB.AddScenario(this, 2)
-				.Given(you.HaveTheFollowingClass("that executes a documentation scenario", codePath))
-				.When(you.RunTheMSTestProject("dotnet test -v n --filter Name~PassingCheckIn", "../../../../Amazon.Features/", output))
-				.Then(you.WillSeeTheOutputMatches(templateFilePath,output))
-				.Run();
+		// 	await xB.AddScenario(this, 2)
+		// 		.Given(you.HaveTheFollowingClass("that executes a documentation scenario", codePath))
+		// 		.When(you.RunTheMSTestProject("dotnet test -v n --filter Name~PassingCheckIn", "../../../../Amazon.Features/", output))
+		// 		.Then(you.WillSeeTheOutputMatches(templateFilePath,output))
+		// 		.Run();
 
-		}
+		// }
 	}
 }

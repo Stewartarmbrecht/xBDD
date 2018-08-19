@@ -48,7 +48,6 @@ namespace xBDD.Features
 
             var opmlPath = $"{directory}/../../../test-results/xBDD.Features.Results.opml";
             Logger.LogMessage("Writing OPML Report to " + opmlPath);
-            xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
             var opmlReport = await xB.CurrentRun.TestRun.WriteToOpml();
             File.WriteAllText(opmlPath, opmlReport);
 

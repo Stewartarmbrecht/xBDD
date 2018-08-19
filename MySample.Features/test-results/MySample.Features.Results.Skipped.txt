@@ -1,0 +1,42 @@
+My Sample Features
+
+My Sample - Features - My Area 2
+	My Feature 4
+		My Scenario 10 [Skipped - Deferred]
+			Given my step 28
+			When my step 2
+			Then my step 3
+		My Scenario 11 [Skipped - Deferred]
+			Given my step 31
+			When my step 2
+			Then my step 3
+		My Scenario 12
+			Given my step 34
+			When my step 2
+			Then my step 3
+	My Feature 5
+		My Scenario 13 [Skipped - Deferred]
+			Given my step 37
+			When my step 2
+			Then my step 3
+		My Scenario 14 [Skipped - Deferred]
+			Given my step 40
+			When my step 2
+			Then my step 3
+		My Scenario 15
+			Given my step 43
+			When my step 2
+			Then my step 3
+	My Feature 6
+		My Scenario 16
+			Given my step 46
+			When my step 2
+			Then my step 3
+		My Scenario 17
+			Given my step 49
+			When my step 2
+			Then my step 3
+		My Scenario 18
+			Given my step 52
+			When my step 2
+			Then my step 3

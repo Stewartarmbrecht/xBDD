@@ -1,0 +1,155 @@
+My Sample Features
+
+My Sample - Features - My Area 1
+	My Feature 1
+		My Scenario 1
+			Given my step 1
+			When my step 2
+			Then my step 3
+		My Scenario 2
+			Given my step 4
+			When my step 2
+			Then my step 3
+		My Scenario 3
+			Given my step 7
+			When my step 2
+			Then my step 3
+	My Feature 2
+		My Scenario 4
+			Given my step 10
+			When my step 2
+			Then my step 3
+		My Scenario 5
+			Given my step 13
+			When my step 2
+			Then my step 3
+		My Scenario 6
+			Given my step 16
+			When my step 2
+			Then my step 3
+	My Feature 3
+		My Scenario 7
+			Given my step 19
+			When my step 2
+			Then my step 3
+		My Scenario 8
+			Given my step 22
+			When my step 2
+			Then my step 3
+		My Scenario 9
+			Given my step 25
+			When my step 2
+			Then my step 3
+My Sample - Features - My Area 2
+	My Feature 4
+		My Scenario 10 [Skipped - Deferred]
+			Given my step 28
+			When my step 2
+			Then my step 3
+		My Scenario 11 [Skipped - Deferred]
+			Given my step 31
+			When my step 2
+			Then my step 3
+		My Scenario 12
+			Given my step 34
+			When my step 2
+			Then my step 3
+	My Feature 5
+		My Scenario 13 [Skipped - Deferred]
+			Given my step 37
+			When my step 2
+			Then my step 3
+		My Scenario 14 [Skipped - Deferred]
+			Given my step 40
+			When my step 2
+			Then my step 3
+		My Scenario 15
+			Given my step 43
+			When my step 2
+			Then my step 3
+	My Feature 6
+		My Scenario 16
+			Given my step 46
+			When my step 2
+			Then my step 3
+		My Scenario 17
+			Given my step 49
+			When my step 2
+			Then my step 3
+		My Scenario 18
+			Given my step 52
+			When my step 2
+			Then my step 3
+My Sample - Features - My Area 3
+	My Feature 7
+		My Scenario 19 [Failed]
+			Given my step 55
+			When my failed step 56 [Failed]
+				Error Type: Exception
+				   Message: Exception of type 'System.Exception' was thrown.
+				     Stack:    at MySample.Features.MyArea_3.MyFeature_7.<>c.<MyScenario_19>b__0_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/MyArea_3/MyFeature_7.cs:line 21
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+			Then my step 3 [Skipped - Previous Error]
+		My Scenario 20 [Skipped - Deferred]
+			Given my step 58
+			When my step 2
+			Then my step 3
+		My Scenario 21
+			Given my step 61
+			When my step 2
+			Then my step 3
+	My Feature 8
+		My Scenario 22 [Skipped - Deferred]
+			Given my step 64
+			When my step 2
+			Then my step 3
+		My Scenario 23 [Skipped - Deferred]
+			Given my step 67
+			When my step 2
+			Then my step 3
+		My Scenario 24
+			Given my step 70
+			When my step 2
+			Then my step 3
+	My Feature 9
+		My Scenario 25
+			Given my step 73
+			When my step 2
+			Then my step 3
+		My Scenario 26
+			Given my step 76
+			When my step 2
+			Then my step 3
+		My Scenario 27
+			Given my step 79
+			When my step 2
+			Then my step 3
+My Sample - Features - My First Area
+	My First Failing Feature
+		My First Scenario [Failed]
+			Given my step 1
+			When my step 2 [Failed]
+				Error Type: Exception
+				   Message: My first exception.
+				     Stack:    at MySample.Features.MyFirstArea.MyFirstFailingFeature.<>c.<MyFirstScenario>b__0_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/MyFirstArea/MyFirstFailingFeature.cs:line 24
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+			Then my step 3 [Skipped - Previous Error]
+	My First Feature
+		My First Scenario
+			Given my step 1
+			When my step 2
+			Then my step 3
+My Sample - Features - My Area 1
+	My Feature Reusable Steps
+		My Scenario With Reusable Steps
+			Given you execute a first action
+			When you execute another action
+			Then you will see a result

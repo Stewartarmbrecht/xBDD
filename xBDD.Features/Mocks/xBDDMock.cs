@@ -45,19 +45,25 @@ namespace xBDD
             int featureCounter = 0;
             int[] skippedScenarios = new int[] { 10, 11, 13, 14, 20, 22, 23 };
             int failedSetp = 56;
-            this.CurrentRun.TestRun.Name = "My Test Run";
+            this.CurrentRun.TestRun.Name = "My Sample Features";
             for(int ia = 0; ia < 3; ia++)
             {
-                var areaName = "My Area " + (ia + 1);
+                var areaName = "MySample.Features.MyArea_" + (ia + 1);
                 for(int ife = 0; ife < 3; ife++ )
                 {
                     featureCounter++;
-                    var featureName = "My Feature " + featureCounter;
+                    var featureName = "MyFeature_" + featureCounter;
+                    var asA = "sample user";
+                    var youCan = $"have my feature {featureCounter} value";
+                    var by = $"execute my feature {featureCounter}";
+                    var scenarioSortCount = 0;
                     for(int isc = 0; isc < 3; isc++ )
                     {
+                        scenarioSortCount++;
                         scenarioCounter++;
-                        var scenarioName = "My Scenario " + scenarioCounter;
-                        var scenario = this.CurrentRun.AddScenario(scenarioName, featureName, areaName);
+                        var scenarioName = "MyScenario_" + scenarioCounter;
+                        var codeDetails = new xBDD.Utility.CodeDetails(areaName, featureName, scenarioName, asA, youCan, by);
+                        var scenario = this.CurrentRun.AddScenario(codeDetails, scenarioSortCount);
                         stepCounter++;
                         scenario.Given("my step " + stepCounter, (s2) => { });
                         stepCounter++;

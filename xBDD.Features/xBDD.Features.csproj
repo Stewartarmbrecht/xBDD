@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\xBDD\xBDD.csproj" />
-    <ProjectReference Include="..\Amazon.Features\Amazon.Features.csproj" />
   </ItemGroup>
 
   <ItemGroup>

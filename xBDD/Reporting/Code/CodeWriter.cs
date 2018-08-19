@@ -39,8 +39,10 @@
                 await WriteScenario(rootNamespace, directory, lastScenario, scenario, sb, sbFeatureSort);
                 lastScenario = scenario;
             }
-            await WriteFeatureFile(directory, rootNamespace, lastScenario.Feature.ClassName, sb);
-            await WriteFeatureSortFile(directory, rootNamespace, sbFeatureSort);
+            if(sortedScenarios.Count() > 0) {
+                await WriteFeatureFile(directory, rootNamespace, lastScenario.Feature.ClassName, sb);
+                await WriteFeatureSortFile(directory, rootNamespace, sbFeatureSort);
+            }
         }
 
         private async Task WriteFeatureFile(string directory, string rootNamespace, string featureFullClassName, StringBuilder sb)
@@ -114,6 +116,8 @@
             await Task.Run(() =>{
                 var content = $@"namespace {rootNamespace}
 {{
+    using xBDD;
+
     public class FeatureTestClass: IFeature
     {{
         public IOutputWriter OutputWriter {{ get; private set; }}
@@ -153,7 +157,7 @@
     <PackageReference Include=""MSTEst.TestFramework"" Version=""1.3.2"" />
     <PackageReference Include=""Selenium.WebDriver.ChromeDriver"" Version=""2.41.0"" />
     <PackageReference Include=""Selenium.WebDriver"" Version=""3.14.0"" />
-    <PackageReference Include=""xBDD"" Version=""0.0.2-alpha"" />
+    <PackageReference Include=""xBDD"" Version=""0.0.4-alpha"" />
   </ItemGroup>
 
   <ItemGroup>
@@ -231,9 +235,12 @@
 
             xB.CurrentRun.TestRun.Name = TestConfiguration.TestRunName;
 
+            System.IO.Directory.CreateDirectory($""{{directory}}/../../../test-results"");
+
+            xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
+
             var htmlPath = directory + $""/../../../test-results/{namespaceRoot}.Results.html"";
             Logger.LogMessage(""Writing Html Report to "" + htmlPath);
-            xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
             var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml(TestConfiguration.RemoveFromAreaNameStart, TestConfiguration.FailuresOnly);
             File.WriteAllText(htmlPath, htmlReport);
 
@@ -246,6 +253,12 @@
             Logger.LogMessage(""Writing Json Report to "" + jsonPath);
             var jsonReport = xB.CurrentRun.TestRun.WriteToJson();
             File.WriteAllText(jsonPath, jsonReport);
+
+            var opmlPath = $""{{directory}}/../../../test-results/{namespaceRoot}.Results.opml"";
+            Logger.LogMessage(""Writing OPML Report to "" + opmlPath);
+            var opmlReport = await xB.CurrentRun.TestRun.WriteToOpml();
+            File.WriteAllText(opmlPath, opmlReport);
+
         }}
     }}
 }}
@@ -268,6 +281,7 @@
                 var testContextWriter = $@"namespace {rootNamespace}
 {{
     using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
+    using xBDD;
 
     public class TestContextWriter : IOutputWriter
     {{

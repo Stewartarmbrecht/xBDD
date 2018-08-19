@@ -45,7 +45,7 @@ namespace xBDD.Model
         /// </summary>
         /// <value><see cref="string"/></value>
 		[DataMember(EmitDefaultValue=false)]
-        public string MultilineParameter { get; internal set; }
+        public string MultilineParameter { get; set; }
 
         /// <summary>
         /// The format for the multiline parameter.
@@ -53,7 +53,7 @@ namespace xBDD.Model
         /// </summary>
         /// <value><see cref="TextFormat"/></value>
 		[DataMember(EmitDefaultValue=false)]
-        public TextFormat MultilineParameterFormat { get; internal set; }
+        public TextFormat MultilineParameterFormat { get; set; }
 
         /// <summary>
         /// The action to execute if the step is a synchronous action.

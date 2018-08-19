@@ -88,9 +88,10 @@
         /// <returns>The scenario build for a fluent syntax.</returns>
         public static ScenarioBuilder AddScenario(IFeature featureClass, int sortOrder = 1000000, [CallerMemberName]string methodName = "")
         {
-            xB.CurrentRun.TestRunInitializer.InitializeTestRun(featureClass, xB.CurrentRun.TestRun);
-            Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
-            var scenarioBuilder = xB.CurrentRun.AddScenario(method, null, null, null, sortOrder);
+            //TODO: Fix hack to ensure factory exists.
+            var currentRun = xB.CurrentRun;
+            CodeDetails codeDetails = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
+            var scenarioBuilder = xB.CurrentRun.AddScenario(codeDetails, null, null, null, sortOrder);
             scenarioBuilder.SetOutputWriter(featureClass.OutputWriter);
             return scenarioBuilder;
         }
@@ -111,9 +112,10 @@
         /// <returns>The scenario build for a fluent syntax.</returns>
         public static ScenarioBuilder AddScenario(object featureClass, int sortOrder = 0, [CallerMemberName]string methodName = "")
         {
-            xB.CurrentRun.TestRunInitializer.InitializeTestRun(featureClass, xB.CurrentRun.TestRun);
-            Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
-            return xB.CurrentRun.AddScenario(method, null, null, null, sortOrder);
+            //TODO: Fix hack to ensure factory exists.
+            var currentRun = xB.CurrentRun;
+            CodeDetails codeDetails = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
+            return xB.CurrentRun.AddScenario(codeDetails, null, null, null, sortOrder);
         }
 
         static void EnsureFactory()

@@ -15,93 +15,59 @@
 		</outline>
 	</outline>
 	<outline text="Executing Your First Scenario">
-		<outline text="Executing A Passing Web UI Scenario In An MS Test Project">
-			<outline text="Given you have a similar class in your test project for defining a passing scenario:"/>
-			<outline text="When you run the MS Test Project with the following command:">
-				<outline text="dotnet test -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton" />
-			</outline>
+		<outline text="That Passes">
+			<outline text="Given you have a similar class in your test project that defines your first scenario:"/>
+			<outline text="When you execute the tests in the test project"/>
 			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="{{.*}}/rl" />
-				<outline text="Passed   SearchWithSearchButton" />
-				<outline text="{{.*}}/rl" />
-				<outline text="Test Run Successful." />
-				<outline text="{{.*}}/rl" />
-			</outline>
-		</outline>
-		<outline text="Executing A Failing Web UI Scenario In An MS Test Project">
-			<outline text="Given you have a similar class in your test project that defines a failing scenario:"/>
-			<outline text="When you run the MS Test Project with the following command:">
-				<outline text="dotnet test --filter Name~SearchWithSearchButton_Failing" />
-			</outline>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="{{.*}}/rl" />
-				<outline text="Failed   SearchWithSearchButton_Failing" />
-				<outline text="Error Message:" />
-				<outline text=" Test method Amazon.Features.SearchingProducts.SearchingAllProducts_Failing.SearchWithSearchButton_Failing threw exception: " />
-				<outline text="xBDD.StepException: The step 'you will see the search results section is visible' threw a 'Exception' exception with a message: 'The web element (the search results section - #BAD_SELECTOR) was not found.'. See the inner exception for details. ---> System.Exception: The web element (the search results section - #BAD_SELECTOR) was not found." />
-				<outline text="Stack Trace:" />
-				<outline text="{{.*}}/rl" />
+				<outline text="My Sample Features" />
 				<outline text="" />
-				<outline text="Standard Output Messages:" />
-				<outline text=" Search With Search Button Failing" />
-				<outline text="     Given you navigate to the amazon home page" />
-				<outline text="     When you enter the text 'echo' into the the search box input" />
-				<outline text="     And you click the the search button" />
-				<outline text="     Then you will see the search results section is visible" />
-				<outline text=" " />
-				<outline text="{{.*}}" />
-				<outline text="{{.*Debug Trace\:}}" />
-				<outline text="{{        Created ChromeDriver \(\d+ms\)}}" />
-				<outline text="{{         Loading Page \(\d+ms\): https\://www\.amazon\.com}}" />
-				<outline text="{{         WaitTillVisible \(\d+ms\): \#twotabsearchtextbox}}" />
-				<outline text="{{         SendKeys 'echo' \(\d+ms\): \#twotabsearchtextbox}}" />
-				<outline text="{{         WaitTillVisible \(\d+ms\): input\[type\=submit\]}}" />
-				<outline text="{{         Click \(\d+ms\): input\[type\=submit\]}}" />
-				<outline text="{{         GetPageSource \(\d+ms\)}}" />
-				<outline text="{{.*}}/rl" />
+				<outline text="My Sample - Features - My First Area" />
+				<outline text="	My First Feature" />
+				<outline text="		My First Scenario" />
+				<outline text="			Given my step 1" />
+				<outline text="			When my step 2" />
+				<outline text="			Then my step 3" />
 			</outline>
 		</outline>
-	</outline>
-	<outline text="Skipping A Scenario">
-		<outline text="Running A Skipped Scenario">
-			<outline text="Given you have a similar class in your test project that defines a skipped scenario:"/>
-			<outline text="When you run the MS Test Project with the following command:">
-				<outline text="dotnet test --filter Name~SearchWithSearchButton_Skipped" />
-			</outline>
+		<outline text="That Failed">
+			<outline text="Given you have a similar class in your test project that defines your first failing scenario:"/>
+			<outline text="When you execute the tests in the test project"/>
 			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="{{.*}}/rl" />
-				<outline text="{{Skipped\s+SearchWithSearchButton_Skipped}}" />
-				<outline text="{{.*}}/rl" />
-				<outline text="Total tests: 1. Passed: 0. Failed: 0. Skipped: 1." />
-				<outline text="Test Run Successful." />
-				<outline text="{{.*}}/rl" />
-			</outline>
-		</outline>
-	</outline>
-	<outline text="Using A Scenario To Create Documentation">
-		<outline text="Running A Documentation Scenario">
-			<outline text="Given you have a similar class in your test project that executes a documentation scenario:"/>
-			<outline text="When you run the MS Test Project with the following command:">
-				<outline text="dotnet test -v n --filter Name~PassingCheckIn" />
-			</outline>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="{{.*}}/rl" />
-				<outline text="{{Passed\s+PassingCheckIn}}" />
-				<outline text="{{.*}}/rl" />
-				<outline text="Total tests: 1. Passed: 1. Failed: 0. Skipped: 0." />
-				<outline text="Test Run Successful." />
-				<outline text="{{.*}}/rl" />
+				<outline text="My Sample Features" />
+				<outline text="" />
+				<outline text="My Sample - Features - My First Area" />
+				<outline text="	My First Failing Feature" />
+				<outline text="		My First Scenario [Failed]" />
+				<outline text="			Given my step 1" />
+				<outline text="			When my step 2 [Failed]" />
+				<outline text="				Error Type: Exception" />
+				<outline text="				   Message: My first exception." />
+				<outline text="{{				     Stack\:    at MySample\.Features\.MyFirstArea\.MyFirstFailingFeature\.\<\>c\.\<MyFirstScenario\>b__0_1\(Step s\) in .*xBDD/MySample\.Features/MyFirstArea/MyFirstFailingFeature\.cs\:line 24}}" />
+				<outline text="				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)" />
+				<outline text="				            --- End of stack trace from previous location where exception was thrown ---" />
+				<outline text="				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)" />
+				<outline text="				            --- End of stack trace from previous location where exception was thrown ---" />
+				<outline text="				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)" />
+				<outline text="			Then my step 3 [Skipped - Previous Error]" />
 			</outline>
 		</outline>
 	</outline>
 	<outline text="Leveraging Reusable Steps">
-		<outline text="By Inheriting From The User Class">
+		<outline text="By Using An Actor Class">
 			<outline text="Given you have a similar class in your test project for defining reusable steps:"/>
 			<outline text="And you have a similar class in your test project that defines a feature using the reusable steps:"/>
-			<outline text="When run the tests">
-				<outline text="dotnet test" />
+			<outline text="When you execute the tests in the test project"/>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
+				<outline text="My Sample Features" />
+				<outline text="" />
+				<outline text="My Sample - Features - My Area 1" />
+				<outline text="{{.*}}/rl" />
+				<outline text="	My Feature Reusable Steps" />
+				<outline text="		My Scenario With Reusable Steps" />
+				<outline text="			Given you execute a first action" />
+				<outline text="			When you execute another action" />
+				<outline text="			Then you will see a result" />
 			</outline>
-			<outline text="Then you will execute the scenarios and get the results"/>
 		</outline>
 	</outline>
 </outline>
@@ -766,196 +732,62 @@
 		<outline text="Write Emtpy Test Run">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-			</outline>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):"/>
 		</outline>
 		<outline text="Write Skipped Empty Scenario">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-				<outline text="My.Area.Path" />
-				<outline text="	My Feature" />
-				<outline text="		My Scenario [Skipped - Deferred]" />
-			</outline>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):"/>
 		</outline>
 		<outline text="Write Run Empty Scenario">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-				<outline text="My.Area.Path" />
-				<outline text="	My Feature" />
-				<outline text="		My Scenario" />
-			</outline>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):"/>
 		</outline>
 		<outline text="Write Skipped Scenario With Steps">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-				<outline text="My.Area.Path" />
-				<outline text="	My Feature" />
-				<outline text="		My Scenario [Skipped - Deferred]" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-			</outline>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):"/>
 		</outline>
 		<outline text="Write Run Scenario With Steps">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-				<outline text="My.Area.Path" />
-				<outline text="	My Feature" />
-				<outline text="		My Scenario" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-			</outline>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):"/>
 		</outline>
 		<outline text="Write Run Scenario With Skipped Step">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-				<outline text="My.Area.Path" />
-				<outline text="	My Feature" />
-				<outline text="		My Scenario [Failed - Step Skipped]" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action [Skipped - Deferred]" />
-				<outline text="			Then my ending condition [Skipped - Previous Error]" />
-			</outline>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):"/>
 		</outline>
 		<outline text="Write Run Scenario With Not Implemented Step">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-				<outline text="My.Area.Path" />
-				<outline text="	My Feature" />
-				<outline text="		My Scenario [Failed - Step Not Implemented]" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action [Failed - Not Implemented]" />
-				<outline text="			Then my ending condition [Skipped - Previous Error]" />
-			</outline>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):"/>
 		</outline>
 		<outline text="Write Run Scenario With Failed Step">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-				<outline text="My.Area.Path" />
-				<outline text="	My Feature" />
-				<outline text="		My Scenario [Failed]" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action [Failed]" />
-				<outline text="				Error Type: Exception" />
-				<outline text="				   Message: My Error" />
-				<outline text="{{				     Stack\: .*}}" />
-				<outline text="{{.*}}/rl" />
-				<outline text="			Then my ending condition [Skipped - Previous Error]" />
-			</outline>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):"/>
 		</outline>
 		<outline text="Write Run Multiple Scenarios Same Feature">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-				<outline text="My.Area.Path" />
-				<outline text="	My Feature" />
-				<outline text="		My Scenario One" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-				<outline text="		My Scenario Two" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-			</outline>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):"/>
 		</outline>
 		<outline text="Write Run Multiple Features Same Area">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-				<outline text="My.Area.Path" />
-				<outline text="	My Feature One" />
-				<outline text="		My Scenario One" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-				<outline text="		My Scenario Two" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-				<outline text="	My Feature Two" />
-				<outline text="		My Scenario One" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-				<outline text="		My Scenario Two" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-			</outline>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):"/>
 		</outline>
 		<outline text="Write Run Multiple Areas">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-				<outline text="My.Area.Path.One" />
-				<outline text="	My Feature One" />
-				<outline text="		My Scenario One" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-				<outline text="		My Scenario Two" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-				<outline text="My.Area.Path.Two" />
-				<outline text="	My Feature Two" />
-				<outline text="		My Scenario One" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-				<outline text="		My Scenario Two" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-			</outline>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):"/>
 		</outline>
 		<outline text="Write Run Scenario With Step With Multiline Parameter">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-				<outline text="My.Area.Path" />
-				<outline text="	My Feature" />
-				<outline text="		My Scenario" />
-				<outline text="			Given my starting condition with the following" />
-				<outline text="				My" />
-				<outline text="				multiline" />
-				<outline text="				parameter" />
-				<outline text="			When my action" />
-				<outline text="			Then my ending condition" />
-			</outline>
+			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):"/>
 		</outline>
 	</outline>
 </outline>
@@ -973,10 +805,12 @@
 <outline text="xBDD - Features - Generate Code">
 	<outline text="Generate Project Files From Test Run Results">
 		<outline text="Standard Full Report">
-			<outline text="Given you execute a full test run with all outcomes"/>
-			<outline text="When you execute the following code:">
-				<outline text="xBDD.CurrentRun.WriteToCode("", "./FullTestRunWithAllOutcomesCode/")" />
+			<outline text="Given you have a test project that produces all outcomes"/>
+			<outline text="And you have a similar class in your test project for setting up and breaking down the test run:"/>
+			<outline text="And you include this line of code:">
+				<outline text="xBDD.CurrentRun.WriteToCode("MySample.Features", "./Code/", "My Sample - Features - ")" />
 			</outline>
+			<outline text="When you execute the tests in the test project"/>
 			<outline text="Then the following files will be generated."/>
 		</outline>
 	</outline>

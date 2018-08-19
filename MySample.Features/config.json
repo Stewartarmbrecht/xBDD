@@ -1,0 +1,22 @@
+{
+    "xBDD": {
+        "TestRunName": "My Sample Features",
+        "Browser": {
+            "Watch": "false"
+        },
+        "HtmlReport": {
+            "RemoveFromAreaNameStart": "My Sample - Features - ",
+            "FailuresOnly": "false",
+            "FileName": "MySample.Features.Results.html"
+        },
+        "JsonReport": {
+            "FileName": "MySample.Features.Results.json"
+        },
+        "TextReport": {
+            "FileName": "MySample.Features.Results.txt"
+        },
+        "OutlineReport": {
+            "FileName": "MySample.Features.Results.opml"
+        }
+    }
+}

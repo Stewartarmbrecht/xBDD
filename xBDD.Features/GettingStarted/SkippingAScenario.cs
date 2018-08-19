@@ -14,21 +14,23 @@ namespace xBDD.Features.GettingStarted
 	{
 		private Developer you = new Developer();
 
-		[TestMethod]
-		[TestCategory("Long")]
-		public async Task RunningASkippedScenario()
-		{
-			var codePath = "../Amazon.Features/SearchingProducts/SearchingAllProducts_Skipped.cs";
-			var templateFilePath = "./GettingStarted/MSTestFirstSkippedScenarioOutputTemplate.txt";
+		//TODO: Move to run build before running tests.
 
-			Wrapper<string> output = new Wrapper<string>();
+		// [TestMethod]
+		// [TestCategory("Long")]
+		// public async Task RunningASkippedScenario()
+		// {
+		// 	var codePath = "../Amazon.Features/SearchingProducts/SearchingAllProducts_Skipped.cs";
+		// 	var templateFilePath = "./GettingStarted/MSTestFirstSkippedScenarioOutputTemplate.txt";
+
+		// 	Wrapper<string> output = new Wrapper<string>();
 			
-			await xB.AddScenario(this, 2)
-				.Given(you.HaveTheFollowingClass("that defines a skipped scenario", codePath))
-				.When(you.RunTheMSTestProject("dotnet test --filter Name~SearchWithSearchButton_Skipped", "../../../../Amazon.Features/", output))
-				.Then(you.WillSeeTheOutputMatches(templateFilePath,output))
-				.Run();
+		// 	await xB.AddScenario(this, 2)
+		// 		.Given(you.HaveTheFollowingClass("that defines a skipped scenario", codePath))
+		// 		.When(you.RunTheMSTestProject("dotnet test --filter Name~SearchWithSearchButton_Skipped", "../../../../Amazon.Features/", output))
+		// 		.Then(you.WillSeeTheOutputMatches(templateFilePath,output))
+		// 		.Run();
 
-		}
+		// }
 	}
 }

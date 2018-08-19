@@ -14,36 +14,29 @@ namespace xBDD.Features.GettingStarted
 		private Developer you = new Developer();
 
 		[TestMethod]
-		[TestCategory("Long")]
-		public async Task ExecutingAPassingWebUIScenarioInAnMSTestProject()
+		public async Task ThatPasses()
 		{
-			var codePath = "../Amazon.Features/SearchingProducts/SearchingAllProducts.cs";
-			var templateFilePath = "./GettingStarted/MSTestFirstPassingScenarioOutputTemplate.txt";
-
-			Wrapper<string> output = new Wrapper<string>();
-			
+			var pathToFeatureClass = "../MySample.Features/MyFirstArea/MyFirstFeature.cs";
+			var pathToOutputFile = "../MySample.Features/test-results/MySample.Features.Results.FirstPassing.txt";
+			var pathToTemplateFile = "../xBDD.Features/GettingStarted/ExecutingYourFirstScenario.ThatPasses.txt";
 			await xB.AddScenario(this, 1)
-				.Given(you.HaveTheFollowingClass("for defining a passing scenario", codePath))
-				.When(you.RunTheMSTestProject("dotnet test -v n --filter FullyQualifiedName=Amazon.Features.SearchingProducts.SearchingAllProducts.SearchWithSearchButton", "../../../../Amazon.Features/", output))
-				.Then(you.WillSeeTheOutputMatches(templateFilePath,output))
+				.Given(you.HaveTheFollowingClass("that defines your first scenario", pathToFeatureClass))
+				.When(you.ExecuteTheTestRun())
+				.Then(you.WillSeeTheOutputMatches(pathToTemplateFile, pathToOutputFile))
 				.Run();
-
 		}
 		[TestMethod]
 		[TestCategory("Long")]
-		public async Task ExecutingAFailingWebUIScenarioInAnMSTestProject()
+		public async Task ThatFailed()
 		{
-			var codePath = "../Amazon.Features/SearchingProducts/SearchingAllProducts_Failing.cs";
-			var templateFilePath = "./GettingStarted/MSTestFirstFailingScenarioOutputTemplate.txt";
-
-			Wrapper<string> output = new Wrapper<string>();
-			
-			await xB.AddScenario(this, 2)
-				.Given(you.HaveTheFollowingClass("that defines a failing scenario", codePath))
-				.When(you.RunTheMSTestProject("dotnet test --filter Name~SearchWithSearchButton_Failing", "../../../../Amazon.Features/", output))
-				.Then(you.WillSeeTheOutputMatches(templateFilePath,output))
+			var pathToFeatureClass = "../MySample.Features/MyFirstArea/MyFirstFailingFeature.cs";
+			var pathToOutputFile = "../MySample.Features/test-results/MySample.Features.Results.FirstFailing.txt";
+			var pathToTemplateFile = "../xBDD.Features/GettingStarted/ExecutingYourFirstScenario.ThatFailed.txt";
+			await xB.AddScenario(this, 1)
+				.Given(you.HaveTheFollowingClass("that defines your first failing scenario", pathToFeatureClass))
+				.When(you.ExecuteTheTestRun())
+				.Then(you.WillSeeTheOutputMatches(pathToTemplateFile, pathToOutputFile))
 				.Run();
-
 		}
 	}
 }

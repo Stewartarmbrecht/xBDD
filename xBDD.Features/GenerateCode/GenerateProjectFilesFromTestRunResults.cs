@@ -16,12 +16,14 @@ namespace xBDD.Features.GenerateCode
         [TestMethod]
         public async Task StandardFullReport()
         {
-            var xBDDMock = new xBDDMock();
             await xB.CurrentRun.AddScenario(this, 1)
-                .Given(you.ExecuteATestRunWithAFullTestRunWithAllOutcomes(xBDDMock))
-                .WhenAsync("you execute the following code:", async (s) => { 
-                    await xBDDMock.CurrentRun.TestRun.WriteToCode("","./FullTestRunWithAllOutcomesCode/","");
-                 }, "xBDD.CurrentRun.WriteToCode(\"\", \"./FullTestRunWithAllOutcomesCode/\")", TextFormat.sh)
+                .Given(you.HaveATestProjectThatProducesAllOutcomes())
+                .And(you.HaveTheFollowingTestSetupAndBreakdownClass())
+                .And("you include this line of code:", 
+                    (s) => { }, 
+                    "xBDD.CurrentRun.WriteToCode(\"MySample.Features\", \"./Code/\", \"My Sample - Features - \")", 
+                    TextFormat.cs)
+                .When(you.ExecuteTheTestRun())
                 .Then("the following files will be generated.", (s) => { 
                  })
                 .Run();

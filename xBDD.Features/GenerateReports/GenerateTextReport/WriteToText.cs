@@ -24,7 +24,7 @@
                 .WhenAsync("you execute the scenario", async step => {
                     text.Object = await action.Execute();
                 })
-                .Then(you.WillSeeTheOutputMatches(scenarioPath + actionName + ".txt", text))
+                .Then(you.WillSeeTheOutputMatches(scenarioPath + actionName + ".txt", "REPLACEME"))
                 .Run();
         }
 

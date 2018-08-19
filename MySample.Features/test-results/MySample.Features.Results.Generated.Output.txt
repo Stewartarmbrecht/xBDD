@@ -1,0 +1,99 @@
+Build started 8/19/18 9:39:39 AM.
+Test run for /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/bin/Debug/netcoreapp2.1/MySample.Features.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+Failed   MyFirstScenario
+Error Message:
+ Test method MySample.Features.MyFirstArea.MyFirstFailingFeature.MyFirstScenario threw exception: 
+xBDD.StepException: The step 'my step 2' threw a 'Exception' exception with a message: 'Exception of type 'System.Exception' was thrown.'. See the inner exception for details. ---> System.Exception: Exception of type 'System.Exception' was thrown.
+Stack Trace:
+    at MySample.Features.MyFirstArea.MyFirstFailingFeature.<>c.<MyFirstScenario>b__0_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyFirstArea/MyFirstFailingFeature.cs:line 21
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
+   at xBDD.Core.ScenarioBuilder.Run()
+   at MySample.Features.MyFirstArea.MyFirstFailingFeature.MyFirstScenario() in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyFirstArea/MyFirstFailingFeature.cs:line 19
+
+Standard Output Messages:
+ 
+ 
+ Debug Trace:
+ My First Scenario
+     Given my step 1
+     When my step 2
+     Then my step 3
+
+
+Passed   MyFirstScenario
+Failed   MyScenario_19
+Error Message:
+ Test method MySample.Features.MyArea_3.MyFeature_7.MyScenario_19 threw exception: 
+xBDD.StepException: The step 'my failed step 56' threw a 'Exception' exception with a message: 'Exception of type 'System.Exception' was thrown.'. See the inner exception for details. ---> System.Exception: Exception of type 'System.Exception' was thrown.
+Stack Trace:
+    at MySample.Features.MyArea_3.MyFeature_7.<>c.<MyScenario_19>b__0_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_3/MyFeature_7.cs:line 21
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
+   at xBDD.Core.ScenarioBuilder.Run()
+   at MySample.Features.MyArea_3.MyFeature_7.MyScenario_19() in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_3/MyFeature_7.cs:line 19
+
+Standard Output Messages:
+ 
+ 
+ Debug Trace:
+ My Scenario 19
+     Given my step 55
+     When my failed step 56
+     Then my step 3
+
+
+Skipped  MyScenario_20
+Passed   MyScenario_21
+Skipped  MyScenario_22
+Skipped  MyScenario_23
+Passed   MyScenario_24
+Passed   MyScenario_25
+Passed   MyScenario_26
+Passed   MyScenario_27
+Skipped  MyScenario_10
+Skipped  MyScenario_11
+Passed   MyScenario_12
+Skipped  MyScenario_13
+Skipped  MyScenario_14
+Passed   MyScenario_15
+Passed   MyScenario_16
+Passed   MyScenario_17
+Passed   MyScenario_18
+Passed   MyScenario_1
+Passed   MyScenario_2
+Passed   MyScenario_3
+Passed   MyScenario_4
+Passed   MyScenario_5
+Passed   MyScenario_6
+Passed   MyScenario_7
+Passed   MyScenario_8
+Passed   MyScenario_9
+Passed   MyScenario_WithReusableSteps
+
+Total tests: 30. Passed: 21. Failed: 2. Skipped: 7.
+Test execution time: 3.2198 Seconds
+
+Build FAILED.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:04.55

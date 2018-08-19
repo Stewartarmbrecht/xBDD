@@ -17,7 +17,6 @@ namespace xBDD.Core
         CoreFactory factory;
         AreaCache areaCache;
         FeatureCache featureCache;
-        internal TestRunInitializer TestRunInitializer { get; private set; }
 
         /// <summary>
         /// Provides access the test run being built.
@@ -35,7 +34,6 @@ namespace xBDD.Core
             this.factory = factory;
             this.areaCache = factory.CreateAreaCache();
             this.featureCache = factory.CreateFeatureCache();
-            this.TestRunInitializer = factory.CreateTestRunInitializer();
             this.TestRun = testRun;
         }
 
@@ -55,9 +53,25 @@ namespace xBDD.Core
         /// <returns>The scenario build for a fluent syntax.</returns>
         public ScenarioBuilder AddScenario(object featureClass, int sortOrder = 1000000, [CallerMemberName]string methodName = "")
         {
-            this.TestRunInitializer.InitializeTestRun(featureClass, TestRun);
-            Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
-            return AddScenario(method, null, null, null, sortOrder);
+            CodeDetails codeDetails = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
+            return AddScenario(codeDetails, null, null, null, sortOrder);
+        }
+
+        /// <summary>
+        /// This method should be called from within the test method.
+        /// This signature allows you to set properties of the scenario
+        /// that would otherwise be set by the code.
+        /// </summary>
+        /// <param name="codeDetails">
+        /// Provides ability to set details that would otherwise be pulled
+        /// from the feature class code.
+        /// </param>
+        /// <param name="sortOrder">Optional. Used by the test run when sorting the results
+        /// if you call SortTestRunResults on the test run. Default value is 1,000,000.</param>
+        /// <returns>The scenario build for a fluent syntax.</returns>
+        public ScenarioBuilder AddScenario(CodeDetails codeDetails, int sortOrder = 100000)
+        {
+            return AddScenario(codeDetails, null, null, null, sortOrder);
         }
 
         /// <summary>
@@ -81,8 +95,8 @@ namespace xBDD.Core
         public ScenarioBuilder AddScenario(string scenarioName, 
             object featureClass, int sortOrder = 1000000, [CallerMemberName]string methodName = "")
         {
-            Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
-            return AddScenario(method, scenarioName, null, null, sortOrder);
+            CodeDetails codeDetails = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureClass, methodName);
+            return AddScenario(codeDetails, scenarioName, null, null, sortOrder);
         }
 
         /// <summary>
@@ -112,8 +126,8 @@ namespace xBDD.Core
         public ScenarioBuilder AddScenario(string scenarioName, string featureName, 
             object featureClass, int sortOrder = 1000000, [CallerMemberName]string methodName = "")
         {
-            Method method = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureName, methodName);
-            return AddScenario(method, scenarioName, featureName, null, sortOrder);
+            CodeDetails codeDetails = factory.UtilityFactory.GetMethodRetriever().GetScenarioMethod(featureName, methodName);
+            return AddScenario(codeDetails, scenarioName, featureName, null, sortOrder);
         }
 
         /// <summary>
@@ -172,24 +186,24 @@ namespace xBDD.Core
             this.TestRun.Sorted = true;
         }
 
-        internal ScenarioBuilder AddScenario(Method method, string scenarioName, string featureName, string areaName, int sortOrder)
+        internal ScenarioBuilder AddScenario(CodeDetails codeDetails, string scenarioName, string featureName, string areaName, int sortOrder)
         {
 
-            if (scenarioName == null && method != null)
-                scenarioName = method.Name.AddSpacesToSentence();
+            if (scenarioName == null && codeDetails != null)
+                scenarioName = codeDetails.Name.AddSpacesToSentence();
 
-            if (featureName == null && method != null)
-                featureName = method.GetClassName().AddSpacesToSentence();
+            if (featureName == null && codeDetails != null)
+                featureName = codeDetails.GetClassName().AddSpacesToSentence();
 
-            if (areaName == null && method != null)
-                areaName = method.GetNameSpace();
+            if (areaName == null && codeDetails != null)
+                areaName = codeDetails.GetNameSpace();
             
             var methodName = scenarioName;
-            if(method != null)
-                methodName = method.Name;
+            if(codeDetails != null)
+                methodName = codeDetails.Name;
 
             var area = areaCache.GetOrCreate(TestRun, areaName);
-            var feature = featureCache.GetOrCreate(area, featureName, method);
+            var feature = featureCache.GetOrCreate(area, featureName, codeDetails);
             return factory.CreateScenarioBuilder(scenarioName, feature, methodName, sortOrder);
         }
     }

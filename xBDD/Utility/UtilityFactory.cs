@@ -10,9 +10,9 @@ namespace xBDD.Utility
             return new MethodRetriever(this);
         }
 
-        internal Method CreateMethod(MethodBase methodBase)
+        internal CodeDetails CreateMethod(MethodBase methodBase)
         {
-            return new Method(methodBase, this);
+            return new CodeDetails(methodBase, this);
         }
 
         internal OutcomeAggregator CreateOutcomeAggregator()

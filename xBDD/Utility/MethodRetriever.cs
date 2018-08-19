@@ -10,7 +10,7 @@ namespace xBDD.Utility
             this.factory = factory;
         }
 
-        internal Method GetScenarioMethod(object featureClass, string methodName)
+        internal CodeDetails GetScenarioMethod(object featureClass, string methodName)
         {
 
             var method = featureClass.GetType().GetTypeInfo().GetDeclaredMethod(methodName);

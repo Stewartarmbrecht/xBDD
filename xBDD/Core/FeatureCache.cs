@@ -15,18 +15,18 @@ namespace xBDD.Core
 			this.features = new List<Feature>();
 		}
 		
-		internal Feature GetOrCreate(Area area, string name, Method method)
+		internal Feature GetOrCreate(Area area, string name, CodeDetails codeDetails)
 		{
 			var feature = features.Where(x => x.Name == name && x.Area == area).FirstOrDefault();
 			if(feature == null)
 			{
 				feature = factory.CreateFeature(name, area);
-				if(method != null)
+				if(codeDetails != null)
 				{
-					feature.Actor = method.GetFeatureActorName();
-					feature.Capability = method.GetFeatureActorAction();
-					feature.Value = method.GetFeatureActorValue();
-					feature.ClassName = method.GetFullClassName();
+					feature.Actor = codeDetails.GetFeatureActorName();
+					feature.Capability = codeDetails.GetFeatureActorAction();
+					feature.Value = codeDetails.GetFeatureActorValue();
+					feature.ClassName = codeDetails.GetFullClassName();
 				}
 				features.Add(feature);				
 			}

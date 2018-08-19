@@ -97,42 +97,70 @@ namespace xBDD.Features.Actors
             return step;
         }
 
-        internal Step ExecuteATestRunWithAFullTestRunWithAllOutcomes(xBDDMock xBDD)
+        internal Step HaveATestProjectThatProducesAllOutcomes()
         {
 
-            var stepName = "you execute a full test run with all outcomes";
+            var stepName = "you have a test project that produces all outcomes";
 
-            var step = xB.CreateAsyncStep(
+            var step = xB.CreateStep(
                 stepName,
-                async (s) =>
+                (s) =>
                 {
-                    await xBDD.RunATestRunWithAFullTestRunWithAllOutcomes();
                 });
             return step;
         }
 
-        internal Step WillSeeTheOutputMatches(string templateFilePath, Wrapper<string> output)
+        internal Step HaveTheFollowingTestSetupAndBreakdownClass()
         {
-            var path = $"{System.IO.Directory.GetCurrentDirectory()}../../../../{templateFilePath}";
-            var template = File.ReadAllText(path);
+            return this.HaveTheFollowingClass(
+                "for setting up and breaking down the test run", 
+                "../MySample.Features/TestSetupAndBreakdown.cs");
+
+        }
+
+        internal Step ExecuteTheTestRun()
+        {
+
+            var stepName = "you execute the tests in the test project";
+
             var step = xB.CreateStep(
-                "you will see the output matches this template (See TemplateValidator project on Nuget):",
-                (s) => {
-                    try {
-                        output.Object.ValidateToTemplate(template);   
-                        //s.Output = output.Object;
-                        //s.OutputFormat = TextFormat.text;                 
-                    } catch(System.Exception)
-                    {
-                        s.Output = output.Object;
-                        s.OutputFormat = TextFormat.text;
-                        throw;
-                    }
-                },
-                template,
-                TextFormat.text);
+                stepName,
+                (s) =>
+                {
+                });
             return step;
         }
 
+        internal Step WillSeeTheOutputMatches(string templateFilePath, string outputFilePath)
+        {
+            var step = xB.CreateStep(
+                "you will see the output matches this template (See TemplateValidator project on Nuget):",
+                (s) => {
+                    var output = "";
+                    try {
+                        var outputPath = $"{System.IO.Directory.GetCurrentDirectory()}../../../../{outputFilePath}";
+                        output = File.ReadAllText(outputPath);
+
+                        var templatePath = $"{System.IO.Directory.GetCurrentDirectory()}../../../../{templateFilePath}";
+                        var template = "";
+                        if(!System.IO.File.Exists(templatePath)) {
+                            File.WriteAllText(templatePath, output);
+                            throw new System.Exception("Template file did not exist but it was created by using a copy of the target.");
+                        } else {
+                            template = File.ReadAllText(templatePath);
+                        }
+
+                        output.ValidateToTemplate(template);   
+                        s.MultilineParameter = template;
+                        s.MultilineParameterFormat = TextFormat.text;                 
+                    } catch(System.Exception)
+                    {
+                        s.Output = output;
+                        s.OutputFormat = TextFormat.text;
+                        throw;
+                    }
+                });
+            return step;
+        }
 	}
 }

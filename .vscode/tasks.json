@@ -83,6 +83,22 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "test-my-sample",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "XBDD_FAILURES_ONLY": "true"
+                }
+            },
+            "args": [
+                "${workspaceFolder}/scripts/test-my-sample.ps1"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "publish",
             "command": "pwsh",
             "type": "process",
