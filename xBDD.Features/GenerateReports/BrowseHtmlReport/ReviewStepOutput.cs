@@ -14,15 +14,12 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		[TestMethod]
 		public async Task CollapsedByDefault()
 		{
-			var output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
-			var format = TextFormat.text;
             await xB.AddScenario(this, 1)
-                .Given(you.GenerateAReportWithAStepWithOutput(output, format))
-				.When(you.NavigateTo(the.HtmlReport.WithAStepWithOutput))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
-				.Then(you.WillSee(the.Output.Link(1)).IsVisible())
+				.Then(you.WillSee(the.Output.Link(3)).IsVisible())
                 .Run();
 		}
 		
@@ -30,16 +27,14 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task GeneralText()
 		{
 			var output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
-			var format = TextFormat.text;
             await xB.AddScenario(this, 2)
-                .Given(you.GenerateAReportWithAStepWithOutput(output, format))
-				.When(you.NavigateTo(the.HtmlReport.WithAStepWithOutput))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
-				.And(you.ClickWhen(the.Output.Link(1)).IsVisible())
-				.Then(you.WillSee(the.Output.Section(1)).IsVisible())
-				.And(you.WillSee(the.Output.Text(1)).HasText(output))
+				.And(you.ClickWhen(the.Output.Link(3)).IsVisible())
+				.Then(you.WillSee(the.Output.Section(3)).IsVisible())
+				.And(you.WillSee(the.Output.Text(3)).HasText(output))
                 .Run();
 		}
 		

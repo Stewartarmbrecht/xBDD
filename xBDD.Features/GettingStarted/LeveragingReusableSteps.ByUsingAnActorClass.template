@@ -1,0 +1,9 @@
+My Sample Features
+
+My Sample - Features - My Area 1 All Passing
+{{.*}}/rl
+	My Feature 4 Passing Reusable Steps
+		My Scenario 10 With Reusable Steps
+			Given you execute step 28
+			When you execute step 29
+			Then you execute step 30

@@ -15,12 +15,11 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task CollapsedByDefault()
 		{
             await xB.AddScenario(this, 1)
-                .Given(you.GenerateAReportWithAFailingStepWithAnException())
-				.When(you.NavigateTo(the.HtmlReport.WithAFailingStepWithAnException))
-				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
-				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
-				.Then(you.WillSee(the.StepException.Message(2)).IsNotVisible().Because("the exception is collapsed by default."))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
+				.And(you.ClickWhen(the.Area.Name(3)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(8,3)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(20,8)).IsVisible())
+				.Then(you.WillSee(the.StepException.Message(59)).IsNotVisible().Because("the exception is collapsed by default."))
                 .Run();
 		}
 		
@@ -29,15 +28,14 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Collapse()
 		{
             await xB.AddScenario(this, 1)
-                .Given(you.GenerateAReportWithAFailingStepWithAnException())
-				.And(you.NavigateTo(the.HtmlReport.WithAFailingStepWithAnException))
-				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
-				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
-				.When(you.ClickWhen(the.StepException.Link(2,1)).IsVisible())
-				.And(you.WaitTill(the.StepException.Section(2)).IsVisible())
-				.And(you.Click(the.StepException.Link(2,1)))
-				.Then(you.WillSee(the.StepException.Section(2)).IsNotThere())
+				.Given(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
+				.And(you.ClickWhen(the.Area.Name(3)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(8,3)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(20,8)).IsVisible())
+				.When(you.ClickWhen(the.StepException.Link(59,20)).IsVisible())
+				.And(you.WaitTill(the.StepException.Section(59)).IsVisible())
+				.And(you.Click(the.StepException.Link(59,20)))
+				.Then(you.WillSee(the.StepException.Section(59)).IsNotThere())
                 .Run();
 		}
 		[TestMethod]
@@ -50,13 +48,12 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Expand()
 		{
             await xB.AddScenario(this, 1)
-                .Given(you.GenerateAReportWithAFailingStepWithAnException())
-				.And(you.NavigateTo(the.HtmlReport.WithAFailingStepWithAnException))
-				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
-				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
-				.When(you.ClickWhen(the.StepException.Link(2,1)).IsVisible())
-				.Then(you.WillSee(the.StepException.Section(2)).IsVisible())
+				.Given(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
+				.And(you.ClickWhen(the.Area.Name(3)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(8,3)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(20,8)).IsVisible())
+				.When(you.ClickWhen(the.StepException.Link(59,20)).IsVisible())
+				.Then(you.WillSee(the.StepException.Section(59)).IsVisible())
                 .Run();
 		}
 		[TestMethod]

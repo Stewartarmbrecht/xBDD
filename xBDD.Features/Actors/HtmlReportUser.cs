@@ -9,6 +9,20 @@ namespace xBDD.Features.Actors
 {
     public class HtmlReportUser: User
     {
+        public Step WillSeeTheHtmlReportIsNotCreated(string reportName)
+        {
+            var step = xB.CreateStep(
+                $"you will see the html report is not created",
+                (s) => {
+                    var sep = System.IO.Path.DirectorySeparatorChar;
+                    if(System.IO.File.Exists($"{sep}..{sep}..{sep}..{sep}..{sep}MySample.Feature{sep}test-results{sep}{reportName}")) {
+                        throw new Exception("The report exists.");
+                    }
+                    return;
+                });
+            return step;
+        }
+
         internal Step GenerateAReportWithAFailingStepWithAnException()
         {
             string path = this.GetReportPath("WithAFailingStepWithAnException");

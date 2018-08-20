@@ -18,12 +18,11 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task FailedSkippedAndPassingStepsStats()
 		{
             await xB.CurrentRun.AddScenario(this, 1)
-                .Given(you.GenerateAReportWithAFullTestRunWithAllOutcomes())
- 				.And(you.NavigateTo(the.HtmlReport.WithAFullTestRunWithAllOutcomes))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
 				.And(you.ClickWhen(the.Area.Name(3)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(7,3)).IsVisible())
-				.And(you.ClickWhen(the.Scenario.Name(19,7)).IsVisible())
-				.Then(you.WillSee(the.Step.Duration(56)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(8,3)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(20,8)).IsVisible())
+				.Then(you.WillSee(the.Step.Duration(59)).IsVisible())
                 .Run();
 		}
 	}

@@ -51,6 +51,24 @@ namespace MySample.Features
                 return value;
             }
         }
+        public static bool SortTestRun
+        {
+            get 
+            {
+                var value = true;
+                bool.TryParse(config["xBDD:SortTestRun"], out value);
+                return value;
+            }
+        }
+        public static bool FullySortTestRun
+        {
+            get 
+            {
+                var value = false;
+                bool.TryParse(config["xBDD:FullySortTestRun"], out value);
+                return value;
+            }
+        }
         public static string RemoveFromAreaNameStart
         {
             get 

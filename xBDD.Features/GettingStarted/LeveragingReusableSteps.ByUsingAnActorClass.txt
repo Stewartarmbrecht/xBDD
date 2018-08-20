@@ -1,9 +1,0 @@
-My Sample Features
-
-My Sample - Features - My Area 1
-{{.*}}/rl
-	My Feature Reusable Steps
-		My Scenario With Reusable Steps
-			Given you execute a first action
-			When you execute another action
-			Then you will see a result

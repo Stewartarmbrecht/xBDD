@@ -18,8 +18,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
         public async Task Expand()
 		{
             await xB.AddScenario(this, 1)
-				.Given(you.GenerateAReportWithAPassingFullTestRun())
-                .When(you.NavigateTo(the.HtmlReport.WithAPassingFullTestRun))
+                .When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
                 .And(you.WaitTill(the.Area.Name(1)).IsVisible())
                 .And(you.Click(the.Area.Name(1)))
                 .Then(you.WillSee(the.Area.Features(1)).IsVisible())
@@ -30,8 +29,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
         public async Task ExpandAll()
 		{
             await xB.AddScenario(this, 2)
-				.Given(you.GenerateAReportWithAPassingFullTestRun())
-                .When(you.NavigateTo(the.HtmlReport.WithAPassingFullTestRun))
+                .When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
                 .And(you.WaitTill(the.Area.Name(1)).IsVisible())
                 .And(you.Click(the.Menu.ExpandAllAreasLink))
                 .Then(you.WillSee(the.Area.Features(1)).IsVisible())
@@ -43,8 +41,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Collapse()
 		{
             await xB.AddScenario(this, 3)
-				.Given(you.GenerateAReportWithAPassingFullTestRun())
-                .When(you.NavigateTo(the.HtmlReport.WithAPassingFullTestRun))
+                .When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
                 .And(you.WaitTill(the.Area.Name(1)).IsVisible())
                 .And(you.Click(the.Menu.ExpandAllAreasLink))
                 .And(you.WaitTill(the.Area.Features(1)).IsVisible())
@@ -58,7 +55,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		{
             await xB.AddScenario(this, 4)
 				.Given(you.GenerateAReportWithAPassingFullTestRun())
-                .When(you.NavigateTo(the.HtmlReport.WithAPassingFullTestRun))
+                .When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
                 .And(you.WaitTill(the.Area.Name(1)).IsVisible())
                 .And(you.Click(the.Menu.ExpandAllAreasLink))
                 .And(you.WaitTill(the.Area.Features(1)).IsVisible())

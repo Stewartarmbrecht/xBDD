@@ -18,7 +18,7 @@ namespace xBDD.Features.GenerateCode
         {
             await xB.CurrentRun.AddScenario(this, 1)
                 .Given(you.HaveATestProjectThatProducesAllOutcomes())
-                .And(you.HaveTheFollowingTestSetupAndBreakdownClass())
+                .And(you.HaveTheFollowingTestSetupAndBreakdownClass("that includes the line to generate code"))
                 .And("you include this line of code:", 
                     (s) => { }, 
                     "xBDD.CurrentRun.WriteToCode(\"MySample.Features\", \"./Code/\", \"My Sample - Features - \")", 

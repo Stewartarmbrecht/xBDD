@@ -28,7 +28,13 @@ namespace MySample.Features
 
             System.IO.Directory.CreateDirectory($"{directory}/../../../test-results");
 
-            xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
+            if(TestConfiguration.SortTestRun) {
+                if(TestConfiguration.FullySortTestRun) {
+                    xB.CurrentRun.SortTestRunResults(new FeatureSortFull().SortedFeatureNames);
+                } else {
+                    xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
+                }
+            }
 
             var htmlPath = directory + $"/../../../test-results/{TestConfiguration.HtmlReportFileName}";
             Logger.LogMessage("Writing Html Report to " + htmlPath);

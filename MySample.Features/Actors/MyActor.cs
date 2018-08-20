@@ -5,17 +5,17 @@ namespace MySample.Actors
     public class MyActor 
     {
         public const string Name = "My Actor";
-        public Step ExcuteFirstAction()
+        public Step ExcuteStep28()
         {
-            return xB.CreateStep("you execute a first action", (step) => {});
+            return xB.CreateStep("you execute step 28", (step) => {});
         }
-        public Step ExcuteAnotherAction()
+        public Step ExcuteStep29()
         {
-            return xB.CreateStep("you execute another action", (step) => {});
+            return xB.CreateStep("you execute step 29", (step) => {});
         }
-        public Step WillSeeAResult()
+        public Step ExcuteStep30()
         {
-            return xB.CreateStep("you will see a result", (step) => {});
+            return xB.CreateStep("you execute step 30", (step) => {});
         }
     }
 }

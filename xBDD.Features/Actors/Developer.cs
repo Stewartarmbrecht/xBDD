@@ -110,10 +110,10 @@ namespace xBDD.Features.Actors
             return step;
         }
 
-        internal Step HaveTheFollowingTestSetupAndBreakdownClass()
+        internal Step HaveTheFollowingTestSetupAndBreakdownClass(string focus)
         {
             return this.HaveTheFollowingClass(
-                "for setting up and breaking down the test run", 
+                $"for setting up and breaking down the test run {focus}", 
                 "../MySample.Features/TestSetupAndBreakdown.cs");
 
         }
@@ -131,10 +131,14 @@ namespace xBDD.Features.Actors
             return step;
         }
 
-        internal Step WillSeeTheOutputMatches(string templateFilePath, string outputFilePath)
+        internal Step WillSeeTheOutputMatches(string templateFilePath, string outputFilePath, string description = null)
         {
+            if(description == null)
+            {
+                description = "you will see the output matches this template (See TemplateValidator project on Nuget):";
+            }
             var step = xB.CreateStep(
-                "you will see the output matches this template (See TemplateValidator project on Nuget):",
+                description,
                 (s) => {
                     var output = "";
                     try {

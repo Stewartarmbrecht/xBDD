@@ -1,5 +1,0 @@
-{{.*}}/rl
-Passed   SearchWithSearchButton
-{{.*}}/rl
-Test Run Successful.
-{{.*}}/rl

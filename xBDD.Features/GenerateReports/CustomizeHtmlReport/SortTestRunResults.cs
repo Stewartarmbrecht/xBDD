@@ -18,36 +18,33 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		public async Task NotSorted()
 		{
 			 await xB.AddScenario(this, 1)
-			 	.Given(you.GenerateAnHtmlReportUsingATestRunThatIsNotSorted())
-				.When(you.NavigateTo(the.HtmlReport.ThatIsNotSorted))
-				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
-				.Then(you.WillSee(the.Feature.Name(1,1)).HasText("Sample All Outcome Feature").Because("it was the first feature alphabetically"))
-				.And(you.WillSee(the.Scenario.Name(1,1)).HasText("Failed Scenario").Because("it is the first scenario alphabetically"))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedUnsortedTestRun))
+				.And(you.ClickWhen(the.Area.Name(6)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(13,6)).IsVisible())
+				.Then(you.WillSee(the.Feature.Name(13,6)).HasText("My Feature 12 Third").Because("it was the first feature alphabetically"))
+				.And(you.WillSee(the.Scenario.Name(33,13)).HasText("My Scenario 30 Unsorted 38 Sorted").Because("it is the first scenario alphabetically"))
 				.Run();
 		}
 		[TestMethod]
 		public async Task Sorted()
 		{
 			 await xB.AddScenario(this, 2)
-			 	.Given(you.GenerateAnHtmlReportUsingATestRunThatIsSorted())
-				.When(you.NavigateTo(the.HtmlReport.ThatIsSorted))
-				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
-				.Then(you.WillSee(the.Feature.Name(1,1)).HasText("Sample Passing Feature",-1, true).Because("it was the first in the feature sort"))
-				.And(you.WillSee(the.Scenario.Name(1,1)).HasText("Passing Scenario3",-1, true).Because("it is the first in the feature class definition"))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedFullySortedTestRun))
+				.And(you.ClickWhen(the.Area.Name(6)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(13,6)).IsVisible())
+				.Then(you.WillSee(the.Feature.Name(13,6)).HasText("My Feature 13 First").Because("it was sorted to be first"))
+				.And(you.WillSee(the.Scenario.Name(33,13)).HasText("My Scenario 35 Unsorted 30 Sorted").Because("it is the first scenario sorted"))
 				.Run();
 		}
 		[TestMethod]
 		public async Task PartiallySorted()
 		{
 			 await xB.AddScenario(this, 2)
-			 	.Given(you.GenerateAnHtmlReportUsingATestRunThatIsSorted())
-				.When(you.NavigateTo(the.HtmlReport.ThatIsSorted))
-				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(2,1)).IsVisible())
-				.Then(you.WillSee(the.Feature.Name(2,1)).HasText("Sample Skipped Feature",-1, true).Because("it was the second in the feature sort"))
-				.And(you.WillSee(the.Scenario.Name(6,2)).HasText("Passing Scenario2",-1, true).Because("it was not provided a sort when the scenario was created and was placed after the sorted scenarios"))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
+				.And(you.ClickWhen(the.Area.Name(9)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(19,9)).IsVisible())
+				.Then(you.WillSee(the.Feature.Name(19,9)).HasText("My Feature 0 Unsorted",-1, true).Because("it was the second in the feature sort"))
+				.And(you.WillSee(the.Scenario.Name(45,19)).HasText("My Scenario 0 Unsorted",-1, true).Because("it was not provided a sort when the scenario was created and was placed after the sorted scenarios"))
 				.Run();
 		}
 	}

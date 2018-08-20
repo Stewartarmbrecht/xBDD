@@ -20,9 +20,9 @@ namespace xBDD.Features.GettingStarted
 		public async Task ByUsingAnActorClass()
 		{
 			var pathToActorClass = "../MySample.Features/Actors/MyActor.cs";
-			var pathToFeatureClass = "../MySample.Features/MyArea_1/MyFeature_ReusableSteps.cs";
+			var pathToFeatureClass = "../MySample.Features/MyArea_1_AllPassing/MyFeature_4_Passing_ReusableSteps.cs";
 			var pathToOutputFile = "../MySample.Features/test-results/MySample.Features.Results.Passing.txt";
-			var pathToTemplateFile = "../xBDD.Features/GettingStarted/LeveragingReusableSteps.ByUsingAnActorClass.txt";
+			var pathToTemplateFile = "../xBDD.Features/GettingStarted/LeveragingReusableSteps.ByUsingAnActorClass.template";
 			await xB.AddScenario(this, 1)
 				.Given(you.HaveTheFollowingClass("for defining reusable steps", pathToActorClass))
 				.And(you.HaveTheFollowingClass("that defines a feature using the reusable steps", pathToFeatureClass))

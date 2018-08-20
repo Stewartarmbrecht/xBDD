@@ -9,18 +9,30 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	public class ReviewTestRun: FeatureTestClass
 	{
         private HtmlReportUser you = new HtmlReportUser();
+		private Developer youAsADeveloper = new Developer();
         private HtmlReportPageModel the = new HtmlReportPageModel();
 
 		[TestMethod]
-		public async Task EmptyTestRun()
+		public async Task FromATestRunWithNoScenarios()
 		{
             await xB.AddScenario(this, 1)
-                .Given(you.GenerateAReportWithAnEmptyTestRun())
-                .When(you.NavigateTo(the.HtmlReport.WithAnEmptyTestRun))
+				.When(you.NavigateTo(the.HtmlReport.FromATestRunWithNoScenarios))
                 .Then(you.WillSee(the.TestRun.Name).IsVisible())
-                .And(you.WillSee(the.TestRun.Name).HasText("My Test Run"))
-                .And(you.AreViewingAPageWithTheTitle("My Test Run"))
+                .And(you.WillSee(the.TestRun.Name).HasText("My Sample Features"))
+                .And(you.AreViewingAPageWithTheTitle("My Sample Features"))
                 .And(you.WillSee(the.TestRun.BadgeGrey).IsVisible().Because("no scenarios were run"))
+                .Run();
+		}
+		
+		[TestMethod]
+		public async Task FromATestRunWithNoTests()
+		{
+			var pathToOutputFile = "../MySample.Features/test-results/MySample.Features.Results.None.Output.txt";
+			var pathToTemplateFile = "../xBDD.Features/GenerateReports/BrowseHtmlReport/ReviewTestRun.FromATestRunWithNoTests.template";
+            await xB.AddScenario(this, 1)
+				.When("you execute a test run with no tests", (s) => {})
+				.Then(you.WillSeeTheHtmlReportIsNotCreated("MySample.Features.Results.None.html"))
+                .Then(youAsADeveloper.WillSeeTheOutputMatches(pathToTemplateFile, pathToOutputFile, "you will see an html report is generated that displays the test results in a collapsible tree"))
                 .Run();
 		}
 		
@@ -28,8 +40,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task PassingTestRun()
 		{
             await xB.AddScenario(this, 2)
-                .Given(you.GenerateAReportWithASinglePassingScenario())
-                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
+				.When(you.NavigateTo(the.HtmlReport.FromAPassingTestRun))
                 .Then(you.WillSee(the.TestRun.BadgeGreen).IsVisible())
 				.And(you.WillSee(the.TestRun.Duration).IsVisible())
                 .Run();
@@ -39,8 +50,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task PassingWithSomeSkipped()
 		{
             await xB.AddScenario(this, 3)
-                .Given(you.GenerateAReportWithASingleSkippedScenario())
-                .When(you.NavigateTo(the.HtmlReport.WithASingleSkippedScenario))
+				.When(you.NavigateTo(the.HtmlReport.FromASkippedTestRun))
                 .Then(you.WillSee(the.TestRun.BadgeYellow).IsVisible())
                 .Run();
 		}
@@ -49,8 +59,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Failing()
 		{
             await xB.AddScenario(this, 4)
-                .Given(you.GenerateAReportWithASingleFailedScenario())
-                .When(you.NavigateTo(the.HtmlReport.WithASingleFailedScenario))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
                 .Then(you.WillSee(the.TestRun.BadgeRed).IsVisible())
                 .Run();
 		}

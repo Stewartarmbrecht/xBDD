@@ -18,8 +18,7 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		public async Task Passing()
 		{
             await xB.AddScenario(this, 1)
-                .Given(you.GenerateAReportWithASinglePassingScenario(null, null, null, null, true))
-                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
+                .When(you.NavigateTo(the.HtmlReport.FromAPassingTestRunWithFailuresOnly))
 				.Then(you.WillSee(the.TestRun.Areas).IsNotThere())
                 .Run();
 		}
@@ -27,8 +26,7 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		public async Task Skipped()
 		{
             await xB.AddScenario(this, 2)
-                .Given(you.GenerateAReportWithASingleSkippedScenario(true))
-                .When(you.NavigateTo(the.HtmlReport.WithASingleSkippedScenario))
+                .When(you.NavigateTo(the.HtmlReport.FromASkippedTestRunWithFailuresOnly))
 				.Then(you.WillSee(the.TestRun.Areas).IsNotThere())
                 .Run();
 		}
@@ -36,8 +34,7 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		public async Task Failing()
 		{
             await xB.AddScenario(this, 3)
-                .Given(you.GenerateAReportWithAFullTestRunWithAllOutcomes(true))
-                .When(you.NavigateTo(the.HtmlReport.WithAFullTestRunWithAllOutcomes))
+                .When(you.NavigateTo(the.HtmlReport.FromAFailedTestRunWithFailuresOnly))
 				.Then(you.WillSee(the.Step.BadgeRed(2)).IsVisible().Because("the step failed and the report will be expanded to the failed step"))
                 .Run();
 		}

@@ -4,52 +4,53 @@ namespace xBDD.Features.Pages.HtmlReportPage
 {
     public class ReportLocations
     {
-        public PageLocation WithAFailingStepWithAnException => new PageLocation(
-            "the test html report with a failing step with an exception", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithAFailingStepWithAnException.html");
-        public PageLocation WithAPassingFullTestRun => new PageLocation(
-            "the test html report with a passing full test run", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithAPassingFullTestRun.html");
-        public PageLocation WithAFullTestRunWithAllOutcomes => new PageLocation(
-            "the test html report with a full test run with all outcomes", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithAFullTestRunWithAllOutcomes.html");
-        public PageLocation WithAFailingStepWithANestedException => new PageLocation(
-            "the test html report with a failing step with a nested exception", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithAFailingStepWithANestedException.html");
-        public PageLocation WithAStepWithOutput => new PageLocation(
-            "the test html report with a step with output", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithAStepWithOutput.html");
-        public PageLocation WithASinglePassingScenario => new PageLocation(
-            "the test html report with a single passing scenario", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithASinglePassingScenario.html");
-        public PageLocation WithASingleFailedScenario => new PageLocation(
-            "the test html report with a single failed scenario", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithASingleFailedScenario.html");
-        public PageLocation WithASingleSkippedScenario => new PageLocation(
-            "the test html report with a single skipped scenario", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithASingleSkippedScenario.html");
-        public PageLocation WithAnEmptyTestRun => new PageLocation(
-            "the test html report with an empty test run", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithAnEmptyTestRun.html");
-
-        public PageLocation ThatIsNotSorted => new PageLocation(
-            "the sample test html report that is not sorted", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsThatIsNotSorted.html");
-
-        public PageLocation ThatIsSorted => new PageLocation(
-            "the sample test html report that is sorted", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsThatIsSorted.html");
-
-        public PageLocation WithAStepWithAMultilineParameter => new PageLocation(
-            "the sample test html report with a step with a multiline parameter", 
-            $"file:///{directory}{System.IO.Path.DirectorySeparatorChar}TestResultsWithAStepWithAMultilineParameter.html");
+        public PageLocation FromATestRunWithOnePassingScenario => new PageLocation(
+            "the test html report from a test run with one passing scenario", 
+            $"file:///{root}MySample.Features.Results.FirstPassing.html");
+        public PageLocation FromAPassingTestRun => new PageLocation(
+            "the test html report from a test run with all passing scenarios", 
+            $"file:///{root}MySample.Features.Results.Passing.html");
+        public PageLocation FromAPassingTestRunWithFailuresOnly => new PageLocation(
+            "the test html report from a test run with all passing scenarios reporting failures only", 
+            $"file:///{root}MySample.Features.Results.PassingFailuresOnly.html");
+        public PageLocation FromASkippedTestRun => new PageLocation(
+            "the test html report from a test run with passing and skipped scenarios", 
+            $"file:///{root}MySample.Features.Results.Skipped.html");
+        public PageLocation FromASkippedTestRunWithFailuresOnly => new PageLocation(
+            "the test html report from a test run with passing and skipped scenarios reporting failures only", 
+            $"file:///{root}MySample.Features.Results.SkippedFailuresOnly.html");
+        public PageLocation FromATestRunWithOneFailingScenario => new PageLocation(
+            "the test html report from a test run with one failed scenario", 
+            $"file:///{root}MySample.Features.Results.FirstFailing.html");
+        public PageLocation FromAFailedTestRun => new PageLocation(
+            "the test html report from a test run with passing, skipped, and failed scenarios", 
+            $"file:///{root}MySample.Features.Results.All.html");
+        public PageLocation FromAFailedTestRunWithFailuresOnly => new PageLocation(
+            "the test html report from a test run with passing, skipped, and failed scenarios and reporting failures only", 
+            $"file:///{root}MySample.Features.Results.AllFailuresOnly.html");
+        public PageLocation FromAFailedUnsortedTestRun => new PageLocation(
+            "the test html report from an unsorted test run with passing, skipped, and failed scenarios", 
+            $"file:///{root}MySample.Features.Results.All.Unsorted.html");
+        public PageLocation FromAFailedFullySortedTestRun => new PageLocation(
+            "the test html report from a fully sorted test run with passing, skipped, and failed scenarios", 
+            $"file:///{root}MySample.Features.Results.All.FullSorted.html");
+        public PageLocation FromATestRunWithNoScenarios => new PageLocation(
+            "the test html report from a test run with no scenarios", 
+            $"file:///{root}MySample.Features.Results.NoScenarios.html");
+        public PageLocation FromATestRunWithNoAreaNameRemoval => new PageLocation(
+            "the test html report from a test run with no area name removal", 
+            $"file:///{root}MySample.Features.Results.NoAreaNameRemoval.html");
+        public PageLocation FromATestRunWithFullAreaNameRemoval => new PageLocation(
+            "the test html report from a test run with no area name removal", 
+            $"file:///{root}MySample.Features.Results.FullAreaNameRemoval.html");
 
         private string location;
-        private string directory; 
+        private string root; 
         public ReportLocations()
         {
-            this.location = System.Reflection.Assembly.GetEntryAssembly().Location;
-            this.directory = System.IO.Path.GetDirectoryName(this.location);
+            this.root = System.IO.Directory.GetCurrentDirectory();
+            var s = System.IO.Path.DirectorySeparatorChar;
+            this.root = $"{root}{s}..{s}..{s}..{s}..{s}MySample.Features{s}test-results{s}";
         }
 	
     }

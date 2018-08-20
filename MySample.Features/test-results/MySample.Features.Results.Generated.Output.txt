@@ -1,4 +1,4 @@
-Build started 8/19/18 9:39:39 AM.
+Build started 8/20/18 1:42:03 AM.
 Test run for /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/bin/Debug/netcoreapp2.1/MySample.Features.dll(.NETCoreApp,Version=v2.1)
 Microsoft (R) Test Execution Command Line Tool Version 15.7.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
@@ -33,6 +33,200 @@ Standard Output Messages:
 
 
 Passed   MyFirstScenario
+Failed   MyScenario_Z
+Error Message:
+ Test method MySample.Features.MyArea_SortFlip.MyFeature_A.MyScenario_Z threw exception: 
+xBDD.StepException: The step 'my failed step 56' threw a 'Exception' exception with a message: 'Exception of type 'System.Exception' was thrown.'. See the inner exception for details. ---> System.Exception: Exception of type 'System.Exception' was thrown.
+Stack Trace:
+    at MySample.Features.MyArea_SortFlip.MyFeature_A.<>c.<MyScenario_Z>b__0_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_SortFlip/MyFeature_A.cs:line 21
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
+   at xBDD.Core.ScenarioBuilder.Run()
+   at MySample.Features.MyArea_SortFlip.MyFeature_A.MyScenario_Z() in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_SortFlip/MyFeature_A.cs:line 19
+
+Standard Output Messages:
+ 
+ 
+ Debug Trace:
+ My Scenario Z
+     Given my step 55
+     When my failed step 56
+     Then my step 3
+
+
+Passed   MyScenario_X
+Passed   MyScenario_Y
+Passed   MyScenario_Z
+Passed   MyScenario_Y
+Passed   MyScenario_X
+Passed   MyScenario_Z
+Passed   MyScenario_Y
+Passed   MyScenario_X
+Failed   MyScenario_CompleteFailure
+Error Message:
+ Test method MySample.Features.MyArea_CompleteFailure.MyFeature_CompleteFailure.MyScenario_CompleteFailure threw exception: 
+xBDD.StepException: The step 'my failed step 56' threw a 'Exception' exception with a message: 'Exception of type 'System.Exception' was thrown.'. See the inner exception for details. ---> System.Exception: Exception of type 'System.Exception' was thrown.
+Stack Trace:
+    at MySample.Features.MyArea_CompleteFailure.MyFeature_CompleteFailure.<>c.<MyScenario_CompleteFailure>b__0_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_CompleteFailure/MyFeature_CompleteFailure.cs:line 21
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
+   at xBDD.Core.ScenarioBuilder.Run()
+   at MySample.Features.MyArea_CompleteFailure.MyFeature_CompleteFailure.MyScenario_CompleteFailure() in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_CompleteFailure/MyFeature_CompleteFailure.cs:line 19
+
+Standard Output Messages:
+ 
+ 
+ Debug Trace:
+ My Scenario Complete Failure
+     Given my step 55
+     When my failed step 56
+     Then my step 3
+
+
+Skipped  MyScenario_40_Failed
+Skipped  MyScenario_40_Failed
+Skipped  MyScenario_39_AllSkipped
+Passed   MyScenario_32_Unsorted_36_Sorted
+Passed   MyScenario_31_Unsorted_37_Sorted
+Failed   MyScenario_30_Unsorted_38_Sorted
+Error Message:
+ Test method MySample.Features.MyArea_5_SortFlip.MyFeature_12_Third.MyScenario_30_Unsorted_38_Sorted threw exception: 
+xBDD.StepException: The step 'my step 89 113 failed' threw a 'Exception' exception with a message: 'Exception of type 'System.Exception' was thrown.'. See the inner exception for details. ---> System.Exception: Exception of type 'System.Exception' was thrown.
+Stack Trace:
+    at MySample.Features.MyArea_5_SortFlip.MyFeature_12_Third.<>c.<MyScenario_30_Unsorted_38_Sorted>b__2_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_5_SortFlip/MyFeature_12_Third.cs:line 41
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
+   at xBDD.Core.ScenarioBuilder.Run()
+   at MySample.Features.MyArea_5_SortFlip.MyFeature_12_Third.MyScenario_30_Unsorted_38_Sorted() in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_5_SortFlip/MyFeature_12_Third.cs:line 39
+
+Standard Output Messages:
+ 
+ 
+ Debug Trace:
+ My Scenario 30 Unsorted 38 Sorted
+     Given my step 88 112
+     When my step 89 113 failed
+     Then my step 90 114
+
+
+Passed   MyScenario_35_Unsorted_30_Sorted
+Passed   MyScenario_34_Unsorted_31_Sorted
+Passed   MyScenario_33_Unsorted_32_Sorted
+Passed   MyScenario_36_Unsorted_35_Sorted
+Passed   MyScenario_37_Unsorted_34_Sorted
+Passed   MyScenario_38_Unsorted_33_Sorted
+Failed   MyScenario_29_CompleteFailure
+Error Message:
+ Test method MySample.Features.MyArea_4_CompleteFailure.MyFeature_11_CompleteFailure.MyScenario_29_CompleteFailure threw exception: 
+xBDD.StepException: The step 'my failed step 86' threw a 'Exception' exception with a message: 'Exception of type 'System.Exception' was thrown.'. See the inner exception for details. ---> System.Exception: Exception of type 'System.Exception' was thrown.
+Stack Trace:
+    at MySample.Features.MyArea_4_CompleteFailure.MyFeature_11_CompleteFailure.<>c.<MyScenario_29_CompleteFailure>b__0_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_4_CompleteFailure/MyFeature_11_CompleteFailure.cs:line 21
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
+   at xBDD.Core.ScenarioBuilder.Run()
+   at MySample.Features.MyArea_4_CompleteFailure.MyFeature_11_CompleteFailure.MyScenario_29_CompleteFailure() in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_4_CompleteFailure/MyFeature_11_CompleteFailure.cs:line 19
+
+Standard Output Messages:
+ 
+ 
+ Debug Trace:
+ My Scenario 29 Complete Failure
+     Given my step 85
+     When my failed step 86
+     Then my step 87
+
+
+Passed   MyScenario_26_Passed
+Passed   MyScenario_27_Passed
+Passed   MyScenario_28_Passed
+Failed   MyScenario_20_Failed
+Error Message:
+ Test method MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.MyScenario_20_Failed threw exception: 
+xBDD.StepException: The step 'my failed step 59' threw a 'Exception' exception with a message: 'Exception of type 'System.Exception' was thrown.'. See the inner exception for details. ---> System.Exception: Exception of type 'System.Exception' was thrown.
+Stack Trace:
+    at MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.<>c.<MyScenario_20_Failed>b__0_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_3_SomeFailed/MyFeature_8_SomeFailed.cs:line 21
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
+   at xBDD.Core.ScenarioBuilder.Run()
+   at MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.MyScenario_20_Failed() in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_3_SomeFailed/MyFeature_8_SomeFailed.cs:line 19
+
+Standard Output Messages:
+ 
+ 
+ Debug Trace:
+ My Scenario 20 Failed
+     Given my step 58
+     When my failed step 59
+     Then my step 60
+
+
+Failed   MyScenario_21_Failed
+Error Message:
+ Test method MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.MyScenario_21_Failed threw exception: 
+xBDD.StepException: The step 'my step 62' threw a 'Exception' exception with a message: 'Exception of type 'System.Exception' was thrown.'. See the inner exception for details. ---> System.Exception: Exception of type 'System.Exception' was thrown.
+Stack Trace:
+    at MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.<>c.<MyScenario_21_Failed>b__1_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_3_SomeFailed/MyFeature_8_SomeFailed.cs:line 31
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
+   at xBDD.Core.ScenarioBuilder.Run()
+   at MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.MyScenario_21_Failed() in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/Code/MyArea_3_SomeFailed/MyFeature_8_SomeFailed.cs:line 29
+
+Standard Output Messages:
+ 
+ 
+ Debug Trace:
+ My Scenario 21 Failed
+     Given my step 61
+     When my step 62
+     Then my step 63
+
+
+Passed   MyScenario_22_Passed
+Skipped  MyScenario_23_Skipped
+Skipped  MyScenario_24_Skipped
+Passed   MyScenario_25_Passed
 Failed   MyScenario_19
 Error Message:
  Test method MySample.Features.MyArea_3.MyFeature_7.MyScenario_19 threw exception: 
@@ -69,6 +263,15 @@ Passed   MyScenario_24
 Passed   MyScenario_25
 Passed   MyScenario_26
 Passed   MyScenario_27
+Skipped  MyScenario_11
+Skipped  MyScenario_12
+Passed   MyScenario_13
+Skipped  MyScenario_14
+Skipped  MyScenario_15
+Passed   MyScenario_16
+Passed   MyScenario_17
+Passed   MyScenario_18
+Passed   MyScenario_19
 Skipped  MyScenario_10
 Skipped  MyScenario_11
 Passed   MyScenario_12
@@ -84,16 +287,38 @@ Passed   MyScenario_3
 Passed   MyScenario_4
 Passed   MyScenario_5
 Passed   MyScenario_6
+Passed   MyScenario_4
+Passed   MyScenario_5
+Passed   MyScenario_6
+Passed   MyScenario_7
+Passed   MyScenario_8
+Passed   MyScenario_9
+Passed   MyScenario_7
+Passed   MyScenario_8
+Passed   MyScenario_9
+Passed   MyScenario_10_WithReusableSteps
+Passed   MyScenario_1
+Passed   MyScenario_2
+Passed   MyScenario_3
+Passed   MyScenario_4
+Passed   MyScenario_5
+Passed   MyScenario_6
 Passed   MyScenario_7
 Passed   MyScenario_8
 Passed   MyScenario_9
 Passed   MyScenario_WithReusableSteps
+Passed   MyScenario_1_Sorted
+Passed   MyScenario_2_Sorted
+Passed   MyScenario_0_Unsorted
+Passed   MyScenario_1_Sorted
+Passed   MyScenario_2_Sorted
+Passed   MyScenario_0_Unsorted
 
-Total tests: 30. Passed: 21. Failed: 2. Skipped: 7.
-Test execution time: 3.2198 Seconds
+Total tests: 93. Passed: 69. Failed: 8. Skipped: 16.
+Test execution time: 2.3749 Seconds
 
 Build FAILED.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:04.55
+Time Elapsed 00:00:03.37

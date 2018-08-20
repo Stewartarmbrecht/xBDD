@@ -24,11 +24,11 @@
                 <div class="page-header" style="margin-top: 0px !important;">
         <h1 class="testrun-name"><span class="testrun badge pointer badge-pill total badge-success" title="Areas">1</span>
 <span class="name">My Sample Features</span>
-<span class="testrun duration"> [172 ms]</span>
+<span class="testrun duration"> [152 ms]</span>
         </h1>
     </div>
     <div style="margin-top: 0px !important;" id="testrun-dates">
-<span id="testrun-start-date" title="Start">2018-08-19 09:39 AM GMT-05:00</span>
+<span id="testrun-start-date" title="Start">2018-08-20 01:41 AM GMT-05:00</span>
     </div>
     <table class="table table-condensed " style="width: 100%; empty-cells: show;">
         <tr id="testrun-area-stats">
@@ -83,8 +83,8 @@
 <span class="area distro pointer" id="area-1-distro"><div class="distro bg-success" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
 </span>
 </span>
-                <span class="name pointer" id="area-1-name" data-toggle="collapse" href="#area-1-features" aria-expanded="false" aria-controls="area-1-features" >My Area 1</span>
-<span class="area duration"> [172 ms]</span>
+                <span class="name pointer" id="area-1-name" data-toggle="collapse" href="#area-1-features" aria-expanded="false" aria-controls="area-1-features" >My Area 1 All Passing</span>
+<span class="area duration"> [152 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-1-stats">
                 <tr id="area-1-feature-stats">
@@ -124,8 +124,8 @@
 <span class="feature distro pointer" id="feature-1-distro"><div class="distro bg-success" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
 </span>
 </span>
-<span class="feature-statement-link badge pointer badge-secondary" id="feature-1-statement-link" data-toggle="collapse" href="#feature-1-statement" aria-expanded="false" aria-controls="feature-1-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-1-scenarios" aria-expanded="false" aria-controls="feature-1-scenarios" >My Feature 1</span>
-<span class="feature duration"> [48 ms]</span>
+<span class="feature-statement-link badge pointer badge-secondary" id="feature-1-statement-link" data-toggle="collapse" href="#feature-1-statement" aria-expanded="false" aria-controls="feature-1-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-1-scenarios" aria-expanded="false" aria-controls="feature-1-scenarios" >My Feature 1 Passing</span>
+<span class="feature duration"> [59 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-1-stats">
                         <tr id="feature-1-scenario-stats">
@@ -153,26 +153,38 @@ By execute my feature 1</pre>
                         <li class="scenario passed" id="scenario-1">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-1-steps" aria-expanded="false" aria-controls="scenario-1-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
 <span class="name pointer">My Scenario 1</span>
-<span class="scenario duration"> [20 ms]</span>
+<span class="scenario duration"> [16 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-1-steps" aria-expanded="false">
                                 <li id="step-1">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-1-badge"> </span>
 <span class="name">Given my step 1</span>
-<span class="step duration"> [3 ms]</span>
+<span class="step duration"> [2 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-2">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-2-badge"> </span>
-<span class="name">When my step 2</span>
-<span class="step duration"> [0 ms]</span>
+<span class="name">When my step 2 with multiline input</span>
+<a class="step-input-link" data-toggle="collapse" href="#step-2-input" aria-expanded="false" aria-controls="step-2-input"> [Input]</a><span class="step duration"> [0 ms]</span>
 </h5>
+                                    <div class="input collapse" id="step-2-input" aria-expanded="false">
+                                        <pre class="mp rounded" id="input-2">Here
+ is
+ my
+ Input!</pre>
+</div>
                                 </li>
                                 <li id="step-3">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-3-badge"> </span>
-<span class="name">Then my step 3</span>
-<span class="step duration"> [0 ms]</span>
+<span class="name">Then my step 3 with output</span>
+<a class="step-output-link" data-toggle="collapse" href="#step-3-output" aria-expanded="false" aria-controls="step-3-output"> [Output]</a><span class="step duration"> [0 ms]</span>
 </h5>
+                                    <div class="output collapse" id="step-3-output" aria-expanded="false">
+                                        <pre class="output rounded text" id="output-3">Here
+ is
+ my
+ Input!</pre>
+</div>
                                 </li>
                             </ol>
                         </li>
@@ -190,13 +202,13 @@ By execute my feature 1</pre>
                                 </li>
                                 <li id="step-5">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-5-badge"> </span>
-<span class="name">When my step 2</span>
+<span class="name">When my step 5</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-6">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-6-badge"> </span>
-<span class="name">Then my step 3</span>
+<span class="name">Then my step 6</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
@@ -205,24 +217,24 @@ By execute my feature 1</pre>
                         <li class="scenario passed" id="scenario-3">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-3-steps" aria-expanded="false" aria-controls="scenario-3-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
 <span class="name pointer">My Scenario 3</span>
-<span class="scenario duration"> [0 ms]</span>
+<span class="scenario duration"> [2 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-3-steps" aria-expanded="false">
                                 <li id="step-7">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-7-badge"> </span>
 <span class="name">Given my step 7</span>
-<span class="step duration"> [0 ms]</span>
+<span class="step duration"> [1 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-8">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-8-badge"> </span>
-<span class="name">When my step 2</span>
+<span class="name">When my step 8</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-9">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-9-badge"> </span>
-<span class="name">Then my step 3</span>
+<span class="name">Then my step 9</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
@@ -235,8 +247,8 @@ By execute my feature 1</pre>
 <span class="feature distro pointer" id="feature-2-distro"><div class="distro bg-success" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
 </span>
 </span>
-<span class="feature-statement-link badge pointer badge-secondary" id="feature-2-statement-link" data-toggle="collapse" href="#feature-2-statement" aria-expanded="false" aria-controls="feature-2-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-2-scenarios" aria-expanded="false" aria-controls="feature-2-scenarios" >My Feature 2</span>
-<span class="feature duration"> [5 ms]</span>
+<span class="feature-statement-link badge pointer badge-secondary" id="feature-2-statement-link" data-toggle="collapse" href="#feature-2-statement" aria-expanded="false" aria-controls="feature-2-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-2-scenarios" aria-expanded="false" aria-controls="feature-2-scenarios" >My Feature 2 Passing Partial Statement</span>
+<span class="feature duration"> [3 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-2-stats">
                         <tr id="feature-2-scenario-stats">
@@ -256,9 +268,9 @@ By execute my feature 1</pre>
                     </tr>
                     </table>
                     <div class="output collapse" id="feature-2-statement" aria-expanded="false">
-                        <pre class="feature-statement bg-light rounded" id="feature-2-statement">As a sample user
+                        <pre class="feature-statement bg-light rounded" id="feature-2-statement">As a [Missing!]
 You can have my feature 2 value
-By execute my feature 2</pre>
+By [Missing!]</pre>
 </div>
                     <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="feature-2-scenarios" aria-expanded="false">
                         <li class="scenario passed" id="scenario-4">
@@ -275,13 +287,13 @@ By execute my feature 2</pre>
                                 </li>
                                 <li id="step-11">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-11-badge"> </span>
-<span class="name">When my step 2</span>
+<span class="name">When my step 11</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-12">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-12-badge"> </span>
-<span class="name">Then my step 3</span>
+<span class="name">Then my step 12</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
@@ -301,13 +313,13 @@ By execute my feature 2</pre>
                                 </li>
                                 <li id="step-14">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-14-badge"> </span>
-<span class="name">When my step 2</span>
+<span class="name">When my step 14</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-15">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-15-badge"> </span>
-<span class="name">Then my step 3</span>
+<span class="name">Then my step 15</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
@@ -327,13 +339,13 @@ By execute my feature 2</pre>
                                 </li>
                                 <li id="step-17">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-17-badge"> </span>
-<span class="name">When my step 2</span>
+<span class="name">When my step 17</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-18">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-18-badge"> </span>
-<span class="name">Then my step 3</span>
+<span class="name">Then my step 18</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
@@ -346,8 +358,8 @@ By execute my feature 2</pre>
 <span class="feature distro pointer" id="feature-3-distro"><div class="distro bg-success" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
 </span>
 </span>
-<span class="feature-statement-link badge pointer badge-secondary" id="feature-3-statement-link" data-toggle="collapse" href="#feature-3-statement" aria-expanded="false" aria-controls="feature-3-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-3-scenarios" aria-expanded="false" aria-controls="feature-3-scenarios" >My Feature 3</span>
-<span class="feature duration"> [5 ms]</span>
+                        <span class="name pointer" data-toggle="collapse" href="#feature-3-scenarios" aria-expanded="false" aria-controls="feature-3-scenarios" >My Feature 3 Passing Missing Statement</span>
+<span class="feature duration"> [3 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-3-stats">
                         <tr id="feature-3-scenario-stats">
@@ -366,11 +378,6 @@ By execute my feature 2</pre>
                         </td>
                     </tr>
                     </table>
-                    <div class="output collapse" id="feature-3-statement" aria-expanded="false">
-                        <pre class="feature-statement bg-light rounded" id="feature-3-statement">As a sample user
-You can have my feature 3 value
-By execute my feature 3</pre>
-</div>
                     <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="feature-3-scenarios" aria-expanded="false">
                         <li class="scenario passed" id="scenario-7">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-7-steps" aria-expanded="false" aria-controls="scenario-7-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
@@ -386,13 +393,13 @@ By execute my feature 3</pre>
                                 </li>
                                 <li id="step-20">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-20-badge"> </span>
-<span class="name">When my step 2</span>
+<span class="name">When my step 20</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-21">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-21-badge"> </span>
-<span class="name">Then my step 3</span>
+<span class="name">Then my step 21</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
@@ -412,13 +419,13 @@ By execute my feature 3</pre>
                                 </li>
                                 <li id="step-23">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-23-badge"> </span>
-<span class="name">When my step 2</span>
+<span class="name">When my step 23</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-24">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-24-badge"> </span>
-<span class="name">Then my step 3</span>
+<span class="name">Then my step 24</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
@@ -438,13 +445,13 @@ By execute my feature 3</pre>
                                 </li>
                                 <li id="step-26">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-26-badge"> </span>
-<span class="name">When my step 2</span>
+<span class="name">When my step 26</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-27">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-27-badge"> </span>
-<span class="name">Then my step 3</span>
+<span class="name">Then my step 27</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
@@ -457,7 +464,7 @@ By execute my feature 3</pre>
 <span class="feature distro pointer" id="feature-4-distro"><div class="distro bg-success" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
 </span>
 </span>
-<span class="feature-statement-link badge pointer badge-secondary" id="feature-4-statement-link" data-toggle="collapse" href="#feature-4-statement" aria-expanded="false" aria-controls="feature-4-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-4-scenarios" aria-expanded="false" aria-controls="feature-4-scenarios" >My Feature Reusable Steps</span>
+<span class="feature-statement-link badge pointer badge-secondary" id="feature-4-statement-link" data-toggle="collapse" href="#feature-4-statement" aria-expanded="false" aria-controls="feature-4-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-4-scenarios" aria-expanded="false" aria-controls="feature-4-scenarios" >My Feature 4 Passing Reusable Steps</span>
 <span class="feature duration"> [0 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-4-stats">
@@ -485,25 +492,25 @@ By execute my feature 1</pre>
                     <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="feature-4-scenarios" aria-expanded="false">
                         <li class="scenario passed" id="scenario-10">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-10-steps" aria-expanded="false" aria-controls="scenario-10-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
-<span class="name pointer">My Scenario With Reusable Steps</span>
+<span class="name pointer">My Scenario 10 With Reusable Steps</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-10-steps" aria-expanded="false">
                                 <li id="step-28">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-28-badge"> </span>
-<span class="name">Given you execute a first action</span>
+<span class="name">Given you execute step 28</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-29">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-29-badge"> </span>
-<span class="name">When you execute another action</span>
+<span class="name">When you execute step 29</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-30">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-30-badge"> </span>
-<span class="name">Then you will see a result</span>
+<span class="name">Then you execute step 30</span>
 <span class="step duration"> [0 ms]</span>
 </h5>
                                 </li>

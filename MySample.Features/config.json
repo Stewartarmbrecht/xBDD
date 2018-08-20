@@ -1,5 +1,7 @@
 {
     "xBDD": {
+        "SortTestRun": "true",
+        "FullySortTestRun": "false",
         "TestRunName": "My Sample Features",
         "Browser": {
             "Watch": "false"

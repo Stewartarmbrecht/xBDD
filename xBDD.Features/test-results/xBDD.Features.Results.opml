@@ -60,13 +60,13 @@
 			<outline text="Then you will see the output matches this template (See TemplateValidator project on Nuget):">
 				<outline text="My Sample Features" />
 				<outline text="" />
-				<outline text="My Sample - Features - My Area 1" />
+				<outline text="My Sample - Features - My Area 1 All Passing" />
 				<outline text="{{.*}}/rl" />
-				<outline text="	My Feature Reusable Steps" />
-				<outline text="		My Scenario With Reusable Steps" />
-				<outline text="			Given you execute a first action" />
-				<outline text="			When you execute another action" />
-				<outline text="			Then you will see a result" />
+				<outline text="	My Feature 4 Passing Reusable Steps" />
+				<outline text="		My Scenario 10 With Reusable Steps" />
+				<outline text="			Given you execute step 28" />
+				<outline text="			When you execute step 29" />
+				<outline text="			Then you execute step 30" />
 			</outline>
 		</outline>
 	</outline>
@@ -74,83 +74,94 @@
 <outline text="xBDD - Features - Generate Reports - Generate Html Report">
 	<outline text="Write To Html">
 		<outline text="Standard Full Report">
-			<outline text="Given you execute a test run"/>
-			<outline text="When you execute the following code:">
-				<outline text="string report = xB.CurrentRun.WriteToHTML()" />
+			<outline text="Given you have a test project that produces all outcomes"/>
+			<outline text="When you have a similar class in your test project for setting up and breaking down the test run that generates the html report:"/>
+			<outline text="And you execute the tests in the test project"/>
+			<outline text="Then you will see an html report is generated that displays the test results in a collapsible tree">
+				<outline text="<!DOCTYPE html>" />
+				<outline text="<html>" />
+				<outline text="{{.*}}/rl" />
+				<outline text="</html>" />
 			</outline>
-			<outline text="Then the report string will contain the entire HTML report that can be written to a file, sent via email, etc."/>
 		</outline>
 	</outline>
 </outline>
 <outline text="xBDD - Features - Generate Reports - Browse Html Report">
 	<outline text="Review Test Run">
-		<outline text="Empty Test Run">
-			<outline text="Given you generate an html report from test results of an empty test run"/>
-			<outline text="When you navigate to the test html report with an empty test run"/>
+		<outline text="From A Test Run With No Scenarios">
+			<outline text="When you navigate to the test html report from a test run with no scenarios"/>
 			<outline text="Then you will see the test run name is visible"/>
-			<outline text="And you will see the test run name has text 'My Test Run'"/>
-			<outline text="And you are viewing a page with the title 'My Test Run'"/>
+			<outline text="And you will see the test run name has text 'My Sample Features'"/>
+			<outline text="And you are viewing a page with the title 'My Sample Features'"/>
 			<outline text="And you will see the test run badge - grey is visible because no scenarios were run"/>
 		</outline>
+		<outline text="From A Test Run With No Tests">
+			<outline text="When you execute a test run with no tests"/>
+			<outline text="Then you will see the html report is not created"/>
+			<outline text="Then you will see an html report is generated that displays the test results in a collapsible tree">
+				<outline text="{{.*}}/rl" />
+				<outline text="No test matches the given testcase filter `NoMatchAtAll` in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/MySample.Features.dll" />
+				<outline text="" />
+				<outline text="Additionally, path to test adapters can be specified using /TestAdapterPath command. Example  /TestAdapterPath:<pathToCustomAdapters>." />
+				<outline text="" />
+				<outline text="Build succeeded." />
+				<outline text="    0 Warning(s)" />
+				<outline text="    0 Error(s)" />
+				<outline text="{{.*}}/rl" />
+			</outline>
+		</outline>
 		<outline text="Passing Test Run">
-			<outline text="Given you generate an html report from test results of a single passing scenario"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with all passing scenarios"/>
 			<outline text="Then you will see the test run badge - green is visible"/>
 			<outline text="And you will see the test run duration is visible"/>
 		</outline>
 		<outline text="Passing With Some Skipped">
-			<outline text="Given you generate an html report from test results of a single skipped scenario"/>
-			<outline text="When you navigate to the test html report with a single skipped scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing and skipped scenarios"/>
 			<outline text="Then you will see the test run badge - yellow is visible"/>
 		</outline>
 		<outline text="Failing">
-			<outline text="Given you generate an html report from test results of a single failed scenario"/>
-			<outline text="When you navigate to the test html report with a single failed scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="Then you will see the test run badge - red is visible"/>
 		</outline>
 	</outline>
 	<outline text="Review Test Run Stats">
 		<outline text="Failed Skipped And Passing Area Stats">
-			<outline text="Given you generate an html report from test results of a full test run with all outcomes"/>
-			<outline text="When you navigate to the test html report with a full test run with all outcomes"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="Then you will see test run area stats is visible"/>
-			<outline text="And you will see test run area stats total count has text '3'"/>
+			<outline text="And you will see test run area stats total count has text '8'"/>
 			<outline text="And you will see test run area stats total count has a title attribute of Areas"/>
-			<outline text="And you will see test run area stats passed count has text '1'"/>
-			<outline text="And you will see test run area stats skipped count has text '1'"/>
-			<outline text="And you will see test run area stats failed count has text '1'"/>
+			<outline text="And you will see test run area stats passed count has text '2'"/>
+			<outline text="And you will see test run area stats skipped count has text '2'"/>
+			<outline text="And you will see test run area stats failed count has text '4'"/>
 			<outline text="And you will see test run area stats bar chart is visible"/>
-			<outline text="And you will see test run area stats success bar has a width of 33%"/>
-			<outline text="And you will see test run area stats skipped bar has a width of 33%"/>
-			<outline text="And you will see test run area stats failed bar has a width of 33%"/>
+			<outline text="And you will see test run area stats success bar has a width of 25%"/>
+			<outline text="And you will see test run area stats skipped bar has a width of 25%"/>
+			<outline text="And you will see test run area stats failed bar has a width of 50%"/>
 		</outline>
 		<outline text="Failed Skipped And Passing Feature Stats">
-			<outline text="Given you generate an html report from test results of a full test run with all outcomes"/>
-			<outline text="When you navigate to the test html report with a full test run with all outcomes"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="Then you will see test run feature stats is visible"/>
-			<outline text="And you will see test run feature stats passed count has text '5'"/>
-			<outline text="And you will see test run feature stats skipped count has text '3'"/>
-			<outline text="And you will see test run feature stats failed count has text '1'"/>
+			<outline text="And you will see test run feature stats passed count has text '10'"/>
+			<outline text="And you will see test run feature stats skipped count has text '4'"/>
+			<outline text="And you will see test run feature stats failed count has text '4'"/>
 			<outline text="And you will see test run feature stats bar chart is visible"/>
-			<outline text="And you will see test run feature stats success bar has a width of 55%"/>
-			<outline text="And you will see test run feature stats skipped bar has a width of 33%"/>
-			<outline text="And you will see test run feature stats failed bar has a width of 11%"/>
+			<outline text="And you will see test run feature stats success bar has a width of 55.5%"/>
+			<outline text="And you will see test run feature stats skipped bar has a width of 22.2%"/>
+			<outline text="And you will see test run feature stats failed bar has a width of 22.2%"/>
 		</outline>
 		<outline text="Failed Skipped And Passing Scenario Stats">
-			<outline text="Given you generate an html report from test results of a full test run with all outcomes"/>
-			<outline text="When you navigate to the test html report with a full test run with all outcomes"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="Then you will see test run scenario stats is visible"/>
-			<outline text="And you will see test run scenario stats passed count has text '19'"/>
-			<outline text="And you will see test run scenario stats skipped count has text '7'"/>
-			<outline text="And you will see test run scenario stats failed count has text '1'"/>
+			<outline text="And you will see test run scenario stats passed count has text '32'"/>
+			<outline text="And you will see test run scenario stats skipped count has text '8'"/>
+			<outline text="And you will see test run scenario stats failed count has text '4'"/>
 			<outline text="And you will see test run scenario stats bar chart is visible"/>
-			<outline text="And you will see test run scenario stats success bar has a width of 70%"/>
-			<outline text="And you will see test run scenario stats skipped bar has a width of 26%"/>
-			<outline text="And you will see test run scenario stats failed bar has a width of 4%"/>
+			<outline text="And you will see test run scenario stats success bar has a width of 72%"/>
+			<outline text="And you will see test run scenario stats skipped bar has a width of 18%"/>
+			<outline text="And you will see test run scenario stats failed bar has a width of 9%"/>
 		</outline>
 		<outline text="Area Stats No Areas">
-			<outline text="Given you generate an html report from test results of an empty test run"/>
-			<outline text="When you navigate to the test html report with an empty test run"/>
+			<outline text="When you navigate to the test html report from a test run with no scenarios"/>
 			<outline text="Then you will see test run area stats is visible"/>
 			<outline text="And you will see test run area stats total count has text '0'"/>
 			<outline text="And you will see test run area stats total count has a title attribute of Areas"/>
@@ -162,29 +173,25 @@
 	</outline>
 	<outline text="Review Area">
 		<outline text="Passing">
-			<outline text="Given you generate an html report from test results of a single passing scenario"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
-			<outline text="Then you will see the area title line has text 'My Area 1'"/>
+			<outline text="When you navigate to the test html report from a test run with all passing scenarios"/>
+			<outline text="Then you will see the area title line has text 'My Area 1 All Passing'"/>
 			<outline text="And you will see the area 1 with green badge is visible"/>
 			<outline text="And you will see the area 1 duration is visible"/>
 		</outline>
 		<outline text="Skipped">
-			<outline text="Given you generate an html report from test results of a single skipped scenario"/>
-			<outline text="When you navigate to the test html report with a single skipped scenario"/>
-			<outline text="Then you will see the area title line has text 'My Area 1'"/>
+			<outline text="When you navigate to the test html report from a test run with passing and skipped scenarios"/>
+			<outline text="Then you will see the area title line has text 'My Area 2 Some Skipped'"/>
 			<outline text="And you will see the area 1 with yelow badge is visible"/>
 		</outline>
 		<outline text="Failing">
-			<outline text="Given you generate an html report from test results of a single failed scenario"/>
-			<outline text="When you navigate to the test html report with a single failed scenario"/>
-			<outline text="Then you will see the area title line has text 'My Area 1'"/>
-			<outline text="And you will see the area 1 with red badge is visible"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
+			<outline text="Then you will see the area title line has text 'My Area 3 Some Failed'"/>
+			<outline text="And you will see the area 3 with red badge is visible"/>
 		</outline>
 	</outline>
 	<outline text="Review Area Feature Distribution">
 		<outline text="Failed Skipped And Passing Feature Stats">
-			<outline text="Given you generate an html report from test results of a full test run with all outcomes"/>
-			<outline text="When you navigate to the test html report with a full test run with all outcomes"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area title line is visible"/>
 			<outline text="Then you will see area badge and distribution chart is visible"/>
 			<outline text="And you will see area badge and distribution chart has a title attribute of Features"/>
@@ -194,29 +201,26 @@
 			<outline text="And you will see area feature distribution failed bar has a heigth of 33%"/>
 		</outline>
 		<outline text="All Passing Feature Stats">
-			<outline text="Given you generate an html report from test results of a passing full test run"/>
-			<outline text="When you navigate to the test html report with a passing full test run"/>
+			<outline text="When you navigate to the test html report from a test run with all passing scenarios"/>
 			<outline text="And you wait till the area title line is visible"/>
 			<outline text="Then you will see area feature distribution chart is visible"/>
-			<outline text="And you will see area feature distribution passed bar has a heigth of 33%"/>
+			<outline text="And you will see area feature distribution passed bar has a heigth of 100%"/>
 			<outline text="And you will see area feature distribution skipped bar is not there"/>
 			<outline text="And you will see area feature distribution failed bar is not there"/>
 		</outline>
 		<outline text="All Skipped Feature Stats">
-			<outline text="Given you generate an html report from test results of a single skipped scenario"/>
-			<outline text="When you navigate to the test html report with a single skipped scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area title line is visible"/>
 			<outline text="Then you will see area feature distribution chart is visible"/>
-			<outline text="And you will see area feature distribution skipped bar has a heigth of 33%"/>
+			<outline text="And you will see area feature distribution skipped bar has a heigth of 100%"/>
 			<outline text="And you will see area feature distribution passed bar is not there"/>
 			<outline text="And you will see area feature distribution failed bar is not there"/>
 		</outline>
 		<outline text="All Failed Feature Stats">
-			<outline text="Given you generate an html report from test results of a single failed scenario"/>
-			<outline text="When you navigate to the test html report with a single failed scenario"/>
+			<outline text="When you navigate to the test html report from a test run with one failed scenario"/>
 			<outline text="And you wait till the area title line is visible"/>
 			<outline text="Then you will see area feature distribution chart is visible"/>
-			<outline text="And you will see area feature distribution failed bar has a heigth of 33%"/>
+			<outline text="And you will see area feature distribution failed bar has a heigth of 100%"/>
 			<outline text="And you will see area feature distribution passed bar is not there"/>
 			<outline text="And you will see area feature distribution skipped bar is not there"/>
 		</outline>
@@ -235,23 +239,20 @@
 	</outline>
 	<outline text="Review Area Features">
 		<outline text="Expand">
-			<outline text="Given you generate an html report from test results of a passing full test run"/>
-			<outline text="When you navigate to the test html report with a passing full test run"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area title line is visible"/>
 			<outline text="And you click the the area title line"/>
 			<outline text="Then you will see the area 1 features is visible"/>
 		</outline>
 		<outline text="Expand All">
-			<outline text="Given you generate an html report from test results of a passing full test run"/>
-			<outline text="When you navigate to the test html report with a passing full test run"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area title line is visible"/>
 			<outline text="And you click the the expand all areas link"/>
 			<outline text="Then you will see the area 1 features is visible"/>
 			<outline text="And you will see the area 2 features is visible"/>
 		</outline>
 		<outline text="Collapse">
-			<outline text="Given you generate an html report from test results of a passing full test run"/>
-			<outline text="When you navigate to the test html report with a passing full test run"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area title line is visible"/>
 			<outline text="And you click the the expand all areas link"/>
 			<outline text="And you wait till the area 1 features is visible"/>
@@ -260,7 +261,7 @@
 		</outline>
 		<outline text="Collapse All">
 			<outline text="Given you generate an html report from test results of a passing full test run"/>
-			<outline text="When you navigate to the test html report with a passing full test run"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area title line is visible"/>
 			<outline text="And you click the the expand all areas link"/>
 			<outline text="And you wait till the area 1 features is visible"/>
@@ -272,8 +273,7 @@
 	</outline>
 	<outline text="Review Area Stats">
 		<outline text="Failed Skipped And Passing Feature Stats">
-			<outline text="Given you generate an html report from test results of a full test run with all outcomes"/>
-			<outline text="When you navigate to the test html report with a full test run with all outcomes"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area title line is visible"/>
 			<outline text="And you click the the area title line"/>
 			<outline text="Then you will see area feature stats is visible"/>
@@ -287,8 +287,7 @@
 			<outline text="And you will see area feature failed bar has a width of 33%"/>
 		</outline>
 		<outline text="Failed Skipped And Passing Scenario Stats">
-			<outline text="Given you generate an html report from test results of a full test run with all outcomes"/>
-			<outline text="When you navigate to the test html report with a full test run with all outcomes"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area title line is visible"/>
 			<outline text="And you click the the area title line"/>
 			<outline text="Then you will see area scenario stats is visible"/>
@@ -303,34 +302,30 @@
 	</outline>
 	<outline text="Review Feature">
 		<outline text="Passing">
-			<outline text="Given you generate an html report from test results of a single passing scenario"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
-			<outline text="Then you will see the feature name has text 'My Feature 1'"/>
+			<outline text="Then you will see the feature name has text 'My Feature 1 Passing'"/>
 			<outline text="And you will see the feature 1 with green badge is visible"/>
 			<outline text="And you will see the feature 1 duration is visible"/>
 			<outline text="And you will see the feature 1 scenarios is not visible because none were failing"/>
 		</outline>
 		<outline text="Skipped">
-			<outline text="Given you generate an html report from test results of a single skipped scenario"/>
-			<outline text="When you navigate to the test html report with a single skipped scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
-			<outline text="Then you will see the feature name has text 'My Feature 1'"/>
-			<outline text="And you will see the feature 1 with yellow badge is visible"/>
-			<outline text="And you will see the feature 1 scenarios is not visible because none were failing"/>
+			<outline text="Then you will see the feature name has text 'My Feature 5 Some Skipped'"/>
+			<outline text="And you will see the feature 5 with yellow badge is visible"/>
+			<outline text="And you will see the feature 5 scenarios is not visible because none were failing"/>
 		</outline>
 		<outline text="Failing">
-			<outline text="Given you generate an html report from test results of a single failed scenario"/>
-			<outline text="When you navigate to the test html report with a single failed scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
-			<outline text="Then you will see the feature 1 with red badge is visible"/>
-			<outline text="And you will see the feature 1 scenarios is not visible because the Failures Only option was not set to true that would cause the failred feature to automatically expand."/>
+			<outline text="Then you will see the feature 8 with red badge is visible"/>
+			<outline text="And you will see the feature 8 scenarios is not visible because the Failures Only option was not set to true that would cause the failred feature to automatically expand."/>
 		</outline>
 	</outline>
 	<outline text="Review Feature Scenario Distribution">
 		<outline text="Failed Skipped And Passing Scenario Stats">
-			<outline text="Given you generate an html report from test results of a full test run with all outcomes"/>
-			<outline text="When you navigate to the test html report with a full test run with all outcomes"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="Then you will see feature badge and distribution chart is visible"/>
 			<outline text="And you will see feature badge and distribution chart has a title attribute of Scenarios"/>
@@ -340,8 +335,7 @@
 			<outline text="And you will see feature scenario distribution failed bar has a heigth of 33%"/>
 		</outline>
 		<outline text="All Passing Scenario Stats">
-			<outline text="Given you generate an html report from test results of a passing full test run"/>
-			<outline text="When you navigate to the test html report with a passing full test run"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area title line is visible"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="Then you will see feature scenario distribution chart is visible"/>
@@ -350,8 +344,7 @@
 			<outline text="And you will see feature scenario distribution failed bar is not there"/>
 		</outline>
 		<outline text="All Skipped Scenario Stats">
-			<outline text="Given you generate an html report from test results of a single skipped scenario"/>
-			<outline text="When you navigate to the test html report with a single skipped scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area title line is visible"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="Then you will see feature scenario distribution chart is visible"/>
@@ -360,8 +353,7 @@
 			<outline text="And you will see feature scenario distribution failed bar is not there"/>
 		</outline>
 		<outline text="All Failed Scenario Stats">
-			<outline text="Given you generate an html report from test results of a single failed scenario"/>
-			<outline text="When you navigate to the test html report with a single failed scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="Then you will see feature scenario distribution chart is visible"/>
 			<outline text="And you will see feature scenario distribution failed bar has a heigth of 100%"/>
@@ -371,21 +363,18 @@
 	</outline>
 	<outline text="Review Feature Statement">
 		<outline text="Collapsed By Default">
-			<outline text="Given you generate an html report from test results of a single passing scenario"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with all passing scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="Then you will see the feature 1 statement is not visible because the statement is collapsed by default."/>
 		</outline>
 		<outline text="Expand">
-			<outline text="Given you generate an html report from test results of a single passing scenario"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with all passing scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature 1 statement link is visible"/>
 			<outline text="Then you will see the feature 1 statement is visible"/>
 		</outline>
 		<outline text="Collapse">
-			<outline text="Given you generate an html report from test results of a single passing scenario"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with all passing scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature 1 statement link is visible"/>
 			<outline text="And you wait till the feature 1 statement is visible"/>
@@ -398,35 +387,31 @@
 		<outline text="Collapse All">
 		</outline>
 		<outline text="Full Statement">
-			<outline text="Given you generate an html report from test results of a single passing scenario"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with all passing scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature 1 statement link is visible"/>
 			<outline text="Then you will see the feature 1 statement is visible"/>
-			<outline text="And you will see the feature 1 statement has text 'As a actorYou can derive some valueBy perform some action'"/>
+			<outline text="And you will see the feature 1 statement has text 'As a sample userYou can have my feature 1 valueBy execute my feature 1'"/>
 		</outline>
 		<outline text="Partial Statement">
-			<outline text="Given you generate an html report from test results of a single passing scenario"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with all passing scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
-			<outline text="And you click when the feature 1 statement link is visible"/>
-			<outline text="Then you will see the feature 1 statement is visible"/>
-			<outline text="And you will see the feature 1 statement has text 'As a [Missing!]You can derive some valueBy [Missing!]'"/>
+			<outline text="And you click when the feature 2 statement link is visible"/>
+			<outline text="Then you will see the feature 2 statement is visible"/>
+			<outline text="And you will see the feature 2 statement has text 'As a [Missing!]You can have my feature 2 valueBy [Missing!]'"/>
 		</outline>
 		<outline text="No Statement">
-			<outline text="Given you generate an html report from test results of a single passing scenario"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with all passing scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="Then you will see the scenario name is visible"/>
-			<outline text="And you will see the feature 1 statement is not there"/>
-			<outline text="And you will see the feature 1 statement link is not there"/>
+			<outline text="And you will see the feature 3 statement is not there"/>
+			<outline text="And you will see the feature 3 statement link is not there"/>
 		</outline>
 	</outline>
 	<outline text="Review Feature Stats">
 		<outline text="Failed Skipped And Passing Scenario Stats">
-			<outline text="Given you generate an html report from test results of a full test run with all outcomes"/>
-			<outline text="When you navigate to the test html report with a full test run with all outcomes"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature badge is visible"/>
 			<outline text="Then you will see feature scenario stats is visible"/>
@@ -443,8 +428,7 @@
 	</outline>
 	<outline text="Review Scenario">
 		<outline text="Passing">
-			<outline text="Given you generate an html report from test results of a single passing scenario"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="Then you will see the scenario 1 with green badge is visible"/>
@@ -454,26 +438,23 @@
 			<outline text="And you will see the scenario 1 duration is visible"/>
 		</outline>
 		<outline text="Skipped">
-			<outline text="Given you generate an html report from test results of a single skipped scenario"/>
-			<outline text="When you navigate to the test html report with a single skipped scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
-			<outline text="Then you will see the scenario 1 with yellow badge is visible"/>
-			<outline text="And you will see the scenario 1 steps is not visible because no steps failed"/>
+			<outline text="Then you will see the scenario 11 with yellow badge is visible"/>
+			<outline text="And you will see the scenario 11 steps is not visible because no steps failed"/>
 		</outline>
 		<outline text="Failing">
-			<outline text="Given you generate an html report from test results of a single failed scenario"/>
-			<outline text="When you navigate to the test html report with a single failed scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
-			<outline text="Then you will see the scenario 1 with red badge is visible"/>
-			<outline text="And you will see the scenario 1 steps is not visible because while the step failed the Failures Only options was not set to true"/>
+			<outline text="Then you will see the scenario 20 with red badge is visible"/>
+			<outline text="And you will see the scenario 20 steps is not visible because while the step failed the Failures Only options was not set to true"/>
 		</outline>
 	</outline>
 	<outline text="Review Scenario Stats">
 		<outline text="Failed Skipped And Passing Steps Stats">
-			<outline text="Given you generate an html report from test results of a full test run with all outcomes"/>
-			<outline text="When you navigate to the test html report with a full test run with all outcomes"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="Then you will see scenario steps total is visible"/>
@@ -483,8 +464,7 @@
 	</outline>
 	<outline text="Review Step">
 		<outline text="Passing">
-			<outline text="Given you generate an html report from test results of a single passing scenario"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
@@ -492,25 +472,22 @@
 			<outline text="And you will see the step name has text 'Given my step 1'"/>
 		</outline>
 		<outline text="Skipped">
-			<outline text="Given you generate an html report from test results of a single skipped scenario"/>
-			<outline text="When you navigate to the test html report with a single skipped scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
-			<outline text="Then you will see the step 1 with yellow badge is visible"/>
-			<outline text="And you will see the step name has text 'Given my step 1'"/>
+			<outline text="Then you will see the step 31 with yellow badge is visible"/>
+			<outline text="And you will see the step name has text 'Given my step 31'"/>
 		</outline>
 		<outline text="Failing">
-			<outline text="Given you generate an html report from test results of a single failed scenario"/>
-			<outline text="When you navigate to the test html report with a single failed scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
-			<outline text="Then you will see the step 2 with red badge is visible because the report will be expanded to the failed step"/>
+			<outline text="Then you will see the step 59 with red badge is visible because the report will be expanded to the failed step"/>
 		</outline>
 		<outline text="With Exception">
-			<outline text="Given you generate an html report from test results with a failed step with an exception"/>
-			<outline text="When you navigate to the test html report with a failing step with an exception"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
@@ -521,8 +498,7 @@
 			<outline text="Then you will see exception stack trace is visible"/>
 		</outline>
 		<outline text="With Inner Exception">
-			<outline text="Given you generate an html report from test results with a failed step with an exception"/>
-			<outline text="When you navigate to the test html report with a failing step with a nested exception"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
@@ -535,8 +511,7 @@
 	</outline>
 	<outline text="Review Step Stats">
 		<outline text="Failed Skipped And Passing Steps Stats">
-			<outline text="Given you generate an html report from test results of a full test run with all outcomes"/>
-			<outline text="And you navigate to the test html report with a full test run with all outcomes"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
@@ -545,16 +520,14 @@
 	</outline>
 	<outline text="Review Step Exception">
 		<outline text="Collapsed By Default">
-			<outline text="Given you generate an html report from test results with a failed step with an exception"/>
-			<outline text="When you navigate to the test html report with a failing step with an exception"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
 			<outline text="Then you will see exception message is not visible because the exception is collapsed by default."/>
 		</outline>
 		<outline text="Collapse">
-			<outline text="Given you generate an html report from test results with a failed step with an exception"/>
-			<outline text="And you navigate to the test html report with a failing step with an exception"/>
+			<outline text="Given you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
@@ -564,8 +537,7 @@
 			<outline text="Then you will see exception is not there"/>
 		</outline>
 		<outline text="Expand">
-			<outline text="Given you generate an html report from test results with a failed step with an exception"/>
-			<outline text="And you navigate to the test html report with a failing step with an exception"/>
+			<outline text="Given you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
@@ -579,26 +551,15 @@
 	</outline>
 	<outline text="Review Step Multiline Parameter">
 		<outline text="Collapsed By Default">
-			<outline text="Given you generate an html report from test results of a step with a text formated multiline parameter of">
-				<outline text="Here" />
-				<outline text=" is" />
-				<outline text=" my" />
-				<outline text=" input!" />
-			</outline>
-			<outline text="When you navigate to the sample test html report with a step with a multiline parameter"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
 			<outline text="Then you will see step input link is visible"/>
+			<outline text="And you will see step input is not visible"/>
 		</outline>
 		<outline text="General Text">
-			<outline text="Given you generate an html report from test results of a step with a text formated multiline parameter of">
-				<outline text="Here" />
-				<outline text=" is" />
-				<outline text=" my" />
-				<outline text=" Input!" />
-			</outline>
-			<outline text="When you navigate to the sample test html report with a step with a multiline parameter"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
@@ -621,26 +582,14 @@
 	</outline>
 	<outline text="Review Step Output">
 		<outline text="Collapsed By Default">
-			<outline text="Given you generate an html report from test results of a step with a/an text output of ">
-				<outline text="Here" />
-				<outline text=" is" />
-				<outline text=" my" />
-				<outline text=" output!" />
-			</outline>
-			<outline text="When you navigate to the test html report with a step with output"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
 			<outline text="Then you will see step output link is visible"/>
 		</outline>
 		<outline text="General Text">
-			<outline text="Given you generate an html report from test results of a step with a/an text output of ">
-				<outline text="Here" />
-				<outline text=" is" />
-				<outline text=" my" />
-				<outline text=" output!" />
-			</outline>
-			<outline text="When you navigate to the test html report with a step with output"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
 			<outline text="And you click when the scenario name is visible"/>
@@ -665,65 +614,56 @@
 <outline text="xBDD - Features - Generate Reports - Customize Html Report">
 	<outline text="Write Failures Only">
 		<outline text="Passing">
-			<outline text="Given you generate an html report from test results of a single passing scenario set to report only failures"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with all passing scenarios reporting failures only"/>
 			<outline text="Then you will see the test run areas list is not there"/>
 		</outline>
 		<outline text="Skipped">
-			<outline text="Given you generate an html report from test results of a single skipped scenario set to only report on failures"/>
-			<outline text="When you navigate to the test html report with a single skipped scenario"/>
+			<outline text="When you navigate to the test html report from a test run with passing and skipped scenarios reporting failures only"/>
 			<outline text="Then you will see the test run areas list is not there"/>
 		</outline>
 		<outline text="Failing">
-			<outline text="Given you generate an html report from test results of a full test run with all outcomes set to only report on failures"/>
-			<outline text="When you navigate to the test html report with a full test run with all outcomes"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios and reporting failures only"/>
 			<outline text="Then you will see the step 2 with red badge is visible because the step failed and the report will be expanded to the failed step"/>
 		</outline>
 	</outline>
 	<outline text="Shorten Area Name">
 		<outline text="Matches Start Of Area Name">
-			<outline text="Given you generate an html report from test results of a single passing scenario set to skip the string 'My ' in the area name"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with all passing scenarios"/>
 			<outline text="Then you will see the area title line is visible"/>
-			<outline text="And you will see the area title line has text 'Area 1'"/>
+			<outline text="And you will see the area title line has text 'My Area 1 All Passing'"/>
 		</outline>
 		<outline text="Matches None Of Area Name">
-			<outline text="Given you generate an html report from test results of a single passing scenario set to skip the string 'No Match' in the area name"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with no area name removal"/>
 			<outline text="Then you will see the area title line is visible"/>
-			<outline text="And you will see the area title line has text 'My Area 1'"/>
+			<outline text="And you will see the area title line has text 'My Sample - Features - My Area 1 All Passing'"/>
 		</outline>
 		<outline text="Matches All Of Area Name">
-			<outline text="Given you generate an html report from test results of a single passing scenario set to skip the string 'My Area 1' in the area name"/>
-			<outline text="When you navigate to the test html report with a single passing scenario"/>
+			<outline text="When you navigate to the test html report from a test run with no area name removal"/>
 			<outline text="Then you will see the area title line is visible"/>
 			<outline text="And you will see the area title line has text '[Missing! (or Full Name Skipped)]'"/>
 		</outline>
 	</outline>
 	<outline text="Sort Test Run Results">
 		<outline text="Not Sorted">
-			<outline text="Given you generate an html report from a test run that is not sorted"/>
-			<outline text="When you navigate to the sample test html report that is not sorted"/>
+			<outline text="When you navigate to the test html report from an unsorted test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
-			<outline text="Then you will see the feature name has text 'Sample All Outcome Feature' because it was the first feature alphabetically"/>
-			<outline text="And you will see the scenario name has text 'Failed Scenario' because it is the first scenario alphabetically"/>
+			<outline text="Then you will see the feature name has text 'My Feature 12 Third' because it was the first feature alphabetically"/>
+			<outline text="And you will see the scenario name has text 'My Scenario 30 Unsorted 38 Sorted' because it is the first scenario alphabetically"/>
 		</outline>
 		<outline text="Sorted">
-			<outline text="Given you generate an html report from a test run that is sorted"/>
-			<outline text="When you navigate to the sample test html report that is sorted"/>
+			<outline text="When you navigate to the test html report from a fully sorted test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
-			<outline text="Then you will see the feature name has text 'Sample Passing Feature' because it was the first in the feature sort"/>
-			<outline text="And you will see the scenario name has text 'Passing Scenario3' because it is the first in the feature class definition"/>
+			<outline text="Then you will see the feature name has text 'My Feature 13 First' because it was sorted to be first"/>
+			<outline text="And you will see the scenario name has text 'My Scenario 35 Unsorted 30 Sorted' because it is the first scenario sorted"/>
 		</outline>
 		<outline text="Partially Sorted">
-			<outline text="Given you generate an html report from a test run that is sorted"/>
-			<outline text="When you navigate to the sample test html report that is sorted"/>
+			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area title line is visible"/>
 			<outline text="And you click when the feature name is visible"/>
-			<outline text="Then you will see the feature name has text 'Sample Skipped Feature' because it was the second in the feature sort"/>
-			<outline text="And you will see the scenario name has text 'Passing Scenario2' because it was not provided a sort when the scenario was created and was placed after the sorted scenarios"/>
+			<outline text="Then you will see the feature name has text 'My Feature 0 Unsorted' because it was the second in the feature sort"/>
+			<outline text="And you will see the scenario name has text 'My Scenario 0 Unsorted' because it was not provided a sort when the scenario was created and was placed after the sorted scenarios"/>
 		</outline>
 	</outline>
 </outline>
@@ -806,7 +746,7 @@
 	<outline text="Generate Project Files From Test Run Results">
 		<outline text="Standard Full Report">
 			<outline text="Given you have a test project that produces all outcomes"/>
-			<outline text="And you have a similar class in your test project for setting up and breaking down the test run:"/>
+			<outline text="And you have a similar class in your test project for setting up and breaking down the test run that includes the line to generate code:"/>
 			<outline text="And you include this line of code:">
 				<outline text="xBDD.CurrentRun.WriteToCode("MySample.Features", "./Code/", "My Sample - Features - ")" />
 			</outline>

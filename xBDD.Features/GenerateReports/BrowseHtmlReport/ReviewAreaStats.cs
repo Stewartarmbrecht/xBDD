@@ -18,8 +18,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task FailedSkippedAndPassingFeatureStats()
 		{
             await xB.AddScenario(this, 1)
-                .Given(you.GenerateAReportWithAFullTestRunWithAllOutcomes())
-				.When(you.NavigateTo(the.HtmlReport.WithAFullTestRunWithAllOutcomes))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
 				.And(you.WaitTill(the.Area.Badge(3)).IsVisible())
 				.And(you.Click(the.Area.Badge(3)))
 				.Then(you.WillSee(the.AreaFeatureStats.Section(3)).IsVisible())
@@ -37,8 +36,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task FailedSkippedAndPassingScenarioStats()
 		{
             await xB.CurrentRun.AddScenario(this, 2)
-                .Given(you.GenerateAReportWithAFullTestRunWithAllOutcomes())
- 				.When(you.NavigateTo(the.HtmlReport.WithAFullTestRunWithAllOutcomes))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
 				.And(you.WaitTill(the.Area.Badge(3)).IsVisible())
 				.And(you.Click(the.Area.Badge(3)))
 				.Then(you.WillSee(the.AreaScenarioStats.Section(3)).IsVisible())

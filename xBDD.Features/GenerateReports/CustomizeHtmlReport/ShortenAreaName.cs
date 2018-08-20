@@ -18,28 +18,25 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 		public async Task MatchesStartOfAreaName()
 		{
             await xB.AddScenario(this, 1)
-                .Given(you.GenerateAReportWithASinglePassingScenario(null,null,null,"My "))
-                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
+                .When(you.NavigateTo(the.HtmlReport.FromAPassingTestRun))
 				.Then(you.WillSee(the.Area.Name(1)).IsVisible())
-				.And(you.WillSee(the.Area.Name(1)).HasText("Area 1"))
+				.And(you.WillSee(the.Area.Name(1)).HasText("My Area 1 All Passing"))
                 .Run();
 		}
 		[TestMethod]
 		public async Task MatchesNoneOfAreaName()
 		{
             await xB.AddScenario(this, 2)
-                .Given(you.GenerateAReportWithASinglePassingScenario(null,null,null,"No Match"))
-                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
+                .When(you.NavigateTo(the.HtmlReport.FromATestRunWithNoAreaNameRemoval))
 				.Then(you.WillSee(the.Area.Name(1)).IsVisible())
-				.And(you.WillSee(the.Area.Name(1)).HasText("My Area 1"))
+				.And(you.WillSee(the.Area.Name(1)).HasText("My Sample - Features - My Area 1 All Passing"))
                 .Run();
 		}
 		[TestMethod]
 		public async Task MatchesAllOfAreaName()
 		{
             await xB.AddScenario(this, 3)
-                .Given(you.GenerateAReportWithASinglePassingScenario(null,null,null,"My Area 1"))
-                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
+                .When(you.NavigateTo(the.HtmlReport.FromATestRunWithFullAreaNameRemoval))
 				.Then(you.WillSee(the.Area.Name(1)).IsVisible())
 				.And(you.WillSee(the.Area.Name(1)).HasText("[Missing! (or Full Name Skipped)]"))
                 .Run();

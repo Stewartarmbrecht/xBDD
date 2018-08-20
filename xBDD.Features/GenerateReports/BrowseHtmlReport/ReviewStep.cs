@@ -15,8 +15,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Passing()
 		{
             await xB.AddScenario(this, 1)
-                .Given(you.GenerateAReportWithASinglePassingScenario())
-                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
 				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
 				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
 				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
@@ -28,57 +27,53 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Skipped()
 		{
             await xB.AddScenario(this, 2)
-                .Given(you.GenerateAReportWithASingleSkippedScenario())
-                .When(you.NavigateTo(the.HtmlReport.WithASingleSkippedScenario))
-				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
-				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
-				.Then(you.WillSee(the.Step.BadgeYellow(1)).IsVisible())
-				.And(you.WillSee(the.Step.Name(1)).HasText("Given my step 1"))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
+				.And(you.ClickWhen(the.Area.Name(2)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(5,2)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(11,5)).IsVisible())
+				.Then(you.WillSee(the.Step.BadgeYellow(31)).IsVisible())
+				.And(you.WillSee(the.Step.Name(31)).HasText("Given my step 31"))
                 .Run();
 		}
 		[TestMethod]
 		public async Task Failing()
 		{
             await xB.AddScenario(this, 3)
-                .Given(you.GenerateAReportWithASingleFailedScenario())
-                .When(you.NavigateTo(the.HtmlReport.WithASingleFailedScenario))
-				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
-				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
-				.Then(you.WillSee(the.Step.BadgeRed(2)).IsVisible().Because("the report will be expanded to the failed step"))
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
+				.And(you.ClickWhen(the.Area.Name(3)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(8,3)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(20,8)).IsVisible())
+				.Then(you.WillSee(the.Step.BadgeRed(59)).IsVisible().Because("the report will be expanded to the failed step"))
                 .Run();
 		}
 		[TestMethod]
 		public async Task WithException()
 		{
             await xB.AddScenario(this, 4)
-                .Given(you.GenerateAReportWithAFailingStepWithAnException())
-                .When(you.NavigateTo(the.HtmlReport.WithAFailingStepWithAnException))
-				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
-				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
-				.And(you.ClickWhen(the.StepException.Link(2,1)).IsVisible())
-				.Then(you.WillSee(the.StepException.Section(2)).IsVisible())
-				.Then(you.WillSee(the.StepException.Type(2)).IsVisible())
-				.Then(you.WillSee(the.StepException.Message(2)).IsVisible())
-				.Then(you.WillSee(the.StepException.StackTrace(2)).IsVisible())
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
+				.And(you.ClickWhen(the.Area.Name(3)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(8,3)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(20,8)).IsVisible())
+				.And(you.ClickWhen(the.StepException.Link(59,20)).IsVisible())
+				.Then(you.WillSee(the.StepException.Section(59)).IsVisible())
+				.Then(you.WillSee(the.StepException.Type(59)).IsVisible())
+				.Then(you.WillSee(the.StepException.Message(59)).IsVisible())
+				.Then(you.WillSee(the.StepException.StackTrace(59)).IsVisible())
                 .Run();
 		}
 		[TestMethod]
 		public async Task WithInnerException()
 		{
             await xB.AddScenario(this, 5)
-                .Given(you.GenerateAReportWithAFailingStepWithANestedException())
-                .When(you.NavigateTo(the.HtmlReport.WithAFailingStepWithANestedException))
-				.And(you.ClickWhen(the.Area.Name(1)).IsVisible())
-				.And(you.ClickWhen(the.Feature.Name(1,1)).IsVisible())
-				.And(you.ClickWhen(the.Scenario.Name(1,1)).IsVisible())
-				.And(you.ClickWhen(the.StepException.Link(2,1)).IsVisible())
-				.Then(you.WillSee(the.StepException.InnerException(2)).IsVisible())
-				.Then(you.WillSee(the.StepException.InnerExceptionType(2)).IsVisible())
-				.Then(you.WillSee(the.StepException.InnerExceptionMessage(2)).IsVisible())
-				.Then(you.WillSee(the.StepException.InnerExceptionStackTrace(2)).IsVisible())
+				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
+				.And(you.ClickWhen(the.Area.Name(3)).IsVisible())
+				.And(you.ClickWhen(the.Feature.Name(8,3)).IsVisible())
+				.And(you.ClickWhen(the.Scenario.Name(21,8)).IsVisible())
+				.And(you.ClickWhen(the.StepException.Link(62,21)).IsVisible())
+				.Then(you.WillSee(the.StepException.InnerException(62)).IsVisible())
+				.Then(you.WillSee(the.StepException.InnerExceptionType(62)).IsVisible())
+				.Then(you.WillSee(the.StepException.InnerExceptionMessage(62)).IsVisible())
+				.Then(you.WillSee(the.StepException.InnerExceptionStackTrace(62)).IsVisible())
                 .Run();
 		}
 	}

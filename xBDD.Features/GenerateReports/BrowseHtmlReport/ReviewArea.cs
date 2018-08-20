@@ -15,9 +15,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Passing()
 		{
             await xB.AddScenario(this, 1)
-                .Given(you.GenerateAReportWithASinglePassingScenario())
-                .When(you.NavigateTo(the.HtmlReport.WithASinglePassingScenario))
-				.Then(you.WillSee(the.Area.Name(1)).HasText("My Area 1"))
+                .When(you.NavigateTo(the.HtmlReport.FromAPassingTestRun))
+				.Then(you.WillSee(the.Area.Name(1)).HasText("My Area 1 All Passing"))
 				.And(you.WillSee(the.Area.BadgeGreen(1)).IsVisible())
 				.And(you.WillSee(the.Area.Duration(1)).IsVisible())
                 .Run();
@@ -26,9 +25,8 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Skipped()
 		{
             await xB.AddScenario(this, 2)
-                .Given(you.GenerateAReportWithASingleSkippedScenario())
-                .When(you.NavigateTo(the.HtmlReport.WithASingleSkippedScenario))
-				.Then(you.WillSee(the.Area.Name(1)).HasText("My Area 1"))
+                .When(you.NavigateTo(the.HtmlReport.FromASkippedTestRun))
+				.Then(you.WillSee(the.Area.Name(1)).HasText("My Area 2 Some Skipped"))
 				.And(you.WillSee(the.Area.BadgeYellow(1)).IsVisible())
                 .Run();
 		}
@@ -36,10 +34,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task Failing()
 		{
             await xB.AddScenario(this, 3)
-                .Given(you.GenerateAReportWithASingleFailedScenario())
-                .When(you.NavigateTo(the.HtmlReport.WithASingleFailedScenario))
-				.Then(you.WillSee(the.Area.Name(1)).HasText("My Area 1"))
-				.And(you.WillSee(the.Area.BadgeRed(1)).IsVisible())
+                .When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
+				.Then(you.WillSee(the.Area.Name(3)).HasText("My Area 3 Some Failed"))
+				.And(you.WillSee(the.Area.BadgeRed(3)).IsVisible())
                 .Run();
 		}
 	}

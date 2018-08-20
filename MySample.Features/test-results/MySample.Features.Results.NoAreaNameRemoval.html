@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Sample Features</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style> div#testrun-dates { margin: 0rem 0rem .5rem 5rem; } h1.testrun-name { margin: .5rem 0rem 0rem 0rem; } span.area.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; } span.badge-distro { width: 3.5rem; display: inline-block; height: 1.5rem; vertical-align: bottom; } span.area.stats { font-size: 75%; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; border-radius: .25rem; height: 1.5em; display: inline-block; width: 1.75rem; position: absolute; margin-left: 2rem; z-index: -1; vertical-align: middle; } span.feature.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; } span.scenario.badge { width: 2rem } span.testrun.duration { font-size: 1rem; color: gray; } span.area.duration { font-size: 1rem; color: gray; } span.feature.duration { font-size: 1rem; color: gray; } span.scenario.duration { font-size: 1rem; color: gray; } span.step.duration { font-size: .75rem; color: gray; } span.oi.oi-info { font-size: 80% } ol.areas { margin: .5rem 0rem; } ol { margin-left: 3rem; } span.badge { margin-left: .25rem; } span.distro { width: 1.5rem; height: 1.5rem; display: inline-block; margin-left: 2rem; border: 1px solid white; } span.name { margin-left: .75rem; } dl.exception { margin: 1rem 3rem; padding: 1rem; } dl.exception dt { margin-bottom: .25rem; } ol.features { margin-bottom: 2rem; } ol.scenarios { margin-bottom: 1.5rem; } ol.steps { margin-bottom: 1rem; } iframe { border: 1px solid gray; resize: both; overflow: auto; } h2, h3, h4, h5 { font-size: 1.25rem; margin: .5rem; font-weight: 400; } h5 { font-size: 1rem; margin: .25rem .75rem; } dl.error-type, dl.error-message, dl.error-stack { padding: .5rem; } dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding: .5rem; } pre.feature-statement { margin: 0rem 0rem 1rem 3rem; padding: .5rem; } .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; } td.graph td { padding: 0px !important; } .table { margin: 0px !important; } .table td.bar { padding: 0px !important; } .testrun-percent-bar { background-color: #56C1F7; } .area-percent-bar { background-color: #A4DEFB; } .pointer { cursor: pointer } pre { white-space: pre !important; } pre.mp { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thin; } pre.output { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thins; } .collapsing { -webkit-transition: none; transition: none; display: none; }</style>
+</head>
+<body class="container-fluid">
+
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">xBDD Test Results</a>
+                    <button id="menu-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="javascript: $('ol.features').collapse('show');" id="expand-all-areas-button">Expand All Areas <span class="sr-only">(current)</span></a>
+                        </div>
+                    </div>
+                    </nav>            
+                <div class="page-header" style="margin-top: 0px !important;">
+        <h1 class="testrun-name"><span class="testrun badge pointer badge-pill total badge-success" title="Areas">1</span>
+<span class="name">My Sample Features</span>
+<span class="testrun duration"> [166 ms]</span>
+        </h1>
+    </div>
+    <div style="margin-top: 0px !important;" id="testrun-dates">
+<span id="testrun-start-date" title="Start">2018-08-20 01:41 AM GMT-05:00</span>
+    </div>
+    <table class="table table-condensed " style="width: 100%; empty-cells: show;">
+        <tr id="testrun-area-stats">
+            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+            <td class="passed success text-center" style="width: 3.3333333333333%;">1</td>
+            <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="outcome-bar-chart" style="width: 90%;">
+    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+        <tr>
+            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+            <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
+            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+        </tr>
+    </table>
+        </td>
+    </tr>
+        <tr id="testrun-feature-stats">
+            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+            <td class="passed success text-center" style="width: 3.3333333333333%;">4</td>
+            <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="outcome-bar-chart" style="width: 90%;">
+    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+        <tr>
+            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+            <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
+            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+        </tr>
+    </table>
+        </td>
+    </tr>
+        <tr id="testrun-scenario-stats">
+            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+            <td class="passed success text-center" style="width: 3.3333333333333%;">10</td>
+            <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="outcome-bar-chart" style="width: 90%;">
+    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+        <tr>
+            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+            <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
+            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+        </tr>
+    </table>
+        </td>
+    </tr>
+    </table>
+    <ol class="areas list-unstyled">
+        <li class="area" id="area-1">
+            <h2 class="collapsed"><span class="area badge-distro" id="area-1-badge-distro" data-toggle="collapse" href="#area-1-stats" aria-expanded="false" aria-controls="area-1-stats"  title="Features"><span class="area badge badge-pill pointer total badge-success" id="area-1-badge">4</span>
+<span class="area distro pointer" id="area-1-distro"><div class="distro bg-success" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
+</span>
+</span>
+                <span class="name pointer" id="area-1-name" data-toggle="collapse" href="#area-1-features" aria-expanded="false" aria-controls="area-1-features" >My Sample - Features - My Area 1 All Passing</span>
+<span class="area duration"> [166 ms]</span>
+            </h2>
+            <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-1-stats">
+                <tr id="area-1-feature-stats">
+                    <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+                    <td class="passed success text-center" style="width: 3.3333333333333%;">4</td>
+                    <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
+                    <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                    <td class="outcome-bar-chart" style="width: 90%;">
+            <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                <tr>
+                    <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+                    <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
+                    <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                </tr>
+            </table>
+                </td>
+            </tr>
+                <tr id="area-1-scenario-stats">
+                    <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+                    <td class="passed success text-center" style="width: 3.3333333333333%;">10</td>
+                    <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
+                    <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                    <td class="outcome-bar-chart" style="width: 90%;">
+            <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                <tr>
+                    <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+                    <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
+                    <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                </tr>
+            </table>
+                </td>
+            </tr>
+            </table>
+            <ol class="features list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="area-1-features" aria-expanded="false">
+                <li class="feature" id="feature-1">
+                    <h3 id="vertical-align: top !important;"><span class="feature badge-distro" id="feature-1-badge-distro" data-toggle="collapse" href="#feature-1-stats" aria-expanded="false" aria-controls="feature-1-stats"  title="Scenarios"><span class="feature badge badge-pill pointer total badge-success" id="feature-1-badge">3</span>
+<span class="feature distro pointer" id="feature-1-distro"><div class="distro bg-success" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
+</span>
+</span>
+<span class="feature-statement-link badge pointer badge-secondary" id="feature-1-statement-link" data-toggle="collapse" href="#feature-1-statement" aria-expanded="false" aria-controls="feature-1-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-1-scenarios" aria-expanded="false" aria-controls="feature-1-scenarios" >My Feature 1 Passing</span>
+<span class="feature duration"> [54 ms]</span>
+                    </h3>
+                    <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-1-stats">
+                        <tr id="feature-1-scenario-stats">
+                            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+                            <td class="passed success text-center" style="width: 3.3333333333333%;">3</td>
+                            <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="outcome-bar-chart" style="width: 90%;">
+                    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+                            <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
+                            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                    </table>
+                    <div class="output collapse" id="feature-1-statement" aria-expanded="false">
+                        <pre class="feature-statement bg-light rounded" id="feature-1-statement">As a sample user
+You can have my feature 1 value
+By execute my feature 1</pre>
+</div>
+                    <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="feature-1-scenarios" aria-expanded="false">
+                        <li class="scenario passed" id="scenario-1">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-1-steps" aria-expanded="false" aria-controls="scenario-1-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
+<span class="name pointer">My Scenario 1</span>
+<span class="scenario duration"> [16 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-1-steps" aria-expanded="false">
+                                <li id="step-1">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-1-badge"> </span>
+<span class="name">Given my step 1</span>
+<span class="step duration"> [2 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-2">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-2-badge"> </span>
+<span class="name">When my step 2 with multiline input</span>
+<a class="step-input-link" data-toggle="collapse" href="#step-2-input" aria-expanded="false" aria-controls="step-2-input"> [Input]</a><span class="step duration"> [0 ms]</span>
+</h5>
+                                    <div class="input collapse" id="step-2-input" aria-expanded="false">
+                                        <pre class="mp rounded" id="input-2">Here
+ is
+ my
+ Input!</pre>
+</div>
+                                </li>
+                                <li id="step-3">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-3-badge"> </span>
+<span class="name">Then my step 3 with output</span>
+<a class="step-output-link" data-toggle="collapse" href="#step-3-output" aria-expanded="false" aria-controls="step-3-output"> [Output]</a><span class="step duration"> [0 ms]</span>
+</h5>
+                                    <div class="output collapse" id="step-3-output" aria-expanded="false">
+                                        <pre class="output rounded text" id="output-3">Here
+ is
+ my
+ Input!</pre>
+</div>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="scenario passed" id="scenario-2">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-2-steps" aria-expanded="false" aria-controls="scenario-2-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
+<span class="name pointer">My Scenario 2</span>
+<span class="scenario duration"> [16 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-2-steps" aria-expanded="false">
+                                <li id="step-4">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-4-badge"> </span>
+<span class="name">Given my step 4</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-5">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-5-badge"> </span>
+<span class="name">When my step 5</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-6">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-6-badge"> </span>
+<span class="name">Then my step 6</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="scenario passed" id="scenario-3">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-3-steps" aria-expanded="false" aria-controls="scenario-3-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
+<span class="name pointer">My Scenario 3</span>
+<span class="scenario duration"> [1 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-3-steps" aria-expanded="false">
+                                <li id="step-7">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-7-badge"> </span>
+<span class="name">Given my step 7</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-8">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-8-badge"> </span>
+<span class="name">When my step 8</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-9">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-9-badge"> </span>
+<span class="name">Then my step 9</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li class="feature" id="feature-2">
+                    <h3 id="vertical-align: top !important;"><span class="feature badge-distro" id="feature-2-badge-distro" data-toggle="collapse" href="#feature-2-stats" aria-expanded="false" aria-controls="feature-2-stats"  title="Scenarios"><span class="feature badge badge-pill pointer total badge-success" id="feature-2-badge">3</span>
+<span class="feature distro pointer" id="feature-2-distro"><div class="distro bg-success" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
+</span>
+</span>
+<span class="feature-statement-link badge pointer badge-secondary" id="feature-2-statement-link" data-toggle="collapse" href="#feature-2-statement" aria-expanded="false" aria-controls="feature-2-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-2-scenarios" aria-expanded="false" aria-controls="feature-2-scenarios" >My Feature 2 Passing Partial Statement</span>
+<span class="feature duration"> [4 ms]</span>
+                    </h3>
+                    <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-2-stats">
+                        <tr id="feature-2-scenario-stats">
+                            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+                            <td class="passed success text-center" style="width: 3.3333333333333%;">3</td>
+                            <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="outcome-bar-chart" style="width: 90%;">
+                    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+                            <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
+                            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                    </table>
+                    <div class="output collapse" id="feature-2-statement" aria-expanded="false">
+                        <pre class="feature-statement bg-light rounded" id="feature-2-statement">As a [Missing!]
+You can have my feature 2 value
+By [Missing!]</pre>
+</div>
+                    <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="feature-2-scenarios" aria-expanded="false">
+                        <li class="scenario passed" id="scenario-4">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-4-steps" aria-expanded="false" aria-controls="scenario-4-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
+<span class="name pointer">My Scenario 4</span>
+<span class="scenario duration"> [1 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-4-steps" aria-expanded="false">
+                                <li id="step-10">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-10-badge"> </span>
+<span class="name">Given my step 10</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-11">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-11-badge"> </span>
+<span class="name">When my step 11</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-12">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-12-badge"> </span>
+<span class="name">Then my step 12</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="scenario passed" id="scenario-5">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-5-steps" aria-expanded="false" aria-controls="scenario-5-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
+<span class="name pointer">My Scenario 5</span>
+<span class="scenario duration"> [0 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-5-steps" aria-expanded="false">
+                                <li id="step-13">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-13-badge"> </span>
+<span class="name">Given my step 13</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-14">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-14-badge"> </span>
+<span class="name">When my step 14</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-15">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-15-badge"> </span>
+<span class="name">Then my step 15</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="scenario passed" id="scenario-6">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-6-steps" aria-expanded="false" aria-controls="scenario-6-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
+<span class="name pointer">My Scenario 6</span>
+<span class="scenario duration"> [0 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-6-steps" aria-expanded="false">
+                                <li id="step-16">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-16-badge"> </span>
+<span class="name">Given my step 16</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-17">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-17-badge"> </span>
+<span class="name">When my step 17</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-18">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-18-badge"> </span>
+<span class="name">Then my step 18</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li class="feature" id="feature-3">
+                    <h3 id="vertical-align: top !important;"><span class="feature badge-distro" id="feature-3-badge-distro" data-toggle="collapse" href="#feature-3-stats" aria-expanded="false" aria-controls="feature-3-stats"  title="Scenarios"><span class="feature badge badge-pill pointer total badge-success" id="feature-3-badge">3</span>
+<span class="feature distro pointer" id="feature-3-distro"><div class="distro bg-success" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
+</span>
+</span>
+                        <span class="name pointer" data-toggle="collapse" href="#feature-3-scenarios" aria-expanded="false" aria-controls="feature-3-scenarios" >My Feature 3 Passing Missing Statement</span>
+<span class="feature duration"> [4 ms]</span>
+                    </h3>
+                    <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-3-stats">
+                        <tr id="feature-3-scenario-stats">
+                            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+                            <td class="passed success text-center" style="width: 3.3333333333333%;">3</td>
+                            <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="outcome-bar-chart" style="width: 90%;">
+                    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+                            <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
+                            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                    </table>
+                    <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="feature-3-scenarios" aria-expanded="false">
+                        <li class="scenario passed" id="scenario-7">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-7-steps" aria-expanded="false" aria-controls="scenario-7-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
+<span class="name pointer">My Scenario 7</span>
+<span class="scenario duration"> [0 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-7-steps" aria-expanded="false">
+                                <li id="step-19">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-19-badge"> </span>
+<span class="name">Given my step 19</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-20">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-20-badge"> </span>
+<span class="name">When my step 20</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-21">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-21-badge"> </span>
+<span class="name">Then my step 21</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="scenario passed" id="scenario-8">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-8-steps" aria-expanded="false" aria-controls="scenario-8-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
+<span class="name pointer">My Scenario 8</span>
+<span class="scenario duration"> [0 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-8-steps" aria-expanded="false">
+                                <li id="step-22">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-22-badge"> </span>
+<span class="name">Given my step 22</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-23">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-23-badge"> </span>
+<span class="name">When my step 23</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-24">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-24-badge"> </span>
+<span class="name">Then my step 24</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="scenario passed" id="scenario-9">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-9-steps" aria-expanded="false" aria-controls="scenario-9-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
+<span class="name pointer">My Scenario 9</span>
+<span class="scenario duration"> [0 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-9-steps" aria-expanded="false">
+                                <li id="step-25">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-25-badge"> </span>
+<span class="name">Given my step 25</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-26">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-26-badge"> </span>
+<span class="name">When my step 26</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-27">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-27-badge"> </span>
+<span class="name">Then my step 27</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li class="feature" id="feature-4">
+                    <h3 id="vertical-align: top !important;"><span class="feature badge-distro" id="feature-4-badge-distro" data-toggle="collapse" href="#feature-4-stats" aria-expanded="false" aria-controls="feature-4-stats"  title="Scenarios"><span class="feature badge badge-pill pointer total badge-success" id="feature-4-badge">1</span>
+<span class="feature distro pointer" id="feature-4-distro"><div class="distro bg-success" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
+</span>
+</span>
+<span class="feature-statement-link badge pointer badge-secondary" id="feature-4-statement-link" data-toggle="collapse" href="#feature-4-statement" aria-expanded="false" aria-controls="feature-4-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-4-scenarios" aria-expanded="false" aria-controls="feature-4-scenarios" >My Feature 4 Passing Reusable Steps</span>
+<span class="feature duration"> [1 ms]</span>
+                    </h3>
+                    <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-4-stats">
+                        <tr id="feature-4-scenario-stats">
+                            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+                            <td class="passed success text-center" style="width: 3.3333333333333%;">1</td>
+                            <td class="skipped warning text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="outcome-bar-chart" style="width: 90%;">
+                    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="bar passed-bar bg-success text-center" style="width: 100%"></td>
+                            <td class="bar skipped-bar bg-warning text-center" style="width: 0%"></td>
+                            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                    </table>
+                    <div class="output collapse" id="feature-4-statement" aria-expanded="false">
+                        <pre class="feature-statement bg-light rounded" id="feature-4-statement">As a My Actor
+You can have my feature 1 value
+By execute my feature 1</pre>
+</div>
+                    <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #5A8B5B;" id="feature-4-scenarios" aria-expanded="false">
+                        <li class="scenario passed" id="scenario-10">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-10-steps" aria-expanded="false" aria-controls="scenario-10-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
+<span class="name pointer">My Scenario 10 With Reusable Steps</span>
+<span class="scenario duration"> [1 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-10-steps" aria-expanded="false">
+                                <li id="step-28">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-28-badge"> </span>
+<span class="name">Given you execute step 28</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-29">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-29-badge"> </span>
+<span class="name">When you execute step 29</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                                <li id="step-30">
+                                    <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-30-badge"> </span>
+<span class="name">Then you execute step 30</span>
+<span class="step duration"> [0 ms]</span>
+</h5>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+    </ol>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sunburst"></script>
+    <script language="javascript" type="text/javascript">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }</script>
+</body>
+</html>
