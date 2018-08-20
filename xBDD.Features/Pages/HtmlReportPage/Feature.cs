@@ -6,11 +6,11 @@ namespace xBDD.Features.Pages.HtmlReportPage
     {
         public PageElement Name(int featureNumber, int areaNumber)
         {
-            return new PageElement("the feature name",$"#area-{areaNumber}-features.collapse.show #feature-{featureNumber} h3 span.name");
+            return new PageElement($"the feature {featureNumber} name",$"#area-{areaNumber}-features.collapse.show #feature-{featureNumber} h3 span.name");
         }
         public PageElement Badge(int featureNumber)
         {
-            return new PageElement("the feature badge","#feature-" + featureNumber + " h3 span.badge");
+            return new PageElement("the feature {featureNumber} badge","#feature-" + featureNumber + " h3 span.badge");
         }
         public PageElement BadgeGreen(int featureNumber)
         {

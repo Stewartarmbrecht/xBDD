@@ -23,8 +23,10 @@
                 .Given(you.HaveTheFollowingClass("",scenarioPath + actionName + ".cs"))
                 .WhenAsync("you execute the scenario", async step => {
                     text.Object = await action.Execute();
+                    step.Output = text.Object;
+                    step.OutputFormat = TextFormat.text;
                 })
-                .Then(you.WillSeeTheOutputMatches(scenarioPath + actionName + ".txt", text.Object))
+                .Then(you.WillSeeTheTextReportMatches(scenarioPath + actionName + ".txt", text))
                 .Run();
         }
 

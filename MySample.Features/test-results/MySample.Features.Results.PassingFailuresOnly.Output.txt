@@ -1,5 +1,5 @@
-Build started 8/20/18 2:01:17 AM.
-Test run for /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/MySample.Features.dll(.NETCoreApp,Version=v2.1)
+Build started 8/20/2018 5:08:06 PM.
+Test run for C:\Users\stearm01\source\xBDD\MySample.Features\bin\Debug\netcoreapp2.1\MySample.Features.dll(.NETCoreApp,Version=v2.1)
 Microsoft (R) Test Execution Command Line Tool Version 15.7.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -17,10 +17,10 @@ Passed   MyScenario_10_WithReusableSteps
 
 Total tests: 10. Passed: 10. Failed: 0. Skipped: 0.
 Test Run Successful.
-Test execution time: 1.7597 Seconds
+Test execution time: 1.5232 Seconds
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:02.55
+Time Elapsed 00:00:02.23

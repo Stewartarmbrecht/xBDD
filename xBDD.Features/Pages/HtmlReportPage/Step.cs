@@ -6,7 +6,7 @@ namespace xBDD.Features.Pages.HtmlReportPage
     {
         public PageElement Name(int stepNumber)
         {
-            return new PageElement("the step name","#step-" + stepNumber + " h5 span.name");
+            return new PageElement($"the step {stepNumber} name","#step-" + stepNumber + " h5 span.name");
         }
         public PageElement BadgeGreen(int stepNumber)
         {

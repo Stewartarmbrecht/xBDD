@@ -58,7 +58,7 @@ namespace xBDD.Core
         {
             step.EndTime = DateTime.Now;
             step.Outcome = Outcome.Passed;
-            statsCascader.CascadeStats(step, false);
+            statsCascader.CascadeStepStats(step, false);
         }
     }
 }

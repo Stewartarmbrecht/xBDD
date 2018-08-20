@@ -1,5 +1,5 @@
 {{.*}}/rl
-No test matches the given testcase filter `NoMatchAtAll` in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/MySample.Features.dll
+{{No test matches the given testcase filter \`NoMatchAtAll\` in .*}}
 
 Additionally, path to test adapters can be specified using /TestAdapterPath command. Example  /TestAdapterPath:<pathToCustomAdapters>.
 

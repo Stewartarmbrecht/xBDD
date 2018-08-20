@@ -166,5 +166,31 @@ namespace xBDD.Features.Actors
                 });
             return step;
         }
+        internal Step WillSeeTheTextReportMatches(string templateFilePath, Wrapper<string> textReportOutput, string description = null)
+        {
+            if(description == null)
+            {
+                description = "you will see the text report matches this template (See TemplateValidator project on Nuget):";
+            }
+            var step = xB.CreateStep(
+                description,
+                (s) => {
+                    try {
+                        var templatePath = $"{System.IO.Directory.GetCurrentDirectory()}../../../../{templateFilePath}";
+                        var template = File.ReadAllText(templatePath);
+                        s.MultilineParameter = template;
+                        s.MultilineParameterFormat = TextFormat.text;    
+                        s.Output = textReportOutput.Object;
+                        s.OutputFormat = TextFormat.text;             
+                        textReportOutput.Object.ValidateToTemplate(template);   
+                    } catch(System.Exception)
+                    {
+                        s.Output = textReportOutput.Object;
+                        s.OutputFormat = TextFormat.text;
+                        throw;
+                    }
+                });
+            return step;
+        }
 	}
 }

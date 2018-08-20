@@ -6,35 +6,35 @@ namespace xBDD.Features.Pages.HtmlReportPage
     {
         public PageElement Section(int areaNumber)
         {
-            return new PageElement("area scenario stats","#area-"+areaNumber+"-scenario-stats");
+            return new PageElement($"the area {areaNumber} scenario stats","#area-"+areaNumber+"-scenario-stats");
         }
         public PageElement BarChart(int areaNumber)
         {
-            return new PageElement("area scenario stats bar chart","#area-"+areaNumber+"-scenario-stats td.outcome-bar-chart");
+            return new PageElement($"the area {areaNumber} scenario stats bar chart","#area-"+areaNumber+"-scenario-stats td.outcome-bar-chart");
         }
         public PageElement SuccessBar(int areaNumber)
         {
-            return new PageElement("area scenario stats success bar","#area-"+areaNumber+"-scenario-stats td.passed-bar");
+            return new PageElement($"the area {areaNumber} scenario stats success bar","#area-"+areaNumber+"-scenario-stats td.passed-bar");
         }
         public PageElement SkippedBar(int areaNumber)
         {
-            return new PageElement("area scenario stats skipped bar","#area-"+areaNumber+"-scenario-stats td.skipped-bar");
+            return new PageElement($"the area {areaNumber} scenario stats skipped bar","#area-"+areaNumber+"-scenario-stats td.skipped-bar");
         }
         public PageElement FailedBar(int areaNumber)
         {
-            return new PageElement("area scenario stats failed bar","#area-"+areaNumber+"-scenario-stats td.failed-bar");
+            return new PageElement($"the area {areaNumber} scenario stats failed bar","#area-"+areaNumber+"-scenario-stats td.failed-bar");
         }
         public PageElement Passed(int areaNumber)
         {
-            return new PageElement("area scenario stats passed count","#area-"+areaNumber+"-scenario-stats td.passed");
+            return new PageElement($"the area {areaNumber} scenario stats passed count","#area-"+areaNumber+"-scenario-stats td.passed");
         }
         public PageElement Skipped(int areaNumber)
         {
-            return new PageElement("area scenario stats skipped count","#area-"+areaNumber+"-scenario-stats td.skipped");
+            return new PageElement($"the area {areaNumber} scenario stats skipped count","#area-"+areaNumber+"-scenario-stats td.skipped");
         }
         public PageElement Failed(int areaNumber)
         {
-            return new PageElement("area scenario stats failed count","#area-"+areaNumber+"-scenario-stats td.failed");
+            return new PageElement($"the area {areaNumber} scenario stats failed count","#area-"+areaNumber+"-scenario-stats td.failed");
         }
     }
 }

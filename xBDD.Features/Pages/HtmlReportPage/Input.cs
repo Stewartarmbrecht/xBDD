@@ -6,28 +6,28 @@ namespace xBDD.Features.Pages.HtmlReportPage
     {
         public PageElement Text(int stepNumber)
         {
-            return new PageElement("step text input", "#input-" + stepNumber + ".mp");
+            return new PageElement($"the step {stepNumber} text input", "#input-" + stepNumber + ".mp");
         }
         public PageElement Code(int stepNumber)
         {
-            return new PageElement("step text input", "#input-" + stepNumber + "[class=\"code prettify\"]");
+            return new PageElement($"the step {stepNumber} text input", "#input-" + stepNumber + "[class=\"code prettify\"]");
         }
         public PageElement Html(int stepNumber)
         {
-            return new PageElement("step text input", "#input-" + stepNumber + "[class=\"code prettify lang-html\"]");
+            return new PageElement($"the step {stepNumber} text input", "#input-" + stepNumber + "[class=\"code prettify lang-html\"]");
         }
         public PageElement HtmlPreview(int stepNumber)
         {
-            return new PageElement("step text input", "#input-preview-" + stepNumber);
+            return new PageElement($"the step {stepNumber} text input", "#input-preview-" + stepNumber);
         }
 
         public PageElement Link(int stepNumber)
         {
-            return new PageElement("step input link", "#step-" + stepNumber + " a.step-input-link");
+            return new PageElement($"the step {stepNumber} input link", "#step-" + stepNumber + " a.step-input-link");
         }
         public PageElement Section(int stepNumber)
         {
-            return new PageElement("step input", "#step-" + stepNumber + " div.input");
+            return new PageElement($"the step {stepNumber} input", "#step-" + stepNumber + " div.input");
         }
     }
 }

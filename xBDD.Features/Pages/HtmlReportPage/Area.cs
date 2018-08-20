@@ -6,11 +6,11 @@ namespace xBDD.Features.Pages.HtmlReportPage
     {
         public PageElement Name(int areaNumber)
         {
-            return new PageElement("the area title line","#area-" + areaNumber + "-name");
+            return new PageElement($"the area {areaNumber} title line",$"#area-{areaNumber}-name");
         }
         public PageElement Badge(int areaNumber)
         {
-            return new PageElement("the area title line","#area-" + areaNumber + "-badge");
+            return new PageElement($"the area {areaNumber} title line","#area-" + areaNumber + "-badge");
         }
         public PageElement BadgeGreen(int areaNumber)
         {

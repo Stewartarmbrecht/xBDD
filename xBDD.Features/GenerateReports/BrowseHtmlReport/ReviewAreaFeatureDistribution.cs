@@ -24,9 +24,9 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.Then(you.WillSee(the.AreaFeatureDistro.BadgeDistro(3)).IsVisible())
 				.And(you.WillSee(the.AreaFeatureDistro.BadgeDistro(3)).HasTitleAKAHoverText("Features"))
 				.And(you.WillSee(the.AreaFeatureDistro.Chart(3)).IsVisible())
-				.And(you.WillSee(the.AreaFeatureDistro.PassedBar(3)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
-				.And(you.WillSee(the.AreaFeatureDistro.SkippedBar(3)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
-				.And(you.WillSee(the.AreaFeatureDistro.FailedBar(3)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
+				.And(you.WillSee(the.AreaFeatureDistro.PassedBar(3)).Style("has a heigth of 33%", ".*height\\: 33\\.3.*\\%\\;.*"))
+				.And(you.WillSee(the.AreaFeatureDistro.SkippedBar(3)).IsNotThere())
+				.And(you.WillSee(the.AreaFeatureDistro.FailedBar(3)).Style("has a heigth of 33%", ".*height\\: 66\\.6.*\\%\\;.*"))
                 .Run();
 		}
 		[TestMethod]

@@ -6,23 +6,23 @@ namespace xBDD.Features.Pages.HtmlReportPage
     {
         public PageElement BadgeDistro(int featureNumber)
         {
-            return new PageElement("feature badge and distribution chart", $"#feature-{featureNumber}-badge-distro");
+            return new PageElement($"the feature {featureNumber}badge and distribution chart", $"#feature-{featureNumber}-badge-distro");
         }
         public PageElement Chart(int featureNumber)
         {
-            return new PageElement("feature scenario distribution chart", $"#feature-{featureNumber}-distro");
+            return new PageElement($"the feature {featureNumber}scenario distribution chart", $"#feature-{featureNumber}-distro");
         }
         public PageElement PassedBar(int featureNumber)
         {
-            return new PageElement("feature scenario distribution passed bar","#feature-"+featureNumber+"-distro div.distro.bg-success");
+            return new PageElement($"the feature {featureNumber}scenario distribution passed bar","#feature-"+featureNumber+"-distro div.distro.bg-success");
         }
         public PageElement SkippedBar(int featureNumber)
         {
-            return new PageElement("feature scenario distribution skipped bar","#feature-"+featureNumber+"-distro div.distro.bg-warning");
+            return new PageElement($"the feature {featureNumber}scenario distribution skipped bar","#feature-"+featureNumber+"-distro div.distro.bg-warning");
         }
         public PageElement FailedBar(int featureNumber)
         {
-            return new PageElement("feature scenario distribution failed bar","#feature-"+featureNumber+"-distro div.distro.bg-danger");
+            return new PageElement($"the feature {featureNumber}scenario distribution failed bar","#feature-"+featureNumber+"-distro div.distro.bg-danger");
         }
     }
 }

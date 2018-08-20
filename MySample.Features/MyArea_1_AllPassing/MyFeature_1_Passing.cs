@@ -16,6 +16,7 @@ namespace MySample.Features.MyArea_1_AllPassing
         public async Task MyScenario_1()
         {
 			var input = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} Input!";
+			var output = $"Here{System.Environment.NewLine} is{System.Environment.NewLine} my{System.Environment.NewLine} output!";
 			var format = TextFormat.text;
             await xB.CurrentRun.AddScenario(this, 1)
                 .Given("my step 1", (s) => { 
@@ -26,7 +27,7 @@ namespace MySample.Features.MyArea_1_AllPassing
                  }, input, format)
                 .Then("my step 3 with output", (s) => { 
                     //Add code to perform action.
-                    s.Output = input;
+                    s.Output = output;
                     s.OutputFormat = format;
                  })
                 .Run();

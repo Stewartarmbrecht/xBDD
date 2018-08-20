@@ -6,7 +6,7 @@ namespace xBDD.Features.Pages.HtmlReportPage
     {
         public PageElement Total(int scenarioNumber)
         {
-            return new PageElement("scenario steps total","#scenario-"+scenarioNumber+" span.badge.total");
+            return new PageElement($"the scenario {scenarioNumber} steps total","#scenario-"+scenarioNumber+" span.badge.total");
         }
     }
 }
