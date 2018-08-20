@@ -1,4 +1,4 @@
-Build started 8/20/18 1:41:47 AM.
+Build started 8/20/18 2:01:47 AM.
 Test run for /Users/stewartarmbrecht/Source/xBDD/MySample.Features/bin/Debug/netcoreapp2.1/MySample.Features.dll(.NETCoreApp,Version=v2.1)
 Microsoft (R) Test Execution Command Line Tool Version 15.7.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
@@ -34,7 +34,34 @@ Standard Output Messages:
 
 Passed   MyFirstScenario
 Passed   MyScenario_0_Unsorted
-Skipped  MyScenario_40_Failed
+Failed   MyScenario_40_Failed
+Error Message:
+ Test method MySample.Features.MyArea_7_AllFailed.MyFeature_16_AllFailed.MyScenario_40_Failed threw exception: 
+xBDD.StepException: The step 'my step 119 failed' threw a 'Exception' exception with a message: 'I failed.'. See the inner exception for details. ---> System.Exception: I failed.
+Stack Trace:
+    at MySample.Features.MyArea_7_AllFailed.MyFeature_16_AllFailed.<>c.<MyScenario_40_Failed>b__0_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/MyArea_7_AllFailed/MyFeature_16_AllFailed.cs:line 21
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
+   at xBDD.Core.ScenarioBuilder.Run()
+   at MySample.Features.MyArea_7_AllFailed.MyFeature_16_AllFailed.MyScenario_40_Failed() in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/MyArea_7_AllFailed/MyFeature_16_AllFailed.cs:line 19
+
+Standard Output Messages:
+ 
+ 
+ Debug Trace:
+ My Scenario 40 Failed
+     Given my step 118
+     When my step 119 failed
+     Then my step 120
+
+
 Skipped  MyScenario_39_AllSkipped
 Failed   MyScenario_30_Unsorted_38_Sorted
 Error Message:
@@ -162,7 +189,34 @@ Standard Output Messages:
 
 
 Passed   MyScenario_22_Passed
-Skipped  MyScenario_23_Skipped
+Failed   MyScenario_23_Failedd
+Error Message:
+ Test method MySample.Features.MyArea_3_SomeFailed.MyFeature_9_SomeSkipped.MyScenario_23_Failedd threw exception: 
+xBDD.StepException: The step 'my step 68' threw a 'Exception' exception with a message: 'My exception'. See the inner exception for details. ---> System.Exception: My exception
+Stack Trace:
+    at MySample.Features.MyArea_3_SomeFailed.MyFeature_9_SomeSkipped.<>c.<MyScenario_23_Failedd>b__0_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/MyArea_3_SomeFailed/MyFeature_9_SomeSkipped.cs:line 21
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
+   at xBDD.Core.ScenarioBuilder.Run()
+   at MySample.Features.MyArea_3_SomeFailed.MyFeature_9_SomeSkipped.MyScenario_23_Failedd() in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/MyArea_3_SomeFailed/MyFeature_9_SomeSkipped.cs:line 19
+
+Standard Output Messages:
+ 
+ 
+ Debug Trace:
+ My Scenario 23 Failedd
+     Given my step 67
+     When my step 68
+     Then my step 69
+
+
 Skipped  MyScenario_24_Skipped
 Passed   MyScenario_25_Passed
 Skipped  MyScenario_11
@@ -188,11 +242,11 @@ Passed   MyScenario_0_Unsorted
 Passed   MyScenario_1_Sorted
 Passed   MyScenario_2_Sorted
 
-Total tests: 46. Passed: 33. Failed: 5. Skipped: 8.
-Test execution time: 1.5719 Seconds
+Total tests: 46. Passed: 33. Failed: 7. Skipped: 6.
+Test execution time: 3.2873 Seconds
 
 Build FAILED.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:02.34
+Time Elapsed 00:00:05.06

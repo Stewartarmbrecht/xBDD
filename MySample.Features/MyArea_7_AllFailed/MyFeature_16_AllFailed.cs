@@ -20,7 +20,7 @@ namespace MySample.Features.MyArea_7_AllFailed
                 .Given("my step 118", (s) => {  })
                 .When("my step 119 failed", (s) => { throw new Exception("I failed."); })
                 .Then("my step 120", (s) => {  })
-                .Skip("Deferred", Assert.Inconclusive);
+                .Run();
         }
     }
 }

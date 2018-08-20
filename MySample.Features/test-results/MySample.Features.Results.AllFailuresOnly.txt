@@ -120,10 +120,18 @@ My Sample - Features - My Area 3 Some Failed
 			When my step 65
 			Then my step 66
 	My Feature 9 Some Skipped
-		My Scenario 23 Skipped [Skipped - Deferred]
+		My Scenario 23 Failedd [Failed]
 			Given my step 67
-			When my step 68
-			Then my step 69
+			When my step 68 [Failed]
+				Error Type: Exception
+				   Message: My exception
+				     Stack:    at MySample.Features.MyArea_3_SomeFailed.MyFeature_9_SomeSkipped.<>c.<MyScenario_23_Failedd>b__0_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/MyArea_3_SomeFailed/MyFeature_9_SomeSkipped.cs:line 21
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+			Then my step 69 [Skipped - Previous Error]
 		My Scenario 24 Skipped [Skipped - Deferred]
 			Given my step 70
 			When my step 71
@@ -215,10 +223,18 @@ My Sample - Features - My Area 6 All Skipped
 			Then my step 117
 My Sample - Features - My Area 7 All Failed
 	My Feature 16 All Failed
-		My Scenario 40 Failed [Skipped - Deferred]
+		My Scenario 40 Failed [Failed]
 			Given my step 118
-			When my step 119 failed
-			Then my step 120
+			When my step 119 failed [Failed]
+				Error Type: Exception
+				   Message: I failed.
+				     Stack:    at MySample.Features.MyArea_7_AllFailed.MyFeature_16_AllFailed.<>c.<MyScenario_40_Failed>b__0_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample.Features/MyArea_7_AllFailed/MyFeature_16_AllFailed.cs:line 21
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+			Then my step 120 [Skipped - Previous Error]
 My Sample - Features - My First Area
 	My First Feature
 		My First Scenario

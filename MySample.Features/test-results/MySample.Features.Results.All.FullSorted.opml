@@ -160,7 +160,7 @@
 		</outline>
 	</outline>
 	<outline text="My Feature 9 Some Skipped">
-		<outline text="My Scenario 23 Skipped">
+		<outline text="My Scenario 23 Failedd">
 			<outline text="Given my step 67"/>
 			<outline text="When my step 68"/>
 			<outline text="Then my step 69"/>

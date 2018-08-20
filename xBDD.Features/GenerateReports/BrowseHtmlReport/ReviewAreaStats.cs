@@ -41,12 +41,12 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 				.And(you.Click(the.Area.Badge(3)))
 				.Then(you.WillSee(the.AreaScenarioStats.Section(3)).IsVisible())
 				.And(you.WillSee(the.AreaScenarioStats.Passed(3)).HasText("5"))
-				.And(you.WillSee(the.AreaScenarioStats.Skipped(3)).HasText("3"))
-				.And(you.WillSee(the.AreaScenarioStats.Failed(3)).HasText("1"))
+				.And(you.WillSee(the.AreaScenarioStats.Skipped(3)).HasText("2"))
+				.And(you.WillSee(the.AreaScenarioStats.Failed(3)).HasText("2"))
 				.And(you.WillSee(the.AreaScenarioStats.BarChart(3)).IsVisible())
-				.And(you.WillSee(the.AreaScenarioStats.SuccessBar(3)).Style("has a width of 55%", ".*width: 55\\..*"))
-				.And(you.WillSee(the.AreaScenarioStats.SkippedBar(3)).Style("has a width of 33%", ".*width: 33\\..*"))
-				.And(you.WillSee(the.AreaScenarioStats.FailedBar(3)).Style("has a width of 11%", ".*width: 11\\..*"))
+				.And(you.WillSee(the.AreaScenarioStats.SuccessBar(3)).Style("has a width of 55.5%", ".*width: 55\\.5.*"))
+				.And(you.WillSee(the.AreaScenarioStats.SkippedBar(3)).Style("has a width of 22.2%", ".*width: 22\\.2.*"))
+				.And(you.WillSee(the.AreaScenarioStats.FailedBar(3)).Style("has a width of 22.2%", ".*width: 22\\.2.*"))
                 .Run();
 		}
 	}

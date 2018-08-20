@@ -21,12 +21,12 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
             await xB.AddScenario(this, 1)
 				.When(you.NavigateTo(the.HtmlReport.FromAFailedTestRun))
 				.And(you.ClickWhen(the.Area.Name(3)).IsVisible())
-				.Then(you.WillSee(the.FeatureScenarioDistro.BadgeDistro(8)).IsVisible())
-				.And(you.WillSee(the.FeatureScenarioDistro.BadgeDistro(8)).HasTitleAKAHoverText("Scenarios"))
-				.And(you.WillSee(the.FeatureScenarioDistro.Chart(8)).IsVisible())
-				.And(you.WillSee(the.FeatureScenarioDistro.PassedBar(8)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
-				.And(you.WillSee(the.FeatureScenarioDistro.SkippedBar(8)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
-				.And(you.WillSee(the.FeatureScenarioDistro.FailedBar(8)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
+				.Then(you.WillSee(the.FeatureScenarioDistro.BadgeDistro(9)).IsVisible())
+				.And(you.WillSee(the.FeatureScenarioDistro.BadgeDistro(9)).HasTitleAKAHoverText("Scenarios"))
+				.And(you.WillSee(the.FeatureScenarioDistro.Chart(9)).IsVisible())
+				.And(you.WillSee(the.FeatureScenarioDistro.PassedBar(9)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
+				.And(you.WillSee(the.FeatureScenarioDistro.SkippedBar(9)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
+				.And(you.WillSee(the.FeatureScenarioDistro.FailedBar(9)).Style("has a heigth of 33%", ".*height\\: 33\\..*\\%\\;.*"))
                 .Run();
 		}
 		[TestMethod]

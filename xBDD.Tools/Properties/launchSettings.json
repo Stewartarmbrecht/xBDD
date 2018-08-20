@@ -1,0 +1,8 @@
+{
+    "profiles": {
+        "dotnet-xBDD": {
+            "commandName": "Project",
+            "commandLineArgs": "--help"
+        }
+    }
+}

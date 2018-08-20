@@ -14,13 +14,13 @@ namespace MySample.Features.MyArea_3_SomeFailed
     {
 
         [TestMethod]
-        public async Task MyScenario_23_Skipped()
+        public async Task MyScenario_23_Failedd()
         {
             await xB.CurrentRun.AddScenario(this, 1)
                 .Given("my step 67", (s) => {  })
-                .When("my step 68", (s) => {  })
+                .When("my step 68", (s) => { throw new Exception("My exception"); })
                 .Then("my step 69", (s) => {  })
-                .Skip("Deferred", Assert.Inconclusive);
+                .Run();
         }
 
         [TestMethod]
