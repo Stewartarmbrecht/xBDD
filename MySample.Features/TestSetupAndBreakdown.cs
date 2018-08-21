@@ -56,7 +56,7 @@ namespace MySample.Features
             var opmlReport = await xB.CurrentRun.TestRun.WriteToOpml();
             File.WriteAllText(opmlPath, opmlReport);
 
-            await xB.CurrentRun.TestRun.WriteToCode("MySample.Features", "./Code/", "My Sample - Features - ");
+            xB.CurrentRun.TestRun.WriteToCode("MySample.Features", "./Code/", "My Sample - Features - ");
         }
     }
 }
