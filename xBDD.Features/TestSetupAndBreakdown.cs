@@ -51,7 +51,7 @@ namespace xBDD.Features
             var opmlReport = await xB.CurrentRun.TestRun.WriteToOpml();
             File.WriteAllText(opmlPath, opmlReport);
 
-            await xB.CurrentRun.TestRun.WriteToCode("xBDD.Features", "./Code/", "xBDD - Features - ");
+            xB.CurrentRun.TestRun.WriteToCode("xBDD.Features", "./Code/", "xBDD - Features - ");
         }
     }
 }

@@ -19,7 +19,7 @@ namespace xBDD.Tools
 
         public int OnExecute(CommandLineApplication app, IConsole console)
         {
-            var codeWriter = new CodeWriter();
+            var codeWriter = new xBDD.Reporting.Code.CodeWriter();
             var directory = System.IO.Directory.GetCurrentDirectory();
             var folder = directory.Substring(directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar) + 1, directory.Length - (directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar)+1));
             console.WriteLine($"Directory: {directory}");

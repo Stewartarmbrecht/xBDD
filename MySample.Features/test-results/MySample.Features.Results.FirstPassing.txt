@@ -1,8 +1,0 @@
-My Sample Features
-
-My Sample - Features - My First Area
-	My First Feature
-		My First Scenario
-			Given my step 1
-			When my step 2
-			Then my step 3

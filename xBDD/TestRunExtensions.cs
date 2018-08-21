@@ -80,11 +80,11 @@
         /// <param name="testRun">The test run whose results you want to write to code.</param>
         /// <param name="rootNamespace">The root namespace to use for generating the project files.</param>
         /// <param name="directory">The directory to write the files to.</param>
-        public static async Task WriteToCode(this xBDD.Model.TestRun testRun, string rootNamespace, string directory, string removeFromAreaNameStart)
+        public static void WriteToCode(this xBDD.Model.TestRun testRun, string rootNamespace, string directory, string removeFromAreaNameStart)
         {
             ReportingFactory factory = new ReportingFactory();
             CodeWriter saver = factory.GetCodeWriter();
-            await saver.WriteToCode(testRun, rootNamespace, directory, removeFromAreaNameStart);
+            saver.WriteToCode(testRun, rootNamespace, directory, removeFromAreaNameStart);
         }
 
         /// <summary>

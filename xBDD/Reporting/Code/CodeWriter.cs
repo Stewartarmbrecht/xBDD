@@ -23,7 +23,7 @@
         /// <param name="directory">The root directory to write the files to.</param>
         /// <param name="removeFromAreaNameStart">The value for this xBDD config setting.</param>
         /// <returns>Nothing, the files are written to disk.</returns>
-        public async Task WriteToCode(TestRun testRun, string rootNamespace, string directory, string removeFromAreaNameStart)
+        public void WriteToCode(TestRun testRun, string rootNamespace, string directory, string removeFromAreaNameStart)
         {
             System.IO.Directory.CreateDirectory(directory);
             this.WriteProjectFiles(testRun, directory, rootNamespace, removeFromAreaNameStart);
@@ -36,26 +36,65 @@
                 sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
             foreach(var scenario in sortedScenarios)
             {
-                await WriteScenario(rootNamespace, directory, lastScenario, scenario, sb, sbFeatureSort);
+                this.WriteScenario(rootNamespace, directory, lastScenario, scenario, sb, sbFeatureSort);
                 lastScenario = scenario;
             }
             if(sortedScenarios.Count() > 0) {
-                await WriteFeatureFile(directory, rootNamespace, lastScenario.Feature.ClassName, sb);
-                await WriteFeatureSortFile(directory, rootNamespace, sbFeatureSort);
+                this.WriteFeatureFile(directory, rootNamespace, lastScenario.Feature.ClassName, sb);
+                this.WriteFeatureSortEnd(directory, rootNamespace, sbFeatureSort);
             }
         }
 
-        private async Task WriteFeatureFile(string directory, string rootNamespace, string featureFullClassName, StringBuilder sb)
+        private void WriteSampleFeature(string directory, string rootNamespace)
         {
-            await Task.Run(() => {
-                    sb.AppendLine($@"    }}
+            System.IO.Directory.CreateDirectory("MyArea");
+            var content = $@"namespace {rootNamespace}.MyArea
+{{
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+	using System.Threading.Tasks;
+	using xBDD;
+
+    [TestClass]
+    [AsA(""sample user"")]
+    [YouCan(""have my feature value"")]
+    [By(""execute my feature"")]
+    public class MyFeature: FeatureTestClass
+    {{
+
+        [TestMethod]
+        public async Task MyScenario()
+        {{
+			var input = $""Here{{System.Environment.NewLine}} is{{System.Environment.NewLine}} my{{System.Environment.NewLine}} Input!"";
+			var format = TextFormat.text;
+            await xB.CurrentRun.AddScenario(this, 1)
+                .Given(""my step 1"", (s) => {{ 
+                    //Add code to perform action.
+                 }})
+                .When(""my step 2 with multiline input"", (s) => {{ 
+                    //Add code to perform action.
+                 }}, input, format)
+                .Then(""my step 3 with output"", (s) => {{ 
+                    //Add code to perform action.
+                    s.Output = input;
+                    s.OutputFormat = format;
+                 }})
+                .Run();
+        }}
+    }}
+}}";
+
+            System.IO.File.WriteAllText($"{directory}/MyArea/MyFeature.cs",content);
+        }
+        private void WriteFeatureFile(string directory, string rootNamespace, string featureFullClassName, StringBuilder sb)
+        {
+            sb.AppendLine($@"    }}
 }}
 ");
-                var featureFolder = $"{directory}{featureFullClassName.Replace(rootNamespace,"").Substring(0, featureFullClassName.Replace(rootNamespace,"").LastIndexOf(".")).Replace(".","/")}/";
-                var featureClassName = featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
-                System.IO.Directory.CreateDirectory(featureFolder);
-                System.IO.File.WriteAllText($"{featureFolder}/{featureClassName}.cs", sb.ToString());
-            });
+            var featureFolder = $"{directory}{featureFullClassName.Replace(rootNamespace,"").Substring(0, featureFullClassName.Replace(rootNamespace,"").LastIndexOf(".")).Replace(".","/")}/";
+            var featureClassName = featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
+            System.IO.Directory.CreateDirectory(featureFolder);
+            System.IO.File.WriteAllText($"{featureFolder}/{featureClassName}.cs", sb.ToString());
         }
         private void WriteFeatureSortStart(StringBuilder sb, string rootNamespace)
         {
@@ -71,19 +110,17 @@
         {{
             List<string> SortedFeatureNames = new List<string>() {{");
         }
-        private async Task WriteFeatureSortFile(string directory, string rootNamespace, StringBuilder sb)
+        private void WriteFeatureSortEnd(string directory, string rootNamespace, StringBuilder sb)
         {
-            await Task.Run(() => {
-                sb.AppendLine($@"            }};
+            sb.AppendLine($@"            }};
 
             this.SortedFeatureNames = SortedFeatureNames.ToArray();
 
         }}
     }}
 }}");
-                var filePath = $"{directory}/FeatureSort.cs";
-                System.IO.File.WriteAllText(filePath, sb.ToString());
-            });
+            var filePath = $"{directory}/FeatureSort.cs";
+            System.IO.File.WriteAllText(filePath, sb.ToString());
         }
 
         /// <summary>
@@ -92,16 +129,56 @@
         /// <param name="directory">The directory to write the files in.</param>
         /// <param name="rootNamespace">The root namspace to use.</param>
         /// <param name="removeFromAreaNameStart">The value for this config setting.</param>
+        /// <param name="testRun">The test run to create the features for.</param>
         /// <returns>Nothing. Files are written to disck.</returns>
         public void WriteProjectFiles(TestRun testRun, string directory, string rootNamespace, string removeFromAreaNameStart)
         {
-            List<Task> tasks = new List<Task>();
-            tasks.Add(this.WriteProjectFile(directory, rootNamespace));
-            tasks.Add(this.WriteConfigJson(testRun, directory, removeFromAreaNameStart));
-            tasks.Add(this.WriteTestSetupAndBreakdown(directory, rootNamespace));
-            tasks.Add(this.WriteTestConfiguration(directory, rootNamespace));
-            tasks.Add(this.WriteFeatureTestClass(directory, rootNamespace));
-            Task.WaitAll(tasks.ToArray());
+            this.WriteProjectFile(directory, rootNamespace);
+            this.WriteConfigJson(testRun.Name, directory, removeFromAreaNameStart);
+            this.WriteTestSetupAndBreakdown(directory, rootNamespace);
+            this.WriteTestConfiguration(directory, rootNamespace);
+            this.WriteFeatureTestClass(directory, rootNamespace);
+        }
+        /// <summary>
+        /// Writes out files to create a MSTest project that uses 
+        /// best practices for xBDD.
+        /// </summary>
+        /// <param name="directory">The directory to write the files in.</param>
+        /// <param name="rootNamespace">The root namspace to use.</param>
+        /// <param name="removeFromAreaNameStart">The value for this config setting.</param>
+        public void WriteProjectFiles(string directory, string rootNamespace, string removeFromAreaNameStart)
+        {
+            this.WriteProjectFile(directory, rootNamespace);
+            this.WriteConfigJson(rootNamespace, directory, removeFromAreaNameStart);
+            this.WriteTestSetupAndBreakdown(directory, rootNamespace);
+            this.WriteTestConfiguration(directory, rootNamespace);
+            this.WriteFeatureTestClass(directory, rootNamespace);
+            this.WriteFeatureSort(directory, rootNamespace);
+            this.WriteSampleFeature(directory, rootNamespace);
+        }
+
+        private void WriteFeatureSort(string directory, string rootNamespace)
+        {
+            var content = $@"namespace {rootNamespace}
+{{
+    using System;
+    using System.Collections.Generic;
+    public class FeatureSort
+    {{
+        public string[] SortedFeatureNames {{ get; private set; }}
+
+        public FeatureSort()
+        {{
+            List<string> SortedFeatureNames = new List<string>() {{
+                typeof({rootNamespace}.MyArea.MyFeature).FullName,
+            }};
+
+            this.SortedFeatureNames = SortedFeatureNames.ToArray();
+
+        }}
+    }}
+}}";
+            System.IO.File.WriteAllText($"{directory}/FeatureSort.cs",content);
         }
 
         /// <summary>
@@ -110,10 +187,9 @@
         /// <param name="directory">The directory to write the project file to.</param>
         /// <param name="rootNamespace">The root namespace to use.</param>
         /// <returns>Returns the task for writing the file to the direcotry.</returns>
-        public async Task WriteFeatureTestClass(string directory, string rootNamespace)
+        public void WriteFeatureTestClass(string directory, string rootNamespace)
         {
-            await Task.Run(() =>{
-                var content = $@"namespace {rootNamespace}
+            var content = $@"namespace {rootNamespace}
 {{
     using xBDD;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -131,8 +207,7 @@
     }}
 }}
 ";
-                System.IO.File.WriteAllText($"{directory}/FeatureTestClass.cs",content);
-            });
+            System.IO.File.WriteAllText($"{directory}/FeatureTestClass.cs",content);
         }
 
         /// <summary>
@@ -141,10 +216,9 @@
         /// <param name="directory">The directory to write the project file to.</param>
         /// <param name="rootNamespace">The root namespace to use.</param>
         /// <returns>Returns the task for writing the file to the direcotry.</returns>
-        public async Task WriteProjectFile(string directory, string rootNamespace)
+        public void WriteProjectFile(string directory, string rootNamespace)
         {
-            await Task.Run(() =>{
-                var content = $@"<Project Sdk=""Microsoft.NET.Sdk"">
+            var content = $@"<Project Sdk=""Microsoft.NET.Sdk"">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -168,23 +242,21 @@
 
 </Project>
 ";
-                System.IO.File.WriteAllText($"{directory}/{rootNamespace}.csproj",content);
-            });
+            System.IO.File.WriteAllText($"{directory}/{rootNamespace}.csproj",content);
         }
 
         /// <summary>
         /// Writes a config.json file.
         /// </summary>
         /// <param name="directory">Direcotry to write the file in.</param>
-        /// <param name="testRun">The test run to build the configuration for.</param>
+        /// <param name="testRunName">Value for the TestRunName setting.</param>
         /// <param name="removeFromAreaNameStart">The string to remove from the beginning of the area name.</param>
         /// <returns>Returns the task for writing the file to the direcotry.</returns>
-        public async Task WriteConfigJson(TestRun testRun, string directory, string removeFromAreaNameStart)
+        public void WriteConfigJson(string testRunName, string directory, string removeFromAreaNameStart)
         {
-            await Task.Run(() =>{
-                var content = $@"{{
+            var content = $@"{{
     ""xBDD"": {{
-        ""TestRunName"": ""{testRun.Name}"",
+        ""TestRunName"": ""{testRunName}"",
         ""Browser"": {{
             ""Watch"": ""false""
         }},
@@ -195,8 +267,7 @@
     }}
 }}            
 ";
-                System.IO.File.WriteAllText($"{directory}/config.json",content);
-            });
+            System.IO.File.WriteAllText($"{directory}/config.json",content);
         }
 
         /// <summary>
@@ -206,10 +277,9 @@
         /// <param name="directory">The directory to write the file.</param>
         /// <param name="namespaceRoot">The root namespace to use.</param>
         /// <returns>Returns the task for writing the file to the direcotry.</returns>
-        public async Task WriteTestSetupAndBreakdown(string directory, string namespaceRoot)
+        public void WriteTestSetupAndBreakdown(string directory, string namespaceRoot)
         {
-            await Task.Run(() => {
-                var content = $@"namespace {namespaceRoot}
+            var content = $@"namespace {namespaceRoot}
 {{
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
@@ -265,9 +335,7 @@
     }}
 }}
 ";   
-                System.IO.File.WriteAllText($"{directory}/TestSetupAndBreakdown.cs",content);
-
-            });
+            System.IO.File.WriteAllText($"{directory}/TestSetupAndBreakdown.cs",content);
         }
 
         /// <summary>
@@ -277,10 +345,9 @@
         /// <param name="directory">The directory to write the file in.</param>
         /// <param name="rootNamespace">The root namespace to use for the class.</param>
         /// <returns>Returns the task for writing the file to the direcotry.</returns>
-        public async Task WriteTestConfiguration(string directory, string rootNamespace)
+        public void WriteTestConfiguration(string directory, string rootNamespace)
         {
-            await Task.Run(() => {
-                var testConfiguration = $@"namespace {rootNamespace}
+            var testConfiguration = $@"namespace {rootNamespace}
 {{
     using Microsoft.Extensions.Configuration;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -343,17 +410,16 @@
     }}
 }}
 ";
-                System.IO.File.WriteAllText($"{directory}/TestConfiguration.cs",testConfiguration);
-            });
+            System.IO.File.WriteAllText($"{directory}/TestConfiguration.cs",testConfiguration);
         }
 
-        private async Task WriteScenario(string rootNamespace, string directory, Scenario lastScenario, Scenario scenario, StringBuilder sb, StringBuilder sbFeatureSort)
+        private void WriteScenario(string rootNamespace, string directory, Scenario lastScenario, Scenario scenario, StringBuilder sb, StringBuilder sbFeatureSort)
         {
             if (lastScenario == null || (lastScenario != null && lastScenario.Feature.Name != scenario.Feature.Name))
             {
                 if(lastScenario != null) {
                     var lastFeatureFullClassName = lastScenario.Feature.ClassName;
-                    await this.WriteFeatureFile(directory, rootNamespace, lastFeatureFullClassName, sb);
+                    this.WriteFeatureFile(directory, rootNamespace, lastFeatureFullClassName, sb);
                     sb.Clear();
                 }
                 var feature = scenario.Feature;

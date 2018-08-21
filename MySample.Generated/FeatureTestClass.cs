@@ -4,6 +4,7 @@ namespace MySample.Generated
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 
+
     public class FeatureTestClass: IFeature, IOutputWriter
     {
         public IOutputWriter OutputWriter { get { return this; } }
