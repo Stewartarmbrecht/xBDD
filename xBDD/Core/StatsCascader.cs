@@ -33,7 +33,9 @@ namespace xBDD.Core
             CascadeScenarioOutcome(step, scenarioSkipped);
 			CascadeFeatureOutcome(step);
 			CascadeAreaOutcome(step);
-            step.Scenario.Feature.Area.TestRun.Outcome = outcomeAggregator.GetNewParentOutcome(step.Scenario.Feature.Area.Outcome, step.Scenario.Feature.Outcome);
+            step.Scenario.Feature.Area.TestRun.Outcome = outcomeAggregator.GetNewParentOutcome(
+				step.Scenario.Feature.Area.TestRun.Outcome, 
+				step.Scenario.Feature.Area.Outcome);
         }
         private void CascadeNotRunScenarioOutcome(Scenario scenario)
         {
@@ -43,13 +45,19 @@ namespace xBDD.Core
                 scenario.Feature.Area.TestRun.ScenarioStats);
 			CascadeFeatureOutcome(scenario);
 			CascadeAreaOutcome(scenario);
-            scenario.Feature.Area.TestRun.Outcome = outcomeAggregator.GetNewParentOutcome(scenario.Feature.Area.Outcome, scenario.Feature.Outcome);
+            scenario.Feature.Area.TestRun.Outcome = outcomeAggregator.GetNewParentOutcome(
+				scenario.Feature.Area.TestRun.Outcome, 
+				scenario.Feature.Area.Outcome);
         }
         private void CascadeScenarioOutcome(Step step, bool scenarioSkipped)
         {
             var scenarioOutcome = step.Scenario.Outcome;
-            step.Scenario.Outcome = outcomeAggregator.GetNewScenarioOutcome(step.Scenario.Outcome, step.Outcome, scenarioSkipped);
-            UpdateMultipleStats(scenarioOutcome, step.Scenario.Outcome,
+            step.Scenario.Outcome = outcomeAggregator.GetNewScenarioOutcome(
+				step.Scenario.Outcome, 
+				step.Outcome, 
+				scenarioSkipped);
+            UpdateMultipleStats(scenarioOutcome, 
+				step.Scenario.Outcome,
                 step.Scenario.Feature.ScenarioStats,
                 step.Scenario.Feature.Area.ScenarioStats,
                 step.Scenario.Feature.Area.TestRun.ScenarioStats);
@@ -57,7 +65,9 @@ namespace xBDD.Core
         private void CascadeFeatureOutcome(Step step)
         {
             var featureOutcome = step.Scenario.Feature.Outcome;
-            step.Scenario.Feature.Outcome = outcomeAggregator.GetNewParentOutcome(step.Scenario.Feature.Outcome, step.Scenario.Outcome);
+            step.Scenario.Feature.Outcome = outcomeAggregator.GetNewParentOutcome(
+				step.Scenario.Feature.Outcome, 
+				step.Scenario.Outcome);
             UpdateMultipleStats(featureOutcome, step.Scenario.Feature.Outcome,
                 step.Scenario.Feature.Area.FeatureStats,
                 step.Scenario.Feature.Area.TestRun.FeatureStats);
@@ -65,7 +75,9 @@ namespace xBDD.Core
         private void CascadeFeatureOutcome(Scenario scenario)
         {
             var featureOutcome = scenario.Feature.Outcome;
-            scenario.Feature.Outcome = outcomeAggregator.GetNewParentOutcome(scenario.Feature.Outcome, scenario.Outcome);
+            scenario.Feature.Outcome = outcomeAggregator.GetNewParentOutcome(
+				scenario.Feature.Outcome, 
+				scenario.Outcome);
             UpdateMultipleStats(featureOutcome, scenario.Feature.Outcome,
                 scenario.Feature.Area.FeatureStats,
                 scenario.Feature.Area.TestRun.FeatureStats);
@@ -73,7 +85,9 @@ namespace xBDD.Core
         private void CascadeAreaOutcome(Step step)
         {
             var areaOutcome = step.Scenario.Feature.Area.Outcome;
-            step.Scenario.Feature.Area.Outcome = outcomeAggregator.GetNewParentOutcome(step.Scenario.Feature.Area.Outcome, step.Scenario.Feature.Outcome);
+            step.Scenario.Feature.Area.Outcome = outcomeAggregator.GetNewParentOutcome(
+				step.Scenario.Feature.Area.Outcome, 
+				step.Scenario.Feature.Outcome);
             UpdateMultipleStats(areaOutcome, step.Scenario.Feature.Area.Outcome,
                 step.Scenario.Feature.Area.TestRun.AreaStats);
         }

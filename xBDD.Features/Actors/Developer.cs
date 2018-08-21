@@ -153,10 +153,9 @@ namespace xBDD.Features.Actors
                         } else {
                             template = File.ReadAllText(templatePath);
                         }
-
-                        output.ValidateToTemplate(template);   
                         s.MultilineParameter = template;
                         s.MultilineParameterFormat = TextFormat.text;                 
+                        output.ValidateToTemplate(template);   
                     } catch(System.Exception)
                     {
                         s.Output = output;

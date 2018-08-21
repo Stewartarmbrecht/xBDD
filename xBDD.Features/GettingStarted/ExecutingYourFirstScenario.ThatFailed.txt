@@ -8,9 +8,5 @@ My Sample - Features - My First Area
 				Error Type: Exception
 				   Message: My first exception.
 {{				     Stack\:    at MySample\.Features\.MyFirstArea\.MyFirstFailingFeature\.\<\>c\.\<MyFirstScenario\>b__0_1\(Step s\) in .*xBDD[\\/]MySample\.Features[\\/]MyFirstArea[\\/]MyFirstFailingFeature\.cs\:line 24}}
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+{{.*}}/rl
 			Then my step 3 [Skipped - Previous Error]

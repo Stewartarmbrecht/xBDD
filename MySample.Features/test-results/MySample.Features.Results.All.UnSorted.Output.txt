@@ -1,4 +1,4 @@
-Build started 8/20/2018 5:08:29 PM.
+Build started 8/20/2018 10:59:15 PM.
 Test run for C:\Users\stearm01\source\xBDD\MySample.Features\bin\Debug\netcoreapp2.1\MySample.Features.dll(.NETCoreApp,Version=v2.1)
 Microsoft (R) Test Execution Command Line Tool Version 15.7.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
@@ -10,16 +10,18 @@ Error Message:
 xBDD.StepException: The step 'my step 2' threw a 'Exception' exception with a message: 'My first exception.'. See the inner exception for details. ---> System.Exception: My first exception.
 Stack Trace:
     at MySample.Features.MyFirstArea.MyFirstFailingFeature.<>c.<MyFirstScenario>b__0_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyFirstArea\MyFirstFailingFeature.cs:line 24
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
    at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 --- End of stack trace from previous location where exception was thrown ---
    at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 --- End of stack trace from previous location where exception was thrown ---
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 --- End of inner exception stack trace ---
-    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
-   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
-   at xBDD.Core.ScenarioBuilder.Run()
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 63
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 29
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 70
+   at xBDD.Core.ScenarioBuilder.Run() in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 273
    at MySample.Features.MyFirstArea.MyFirstFailingFeature.MyFirstScenario() in C:\Users\stearm01\source\xBDD\MySample.Features\MyFirstArea\MyFirstFailingFeature.cs:line 18
 
 Standard Output Messages:
@@ -40,16 +42,18 @@ Error Message:
 xBDD.StepException: The step 'my step 119 failed' threw a 'Exception' exception with a message: 'I failed.'. See the inner exception for details. ---> System.Exception: I failed.
 Stack Trace:
     at MySample.Features.MyArea_7_AllFailed.MyFeature_16_AllFailed.<>c.<MyScenario_40_Failed>b__0_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_7_AllFailed\MyFeature_16_AllFailed.cs:line 21
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
    at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 --- End of stack trace from previous location where exception was thrown ---
    at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 --- End of stack trace from previous location where exception was thrown ---
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 --- End of inner exception stack trace ---
-    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
-   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
-   at xBDD.Core.ScenarioBuilder.Run()
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 63
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 29
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 70
+   at xBDD.Core.ScenarioBuilder.Run() in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 273
    at MySample.Features.MyArea_7_AllFailed.MyFeature_16_AllFailed.MyScenario_40_Failed() in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_7_AllFailed\MyFeature_16_AllFailed.cs:line 19
 
 Standard Output Messages:
@@ -69,16 +73,18 @@ Error Message:
 xBDD.StepException: The step 'my step 89 113 failed' threw a 'Exception' exception with a message: 'Exception of type 'System.Exception' was thrown.'. See the inner exception for details. ---> System.Exception: Exception of type 'System.Exception' was thrown.
 Stack Trace:
     at MySample.Features.MyArea_5_SortFlip.MyFeature_12_Third.<>c.<MyScenario_30_Unsorted_38_Sorted>b__0_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_5_SortFlip\MyFeature_12_Third.cs:line 20
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
    at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 --- End of stack trace from previous location where exception was thrown ---
    at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 --- End of stack trace from previous location where exception was thrown ---
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 --- End of inner exception stack trace ---
-    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
-   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
-   at xBDD.Core.ScenarioBuilder.Run()
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 63
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 29
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 70
+   at xBDD.Core.ScenarioBuilder.Run() in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 273
    at MySample.Features.MyArea_5_SortFlip.MyFeature_12_Third.MyScenario_30_Unsorted_38_Sorted() in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_5_SortFlip\MyFeature_12_Third.cs:line 18
 
 Standard Output Messages:
@@ -105,16 +111,18 @@ Error Message:
 xBDD.StepException: The step 'my failed step 86' threw a 'Exception' exception with a message: 'Exception of type 'System.Exception' was thrown.'. See the inner exception for details. ---> System.Exception: Exception of type 'System.Exception' was thrown.
 Stack Trace:
     at MySample.Features.MyArea_4_CompleteFailure.MyFeature_11_CompleteFailure.<>c.<MyScenario_29_CompleteFailure>b__0_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_4_CompleteFailure\MyFeature_11_CompleteFailure.cs:line 21
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
    at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 --- End of stack trace from previous location where exception was thrown ---
    at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 --- End of stack trace from previous location where exception was thrown ---
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 --- End of inner exception stack trace ---
-    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
-   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
-   at xBDD.Core.ScenarioBuilder.Run()
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 63
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 29
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 70
+   at xBDD.Core.ScenarioBuilder.Run() in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 273
    at MySample.Features.MyArea_4_CompleteFailure.MyFeature_11_CompleteFailure.MyScenario_29_CompleteFailure() in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_4_CompleteFailure\MyFeature_11_CompleteFailure.cs:line 19
 
 Standard Output Messages:
@@ -136,16 +144,18 @@ Error Message:
 xBDD.StepException: The step 'my failed step 59' threw a 'Exception' exception with a message: 'Exception of type 'System.Exception' was thrown.'. See the inner exception for details. ---> System.Exception: Exception of type 'System.Exception' was thrown.
 Stack Trace:
     at MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.<>c.<MyScenario_20_Failed>b__0_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_3_SomeFailed\MyFeature_8_SomeFailed.cs:line 21
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
    at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 --- End of stack trace from previous location where exception was thrown ---
    at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 --- End of stack trace from previous location where exception was thrown ---
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 --- End of inner exception stack trace ---
-    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
-   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
-   at xBDD.Core.ScenarioBuilder.Run()
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 63
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 29
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 70
+   at xBDD.Core.ScenarioBuilder.Run() in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 273
    at MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.MyScenario_20_Failed() in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_3_SomeFailed\MyFeature_8_SomeFailed.cs:line 19
 
 Standard Output Messages:
@@ -166,16 +176,18 @@ Stack Trace:
     at MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.<>c.<MyScenario_21_Failed>b__1_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_3_SomeFailed\MyFeature_8_SomeFailed.cs:line 33
 --- End of inner exception stack trace ---
     at MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.<>c.<MyScenario_21_Failed>b__1_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_3_SomeFailed\MyFeature_8_SomeFailed.cs:line 35
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
    at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 --- End of stack trace from previous location where exception was thrown ---
    at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 --- End of stack trace from previous location where exception was thrown ---
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 --- End of inner exception stack trace ---
-    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
-   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
-   at xBDD.Core.ScenarioBuilder.Run()
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 63
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 29
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 70
+   at xBDD.Core.ScenarioBuilder.Run() in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 273
    at MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.MyScenario_21_Failed() in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_3_SomeFailed\MyFeature_8_SomeFailed.cs:line 29
 
 Standard Output Messages:
@@ -195,16 +207,18 @@ Error Message:
 xBDD.StepException: The step 'my step 68' threw a 'Exception' exception with a message: 'My exception'. See the inner exception for details. ---> System.Exception: My exception
 Stack Trace:
     at MySample.Features.MyArea_3_SomeFailed.MyFeature_9_SomeSkipped.<>c.<MyScenario_23_Failedd>b__0_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_3_SomeFailed\MyFeature_9_SomeSkipped.cs:line 21
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
    at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 --- End of stack trace from previous location where exception was thrown ---
    at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 --- End of stack trace from previous location where exception was thrown ---
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 --- End of inner exception stack trace ---
-    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex)
-   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
-   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction)
-   at xBDD.Core.ScenarioBuilder.Run()
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 63
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 29
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 70
+   at xBDD.Core.ScenarioBuilder.Run() in c:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 273
    at MySample.Features.MyArea_3_SomeFailed.MyFeature_9_SomeSkipped.MyScenario_23_Failedd() in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_3_SomeFailed\MyFeature_9_SomeSkipped.cs:line 19
 
 Standard Output Messages:
@@ -243,10 +257,10 @@ Passed   MyScenario_1_Sorted
 Passed   MyScenario_2_Sorted
 
 Total tests: 46. Passed: 33. Failed: 7. Skipped: 6.
-Test execution time: 1.5751 Seconds
+Test execution time: 1.9427 Seconds
 
 Build FAILED.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:02.31
+Time Elapsed 00:00:02.59

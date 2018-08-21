@@ -34,11 +34,7 @@ xBDD - Features - Getting Started
 								Error Type: Exception
 								   Message: My first exception.
 				{{				     Stack\:    at MySample\.Features\.MyFirstArea\.MyFirstFailingFeature\.\<\>c\.\<MyFirstScenario\>b__0_1\(Step s\) in .*xBDD[\\/]MySample\.Features[\\/]MyFirstArea[\\/]MyFirstFailingFeature\.cs\:line 24}}
-								               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-								            --- End of stack trace from previous location where exception was thrown ---
-								               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-								            --- End of stack trace from previous location where exception was thrown ---
-								               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)
+				{{.*}}/rl
 							Then my step 3 [Skipped - Previous Error]
 	Leveraging Reusable Steps
 		By Using An Actor Class
@@ -94,19 +90,9 @@ xBDD - Features - Generate Reports - Browse Html Report
 		Passing With Some Skipped
 			When you navigate to the test html report from a test run with passing and skipped scenarios
 			Then you will see the test run badge - yellow is visible
-		Failing [Failed]
+		Failing
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios
-			Then you will see the test run badge - red is visible [Failed]
-				Error Type: Exception
-				   Message: The web element (the test run badge - red - .testrun-name span.badge-danger) was not found.
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass13_0.<WaitTillVisible>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 248
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementSteps.<>c__DisplayClass8_0.<<IsVisible>b__0>d.MoveNext() in c:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementSteps.cs:line 137
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
+			Then you will see the test run badge - red is visible
 	Review Test Run Stats
 		Failed Skipped And Passing Area Stats
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios

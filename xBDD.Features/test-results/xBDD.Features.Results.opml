@@ -43,11 +43,7 @@
 				<outline text="				Error Type: Exception" />
 				<outline text="				   Message: My first exception." />
 				<outline text="{{				     Stack\:    at MySample\.Features\.MyFirstArea\.MyFirstFailingFeature\.\<\>c\.\<MyFirstScenario\>b__0_1\(Step s\) in .*xBDD[\\/]MySample\.Features[\\/]MyFirstArea[\\/]MyFirstFailingFeature\.cs\:line 24}}" />
-				<outline text="				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)" />
-				<outline text="				            --- End of stack trace from previous location where exception was thrown ---" />
-				<outline text="				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)" />
-				<outline text="				            --- End of stack trace from previous location where exception was thrown ---" />
-				<outline text="				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step)" />
+				<outline text="{{.*}}/rl" />
 				<outline text="			Then my step 3 [Skipped - Previous Error]" />
 			</outline>
 		</outline>

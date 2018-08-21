@@ -48,11 +48,22 @@ namespace xBDD.Model
         /// <value>Boolean value indicating whether the test run has been explicitly sorted.</value>
         public bool Sorted { get; set; }
 
+        private Outcome outcome;
         /// <summary>
         /// Highest level outcome of the test run.
         /// </summary>
         /// <value>Passed, Failed, Skipped, or Not Run <see cref="Outcome"/></value>
-        public Outcome Outcome { get; set; }
+        public Outcome Outcome { get {
+            return outcome;
+        } set {
+            outcome = value;
+            if(outcome == Outcome.Passed) {
+                
+            }
+            if(outcome == Outcome.Failed) {
+                
+            }
+        } }
         
         /// <summary>
         /// The time the test run was started.

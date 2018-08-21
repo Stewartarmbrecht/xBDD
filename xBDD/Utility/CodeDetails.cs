@@ -112,7 +112,7 @@ namespace xBDD.Utility
         internal string GetNameSpace()
         {
             if(this.namespaceName != null) {
-                return this.namespaceName;            
+                return this.namespaceName.ConvertNamespaceToAreaName();            
             } else {
                 return methodBase.DeclaringType.Namespace.ConvertNamespaceToAreaName();
             }
