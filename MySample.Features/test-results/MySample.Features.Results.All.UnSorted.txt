@@ -124,12 +124,12 @@ My Sample - Features - My Area 3 Some Failed
 				Error Type: Exception
 				   Message: Exception of type 'System.Exception' was thrown.
 				     Stack:    at MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.<>c.<MyScenario_20_Failed>b__0_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_3_SomeFailed\MyFeature_8_SomeFailed.cs:line 21
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 			Then my step 60 [Skipped - Previous Error]
 		My Scenario 21 Failed [Failed]
 			Given my step 61
@@ -137,12 +137,12 @@ My Sample - Features - My Area 3 Some Failed
 				Error Type: AggregateException
 				   Message: One or more errors occurred. (My Exception)
 				     Stack:    at MySample.Features.MyArea_3_SomeFailed.MyFeature_8_SomeFailed.<>c.<MyScenario_21_Failed>b__1_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_3_SomeFailed\MyFeature_8_SomeFailed.cs:line 35
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 			Then my step 63 [Skipped - Previous Error]
 		My Scenario 22 Passed
 			Given my step 64
@@ -155,12 +155,12 @@ My Sample - Features - My Area 3 Some Failed
 				Error Type: Exception
 				   Message: My exception
 				     Stack:    at MySample.Features.MyArea_3_SomeFailed.MyFeature_9_SomeSkipped.<>c.<MyScenario_23_Failedd>b__0_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_3_SomeFailed\MyFeature_9_SomeSkipped.cs:line 21
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 			Then my step 69 [Skipped - Previous Error]
 		My Scenario 24 Skipped [Skipped - Deferred]
 			Given my step 70
@@ -178,12 +178,12 @@ My Sample - Features - My Area 4 Complete Failure
 				Error Type: Exception
 				   Message: Exception of type 'System.Exception' was thrown.
 				     Stack:    at MySample.Features.MyArea_4_CompleteFailure.MyFeature_11_CompleteFailure.<>c.<MyScenario_29_CompleteFailure>b__0_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_4_CompleteFailure\MyFeature_11_CompleteFailure.cs:line 21
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 			Then my step 87 [Skipped - Previous Error]
 My Sample - Features - My Area 5 Sort Flip
 	My Feature 12 Third
@@ -193,12 +193,12 @@ My Sample - Features - My Area 5 Sort Flip
 				Error Type: Exception
 				   Message: Exception of type 'System.Exception' was thrown.
 				     Stack:    at MySample.Features.MyArea_5_SortFlip.MyFeature_12_Third.<>c.<MyScenario_30_Unsorted_38_Sorted>b__0_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_5_SortFlip\MyFeature_12_Third.cs:line 20
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 			Then my step 90 114 [Skipped - Previous Error]
 		My Scenario 31 Unsorted 37 Sorted
 			Given my step 91 109
@@ -248,12 +248,12 @@ My Sample - Features - My Area 7 All Failed
 				Error Type: Exception
 				   Message: I failed.
 				     Stack:    at MySample.Features.MyArea_7_AllFailed.MyFeature_16_AllFailed.<>c.<MyScenario_40_Failed>b__0_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyArea_7_AllFailed\MyFeature_16_AllFailed.cs:line 21
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 			Then my step 120 [Skipped - Previous Error]
 My Sample - Features - My First Area
 	My First Failing Feature
@@ -263,12 +263,12 @@ My Sample - Features - My First Area
 				Error Type: Exception
 				   Message: My first exception.
 				     Stack:    at MySample.Features.MyFirstArea.MyFirstFailingFeature.<>c.<MyFirstScenario>b__0_1(Step s) in C:\Users\stearm01\source\xBDD\MySample.Features\MyFirstArea\MyFirstFailingFeature.cs:line 24
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in c:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 			Then my step 3 [Skipped - Previous Error]
 	My First Feature
 		My First Scenario

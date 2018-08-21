@@ -1,0 +1,12 @@
+{
+    "xBDD": {
+        "TestRunName": "MySample.Generated",
+        "Browser": {
+            "Watch": "false"
+        },
+        "HtmlReport": {
+            "RemoveFromAreaNameStart": "MySample.Generated",
+            "FailuresOnly": "false"
+        }
+    }
+}            

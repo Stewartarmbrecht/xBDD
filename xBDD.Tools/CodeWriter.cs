@@ -13,7 +13,6 @@
         {
             this.WriteProjectFile(directory, rootNamespace);
             this.WriteConfigJson(rootNamespace, directory, removeFromAreaNameStart);
-            this.WriteTestContextWriter(directory, rootNamespace);
             this.WriteTestSetupAndBreakdown(directory, rootNamespace);
             this.WriteTestConfiguration(directory, rootNamespace);
             this.WriteFeatureTestClass(directory, rootNamespace);
@@ -90,15 +89,17 @@
             var content = $@"namespace {rootNamespace}
 {{
     using xBDD;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 
-    public class FeatureTestClass: IFeature
+    public class FeatureTestClass: IFeature, IOutputWriter
     {{
-        public IOutputWriter OutputWriter {{ get; private set; }}
+        public IOutputWriter OutputWriter {{ get {{ return this; }} }}
 
-		public FeatureTestClass()
-		{{
-			this.OutputWriter = new TestContextWriter();
-		}}
+        public void WriteLine(string text) {{
+            text = text.Replace(""{{"", ""{{{{"").Replace(""}}"",""}}}}"");
+            Logger.LogMessage(text);
+        }}
     }}
 }}
 ";
@@ -211,26 +212,6 @@
 }}
 ";   
             System.IO.File.WriteAllText($"{directory}/TestSetupAndBreakdown.cs",content);
-        }
-
-        private void WriteTestContextWriter(string directory, string rootNamespace)
-        {
-            var testContextWriter = $@"namespace {rootNamespace}
-{{
-    using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
-    using xBDD;
-
-    public class TestContextWriter : IOutputWriter
-    {{
-        public void WriteLine(string text)
-        {{
-            text = text.Replace(""{{"", ""{{{{"").Replace(""}}"",""}}}}"");
-            Logger.LogMessage(text);
-        }}
-    }}
-}}";
-            System.IO.File.WriteAllText($"{directory}/TestContextWriter.cs",testContextWriter);
-
         }
 
         private void WriteTestConfiguration(string directory, string rootNamespace)

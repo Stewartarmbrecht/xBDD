@@ -1,12 +1,13 @@
 namespace xBDD.Features
 {
-    public class FeatureTestClass: IFeature
+    using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
+    public class FeatureTestClass: IFeature, IOutputWriter
     {
-        public IOutputWriter OutputWriter { get; private set; }
+        public IOutputWriter OutputWriter { get { return this; } }
 
-		public FeatureTestClass()
-		{
-			this.OutputWriter = new TestContextWriter();
-		}
+        public void WriteLine(string text) {
+            text = text.Replace("{", "{{").Replace("}","}}");
+            Logger.LogMessage(text);
+        }
     }
 }

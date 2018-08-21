@@ -121,6 +121,30 @@
                 "cwd": "${workspaceFolder}"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "deploy-tools",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/deploy-tools.ps1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test-tools",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/test-tools.ps1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": "$msCompile"
         }
     ]
 }

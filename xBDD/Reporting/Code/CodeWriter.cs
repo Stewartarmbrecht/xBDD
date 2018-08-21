@@ -98,7 +98,6 @@
             List<Task> tasks = new List<Task>();
             tasks.Add(this.WriteProjectFile(directory, rootNamespace));
             tasks.Add(this.WriteConfigJson(testRun, directory, removeFromAreaNameStart));
-            tasks.Add(this.WriteTestContextWriter(directory, rootNamespace));
             tasks.Add(this.WriteTestSetupAndBreakdown(directory, rootNamespace));
             tasks.Add(this.WriteTestConfiguration(directory, rootNamespace));
             tasks.Add(this.WriteFeatureTestClass(directory, rootNamespace));
@@ -117,15 +116,18 @@
                 var content = $@"namespace {rootNamespace}
 {{
     using xBDD;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 
-    public class FeatureTestClass: IFeature
+
+    public class FeatureTestClass: IFeature, IOutputWriter
     {{
-        public IOutputWriter OutputWriter {{ get; private set; }}
+        public IOutputWriter OutputWriter {{ get {{ return this; }} }}
 
-		public FeatureTestClass()
-		{{
-			this.OutputWriter = new TestContextWriter();
-		}}
+        public void WriteLine(string text) {{
+            text = text.Replace(""{{"", ""{{{{"").Replace(""}}"",""}}}}"");
+            Logger.LogMessage(text);
+        }}
     }}
 }}
 ";
@@ -266,35 +268,6 @@
                 System.IO.File.WriteAllText($"{directory}/TestSetupAndBreakdown.cs",content);
 
             });
-        }
-
-        /// <summary>
-        /// Writes a test context writer that is used to log test results to the testing 
-        /// framework.
-        /// </summary>
-        /// <param name="directory">The directory to write the file to.</param>
-        /// <param name="rootNamespace">The root namespace to use for the class.</param>
-        /// <returns>Returns the task for writing the file to the direcotry.</returns>
-        public async Task WriteTestContextWriter(string directory, string rootNamespace)
-        {
-            await Task.Run(() => {
-                var testContextWriter = $@"namespace {rootNamespace}
-{{
-    using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
-    using xBDD;
-
-    public class TestContextWriter : IOutputWriter
-    {{
-        public void WriteLine(string text)
-        {{
-            text = text.Replace(""{{"", ""{{{{"").Replace(""}}"",""}}}}"");
-            Logger.LogMessage(text);
-        }}
-    }}
-}}";
-                System.IO.File.WriteAllText($"{directory}/TestContextWriter.cs",testContextWriter);
-            });
-
         }
 
         /// <summary>

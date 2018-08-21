@@ -1,0 +1,12 @@
+MySample.Generated
+
+My Sample - Generated - My Area
+	My Feature
+		My Scenario
+			Given my step 1
+			When my step 2 with multiline input
+				Here
+				 is
+				 my
+				 Input!
+			Then my step 3 with output

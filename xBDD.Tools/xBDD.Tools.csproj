@@ -10,7 +10,7 @@
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>dotnet-xbdd</PackageId>
-    <Version>0.0.4-alpha</Version>
+    <Version>0.0.5-alpha</Version>
     <Authors>Stewart Armbrecht</Authors>
     <Company>Bound by Better</Company>
     <Description>Dotnet tools for working with xBDD.</Description>
