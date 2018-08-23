@@ -56,6 +56,8 @@ namespace xBDD.Utility
         {
             if(text.Contains("[")) {
                 text = text.Substring(text.IndexOf('[')+1, text.Length - (text.IndexOf('[')+1)-1);
+            } else {
+                text = null;
             }
             return text;
         }

@@ -147,15 +147,72 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "code-clean-outline-definingfeatures",
+            "label": "code-automatinguitesting",
             "command": "pwsh",
             "type": "process",
             "args": [
-                "${workspaceFolder}/scripts/code-clean-outline.ps1",
-                "${workspaceFolder}/xBDD.Features.DefiningFeatures/FeatureOutline.txt"
+                "${workspaceFolder}/scripts/code-generate.ps1",
+                "Automating UI Testing",
+                "true"
             ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}/scripts/"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "code-importingscenarios",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/code-generate.ps1",
+                "Importing Scenarios",
+                "true"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/scripts/"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "code-definingfeatures",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/code-generate.ps1",
+                "Defining Features",
+                "true"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/scripts/"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "code-generatingcode",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/code-generate.ps1",
+                "Generating Code",
+                "true"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/scripts/"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "code-generatingreports",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/code-generate.ps1",
+                "Generating Reports",
+                "true"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/scripts/"
             },
             "problemMatcher": "$msCompile"
         }

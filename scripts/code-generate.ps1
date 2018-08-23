@@ -1,9 +1,9 @@
-param([string]$ProjectName,[bool]$DeployTools)
+param([string]$ProjectName,[string]$DeployTools)
 $CurrentLocation = Get-Location
 $ProjectNamespace = $ProjectName -replace ' ', ''
 
 Set-Location $PSScriptRoot
-If ($DeployTools) {
+If ($DeployTools -eq "true") {
     ./deploy-tools.ps1 
 }
 

@@ -18,6 +18,8 @@ Set-Location $PSScriptRoot
 
 ./test-my-sample-skippedfailuresonly.ps1
 
+Remove-Item ./../MySample.Features/bin/Debug/netcoreapp2.1/Code/* -Recurse -Force
+
 ./test-my-sample-all.ps1
 
 ./test-my-sample-generated.ps1
