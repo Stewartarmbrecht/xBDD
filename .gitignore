@@ -213,5 +213,8 @@ _Pvt_Extensions/
 ModelManifest.xml
 
 .vscode/settings.json
-MySample.Features/test-results/
+!MySample.Features
+MySample.Features/*
+!MySample.Features/test-results
+MySample.Features/test-results/*
 !MySample.Features/test-results/MySample.Features.Results.All.FullSorted.html
