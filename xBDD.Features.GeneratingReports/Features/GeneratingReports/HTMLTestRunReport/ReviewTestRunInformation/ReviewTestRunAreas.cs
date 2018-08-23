@@ -17,21 +17,21 @@ namespace xBDD.Features.GeneratingReports.GeneratingReports.HTMLTestRunReport.Re
         public async Task ExpandingAreas()
         {
             await xB.CurrentRun.AddScenario(this, 79)
-                .Skip("Expanding Areas", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task CollapsingAreas()
         {
             await xB.CurrentRun.AddScenario(this, 80)
-                .Skip("Collapsing Areas", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithNoAreas()
         {
             await xB.CurrentRun.AddScenario(this, 81)
-                .Skip("With No Areas", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
     }
 }

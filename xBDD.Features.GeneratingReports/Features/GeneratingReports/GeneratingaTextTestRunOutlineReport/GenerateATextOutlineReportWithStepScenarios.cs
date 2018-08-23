@@ -17,49 +17,49 @@ namespace xBDD.Features.GeneratingReports.GeneratingReports.GeneratingaTextTestR
         public async Task WithFullStep()
         {
             await xB.CurrentRun.AddScenario(this, 368)
-                .Skip("With Full Step", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithStepNameEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 369)
-                .Skip("With Step Name Empty", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithStepExplanationEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 370)
-                .Skip("With Step Explanation Empty", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithStepInputEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 371)
-                .Skip("With Step Input Empty", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithStepOutputEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 372)
-                .Skip("With Step Output Empty", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithStepException()
         {
             await xB.CurrentRun.AddScenario(this, 373)
-                .Skip("With Step Exception", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithStepInnerException()
         {
             await xB.CurrentRun.AddScenario(this, 374)
-                .Skip("With Step Inner Exception", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
     }
 }

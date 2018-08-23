@@ -17,28 +17,28 @@ namespace xBDD.Features.GeneratingReports.GeneratingReports.HTMLTestRunReport.Re
         public async Task ExpandingException()
         {
             await xB.CurrentRun.AddScenario(this, 207)
-                .Skip("Expanding exception", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task CollapsingException()
         {
             await xB.CurrentRun.AddScenario(this, 208)
-                .Skip("Collapsing exception", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithInnerException()
         {
             await xB.CurrentRun.AddScenario(this, 209)
-                .Skip("With inner exception", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithNoException()
         {
             await xB.CurrentRun.AddScenario(this, 210)
-                .Skip("With no exception", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
     }
 }

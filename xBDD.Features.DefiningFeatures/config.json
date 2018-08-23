@@ -5,7 +5,7 @@
             "Watch": "false"
         },
         "HtmlReport": {
-            "RemoveFromAreaNameStart": "",
+            "RemoveFromAreaNameStart": "xBDD - Features - Defining Features - ",
             "FailuresOnly": "false"
         }
     }

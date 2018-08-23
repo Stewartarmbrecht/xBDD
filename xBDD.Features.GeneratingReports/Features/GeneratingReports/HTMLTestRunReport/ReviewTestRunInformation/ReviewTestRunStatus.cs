@@ -17,21 +17,21 @@ namespace xBDD.Features.GeneratingReports.GeneratingReports.HTMLTestRunReport.Re
         public async Task WithPassingStatus()
         {
             await xB.CurrentRun.AddScenario(this, 27)
-                .Skip("With Passing Status", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithSomeSkippedStatus()
         {
             await xB.CurrentRun.AddScenario(this, 28)
-                .Skip("With Some Skipped Status", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithSomeFailingStatus()
         {
             await xB.CurrentRun.AddScenario(this, 29)
-                .Skip("With Some Failing Status", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
     }
 }

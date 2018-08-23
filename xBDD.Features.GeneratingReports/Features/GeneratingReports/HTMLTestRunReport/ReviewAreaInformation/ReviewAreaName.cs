@@ -17,14 +17,14 @@ namespace xBDD.Features.GeneratingReports.GeneratingReports.HTMLTestRunReport.Re
         public async Task WithName()
         {
             await xB.CurrentRun.AddScenario(this, 84)
-                .Skip("With Name", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithNoName()
         {
             await xB.CurrentRun.AddScenario(this, 85)
-                .Skip("With No Name", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
     }
 }

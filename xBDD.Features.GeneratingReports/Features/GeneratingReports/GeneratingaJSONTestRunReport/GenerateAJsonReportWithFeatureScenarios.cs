@@ -17,35 +17,35 @@ namespace xBDD.Features.GeneratingReports.GeneratingReports.GeneratingaJSONTestR
         public async Task WithFullFeature()
         {
             await xB.CurrentRun.AddScenario(this, 233)
-                .Skip("With Full Feature", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithFeatureNameEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 234)
-                .Skip("With Feature Name Empty", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithFeatureExplanationEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 235)
-                .Skip("With Feature Explanation Empty", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithNoScenarios()
         {
             await xB.CurrentRun.AddScenario(this, 236)
-                .Skip("With No Scenarios", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithScenarios()
         {
             await xB.CurrentRun.AddScenario(this, 237)
-                .Skip("With Scenarios", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
     }
 }

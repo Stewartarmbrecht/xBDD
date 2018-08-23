@@ -17,35 +17,35 @@ namespace xBDD.Features.GeneratingReports.GeneratingReports.HTMLTestRunReport.Re
         public async Task ExpandingFeatureStatement()
         {
             await xB.CurrentRun.AddScenario(this, 143)
-                .Skip("Expanding feature statement", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task CollapsingFeatureStatement()
         {
             await xB.CurrentRun.AddScenario(this, 144)
-                .Skip("Collapsing feature statement", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithFullStatement()
         {
             await xB.CurrentRun.AddScenario(this, 145)
-                .Skip("With full statement", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithMissingParts()
         {
             await xB.CurrentRun.AddScenario(this, 146)
-                .Skip("With missing parts", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithoutStatement()
         {
             await xB.CurrentRun.AddScenario(this, 147)
-                .Skip("Without statement", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
     }
 }

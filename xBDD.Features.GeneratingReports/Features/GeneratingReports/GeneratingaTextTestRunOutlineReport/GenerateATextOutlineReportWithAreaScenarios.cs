@@ -17,42 +17,42 @@ namespace xBDD.Features.GeneratingReports.GeneratingReports.GeneratingaTextTestR
         public async Task WithFullArea()
         {
             await xB.CurrentRun.AddScenario(this, 349)
-                .Skip("With Full Area", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithAreaNameClipping()
         {
             await xB.CurrentRun.AddScenario(this, 350)
-                .Skip("With Area Name Clipping", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithAreaNameEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 351)
-                .Skip("With Area Name Empty", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithAreaExplanationEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 352)
-                .Skip("With Area Explanation Empty", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithNoFeatures()
         {
             await xB.CurrentRun.AddScenario(this, 353)
-                .Skip("With No Features", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithFeatures()
         {
             await xB.CurrentRun.AddScenario(this, 354)
-                .Skip("With Features", Assert.Inconclusive);
+                .Skip("Not Tested", Assert.Inconclusive);
         }
     }
 }
