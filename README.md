@@ -45,6 +45,11 @@ initial version of this platform is released.
 Note: Area, Feature, and Scenario names will expand when clicked.
 
 [xBDD.Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features/test-results/xBDD.Features.Results.html) - Writing and running scenarios.
+[xBDD.Features.AutmoatingUITesting](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.AutmoatingUITesting/test-results/xBDD.Features.AutmoatingUITesting.Results.html)
+[xBDD.Features.DefiningFeatures](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.html)
+[xBDD.Features.GeneratingCode](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.html)
+[xBDD.Features.GeneratingReports](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.html)
+[xBDD.Features.ImportingScenarios](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.DefiningFeatures/test-results/xBDD.Features.ImportingScenarios.Results.html)
 
 ## Getting Started
 
