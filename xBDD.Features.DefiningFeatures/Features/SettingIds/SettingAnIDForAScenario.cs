@@ -17,21 +17,21 @@ namespace xBDD.Features.DefiningFeatures.SettingIds
         public async Task ThatIsUnique()
         {
             await xB.CurrentRun.AddScenario(this, 81)
-                .Skip("Not Started", Assert.Inconclusive);
+                .Skip("Definig", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task ThatIsNotUnique()
         {
             await xB.CurrentRun.AddScenario(this, 82)
-                .Skip("Not Started", Assert.Inconclusive);
+                .Skip("Definig", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task ThatIsAnEmptyString()
         {
             await xB.CurrentRun.AddScenario(this, 83)
-                .Skip("Not Started", Assert.Inconclusive);
+                .Skip("Definig", Assert.Inconclusive);
         }
     }
 }

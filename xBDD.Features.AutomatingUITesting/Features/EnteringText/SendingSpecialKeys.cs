@@ -17,14 +17,14 @@ namespace xBDD.Features.AutomatingUITesting.EnteringText
         public async Task ToAValidInput()
         {
             await xB.CurrentRun.AddScenario(this, 21)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task ToAnInvalidInput()
         {
             await xB.CurrentRun.AddScenario(this, 22)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

@@ -17,35 +17,35 @@ namespace xBDD.Features.AutomatingUITesting.ValidatingThePage
         public async Task WithSuccess()
         {
             await xB.CurrentRun.AddScenario(this, 55)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithCustomStepName()
         {
             await xB.CurrentRun.AddScenario(this, 56)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithSpecificWaitTime()
         {
             await xB.CurrentRun.AddScenario(this, 57)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithPageCapturedAsOutput()
         {
             await xB.CurrentRun.AddScenario(this, 58)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithFailure()
         {
             await xB.CurrentRun.AddScenario(this, 59)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

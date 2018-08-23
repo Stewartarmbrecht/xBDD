@@ -39,7 +39,7 @@
                 "-i","\t",
                 "-rn","xBDD.Features.AutomatedUITesting",
                 "-fo","False",
-                "-sr","Not Tested"
+                "-sr","Untested"
             ],
             "cwd": "${workspaceFolder}/xBDD.Tools/",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
@@ -61,7 +61,7 @@
                 "-i","\t",
                 "-rn","xBDD.Features.DefiningFeatures",
                 "-fo","False",
-                "-sr","Not Tested"
+                "-sr","Untested"
             ],
             "cwd": "${workspaceFolder}/xBDD.Tools/",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
@@ -83,7 +83,7 @@
                 "-i","\t",
                 "-rn","xBDD.Features.GeneratingCode",
                 "-fo","False",
-                "-sr","Not Tested"
+                "-sr","Untested"
             ],
             "cwd": "${workspaceFolder}/xBDD.Tools/",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window

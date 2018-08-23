@@ -23,7 +23,7 @@ namespace xBDD.Features.DefiningFeatures.InitialSetup
                 .And("you create a folder for your test project and navigate to the folder", (s) => {  })
                 .Given(" a new test project using the installed xbdd tools:", (s) => {  })
                 .Given("and run the new test project", (s) => {  })
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

@@ -17,14 +17,14 @@ namespace xBDD.Features.ImportingScenarios.ImportingScenariosImportingFromATextO
         public async Task WithSimpleOutline()
         {
             await xB.CurrentRun.AddScenario(this, 4)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithAnEmptyFile()
         {
             await xB.CurrentRun.AddScenario(this, 5)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

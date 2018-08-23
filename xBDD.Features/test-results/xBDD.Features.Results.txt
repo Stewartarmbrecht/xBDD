@@ -181,11 +181,11 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you will see the area 1 feature distribution passed bar is not there
 			And you will see the area 1 feature distribution skipped bar is not there
 	Review Area Description
-		Expand [Skipped - Not Started]
-		Expand All [Skipped - Not Started]
-		Collapse [Skipped - Not Started]
-		Collapse All [Skipped - Not Started]
-		Default Collapsed When More Than5 [Skipped - Not Started]
+		Expand [Skipped - Definig]
+		Expand All [Skipped - Definig]
+		Collapse [Skipped - Definig]
+		Collapse All [Skipped - Definig]
+		Default Collapsed When More Than5 [Skipped - Definig]
 	Review Area Features
 		Expand
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios
@@ -311,8 +311,8 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you wait 250 milliseconds
 			When you click the the feature 1 statement link
 			Then you will see the feature 1 statement is not visible
-		Expand All [Skipped - Not Started]
-		Collapse All [Skipped - Not Started]
+		Expand All [Skipped - Definig]
+		Collapse All [Skipped - Definig]
 		Full Statement
 			When you navigate to the test html report from a test run with all passing scenarios
 			And you click when the area 1 title line is visible
@@ -448,8 +448,8 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you click when the scenario 20 name is visible
 			When you click when the step 59 error link is visible
 			Then you will see the step 59 exception is visible
-		Collapse All [Skipped - Not Started]
-		Expand All [Skipped - Not Started]
+		Collapse All [Skipped - Definig]
+		Expand All [Skipped - Definig]
 	Review Step Multiline Parameter
 		Collapsed By Default
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios
@@ -466,12 +466,12 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you click when the step 2 input link is visible
 			Then you will see the step 2 input is visible
 			And you will see the step 2 text input has text 'Here is my Input!'
-		Code [Skipped - Not Tested]
-		Html With Preview [Skipped - Not Tested]
-		Collapse [Skipped - Not Tested]
-		Collapse All [Skipped - Not Started]
-		Expand [Skipped - Not Tested]
-		Expand All [Skipped - Not Started]
+		Code [Skipped - Untested]
+		Html With Preview [Skipped - Untested]
+		Collapse [Skipped - Untested]
+		Collapse All [Skipped - Definig]
+		Expand [Skipped - Untested]
+		Expand All [Skipped - Definig]
 	Review Step Output
 		Collapsed By Default
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios
@@ -487,12 +487,12 @@ xBDD - Features - Generate Reports - Browse Html Report
 			And you click when the step 3 output link is visible
 			Then you will see the step 3 output is visible
 			And you will see the step 3 text output has text 'Here is my output!'
-		Code [Skipped - Not Started]
-		Html With Preview [Skipped - Not Started]
-		Collapse [Skipped - Not Started]
-		Collapse All [Skipped - Not Started]
-		Expand [Skipped - Not Started]
-		Expand All [Skipped - Not Started]
+		Code [Skipped - Definig]
+		Html With Preview [Skipped - Definig]
+		Collapse [Skipped - Definig]
+		Collapse All [Skipped - Definig]
+		Expand [Skipped - Definig]
+		Expand All [Skipped - Definig]
 xBDD - Features - Generate Reports - Customize Html Report
 	Write Failures Only
 		Passing

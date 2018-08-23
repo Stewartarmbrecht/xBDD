@@ -17,21 +17,21 @@ namespace xBDD.Features.DefiningFeatures.DefiningScenarios
         public async Task SettingTheSortOnAllScenarios()
         {
             await xB.CurrentRun.AddScenario(this, 55)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task SettingTheSortOnNoneOfTheScenarios()
         {
             await xB.CurrentRun.AddScenario(this, 56)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task SettingTheSortOnSomeOfTheScenarios()
         {
             await xB.CurrentRun.AddScenario(this, 57)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

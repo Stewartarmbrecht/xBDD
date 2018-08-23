@@ -17,7 +17,7 @@ namespace xBDD.Features.DefiningFeatures.SettingIds
         public async Task ViaAnAttribute()
         {
             await xB.CurrentRun.AddScenario(this, 85)
-                .Skip("Not Started", Assert.Inconclusive);
+                .Skip("Definig", Assert.Inconclusive);
         }
     }
 }

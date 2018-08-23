@@ -17,35 +17,35 @@ namespace xBDD.Features.GeneratingReports.GeneratingReports.GeneratinganOutlineT
         public async Task WithFullTestRun()
         {
             await xB.CurrentRun.AddScenario(this, 261)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithNoTestRunName()
         {
             await xB.CurrentRun.AddScenario(this, 262)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithTestRunExplanationEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 263)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithNoAreas()
         {
             await xB.CurrentRun.AddScenario(this, 264)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithAreas()
         {
             await xB.CurrentRun.AddScenario(this, 265)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

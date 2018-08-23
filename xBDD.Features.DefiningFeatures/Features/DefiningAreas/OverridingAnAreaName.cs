@@ -17,21 +17,21 @@ namespace xBDD.Features.DefiningFeatures.DefiningAreas
         public async Task WhenCreatingAScenario()
         {
             await xB.CurrentRun.AddScenario(this, 72)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task ForASingleFeatureViaAttribute()
         {
             await xB.CurrentRun.AddScenario(this, 73)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task ForANamespace()
         {
             await xB.CurrentRun.AddScenario(this, 74)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

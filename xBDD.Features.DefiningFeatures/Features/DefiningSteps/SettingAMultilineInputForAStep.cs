@@ -17,14 +17,14 @@ namespace xBDD.Features.DefiningFeatures.DefiningSteps
         public async Task WhenCreatingTheStep()
         {
             await xB.CurrentRun.AddScenario(this, 39)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WhenExecutingTheStep()
         {
             await xB.CurrentRun.AddScenario(this, 40)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

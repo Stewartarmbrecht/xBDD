@@ -157,6 +157,74 @@ namespace xBDD.Core
         }
 
         /// <summary>
+        /// Cascades the scenario skipped reasons up the hierarchy.
+        /// Also calculates the count of children for each skipped reason.
+        /// </summary>
+        /// <param name="sortedReasons">The list of reasons sorted from least to highest precedent.
+        /// A parent that has both reasons will assume the reason with the highest precedent.</param>
+        public void UpdateParentReasonsAndStats(List<string> sortedReasons)
+        {
+            sortedReasons.ForEach(reason => {
+                TestRun.Scenarios
+                    .Where(scenario => scenario.Reason == reason)
+                    .ToList().ForEach(scenario => {
+                        scenario.Feature.Reason = reason;
+                        if(scenario.Feature.ScenarioReasonStats.Keys.Contains(reason)) {
+                            scenario.Feature.ScenarioReasonStats[reason] = scenario.Feature.ScenarioReasonStats[reason] + 1;
+                        } else {
+                            scenario.Feature.ScenarioReasonStats.Add(reason, 1);
+                        }
+                        scenario.Feature.Area.Reason = reason;
+                        if(scenario.Feature.Area.ScenarioReasonStats.Keys.Contains(reason)) {
+                            scenario.Feature.Area.ScenarioReasonStats[reason] = scenario.Feature.Area.ScenarioReasonStats[reason] + 1;
+                        } else {
+                            scenario.Feature.Area.ScenarioReasonStats.Add(reason, 1);
+                        }
+                        this.TestRun.Reason = reason;
+                        if(this.TestRun.ScenarioReasonStats.Keys.Contains(reason)) {
+                            this.TestRun.ScenarioReasonStats[reason] = this.TestRun.ScenarioReasonStats[reason] + 1;
+                        } else {
+                            this.TestRun.ScenarioReasonStats.Add(reason, 1);
+                        }
+                    });
+                
+            });
+
+            sortedReasons.ForEach(reason => {
+                TestRun.Scenarios.
+                    Select(scenario => scenario.Feature)
+                    .ToList()
+                    .Where(feature => feature.Reason == reason)
+                    .ToList().ForEach(feature => {
+                        if(feature.Area.FeatureReasonStats.Keys.Contains(reason)) {
+                            feature.Area.FeatureReasonStats[reason] = feature.Area.FeatureReasonStats[reason] + 1;
+                        } else {
+                            feature.Area.FeatureReasonStats.Add(reason, 1);
+                        }
+                        if(this.TestRun.FeatureReasonStats.Keys.Contains(reason)) {
+                            this.TestRun.FeatureReasonStats[reason] = this.TestRun.FeatureReasonStats[reason] + 1;
+                        } else {
+                            this.TestRun.FeatureReasonStats.Add(reason, 1);
+                        }
+                    });
+                
+            });
+
+            sortedReasons.ForEach(reason => {
+                TestRun.Areas
+                    .Where(area => area.Reason == reason)
+                    .ToList().ForEach(area => {
+                        if(this.TestRun.AreaReasonStats.Keys.Contains(reason)) {
+                            this.TestRun.AreaReasonStats[reason] = this.TestRun.AreaReasonStats[reason] + 1;
+                        } else {
+                            this.TestRun.AreaReasonStats.Add(reason, 1);
+                        }
+                    });
+                
+            });
+        }
+
+        /// <summary>
         /// Updates the features sort property.  Features are sorted based on the 
         /// list of feature names you provide.  Scenarios are sorted based on thier 
         /// sort order that you can provide when creating the scenario xB.AddScenario(this, 1 [sortOrder])

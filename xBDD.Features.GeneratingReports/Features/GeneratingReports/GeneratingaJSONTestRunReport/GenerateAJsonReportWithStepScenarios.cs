@@ -17,49 +17,49 @@ namespace xBDD.Features.GeneratingReports.GeneratingReports.GeneratingaJSONTestR
         public async Task WithFullStep()
         {
             await xB.CurrentRun.AddScenario(this, 245)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithStepNameEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 246)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithStepExplanationEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 247)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithStepInputEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 248)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithStepOutputEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 249)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithStepException()
         {
             await xB.CurrentRun.AddScenario(this, 250)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithStepInnerException()
         {
             await xB.CurrentRun.AddScenario(this, 251)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

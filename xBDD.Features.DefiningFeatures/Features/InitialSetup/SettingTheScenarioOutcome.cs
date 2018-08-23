@@ -17,21 +17,21 @@ namespace xBDD.Features.DefiningFeatures.InitialSetup
         public async Task FailingAScenario()
         {
             await xB.CurrentRun.AddScenario(this, 27)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task SkippingAScenario()
         {
             await xB.CurrentRun.AddScenario(this, 28)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task DocumentingAScenario()
         {
             await xB.CurrentRun.AddScenario(this, 29)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

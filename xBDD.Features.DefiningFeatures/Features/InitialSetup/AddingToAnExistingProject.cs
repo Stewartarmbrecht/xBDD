@@ -17,35 +17,35 @@ namespace xBDD.Features.DefiningFeatures.InitialSetup
         public async Task InstallingXBDD()
         {
             await xB.CurrentRun.AddScenario(this, 16)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task AddingASimpleScenario()
         {
             await xB.CurrentRun.AddScenario(this, 17)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task AddingReportGeneration()
         {
             await xB.CurrentRun.AddScenario(this, 18)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task UsingABaseFeatureClass()
         {
             await xB.CurrentRun.AddScenario(this, 19)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task CreatingReusableSteps()
         {
             await xB.CurrentRun.AddScenario(this, 20)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

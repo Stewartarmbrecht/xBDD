@@ -17,14 +17,14 @@ namespace xBDD.Features.DefiningFeatures.DefiningScenarios
         public async Task WhenCreatingAScenario()
         {
             await xB.CurrentRun.AddScenario(this, 52)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WhenCreatingAFeature()
         {
             await xB.CurrentRun.AddScenario(this, 53)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

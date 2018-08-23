@@ -17,21 +17,21 @@ namespace xBDD.Features.AutomatingUITesting.Clicking
         public async Task WhenVisible()
         {
             await xB.CurrentRun.AddScenario(this, 30)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WhenDoesNotExist()
         {
             await xB.CurrentRun.AddScenario(this, 31)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WhenNotVisible()
         {
             await xB.CurrentRun.AddScenario(this, 32)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

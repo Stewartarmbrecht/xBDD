@@ -17,14 +17,14 @@ namespace xBDD.Features.AutomatingUITesting.Setup
         public async Task ToUseNewBrowserSessionsForEachScenario()
         {
             await xB.CurrentRun.AddScenario(this, 4)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task ToUseTheSameBrowserSessionForAllScenarios()
         {
             await xB.CurrentRun.AddScenario(this, 5)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

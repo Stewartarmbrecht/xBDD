@@ -17,14 +17,14 @@ namespace xBDD.Features.DefiningFeatures.DefiningaTestRun
         public async Task ViaCode()
         {
             await xB.CurrentRun.AddScenario(this, 77)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task ViaAnEnvironmentVariable()
         {
             await xB.CurrentRun.AddScenario(this, 78)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

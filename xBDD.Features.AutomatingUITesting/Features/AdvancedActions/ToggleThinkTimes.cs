@@ -17,14 +17,14 @@ namespace xBDD.Features.AutomatingUITesting.AdvancedActions
         public async Task Successful()
         {
             await xB.CurrentRun.AddScenario(this, 165)
-                .Skip("Not Defined", Assert.Inconclusive);
+                .Skip("Definig", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task Failure()
         {
             await xB.CurrentRun.AddScenario(this, 166)
-                .Skip("Not Defined", Assert.Inconclusive);
+                .Skip("Definig", Assert.Inconclusive);
         }
     }
 }

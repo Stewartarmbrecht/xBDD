@@ -17,7 +17,7 @@ namespace xBDD.Features.DefiningFeatures.AddingEstimates
         public async Task Placeholder()
         {
             await xB.CurrentRun.AddScenario(this, 109)
-                .Skip("Not Defined", Assert.Inconclusive);
+                .Skip("Definig", Assert.Inconclusive);
         }
     }
 }

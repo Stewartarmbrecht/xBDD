@@ -17,28 +17,28 @@ namespace xBDD.Features.AutomatingUITesting.EnteringText
         public async Task WhenVisible()
         {
             await xB.CurrentRun.AddScenario(this, 24)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WhenDoesNotExist()
         {
             await xB.CurrentRun.AddScenario(this, 25)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WhenNotVisible()
         {
             await xB.CurrentRun.AddScenario(this, 26)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WhenNotAValidInput()
         {
             await xB.CurrentRun.AddScenario(this, 27)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

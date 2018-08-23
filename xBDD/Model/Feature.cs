@@ -74,6 +74,13 @@ namespace xBDD.Model
 		/// <value><see cref="Outcome"/></value>
         public Outcome Outcome { get; internal set; }
 
+        /// <summary>
+        /// The reason the feature had a skipped outcome.
+        /// </summary>
+        /// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
+        public string Reason { get; internal set; }
+
 		/// <summary>
 		/// The start time for the first step.
 		/// </summary>
@@ -110,5 +117,11 @@ namespace xBDD.Model
 		/// </summary>
 		/// <value><see cref="OutcomeStats"/></value>
 		public OutcomeStats ScenarioStats { get; internal set; }
+
+		/// <summary>
+		/// Stores the count of scenarios for each reason.
+		/// </summary>
+		/// <value>Dictionary of reasons and scenario counts.</value>
+		public Dictionary<string, int> ScenarioReasonStats { get; internal set; }
 	}
 }

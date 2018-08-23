@@ -48,23 +48,19 @@ namespace xBDD.Model
         /// <value>Boolean value indicating whether the test run has been explicitly sorted.</value>
         public bool Sorted { get; set; }
 
-        private Outcome outcome;
         /// <summary>
         /// Highest level outcome of the test run.
         /// </summary>
         /// <value>Passed, Failed, Skipped, or Not Run <see cref="Outcome"/></value>
-        public Outcome Outcome { get {
-            return outcome;
-        } set {
-            outcome = value;
-            if(outcome == Outcome.Passed) {
-                
-            }
-            if(outcome == Outcome.Failed) {
-                
-            }
-        } }
+        public Outcome Outcome { get; set; }
         
+        /// <summary>
+        /// The reason the test run had a skipped outcome.
+        /// </summary>
+        /// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
+        public string Reason { get; internal set; }
+
         /// <summary>
         /// The time the test run was started.
         /// </summary>
@@ -110,5 +106,23 @@ namespace xBDD.Model
         /// </summary>
         /// <value></value>
 		public OutcomeStats AreaStats { get; set; }
+
+		/// <summary>
+		/// Stores the count of scenarios for each reason.
+		/// </summary>
+		/// <value>Dictionary of reasons and scenario counts.</value>
+		public Dictionary<string, int> ScenarioReasonStats { get; internal set; }
+
+		/// <summary>
+		/// Stores the count of features for each reason.
+		/// </summary>
+		/// <value>Dictionary of reasons and feature counts.</value>
+		public Dictionary<string, int> FeatureReasonStats { get; internal set; }
+
+		/// <summary>
+		/// Stores the count of areas for each reason.
+		/// </summary>
+		/// <value>Dictionary of reasons and area counts.</value>
+		public Dictionary<string, int> AreaReasonStats { get; internal set; }
     }
 }

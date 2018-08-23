@@ -30,6 +30,7 @@ namespace xBDD.Features
             System.IO.Directory.CreateDirectory($"{directory}/../../../test-results");
 
             xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
+            xB.CurrentRun.UpdateParentReasonsAndStats(new ReasonSort().SortedReasons);
 
             var htmlPath = $"{directory}/../../../test-results/xBDD.Features.Results.html";
             Logger.LogMessage("Writing Html Report to " + htmlPath);

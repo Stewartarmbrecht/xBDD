@@ -17,7 +17,7 @@ namespace xBDD.Features.DefiningFeatures.DefiningSteps
         public async Task WhenExecutingAStep()
         {
             await xB.CurrentRun.AddScenario(this, 45)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

@@ -17,35 +17,35 @@ namespace xBDD.Features.GeneratingReports.GeneratingReports.GeneratingaTextTestR
         public async Task WithFullTestRun()
         {
             await xB.CurrentRun.AddScenario(this, 302)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithNoTestRunName()
         {
             await xB.CurrentRun.AddScenario(this, 303)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithTestRunExplanationEmpty()
         {
             await xB.CurrentRun.AddScenario(this, 304)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithNoAreas()
         {
             await xB.CurrentRun.AddScenario(this, 305)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithAreas()
         {
             await xB.CurrentRun.AddScenario(this, 306)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }

@@ -17,49 +17,49 @@ namespace xBDD.Features.GeneratingReports.GeneratingReports.HTMLTestRunReport.Re
         public async Task WithAllPassing()
         {
             await xB.CurrentRun.AddScenario(this, 63)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithSomeSkipped()
         {
             await xB.CurrentRun.AddScenario(this, 64)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithSomeFailing()
         {
             await xB.CurrentRun.AddScenario(this, 65)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithSomeSkippedAndSomeFailing()
         {
             await xB.CurrentRun.AddScenario(this, 66)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithAllSkipped()
         {
             await xB.CurrentRun.AddScenario(this, 67)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithAllFailing()
         {
             await xB.CurrentRun.AddScenario(this, 68)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithNoFeatures()
         {
             await xB.CurrentRun.AddScenario(this, 69)
-                .Skip("Not Tested", Assert.Inconclusive);
+                .Skip("Untested", Assert.Inconclusive);
         }
     }
 }
