@@ -228,6 +228,20 @@
                 "cwd": "${workspaceFolder}/scripts/"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "code-streamliningapitesting",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/code-generate.ps1",
+                "Streamlining API Testing",
+                "true"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/scripts/"
+            },
+            "problemMatcher": "$msCompile"
         }
     ]
 }

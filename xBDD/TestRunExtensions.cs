@@ -65,12 +65,13 @@
         /// Writes an OMPL representation of a test run's test results.
         /// </summary>
         /// <param name="testRun">The test run whose results you want to write to text.</param>
+        /// <param name="areaNameClip">The part to remove from the beginning of each area name.</param>
         /// <returns>String that is a OPML format of the test results.</returns>
-        public static async Task<string> WriteToOpml(this xBDD.Model.TestRun testRun)
+        public static async Task<string> WriteToOpml(this xBDD.Model.TestRun testRun, string areaNameClip = null)
         {
             ReportingFactory factory = new ReportingFactory();
             OpmlWriter saver = factory.GetOpmlWriter();
-            return await saver.WriteToOpml(testRun);
+            return await saver.WriteToOpml(testRun, areaNameClip);
         }
 
         /// <summary>

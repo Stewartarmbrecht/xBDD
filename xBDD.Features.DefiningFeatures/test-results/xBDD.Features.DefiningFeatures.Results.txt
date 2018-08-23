@@ -69,7 +69,7 @@ xBDD - Features - Defining Features - Defining Areas
 		When Creating A Scenario [Skipped - Untested]
 		For A Single Feature Via Attribute [Skipped - Untested]
 		For A Namespace [Skipped - Untested]
-xBDD - Features - Defining Features - Defininga Test Run
+xBDD - Features - Defining Features - Defining A Test Run
 	Setting The Test Run Name
 		Via Code [Skipped - Untested]
 		Via An Environment Variable [Skipped - Untested]

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xBDD.Features.GeneratingRep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xBDD.Features.GeneratingCode", "xBDD.Features.GeneratingCode\xBDD.Features.GeneratingCode.csproj", "{AD402371-6F15-4832-BAF3-60A5E118C660}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xBDD.Features.AutomatingUITesting", "xBDD.Features.AutomatingUITesting\xBDD.Features.AutomatingUITesting.csproj", "{289EF8EB-A740-4D72-97B7-81A8869B5241}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -142,5 +144,17 @@ Global
 		{AD402371-6F15-4832-BAF3-60A5E118C660}.Release|x64.Build.0 = Release|Any CPU
 		{AD402371-6F15-4832-BAF3-60A5E118C660}.Release|x86.ActiveCfg = Release|Any CPU
 		{AD402371-6F15-4832-BAF3-60A5E118C660}.Release|x86.Build.0 = Release|Any CPU
+		{289EF8EB-A740-4D72-97B7-81A8869B5241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289EF8EB-A740-4D72-97B7-81A8869B5241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289EF8EB-A740-4D72-97B7-81A8869B5241}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{289EF8EB-A740-4D72-97B7-81A8869B5241}.Debug|x64.Build.0 = Debug|Any CPU
+		{289EF8EB-A740-4D72-97B7-81A8869B5241}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{289EF8EB-A740-4D72-97B7-81A8869B5241}.Debug|x86.Build.0 = Debug|Any CPU
+		{289EF8EB-A740-4D72-97B7-81A8869B5241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289EF8EB-A740-4D72-97B7-81A8869B5241}.Release|Any CPU.Build.0 = Release|Any CPU
+		{289EF8EB-A740-4D72-97B7-81A8869B5241}.Release|x64.ActiveCfg = Release|Any CPU
+		{289EF8EB-A740-4D72-97B7-81A8869B5241}.Release|x64.Build.0 = Release|Any CPU
+		{289EF8EB-A740-4D72-97B7-81A8869B5241}.Release|x86.ActiveCfg = Release|Any CPU
+		{289EF8EB-A740-4D72-97B7-81A8869B5241}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

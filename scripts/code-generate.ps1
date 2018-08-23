@@ -11,7 +11,7 @@ If ($DeployTools -eq "true") {
 
 Set-Location "$PSScriptRoot./../xBDD.Features.$ProjectNamespace/"
 
-dotnet xbdd code -s ./FeatureOutline.txt -st Text -d ./ -i "`t" -rn "xBDD.Features.$ProjectNamespace" -fo False -sr "Untested" -ran "xBDD - Features - $ProjectName - "
+dotnet xbdd code -s ./FeatureOutline.txt -st Text -d ./ -i "`t" -rn "xBDD.Features.$ProjectNamespace" -fo False -sr "Untested" -ran "xBDD - Features - $ProjectName - " -trn "xBDD $ProjectName"
 
 dotnet test
 

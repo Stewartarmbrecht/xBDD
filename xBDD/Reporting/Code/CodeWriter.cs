@@ -164,6 +164,7 @@
             this.WriteConfigJson(testRun.Name, directory, removeFromAreaNameStart);
             this.WriteTestSetupAndBreakdown(directory, rootNamespace);
             this.WriteTestConfiguration(directory, rootNamespace);
+            this.WriteReasonSort(directory, rootNamespace);
             this.WriteFeatureTestClass(directory, rootNamespace);
         }
         /// <summary>
@@ -181,6 +182,7 @@
             this.WriteTestConfiguration(directory, rootNamespace);
             this.WriteFeatureTestClass(directory, rootNamespace);
             this.WriteFeatureSort(directory, rootNamespace);
+            this.WriteReasonSort(directory, rootNamespace);
             this.WriteSampleFeature(directory, rootNamespace);
         }
 
@@ -206,6 +208,31 @@
     }}
 }}";
             System.IO.File.WriteAllText($"{directory}/FeatureSort.cs",content);
+        }
+
+        private void WriteReasonSort(string directory, string rootNamespace)
+        {
+            var content = $@"namespace {rootNamespace}
+{{
+    using System;
+    using System.Collections.Generic;
+    public class ReasonSort
+    {{
+        public List<string> SortedReasons {{ get; private set; }}
+
+        public ReasonSort()
+        {{
+            this.SortedReasons = new List<string>() {{
+                ""Removing"",
+                ""Building"",
+                ""Untested"",
+                ""Ready"",
+                ""Defining""
+            }};
+        }}
+    }}
+}}";
+            System.IO.File.WriteAllText($"{directory}/ReasonSort.cs",content);
         }
 
         /// <summary>
@@ -260,7 +287,7 @@
     <PackageReference Include=""MSTEst.TestFramework"" Version=""1.3.2"" />
     <PackageReference Include=""Selenium.WebDriver.ChromeDriver"" Version=""2.41.0"" />
     <PackageReference Include=""Selenium.WebDriver"" Version=""3.14.0"" />
-    <PackageReference Include=""xBDD"" Version=""0.0.4-alpha"" />
+    <PackageReference Include=""xBDD"" Version=""0.0.5-alpha"" />
   </ItemGroup>
 
   <ItemGroup>
@@ -337,6 +364,7 @@
             System.IO.Directory.CreateDirectory($""{{directory}}/../../../test-results"");
 
             xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
+            xB.CurrentRun.UpdateParentReasonsAndStats(new ReasonSort().SortedReasons);
 
             var htmlPath = directory + $""/../../../test-results/{namespaceRoot}.Results.html"";
             Logger.LogMessage(""Writing Html Report to "" + htmlPath);
@@ -355,7 +383,7 @@
 
             var opmlPath = $""{{directory}}/../../../test-results/{namespaceRoot}.Results.opml"";
             Logger.LogMessage(""Writing OPML Report to "" + opmlPath);
-            var opmlReport = await xB.CurrentRun.TestRun.WriteToOpml();
+            var opmlReport = await xB.CurrentRun.TestRun.WriteToOpml(TestConfiguration.RemoveFromAreaNameStart);
             File.WriteAllText(opmlPath, opmlReport);
 
         }}

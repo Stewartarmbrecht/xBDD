@@ -1,0 +1,41 @@
+xBDD.Features.StreamliningAPITesting
+
+Streamlining API Testing - Issuing Requests
+	Issue a get
+		Placeholder [Defining]
+	Issue a post
+		Placeholder [Defining]
+	Issue a put
+		Placeholder [Defining]
+	Issue a delete
+		Placeholder [Defining]
+	Modify the headers
+		Placeholder [Defining]
+	Modify the body
+		Placeholder [Defining]
+	Modify the cookies
+		Placeholder [Defining]
+Streamlining API Testing - Validating Responses
+	Validate a response code
+		Placeholder [Defining]
+	Follow a 300 response
+		Placeholder [Defining]
+	Process a 500 response
+		Placeholder [Defining]
+	Process a 400 response
+		Placeholder [Defining]
+	Process a 200 response
+		With a JSON response [Defining]
+		With an XML response [Defining]
+		With a text response [Defining]
+	Access headers
+		Placeholder [Defining]
+	Access cookies
+		Placeholder [Defining]
+	Validate a response against a template
+		Placeholder [Defining]
+	Capture a template from a response
+		Placeholder [Defining]
+
+
+

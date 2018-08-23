@@ -29,6 +29,7 @@ namespace xBDD.Features.ImportingScenarios
             System.IO.Directory.CreateDirectory($"{directory}/../../../test-results");
 
             xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
+            xB.CurrentRun.UpdateParentReasonsAndStats(new ReasonSort().SortedReasons);
 
             var htmlPath = directory + $"/../../../test-results/xBDD.Features.ImportingScenarios.Results.html";
             Logger.LogMessage("Writing Html Report to " + htmlPath);
@@ -47,7 +48,7 @@ namespace xBDD.Features.ImportingScenarios
 
             var opmlPath = $"{directory}/../../../test-results/xBDD.Features.ImportingScenarios.Results.opml";
             Logger.LogMessage("Writing OPML Report to " + opmlPath);
-            var opmlReport = await xB.CurrentRun.TestRun.WriteToOpml();
+            var opmlReport = await xB.CurrentRun.TestRun.WriteToOpml(TestConfiguration.RemoveFromAreaNameStart);
             File.WriteAllText(opmlPath, opmlReport);
 
         }

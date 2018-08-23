@@ -1,5 +1,5 @@
 
-namespace xBDD.Features.DefiningFeatures.DefiningaTestRun
+namespace xBDD.Features.DefiningFeatures.DefiningATestRun
 {
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;

@@ -1,0 +1,38 @@
+xBDD Streamlining API Testing
+
+xBDD - Features - Streamlining API Testing - Streamlining API Testing - Issuing Requests
+	Issue A Get
+		Placeholder [Skipped - Defining]
+	Issue A Post
+		Placeholder [Skipped - Defining]
+	Issue A Put
+		Placeholder [Skipped - Defining]
+	Issue A Delete
+		Placeholder [Skipped - Defining]
+	Modify The Headers
+		Placeholder [Skipped - Defining]
+	Modify The Body
+		Placeholder [Skipped - Defining]
+	Modify The Cookies
+		Placeholder [Skipped - Defining]
+xBDD - Features - Streamlining API Testing - Streamlining API Testing - Validating Responses
+	Validate A Response Code
+		Placeholder [Skipped - Defining]
+	Follow A300Response
+		Placeholder [Skipped - Defining]
+	Process A500Response
+		Placeholder [Skipped - Defining]
+	Process A400Response
+		Placeholder [Skipped - Defining]
+	Process A200Response
+		With AJSON Response [Skipped - Defining]
+		With An XML Response [Skipped - Defining]
+		With A Text Response [Skipped - Defining]
+	Access Headers
+		Placeholder [Skipped - Defining]
+	Access Cookies
+		Placeholder [Skipped - Defining]
+	Validate A Response Against A Template
+		Placeholder [Skipped - Defining]
+	Capture A Template From A Response
+		Placeholder [Skipped - Defining]

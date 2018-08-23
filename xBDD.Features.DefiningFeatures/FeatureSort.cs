@@ -25,7 +25,7 @@ namespace xBDD.Features.DefiningFeatures
                 typeof(xBDD.Features.DefiningFeatures.DefiningFeatures.SettingTheFeatureStatement).FullName,
                 typeof(xBDD.Features.DefiningFeatures.DefiningFeatures.OverridingAFeatureName).FullName,
                 typeof(xBDD.Features.DefiningFeatures.DefiningAreas.OverridingAnAreaName).FullName,
-                typeof(xBDD.Features.DefiningFeatures.DefiningaTestRun.SettingTheTestRunName).FullName,
+                typeof(xBDD.Features.DefiningFeatures.DefiningATestRun.SettingTheTestRunName).FullName,
                 typeof(xBDD.Features.DefiningFeatures.SettingIds.SettingAnIDForAScenario).FullName,
                 typeof(xBDD.Features.DefiningFeatures.SettingIds.SettingAnIDForAFeature).FullName,
                 typeof(xBDD.Features.DefiningFeatures.SettingStatus.SettingTheStatusOfAScenario).FullName,

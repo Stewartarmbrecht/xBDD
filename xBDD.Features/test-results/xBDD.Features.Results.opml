@@ -82,7 +82,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generate Reports - Browse Html Report">
+<outline text="xBDD - Features - Generate Reports - Browse Html Report [Defining]">
 	<outline text="Review Test Run">
 		<outline text="From A Test Run With No Scenarios">
 			<outline text="When you navigate to the test html report from a test run with no scenarios"/>
@@ -221,16 +221,16 @@
 			<outline text="And you will see the area 1 feature distribution skipped bar is not there"/>
 		</outline>
 	</outline>
-	<outline text="Review Area Description">
-		<outline text="Expand">
+	<outline text="Review Area Description [Defining]">
+		<outline text="Expand [Defining]">
 		</outline>
-		<outline text="Expand All">
+		<outline text="Expand All [Defining]">
 		</outline>
-		<outline text="Collapse">
+		<outline text="Collapse [Defining]">
 		</outline>
-		<outline text="Collapse All">
+		<outline text="Collapse All [Defining]">
 		</outline>
-		<outline text="Default Collapsed When More Than5">
+		<outline text="Default Collapsed When More Than5 [Defining]">
 		</outline>
 	</outline>
 	<outline text="Review Area Features">
@@ -255,7 +255,7 @@
 			<outline text="And you click the the area 1 title line"/>
 			<outline text="Then you will see the area 1 features is not there"/>
 		</outline>
-		<outline text="Collapse All">
+		<outline text="Collapse All [Not Implemented]">
 			<outline text="Given you generate an html report from test results of a passing full test run"/>
 			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area 1 title line is visible"/>
@@ -357,7 +357,7 @@
 			<outline text="And you will see the feature 16scenario distribution skipped bar is not there"/>
 		</outline>
 	</outline>
-	<outline text="Review Feature Statement">
+	<outline text="Review Feature Statement [Defining]">
 		<outline text="Collapsed By Default">
 			<outline text="When you navigate to the test html report from a test run with all passing scenarios"/>
 			<outline text="And you click when the area 1 title line is visible"/>
@@ -378,9 +378,9 @@
 			<outline text="When you click the the feature 1 statement link"/>
 			<outline text="Then you will see the feature 1 statement is not visible"/>
 		</outline>
-		<outline text="Expand All">
+		<outline text="Expand All [Defining]">
 		</outline>
-		<outline text="Collapse All">
+		<outline text="Collapse All [Defining]">
 		</outline>
 		<outline text="Full Statement">
 			<outline text="When you navigate to the test html report from a test run with all passing scenarios"/>
@@ -514,7 +514,7 @@
 			<outline text="Then you will see step duration is visible"/>
 		</outline>
 	</outline>
-	<outline text="Review Step Exception">
+	<outline text="Review Step Exception [Defining]">
 		<outline text="Collapsed By Default">
 			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area 3 title line is visible"/>
@@ -540,12 +540,12 @@
 			<outline text="When you click when the step 59 error link is visible"/>
 			<outline text="Then you will see the step 59 exception is visible"/>
 		</outline>
-		<outline text="Collapse All">
+		<outline text="Collapse All [Defining]">
 		</outline>
-		<outline text="Expand All">
+		<outline text="Expand All [Defining]">
 		</outline>
 	</outline>
-	<outline text="Review Step Multiline Parameter">
+	<outline text="Review Step Multiline Parameter [Defining]">
 		<outline text="Collapsed By Default">
 			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area 1 title line is visible"/>
@@ -563,20 +563,20 @@
 			<outline text="Then you will see the step 2 input is visible"/>
 			<outline text="And you will see the step 2 text input has text 'Here is my Input!'"/>
 		</outline>
-		<outline text="Code">
+		<outline text="Code [Untested]">
 		</outline>
-		<outline text="Html With Preview">
+		<outline text="Html With Preview [Untested]">
 		</outline>
-		<outline text="Collapse">
+		<outline text="Collapse [Untested]">
 		</outline>
-		<outline text="Collapse All">
+		<outline text="Collapse All [Defining]">
 		</outline>
-		<outline text="Expand">
+		<outline text="Expand [Untested]">
 		</outline>
-		<outline text="Expand All">
+		<outline text="Expand All [Defining]">
 		</outline>
 	</outline>
-	<outline text="Review Step Output">
+	<outline text="Review Step Output [Defining]">
 		<outline text="Collapsed By Default">
 			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area 1 title line is visible"/>
@@ -593,17 +593,17 @@
 			<outline text="Then you will see the step 3 output is visible"/>
 			<outline text="And you will see the step 3 text output has text 'Here is my output!'"/>
 		</outline>
-		<outline text="Code">
+		<outline text="Code [Defining]">
 		</outline>
-		<outline text="Html With Preview">
+		<outline text="Html With Preview [Defining]">
 		</outline>
-		<outline text="Collapse">
+		<outline text="Collapse [Defining]">
 		</outline>
-		<outline text="Collapse All">
+		<outline text="Collapse All [Defining]">
 		</outline>
-		<outline text="Expand">
+		<outline text="Expand [Defining]">
 		</outline>
-		<outline text="Expand All">
+		<outline text="Expand All [Defining]">
 		</outline>
 	</outline>
 </outline>

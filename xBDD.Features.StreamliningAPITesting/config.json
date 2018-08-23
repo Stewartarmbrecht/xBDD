@@ -1,0 +1,12 @@
+{
+    "xBDD": {
+        "TestRunName": "xBDD Streamlining API Testing",
+        "Browser": {
+            "Watch": "false"
+        },
+        "HtmlReport": {
+            "RemoveFromAreaNameStart": "xBDD - Features - Streamlining API Testing - ",
+            "FailuresOnly": "false"
+        }
+    }
+}            

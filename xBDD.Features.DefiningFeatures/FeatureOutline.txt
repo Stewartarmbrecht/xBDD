@@ -73,7 +73,7 @@ Defining Areas
 		When creating a scenario [Untested]
 		For a single feature via attribute [Untested]
 		For a namespace [Untested]
-Defining a Test Run
+Defining A Test Run
 	Setting the test run name
 		Via code [Untested]
 		Via an environment variable [Untested]

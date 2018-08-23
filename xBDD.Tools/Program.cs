@@ -103,6 +103,10 @@ namespace xBDD.Tools
             [Option("-rn|--root-namespace", "Sets the root namespace for the generated feature files.", CommandOptionType.SingleValue)]
             public string RootNamespace { get; }
             
+            
+            [Option("-trn|--testrun-name", "Sets the default name for the test run when the tests are executed.", CommandOptionType.SingleValue)]
+            public string TestRunName { get; }
+            
             [Option("-sr|--skip-reason", "Sets the default skip reason for all scenarios.", CommandOptionType.SingleValue)]
             public string SkipReason { get; }
 
@@ -125,10 +129,12 @@ namespace xBDD.Tools
                             console.WriteLine($"Indentation: {Indentation}");
                             console.WriteLine($"Root Namespace: {RootNamespace}");
                             console.WriteLine($"Skip Reason: {SkipReason}");
+                            console.WriteLine($"Test Run Name: {TestRunName}");
                             TextImporter textImporter = new TextImporter();
                             console.WriteLine($"Source Content:");
                             console.WriteLine(source);
                             TestRun testRun = textImporter.ImportText(source, Indentation, RootNamespace, SkipReason);
+                            testRun.Name = TestRunName;
                             console.WriteLine($"Test Run Scenario Count: {testRun.Scenarios.Count}");
                             if(FeaturesOnly) {
                                 console.WriteLine($"Writing Feautres Only To: {Destination}");

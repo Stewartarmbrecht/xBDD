@@ -16,8 +16,9 @@ namespace xBDD.Reporting.Outline
         /// Writes test run results in a text format to a string.
         /// </summary>
         /// <param name="testRun">The test run to write to a text string.</param>
+        /// <param name="areaNameClip">The starting part of each area name to remove.</param>
         /// <returns>The text respresentation of the test run results.</returns>
-        public async Task<string> WriteToOpml(TestRun testRun)
+        public async Task<string> WriteToOpml(TestRun testRun, string areaNameClip = null)
         {
             return await Task.Run(() => {
                 StringBuilder sb = new StringBuilder();
@@ -33,7 +34,7 @@ namespace xBDD.Reporting.Outline
                     sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
                 foreach(var scenario in sortedScenarios)
                 {
-                    WriteScenario(lastScenario, scenario, sb);
+                    WriteScenario(lastScenario, scenario, sb, areaNameClip);
                     lastScenario = scenario;
                 }
                 if(sortedScenarios.Count() > 0) {
@@ -46,7 +47,7 @@ namespace xBDD.Reporting.Outline
             });
         }
 
-        private void WriteScenario(Scenario lastScenario, Scenario scenario, StringBuilder sb)
+        private void WriteScenario(Scenario lastScenario, Scenario scenario, StringBuilder sb, string areaNameClip)
         {
             if (lastScenario != null && lastScenario.Feature.Name != scenario.Feature.Name)
             {
@@ -58,18 +59,30 @@ namespace xBDD.Reporting.Outline
             }
             if(lastScenario == null || (lastScenario != null && lastScenario.Feature.Area.Name != scenario.Feature.Area.Name))
             {
-                sb.AppendLine($"<outline text=\"{scenario.Feature.Area.Name}\">");
+                var areaName = scenario.Feature.Area.Name;
+                if(areaNameClip != null) {
+                    areaName = areaName.Replace(areaNameClip, "");
+                }
+                if(scenario.Feature.Area.Reason != null) {
+                    sb.AppendLine($"<outline text=\"{areaName} [{scenario.Feature.Area.Reason}]\">");
+                } else {
+                    sb.AppendLine($"<outline text=\"{areaName}\">");
+                }
             }
 
             if (lastScenario == null || (lastScenario != null && lastScenario.Feature.Name != scenario.Feature.Name))
             {
-                sb.Append("\t<outline text=\"");
-                sb.Append(scenario.Feature.Name);
-                sb.AppendLine("\">");
+                if(scenario.Feature.Reason != null) {
+                    sb.AppendLine($"\t<outline text=\"{scenario.Feature.Name} [{scenario.Feature.Reason}]\">");
+                } else {
+                    sb.AppendLine($"\t<outline text=\"{scenario.Feature.Name}\">");
+                }
             }
-            sb.Append("\t\t<outline text=\"");
-            sb.Append(scenario.Name);
-            sb.AppendLine("\">");
+            if(scenario.Reason != null) {
+                sb.AppendLine($"\t\t<outline text=\"{scenario.Name} [{scenario.Reason}]\">");
+            } else {
+                sb.AppendLine($"\t\t<outline text=\"{scenario.Name}\">");
+            }
             foreach(var step in scenario.Steps)
             {
                 WriteStep(step, sb);
