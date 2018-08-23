@@ -44,12 +44,17 @@ initial version of this platform is released.
 
 Note: Area, Feature, and Scenario names will expand when clicked.
 
-[xBDD.Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features/test-results/xBDD.Features.Results.html) - Writing and running scenarios.
-[xBDD.Features.AutmoatingUITesting](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.AutmoatingUITesting/test-results/xBDD.Features.AutmoatingUITesting.Results.html)
-[xBDD.Features.DefiningFeatures](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.html)
-[xBDD.Features.GeneratingCode](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.html)
-[xBDD.Features.GeneratingReports](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.html)
-[xBDD.Features.ImportingScenarios](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.DefiningFeatures/test-results/xBDD.Features.ImportingScenarios.Results.html)
+[xBDD.Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features/test-results/xBDD.Features.Results.html) - Old set of tests to be replaced by the following projects.
+
+[xBDD.Features.DefiningFeatures](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.html) - Features for defining features, scenarios, and steps.
+
+[xBDD.Features.AutomatingUITesting](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.AutomatingUITesting/test-results/xBDD.Features.AutomatingUITesting.Results.html) - Features for running browser automation tests.
+
+[xBDD.Features.GeneratingReports](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.html) - Features for generating reports from test resutls.
+
+[xBDD.Features.GeneratingCode](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.html) - Features for generating code from the test run object.
+
+[xBDD.Features.ImportingScenarios](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.ImportingScenarios/test-results/xBDD.Features.ImportingScenarios.Results.html) - Features for hydrating test run objects from text outlines and other sources.
 
 ## Getting Started
 
