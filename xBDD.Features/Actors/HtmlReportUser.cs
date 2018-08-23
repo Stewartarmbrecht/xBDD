@@ -296,7 +296,7 @@ namespace xBDD.Features.Actors
                         .Given("my step 1", (s2) => { })
                         .When("my step 2", (s2) => { })
                         .Then("my step 3", (s2) => { })
-                        .Skip("Definig", reason => { } );
+                        .Skip("Defining", reason => { } );
                     var htmlReport = await xBDD.CurrentRun.TestRun.WriteToHtml(null, failuresOnly);
                     File.WriteAllText(path, htmlReport);
                 });

@@ -17,14 +17,14 @@ namespace xBDD.Features.DefiningFeatures.InitialSetup
         public async Task ThroughTheExtensionManager()
         {
             await xB.CurrentRun.AddScenario(this, 31)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task ViaTheCommandLine()
         {
             await xB.CurrentRun.AddScenario(this, 32)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
     }
 }

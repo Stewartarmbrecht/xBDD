@@ -118,53 +118,53 @@ xBDD - Features - Automating UI Testing - Custom Steps
 		Failure [Skipped - Untested]
 xBDD - Features - Automating UI Testing - Uploading And Download Files
 	Upload A File
-		Successful [Skipped - Definig]
-		Unsuccessful [Skipped - Definig]
+		Successful [Skipped - Defining]
+		Unsuccessful [Skipped - Defining]
 	Download A File
-		Successful [Skipped - Definig]
-		Unsuccessful [Skipped - Definig]
+		Successful [Skipped - Defining]
+		Unsuccessful [Skipped - Defining]
 xBDD - Features - Automating UI Testing - Advanced Clicking
 	Right Click Immediate
-		When Visible [Skipped - Definig]
-		When Does Not Exist [Skipped - Definig]
-		When Not Visible [Skipped - Definig]
+		When Visible [Skipped - Defining]
+		When Does Not Exist [Skipped - Defining]
+		When Not Visible [Skipped - Defining]
 	Right Click When Visible
-		With Success [Skipped - Definig]
-		With Specific Wait Time [Skipped - Definig]
-		With Failed Condition [Skipped - Definig]
+		With Success [Skipped - Defining]
+		With Specific Wait Time [Skipped - Defining]
+		With Failed Condition [Skipped - Defining]
 	Double Click Immediate
-		When Visible [Skipped - Definig]
-		When Does Not Exist [Skipped - Definig]
-		When Not Visible [Skipped - Definig]
+		When Visible [Skipped - Defining]
+		When Does Not Exist [Skipped - Defining]
+		When Not Visible [Skipped - Defining]
 	Double Click When Visible
-		With Success [Skipped - Definig]
-		With Specific Wait Time [Skipped - Definig]
-		With Failed Condition [Skipped - Definig]
+		With Success [Skipped - Defining]
+		With Specific Wait Time [Skipped - Defining]
+		With Failed Condition [Skipped - Defining]
 	Drop Downs
-		With Success [Skipped - Definig]
-		With Failure [Skipped - Definig]
+		With Success [Skipped - Defining]
+		With Failure [Skipped - Defining]
 	Scrolling
-		With Success [Skipped - Definig]
-		With Failure [Skipped - Definig]
+		With Success [Skipped - Defining]
+		With Failure [Skipped - Defining]
 	Hovering
-		With Success [Skipped - Definig]
-		With Failure [Skipped - Definig]
+		With Success [Skipped - Defining]
+		With Failure [Skipped - Defining]
 	Dragging
-		With Success [Skipped - Definig]
-		With Failure [Skipped - Definig]
+		With Success [Skipped - Defining]
+		With Failure [Skipped - Defining]
 xBDD - Features - Automating UI Testing - Advanced Actions
 	Play A Video
-		Successful [Skipped - Definig]
-		Failure [Skipped - Definig]
+		Successful [Skipped - Defining]
+		Failure [Skipped - Defining]
 	Capture Screen Image
-		Successful [Skipped - Definig]
-		Failure [Skipped - Definig]
+		Successful [Skipped - Defining]
+		Failure [Skipped - Defining]
 	Capture Video
-		Successful [Skipped - Definig]
-		Failure [Skipped - Definig]
+		Successful [Skipped - Defining]
+		Failure [Skipped - Defining]
 	Toggle Think Times
-		Successful [Skipped - Definig]
-		Failure [Skipped - Definig]
+		Successful [Skipped - Defining]
+		Failure [Skipped - Defining]
 	Set Default Wait Time
-		Successful [Skipped - Definig]
-		Failure [Skipped - Definig]
+		Successful [Skipped - Defining]
+		Failure [Skipped - Defining]

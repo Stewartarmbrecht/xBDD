@@ -17,14 +17,14 @@ namespace xBDD.Features.AutomatingUITesting.UploadingAndDownloadFiles
         public async Task Successful()
         {
             await xB.CurrentRun.AddScenario(this, 120)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task Unsuccessful()
         {
             await xB.CurrentRun.AddScenario(this, 121)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
     }
 }

@@ -17,14 +17,14 @@ namespace xBDD.Features.DefiningFeatures.SettingOwnership
         public async Task SettingASingleOwner()
         {
             await xB.CurrentRun.AddScenario(this, 154)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task SettingMultipleOwners()
         {
             await xB.CurrentRun.AddScenario(this, 155)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
     }
 }

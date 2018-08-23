@@ -63,7 +63,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task CollapseAll()
 		{
 			 await xB.AddScenario(this, 6)
-				.Skip("Definig", Assert.Inconclusive);
+				.Skip("Defining", Assert.Inconclusive);
 		}
 		[TestMethod]
 		public async Task Expand()
@@ -75,7 +75,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task ExpandAll()
 		{
 			 await xB.AddScenario(this, 8)
-				.Skip("Definig", Assert.Inconclusive);
+				.Skip("Defining", Assert.Inconclusive);
 		}
 	}
 }

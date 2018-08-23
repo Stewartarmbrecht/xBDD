@@ -96,7 +96,7 @@ namespace xBDD.Importing.Text
         /// <param name="rootNamespace">The namspace to prepend to each area.<param>
         /// <param name="skipReason">The namspace to prepend to each area.<param>
         /// <returns>TestRun object hydrated from the text file outline.</returns>
-        public TestRun ImportText(string text, string indentationKey = "\t", string rootNamespace = "", string skipReason = "Definig") {
+        public TestRun ImportText(string text, string indentationKey = "\t", string rootNamespace = "", string skipReason = "Defining") {
             this.indentationKey = indentationKey;
             this.rootNamespace = rootNamespace;
             this.skipReason = skipReason;

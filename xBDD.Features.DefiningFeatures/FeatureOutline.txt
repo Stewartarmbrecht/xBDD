@@ -29,8 +29,8 @@ Initial Setup
 		Skipping a scenario [Untested]
 		Documenting a scenario [Untested]
 	Installing vscode snippets
-		Through the extension manager [Definig]
-		Via the command line [Definig]
+		Through the extension manager [Defining]
+		Via the command line [Defining]
 Defining Steps
 	Adding steps to a scenario
 		Adding a synchronous step [Untested]
@@ -79,81 +79,81 @@ Defining a Test Run
 		Via an environment variable [Untested]
 Setting Ids
 	Setting an ID for a scenario
-		That is unique [Definig]
-		That is not unique [Definig]
-		That is an empty string [Definig]
+		That is unique [Defining]
+		That is not unique [Defining]
+		That is an empty string [Defining]
 	Setting an ID for a feature
-		Via an attribute [Definig]
+		Via an attribute [Defining]
 Setting Status
 	Setting the status of a scenario
-		To Defining [Definig]
-		To Ready [Definig]
-		To Building [Definig]
-		To Untested [Definig]
-		To Failing [Definig]
-		To Waiting [Definig]
-		To Fixing [Definig]
-		To Built [Definig]
-		To Deployed [Definig]
-		To Executing [Definig]
-		To Deprecated [Definig]
+		To Defining [Defining]
+		To Ready [Defining]
+		To Building [Defining]
+		To Untested [Defining]
+		To Failing [Defining]
+		To Waiting [Defining]
+		To Fixing [Defining]
+		To Built [Defining]
+		To Deployed [Defining]
+		To Executing [Defining]
+		To Deprecated [Defining]
 	Setting the status of a feature
-		To Defining [Definig]
-		To Ready [Definig]
-		To Building [Definig]
+		To Defining [Defining]
+		To Ready [Defining]
+		To Building [Defining]
 Adding Estimates
 	Setting a feature scenario estimate
-		Placeholder [Definig]
+		Placeholder [Defining]
 	Setting a feature value estimate
-		Placeholder [Definig]
+		Placeholder [Defining]
 	Setting a feature level of effort estimate
-		Placeholder [Definig]
+		Placeholder [Defining]
 	Setting a area estimates using a placeholder feature
-		Placeholder [Definig]
+		Placeholder [Defining]
 Adding Tags
 	Adding tags to a scenario
-		In code [Definig]
-		Via an attribute [Definig]
+		In code [Defining]
+		Via an attribute [Defining]
 	Adding tags to a feature
-		In code [Definig]
-		Via an attribute [Definig]
+		In code [Defining]
+		Via an attribute [Defining]
 	Adding tags to an area
-		Via code [Definig]
-		Via an assembly attribute [Definig]
+		Via code [Defining]
+		Via an assembly attribute [Defining]
 	Adding tags to a test run
-		Via code [Definig]
-		Via an assembly attribute [Definig]
+		Via code [Defining]
+		Via an assembly attribute [Defining]
 Adding Explanations
 	Adding an explanation to a step
-		Straight texts [Definig]
-		Leveraging markdown [Definig]
-		Adding refereneces to other features [Definig]
-		Adding refereneces to other scenarios [Definig]
+		Straight texts [Defining]
+		Leveraging markdown [Defining]
+		Adding refereneces to other features [Defining]
+		Adding refereneces to other scenarios [Defining]
 	Adding an explanation to a scenario
-		Using plain text [Definig]
-		Using markdown [Definig]
+		Using plain text [Defining]
+		Using markdown [Defining]
 	Adding an explanation to a feature
-		Via an attribute with inline text [Definig]
-		Via an attribute with a file reference [Definig]
-		Using plain text [Definig]
-		Using markdown [Definig]
+		Via an attribute with inline text [Defining]
+		Via an attribute with a file reference [Defining]
+		Using plain text [Defining]
+		Using markdown [Defining]
 	Adding an explanation to an area
-		Via an attribute with inline text [Definig]
-		Via an attribute with a file reference [Definig]
-		Using plain text [Definig]
-		Using markdown [Definig]
+		Via an attribute with inline text [Defining]
+		Via an attribute with a file reference [Defining]
+		Using plain text [Defining]
+		Using markdown [Defining]
 	Adding an explanation to a test run
-		Via an attribute with inline text [Definig]
-		Via an attribute with a file reference [Definig]
-		Using plain text [Definig]
-		Using markdown [Definig]
+		Via an attribute with inline text [Defining]
+		Via an attribute with a file reference [Defining]
+		Using plain text [Defining]
+		Using markdown [Defining]
 Setting Ownership
 	Setting an owner for a scenario
-		Setting a single owner [Definig]
-		Setting multiple owners [Definig]
+		Setting a single owner [Defining]
+		Setting multiple owners [Defining]
 	Setting an owner for a feature
-		Setting a single owner [Definig]
-		Setting multiple owners [Definig]
+		Setting a single owner [Defining]
+		Setting multiple owners [Defining]
 
 
 

@@ -72,6 +72,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" span.area.duration { font-size: 1rem; color: gray; }");
             sb.Append(" span.feature.duration { font-size: 1rem; color: gray; }");
             sb.Append(" span.scenario.duration { font-size: 1rem; color: gray; }");
+            sb.Append(" span.status { font-size: 1rem; color: gray; }");
             sb.Append(" span.step.duration { font-size: .75rem; color: gray; }");
             sb.Append(" span.oi.oi-info { font-size: 80% }");
             sb.Append(" ol.areas { margin: .5rem 0rem; }");

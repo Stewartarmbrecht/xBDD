@@ -17,21 +17,21 @@ namespace xBDD.Features.AutomatingUITesting.AdvancedClicking
         public async Task WithSuccess()
         {
             await xB.CurrentRun.AddScenario(this, 139)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithSpecificWaitTime()
         {
             await xB.CurrentRun.AddScenario(this, 140)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task WithFailedCondition()
         {
             await xB.CurrentRun.AddScenario(this, 141)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
     }
 }

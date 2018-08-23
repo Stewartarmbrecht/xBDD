@@ -25,6 +25,19 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "test-features",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "${workspaceFolder}/scripts/test-features.ps1"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "test-long",
             "group": "test",
             "command": "pwsh",

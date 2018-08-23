@@ -17,21 +17,21 @@ namespace xBDD.Features.DefiningFeatures.SettingStatus
         public async Task ToDefining()
         {
             await xB.CurrentRun.AddScenario(this, 100)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task ToReady()
         {
             await xB.CurrentRun.AddScenario(this, 101)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task ToBuilding()
         {
             await xB.CurrentRun.AddScenario(this, 102)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
     }
 }

@@ -118,56 +118,56 @@ Custom Steps
 		Failure [Untested]
 Uploading And Download Files
 	Upload a file
-		Successful [Definig]
-		Unsuccessful [Definig]
+		Successful [Defining]
+		Unsuccessful [Defining]
 	Download a file
-		Successful [Definig]
-		Unsuccessful [Definig]
+		Successful [Defining]
+		Unsuccessful [Defining]
 Advanced Clicking
 	Right Click Immediate
-		When visible [Definig]
-		When does not exist [Definig]
-		When not visible [Definig]
+		When visible [Defining]
+		When does not exist [Defining]
+		When not visible [Defining]
 	Right Click When Visible
-		With success [Definig]
-		With specific wait time [Definig]
-		With failed condition [Definig]
+		With success [Defining]
+		With specific wait time [Defining]
+		With failed condition [Defining]
 	Double Click Immediate
-		When visible [Definig]
-		When does not exist [Definig]
-		When not visible [Definig]
+		When visible [Defining]
+		When does not exist [Defining]
+		When not visible [Defining]
 	Double Click When Visible
-		With success [Definig]
-		With specific wait time [Definig]
-		With failed condition [Definig]
+		With success [Defining]
+		With specific wait time [Defining]
+		With failed condition [Defining]
 	Drop downs
-		With success [Definig]
-		With failure [Definig]
+		With success [Defining]
+		With failure [Defining]
 	Scrolling
-		With success [Definig]
-		With failure [Definig]
+		With success [Defining]
+		With failure [Defining]
 	Hovering
-		With success [Definig]
-		With failure [Definig]
+		With success [Defining]
+		With failure [Defining]
 	Dragging
-		With success [Definig]
-		With failure [Definig]
+		With success [Defining]
+		With failure [Defining]
 Advanced Actions
 	Play a video
-		Successful [Definig]
-		Failure [Definig]
+		Successful [Defining]
+		Failure [Defining]
 	Capture screen image
-		Successful [Definig]
-		Failure [Definig]
+		Successful [Defining]
+		Failure [Defining]
 	Capture video
-		Successful [Definig]
-		Failure [Definig]
+		Successful [Defining]
+		Failure [Defining]
 	Toggle think times
-		Successful [Definig]
-		Failure [Definig]
+		Successful [Defining]
+		Failure [Defining]
 	Set default wait time
-		Successful [Definig]
-		Failure [Definig]
+		Successful [Defining]
+		Failure [Defining]
 
 
 

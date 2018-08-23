@@ -17,14 +17,14 @@ namespace xBDD.Features.DefiningFeatures.AddingTags
         public async Task ViaCode()
         {
             await xB.CurrentRun.AddScenario(this, 123)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task ViaAnAssemblyAttribute()
         {
             await xB.CurrentRun.AddScenario(this, 124)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
     }
 }

@@ -17,28 +17,28 @@ namespace xBDD.Features.DefiningFeatures.AddingExplanations
         public async Task ViaAnAttributeWithInlineText()
         {
             await xB.CurrentRun.AddScenario(this, 135)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task ViaAnAttributeWithAFileReference()
         {
             await xB.CurrentRun.AddScenario(this, 136)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task UsingPlainText()
         {
             await xB.CurrentRun.AddScenario(this, 137)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
 
         [TestMethod]
         public async Task UsingMarkdown()
         {
             await xB.CurrentRun.AddScenario(this, 138)
-                .Skip("Definig", Assert.Inconclusive);
+                .Skip("Defining", Assert.Inconclusive);
         }
     }
 }

@@ -10,10 +10,10 @@ namespace xBDD.Features
         {
             this.SortedReasons = new List<string>() {
                 "Removing",
-                "Defining",
-                "Ready",
                 "Building",
-                "Untested"
+                "Untested",
+                "Ready",
+                "Defining"
             };
         }
     }

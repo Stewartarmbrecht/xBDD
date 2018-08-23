@@ -25,8 +25,8 @@ xBDD - Features - Defining Features - Initial Setup
 		Skipping A Scenario [Skipped - Untested]
 		Documenting A Scenario [Skipped - Untested]
 	Installing Vscode Snippets
-		Through The Extension Manager [Skipped - Definig]
-		Via The Command Line [Skipped - Definig]
+		Through The Extension Manager [Skipped - Defining]
+		Via The Command Line [Skipped - Defining]
 xBDD - Features - Defining Features - Defining Steps
 	Adding Steps To A Scenario
 		Adding A Synchronous Step [Skipped - Untested]
@@ -75,78 +75,78 @@ xBDD - Features - Defining Features - Defininga Test Run
 		Via An Environment Variable [Skipped - Untested]
 xBDD - Features - Defining Features - Setting Ids
 	Setting An ID For A Scenario
-		That Is Unique [Skipped - Definig]
-		That Is Not Unique [Skipped - Definig]
-		That Is An Empty String [Skipped - Definig]
+		That Is Unique [Skipped - Defining]
+		That Is Not Unique [Skipped - Defining]
+		That Is An Empty String [Skipped - Defining]
 	Setting An ID For A Feature
-		Via An Attribute [Skipped - Definig]
+		Via An Attribute [Skipped - Defining]
 xBDD - Features - Defining Features - Setting Status
 	Setting The Status Of A Scenario
-		To Defining [Skipped - Definig]
-		To Ready [Skipped - Definig]
-		To Building [Skipped - Definig]
-		To Untested [Skipped - Definig]
-		To Failing [Skipped - Definig]
-		To Waiting [Skipped - Definig]
-		To Fixing [Skipped - Definig]
-		To Built [Skipped - Definig]
-		To Deployed [Skipped - Definig]
-		To Executing [Skipped - Definig]
-		To Deprecated [Skipped - Definig]
+		To Defining [Skipped - Defining]
+		To Ready [Skipped - Defining]
+		To Building [Skipped - Defining]
+		To Untested [Skipped - Defining]
+		To Failing [Skipped - Defining]
+		To Waiting [Skipped - Defining]
+		To Fixing [Skipped - Defining]
+		To Built [Skipped - Defining]
+		To Deployed [Skipped - Defining]
+		To Executing [Skipped - Defining]
+		To Deprecated [Skipped - Defining]
 	Setting The Status Of A Feature
-		To Defining [Skipped - Definig]
-		To Ready [Skipped - Definig]
-		To Building [Skipped - Definig]
+		To Defining [Skipped - Defining]
+		To Ready [Skipped - Defining]
+		To Building [Skipped - Defining]
 xBDD - Features - Defining Features - Adding Estimates
 	Setting A Feature Scenario Estimate
-		Placeholder [Skipped - Definig]
+		Placeholder [Skipped - Defining]
 	Setting A Feature Value Estimate
-		Placeholder [Skipped - Definig]
+		Placeholder [Skipped - Defining]
 	Setting A Feature Level Of Effort Estimate
-		Placeholder [Skipped - Definig]
+		Placeholder [Skipped - Defining]
 	Setting A Area Estimates Using A Placeholder Feature
-		Placeholder [Skipped - Definig]
+		Placeholder [Skipped - Defining]
 xBDD - Features - Defining Features - Adding Tags
 	Adding Tags To A Scenario
-		In Code [Skipped - Definig]
-		Via An Attribute [Skipped - Definig]
+		In Code [Skipped - Defining]
+		Via An Attribute [Skipped - Defining]
 	Adding Tags To A Feature
-		In Code [Skipped - Definig]
-		Via An Attribute [Skipped - Definig]
+		In Code [Skipped - Defining]
+		Via An Attribute [Skipped - Defining]
 	Adding Tags To An Area
-		Via Code [Skipped - Definig]
-		Via An Assembly Attribute [Skipped - Definig]
+		Via Code [Skipped - Defining]
+		Via An Assembly Attribute [Skipped - Defining]
 	Adding Tags To A Test Run
-		Via Code [Skipped - Definig]
-		Via An Assembly Attribute [Skipped - Definig]
+		Via Code [Skipped - Defining]
+		Via An Assembly Attribute [Skipped - Defining]
 xBDD - Features - Defining Features - Adding Explanations
 	Adding An Explanation To A Step
-		Straight Texts [Skipped - Definig]
-		Leveraging Markdown [Skipped - Definig]
-		Adding Refereneces To Other Features [Skipped - Definig]
-		Adding Refereneces To Other Scenarios [Skipped - Definig]
+		Straight Texts [Skipped - Defining]
+		Leveraging Markdown [Skipped - Defining]
+		Adding Refereneces To Other Features [Skipped - Defining]
+		Adding Refereneces To Other Scenarios [Skipped - Defining]
 	Adding An Explanation To A Scenario
-		Using Plain Text [Skipped - Definig]
-		Using Markdown [Skipped - Definig]
+		Using Plain Text [Skipped - Defining]
+		Using Markdown [Skipped - Defining]
 	Adding An Explanation To A Feature
-		Via An Attribute With Inline Text [Skipped - Definig]
-		Via An Attribute With A File Reference [Skipped - Definig]
-		Using Plain Text [Skipped - Definig]
-		Using Markdown [Skipped - Definig]
+		Via An Attribute With Inline Text [Skipped - Defining]
+		Via An Attribute With A File Reference [Skipped - Defining]
+		Using Plain Text [Skipped - Defining]
+		Using Markdown [Skipped - Defining]
 	Adding An Explanation To An Area
-		Via An Attribute With Inline Text [Skipped - Definig]
-		Via An Attribute With A File Reference [Skipped - Definig]
-		Using Plain Text [Skipped - Definig]
-		Using Markdown [Skipped - Definig]
+		Via An Attribute With Inline Text [Skipped - Defining]
+		Via An Attribute With A File Reference [Skipped - Defining]
+		Using Plain Text [Skipped - Defining]
+		Using Markdown [Skipped - Defining]
 	Adding An Explanation To A Test Run
-		Via An Attribute With Inline Text [Skipped - Definig]
-		Via An Attribute With A File Reference [Skipped - Definig]
-		Using Plain Text [Skipped - Definig]
-		Using Markdown [Skipped - Definig]
+		Via An Attribute With Inline Text [Skipped - Defining]
+		Via An Attribute With A File Reference [Skipped - Defining]
+		Using Plain Text [Skipped - Defining]
+		Using Markdown [Skipped - Defining]
 xBDD - Features - Defining Features - Setting Ownership
 	Setting An Owner For A Scenario
-		Setting A Single Owner [Skipped - Definig]
-		Setting Multiple Owners [Skipped - Definig]
+		Setting A Single Owner [Skipped - Defining]
+		Setting Multiple Owners [Skipped - Defining]
 	Setting An Owner For A Feature
-		Setting A Single Owner [Skipped - Definig]
-		Setting Multiple Owners [Skipped - Definig]
+		Setting A Single Owner [Skipped - Defining]
+		Setting Multiple Owners [Skipped - Defining]

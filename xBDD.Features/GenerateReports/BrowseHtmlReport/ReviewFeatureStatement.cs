@@ -52,13 +52,13 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 		public async Task ExpandAll()
 		{
 			 await xB.CurrentRun.AddScenario(this, 4)
-				.Skip("Definig", Assert.Inconclusive);
+				.Skip("Defining", Assert.Inconclusive);
 		}
 		[TestMethod]
 		public async Task CollapseAll()
 		{
 			 await xB.CurrentRun.AddScenario(this, 5)
-				.Skip("Definig", Assert.Inconclusive);
+				.Skip("Defining", Assert.Inconclusive);
 		}
 		[TestMethod]
 		public async Task FullStatement()

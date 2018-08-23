@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using xBDD.Model;
 using xBDD.Utility;
@@ -27,6 +28,9 @@ namespace xBDD.Core
                 FeatureStats = new OutcomeStats(),
                 ScenarioStats = new OutcomeStats(),
                 StepStats = new OutcomeStats(),
+                AreaReasonStats = new Dictionary<string, int>(),
+                FeatureReasonStats = new Dictionary<string, int>(),
+                ScenarioReasonStats = new Dictionary<string, int>(),
             };
         }
 
@@ -38,7 +42,9 @@ namespace xBDD.Core
                 TestRun = testRun,
                 FeatureStats = new OutcomeStats(),
                 ScenarioStats = new OutcomeStats(),
-                StepStats = new OutcomeStats()
+                StepStats = new OutcomeStats(),
+                FeatureReasonStats = new Dictionary<string, int>(),
+                ScenarioReasonStats = new Dictionary<string, int>(),
             };
             testRun.Areas.Add(area);
             return area;
@@ -50,7 +56,8 @@ namespace xBDD.Core
                 Name = name, 
                 Area = area,
                 ScenarioStats = new OutcomeStats(),
-                StepStats = new OutcomeStats()
+                StepStats = new OutcomeStats(),
+                ScenarioReasonStats = new Dictionary<string, int>(),
             };
             area.Features.Add(feature);
             return feature;
