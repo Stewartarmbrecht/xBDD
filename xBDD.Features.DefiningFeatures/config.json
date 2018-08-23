@@ -1,0 +1,12 @@
+{
+    "xBDD": {
+        "TestRunName": "xBDD Defining Features",
+        "Browser": {
+            "Watch": "false"
+        },
+        "HtmlReport": {
+            "RemoveFromAreaNameStart": "",
+            "FailuresOnly": "false"
+        }
+    }
+}            

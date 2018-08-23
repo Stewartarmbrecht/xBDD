@@ -1,0 +1,158 @@
+xBDD Defining Features
+
+Initial Setup
+	Generating a new project
+		Generating an MSTest Project [Not Tested]
+			Given you have the latest version of dotnet core installed
+				See [Installing Dotnet Core]() for instructions. 
+			And you open bash, powershell, or a command window
+			And you Install the dotnet-xbdd tools:
+				dotnet tool install --global dotnet-xbdd --version 0.0.4-alpha
+			And you create a folder for your test project and navigate to the folder
+			Create a new test project using the installed xbdd tools:
+				dotnet xbdd init
+			Build and run the new test project
+				dotnet test
+	Adding to an Existing Project
+		Installing xBDD [Not Tested]
+		Adding a simple scenario [Not Tested]
+		Adding report generation [Not Tested]
+		Using a base feature class [Not Tested]
+		Creating reusable steps [Not Tested]
+	Running Scenarios
+		Running all scenarios [Not Tested]
+		Running a filtered set of scenarios [Not Tested]
+		Running a single scenario [Not Tested]
+		Debugging a scenario [Not Tested]
+	Setting the Scenario Outcome
+		Failing a scenario [Not Tested]
+		Skipping a scenario [Not Tested]
+		Documenting a scenario [Not Tested]
+	Installing vscode snippets
+		Through the extension manager [Not Started]
+		Via the command line [Not Started]
+Defining Steps
+	Adding steps to a scenario
+		Adding a synchronous step [Not Tested]
+		Adding an asynchronous step [Not Tested]
+		Adding a reusable step [Not Tested]
+	Setting a multiline input for a step
+		When creating the step [Not Tested]
+		When executing the step [Not Tested]
+	Sharing values between steps
+		Object refereneces [Not Tested]
+		Literal values [Not Tested]
+	Setting the output for a step
+		When executing a step [Not Tested]
+Defining Scenarios
+	Adding scenarios
+		With steps [Not Tested]
+		Without steps [Not Tested]
+		Using a VSCode snippet [Not Tested]
+	Setting an output writer for a scenario
+		When creating a scenario [Not Tested]
+		When creating a feature [Not Tested]
+	Setting the default reporting sort for a scenario
+		Setting the sort on all scenarios [Not Tested]
+		Setting the sort on none of the scenarios [Not Tested]
+		Setting the sort on some of the scenarios [Not Tested]
+Defining Features
+	Adding features
+		With scenarios [Not Tested]
+		Without scenarios [Not Tested]
+		With a VSCode snippet [Not Tested]
+		Using a base class [Not Tested]
+	Setting the feature statement
+		Using standard attributes [Not Tested]
+		Using a single attribute [Not Tested]
+	Overriding a feature name
+		When adding a scenario [Not Tested]
+		Via an attribute [Not Tested]
+Defining Areas
+	Overriding an area name
+		When creating a scenario [Not Tested]
+		For a single feature via attribute [Not Tested]
+		For a namespace [Not Tested]
+Defining a Test Run
+	Setting the test run name
+		Via code [Not Tested]
+		Via an environment variable [Not Tested]
+Setting Ids
+	Setting an ID for a scenario
+		That is unique [Not Started]
+		That is not unique [Not Started]
+		That is an empty string [Not Started]
+	Setting an ID for a feature
+		Via an attribute [Not Started]
+Setting Status
+	Setting the status of a scenario
+		To Defining [Not Started]
+		To Ready [Not Started]
+		To Building [Not Started]
+		To Untested [Not Started]
+		To Failing [Not Started]
+		To Waiting [Not Started]
+		To Fixing [Not Started]
+		To Built [Not Started]
+		To Deployed [Not Started]
+		To Executing [Not Started]
+		To Deprecated [Not Started]
+	Setting the status of a feature
+		To Defining [Not Started]
+		To Ready [Not Started]
+		To Building [Not Started]
+Adding Estimates
+	Setting a feature scenario estimate
+		Placeholder [Not Defined]
+	Setting a feature value estimate
+		Placeholder [Not Defined]
+	Setting a feature level of effort estimate
+		Placeholder [Not Defined]
+	Setting a area estimates using a placeholder feature
+		Placeholder [Not Defined]
+Adding Tags
+	Adding tags to a scenario
+		In code [Not Defined]
+		Via an attribute [Not Defined]
+	Adding tags to a feature
+		In code [Not Defined]
+		Via an attribute [Not Defined]
+	Adding tags to an area
+		Via code [Not Defined]
+		Via an assembly attribute [Not Defined]
+	Adding tags to a test run
+		Via code [Not Defined]
+		Via an assembly attribute [Not Defined]
+Adding Explanations
+	Adding an explanation to a step
+		Straight texts [Not Defined]
+		Leveraging markdown [Not Defined]
+		Adding refereneces to other features [Not Defined]
+		Adding refereneces to other scenarios [Not Defined]
+	Adding an explanation to a scenario
+		Using plain text [Not Defined]
+		Using markdown [Not Defined]
+	Adding an explanation to a feature
+		Via an attribute with inline text [Not Defined]
+		Via an attribute with a file reference [Not Defined]
+		Using plain text [Not Defined]
+		Using markdown [Not Defined]
+	Adding an explanation to an area
+		Via an attribute with inline text [Not Defined]
+		Via an attribute with a file reference [Not Defined]
+		Using plain text [Not Defined]
+		Using markdown [Not Defined]
+	Adding an explanation to a test run
+		Via an attribute with inline text [Not Defined]
+		Via an attribute with a file reference [Not Defined]
+		Using plain text [Not Defined]
+		Using markdown [Not Defined]
+Setting Ownership
+	Setting an owner for a scenario
+		Setting a single owner [Not Defined]
+		Setting multiple owners [Not Defined]
+	Setting an owner for a feature
+		Setting a single owner [Not Defined]
+		Setting multiple owners [Not Defined]
+
+

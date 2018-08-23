@@ -51,12 +51,14 @@
         /// Writes a text representation of a test run's test results.
         /// </summary>
         /// <param name="testRun">The test run whose results you want to write to text.</param>
+        /// <param name="includeStatus">Sets the text writer to include non-passing step status 
+        /// in the name and print out exceptions. Default value is true.</param>
         /// <returns>String that is a multiline text format of the test results.</returns>
-        public static async Task<string> WriteToText(this xBDD.Model.TestRun testRun)
+        public static async Task<string> WriteToText(this xBDD.Model.TestRun testRun, bool includeStatus = true)
         {
             ReportingFactory factory = new ReportingFactory();
             TextWriter saver = factory.GetTextWriter();
-            return await saver.WriteToText(testRun);
+            return await saver.WriteToText(testRun, includeStatus);
         }
 
         /// <summary>
@@ -80,11 +82,28 @@
         /// <param name="testRun">The test run whose results you want to write to code.</param>
         /// <param name="rootNamespace">The root namespace to use for generating the project files.</param>
         /// <param name="directory">The directory to write the files to.</param>
+        /// <param name="removeFromAreaNameStart">Sets the Remove Area Name Start setting for xBDD.</param>
         public static void WriteToCode(this xBDD.Model.TestRun testRun, string rootNamespace, string directory, string removeFromAreaNameStart)
         {
             ReportingFactory factory = new ReportingFactory();
             CodeWriter saver = factory.GetCodeWriter();
             saver.WriteToCode(testRun, rootNamespace, directory, removeFromAreaNameStart);
+        }
+
+        /// <summary>
+        /// Writes a code representation of a test run's test results.
+        /// This includes all the files for a fully functional test project.
+        /// The generated code files can be used to execute a test run that
+        /// would regenerate the test results.
+        /// </summary>
+        /// <param name="testRun">The test run whose results you want to write to code.</param>
+        /// <param name="rootNamespace">The root namespace to use for generating the project files.</param>
+        /// <param name="directory">The directory to write the files to.</param>
+        public static void WriteFeaturesToCode(this xBDD.Model.TestRun testRun, string rootNamespace, string directory)
+        {
+            ReportingFactory factory = new ReportingFactory();
+            CodeWriter saver = factory.GetCodeWriter();
+            saver.WriteFeaturesToCode(testRun, rootNamespace, directory);
         }
 
         /// <summary>

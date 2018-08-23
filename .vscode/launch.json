@@ -5,14 +5,87 @@
    "version": "0.2.0",
    "configurations": [
         {
-            "name": ".NET Core Launch (console)",
+            "name": "xBDD Tools Test",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/core/xBDD.Core.Test/bin/Debug/netcoreapp2.1/xBDD.Core.Test.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/core/xBDD.Core.Test",
+            "program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
+            "args": ["code",
+                "-s","./../xBDD.Features/test-results/xBDD.Features.Results.Outline.txt", 
+                "-st","Text",
+                "-d","./../../MySample.Test/", 
+                "-i","\t",
+                "-rn","MySample.Test",
+                "-fo","True"
+            ],
+            "cwd": "${workspaceFolder}/xBDD.Tools/",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "xBDD.Features.AutomatingUITesting Code Generation",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
+            "args": ["code",
+                "-s","./../xBDD.Features.AutomatingUITesting/FeatureOutline.txt", 
+                "-st","Text",
+                "-d","./../xBDD.Features.AutomatingUITesting/", 
+                "-i","\t",
+                "-rn","xBDD.Features.AutomatedUITesting",
+                "-fo","False",
+                "-sr","Not Tested"
+            ],
+            "cwd": "${workspaceFolder}/xBDD.Tools/",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "xBDD.Features.DefiningFeatures Code Generation",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
+            "args": ["code",
+                "-s","./../xBDD.Features.DefiningFeatures/FeatureOutline.txt", 
+                "-st","Text",
+                "-d","./../xBDD.Features.DefiningFeatures/", 
+                "-i","\t",
+                "-rn","xBDD.Features.DefiningFeatures",
+                "-fo","False",
+                "-sr","Not Tested"
+            ],
+            "cwd": "${workspaceFolder}/xBDD.Tools/",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "xBDD.Features.GeneratingCode Code Generation",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
+            "args": ["code",
+                "-s","./../xBDD.Features.GeneratingCode/FeatureOutline.txt", 
+                "-st","Text",
+                "-d","./../xBDD.Features.GeneratingCode/", 
+                "-i","\t",
+                "-rn","xBDD.Features.GeneratingCode",
+                "-fo","False",
+                "-sr","Not Tested"
+            ],
+            "cwd": "${workspaceFolder}/xBDD.Tools/",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
             "console": "internalConsole",
             "stopAtEntry": false,

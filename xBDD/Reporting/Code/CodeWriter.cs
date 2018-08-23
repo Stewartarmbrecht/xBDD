@@ -45,6 +45,33 @@
             }
         }
 
+        /// <summary>
+        /// Writes out feature files.
+        /// </summary>
+        /// <param name="testRun">The test run to use to build feature classes and scenario methods.</param>
+        /// <param name="rootNamespace">The root namspace to use.</param>
+        /// <param name="directory">The root directory to write the files to.</param>
+        /// <returns>Nothing, the files are written to disk.</returns>
+        public void WriteFeaturesToCode(TestRun testRun, string rootNamespace, string directory)
+        {
+            System.IO.Directory.CreateDirectory(directory);
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sbFeatureSort = new StringBuilder();
+            this.WriteFeatureSortStart(sbFeatureSort, rootNamespace);
+            Scenario lastScenario = null;
+            var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
+            if(testRun.Sorted)
+                sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
+            foreach(var scenario in sortedScenarios)
+            {
+                this.WriteScenario(rootNamespace, directory, lastScenario, scenario, sb, sbFeatureSort);
+                lastScenario = scenario;
+            }
+            if(sortedScenarios.Count() > 0) {
+                this.WriteFeatureFile(directory, rootNamespace, lastScenario.Feature.ClassName, sb);
+                this.WriteFeatureSortEnd(directory, rootNamespace, sbFeatureSort);
+            }
+        }
         private void WriteSampleFeature(string directory, string rootNamespace)
         {
             System.IO.Directory.CreateDirectory("MyArea");
@@ -91,7 +118,7 @@
             sb.AppendLine($@"    }}
 }}
 ");
-            var featureFolder = $"{directory}{featureFullClassName.Replace(rootNamespace,"").Substring(0, featureFullClassName.Replace(rootNamespace,"").LastIndexOf(".")).Replace(".","/")}/";
+            var featureFolder = $"{directory}Features/{featureFullClassName.Replace(rootNamespace,"").Substring(0, featureFullClassName.Replace(rootNamespace,"").LastIndexOf(".")).Replace(".","/")}/";
             var featureClassName = featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
             System.IO.Directory.CreateDirectory(featureFolder);
             System.IO.File.WriteAllText($"{featureFolder}/{featureClassName}.cs", sb.ToString());
@@ -453,7 +480,20 @@ namespace {featureNamespace}
             }
             var skip = $".Skip(\"{scenario.Reason}\", Assert.Inconclusive);";
             var run = ".Run();";
-            sb.AppendLine($@"                {(scenario.Outcome == Outcome.Skipped ? skip : run)}
+            string action = null;
+            switch (scenario.Outcome)
+            {
+                case Outcome.NotRun:
+                    action = ".Skip(\"Not Run\", Assert.Inconclusive);";
+                break;
+                case Outcome.Skipped:
+                    action = $".Skip(\"{scenario.Reason}\", Assert.Inconclusive);";
+                break;
+                default:
+                    action = ".Run();";
+                break;
+            }
+            sb.AppendLine($@"                {action}
         }}");
         }
 

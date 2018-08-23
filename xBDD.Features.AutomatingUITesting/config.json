@@ -1,0 +1,12 @@
+{
+    "xBDD": {
+        "TestRunName": "xBDD Automating UI Testing",
+        "Browser": {
+            "Watch": "false"
+        },
+        "HtmlReport": {
+            "RemoveFromAreaNameStart": "xBDD - Features - Automating UI Testing - ",
+            "FailuresOnly": "false"
+        }
+    }
+}            

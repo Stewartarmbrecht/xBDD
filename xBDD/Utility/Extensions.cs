@@ -1,4 +1,6 @@
 ﻿using System.Text;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace xBDD.Utility
 {
@@ -7,6 +9,10 @@ namespace xBDD.Utility
     /// </summary>
     internal static class Extensions
     {
+        public static string FirstCharToUpper(this string input)
+        {
+            return input.First().ToString().ToUpper() + input.Substring(1);
+        }
         /// <summary>
         /// Converts a namespace to an area name by replacing "." with " - ".
         /// </summary>
@@ -15,6 +21,43 @@ namespace xBDD.Utility
         internal static string ConvertNamespaceToAreaName(this string text)
         {
             return text.AddSpacesToSentence().Replace(".", " - ");
+        }
+
+        /// <summary>
+        /// Converts an area name to a namespace to replacing " - " with ".".
+        /// </summary>
+        /// <param name="text">The area name value.</param>
+        /// <returns>A matching namespace.</returns>
+        internal static string ConvertAreaNameToNamespace(this string text)
+        {
+            return text.AddSpacesToSentence().Replace(" - ",".").Replace(" ", "");
+        }
+
+        internal static string ConvertFeatureNameToClassName(this string text)
+        {
+            List<string> words = new List<string>(text.Split(' '));
+            StringBuilder sb = new StringBuilder();
+            words.ForEach(word => {
+               sb.Append(word.FirstCharToUpper()); 
+            });
+            return sb.ToString();
+        }
+
+        internal static string ConvertScenarioNameToMethodName(this string text)
+        {
+            var scenarioName = text;
+            if(text.Contains("[")) {
+                scenarioName = text.Substring(0,text.IndexOf('[')-1);
+            }
+            return scenarioName.ConvertFeatureNameToClassName();
+        }
+
+        internal static string ExtractReason(this string text)
+        {
+            if(text.Contains("[")) {
+                text = text.Substring(text.IndexOf('[')+1, text.Length - (text.IndexOf('[')+1)-1);
+            }
+            return text;
         }
 
         /// <summary>

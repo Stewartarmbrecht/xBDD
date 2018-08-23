@@ -1,0 +1,56 @@
+xBDD Generating Code
+
+Generate Project Files
+	Generating A New MSTest Project
+		In an Empty Directory
+		In a Nonempty Directory
+		Skipping Files When Overlap With Existing Files
+		Overwriting Existing Files
+		Removing Extra Files
+		With a Test Run Name
+		With Area Name Clipping
+	Generate Code From a Test Run With General Scenarios
+		With Full Test Run
+		With Empty Test Run
+		With No Scenarios
+		With No Tests in the Project
+		With Test Filtering
+		With xBDD Test Run Filtering
+	Generate Code From a Test Run with Test Run Scenarios
+		With Full Test Run
+		With No Test Run Name
+		With Test Run Explanation Empty
+		With No Areas
+		With Areas
+	Generate Code From a Test Run with Area Scenarios
+		With Full Area
+		With Area Name Clipping
+		With Area Name Empty
+		With Area Explanation Empty
+		With No Features
+		With Features
+	Generate Code From a Test Run with Feature Scenarios
+		With Full Feature
+		With Feature Name Empty
+		With Feature Explanation Empty
+		With No Scenarios
+		With Scenarios
+	Generate Code From a Test Run with Scenario Scenarios
+		With Full Scenario
+		With Scenario Name Empty
+		With Scenario Explanation Empty
+		With No Steps
+		With Steps
+	Generate Code From a Test Run with Step Scenarios
+		With Full Step
+		With Step Name Empty
+		With Step Explanation Empty
+		With Step Input Empty
+		With Step Output Empty
+		With Step Exception
+		With Step Inner Exception
+
+
+
+
+

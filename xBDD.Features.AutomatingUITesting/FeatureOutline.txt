@@ -1,0 +1,179 @@
+xBDD Automating UI Testing
+
+Setup
+	Setup a test project
+		To use new browser sessions for each scenario [Not Tested]
+		To use the same browser session for all scenarios [Not Tested]
+Navigating
+	Navigate as a user
+		With specific size [Not Tested]
+		To a valid URL [Not Tested]
+		To an invalid URL [Not Tested]
+		When no internet connection [Not Tested]
+		To a valid file [Not Tested]
+		To a non html text file [Not Tested]
+		To a binary file [Not Tested]
+		To a missing file [Not Tested]
+Entering Text
+	Sending Standard Keys
+		To a valid input [Not Tested]
+		To an invalid input [Not Tested]
+	Sending Special Keys
+		To a valid input [Not Tested]
+		To an invalid input [Not Tested]
+	Pasting Text
+		When visible [Not Tested]
+		When does not exist [Not Tested]
+		When not visible [Not Tested]
+		When not a valid input [Not Tested]
+Clicking
+	Left Click Immediate
+		When visible [Not Tested]
+		When does not exist [Not Tested]
+		When not visible [Not Tested]
+	Left Click When Visible
+		With success [Not Tested]
+		With specific wait time [Not Tested]
+		With failed condition [Not Tested]
+	Left Click When Other Condition
+		Make Impossible [Need to Remove]
+			Split out Wait conditions from click conditions
+			Use class inheritance
+Validating The Page
+	Validate Element Is Visible
+		With Success [Not Tested]
+		With Custom Step Name [Not Tested]
+		With Specific Wait Time [Not Tested]
+		With Page Captured As Output [Not Tested]
+		With Failure [Not Tested]
+	Validate Element Is Not visible
+		With Success [Not Tested]
+		With Custom Step Name [Not Tested]
+		With Specific Wait Time [Not Tested]
+		With Page Captured As Output [Not Tested]
+		With Failure [Not Tested]
+	Validate Element Has Text
+		With Success [Not Tested]
+		With Custom Step Name [Not Tested]
+		With Specific Wait Time [Not Tested]
+		With Page Captured As Output [Not Tested]
+		With Failure [Not Tested]
+	Validate Element Has Style
+		With Success [Not Tested]
+		With Custom Step Name [Not Tested]
+		With Specific Wait Time [Not Tested]
+		With Page Captured As Output [Not Tested]
+		With Failure [Not Tested]
+	Validate Element Has Title
+		With Success [Not Tested]
+		With Custom Step Name [Not Tested]
+		With Specific Wait Time [Not Tested]
+		With Page Captured As Output [Not Tested]
+		With Failure [Not Tested]
+	Validate Element Has Attribute
+		With Success [Not Tested]
+		With Custom Step Name [Not Tested]
+		With Specific Wait Time [Not Tested]
+		With Page Captured As Output [Not Tested]
+		With Failure [Not Tested]
+Custom Steps
+	Creating a Custom Step
+		Successful [Not Tested]
+		Failure [Not Tested]
+	Loading a Page
+		Successful [Not Tested]
+		Failure [Not Tested]
+	Sending Keys to an Element
+		Successful [Not Tested]
+		Failure [Not Tested]
+	Clicking an Element
+		Successful [Not Tested]
+		Failure [Not Tested]
+	Getting the Page Source
+		Successful [Not Tested]
+		Failure [Not Tested]
+	Accessing the Web Driver
+		Successful [Not Tested]
+		Failure [Not Tested]
+	Validating a Pages Title
+		Successful [Not Tested]
+		Failure [Not Tested]
+	Validating an Elements Text
+		Successful [Not Tested]
+		Failure [Not Tested]
+	Validating an Elements Style
+		Successful [Not Tested]
+		Failure [Not Tested]
+	Validating an Elements Title
+		Successful [Not Tested]
+		Failure [Not Tested]
+	Waiting Till an Element is Visible
+		Successful [Not Tested]
+		Failure [Not Tested]
+	Waiting Till an Element is Not Visible
+		Successful [Not Tested]
+		Failure [Not Tested]
+	Validate an Element Does Not Exist
+		Successful [Not Tested]
+		Failure [Not Tested]
+Uploading And Download Files
+	Upload a file
+		Successful [Not Defined]
+		Unsuccessful [Not Defined]
+	Download a file
+		Successful [Not Defined]
+		Unsuccessful [Not Defined]
+Advanced Clicking
+	Right Click Immediate
+		When visible [Not Defined]
+		When does not exist [Not Defined]
+		When not visible [Not Defined]
+	Right Click When Visible
+		With success [Not Defined]
+		With specific wait time [Not Defined]
+		With failed condition [Not Defined]
+	Double Click Immediate
+		When visible [Not Defined]
+		When does not exist [Not Defined]
+		When not visible [Not Defined]
+	Double Click When Visible
+		With success [Not Defined]
+		With specific wait time [Not Defined]
+		With failed condition [Not Defined]
+	Drop downs
+		With success [Not Defined]
+		With failure [Not Defined]
+	Scrolling
+		With success [Not Defined]
+		With failure [Not Defined]
+	Hovering
+		With success [Not Defined]
+		With failure [Not Defined]
+	Dragging
+		With success [Not Defined]
+		With failure [Not Defined]
+Advanced Actions
+	Play a video
+		Successful [Not Defined]
+		Failure [Not Defined]
+	Capture screen image
+		Successful [Not Defined]
+		Failure [Not Defined]
+	Capture video
+		Successful [Not Defined]
+		Failure [Not Defined]
+	Toggle think times
+		Successful [Not Defined]
+		Failure [Not Defined]
+	Set default wait time
+		Successful [Not Defined]
+		Failure [Not Defined]
+
+
+
+
+
+
+
+
+

@@ -253,58 +253,6 @@ namespace xBDD.Browser
         }
 
         /// <summary>
-        /// Clicks a page element once it is visible.
-        /// </summary>
-        /// <param name="element">The element to click</param>
-        /// <param name="throwException">Tells the framework to throw an exception if the element is not found or visible.</param>
-        /// <param name="waitMilliseconds">The amount of time to wait.  If not provided the system will wait the default value (2 seconds).</param>
-        /// <remarks>The default wait time could be overridden.</remarks>
-        /// <returns>Task for executing the operation.</returns>
-        public Task ClickWhenVisible(PageElement element, bool throwException = true, int waitMilliseconds = -1)
-        {
-            return Task.Run(() =>
-            {
-                var sw = new System.Diagnostics.Stopwatch();  
-                sw.Start();
-                if (waitMilliseconds == -1)
-                    waitMilliseconds = DefaultWait;
-                IWebElement webElement = null;
-                try {
-                    webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
-                } catch(NoSuchElementException) { }
-                var clicked = false;
-                Stopwatch sw2 = new Stopwatch();
-                sw2.Start();
-                while (sw2.ElapsedMilliseconds < waitMilliseconds && clicked == false)
-                {
-                    if (webElement == null)
-                    {
-                        try {
-                            webElement = driver.FindElement(OpenQA.Selenium.By.CssSelector(element.Selector));
-                        } catch(NoSuchElementException) {}
-                    }
-                    if(webElement != null)
-                    {
-                        if (webElement.Displayed)
-                        {
-                            webElement.Click();
-                            clicked = true;
-                        }
-                    }
-                }
-                if(throwException)
-                {
-                    if (webElement == null)
-                        throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not found.");
-    
-                    if (!clicked)
-                        throw new Exception("The web element (" + element.Description + " - " + element.Selector + ") was not visible and was not clicked");
-                }
-                sw.Stop();
-                System.Diagnostics.Trace.WriteLine("        ClickWhenVisible (" + sw.ElapsedMilliseconds.ToString() + "ms): " + element.Selector);
-            });
-        }
-        /// <summary>
         /// Clicks the page element you provide.
         /// </summary>
         /// <param name="element">Page element to click.</param>

@@ -145,6 +145,19 @@
                 "cwd": "${workspaceFolder}"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "code-clean-outline-definingfeatures",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/code-clean-outline.ps1",
+                "${workspaceFolder}/xBDD.Features.DefiningFeatures/FeatureOutline.txt"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": "$msCompile"
         }
     ]
 }

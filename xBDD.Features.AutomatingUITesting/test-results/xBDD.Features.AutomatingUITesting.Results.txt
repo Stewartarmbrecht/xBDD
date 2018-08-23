@@ -1,0 +1,170 @@
+xBDD Automating UI Testing
+
+xBDD - Features - Automating UI Testing - Setup
+	Setup A Test Project
+		To Use New Browser Sessions For Each Scenario [Skipped - Not Tested]
+		To Use The Same Browser Session For All Scenarios [Skipped - Not Tested]
+xBDD - Features - Automating UI Testing - Navigating
+	Navigate As A User
+		With Specific Size [Skipped - Not Tested]
+		To A Valid URL [Skipped - Not Tested]
+		To An Invalid URL [Skipped - Not Tested]
+		When No Internet Connection [Skipped - Not Tested]
+		To A Valid File [Skipped - Not Tested]
+		To A Non Html Text File [Skipped - Not Tested]
+		To A Binary File [Skipped - Not Tested]
+		To A Missing File [Skipped - Not Tested]
+xBDD - Features - Automating UI Testing - Entering Text
+	Sending Standard Keys
+		To A Valid Input [Skipped - Not Tested]
+		To An Invalid Input [Skipped - Not Tested]
+	Sending Special Keys
+		To A Valid Input [Skipped - Not Tested]
+		To An Invalid Input [Skipped - Not Tested]
+	Pasting Text
+		When Visible [Skipped - Not Tested]
+		When Does Not Exist [Skipped - Not Tested]
+		When Not Visible [Skipped - Not Tested]
+		When Not A Valid Input [Skipped - Not Tested]
+xBDD - Features - Automating UI Testing - Clicking
+	Left Click Immediate
+		When Visible [Skipped - Not Tested]
+		When Does Not Exist [Skipped - Not Tested]
+		When Not Visible [Skipped - Not Tested]
+	Left Click When Visible
+		With Success [Skipped - Not Tested]
+		With Specific Wait Time [Skipped - Not Tested]
+		With Failed Condition [Skipped - Not Tested]
+	Left Click When Other Condition
+		Make Impossible [Skipped - Need to Remove]
+			Given out Wait conditions from click conditions
+			Given ass inheritance
+xBDD - Features - Automating UI Testing - Validating The Page
+	Validate Element Is Visible
+		With Success [Skipped - Not Tested]
+		With Custom Step Name [Skipped - Not Tested]
+		With Specific Wait Time [Skipped - Not Tested]
+		With Page Captured As Output [Skipped - Not Tested]
+		With Failure [Skipped - Not Tested]
+	Validate Element Is Not Visible
+		With Success [Skipped - Not Tested]
+		With Custom Step Name [Skipped - Not Tested]
+		With Specific Wait Time [Skipped - Not Tested]
+		With Page Captured As Output [Skipped - Not Tested]
+		With Failure [Skipped - Not Tested]
+	Validate Element Has Text
+		With Success [Skipped - Not Tested]
+		With Custom Step Name [Skipped - Not Tested]
+		With Specific Wait Time [Skipped - Not Tested]
+		With Page Captured As Output [Skipped - Not Tested]
+		With Failure [Skipped - Not Tested]
+	Validate Element Has Style
+		With Success [Skipped - Not Tested]
+		With Custom Step Name [Skipped - Not Tested]
+		With Specific Wait Time [Skipped - Not Tested]
+		With Page Captured As Output [Skipped - Not Tested]
+		With Failure [Skipped - Not Tested]
+	Validate Element Has Title
+		With Success [Skipped - Not Tested]
+		With Custom Step Name [Skipped - Not Tested]
+		With Specific Wait Time [Skipped - Not Tested]
+		With Page Captured As Output [Skipped - Not Tested]
+		With Failure [Skipped - Not Tested]
+	Validate Element Has Attribute
+		With Success [Skipped - Not Tested]
+		With Custom Step Name [Skipped - Not Tested]
+		With Specific Wait Time [Skipped - Not Tested]
+		With Page Captured As Output [Skipped - Not Tested]
+		With Failure [Skipped - Not Tested]
+xBDD - Features - Automating UI Testing - Custom Steps
+	Creating A Custom Step
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+	Loading A Page
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+	Sending Keys To An Element
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+	Clicking An Element
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+	Getting The Page Source
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+	Accessing The Web Driver
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+	Validating A Pages Title
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+	Validating An Elements Text
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+	Validating An Elements Style
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+	Validating An Elements Title
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+	Waiting Till An Element Is Visible
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+	Waiting Till An Element Is Not Visible
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+	Validate An Element Does Not Exist
+		Successful [Skipped - Not Tested]
+		Failure [Skipped - Not Tested]
+xBDD - Features - Automating UI Testing - Uploading And Download Files
+	Upload A File
+		Successful [Skipped - Not Defined]
+		Unsuccessful [Skipped - Not Defined]
+	Download A File
+		Successful [Skipped - Not Defined]
+		Unsuccessful [Skipped - Not Defined]
+xBDD - Features - Automating UI Testing - Advanced Clicking
+	Right Click Immediate
+		When Visible [Skipped - Not Defined]
+		When Does Not Exist [Skipped - Not Defined]
+		When Not Visible [Skipped - Not Defined]
+	Right Click When Visible
+		With Success [Skipped - Not Defined]
+		With Specific Wait Time [Skipped - Not Defined]
+		With Failed Condition [Skipped - Not Defined]
+	Double Click Immediate
+		When Visible [Skipped - Not Defined]
+		When Does Not Exist [Skipped - Not Defined]
+		When Not Visible [Skipped - Not Defined]
+	Double Click When Visible
+		With Success [Skipped - Not Defined]
+		With Specific Wait Time [Skipped - Not Defined]
+		With Failed Condition [Skipped - Not Defined]
+	Drop Downs
+		With Success [Skipped - Not Defined]
+		With Failure [Skipped - Not Defined]
+	Scrolling
+		With Success [Skipped - Not Defined]
+		With Failure [Skipped - Not Defined]
+	Hovering
+		With Success [Skipped - Not Defined]
+		With Failure [Skipped - Not Defined]
+	Dragging
+		With Success [Skipped - Not Defined]
+		With Failure [Skipped - Not Defined]
+xBDD - Features - Automating UI Testing - Advanced Actions
+	Play A Video
+		Successful [Skipped - Not Defined]
+		Failure [Skipped - Not Defined]
+	Capture Screen Image
+		Successful [Skipped - Not Defined]
+		Failure [Skipped - Not Defined]
+	Capture Video
+		Successful [Skipped - Not Defined]
+		Failure [Skipped - Not Defined]
+	Toggle Think Times
+		Successful [Skipped - Not Defined]
+		Failure [Skipped - Not Defined]
+	Set Default Wait Time
+		Successful [Skipped - Not Defined]
+		Failure [Skipped - Not Defined]

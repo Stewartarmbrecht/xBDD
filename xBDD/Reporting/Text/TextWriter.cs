@@ -12,13 +12,17 @@ namespace xBDD.Reporting.Text
     /// </summary>
     public class TextWriter
     {
+        private bool includeStatus;
         /// <summary>
         /// Writes test run results in a text format to a string.
         /// </summary>
         /// <param name="testRun">The test run to write to a text string.</param>
+        /// <param name="includeStatus">Sets the text writer to include 
+        /// non-passing step status in the name and print out exceptions.</param>
         /// <returns>The text respresentation of the test run results.</returns>
-        public async Task<string> WriteToText(TestRun testRun)
+        public async Task<string> WriteToText(TestRun testRun, bool includeStatus)
         {
+            this.includeStatus = includeStatus;
             return await Task.Run(() => {
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine(testRun.Name);
@@ -50,7 +54,7 @@ namespace xBDD.Reporting.Text
             }
             sb.Append("\t\t");
             sb.Append(scenario.Name);
-            if (scenario.Outcome != Outcome.Passed)
+            if (scenario.Outcome != Outcome.Passed && includeStatus)
             {
                 sb.Append(" [");
                 sb.Append(Enum.GetName(typeof(Outcome), scenario.Outcome));
@@ -75,7 +79,7 @@ namespace xBDD.Reporting.Text
             sb.Append("\t\t\t" + step.FullName.Replace(System.Environment.NewLine, ""));
             if (step.Scenario.Outcome == Outcome.Failed)
             {
-                if (step.Outcome != Outcome.Passed)
+                if (step.Outcome != Outcome.Passed && includeStatus)
                 {
                     sb.Append(" [" + Enum.GetName(typeof(Outcome), step.Outcome));
                     if (step.Reason != null && (step.Outcome != Outcome.Failed || step.Reason == "Not Implemented"))
@@ -91,7 +95,7 @@ namespace xBDD.Reporting.Text
             {
                 WriteMultilineParameter(step.MultilineParameter, sb);
             }
-            if (step.Exception != null && !(step.Exception is NotImplementedException) && step.Outcome != Outcome.Skipped)
+            if (step.Exception != null && !(step.Exception is NotImplementedException) && step.Outcome != Outcome.Skipped && includeStatus)
                 WriteException(step.Exception, sb);
         }
 

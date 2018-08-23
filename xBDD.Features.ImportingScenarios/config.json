@@ -1,0 +1,12 @@
+{
+    "xBDD": {
+        "TestRunName": "xBDD.Features.ImportingScenarios",
+        "Browser": {
+            "Watch": "false"
+        },
+        "HtmlReport": {
+            "RemoveFromAreaNameStart": "xBDD - Features - Importing Scenarios - ",
+            "FailuresOnly": "false"
+        }
+    }
+}            

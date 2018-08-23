@@ -45,29 +45,35 @@ namespace xBDD.Utility
         }
 
         internal string Name { get { 
+            string text = null;
             if(this.methodName != null) {
-                return this.methodName;
-            } else {
-                return methodBase.Name; 
+                text = this.methodName;
+            } else if(methodBase != null) {
+                text = methodBase.Name; 
             }
+            return text;
         } }
 
         internal string GetClassName()
         {
+            string text = null;
             if(this.className != null) {
-                return this.className.AddSpacesToSentence();
-            } else {
-                return methodBase.DeclaringType.Name.AddSpacesToSentence();
+                text = this.className.AddSpacesToSentence();
+            } else if(methodBase != null) {
+                text = methodBase.DeclaringType.Name.AddSpacesToSentence();
             }
+            return text;
         }
 
         internal string GetFullClassName()
         {
+            string text = null;
             if(this.namespaceName != null && this.className != null) {
-                return $"{this.namespaceName}.{this.className}"; 
+                text = $"{this.namespaceName}.{this.className}"; 
             } else {
-                return methodBase.DeclaringType.FullName;
+                text = methodBase.DeclaringType.FullName;
             }
+            return text;
         }
 
         internal string GetFeatureActorAction()
@@ -75,7 +81,7 @@ namespace xBDD.Utility
             string text = null;
             if(this.byAttribute != null) {
                 text = this.byAttribute;
-            } else {
+            } else if(methodBase != null){
                 var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<ByAttribute>();
                 if(attr != null)
                     text = attr.GetCapabilityStatement();
@@ -88,7 +94,7 @@ namespace xBDD.Utility
             string text = null;
             if(this.youCanAttribute != null) {
                 text = this.youCanAttribute;
-            } else {
+            } else if(methodBase != null){
                 var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<YouCanAttribute>();
                 if(attr != null)
                     text = attr.GetBenefitStatement();
@@ -101,7 +107,7 @@ namespace xBDD.Utility
             string text = null;
             if(this.asAAttribute != null) {
                 text = this.asAAttribute;
-            } else {
+            } else if(methodBase != null){
                 var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<AsAAttribute>();
                 if(attr != null)
                     text = attr.GetName();
@@ -111,11 +117,13 @@ namespace xBDD.Utility
 
         internal string GetNameSpace()
         {
+            string text = null;
             if(this.namespaceName != null) {
-                return this.namespaceName.ConvertNamespaceToAreaName();            
-            } else {
-                return methodBase.DeclaringType.Namespace.ConvertNamespaceToAreaName();
+                text = this.namespaceName.ConvertNamespaceToAreaName();            
+            } else if(methodBase != null){
+                text = methodBase.DeclaringType.Namespace.ConvertNamespaceToAreaName();
             }
+            return text;
         }
     }
 }

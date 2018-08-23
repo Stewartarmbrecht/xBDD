@@ -1,0 +1,754 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+  <head>
+  </head>
+  <body>
+
+<outline text="xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report - Generating">
+	<outline text="Generate A Report">
+		<outline text="With Full Test Run">
+		</outline>
+		<outline text="With Empty Test Run">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+		<outline text="With No Tests In The Project">
+		</outline>
+		<outline text="With No Name">
+		</outline>
+		<outline text="As A Backlog Report">
+		</outline>
+		<outline text="As AWIP Report">
+		</outline>
+	</outline>
+	<outline text="Generate A Failures Only Report">
+		<outline text="With Failures">
+		</outline>
+		<outline text="With Empty Test Run">
+		</outline>
+		<outline text="With No Failures">
+		</outline>
+	</outline>
+	<outline text="View A Report">
+		<outline text="From A File Server">
+		</outline>
+		<outline text="From A Web Server">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report - Review Test Run Information">
+	<outline text="Review Test Run Name">
+		<outline text="With Name">
+		</outline>
+		<outline text="With No Name">
+		</outline>
+	</outline>
+	<outline text="Review Test Run Explanation">
+		<outline text="Expanding The Explanation">
+		</outline>
+		<outline text="Collapsing The Explanation">
+		</outline>
+		<outline text="With No Explanation">
+		</outline>
+	</outline>
+	<outline text="Review Test Run Status">
+		<outline text="With Passing Status">
+		</outline>
+		<outline text="With Some Skipped Status">
+		</outline>
+		<outline text="With Some Failing Status">
+		</outline>
+	</outline>
+	<outline text="Review Test Run Area Status Distribution">
+		<outline text="With All Passing">
+		</outline>
+		<outline text="With Some Skipped">
+		</outline>
+		<outline text="With Some Failing">
+		</outline>
+		<outline text="With Some Skipped And Some Failing">
+		</outline>
+		<outline text="With All Skipped">
+		</outline>
+		<outline text="With All Failing">
+		</outline>
+		<outline text="With No Areas">
+		</outline>
+	</outline>
+	<outline text="Review Test Run Feature Status Distribution">
+		<outline text="With All Passing">
+		</outline>
+		<outline text="With Some Skipped">
+		</outline>
+		<outline text="With Some Failing">
+		</outline>
+		<outline text="With Some Skipped And Some Failing">
+		</outline>
+		<outline text="With All Skipped">
+		</outline>
+		<outline text="With All Failing">
+		</outline>
+		<outline text="With No Features">
+		</outline>
+	</outline>
+	<outline text="Review Test Run Scenario Status Distribution">
+		<outline text="With All Passing">
+		</outline>
+		<outline text="With Some Skipped">
+		</outline>
+		<outline text="With Some Failing">
+		</outline>
+		<outline text="With Some Skipped And Some Failing">
+		</outline>
+		<outline text="With All Skipped">
+		</outline>
+		<outline text="With All Failing">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+	</outline>
+	<outline text="Review Test Run Area Status Statistics">
+		<outline text="With All Passing">
+		</outline>
+		<outline text="With Some Skipped">
+		</outline>
+		<outline text="With Some Failing">
+		</outline>
+		<outline text="With Some Skipped And Some Failing">
+		</outline>
+		<outline text="With All Skipped">
+		</outline>
+		<outline text="With All Failing">
+		</outline>
+		<outline text="With No Areas">
+		</outline>
+	</outline>
+	<outline text="Review Test Run Feature Status Statistics">
+		<outline text="With All Passing">
+		</outline>
+		<outline text="With Some Skipped">
+		</outline>
+		<outline text="With Some Failing">
+		</outline>
+		<outline text="With Some Skipped And Some Failing">
+		</outline>
+		<outline text="With All Skipped">
+		</outline>
+		<outline text="With All Failing">
+		</outline>
+		<outline text="With No Features">
+		</outline>
+	</outline>
+	<outline text="Review Test Run Scenario Status Statistics">
+		<outline text="With All Passing">
+		</outline>
+		<outline text="With Some Skipped">
+		</outline>
+		<outline text="With Some Failing">
+		</outline>
+		<outline text="With Some Skipped And Some Failing">
+		</outline>
+		<outline text="With All Skipped">
+		</outline>
+		<outline text="With All Failing">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+	</outline>
+	<outline text="Review Test Run Areas">
+		<outline text="Expanding Areas">
+		</outline>
+		<outline text="Collapsing Areas">
+		</outline>
+		<outline text="With No Areas">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report - Review Area Information">
+	<outline text="Review Area Name">
+		<outline text="With Name">
+		</outline>
+		<outline text="With No Name">
+		</outline>
+	</outline>
+	<outline text="Review Area Status">
+		<outline text="With Passing Status">
+		</outline>
+		<outline text="With Some Skipped Status">
+		</outline>
+		<outline text="With Some Failing Status">
+		</outline>
+	</outline>
+	<outline text="Review Area Feature Status Distribution">
+		<outline text="With All Passing">
+		</outline>
+		<outline text="With Some Skipped">
+		</outline>
+		<outline text="With Some Failing">
+		</outline>
+		<outline text="With Some Skipped And Some Failing">
+		</outline>
+		<outline text="With All Skipped">
+		</outline>
+		<outline text="With All Failing">
+		</outline>
+		<outline text="With No Features">
+		</outline>
+	</outline>
+	<outline text="Review Area Scenario Status Distribution">
+		<outline text="With All Passing">
+		</outline>
+		<outline text="With Some Skipped">
+		</outline>
+		<outline text="With Some Failing">
+		</outline>
+		<outline text="With Some Skipped And Some Failing">
+		</outline>
+		<outline text="With All Skipped">
+		</outline>
+		<outline text="With All Failing">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+	</outline>
+	<outline text="Review Area Feature Status Statistics">
+		<outline text="Expanding">
+		</outline>
+		<outline text="Collapsing">
+		</outline>
+		<outline text="With All Passing">
+		</outline>
+		<outline text="With Some Skipped">
+		</outline>
+		<outline text="With Some Failing">
+		</outline>
+		<outline text="With Some Skipped And Some Failing">
+		</outline>
+		<outline text="With All Skipped">
+		</outline>
+		<outline text="With All Failing">
+		</outline>
+		<outline text="With No Features">
+		</outline>
+	</outline>
+	<outline text="Review Area Scenario Status Statistics">
+		<outline text="Expanding">
+		</outline>
+		<outline text="Collapsing">
+		</outline>
+		<outline text="With All Passing">
+		</outline>
+		<outline text="With Some Skipped">
+		</outline>
+		<outline text="With Some Failing">
+		</outline>
+		<outline text="With Some Skipped And Some Failing">
+		</outline>
+		<outline text="With All Skipped">
+		</outline>
+		<outline text="With All Failing">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+	</outline>
+	<outline text="Review Area Explanation">
+		<outline text="Expanding Explanation">
+		</outline>
+		<outline text="Collapsing Explanation">
+		</outline>
+		<outline text="Without Explanation">
+		</outline>
+	</outline>
+	<outline text="Review Area Features">
+		<outline text="Expanding Features">
+		</outline>
+		<outline text="Collapsing Features">
+		</outline>
+		<outline text="Without Features">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report - Review Feature Information">
+	<outline text="Review Feature Information">
+		<outline text="With Name">
+		</outline>
+		<outline text="With No Name">
+		</outline>
+	</outline>
+	<outline text="Review Feature Status">
+		<outline text="With Passing Status">
+		</outline>
+		<outline text="With Some Skipped Status">
+		</outline>
+		<outline text="With Some Failing Status">
+		</outline>
+	</outline>
+	<outline text="Review Feature Statement">
+		<outline text="Expanding Feature Statement">
+		</outline>
+		<outline text="Collapsing Feature Statement">
+		</outline>
+		<outline text="With Full Statement">
+		</outline>
+		<outline text="With Missing Parts">
+		</outline>
+		<outline text="Without Statement">
+		</outline>
+	</outline>
+	<outline text="Review Feature Scenario Status Distribution">
+		<outline text="With All Passing">
+		</outline>
+		<outline text="With Some Skipped">
+		</outline>
+		<outline text="With Some Failing">
+		</outline>
+		<outline text="With Some Skipped And Some Failing">
+		</outline>
+		<outline text="With All Skipped">
+		</outline>
+		<outline text="With All Failing">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+	</outline>
+	<outline text="Review Feature Explanation">
+		<outline text="Expanding Explanation">
+		</outline>
+		<outline text="Collapsing Explanation">
+		</outline>
+		<outline text="With No Explanation">
+		</outline>
+	</outline>
+	<outline text="Review Feature Scenario Status Statistics">
+		<outline text="Expanding">
+		</outline>
+		<outline text="Collapsing">
+		</outline>
+		<outline text="With All Passing">
+		</outline>
+		<outline text="With Some Skipped">
+		</outline>
+		<outline text="With Some Failing">
+		</outline>
+		<outline text="With Some Skipped And Some Failing">
+		</outline>
+		<outline text="With All Skipped">
+		</outline>
+		<outline text="With All Failing">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+	</outline>
+	<outline text="Review Feature Scenarios">
+		<outline text="Expanding Scenarios">
+		</outline>
+		<outline text="Collapsing Scenarios">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report - Review Scenario Information">
+	<outline text="Review Scenario Information">
+		<outline text="With Name">
+		</outline>
+		<outline text="With No Name">
+		</outline>
+	</outline>
+	<outline text="Review Scenario Explanation">
+		<outline text="Expanding Explanation">
+		</outline>
+		<outline text="Collapsing Explanation">
+		</outline>
+		<outline text="With No Explanation">
+		</outline>
+	</outline>
+	<outline text="Review Scenario Status">
+		<outline text="With Passing Status">
+		</outline>
+		<outline text="With Some Skipped Status">
+		</outline>
+		<outline text="With Some Failing Status">
+		</outline>
+	</outline>
+	<outline text="Review Scenario Steps">
+		<outline text="Expanding Steps">
+		</outline>
+		<outline text="Collapsing Steps">
+		</outline>
+		<outline text="With No Steps">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report - Review Step Information">
+	<outline text="Review Step Information">
+		<outline text="With Name">
+		</outline>
+		<outline text="With No Name">
+		</outline>
+	</outline>
+	<outline text="Review Step Status">
+		<outline text="With Passing Status">
+		</outline>
+		<outline text="With Some Skipped Status">
+		</outline>
+		<outline text="With Some Failing Status">
+		</outline>
+	</outline>
+	<outline text="Review Step Input">
+		<outline text="Expanding Input">
+		</outline>
+		<outline text="Collapsing Input">
+		</outline>
+		<outline text="Without Input">
+		</outline>
+	</outline>
+	<outline text="Review Step Output">
+		<outline text="Expanding Output">
+		</outline>
+		<outline text="Collapsing Output">
+		</outline>
+		<outline text="Without Output">
+		</outline>
+	</outline>
+	<outline text="Review Step Error">
+		<outline text="Expanding Exception">
+		</outline>
+		<outline text="Collapsing Exception">
+		</outline>
+		<outline text="With Inner Exception">
+		</outline>
+		<outline text="With No Exception">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Generating Reports - Generating Reports - Generatinga JSON Test Run Report">
+	<outline text="Generate A Json Report With General Scenarios">
+		<outline text="With Full Test Run">
+		</outline>
+		<outline text="With Empty Test Run">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+		<outline text="With No Tests In The Project">
+		</outline>
+		<outline text="With Test Filtering">
+		</outline>
+		<outline text="With XBDD Test Run Filtering">
+		</outline>
+	</outline>
+	<outline text="Generate A Json Report With Test Run Scenarios">
+		<outline text="With Full Test Run">
+		</outline>
+		<outline text="With No Test Run Name">
+		</outline>
+		<outline text="With Test Run Explanation Empty">
+		</outline>
+		<outline text="With No Areas">
+		</outline>
+		<outline text="With Areas">
+		</outline>
+	</outline>
+	<outline text="Generate A Json Report With Area Scenarios">
+		<outline text="With Full Area">
+		</outline>
+		<outline text="With Area Name Clipping">
+		</outline>
+		<outline text="With Area Name Empty">
+		</outline>
+		<outline text="With Area Explanation Empty">
+		</outline>
+		<outline text="With No Features">
+		</outline>
+		<outline text="With Features">
+		</outline>
+	</outline>
+	<outline text="Generate A Json Report With Feature Scenarios">
+		<outline text="With Full Feature">
+		</outline>
+		<outline text="With Feature Name Empty">
+		</outline>
+		<outline text="With Feature Explanation Empty">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+		<outline text="With Scenarios">
+		</outline>
+	</outline>
+	<outline text="Generate A Json Report With Scenario Scenarios">
+		<outline text="With Full Scenario">
+		</outline>
+		<outline text="With Scenario Name Empty">
+		</outline>
+		<outline text="With Scenario Explanation Empty">
+		</outline>
+		<outline text="With No Steps">
+		</outline>
+		<outline text="With Steps">
+		</outline>
+	</outline>
+	<outline text="Generate A Json Report With Step Scenarios">
+		<outline text="With Full Step">
+		</outline>
+		<outline text="With Step Name Empty">
+		</outline>
+		<outline text="With Step Explanation Empty">
+		</outline>
+		<outline text="With Step Input Empty">
+		</outline>
+		<outline text="With Step Output Empty">
+		</outline>
+		<outline text="With Step Exception">
+		</outline>
+		<outline text="With Step Inner Exception">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Generating Reports - Generating Reports - Generatingan Outline Test Run Report">
+	<outline text="Generate An Outline Report With General Scenarios">
+		<outline text="With Full Test Run">
+		</outline>
+		<outline text="With Empty Test Run">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+		<outline text="With No Tests In The Project">
+		</outline>
+		<outline text="With Test Filtering">
+		</outline>
+		<outline text="With XBDD Test Run Filtering">
+		</outline>
+	</outline>
+	<outline text="Generate An Outline Report With Test Run Scenarios">
+		<outline text="With Full Test Run">
+		</outline>
+		<outline text="With No Test Run Name">
+		</outline>
+		<outline text="With Test Run Explanation Empty">
+		</outline>
+		<outline text="With No Areas">
+		</outline>
+		<outline text="With Areas">
+		</outline>
+	</outline>
+	<outline text="Generate An Outline Report With Area Scenarios">
+		<outline text="With Full Area">
+		</outline>
+		<outline text="With Area Name Clipping">
+		</outline>
+		<outline text="With Area Name Empty">
+		</outline>
+		<outline text="With Area Explanation Empty">
+		</outline>
+		<outline text="With No Features">
+		</outline>
+		<outline text="With Features">
+		</outline>
+	</outline>
+	<outline text="Generate An Outline Report With Feature Scenarios">
+		<outline text="With Full Feature">
+		</outline>
+		<outline text="With Feature Name Empty">
+		</outline>
+		<outline text="With Feature Explanation Empty">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+		<outline text="With Scenarios">
+		</outline>
+	</outline>
+	<outline text="Generate An Outline Report With Scenario Scenarios">
+		<outline text="With Full Scenario">
+		</outline>
+		<outline text="With Scenario Name Empty">
+		</outline>
+		<outline text="With Scenario Explanation Empty">
+		</outline>
+		<outline text="With No Steps">
+		</outline>
+		<outline text="With Steps">
+		</outline>
+	</outline>
+	<outline text="Generate An Outline Report With Step Scenarios">
+		<outline text="With Full Step">
+		</outline>
+		<outline text="With Step Name Empty">
+		</outline>
+		<outline text="With Step Explanation Empty">
+		</outline>
+		<outline text="With Step Input Empty">
+		</outline>
+		<outline text="With Step Output Empty">
+		</outline>
+		<outline text="With Step Exception">
+		</outline>
+		<outline text="With Step Inner Exception">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Generating Reports - Generating Reports - Generatinga Text Test Run Report">
+	<outline text="Generate A Text Report With General Scenarios">
+		<outline text="With Full Test Run">
+		</outline>
+		<outline text="With Empty Test Run">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+		<outline text="With No Tests In The Project">
+		</outline>
+		<outline text="With Test Filtering">
+		</outline>
+		<outline text="With XBDD Test Run Filtering">
+		</outline>
+	</outline>
+	<outline text="Generate A Text Report With Test Run Scenarios">
+		<outline text="With Full Test Run">
+		</outline>
+		<outline text="With No Test Run Name">
+		</outline>
+		<outline text="With Test Run Explanation Empty">
+		</outline>
+		<outline text="With No Areas">
+		</outline>
+		<outline text="With Areas">
+		</outline>
+	</outline>
+	<outline text="Generate A Text Report With Area Scenarios">
+		<outline text="With Full Area">
+		</outline>
+		<outline text="With Area Name Clipping">
+		</outline>
+		<outline text="With Area Name Empty">
+		</outline>
+		<outline text="With Area Explanation Empty">
+		</outline>
+		<outline text="With No Features">
+		</outline>
+		<outline text="With Features">
+		</outline>
+	</outline>
+	<outline text="Generate A Text Report With Feature Scenarios">
+		<outline text="With Full Feature">
+		</outline>
+		<outline text="With Feature Name Empty">
+		</outline>
+		<outline text="With Feature Explanation Empty">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+		<outline text="With Scenarios">
+		</outline>
+	</outline>
+	<outline text="Generate A Text Report With Scenario Scenarios">
+		<outline text="With Full Scenario">
+		</outline>
+		<outline text="With Scenario Name Empty">
+		</outline>
+		<outline text="With Scenario Explanation Empty">
+		</outline>
+		<outline text="With No Steps">
+		</outline>
+		<outline text="With Steps">
+		</outline>
+	</outline>
+	<outline text="Generate A Text Report With Step Scenarios">
+		<outline text="With Full Step">
+		</outline>
+		<outline text="With Step Name Empty">
+		</outline>
+		<outline text="With Step Explanation Empty">
+		</outline>
+		<outline text="With Step Input Empty">
+		</outline>
+		<outline text="With Step Output Empty">
+		</outline>
+		<outline text="With Step Exception">
+		</outline>
+		<outline text="With Step Inner Exception">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Generating Reports - Generating Reports - Generatinga Text Test Run Outline Report">
+	<outline text="Generate A Text Outline Report With General Scenarios">
+		<outline text="With Full Test Run">
+		</outline>
+		<outline text="With Empty Test Run">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+		<outline text="With No Tests In The Project">
+		</outline>
+		<outline text="With Test Filtering">
+		</outline>
+		<outline text="With XBDD Test Run Filtering">
+		</outline>
+	</outline>
+	<outline text="Generate A Text Outline Report With Test Run Scenarios">
+		<outline text="With Full Test Run">
+		</outline>
+		<outline text="With No Test Run Name">
+		</outline>
+		<outline text="With Test Run Explanation Empty">
+		</outline>
+		<outline text="With No Areas">
+		</outline>
+		<outline text="With Areas">
+		</outline>
+	</outline>
+	<outline text="Generate A Text Outline Report With Area Scenarios">
+		<outline text="With Full Area">
+		</outline>
+		<outline text="With Area Name Clipping">
+		</outline>
+		<outline text="With Area Name Empty">
+		</outline>
+		<outline text="With Area Explanation Empty">
+		</outline>
+		<outline text="With No Features">
+		</outline>
+		<outline text="With Features">
+		</outline>
+	</outline>
+	<outline text="Generate A Text Outline Report With Feature Scenarios">
+		<outline text="With Full Feature">
+		</outline>
+		<outline text="With Feature Name Empty">
+		</outline>
+		<outline text="With Feature Explanation Empty">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+		<outline text="With Scenarios">
+		</outline>
+	</outline>
+	<outline text="Generate A Text Outline Report With Scenario Scenarios">
+		<outline text="With Full Scenario">
+		</outline>
+		<outline text="With Scenario Name Empty">
+		</outline>
+		<outline text="With Scenario Explanation Empty">
+		</outline>
+		<outline text="With No Steps">
+		</outline>
+		<outline text="With Steps">
+		</outline>
+	</outline>
+	<outline text="Generate A Text Outline Report With Step Scenarios">
+		<outline text="With Full Step">
+		</outline>
+		<outline text="With Step Name Empty">
+		</outline>
+		<outline text="With Step Explanation Empty">
+		</outline>
+		<outline text="With Step Input Empty">
+		</outline>
+		<outline text="With Step Output Empty">
+		</outline>
+		<outline text="With Step Exception">
+		</outline>
+		<outline text="With Step Inner Exception">
+		</outline>
+	</outline>
+</outline>
+</body>
+</opml>

@@ -1,0 +1,152 @@
+xBDD Defining Features
+
+xBDD - Features - Defining Features - Initial Setup
+	Generating A New Project
+		Generating An MS Test Project [Skipped - Not Tested]
+			Given you have the latest version of dotnet core installed
+			And you open bash, powershell, or a command window
+			And you Install the dotnet-xbdd tools:
+			And you create a folder for your test project and navigate to the folder
+			Given  a new test project using the installed xbdd tools:
+			Given and run the new test project
+	Adding To An Existing Project
+		Installing XBDD [Skipped - Not Tested]
+		Adding A Simple Scenario [Skipped - Not Tested]
+		Adding Report Generation [Skipped - Not Tested]
+		Using A Base Feature Class [Skipped - Not Tested]
+		Creating Reusable Steps [Skipped - Not Tested]
+	Running Scenarios
+		Running All Scenarios [Skipped - Not Tested]
+		Running A Filtered Set Of Scenarios [Skipped - Not Tested]
+		Running A Single Scenario [Skipped - Not Tested]
+		Debugging A Scenario [Skipped - Not Tested]
+	Setting The Scenario Outcome
+		Failing A Scenario [Skipped - Not Tested]
+		Skipping A Scenario [Skipped - Not Tested]
+		Documenting A Scenario [Skipped - Not Tested]
+	Installing Vscode Snippets
+		Through The Extension Manager [Skipped - Not Started]
+		Via The Command Line [Skipped - Not Started]
+xBDD - Features - Defining Features - Defining Steps
+	Adding Steps To A Scenario
+		Adding A Synchronous Step [Skipped - Not Tested]
+		Adding An Asynchronous Step [Skipped - Not Tested]
+		Adding A Reusable Step [Skipped - Not Tested]
+	Setting A Multiline Input For A Step
+		When Creating The Step [Skipped - Not Tested]
+		When Executing The Step [Skipped - Not Tested]
+	Sharing Values Between Steps
+		Object Refereneces [Skipped - Not Tested]
+		Literal Values [Skipped - Not Tested]
+	Setting The Output For A Step
+		When Executing A Step [Skipped - Not Tested]
+xBDD - Features - Defining Features - Defining Scenarios
+	Adding Scenarios
+		With Steps [Skipped - Not Tested]
+		Without Steps [Skipped - Not Tested]
+		Using AVS Code Snippet [Skipped - Not Tested]
+	Setting An Output Writer For A Scenario
+		When Creating A Scenario [Skipped - Not Tested]
+		When Creating A Feature [Skipped - Not Tested]
+	Setting The Default Reporting Sort For A Scenario
+		Setting The Sort On All Scenarios [Skipped - Not Tested]
+		Setting The Sort On None Of The Scenarios [Skipped - Not Tested]
+		Setting The Sort On Some Of The Scenarios [Skipped - Not Tested]
+xBDD - Features - Defining Features - Defining Features
+	Adding Features
+		With Scenarios [Skipped - Not Tested]
+		Without Scenarios [Skipped - Not Tested]
+		With AVS Code Snippet [Skipped - Not Tested]
+		Using A Base Class [Skipped - Not Tested]
+	Setting The Feature Statement
+		Using Standard Attributes [Skipped - Not Tested]
+		Using A Single Attribute [Skipped - Not Tested]
+	Overriding A Feature Name
+		When Adding A Scenario [Skipped - Not Tested]
+		Via An Attribute [Skipped - Not Tested]
+xBDD - Features - Defining Features - Defining Areas
+	Overriding An Area Name
+		When Creating A Scenario [Skipped - Not Tested]
+		For A Single Feature Via Attribute [Skipped - Not Tested]
+		For A Namespace [Skipped - Not Tested]
+xBDD - Features - Defining Features - Defininga Test Run
+	Setting The Test Run Name
+		Via Code [Skipped - Not Tested]
+		Via An Environment Variable [Skipped - Not Tested]
+xBDD - Features - Defining Features - Setting Ids
+	Setting An ID For A Scenario
+		That Is Unique [Skipped - Not Started]
+		That Is Not Unique [Skipped - Not Started]
+		That Is An Empty String [Skipped - Not Started]
+	Setting An ID For A Feature
+		Via An Attribute [Skipped - Not Started]
+xBDD - Features - Defining Features - Setting Status
+	Setting The Status Of A Scenario
+		To Defining [Skipped - Not Started]
+		To Ready [Skipped - Not Started]
+		To Building [Skipped - Not Started]
+		To Untested [Skipped - Not Started]
+		To Failing [Skipped - Not Started]
+		To Waiting [Skipped - Not Started]
+		To Fixing [Skipped - Not Started]
+		To Built [Skipped - Not Started]
+		To Deployed [Skipped - Not Started]
+		To Executing [Skipped - Not Started]
+		To Deprecated [Skipped - Not Started]
+	Setting The Status Of A Feature
+		To Defining [Skipped - Not Started]
+		To Ready [Skipped - Not Started]
+		To Building [Skipped - Not Started]
+xBDD - Features - Defining Features - Adding Estimates
+	Setting A Feature Scenario Estimate
+		Placeholder [Skipped - Not Defined]
+	Setting A Feature Value Estimate
+		Placeholder [Skipped - Not Defined]
+	Setting A Feature Level Of Effort Estimate
+		Placeholder [Skipped - Not Defined]
+	Setting A Area Estimates Using A Placeholder Feature
+		Placeholder [Skipped - Not Defined]
+xBDD - Features - Defining Features - Adding Tags
+	Adding Tags To A Scenario
+		In Code [Skipped - Not Defined]
+		Via An Attribute [Skipped - Not Defined]
+	Adding Tags To A Feature
+		In Code [Skipped - Not Defined]
+		Via An Attribute [Skipped - Not Defined]
+	Adding Tags To An Area
+		Via Code [Skipped - Not Defined]
+		Via An Assembly Attribute [Skipped - Not Defined]
+	Adding Tags To A Test Run
+		Via Code [Skipped - Not Defined]
+		Via An Assembly Attribute [Skipped - Not Defined]
+xBDD - Features - Defining Features - Adding Explanations
+	Adding An Explanation To A Step
+		Straight Texts [Skipped - Not Defined]
+		Leveraging Markdown [Skipped - Not Defined]
+		Adding Refereneces To Other Features [Skipped - Not Defined]
+		Adding Refereneces To Other Scenarios [Skipped - Not Defined]
+	Adding An Explanation To A Scenario
+		Using Plain Text [Skipped - Not Defined]
+		Using Markdown [Skipped - Not Defined]
+	Adding An Explanation To A Feature
+		Via An Attribute With Inline Text [Skipped - Not Defined]
+		Via An Attribute With A File Reference [Skipped - Not Defined]
+		Using Plain Text [Skipped - Not Defined]
+		Using Markdown [Skipped - Not Defined]
+	Adding An Explanation To An Area
+		Via An Attribute With Inline Text [Skipped - Not Defined]
+		Via An Attribute With A File Reference [Skipped - Not Defined]
+		Using Plain Text [Skipped - Not Defined]
+		Using Markdown [Skipped - Not Defined]
+	Adding An Explanation To A Test Run
+		Via An Attribute With Inline Text [Skipped - Not Defined]
+		Via An Attribute With A File Reference [Skipped - Not Defined]
+		Using Plain Text [Skipped - Not Defined]
+		Using Markdown [Skipped - Not Defined]
+xBDD - Features - Defining Features - Setting Ownership
+	Setting An Owner For A Scenario
+		Setting A Single Owner [Skipped - Not Defined]
+		Setting Multiple Owners [Skipped - Not Defined]
+	Setting An Owner For A Feature
+		Setting A Single Owner [Skipped - Not Defined]
+		Setting Multiple Owners [Skipped - Not Defined]

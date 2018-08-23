@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+  <head>
+  </head>
+  <body>
+
+<outline text="xBDD - Features - Defining Features - Initial Setup">
+	<outline text="Generating A New Project">
+		<outline text="Generating An MS Test Project">
+			<outline text="Given you have the latest version of dotnet core installed"/>
+			<outline text="And you open bash, powershell, or a command window"/>
+			<outline text="And you Install the dotnet-xbdd tools:"/>
+			<outline text="And you create a folder for your test project and navigate to the folder"/>
+			<outline text="Given  a new test project using the installed xbdd tools:"/>
+			<outline text="Given and run the new test project"/>
+		</outline>
+	</outline>
+	<outline text="Adding To An Existing Project">
+		<outline text="Installing XBDD">
+		</outline>
+		<outline text="Adding A Simple Scenario">
+		</outline>
+		<outline text="Adding Report Generation">
+		</outline>
+		<outline text="Using A Base Feature Class">
+		</outline>
+		<outline text="Creating Reusable Steps">
+		</outline>
+	</outline>
+	<outline text="Running Scenarios">
+		<outline text="Running All Scenarios">
+		</outline>
+		<outline text="Running A Filtered Set Of Scenarios">
+		</outline>
+		<outline text="Running A Single Scenario">
+		</outline>
+		<outline text="Debugging A Scenario">
+		</outline>
+	</outline>
+	<outline text="Setting The Scenario Outcome">
+		<outline text="Failing A Scenario">
+		</outline>
+		<outline text="Skipping A Scenario">
+		</outline>
+		<outline text="Documenting A Scenario">
+		</outline>
+	</outline>
+	<outline text="Installing Vscode Snippets">
+		<outline text="Through The Extension Manager">
+		</outline>
+		<outline text="Via The Command Line">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Defining Features - Defining Steps">
+	<outline text="Adding Steps To A Scenario">
+		<outline text="Adding A Synchronous Step">
+		</outline>
+		<outline text="Adding An Asynchronous Step">
+		</outline>
+		<outline text="Adding A Reusable Step">
+		</outline>
+	</outline>
+	<outline text="Setting A Multiline Input For A Step">
+		<outline text="When Creating The Step">
+		</outline>
+		<outline text="When Executing The Step">
+		</outline>
+	</outline>
+	<outline text="Sharing Values Between Steps">
+		<outline text="Object Refereneces">
+		</outline>
+		<outline text="Literal Values">
+		</outline>
+	</outline>
+	<outline text="Setting The Output For A Step">
+		<outline text="When Executing A Step">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Defining Features - Defining Scenarios">
+	<outline text="Adding Scenarios">
+		<outline text="With Steps">
+		</outline>
+		<outline text="Without Steps">
+		</outline>
+		<outline text="Using AVS Code Snippet">
+		</outline>
+	</outline>
+	<outline text="Setting An Output Writer For A Scenario">
+		<outline text="When Creating A Scenario">
+		</outline>
+		<outline text="When Creating A Feature">
+		</outline>
+	</outline>
+	<outline text="Setting The Default Reporting Sort For A Scenario">
+		<outline text="Setting The Sort On All Scenarios">
+		</outline>
+		<outline text="Setting The Sort On None Of The Scenarios">
+		</outline>
+		<outline text="Setting The Sort On Some Of The Scenarios">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Defining Features - Defining Features">
+	<outline text="Adding Features">
+		<outline text="With Scenarios">
+		</outline>
+		<outline text="Without Scenarios">
+		</outline>
+		<outline text="With AVS Code Snippet">
+		</outline>
+		<outline text="Using A Base Class">
+		</outline>
+	</outline>
+	<outline text="Setting The Feature Statement">
+		<outline text="Using Standard Attributes">
+		</outline>
+		<outline text="Using A Single Attribute">
+		</outline>
+	</outline>
+	<outline text="Overriding A Feature Name">
+		<outline text="When Adding A Scenario">
+		</outline>
+		<outline text="Via An Attribute">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Defining Features - Defining Areas">
+	<outline text="Overriding An Area Name">
+		<outline text="When Creating A Scenario">
+		</outline>
+		<outline text="For A Single Feature Via Attribute">
+		</outline>
+		<outline text="For A Namespace">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Defining Features - Defininga Test Run">
+	<outline text="Setting The Test Run Name">
+		<outline text="Via Code">
+		</outline>
+		<outline text="Via An Environment Variable">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Defining Features - Setting Ids">
+	<outline text="Setting An ID For A Scenario">
+		<outline text="That Is Unique">
+		</outline>
+		<outline text="That Is Not Unique">
+		</outline>
+		<outline text="That Is An Empty String">
+		</outline>
+	</outline>
+	<outline text="Setting An ID For A Feature">
+		<outline text="Via An Attribute">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Defining Features - Setting Status">
+	<outline text="Setting The Status Of A Scenario">
+		<outline text="To Defining">
+		</outline>
+		<outline text="To Ready">
+		</outline>
+		<outline text="To Building">
+		</outline>
+		<outline text="To Untested">
+		</outline>
+		<outline text="To Failing">
+		</outline>
+		<outline text="To Waiting">
+		</outline>
+		<outline text="To Fixing">
+		</outline>
+		<outline text="To Built">
+		</outline>
+		<outline text="To Deployed">
+		</outline>
+		<outline text="To Executing">
+		</outline>
+		<outline text="To Deprecated">
+		</outline>
+	</outline>
+	<outline text="Setting The Status Of A Feature">
+		<outline text="To Defining">
+		</outline>
+		<outline text="To Ready">
+		</outline>
+		<outline text="To Building">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Defining Features - Adding Estimates">
+	<outline text="Setting A Feature Scenario Estimate">
+		<outline text="Placeholder">
+		</outline>
+	</outline>
+	<outline text="Setting A Feature Value Estimate">
+		<outline text="Placeholder">
+		</outline>
+	</outline>
+	<outline text="Setting A Feature Level Of Effort Estimate">
+		<outline text="Placeholder">
+		</outline>
+	</outline>
+	<outline text="Setting A Area Estimates Using A Placeholder Feature">
+		<outline text="Placeholder">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Defining Features - Adding Tags">
+	<outline text="Adding Tags To A Scenario">
+		<outline text="In Code">
+		</outline>
+		<outline text="Via An Attribute">
+		</outline>
+	</outline>
+	<outline text="Adding Tags To A Feature">
+		<outline text="In Code">
+		</outline>
+		<outline text="Via An Attribute">
+		</outline>
+	</outline>
+	<outline text="Adding Tags To An Area">
+		<outline text="Via Code">
+		</outline>
+		<outline text="Via An Assembly Attribute">
+		</outline>
+	</outline>
+	<outline text="Adding Tags To A Test Run">
+		<outline text="Via Code">
+		</outline>
+		<outline text="Via An Assembly Attribute">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Defining Features - Adding Explanations">
+	<outline text="Adding An Explanation To A Step">
+		<outline text="Straight Texts">
+		</outline>
+		<outline text="Leveraging Markdown">
+		</outline>
+		<outline text="Adding Refereneces To Other Features">
+		</outline>
+		<outline text="Adding Refereneces To Other Scenarios">
+		</outline>
+	</outline>
+	<outline text="Adding An Explanation To A Scenario">
+		<outline text="Using Plain Text">
+		</outline>
+		<outline text="Using Markdown">
+		</outline>
+	</outline>
+	<outline text="Adding An Explanation To A Feature">
+		<outline text="Via An Attribute With Inline Text">
+		</outline>
+		<outline text="Via An Attribute With A File Reference">
+		</outline>
+		<outline text="Using Plain Text">
+		</outline>
+		<outline text="Using Markdown">
+		</outline>
+	</outline>
+	<outline text="Adding An Explanation To An Area">
+		<outline text="Via An Attribute With Inline Text">
+		</outline>
+		<outline text="Via An Attribute With A File Reference">
+		</outline>
+		<outline text="Using Plain Text">
+		</outline>
+		<outline text="Using Markdown">
+		</outline>
+	</outline>
+	<outline text="Adding An Explanation To A Test Run">
+		<outline text="Via An Attribute With Inline Text">
+		</outline>
+		<outline text="Via An Attribute With A File Reference">
+		</outline>
+		<outline text="Using Plain Text">
+		</outline>
+		<outline text="Using Markdown">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Defining Features - Setting Ownership">
+	<outline text="Setting An Owner For A Scenario">
+		<outline text="Setting A Single Owner">
+		</outline>
+		<outline text="Setting Multiple Owners">
+		</outline>
+	</outline>
+	<outline text="Setting An Owner For A Feature">
+		<outline text="Setting A Single Owner">
+		</outline>
+		<outline text="Setting Multiple Owners">
+		</outline>
+	</outline>
+</outline>
+</body>
+</opml>

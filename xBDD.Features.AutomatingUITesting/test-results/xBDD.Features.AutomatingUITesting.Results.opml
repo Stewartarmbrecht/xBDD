@@ -1,0 +1,342 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+  <head>
+  </head>
+  <body>
+
+<outline text="xBDD - Features - Automating UI Testing - Setup">
+	<outline text="Setup A Test Project">
+		<outline text="To Use New Browser Sessions For Each Scenario">
+		</outline>
+		<outline text="To Use The Same Browser Session For All Scenarios">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Navigating">
+	<outline text="Navigate As A User">
+		<outline text="With Specific Size">
+		</outline>
+		<outline text="To A Valid URL">
+		</outline>
+		<outline text="To An Invalid URL">
+		</outline>
+		<outline text="When No Internet Connection">
+		</outline>
+		<outline text="To A Valid File">
+		</outline>
+		<outline text="To A Non Html Text File">
+		</outline>
+		<outline text="To A Binary File">
+		</outline>
+		<outline text="To A Missing File">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Entering Text">
+	<outline text="Sending Standard Keys">
+		<outline text="To A Valid Input">
+		</outline>
+		<outline text="To An Invalid Input">
+		</outline>
+	</outline>
+	<outline text="Sending Special Keys">
+		<outline text="To A Valid Input">
+		</outline>
+		<outline text="To An Invalid Input">
+		</outline>
+	</outline>
+	<outline text="Pasting Text">
+		<outline text="When Visible">
+		</outline>
+		<outline text="When Does Not Exist">
+		</outline>
+		<outline text="When Not Visible">
+		</outline>
+		<outline text="When Not A Valid Input">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Clicking">
+	<outline text="Left Click Immediate">
+		<outline text="When Visible">
+		</outline>
+		<outline text="When Does Not Exist">
+		</outline>
+		<outline text="When Not Visible">
+		</outline>
+	</outline>
+	<outline text="Left Click When Visible">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Specific Wait Time">
+		</outline>
+		<outline text="With Failed Condition">
+		</outline>
+	</outline>
+	<outline text="Left Click When Other Condition">
+		<outline text="Make Impossible">
+			<outline text="Given out Wait conditions from click conditions"/>
+			<outline text="Given ass inheritance"/>
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Validating The Page">
+	<outline text="Validate Element Is Visible">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Custom Step Name">
+		</outline>
+		<outline text="With Specific Wait Time">
+		</outline>
+		<outline text="With Page Captured As Output">
+		</outline>
+		<outline text="With Failure">
+		</outline>
+	</outline>
+	<outline text="Validate Element Is Not Visible">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Custom Step Name">
+		</outline>
+		<outline text="With Specific Wait Time">
+		</outline>
+		<outline text="With Page Captured As Output">
+		</outline>
+		<outline text="With Failure">
+		</outline>
+	</outline>
+	<outline text="Validate Element Has Text">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Custom Step Name">
+		</outline>
+		<outline text="With Specific Wait Time">
+		</outline>
+		<outline text="With Page Captured As Output">
+		</outline>
+		<outline text="With Failure">
+		</outline>
+	</outline>
+	<outline text="Validate Element Has Style">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Custom Step Name">
+		</outline>
+		<outline text="With Specific Wait Time">
+		</outline>
+		<outline text="With Page Captured As Output">
+		</outline>
+		<outline text="With Failure">
+		</outline>
+	</outline>
+	<outline text="Validate Element Has Title">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Custom Step Name">
+		</outline>
+		<outline text="With Specific Wait Time">
+		</outline>
+		<outline text="With Page Captured As Output">
+		</outline>
+		<outline text="With Failure">
+		</outline>
+	</outline>
+	<outline text="Validate Element Has Attribute">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Custom Step Name">
+		</outline>
+		<outline text="With Specific Wait Time">
+		</outline>
+		<outline text="With Page Captured As Output">
+		</outline>
+		<outline text="With Failure">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Custom Steps">
+	<outline text="Creating A Custom Step">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Loading A Page">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Sending Keys To An Element">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Clicking An Element">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Getting The Page Source">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Accessing The Web Driver">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Validating A Pages Title">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Validating An Elements Text">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Validating An Elements Style">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Validating An Elements Title">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Waiting Till An Element Is Visible">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Waiting Till An Element Is Not Visible">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Validate An Element Does Not Exist">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Uploading And Download Files">
+	<outline text="Upload A File">
+		<outline text="Successful">
+		</outline>
+		<outline text="Unsuccessful">
+		</outline>
+	</outline>
+	<outline text="Download A File">
+		<outline text="Successful">
+		</outline>
+		<outline text="Unsuccessful">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Advanced Clicking">
+	<outline text="Right Click Immediate">
+		<outline text="When Visible">
+		</outline>
+		<outline text="When Does Not Exist">
+		</outline>
+		<outline text="When Not Visible">
+		</outline>
+	</outline>
+	<outline text="Right Click When Visible">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Specific Wait Time">
+		</outline>
+		<outline text="With Failed Condition">
+		</outline>
+	</outline>
+	<outline text="Double Click Immediate">
+		<outline text="When Visible">
+		</outline>
+		<outline text="When Does Not Exist">
+		</outline>
+		<outline text="When Not Visible">
+		</outline>
+	</outline>
+	<outline text="Double Click When Visible">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Specific Wait Time">
+		</outline>
+		<outline text="With Failed Condition">
+		</outline>
+	</outline>
+	<outline text="Drop Downs">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Failure">
+		</outline>
+	</outline>
+	<outline text="Scrolling">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Failure">
+		</outline>
+	</outline>
+	<outline text="Hovering">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Failure">
+		</outline>
+	</outline>
+	<outline text="Dragging">
+		<outline text="With Success">
+		</outline>
+		<outline text="With Failure">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Advanced Actions">
+	<outline text="Play A Video">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Capture Screen Image">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Capture Video">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Toggle Think Times">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+	<outline text="Set Default Wait Time">
+		<outline text="Successful">
+		</outline>
+		<outline text="Failure">
+		</outline>
+	</outline>
+</outline>
+</body>
+</opml>

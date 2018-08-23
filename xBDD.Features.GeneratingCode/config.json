@@ -1,0 +1,12 @@
+{
+    "xBDD": {
+        "TestRunName": "xBDD Generating Code",
+        "Browser": {
+            "Watch": "false"
+        },
+        "HtmlReport": {
+            "RemoveFromAreaNameStart": "xBDD - Features - Generating Code - ",
+            "FailuresOnly": "false"
+        }
+    }
+}            

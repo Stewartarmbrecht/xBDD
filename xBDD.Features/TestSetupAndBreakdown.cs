@@ -41,6 +41,11 @@ namespace xBDD.Features
             var textReport = await xB.CurrentRun.TestRun.WriteToText();
             File.WriteAllText(textPath, textReport);
 
+            var textOutlinePath = $"{directory}/../../../test-results/xBDD.Features.Results.Outline.txt";
+            Logger.LogMessage("Writing Text Outline Report to " + textOutlinePath);
+            var textOutlineReport = await xB.CurrentRun.TestRun.WriteToText(false);
+            File.WriteAllText(textOutlinePath, textOutlineReport);
+
             var jsonPath = $"{directory}/../../../test-results/xBDD.Features.Results.json";
             Logger.LogMessage("Writing Json Report to " + jsonPath);
             var jsonReport = xB.CurrentRun.TestRun.WriteToJson();

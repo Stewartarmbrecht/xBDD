@@ -1,0 +1,59 @@
+
+namespace xBDD.Features.GeneratingCode.GenerateProjectFiles
+{
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+	using System.Threading.Tasks;
+	using xBDD;
+
+    [TestClass]
+    [AsA("")]
+    [YouCan("")]
+    [By("")]
+    public class GenerateCodeFromATestRunWithAreaScenarios: FeatureTestClass
+    {
+
+        [TestMethod]
+        public async Task WithFullArea()
+        {
+            await xB.CurrentRun.AddScenario(this, 25)
+                .Skip("With Full Area", Assert.Inconclusive);
+        }
+
+        [TestMethod]
+        public async Task WithAreaNameClipping()
+        {
+            await xB.CurrentRun.AddScenario(this, 26)
+                .Skip("With Area Name Clipping", Assert.Inconclusive);
+        }
+
+        [TestMethod]
+        public async Task WithAreaNameEmpty()
+        {
+            await xB.CurrentRun.AddScenario(this, 27)
+                .Skip("With Area Name Empty", Assert.Inconclusive);
+        }
+
+        [TestMethod]
+        public async Task WithAreaExplanationEmpty()
+        {
+            await xB.CurrentRun.AddScenario(this, 28)
+                .Skip("With Area Explanation Empty", Assert.Inconclusive);
+        }
+
+        [TestMethod]
+        public async Task WithNoFeatures()
+        {
+            await xB.CurrentRun.AddScenario(this, 29)
+                .Skip("With No Features", Assert.Inconclusive);
+        }
+
+        [TestMethod]
+        public async Task WithFeatures()
+        {
+            await xB.CurrentRun.AddScenario(this, 30)
+                .Skip("With Features", Assert.Inconclusive);
+        }
+    }
+}
+

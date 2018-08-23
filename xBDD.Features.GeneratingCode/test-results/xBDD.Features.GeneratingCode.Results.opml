@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+  <head>
+  </head>
+  <body>
+
+<outline text="xBDD - Features - Generating Code - Generate Project Files">
+	<outline text="Generating A New MS Test Project">
+		<outline text="In An Empty Directory">
+		</outline>
+		<outline text="In A Nonempty Directory">
+		</outline>
+		<outline text="Skipping Files When Overlap With Existing Files">
+		</outline>
+		<outline text="Overwriting Existing Files">
+		</outline>
+		<outline text="Removing Extra Files">
+		</outline>
+		<outline text="With A Test Run Name">
+		</outline>
+		<outline text="With Area Name Clipping">
+		</outline>
+	</outline>
+	<outline text="Generate Code From A Test Run With General Scenarios">
+		<outline text="With Full Test Run">
+		</outline>
+		<outline text="With Empty Test Run">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+		<outline text="With No Tests In The Project">
+		</outline>
+		<outline text="With Test Filtering">
+		</outline>
+		<outline text="With XBDD Test Run Filtering">
+		</outline>
+	</outline>
+	<outline text="Generate Code From A Test Run With Test Run Scenarios">
+		<outline text="With Full Test Run">
+		</outline>
+		<outline text="With No Test Run Name">
+		</outline>
+		<outline text="With Test Run Explanation Empty">
+		</outline>
+		<outline text="With No Areas">
+		</outline>
+		<outline text="With Areas">
+		</outline>
+	</outline>
+	<outline text="Generate Code From A Test Run With Area Scenarios">
+		<outline text="With Full Area">
+		</outline>
+		<outline text="With Area Name Clipping">
+		</outline>
+		<outline text="With Area Name Empty">
+		</outline>
+		<outline text="With Area Explanation Empty">
+		</outline>
+		<outline text="With No Features">
+		</outline>
+		<outline text="With Features">
+		</outline>
+	</outline>
+	<outline text="Generate Code From A Test Run With Feature Scenarios">
+		<outline text="With Full Feature">
+		</outline>
+		<outline text="With Feature Name Empty">
+		</outline>
+		<outline text="With Feature Explanation Empty">
+		</outline>
+		<outline text="With No Scenarios">
+		</outline>
+		<outline text="With Scenarios">
+		</outline>
+	</outline>
+	<outline text="Generate Code From A Test Run With Scenario Scenarios">
+		<outline text="With Full Scenario">
+		</outline>
+		<outline text="With Scenario Name Empty">
+		</outline>
+		<outline text="With Scenario Explanation Empty">
+		</outline>
+		<outline text="With No Steps">
+		</outline>
+		<outline text="With Steps">
+		</outline>
+	</outline>
+	<outline text="Generate Code From A Test Run With Step Scenarios">
+		<outline text="With Full Step">
+		</outline>
+		<outline text="With Step Name Empty">
+		</outline>
+		<outline text="With Step Explanation Empty">
+		</outline>
+		<outline text="With Step Input Empty">
+		</outline>
+		<outline text="With Step Output Empty">
+		</outline>
+		<outline text="With Step Exception">
+		</outline>
+		<outline text="With Step Inner Exception">
+		</outline>
+	</outline>
+</outline>
+</body>
+</opml>

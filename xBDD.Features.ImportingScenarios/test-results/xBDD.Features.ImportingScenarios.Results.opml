@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+  <head>
+  </head>
+  <body>
+
+<outline text="xBDD - Features - Importing Scenarios - Importing Scenarios Importing From A Text Outline">
+	<outline text="From A Text Outline With General Scenarios">
+		<outline text="With Simple Outline">
+		</outline>
+		<outline text="With An Empty File">
+		</outline>
+	</outline>
+	<outline text="From A Text Outline With Area Scenarios">
+		<outline text="With No Test Run Name">
+		</outline>
+		<outline text="With A Test Run With No Areas">
+		</outline>
+		<outline text="With Missing Empty Line After Test Run Name">
+		</outline>
+		<outline text="With An Area With An Empty Name">
+		</outline>
+		<outline text="With An Area With No Features">
+		</outline>
+		<outline text="With Special Characters In The Area Name">
+		</outline>
+		<outline text="With Invalid Indented Line After Area">
+		</outline>
+	</outline>
+	<outline text="From A Text Outline With Feature Scenarios">
+		<outline text="With An Feature With An Empty Name">
+		</outline>
+		<outline text="With A Feature With No Scenarios">
+		</outline>
+		<outline text="With Special Characters In The Feature Name">
+		</outline>
+		<outline text="With Invalid Indented Line After Feature">
+		</outline>
+		<outline text="With Feature Statement">
+		</outline>
+		<outline text="With Feature Explanation">
+		</outline>
+	</outline>
+	<outline text="From A Text Outline With Scenario Scenarios">
+		<outline text="With An Empty Scenario">
+		</outline>
+		<outline text="With A Scenario With No Steps">
+		</outline>
+		<outline text="With Special Characters In The Scenario Name">
+		</outline>
+		<outline text="With Invalid Indented Line After Scenario">
+		</outline>
+		<outline text="With Scenario Explanation">
+		</outline>
+	</outline>
+	<outline text="From A Text Outline With Step Scenarios">
+		<outline text="With A Step With An Empty Name">
+		</outline>
+		<outline text="With Special Characters In The Step Name">
+		</outline>
+		<outline text="With Invalid Indented Line After Scenario">
+		</outline>
+		<outline text="With Scenario Explanation">
+		</outline>
+		<outline text="With Scenario Input">
+		</outline>
+	</outline>
+</outline>
+</body>
+</opml>

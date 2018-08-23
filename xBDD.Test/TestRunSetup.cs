@@ -16,9 +16,9 @@ namespace xBDD.Test
                     for(int scenarioCount = 1; scenarioCount <= 3; scenarioCount++)
                     {
                         var codeDetails = new CodeDetails(
-                            $"area_{areaCount}",
-                            $"feature_{areaCount}_{featureCount}",
-                            $"scenario_{areaCount}_{featureCount}_{scenarioCount}",
+                            $"Area{areaCount.ToString().PadLeft(2,'0')}",
+                            $"Feature{areaCount.ToString().PadLeft(2,'0')}{featureCount.ToString().PadLeft(2,'0')}",
+                            $"Scenario{areaCount.ToString().PadLeft(2,'0')}{featureCount.ToString().PadLeft(2,'0')}{scenarioCount.ToString().PadLeft(2,'0')}",
                             $"As a user",
                             $"You can get some value",
                             $"By performing some action"
@@ -26,19 +26,30 @@ namespace xBDD.Test
                         var scenario = xB.CurrentRun.AddScenario(codeDetails, scenarioCount);
                         for(int stepCount = 1; stepCount <= 3; stepCount++)
                         {
-                            var stepId = $"{areaCount}-{featureCount}-{scenarioCount}-{stepCount}";
+                            var stepId = $"{areaCount.ToString().PadLeft(2,'0')}{featureCount.ToString().PadLeft(2,'0')}{scenarioCount.ToString().PadLeft(2,'0')}{stepCount.ToString().PadLeft(2,'0')}";
                             var fail = false;
                             if(failingStepIds != null) {
                                 fail = failingStepIds.Contains(stepId);
                             }
                             Step step = xB.CreateAsyncStep(
-                                $"step-{stepId}",
-                                null
+                                $"Step{stepId}",
+                                null,
+                                @"This 
+is 
+multiline 
+text.",
+                                TextFormat.text
                             );
                             if(fail) {
                                 step.ActionAsync = async (s) => { await Task.Run(() => {throw new System.Exception("My exception");}); };
                             } else {
-                                step.ActionAsync = async (s) => { await Task.Run(() => { }); };
+                                step.ActionAsync = async (s) => { await Task.Run(() => { 
+                                    step.Output = @"This
+is
+multiline
+output";
+                                    step.OutputFormat = TextFormat.sh;
+                                }); };
                             }
                             switch(stepCount) {
                                 case 1:
