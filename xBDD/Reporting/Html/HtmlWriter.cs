@@ -68,10 +68,8 @@ namespace xBDD.Reporting.Html
             sb.Append(" span.area.stats { font-size: 75%; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; border-radius: .25rem; height: 1.5em; display: inline-block; width: 1.75rem; position: absolute; margin-left: 2rem; z-index: -1; vertical-align: middle; }");
             sb.Append(" span.feature.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; }");
             sb.Append(" span.scenario.badge { width: 2rem }");
-            sb.Append(" span.testrun.duration { font-size: 1rem; color: gray; }");
-            sb.Append(" span.area.duration { font-size: 1rem; color: gray; }");
-            sb.Append(" span.feature.duration { font-size: 1rem; color: gray; }");
-            sb.Append(" span.scenario.duration { font-size: 1rem; color: gray; }");
+            sb.Append(" span.duration { font-size: 1rem; color: gray; }");
+            sb.Append(" span.reason { font-size: 1rem; color: gray; }");
             sb.Append(" span.status { font-size: 1rem; color: gray; }");
             sb.Append(" span.step.duration { font-size: .75rem; color: gray; }");
             sb.Append(" span.oi.oi-info { font-size: 80% }");
@@ -173,6 +171,10 @@ namespace xBDD.Reporting.Html
 
             WriteTag("span", sb, 0, $"testrun badge pointer badge-pill total {badgeClass}", testRun.AreaStats.Total.ToString(), true, null, null, " title=\"Areas\"");
             WriteTag("span", sb, 0, "name", testRun.Name.HtmlEncode(), true);
+
+            if(testRun.Reason != null) {
+                WriteTag("span", sb, 0, "testrun reason", $" [{testRun.Reason.HtmlEncode()}]",true);
+            }
 
             var duration = testRun.EndTime - testRun.StartTime;
             var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
@@ -358,6 +360,11 @@ namespace xBDD.Reporting.Html
                 areaName = "[Missing! (or Full Name Skipped)]";
             }
             WriteTag("span", sb, 4, "name pointer", areaName.HtmlEncode(), true,  $"area-{areaCounter}-name", null, areaTitleAttributes);
+            
+            if(scenario.Feature.Area.Reason != null) {
+                WriteTag("span", sb, 0, "area reason", $" [{scenario.Feature.Area.Reason.HtmlEncode()}]",true);
+            }
+            
             var duration = scenario.Feature.Area.EndTime - scenario.Feature.Area.StartTime;
             var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
             formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
@@ -463,6 +470,10 @@ namespace xBDD.Reporting.Html
             }
             WriteTag("span", sb, 6, "name pointer", scenario.Feature.Name.HtmlEncode(), true, null, null, titleAttributes);
 
+            if(scenario.Feature.Reason != null) {
+                WriteTag("span", sb, 0, "feature reason", $" [{scenario.Feature.Reason.HtmlEncode()}]",true);
+            }
+
             var duration = scenario.Feature.EndTime - scenario.Feature.StartTime;
             var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
             formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
@@ -527,11 +538,10 @@ namespace xBDD.Reporting.Html
 
             WriteTag("span", sb, 0, "name pointer", scenario.Name.HtmlEncode(), true);
 
-            if (scenario.Outcome != Outcome.Passed)
-            {
-                WriteScenarioStatus(scenario, sb);
+            if(scenario.Reason != null) {
+                WriteTag("span", sb, 0, "scenario reason", $" [{scenario.Reason.HtmlEncode()}]",true);
             }
-
+            
             var duration = scenario.EndTime - scenario.StartTime;
             var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
             formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);

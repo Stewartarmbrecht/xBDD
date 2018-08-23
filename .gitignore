@@ -214,3 +214,4 @@ ModelManifest.xml
 
 .vscode/settings.json
 MySample.Features/test-results/
+!MySample.Features/test-results/MySample.Features.Results.All.FullSorted.html

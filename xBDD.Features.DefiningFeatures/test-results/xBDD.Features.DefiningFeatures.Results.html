@@ -6,7 +6,7 @@
     <title>xBDD Defining Features</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <style> div#testrun-dates { margin: 0rem 0rem .5rem 5rem; } h1.testrun-name { margin: .5rem 0rem 0rem 0rem; } span.area.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; } span.badge-distro { width: 3.5rem; display: inline-block; height: 1.5rem; vertical-align: bottom; } span.area.stats { font-size: 75%; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; border-radius: .25rem; height: 1.5em; display: inline-block; width: 1.75rem; position: absolute; margin-left: 2rem; z-index: -1; vertical-align: middle; } span.feature.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; } span.scenario.badge { width: 2rem } span.testrun.duration { font-size: 1rem; color: gray; } span.area.duration { font-size: 1rem; color: gray; } span.feature.duration { font-size: 1rem; color: gray; } span.scenario.duration { font-size: 1rem; color: gray; } span.status { font-size: 1rem; color: gray; } span.step.duration { font-size: .75rem; color: gray; } span.oi.oi-info { font-size: 80% } ol.areas { margin: .5rem 0rem; } ol { margin-left: 3rem; } span.badge { margin-left: .25rem; } span.distro { width: 1.5rem; height: 1.5rem; display: inline-block; margin-left: 2rem; border: 1px solid white; } span.name { margin-left: .75rem; } dl.exception { margin: 1rem 3rem; padding: 1rem; } dl.exception dt { margin-bottom: .25rem; } ol.features { margin-bottom: 2rem; } ol.scenarios { margin-bottom: 1.5rem; } ol.steps { margin-bottom: 1rem; } iframe { border: 1px solid gray; resize: both; overflow: auto; } h2, h3, h4, h5 { font-size: 1.25rem; margin: .5rem; font-weight: 400; } h5 { font-size: 1rem; margin: .25rem .75rem; } dl.error-type, dl.error-message, dl.error-stack { padding: .5rem; } dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding: .5rem; } pre.feature-statement { margin: 0rem 0rem 1rem 3rem; padding: .5rem; } .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; } td.graph td { padding: 0px !important; } .table { margin: 0px !important; } .table td.bar { padding: 0px !important; } .testrun-percent-bar { background-color: #56C1F7; } .area-percent-bar { background-color: #A4DEFB; } .pointer { cursor: pointer } pre { white-space: pre !important; } pre.mp { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thin; } pre.output { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thins; } .collapsing { -webkit-transition: none; transition: none; display: none; }</style>
+    <style> div#testrun-dates { margin: 0rem 0rem .5rem 5rem; } h1.testrun-name { margin: .5rem 0rem 0rem 0rem; } span.area.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; } span.badge-distro { width: 3.5rem; display: inline-block; height: 1.5rem; vertical-align: bottom; } span.area.stats { font-size: 75%; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; border-radius: .25rem; height: 1.5em; display: inline-block; width: 1.75rem; position: absolute; margin-left: 2rem; z-index: -1; vertical-align: middle; } span.feature.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; } span.scenario.badge { width: 2rem } span.duration { font-size: 1rem; color: gray; } span.reason { font-size: 1rem; color: gray; } span.status { font-size: 1rem; color: gray; } span.step.duration { font-size: .75rem; color: gray; } span.oi.oi-info { font-size: 80% } ol.areas { margin: .5rem 0rem; } ol { margin-left: 3rem; } span.badge { margin-left: .25rem; } span.distro { width: 1.5rem; height: 1.5rem; display: inline-block; margin-left: 2rem; border: 1px solid white; } span.name { margin-left: .75rem; } dl.exception { margin: 1rem 3rem; padding: 1rem; } dl.exception dt { margin-bottom: .25rem; } ol.features { margin-bottom: 2rem; } ol.scenarios { margin-bottom: 1.5rem; } ol.steps { margin-bottom: 1rem; } iframe { border: 1px solid gray; resize: both; overflow: auto; } h2, h3, h4, h5 { font-size: 1.25rem; margin: .5rem; font-weight: 400; } h5 { font-size: 1rem; margin: .25rem .75rem; } dl.error-type, dl.error-message, dl.error-stack { padding: .5rem; } dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding: .5rem; } pre.feature-statement { margin: 0rem 0rem 1rem 3rem; padding: .5rem; } .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; } td.graph td { padding: 0px !important; } .table { margin: 0px !important; } .table td.bar { padding: 0px !important; } .testrun-percent-bar { background-color: #56C1F7; } .area-percent-bar { background-color: #A4DEFB; } .pointer { cursor: pointer } pre { white-space: pre !important; } pre.mp { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thin; } pre.output { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thins; } .collapsing { -webkit-transition: none; transition: none; display: none; }</style>
 </head>
 <body class="container-fluid">
 
@@ -24,11 +24,12 @@
                 <div class="page-header" style="margin-top: 0px !important;">
         <h1 class="testrun-name"><span class="testrun badge pointer badge-pill total badge-warning" title="Areas">12</span>
 <span class="name">xBDD Defining Features</span>
-<span class="testrun duration"> [402 ms]</span>
+<span class="testrun reason"> [Defining]</span>
+<span class="testrun duration"> [615 ms]</span>
         </h1>
     </div>
     <div style="margin-top: 0px !important;" id="testrun-dates">
-<span id="testrun-start-date" title="Start">2018-08-23 12:54 PM GMT-04:00</span>
+<span id="testrun-start-date" title="Start">2018-08-23 01:32 PM GMT-04:00</span>
     </div>
     <table class="table table-condensed " style="width: 100%; empty-cells: show;">
         <tr id="testrun-area-stats">
@@ -84,7 +85,8 @@
 </span>
 </span>
                 <span class="name pointer" id="area-1-name" data-toggle="collapse" href="#area-1-features" aria-expanded="false" aria-controls="area-1-features" >Initial Setup</span>
-<span class="area duration"> [51 ms]</span>
+<span class="area reason"> [Defining]</span>
+<span class="area duration"> [70 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-1-stats">
                 <tr id="area-1-feature-stats">
@@ -125,7 +127,8 @@
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-1-statement-link" data-toggle="collapse" href="#feature-1-statement" aria-expanded="false" aria-controls="feature-1-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-1-scenarios" aria-expanded="false" aria-controls="feature-1-scenarios" >Generating A New Project</span>
-<span class="feature duration"> [3 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [4 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-1-stats">
                         <tr id="feature-1-scenario-stats">
@@ -153,8 +156,8 @@ By </pre>
                         <li class="scenario skipped" id="scenario-1">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-1-steps" aria-expanded="false" aria-controls="scenario-1-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">6</span>
 <span class="name pointer">Generating An MS Test Project</span>
-<span class="status">[Skipped - Untested]</span>
-<span class="scenario duration"> [3 ms]</span>
+<span class="scenario reason"> [Untested]</span>
+<span class="scenario duration"> [4 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-1-steps" aria-expanded="false">
                                 <li id="step-1">
@@ -203,6 +206,7 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-2-statement-link" data-toggle="collapse" href="#feature-2-statement" aria-expanded="false" aria-controls="feature-2-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-2-scenarios" aria-expanded="false" aria-controls="feature-2-scenarios" >Adding To An Existing Project</span>
+<span class="feature reason"> [Untested]</span>
 <span class="feature duration"> [13 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-2-stats">
@@ -231,7 +235,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-2">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-2-steps" aria-expanded="false" aria-controls="scenario-2-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Installing XBDD</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-2-steps" aria-expanded="false">
@@ -240,7 +244,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-3">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-3-steps" aria-expanded="false" aria-controls="scenario-3-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Adding A Simple Scenario</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-3-steps" aria-expanded="false">
@@ -249,7 +253,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-4">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-4-steps" aria-expanded="false" aria-controls="scenario-4-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Adding Report Generation</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-4-steps" aria-expanded="false">
@@ -258,7 +262,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-5">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-5-steps" aria-expanded="false" aria-controls="scenario-5-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using A Base Feature Class</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-5-steps" aria-expanded="false">
@@ -267,7 +271,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-6">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-6-steps" aria-expanded="false" aria-controls="scenario-6-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Creating Reusable Steps</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-6-steps" aria-expanded="false">
@@ -281,7 +285,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-3-statement-link" data-toggle="collapse" href="#feature-3-statement" aria-expanded="false" aria-controls="feature-3-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-3-scenarios" aria-expanded="false" aria-controls="feature-3-scenarios" >Running Scenarios</span>
-<span class="feature duration"> [8 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [9 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-3-stats">
                         <tr id="feature-3-scenario-stats">
@@ -309,7 +314,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-7">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-7-steps" aria-expanded="false" aria-controls="scenario-7-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Running All Scenarios</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-7-steps" aria-expanded="false">
@@ -318,7 +323,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-8">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-8-steps" aria-expanded="false" aria-controls="scenario-8-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Running A Filtered Set Of Scenarios</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-8-steps" aria-expanded="false">
@@ -327,7 +332,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-9">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-9-steps" aria-expanded="false" aria-controls="scenario-9-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Running A Single Scenario</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-9-steps" aria-expanded="false">
@@ -336,7 +341,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-10">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-10-steps" aria-expanded="false" aria-controls="scenario-10-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Debugging A Scenario</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-10-steps" aria-expanded="false">
@@ -350,7 +355,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-4-statement-link" data-toggle="collapse" href="#feature-4-statement" aria-expanded="false" aria-controls="feature-4-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-4-scenarios" aria-expanded="false" aria-controls="feature-4-scenarios" >Setting The Scenario Outcome</span>
-<span class="feature duration"> [5 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [8 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-4-stats">
                         <tr id="feature-4-scenario-stats">
@@ -378,7 +384,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-11">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-11-steps" aria-expanded="false" aria-controls="scenario-11-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Failing A Scenario</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-11-steps" aria-expanded="false">
@@ -387,7 +393,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-12">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-12-steps" aria-expanded="false" aria-controls="scenario-12-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Skipping A Scenario</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-12-steps" aria-expanded="false">
@@ -396,7 +402,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-13">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-13-steps" aria-expanded="false" aria-controls="scenario-13-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Documenting A Scenario</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-13-steps" aria-expanded="false">
@@ -410,7 +416,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-5-statement-link" data-toggle="collapse" href="#feature-5-statement" aria-expanded="false" aria-controls="feature-5-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-5-scenarios" aria-expanded="false" aria-controls="feature-5-scenarios" >Installing Vscode Snippets</span>
-<span class="feature duration"> [2 ms]</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [3 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-5-stats">
                         <tr id="feature-5-scenario-stats">
@@ -438,7 +445,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-14">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-14-steps" aria-expanded="false" aria-controls="scenario-14-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Through The Extension Manager</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-14-steps" aria-expanded="false">
@@ -447,7 +454,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-15">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-15-steps" aria-expanded="false" aria-controls="scenario-15-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via The Command Line</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-15-steps" aria-expanded="false">
@@ -463,7 +470,8 @@ By </pre>
 </span>
 </span>
                 <span class="name pointer" id="area-2-name" data-toggle="collapse" href="#area-2-features" aria-expanded="false" aria-controls="area-2-features" >Defining Steps</span>
-<span class="area duration"> [16 ms]</span>
+<span class="area reason"> [Untested]</span>
+<span class="area duration"> [18 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-2-stats">
                 <tr id="area-2-feature-stats">
@@ -504,7 +512,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-6-statement-link" data-toggle="collapse" href="#feature-6-statement" aria-expanded="false" aria-controls="feature-6-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-6-scenarios" aria-expanded="false" aria-controls="feature-6-scenarios" >Adding Steps To A Scenario</span>
-<span class="feature duration"> [3 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [4 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-6-stats">
                         <tr id="feature-6-scenario-stats">
@@ -532,7 +541,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-16">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-16-steps" aria-expanded="false" aria-controls="scenario-16-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Adding A Synchronous Step</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-16-steps" aria-expanded="false">
@@ -541,7 +550,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-17">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-17-steps" aria-expanded="false" aria-controls="scenario-17-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Adding An Asynchronous Step</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-17-steps" aria-expanded="false">
@@ -550,7 +559,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-18">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-18-steps" aria-expanded="false" aria-controls="scenario-18-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Adding A Reusable Step</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-18-steps" aria-expanded="false">
@@ -564,7 +573,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-7-statement-link" data-toggle="collapse" href="#feature-7-statement" aria-expanded="false" aria-controls="feature-7-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-7-scenarios" aria-expanded="false" aria-controls="feature-7-scenarios" >Setting A Multiline Input For A Step</span>
-<span class="feature duration"> [1 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [2 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-7-stats">
                         <tr id="feature-7-scenario-stats">
@@ -592,7 +602,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-19">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-19-steps" aria-expanded="false" aria-controls="scenario-19-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">When Creating The Step</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-19-steps" aria-expanded="false">
@@ -601,7 +611,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-20">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-20-steps" aria-expanded="false" aria-controls="scenario-20-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">When Executing The Step</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-20-steps" aria-expanded="false">
@@ -615,7 +625,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-8-statement-link" data-toggle="collapse" href="#feature-8-statement" aria-expanded="false" aria-controls="feature-8-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-8-scenarios" aria-expanded="false" aria-controls="feature-8-scenarios" >Sharing Values Between Steps</span>
-<span class="feature duration"> [2 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [3 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-8-stats">
                         <tr id="feature-8-scenario-stats">
@@ -643,7 +654,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-21">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-21-steps" aria-expanded="false" aria-controls="scenario-21-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Object Refereneces</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-21-steps" aria-expanded="false">
@@ -652,7 +663,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-22">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-22-steps" aria-expanded="false" aria-controls="scenario-22-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Literal Values</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-22-steps" aria-expanded="false">
@@ -666,6 +677,7 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-9-statement-link" data-toggle="collapse" href="#feature-9-statement" aria-expanded="false" aria-controls="feature-9-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-9-scenarios" aria-expanded="false" aria-controls="feature-9-scenarios" >Setting The Output For A Step</span>
+<span class="feature reason"> [Untested]</span>
 <span class="feature duration"> [0 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-9-stats">
@@ -694,7 +706,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-23">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-23-steps" aria-expanded="false" aria-controls="scenario-23-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">When Executing A Step</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-23-steps" aria-expanded="false">
@@ -710,7 +722,8 @@ By </pre>
 </span>
 </span>
                 <span class="name pointer" id="area-3-name" data-toggle="collapse" href="#area-3-features" aria-expanded="false" aria-controls="area-3-features" >Defining Scenarios</span>
-<span class="area duration"> [16 ms]</span>
+<span class="area reason"> [Untested]</span>
+<span class="area duration"> [34 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-3-stats">
                 <tr id="area-3-feature-stats">
@@ -751,7 +764,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-10-statement-link" data-toggle="collapse" href="#feature-10-statement" aria-expanded="false" aria-controls="feature-10-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-10-scenarios" aria-expanded="false" aria-controls="feature-10-scenarios" >Adding Scenarios</span>
-<span class="feature duration"> [4 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [8 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-10-stats">
                         <tr id="feature-10-scenario-stats">
@@ -779,7 +793,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-24">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-24-steps" aria-expanded="false" aria-controls="scenario-24-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">With Steps</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-24-steps" aria-expanded="false">
@@ -788,7 +802,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-25">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-25-steps" aria-expanded="false" aria-controls="scenario-25-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Without Steps</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-25-steps" aria-expanded="false">
@@ -797,7 +811,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-26">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-26-steps" aria-expanded="false" aria-controls="scenario-26-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using AVS Code Snippet</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-26-steps" aria-expanded="false">
@@ -811,7 +825,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-11-statement-link" data-toggle="collapse" href="#feature-11-statement" aria-expanded="false" aria-controls="feature-11-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-11-scenarios" aria-expanded="false" aria-controls="feature-11-scenarios" >Setting An Output Writer For A Scenario</span>
-<span class="feature duration"> [2 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [4 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-11-stats">
                         <tr id="feature-11-scenario-stats">
@@ -839,7 +854,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-27">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-27-steps" aria-expanded="false" aria-controls="scenario-27-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">When Creating A Scenario</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-27-steps" aria-expanded="false">
@@ -848,7 +863,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-28">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-28-steps" aria-expanded="false" aria-controls="scenario-28-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">When Creating A Feature</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-28-steps" aria-expanded="false">
@@ -862,7 +877,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-12-statement-link" data-toggle="collapse" href="#feature-12-statement" aria-expanded="false" aria-controls="feature-12-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-12-scenarios" aria-expanded="false" aria-controls="feature-12-scenarios" >Setting The Default Reporting Sort For A Scenario</span>
-<span class="feature duration"> [5 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [13 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-12-stats">
                         <tr id="feature-12-scenario-stats">
@@ -890,7 +906,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-29">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-29-steps" aria-expanded="false" aria-controls="scenario-29-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Setting The Sort On All Scenarios</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-29-steps" aria-expanded="false">
@@ -899,7 +915,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-30">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-30-steps" aria-expanded="false" aria-controls="scenario-30-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Setting The Sort On None Of The Scenarios</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-30-steps" aria-expanded="false">
@@ -908,7 +924,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-31">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-31-steps" aria-expanded="false" aria-controls="scenario-31-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Setting The Sort On Some Of The Scenarios</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-31-steps" aria-expanded="false">
@@ -924,7 +940,8 @@ By </pre>
 </span>
 </span>
                 <span class="name pointer" id="area-4-name" data-toggle="collapse" href="#area-4-features" aria-expanded="false" aria-controls="area-4-features" >Defining Features</span>
-<span class="area duration"> [21 ms]</span>
+<span class="area reason"> [Untested]</span>
+<span class="area duration"> [28 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-4-stats">
                 <tr id="area-4-feature-stats">
@@ -965,7 +982,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-13-statement-link" data-toggle="collapse" href="#feature-13-statement" aria-expanded="false" aria-controls="feature-13-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-13-scenarios" aria-expanded="false" aria-controls="feature-13-scenarios" >Adding Features</span>
-<span class="feature duration"> [9 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [14 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-13-stats">
                         <tr id="feature-13-scenario-stats">
@@ -993,7 +1011,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-32">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-32-steps" aria-expanded="false" aria-controls="scenario-32-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">With Scenarios</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-32-steps" aria-expanded="false">
@@ -1002,7 +1020,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-33">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-33-steps" aria-expanded="false" aria-controls="scenario-33-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Without Scenarios</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-33-steps" aria-expanded="false">
@@ -1011,7 +1029,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-34">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-34-steps" aria-expanded="false" aria-controls="scenario-34-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">With AVS Code Snippet</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-34-steps" aria-expanded="false">
@@ -1020,7 +1038,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-35">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-35-steps" aria-expanded="false" aria-controls="scenario-35-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using A Base Class</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-35-steps" aria-expanded="false">
@@ -1034,7 +1052,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-14-statement-link" data-toggle="collapse" href="#feature-14-statement" aria-expanded="false" aria-controls="feature-14-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-14-scenarios" aria-expanded="false" aria-controls="feature-14-scenarios" >Setting The Feature Statement</span>
-<span class="feature duration"> [3 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [2 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-14-stats">
                         <tr id="feature-14-scenario-stats">
@@ -1062,7 +1081,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-36">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-36-steps" aria-expanded="false" aria-controls="scenario-36-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using Standard Attributes</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-36-steps" aria-expanded="false">
@@ -1071,7 +1090,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-37">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-37-steps" aria-expanded="false" aria-controls="scenario-37-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using A Single Attribute</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-37-steps" aria-expanded="false">
@@ -1085,7 +1104,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-15-statement-link" data-toggle="collapse" href="#feature-15-statement" aria-expanded="false" aria-controls="feature-15-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-15-scenarios" aria-expanded="false" aria-controls="feature-15-scenarios" >Overriding A Feature Name</span>
-<span class="feature duration"> [2 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [3 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-15-stats">
                         <tr id="feature-15-scenario-stats">
@@ -1113,7 +1133,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-38">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-38-steps" aria-expanded="false" aria-controls="scenario-38-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">When Adding A Scenario</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-38-steps" aria-expanded="false">
@@ -1122,7 +1142,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-39">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-39-steps" aria-expanded="false" aria-controls="scenario-39-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Attribute</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-39-steps" aria-expanded="false">
@@ -1138,7 +1158,8 @@ By </pre>
 </span>
 </span>
                 <span class="name pointer" id="area-5-name" data-toggle="collapse" href="#area-5-features" aria-expanded="false" aria-controls="area-5-features" >Defining Areas</span>
-<span class="area duration"> [5 ms]</span>
+<span class="area reason"> [Untested]</span>
+<span class="area duration"> [8 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-5-stats">
                 <tr id="area-5-feature-stats">
@@ -1179,7 +1200,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-16-statement-link" data-toggle="collapse" href="#feature-16-statement" aria-expanded="false" aria-controls="feature-16-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-16-scenarios" aria-expanded="false" aria-controls="feature-16-scenarios" >Overriding An Area Name</span>
-<span class="feature duration"> [5 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [8 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-16-stats">
                         <tr id="feature-16-scenario-stats">
@@ -1207,8 +1229,8 @@ By </pre>
                         <li class="scenario skipped" id="scenario-40">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-40-steps" aria-expanded="false" aria-controls="scenario-40-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">When Creating A Scenario</span>
-<span class="status">[Skipped - Untested]</span>
-<span class="scenario duration"> [0 ms]</span>
+<span class="scenario reason"> [Untested]</span>
+<span class="scenario duration"> [1 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-40-steps" aria-expanded="false">
                             </ol>
@@ -1216,7 +1238,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-41">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-41-steps" aria-expanded="false" aria-controls="scenario-41-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">For A Single Feature Via Attribute</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-41-steps" aria-expanded="false">
@@ -1225,7 +1247,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-42">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-42-steps" aria-expanded="false" aria-controls="scenario-42-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">For A Namespace</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-42-steps" aria-expanded="false">
@@ -1241,7 +1263,8 @@ By </pre>
 </span>
 </span>
                 <span class="name pointer" id="area-6-name" data-toggle="collapse" href="#area-6-features" aria-expanded="false" aria-controls="area-6-features" >Defining A Test Run</span>
-<span class="area duration"> [2 ms]</span>
+<span class="area reason"> [Untested]</span>
+<span class="area duration"> [4 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-6-stats">
                 <tr id="area-6-feature-stats">
@@ -1282,7 +1305,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-17-statement-link" data-toggle="collapse" href="#feature-17-statement" aria-expanded="false" aria-controls="feature-17-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-17-scenarios" aria-expanded="false" aria-controls="feature-17-scenarios" >Setting The Test Run Name</span>
-<span class="feature duration"> [2 ms]</span>
+<span class="feature reason"> [Untested]</span>
+<span class="feature duration"> [4 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-17-stats">
                         <tr id="feature-17-scenario-stats">
@@ -1310,7 +1334,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-43">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-43-steps" aria-expanded="false" aria-controls="scenario-43-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via Code</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-43-steps" aria-expanded="false">
@@ -1319,7 +1343,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-44">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-44-steps" aria-expanded="false" aria-controls="scenario-44-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Environment Variable</span>
-<span class="status">[Skipped - Untested]</span>
+<span class="scenario reason"> [Untested]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-44-steps" aria-expanded="false">
@@ -1335,7 +1359,8 @@ By </pre>
 </span>
 </span>
                 <span class="name pointer" id="area-7-name" data-toggle="collapse" href="#area-7-features" aria-expanded="false" aria-controls="area-7-features" >Setting Ids</span>
-<span class="area duration"> [6 ms]</span>
+<span class="area reason"> [Defining]</span>
+<span class="area duration"> [9 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-7-stats">
                 <tr id="area-7-feature-stats">
@@ -1376,7 +1401,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-18-statement-link" data-toggle="collapse" href="#feature-18-statement" aria-expanded="false" aria-controls="feature-18-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-18-scenarios" aria-expanded="false" aria-controls="feature-18-scenarios" >Setting An ID For A Scenario</span>
-<span class="feature duration"> [4 ms]</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [6 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-18-stats">
                         <tr id="feature-18-scenario-stats">
@@ -1404,7 +1430,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-45">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-45-steps" aria-expanded="false" aria-controls="scenario-45-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">That Is Unique</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-45-steps" aria-expanded="false">
@@ -1413,7 +1439,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-46">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-46-steps" aria-expanded="false" aria-controls="scenario-46-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">That Is Not Unique</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-46-steps" aria-expanded="false">
@@ -1422,7 +1448,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-47">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-47-steps" aria-expanded="false" aria-controls="scenario-47-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">That Is An Empty String</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-47-steps" aria-expanded="false">
@@ -1436,6 +1462,7 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-19-statement-link" data-toggle="collapse" href="#feature-19-statement" aria-expanded="false" aria-controls="feature-19-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-19-scenarios" aria-expanded="false" aria-controls="feature-19-scenarios" >Setting An ID For A Feature</span>
+<span class="feature reason"> [Defining]</span>
 <span class="feature duration"> [0 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-19-stats">
@@ -1464,7 +1491,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-48">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-48-steps" aria-expanded="false" aria-controls="scenario-48-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Attribute</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-48-steps" aria-expanded="false">
@@ -1480,7 +1507,8 @@ By </pre>
 </span>
 </span>
                 <span class="name pointer" id="area-8-name" data-toggle="collapse" href="#area-8-features" aria-expanded="false" aria-controls="area-8-features" >Setting Status</span>
-<span class="area duration"> [161 ms]</span>
+<span class="area reason"> [Defining]</span>
+<span class="area duration"> [271 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-8-stats">
                 <tr id="area-8-feature-stats">
@@ -1521,7 +1549,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-20-statement-link" data-toggle="collapse" href="#feature-20-statement" aria-expanded="false" aria-controls="feature-20-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-20-scenarios" aria-expanded="false" aria-controls="feature-20-scenarios" >Setting The Status Of A Scenario</span>
-<span class="feature duration"> [89 ms]</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [155 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-20-stats">
                         <tr id="feature-20-scenario-stats">
@@ -1549,7 +1578,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-49">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-49-steps" aria-expanded="false" aria-controls="scenario-49-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Defining</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-49-steps" aria-expanded="false">
@@ -1558,7 +1587,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-50">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-50-steps" aria-expanded="false" aria-controls="scenario-50-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Ready</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-50-steps" aria-expanded="false">
@@ -1567,7 +1596,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-51">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-51-steps" aria-expanded="false" aria-controls="scenario-51-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Building</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-51-steps" aria-expanded="false">
@@ -1576,7 +1605,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-52">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-52-steps" aria-expanded="false" aria-controls="scenario-52-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Untested</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-52-steps" aria-expanded="false">
@@ -1585,7 +1614,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-53">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-53-steps" aria-expanded="false" aria-controls="scenario-53-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Failing</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-53-steps" aria-expanded="false">
@@ -1594,7 +1623,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-54">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-54-steps" aria-expanded="false" aria-controls="scenario-54-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Waiting</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-54-steps" aria-expanded="false">
@@ -1603,7 +1632,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-55">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-55-steps" aria-expanded="false" aria-controls="scenario-55-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Fixing</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-55-steps" aria-expanded="false">
@@ -1612,7 +1641,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-56">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-56-steps" aria-expanded="false" aria-controls="scenario-56-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Built</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-56-steps" aria-expanded="false">
@@ -1621,7 +1650,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-57">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-57-steps" aria-expanded="false" aria-controls="scenario-57-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Deployed</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-57-steps" aria-expanded="false">
@@ -1630,7 +1659,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-58">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-58-steps" aria-expanded="false" aria-controls="scenario-58-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Executing</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-58-steps" aria-expanded="false">
@@ -1639,7 +1668,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-59">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-59-steps" aria-expanded="false" aria-controls="scenario-59-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Deprecated</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-59-steps" aria-expanded="false">
@@ -1653,7 +1682,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-21-statement-link" data-toggle="collapse" href="#feature-21-statement" aria-expanded="false" aria-controls="feature-21-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-21-scenarios" aria-expanded="false" aria-controls="feature-21-scenarios" >Setting The Status Of A Feature</span>
-<span class="feature duration"> [68 ms]</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [112 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-21-stats">
                         <tr id="feature-21-scenario-stats">
@@ -1681,8 +1711,8 @@ By </pre>
                         <li class="scenario skipped" id="scenario-60">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-60-steps" aria-expanded="false" aria-controls="scenario-60-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Defining</span>
-<span class="status">[Skipped - Defining]</span>
-<span class="scenario duration"> [3 ms]</span>
+<span class="scenario reason"> [Defining]</span>
+<span class="scenario duration"> [8 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-60-steps" aria-expanded="false">
                             </ol>
@@ -1690,7 +1720,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-61">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-61-steps" aria-expanded="false" aria-controls="scenario-61-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Ready</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-61-steps" aria-expanded="false">
@@ -1699,7 +1729,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-62">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-62-steps" aria-expanded="false" aria-controls="scenario-62-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">To Building</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-62-steps" aria-expanded="false">
@@ -1715,7 +1745,8 @@ By </pre>
 </span>
 </span>
                 <span class="name pointer" id="area-9-name" data-toggle="collapse" href="#area-9-features" aria-expanded="false" aria-controls="area-9-features" >Adding Estimates</span>
-<span class="area duration"> [8 ms]</span>
+<span class="area reason"> [Defining]</span>
+<span class="area duration"> [11 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-9-stats">
                 <tr id="area-9-feature-stats">
@@ -1756,6 +1787,7 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-22-statement-link" data-toggle="collapse" href="#feature-22-statement" aria-expanded="false" aria-controls="feature-22-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-22-scenarios" aria-expanded="false" aria-controls="feature-22-scenarios" >Setting A Feature Scenario Estimate</span>
+<span class="feature reason"> [Defining]</span>
 <span class="feature duration"> [0 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-22-stats">
@@ -1784,7 +1816,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-63">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-63-steps" aria-expanded="false" aria-controls="scenario-63-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Placeholder</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-63-steps" aria-expanded="false">
@@ -1798,6 +1830,7 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-23-statement-link" data-toggle="collapse" href="#feature-23-statement" aria-expanded="false" aria-controls="feature-23-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-23-scenarios" aria-expanded="false" aria-controls="feature-23-scenarios" >Setting A Feature Value Estimate</span>
+<span class="feature reason"> [Defining]</span>
 <span class="feature duration"> [0 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-23-stats">
@@ -1826,7 +1859,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-64">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-64-steps" aria-expanded="false" aria-controls="scenario-64-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Placeholder</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-64-steps" aria-expanded="false">
@@ -1840,6 +1873,7 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-24-statement-link" data-toggle="collapse" href="#feature-24-statement" aria-expanded="false" aria-controls="feature-24-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-24-scenarios" aria-expanded="false" aria-controls="feature-24-scenarios" >Setting A Feature Level Of Effort Estimate</span>
+<span class="feature reason"> [Defining]</span>
 <span class="feature duration"> [0 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-24-stats">
@@ -1868,7 +1902,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-65">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-65-steps" aria-expanded="false" aria-controls="scenario-65-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Placeholder</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-65-steps" aria-expanded="false">
@@ -1882,6 +1916,7 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-25-statement-link" data-toggle="collapse" href="#feature-25-statement" aria-expanded="false" aria-controls="feature-25-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-25-scenarios" aria-expanded="false" aria-controls="feature-25-scenarios" >Setting A Area Estimates Using A Placeholder Feature</span>
+<span class="feature reason"> [Defining]</span>
 <span class="feature duration"> [0 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-25-stats">
@@ -1910,7 +1945,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-66">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-66-steps" aria-expanded="false" aria-controls="scenario-66-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Placeholder</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-66-steps" aria-expanded="false">
@@ -1926,7 +1961,8 @@ By </pre>
 </span>
 </span>
                 <span class="name pointer" id="area-10-name" data-toggle="collapse" href="#area-10-features" aria-expanded="false" aria-controls="area-10-features" >Adding Tags</span>
-<span class="area duration"> [19 ms]</span>
+<span class="area reason"> [Defining]</span>
+<span class="area duration"> [21 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-10-stats">
                 <tr id="area-10-feature-stats">
@@ -1967,7 +2003,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-26-statement-link" data-toggle="collapse" href="#feature-26-statement" aria-expanded="false" aria-controls="feature-26-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-26-scenarios" aria-expanded="false" aria-controls="feature-26-scenarios" >Adding Tags To A Scenario</span>
-<span class="feature duration"> [1 ms]</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [2 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-26-stats">
                         <tr id="feature-26-scenario-stats">
@@ -1995,7 +2032,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-67">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-67-steps" aria-expanded="false" aria-controls="scenario-67-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">In Code</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-67-steps" aria-expanded="false">
@@ -2004,7 +2041,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-68">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-68-steps" aria-expanded="false" aria-controls="scenario-68-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Attribute</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-68-steps" aria-expanded="false">
@@ -2018,7 +2055,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-27-statement-link" data-toggle="collapse" href="#feature-27-statement" aria-expanded="false" aria-controls="feature-27-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-27-scenarios" aria-expanded="false" aria-controls="feature-27-scenarios" >Adding Tags To A Feature</span>
-<span class="feature duration"> [3 ms]</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [2 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-27-stats">
                         <tr id="feature-27-scenario-stats">
@@ -2046,7 +2084,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-69">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-69-steps" aria-expanded="false" aria-controls="scenario-69-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">In Code</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-69-steps" aria-expanded="false">
@@ -2055,7 +2093,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-70">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-70-steps" aria-expanded="false" aria-controls="scenario-70-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Attribute</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-70-steps" aria-expanded="false">
@@ -2069,7 +2107,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-28-statement-link" data-toggle="collapse" href="#feature-28-statement" aria-expanded="false" aria-controls="feature-28-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-28-scenarios" aria-expanded="false" aria-controls="feature-28-scenarios" >Adding Tags To An Area</span>
-<span class="feature duration"> [1 ms]</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [2 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-28-stats">
                         <tr id="feature-28-scenario-stats">
@@ -2097,7 +2136,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-71">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-71-steps" aria-expanded="false" aria-controls="scenario-71-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via Code</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-71-steps" aria-expanded="false">
@@ -2106,7 +2145,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-72">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-72-steps" aria-expanded="false" aria-controls="scenario-72-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Assembly Attribute</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-72-steps" aria-expanded="false">
@@ -2120,6 +2159,7 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-29-statement-link" data-toggle="collapse" href="#feature-29-statement" aria-expanded="false" aria-controls="feature-29-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-29-scenarios" aria-expanded="false" aria-controls="feature-29-scenarios" >Adding Tags To A Test Run</span>
+<span class="feature reason"> [Defining]</span>
 <span class="feature duration"> [2 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-29-stats">
@@ -2148,7 +2188,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-73">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-73-steps" aria-expanded="false" aria-controls="scenario-73-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via Code</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-73-steps" aria-expanded="false">
@@ -2157,7 +2197,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-74">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-74-steps" aria-expanded="false" aria-controls="scenario-74-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Assembly Attribute</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-74-steps" aria-expanded="false">
@@ -2173,7 +2213,8 @@ By </pre>
 </span>
 </span>
                 <span class="name pointer" id="area-11-name" data-toggle="collapse" href="#area-11-features" aria-expanded="false" aria-controls="area-11-features" >Adding Explanations</span>
-<span class="area duration"> [48 ms]</span>
+<span class="area reason"> [Defining]</span>
+<span class="area duration"> [79 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-11-stats">
                 <tr id="area-11-feature-stats">
@@ -2214,7 +2255,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-30-statement-link" data-toggle="collapse" href="#feature-30-statement" aria-expanded="false" aria-controls="feature-30-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-30-scenarios" aria-expanded="false" aria-controls="feature-30-scenarios" >Adding An Explanation To A Step</span>
-<span class="feature duration"> [6 ms]</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [13 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-30-stats">
                         <tr id="feature-30-scenario-stats">
@@ -2242,7 +2284,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-75">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-75-steps" aria-expanded="false" aria-controls="scenario-75-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Straight Texts</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-75-steps" aria-expanded="false">
@@ -2251,7 +2293,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-76">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-76-steps" aria-expanded="false" aria-controls="scenario-76-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Leveraging Markdown</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-76-steps" aria-expanded="false">
@@ -2260,7 +2302,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-77">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-77-steps" aria-expanded="false" aria-controls="scenario-77-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Adding Refereneces To Other Features</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-77-steps" aria-expanded="false">
@@ -2269,7 +2311,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-78">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-78-steps" aria-expanded="false" aria-controls="scenario-78-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Adding Refereneces To Other Scenarios</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-78-steps" aria-expanded="false">
@@ -2283,6 +2325,7 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-31-statement-link" data-toggle="collapse" href="#feature-31-statement" aria-expanded="false" aria-controls="feature-31-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-31-scenarios" aria-expanded="false" aria-controls="feature-31-scenarios" >Adding An Explanation To A Scenario</span>
+<span class="feature reason"> [Defining]</span>
 <span class="feature duration"> [3 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-31-stats">
@@ -2311,7 +2354,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-79">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-79-steps" aria-expanded="false" aria-controls="scenario-79-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using Plain Text</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-79-steps" aria-expanded="false">
@@ -2320,7 +2363,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-80">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-80-steps" aria-expanded="false" aria-controls="scenario-80-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using Markdown</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-80-steps" aria-expanded="false">
@@ -2334,7 +2377,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-32-statement-link" data-toggle="collapse" href="#feature-32-statement" aria-expanded="false" aria-controls="feature-32-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-32-scenarios" aria-expanded="false" aria-controls="feature-32-scenarios" >Adding An Explanation To A Feature</span>
-<span class="feature duration"> [7 ms]</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [14 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-32-stats">
                         <tr id="feature-32-scenario-stats">
@@ -2362,7 +2406,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-81">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-81-steps" aria-expanded="false" aria-controls="scenario-81-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Attribute With Inline Text</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-81-steps" aria-expanded="false">
@@ -2371,7 +2415,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-82">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-82-steps" aria-expanded="false" aria-controls="scenario-82-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Attribute With A File Reference</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-82-steps" aria-expanded="false">
@@ -2380,7 +2424,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-83">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-83-steps" aria-expanded="false" aria-controls="scenario-83-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using Plain Text</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-83-steps" aria-expanded="false">
@@ -2389,7 +2433,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-84">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-84-steps" aria-expanded="false" aria-controls="scenario-84-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using Markdown</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-84-steps" aria-expanded="false">
@@ -2403,7 +2447,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-33-statement-link" data-toggle="collapse" href="#feature-33-statement" aria-expanded="false" aria-controls="feature-33-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-33-scenarios" aria-expanded="false" aria-controls="feature-33-scenarios" >Adding An Explanation To An Area</span>
-<span class="feature duration"> [8 ms]</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [11 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-33-stats">
                         <tr id="feature-33-scenario-stats">
@@ -2431,7 +2476,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-85">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-85-steps" aria-expanded="false" aria-controls="scenario-85-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Attribute With Inline Text</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-85-steps" aria-expanded="false">
@@ -2440,7 +2485,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-86">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-86-steps" aria-expanded="false" aria-controls="scenario-86-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Attribute With A File Reference</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-86-steps" aria-expanded="false">
@@ -2449,7 +2494,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-87">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-87-steps" aria-expanded="false" aria-controls="scenario-87-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using Plain Text</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-87-steps" aria-expanded="false">
@@ -2458,7 +2503,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-88">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-88-steps" aria-expanded="false" aria-controls="scenario-88-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using Markdown</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-88-steps" aria-expanded="false">
@@ -2472,7 +2517,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-34-statement-link" data-toggle="collapse" href="#feature-34-statement" aria-expanded="false" aria-controls="feature-34-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-34-scenarios" aria-expanded="false" aria-controls="feature-34-scenarios" >Adding An Explanation To A Test Run</span>
-<span class="feature duration"> [11 ms]</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [14 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-34-stats">
                         <tr id="feature-34-scenario-stats">
@@ -2500,7 +2546,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-89">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-89-steps" aria-expanded="false" aria-controls="scenario-89-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Attribute With Inline Text</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-89-steps" aria-expanded="false">
@@ -2509,7 +2555,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-90">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-90-steps" aria-expanded="false" aria-controls="scenario-90-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Via An Attribute With A File Reference</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-90-steps" aria-expanded="false">
@@ -2518,7 +2564,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-91">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-91-steps" aria-expanded="false" aria-controls="scenario-91-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using Plain Text</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-91-steps" aria-expanded="false">
@@ -2527,7 +2573,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-92">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-92-steps" aria-expanded="false" aria-controls="scenario-92-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Using Markdown</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-92-steps" aria-expanded="false">
@@ -2543,7 +2589,8 @@ By </pre>
 </span>
 </span>
                 <span class="name pointer" id="area-12-name" data-toggle="collapse" href="#area-12-features" aria-expanded="false" aria-controls="area-12-features" >Setting Ownership</span>
-<span class="area duration"> [7 ms]</span>
+<span class="area reason"> [Defining]</span>
+<span class="area duration"> [8 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-12-stats">
                 <tr id="area-12-feature-stats">
@@ -2584,7 +2631,8 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-35-statement-link" data-toggle="collapse" href="#feature-35-statement" aria-expanded="false" aria-controls="feature-35-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-35-scenarios" aria-expanded="false" aria-controls="feature-35-scenarios" >Setting An Owner For A Scenario</span>
-<span class="feature duration"> [2 ms]</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [3 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-35-stats">
                         <tr id="feature-35-scenario-stats">
@@ -2612,7 +2660,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-93">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-93-steps" aria-expanded="false" aria-controls="scenario-93-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Setting A Single Owner</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-93-steps" aria-expanded="false">
@@ -2621,7 +2669,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-94">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-94-steps" aria-expanded="false" aria-controls="scenario-94-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Setting Multiple Owners</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-94-steps" aria-expanded="false">
@@ -2635,6 +2683,7 @@ By </pre>
 </span>
 </span>
 <span class="feature-statement-link badge pointer badge-secondary" id="feature-36-statement-link" data-toggle="collapse" href="#feature-36-statement" aria-expanded="false" aria-controls="feature-36-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-36-scenarios" aria-expanded="false" aria-controls="feature-36-scenarios" >Setting An Owner For A Feature</span>
+<span class="feature reason"> [Defining]</span>
 <span class="feature duration"> [2 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-36-stats">
@@ -2663,7 +2712,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-95">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-95-steps" aria-expanded="false" aria-controls="scenario-95-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Setting A Single Owner</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-95-steps" aria-expanded="false">
@@ -2672,7 +2721,7 @@ By </pre>
                         <li class="scenario skipped" id="scenario-96">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-96-steps" aria-expanded="false" aria-controls="scenario-96-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
 <span class="name pointer">Setting Multiple Owners</span>
-<span class="status">[Skipped - Defining]</span>
+<span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-96-steps" aria-expanded="false">
