@@ -1,6 +1,6 @@
-xBDD.Features.GeneratingReports
+xBDD Generating Reports
 
-xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report - Generating
+xBDD - Features - Generating Reports - HTML Test Run Report - Generating
 	Generate A Report
 		With Full Test Run [Skipped - Untested]
 		With Empty Test Run [Skipped - Untested]
@@ -16,7 +16,7 @@ xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report
 	View A Report
 		From A File Server [Skipped - Untested]
 		From A Web Server [Skipped - Untested]
-xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report - Review Test Run Information
+xBDD - Features - Generating Reports - HTML Test Run Report - Review Test Run Information
 	Review Test Run Name
 		With Name [Skipped - Untested]
 		With No Name [Skipped - Untested]
@@ -80,7 +80,7 @@ xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report
 		Expanding Areas [Skipped - Untested]
 		Collapsing Areas [Skipped - Untested]
 		With No Areas [Skipped - Untested]
-xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report - Review Area Information
+xBDD - Features - Generating Reports - HTML Test Run Report - Review Area Information
 	Review Area Name
 		With Name [Skipped - Untested]
 		With No Name [Skipped - Untested]
@@ -132,7 +132,7 @@ xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report
 		Expanding Features [Skipped - Untested]
 		Collapsing Features [Skipped - Untested]
 		Without Features [Skipped - Untested]
-xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report - Review Feature Information
+xBDD - Features - Generating Reports - HTML Test Run Report - Review Feature Information
 	Review Feature Information
 		With Name [Skipped - Untested]
 		With No Name [Skipped - Untested]
@@ -172,7 +172,7 @@ xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report
 		Expanding Scenarios [Skipped - Untested]
 		Collapsing Scenarios [Skipped - Untested]
 		With No Scenarios [Skipped - Untested]
-xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report - Review Scenario Information
+xBDD - Features - Generating Reports - HTML Test Run Report - Review Scenario Information
 	Review Scenario Information
 		With Name [Skipped - Untested]
 		With No Name [Skipped - Untested]
@@ -188,7 +188,7 @@ xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report
 		Expanding Steps [Skipped - Untested]
 		Collapsing Steps [Skipped - Untested]
 		With No Steps [Skipped - Untested]
-xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report - Review Step Information
+xBDD - Features - Generating Reports - HTML Test Run Report - Review Step Information
 	Review Step Information
 		With Name [Skipped - Untested]
 		With No Name [Skipped - Untested]
@@ -209,7 +209,7 @@ xBDD - Features - Generating Reports - Generating Reports - HTML Test Run Report
 		Collapsing Exception [Skipped - Untested]
 		With Inner Exception [Skipped - Untested]
 		With No Exception [Skipped - Untested]
-xBDD - Features - Generating Reports - Generating Reports - Generatinga JSON Test Run Report
+xBDD - Features - Generating Reports - JSON Test Run Report
 	Generate A Json Report With General Scenarios
 		With Full Test Run [Skipped - Untested]
 		With Empty Test Run [Skipped - Untested]
@@ -250,7 +250,7 @@ xBDD - Features - Generating Reports - Generating Reports - Generatinga JSON Tes
 		With Step Output Empty [Skipped - Untested]
 		With Step Exception [Skipped - Untested]
 		With Step Inner Exception [Skipped - Untested]
-xBDD - Features - Generating Reports - Generating Reports - Generatingan Outline Test Run Report
+xBDD - Features - Generating Reports - Outline Test Run Report
 	Generate An Outline Report With General Scenarios
 		With Full Test Run [Skipped - Untested]
 		With Empty Test Run [Skipped - Untested]
@@ -291,7 +291,7 @@ xBDD - Features - Generating Reports - Generating Reports - Generatingan Outline
 		With Step Output Empty [Skipped - Untested]
 		With Step Exception [Skipped - Untested]
 		With Step Inner Exception [Skipped - Untested]
-xBDD - Features - Generating Reports - Generating Reports - Generatinga Text Test Run Report
+xBDD - Features - Generating Reports - Text Test Run Report
 	Generate A Text Report With General Scenarios
 		With Full Test Run [Skipped - Untested]
 		With Empty Test Run [Skipped - Untested]
@@ -332,7 +332,7 @@ xBDD - Features - Generating Reports - Generating Reports - Generatinga Text Tes
 		With Step Output Empty [Skipped - Untested]
 		With Step Exception [Skipped - Untested]
 		With Step Inner Exception [Skipped - Untested]
-xBDD - Features - Generating Reports - Generating Reports - Generatinga Text Test Run Outline Report
+xBDD - Features - Generating Reports - Text Outline Test Run Report
 	Generate A Text Outline Report With General Scenarios
 		With Full Test Run [Skipped - Untested]
 		With Empty Test Run [Skipped - Untested]

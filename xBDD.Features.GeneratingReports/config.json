@@ -1,6 +1,6 @@
 {
     "xBDD": {
-        "TestRunName": "xBDD.Features.GeneratingReports",
+        "TestRunName": "xBDD Generating Reports",
         "Browser": {
             "Watch": "false"
         },

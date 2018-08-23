@@ -1,4 +1,4 @@
-namespace xBDD.Features
+namespace xBDD.Features.AutomatingUITesting
 {
     using System;
     using System.Collections.Generic;

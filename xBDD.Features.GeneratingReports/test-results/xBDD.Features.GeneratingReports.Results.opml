@@ -4,7 +4,7 @@
   </head>
   <body>
 
-<outline text="Generating Reports - HTML Test Run Report - Generating [Untested]">
+<outline text="HTML Test Run Report - Generating [Untested]">
 	<outline text="Generate A Report [Untested]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>
@@ -36,7 +36,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Generating Reports - HTML Test Run Report - Review Test Run Information [Untested]">
+<outline text="HTML Test Run Report - Review Test Run Information [Untested]">
 	<outline text="Review Test Run Name [Untested]">
 		<outline text="With Name [Untested]">
 		</outline>
@@ -164,7 +164,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Generating Reports - HTML Test Run Report - Review Area Information [Untested]">
+<outline text="HTML Test Run Report - Review Area Information [Untested]">
 	<outline text="Review Area Name [Untested]">
 		<outline text="With Name [Untested]">
 		</outline>
@@ -268,7 +268,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Generating Reports - HTML Test Run Report - Review Feature Information [Untested]">
+<outline text="HTML Test Run Report - Review Feature Information [Untested]">
 	<outline text="Review Feature Information [Untested]">
 		<outline text="With Name [Untested]">
 		</outline>
@@ -348,7 +348,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Generating Reports - HTML Test Run Report - Review Scenario Information [Untested]">
+<outline text="HTML Test Run Report - Review Scenario Information [Untested]">
 	<outline text="Review Scenario Information [Untested]">
 		<outline text="With Name [Untested]">
 		</outline>
@@ -380,7 +380,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Generating Reports - HTML Test Run Report - Review Step Information [Untested]">
+<outline text="HTML Test Run Report - Review Step Information [Untested]">
 	<outline text="Review Step Information [Untested]">
 		<outline text="With Name [Untested]">
 		</outline>
@@ -422,7 +422,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Generating Reports - Generatinga JSON Test Run Report [Untested]">
+<outline text="JSON Test Run Report [Untested]">
 	<outline text="Generate A Json Report With General Scenarios [Untested]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>
@@ -504,7 +504,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Generating Reports - Generatingan Outline Test Run Report [Untested]">
+<outline text="Outline Test Run Report [Untested]">
 	<outline text="Generate An Outline Report With General Scenarios [Untested]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>
@@ -586,7 +586,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Generating Reports - Generatinga Text Test Run Report [Untested]">
+<outline text="Text Test Run Report [Untested]">
 	<outline text="Generate A Text Report With General Scenarios [Untested]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>
@@ -668,7 +668,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Generating Reports - Generatinga Text Test Run Outline Report [Untested]">
+<outline text="Text Outline Test Run Report [Untested]">
 	<outline text="Generate A Text Outline Report With General Scenarios [Untested]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>

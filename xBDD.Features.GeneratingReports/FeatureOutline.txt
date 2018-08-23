@@ -1,6 +1,6 @@
-xBDD.Features.GeneratingReports
+xBDD Generating Reports
 
-Generating Reports - HTML Test Run Report - Generating
+HTML Test Run Report - Generating
 	Generate a report
 		With Full Test Run
 		With Empty Test Run
@@ -16,7 +16,7 @@ Generating Reports - HTML Test Run Report - Generating
 	View a report
 		From a File Server
 		From a Web Server
-Generating Reports - HTML Test Run Report - Review Test Run Information
+HTML Test Run Report - Review Test Run Information
 	Review test run name
 		With Name
 		With No Name
@@ -80,7 +80,7 @@ Generating Reports - HTML Test Run Report - Review Test Run Information
 		Expanding Areas
 		Collapsing Areas
 		With No Areas
-Generating Reports - HTML Test Run Report - Review Area Information
+HTML Test Run Report - Review Area Information
 	Review area name
 		With Name
 		With No Name
@@ -132,7 +132,7 @@ Generating Reports - HTML Test Run Report - Review Area Information
 		Expanding features
 		Collapsing features
 		Without features
-Generating Reports - HTML Test Run Report - Review Feature Information
+HTML Test Run Report - Review Feature Information
 	Review feature information
 		With Name
 		With No Name
@@ -172,7 +172,7 @@ Generating Reports - HTML Test Run Report - Review Feature Information
 		Expanding scenarios
 		Collapsing scenarios
 		With no scenarios
-Generating Reports - HTML Test Run Report - Review Scenario Information
+HTML Test Run Report - Review Scenario Information
 	Review scenario information
 		With Name
 		With No Name
@@ -188,7 +188,7 @@ Generating Reports - HTML Test Run Report - Review Scenario Information
 		Expanding steps
 		Collapsing steps
 		With no steps
-Generating Reports - HTML Test Run Report - Review Step Information
+HTML Test Run Report - Review Step Information
 	Review step information
 		With Name
 		With No Name
@@ -209,7 +209,7 @@ Generating Reports - HTML Test Run Report - Review Step Information
 		Collapsing exception
 		With inner exception
 		With no exception
-Generating Reports - Generating a JSON Test Run Report
+JSON Test Run Report
 	Generate a Json Report With General Scenarios
 		With Full Test Run
 		With Empty Test Run
@@ -250,7 +250,7 @@ Generating Reports - Generating a JSON Test Run Report
 		With Step Output Empty
 		With Step Exception
 		With Step Inner Exception
-Generating Reports - Generating an Outline Test Run Report
+Outline Test Run Report
 	Generate an Outline Report With General Scenarios
 		With Full Test Run
 		With Empty Test Run
@@ -291,7 +291,7 @@ Generating Reports - Generating an Outline Test Run Report
 		With Step Output Empty
 		With Step Exception
 		With Step Inner Exception
-Generating Reports - Generating a Text Test Run Report
+Text Test Run Report
 	Generate a Text Report With General Scenarios
 		With Full Test Run
 		With Empty Test Run
@@ -332,7 +332,7 @@ Generating Reports - Generating a Text Test Run Report
 		With Step Output Empty
 		With Step Exception
 		With Step Inner Exception
-Generating Reports - Generating a Text Test Run Outline Report
+Text Outline Test Run Report
 	Generate a Text Outline Report With General Scenarios
 		With Full Test Run
 		With Empty Test Run
@@ -373,4 +373,5 @@ Generating Reports - Generating a Text Test Run Outline Report
 		With Step Output Empty
 		With Step Exception
 		With Step Inner Exception
+
 
