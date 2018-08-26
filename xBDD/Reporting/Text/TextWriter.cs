@@ -12,59 +12,61 @@ namespace xBDD.Reporting.Text
     /// </summary>
     public class TextWriter
     {
-        private bool includeStatus;
+        private bool includeExceptions;
         /// <summary>
         /// Writes test run results in a text format to a string.
         /// </summary>
         /// <param name="testRun">The test run to write to a text string.</param>
-        /// <param name="includeStatus">Sets the text writer to include 
-        /// non-passing step status in the name and print out exceptions.</param>
+        /// <param name="includeExceptions">Sets the text writer to include 
+        /// exception information for failed steps.</param>
         /// <returns>The text respresentation of the test run results.</returns>
-        public async Task<string> WriteToText(TestRun testRun, bool includeStatus)
+        public string WriteToText(TestRun testRun, bool includeExceptions)
         {
-            this.includeStatus = includeStatus;
-            return await Task.Run(() => {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine(testRun.Name);
-                sb.AppendLine();
-                Scenario lastScenario = null;
-                var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
-                if(testRun.Sorted)
-                    sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
-                foreach(var scenario in sortedScenarios)
-                {
-                    WriteScenario(lastScenario, scenario, sb);
-                    lastScenario = scenario;
-                }
-                return sb.ToString();
-            });
+            this.includeExceptions = includeExceptions;
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(testRun.Name);
+            sb.AppendLine();
+            Scenario lastScenario = null;
+            var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
+            if(testRun.Sorted)
+                sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
+            foreach(var scenario in sortedScenarios)
+            {
+                WriteScenario(lastScenario, scenario, sb);
+                lastScenario = scenario;
+            }
+            return sb.ToString();
         }
 
         private void WriteScenario(Scenario lastScenario, Scenario scenario, StringBuilder sb)
         {
             if(lastScenario == null || (lastScenario != null && lastScenario.Feature.Area.Name != scenario.Feature.Area.Name))
             {
-                sb.AppendLine(scenario.Feature.Area.Name);
+                sb.Append(scenario.Feature.Area.Name);
+                if (scenario.Feature.Area.Reason != null)
+                {
+                    sb.AppendLine($" [{scenario.Feature.Area.Reason}]");
+                }
+                else
+                    sb.AppendLine();
             }
 
             if (lastScenario == null || (lastScenario != null && lastScenario.Feature.Name != scenario.Feature.Name))
             {
                 sb.Append("\t");
-                sb.AppendLine(scenario.Feature.Name);
+                sb.Append(scenario.Feature.Name);
+                if (scenario.Feature.Reason != null)
+                {
+                    sb.AppendLine($" [{scenario.Feature.Reason}]");
+                }
+                else
+                    sb.AppendLine();
             }
             sb.Append("\t\t");
             sb.Append(scenario.Name);
-            if (scenario.Outcome != Outcome.Passed && includeStatus)
+            if (scenario.Reason != null)
             {
-                sb.Append(" [");
-                sb.Append(Enum.GetName(typeof(Outcome), scenario.Outcome));
-                if (scenario.Reason != null && scenario.Reason != "Failed Step")
-                {
-                    sb.Append(" - ");
-                    sb.Append(scenario.Reason);
-                }
-                sb.AppendLine("]");
-
+                sb.AppendLine($" [{scenario.Reason}]");
             }
             else
                 sb.AppendLine();
@@ -79,12 +81,9 @@ namespace xBDD.Reporting.Text
             sb.Append("\t\t\t" + step.FullName.Replace(System.Environment.NewLine, ""));
             if (step.Scenario.Outcome == Outcome.Failed)
             {
-                if (step.Outcome != Outcome.Passed && includeStatus)
+                if (step.Reason != null)
                 {
-                    sb.Append(" [" + Enum.GetName(typeof(Outcome), step.Outcome));
-                    if (step.Reason != null && (step.Outcome != Outcome.Failed || step.Reason == "Not Implemented"))
-                        sb.Append(" - " + step.Reason);
-                    sb.AppendLine("]");
+                    sb.AppendLine($" [{step.Reason}]");
                 }
                 else
                     sb.AppendLine();
@@ -95,7 +94,7 @@ namespace xBDD.Reporting.Text
             {
                 WriteMultilineParameter(step.MultilineParameter, sb);
             }
-            if (step.Exception != null && !(step.Exception is NotImplementedException) && step.Outcome != Outcome.Skipped && includeStatus)
+            if (step.Exception != null && !(step.Exception is NotImplementedException) && step.Outcome != Outcome.Skipped && includeExceptions)
                 WriteException(step.Exception, sb);
         }
 

@@ -80,7 +80,7 @@ namespace xBDD.Core
                             step.StartTime = DateTime.Now;
                             step.EndTime = step.StartTime;
                             step.Outcome = Outcome.Skipped;
-                            step.Reason = "Previous Error";
+                            step.Reason = "Skipped - Previous Error";
                             statsCascader.CascadeStepStats(step, false);
                         }
                     }

@@ -6,9 +6,11 @@ namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
     {
         public async Task<string> Execute()
         {
-            var xBDD = new xBDDMock();
-            xBDD.CurrentRun.TestRun.Name = "My Test Run";
-            return await xBDD.CurrentRun.TestRun.WriteToText();
+            return await Task.Run(() => {
+                var xBDD = new xBDDMock();
+                xBDD.CurrentRun.TestRun.Name = "My Test Run";
+                return xBDD.CurrentRun.TestRun.WriteToText();
+            });
         }
     }
 }

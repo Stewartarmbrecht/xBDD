@@ -13,11 +13,14 @@
     <PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.14.0" />
-    <PackageReference Include="xBDD" Version="0.0.5-alpha" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="config.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\xBDD\xBDD.csproj" />
   </ItemGroup>
 
 </Project>

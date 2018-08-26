@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Collections.Generic;
 using xBDD.Importing.Text;
+using xBDD.Importing.Json;
 using xBDD;
 using xBDD.Model;
 
@@ -15,7 +16,7 @@ namespace xBDD.Tools
           FullName = "dotnet-xbdd",
           Description = "Creates a new test project initialized for xBDD"),
     Subcommand("init", typeof(Init)), 
-    Subcommand("code", typeof(Code))]
+    Subcommand("convert", typeof(Convert))]
     [HelpOption]
     class Program
     {
@@ -33,11 +34,6 @@ namespace xBDD.Tools
             return 1;
         }
 
-        /// <summary>
-        /// <see cref="HelpOptionAttribute"/> must be declared on each type that supports '--help'.
-        /// Compare to the inheritance example, in which <see cref="GitCommandBase"/> delcares it
-        /// once so that all subcommand types automatically support '--help'.
-        /// </summary>
         [Command("init", Description = "Initializes a new test project in the current folder."),
          Subcommand("mstest", typeof(MSTest)),
          Subcommand("xunit", typeof(XUnit))]
@@ -82,20 +78,23 @@ namespace xBDD.Tools
             }
         }
 
-        [Command("code",
-            Description = "Generates feature code for the source you specify.")]
-        private class Code
+        [Command("convert",
+            Description = "Converts from one TestRun serialization format to another.")]
+        private class Convert
         {
             [Option("-s|--source-file", "Sets the path to the source file.", CommandOptionType.SingleValue)]
             [FileExists]
             public string SourceFile { get; }
             
-            [Option("-st|--source-type", "Sets the source type.", CommandOptionType.SingleValue)]
-            public SourceType SourceType { get; }
+            [Option("-sf|--source-format", "Designates the format of the source.", CommandOptionType.SingleValue)]
+            public SourceFormat SourceFormat { get; }
             
             [Option("-d|--destination-file", "Sets the source type.", CommandOptionType.SingleValue)]
             [DirectoryExists]
             public string Destination { get; }
+            
+            [Option("-dt|--destination-format", "Sets the de type.", CommandOptionType.SingleValue)]
+            public DestinationFormat DestinationFormat { get; }
             
             [Option("-i|--indentation", "Sets the string used to indent a level in the text file.", CommandOptionType.SingleValue)]
             public string Indentation { get; }
@@ -119,12 +118,13 @@ namespace xBDD.Tools
             private int OnExecute(IConsole console)
             {
                 try {
+                    TestRun testRun = null;
                     string source = System.IO.File.ReadAllText(SourceFile);
-                    console.WriteLine($"Source Type: {SourceType}");
+                    console.WriteLine($"Source Type: {SourceFormat}");
                     console.WriteLine($"Source Length: {source.Length}");
-                    switch (this.SourceType)
+                    switch (this.SourceFormat)
                     {
-                        case SourceType.Text:
+                        case SourceFormat.Text:
                             console.WriteLine($"Source File: {SourceFile}");
                             console.WriteLine($"Indentation: {Indentation}");
                             console.WriteLine($"Root Namespace: {RootNamespace}");
@@ -133,20 +133,49 @@ namespace xBDD.Tools
                             TextImporter textImporter = new TextImporter();
                             console.WriteLine($"Source Content:");
                             console.WriteLine(source);
-                            TestRun testRun = textImporter.ImportText(source, Indentation, RootNamespace, SkipReason);
+                            testRun = textImporter.ImportText(source, Indentation, RootNamespace, SkipReason);
                             testRun.Name = TestRunName;
                             console.WriteLine($"Test Run Scenario Count: {testRun.Scenarios.Count}");
+                        break;
+                        case SourceFormat.Json:
+                            console.WriteLine($"Source File: {SourceFile}");
+                            console.WriteLine($"Skip Reason: {SkipReason}");
+                            JsonImporter jsonImporter = new JsonImporter();
+                            console.WriteLine($"Source Content:");
+                            console.WriteLine(source);
+                            TestRun testRunJson = jsonImporter.ImportJson(source);
+                            console.WriteLine($"Test Run Scenario Count: {testRunJson.Scenarios.Count}");
+                        break;
+                        default:
+                            console.Error.WriteLine($"The source type of '{this.SourceFormat}' is not currently supported.");
+                        break;
+                    }
+                    switch (DestinationFormat)
+                    {
+                        case DestinationFormat.Code:
                             if(FeaturesOnly) {
-                                console.WriteLine($"Writing Feautres Only To: {Destination}");
+                                console.WriteLine($"Writing code for only feautres to: {Destination}");
                                 testRun.WriteFeaturesToCode(RootNamespace, Destination);
                             } else {
-                                console.WriteLine($"Writing All Code To: {Destination}");
-                                console.WriteLine($"Using Area Name Clipping Setting: {RemoveAreaNameStart}");
+                                console.WriteLine($"Writing all code to: {Destination}");
+                                console.WriteLine($"Using area name clipping setting: {RemoveAreaNameStart}");
                                 testRun.WriteToCode(RootNamespace, Destination, RemoveAreaNameStart);
                             }
                         break;
-                        default:
-                            console.Error.WriteLine($"The source type of '{this.SourceType}' is not currently supported.");
+                        case DestinationFormat.HtmlTestRunReport:
+                            console.WriteLine($"Writing Html Test Run Report To: {Destination}");
+                            var htmlReport = testRun.WriteToHtml(RemoveAreaNameStart);
+                            System.IO.File.WriteAllText(Destination, htmlReport);
+                        break;
+                        case DestinationFormat.Text:
+                            console.WriteLine($"Writing Text Outline Report To: {Destination}");
+                            var textReport = testRun.WriteToText(false);
+                            System.IO.File.WriteAllText(Destination, textReport);
+                        break;
+                        case DestinationFormat.Json:
+                            console.WriteLine($"Writing Json Report To: {Destination}");
+                            var jsonReport = testRun.WriteToJson();
+                            System.IO.File.WriteAllText(Destination, jsonReport);
                         break;
                     }
                     return 0;

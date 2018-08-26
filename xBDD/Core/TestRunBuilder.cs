@@ -164,6 +164,18 @@ namespace xBDD.Core
         /// A parent that has both reasons will assume the reason with the highest precedent.</param>
         public void UpdateParentReasonsAndStats(List<string> sortedReasons)
         {
+            if(!sortedReasons.Contains("Failed"))
+                sortedReasons.Add("Failed");
+
+            var additionalReasons = TestRun.Scenarios
+                .Select(scenario => scenario.Reason)
+                .Distinct()
+                .Where(reason => !sortedReasons.Contains(reason) && reason != null)
+                .OrderBy(reason => reason)
+                .ToList();
+
+            sortedReasons.InsertRange(0,additionalReasons);
+
             sortedReasons.ForEach(reason => {
                 TestRun.Scenarios
                     .Where(scenario => scenario.Reason == reason)
@@ -219,6 +231,78 @@ namespace xBDD.Core
                         } else {
                             this.TestRun.AreaReasonStats.Add(reason, 1);
                         }
+                    });
+                
+            });
+        }
+
+        private void UpdateOutcomeStats(OutcomeStats stats, Outcome outcome) {
+            switch(outcome) {
+                case Outcome.Failed:
+                    stats.Failed = stats.Failed + 1;
+                    stats.Total = stats.Total + 1;
+                break;
+                case Outcome.Skipped:
+                    stats.Skipped = stats.Skipped + 1;
+                    stats.Total = stats.Total + 1;
+                break;
+                case Outcome.Passed:
+                    stats.Passed = stats.Passed + 1;
+                    stats.Total = stats.Total + 1;
+                break;
+            }
+        }
+
+        private void ClearStats(OutcomeStats stats) {
+            stats.Total = 0;
+            stats.Failed = 0;
+            stats.Passed = 0;
+            stats.Skipped = 0;
+        }
+
+        /// <summary>
+        /// Updates the feature, area, and test outcomes and stats based on the scenario outcomes.
+        /// </summary>
+        public void UpdateStats()
+        {
+            List<Outcome> outcomes = new List<Outcome>() {
+                Outcome.NotRun,
+                Outcome.Passed,
+                Outcome.Skipped,
+                Outcome.Failed
+            };
+            TestRun.Scenarios.ToList().ForEach(scenario => {
+                scenario.Feature.Outcome = Outcome.NotRun;
+                scenario.Feature.Area.Outcome = Outcome.NotRun;
+                scenario.Feature.Area.TestRun.Outcome = Outcome.NotRun;
+                this.ClearStats(scenario.Feature.ScenarioStats);
+                this.ClearStats(scenario.Feature.Area.ScenarioStats);
+                this.ClearStats(scenario.Feature.Area.FeatureStats);
+                this.ClearStats(scenario.Feature.Area.TestRun.ScenarioStats);
+                this.ClearStats(scenario.Feature.Area.TestRun.FeatureStats);
+                this.ClearStats(scenario.Feature.Area.TestRun.AreaStats);
+            });
+            outcomes.ForEach(outcome => {
+                TestRun.Scenarios
+                    .Where(scenario => scenario.Outcome == outcome)
+                    .ToList().ForEach(scenario => {
+                        scenario.Feature.Outcome = outcome;
+                        this.UpdateOutcomeStats(scenario.Feature.ScenarioStats, outcome);
+                        scenario.Feature.Area.Outcome = outcome;
+                        this.UpdateOutcomeStats(scenario.Feature.Area.ScenarioStats, outcome);
+                        TestRun.Outcome = outcome;
+                        this.UpdateOutcomeStats(TestRun.ScenarioStats, outcome);
+                    });
+                TestRun.Scenarios.Select(x => x.Feature).ToList()
+                    .Where(feature => feature.Outcome == outcome)
+                    .ToList().ForEach(feature => {
+                        this.UpdateOutcomeStats(feature.Area.FeatureStats, outcome);
+                        this.UpdateOutcomeStats(TestRun.FeatureStats, outcome);
+                    });
+                TestRun.Scenarios.Select(x => x.Feature.Area).ToList()
+                    .Where(area => area.Outcome == outcome)
+                    .ToList().ForEach(area => {
+                        this.UpdateOutcomeStats(TestRun.AreaStats, outcome);
                     });
                 
             });

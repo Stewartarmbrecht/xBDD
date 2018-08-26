@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <opml version="2.0">
-  <head>
-  </head>
-  <body>
+<head>
+</head>
+<body>
 
 <outline text="Setup [Untested]">
 	<outline text="Setup A Test Project [Untested]">
@@ -73,7 +73,7 @@
 		<outline text="With Failed Condition [Untested]">
 		</outline>
 	</outline>
-	<outline text="Left Click When Other Condition">
+	<outline text="Left Click When Other Condition [Need to Remove]">
 		<outline text="Make Impossible [Need to Remove]">
 			<outline text="Given out Wait conditions from click conditions"/>
 			<outline text="Given ass inheritance"/>

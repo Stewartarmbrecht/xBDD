@@ -44,7 +44,6 @@ namespace xBDD.Features.Pages.HtmlReportPage
             "the test html report from a test run with no area name removal", 
             $"file:///{root}MySample.Features.Results.FullAreaNameRemoval.html");
 
-        private string location;
         private string root; 
         public ReportLocations()
         {

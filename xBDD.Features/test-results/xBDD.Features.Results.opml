@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <opml version="2.0">
-  <head>
-  </head>
-  <body>
+<head>
+</head>
+<body>
 
 <outline text="xBDD - Features - Getting Started">
 	<outline text="Installing The Framework">
@@ -233,7 +233,7 @@
 		<outline text="Default Collapsed When More Than5 [Defining]">
 		</outline>
 	</outline>
-	<outline text="Review Area Features">
+	<outline text="Review Area Features [Not Implemented]">
 		<outline text="Expand">
 			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area 1 title line is visible"/>
@@ -681,7 +681,7 @@
 				<outline text="" />
 				<outline text="My.Area.Path" />
 				<outline text="	My Feature" />
-				<outline text="		My Scenario [Skipped - Deferred]" />
+				<outline text="		My Scenario [Deferred]" />
 			</outline>
 		</outline>
 		<outline text="Write Run Empty Scenario">
@@ -703,7 +703,7 @@
 				<outline text="" />
 				<outline text="My.Area.Path" />
 				<outline text="	My Feature" />
-				<outline text="		My Scenario [Skipped - Deferred]" />
+				<outline text="		My Scenario [Deferred]" />
 				<outline text="			Given my starting condition" />
 				<outline text="			When my action" />
 				<outline text="			Then my ending condition" />
@@ -723,20 +723,6 @@
 				<outline text="			Then my ending condition" />
 			</outline>
 		</outline>
-		<outline text="Write Run Scenario With Skipped Step">
-			<outline text="Given you have a similar class in your test project :"/>
-			<outline text="When you execute the scenario"/>
-			<outline text="Then you will see the text report matches this template (See TemplateValidator project on Nuget):">
-				<outline text="My Test Run" />
-				<outline text="" />
-				<outline text="My.Area.Path" />
-				<outline text="	My Feature" />
-				<outline text="		My Scenario [Failed - Step Skipped]" />
-				<outline text="			Given my starting condition" />
-				<outline text="			When my action [Skipped - Deferred]" />
-				<outline text="			Then my ending condition [Skipped - Previous Error]" />
-			</outline>
-		</outline>
 		<outline text="Write Run Scenario With Not Implemented Step">
 			<outline text="Given you have a similar class in your test project :"/>
 			<outline text="When you execute the scenario"/>
@@ -745,7 +731,7 @@
 				<outline text="" />
 				<outline text="My.Area.Path" />
 				<outline text="	My Feature" />
-				<outline text="		My Scenario [Failed - Step Not Implemented]" />
+				<outline text="		My Scenario [Failed]" />
 				<outline text="			Given my starting condition" />
 				<outline text="			When my action [Failed - Not Implemented]" />
 				<outline text="			Then my ending condition [Skipped - Previous Error]" />

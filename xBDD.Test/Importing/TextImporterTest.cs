@@ -20,9 +20,9 @@ namespace xBDD.Test
             TextImporter sut = new TextImporter();
             var tr = await TestRunSetup.BuildTestRun();
             tr.Name = "Sample Test Run";
-            var textReport = await tr.WriteToText(false);
+            var textReport = tr.WriteToText(false);
             var generatedTestRun = sut.ImportText(textReport);
-            var newTextReport = await generatedTestRun.WriteToText(false);
+            var newTextReport = generatedTestRun.WriteToText(false);
             System.IO.File.WriteAllText("textReport.txt", textReport);
             System.IO.File.WriteAllText("newTextReport.txt", newTextReport);
             newTextReport.ValidateToTemplate(textReport);

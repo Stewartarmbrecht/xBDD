@@ -16,11 +16,7 @@ namespace xBDD.Core
 
         public void HandleException(StepExecutor stepExecutor, Step step, Exception ex)
         {
-            if (ex is SkipStepException)
-            {
-                ProcessSkipException(stepExecutor, step, ex as SkipStepException);
-            }
-            else if (ex is NotImplementedException)
+            if (ex is NotImplementedException)
             {
                 ProcessNotImplementedException(stepExecutor, step, ex as NotImplementedException);
             }
@@ -29,25 +25,14 @@ namespace xBDD.Core
                 ProcessException(stepExecutor, step, ex);
             }
         }
-        void ProcessSkipException(StepExecutor stepExecutor, Step step, SkipStepException ex)
-        {
-            step.EndTime = DateTime.Now;
-            step.Outcome = Outcome.Skipped;
-            step.Reason = ex.Message;
-            if(scenario.Reason == null)
-                scenario.Reason = "Step Skipped";
-            step.Exception = ex;
-            statsCascader.CascadeStepStats(step, false);
-            throw new StepException(step.Name, ex);
-        }
         void ProcessNotImplementedException(StepExecutor stepExecutor, Step step, NotImplementedException ex)
         {
             step.EndTime = DateTime.Now;
             step.Outcome = Outcome.Failed;
-            step.Reason = "Not Implemented";
+            step.Reason = "Failed - Not Implemented";
             step.Exception = ex;
             if (scenario.Reason == null)
-                scenario.Reason = "Step Not Implemented";
+                scenario.Reason = "Failed";
             statsCascader.CascadeStepStats(step, false);
             throw new StepNotImplementedException(step.Name, ex);
         }
@@ -55,10 +40,10 @@ namespace xBDD.Core
         {
             step.EndTime = DateTime.Now;
             step.Outcome = Outcome.Failed;
-            step.Reason = ex.Message;
+            step.Reason = "Failed";
             step.Exception = ex;
             if (scenario.Reason == null)
-                scenario.Reason = "Failed Step";
+                scenario.Reason = "Failed";
             statsCascader.CascadeStepStats(step, false);
             throw new StepException(step.Name, ex);
         }

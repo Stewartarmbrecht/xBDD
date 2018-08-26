@@ -18,33 +18,31 @@ namespace xBDD.Reporting.Outline
         /// <param name="testRun">The test run to write to a text string.</param>
         /// <param name="areaNameClip">The starting part of each area name to remove.</param>
         /// <returns>The text respresentation of the test run results.</returns>
-        public async Task<string> WriteToOpml(TestRun testRun, string areaNameClip = null)
+        public string WriteToOpml(TestRun testRun, string areaNameClip = null)
         {
-            return await Task.Run(() => {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine($@"<?xml version=""1.0""?>
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($@"<?xml version=""1.0""?>
 <opml version=""2.0"">
-  <head>
-  </head>
-  <body>");
-                sb.AppendLine();
-                Scenario lastScenario = null;
-                var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
-                if(testRun.Sorted)
-                    sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
-                foreach(var scenario in sortedScenarios)
-                {
-                    WriteScenario(lastScenario, scenario, sb, areaNameClip);
-                    lastScenario = scenario;
-                }
-                if(sortedScenarios.Count() > 0) {
-                    sb.AppendLine($"\t</outline>");
-                    sb.AppendLine($"</outline>");
-                }
-                sb.AppendLine($"</body>");
-                sb.AppendLine($"</opml>");
-                return sb.ToString();
-            });
+<head>
+</head>
+<body>");
+            sb.AppendLine();
+            Scenario lastScenario = null;
+            var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
+            if(testRun.Sorted)
+                sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
+            foreach(var scenario in sortedScenarios)
+            {
+                WriteScenario(lastScenario, scenario, sb, areaNameClip);
+                lastScenario = scenario;
+            }
+            if(sortedScenarios.Count() > 0) {
+                sb.AppendLine($"\t</outline>");
+                sb.AppendLine($"</outline>");
+            }
+            sb.AppendLine($"</body>");
+            sb.AppendLine($"</opml>");
+            return sb.ToString();
         }
 
         private void WriteScenario(Scenario lastScenario, Scenario scenario, StringBuilder sb, string areaNameClip)

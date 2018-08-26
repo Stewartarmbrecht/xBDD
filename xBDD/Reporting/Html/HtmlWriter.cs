@@ -28,15 +28,13 @@ namespace xBDD.Reporting.Html
         /// </summary>
         /// <param name="testRun">The test run to write to HTML.</param>
         /// <returns>The HTML string representation of the test run results.</returns>
-        public Task<string> WriteToHtml(TestRun testRun)
+        public string WriteToHtml(TestRun testRun)
         {
-            return Task.Run(() => {
-                testRun.CalculateStartAndEndTimes();
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine("<!DOCTYPE html>");
-                WriteHtml(testRun, sb);
-                return sb.ToString();
-            });
+            testRun.CalculateStartAndEndTimes();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("<!DOCTYPE html>");
+            WriteHtml(testRun, sb);
+            return sb.ToString();
         }
         void WriteHtml(TestRun testRun, StringBuilder sb)
         {

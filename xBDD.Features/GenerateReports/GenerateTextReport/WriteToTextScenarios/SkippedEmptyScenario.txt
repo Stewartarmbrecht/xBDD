@@ -2,4 +2,4 @@
 
 My.Area.Path
 	My Feature
-		My Scenario [Skipped - Deferred]
+		My Scenario [Deferred]

@@ -56,11 +56,6 @@
             await Run(new  WriteToTextScenarios.RunScenarioWithSteps(), false, 5);
         }
         [TestMethod]
-        public async Task WriteRunScenarioWithSkippedStep()
-        {
-            await Run(new  WriteToTextScenarios.RunScenarioWithSkippedStep(), false, 6);
-        }
-        [TestMethod]
         public async Task WriteRunScenarioWithNotImplementedStep()
         {
             await Run(new  WriteToTextScenarios.RunScenarioWithNotImplementedStep(), false, 7);

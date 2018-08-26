@@ -2,7 +2,7 @@
 
 My.Area.Path
 	My Feature
-		My Scenario [Failed - Step Not Implemented]
+		My Scenario [Failed]
 			Given my starting condition
 			When my action [Failed - Not Implemented]
 			Then my ending condition [Skipped - Previous Error]

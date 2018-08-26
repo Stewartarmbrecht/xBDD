@@ -36,19 +36,6 @@ namespace xBDD.Core
             }
         }
 
-        internal void ExecuteStep(Step step)
-        {
-            try
-            {
-                PreExecution(step);
-                step.Action(step);
-                PostExecution(step);
-            }
-            catch (Exception ex)
-            {
-                stepExceptionHandler.HandleException(this, step, ex);
-            }
-        }
         private void PreExecution(Step step)
         {
             step.StartTime = DateTime.Now;

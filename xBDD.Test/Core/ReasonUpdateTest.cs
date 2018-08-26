@@ -17,6 +17,8 @@ namespace xBDD.Test
         [TestMethod]
         public async Task AllPassing()
         {
+            var factory = new CoreFactory();
+            xB.CurrentRun = factory.CreateTestRunBuilder("Test Run");
             var tr = await TestRunSetup.BuildTestRun();
             var reasons = new List<string>() {
                 "Removing",
@@ -32,6 +34,8 @@ namespace xBDD.Test
         [TestMethod]
         public async Task OneFailingFirstStepTest()
         {
+            var factory = new CoreFactory();
+            xB.CurrentRun = factory.CreateTestRunBuilder("Test Run");
             var skippedScenarioIds = new Dictionary<string,string>();
             skippedScenarioIds.Add("010101","Building");
             skippedScenarioIds.Add("010102","Untested");

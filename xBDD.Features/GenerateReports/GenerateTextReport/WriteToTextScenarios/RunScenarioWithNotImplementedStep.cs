@@ -20,7 +20,7 @@ namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
                     .Run();
             }
             catch { }
-            return await xBDD.CurrentRun.TestRun.WriteToText();
+            return xBDD.CurrentRun.TestRun.WriteToText();
         }
     }
 }

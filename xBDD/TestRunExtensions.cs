@@ -51,14 +51,14 @@
         /// Writes a text representation of a test run's test results.
         /// </summary>
         /// <param name="testRun">The test run whose results you want to write to text.</param>
-        /// <param name="includeStatus">Sets the text writer to include non-passing step status 
-        /// in the name and print out exceptions. Default value is true.</param>
+        /// <param name="includeExceptions">Sets the text writer to include 
+        /// exceptions for failed steps. Default value is true.</param>
         /// <returns>String that is a multiline text format of the test results.</returns>
-        public static async Task<string> WriteToText(this xBDD.Model.TestRun testRun, bool includeStatus = true)
+        public static string WriteToText(this xBDD.Model.TestRun testRun, bool includeExceptions = true)
         {
             ReportingFactory factory = new ReportingFactory();
             TextWriter saver = factory.GetTextWriter();
-            return await saver.WriteToText(testRun, includeStatus);
+            return saver.WriteToText(testRun, includeExceptions);
         }
 
         /// <summary>
@@ -67,11 +67,11 @@
         /// <param name="testRun">The test run whose results you want to write to text.</param>
         /// <param name="areaNameClip">The part to remove from the beginning of each area name.</param>
         /// <returns>String that is a OPML format of the test results.</returns>
-        public static async Task<string> WriteToOpml(this xBDD.Model.TestRun testRun, string areaNameClip = null)
+        public static string WriteToOpml(this xBDD.Model.TestRun testRun, string areaNameClip = null)
         {
             ReportingFactory factory = new ReportingFactory();
             OpmlWriter saver = factory.GetOpmlWriter();
-            return await saver.WriteToOpml(testRun, areaNameClip);
+            return saver.WriteToOpml(testRun, areaNameClip);
         }
 
         /// <summary>
@@ -114,11 +114,11 @@
         /// <param name="removeFromAreaNameStart">The starting part of the area names you want to remove.</param>
         /// <param name="failuresOnly">Tells the html writer to only write out failed scenarios.</param>
         /// <returns>String that is a multiline text format of the test results.</returns>
-        public static async Task<string> WriteToHtml(this xBDD.Model.TestRun testRun, string removeFromAreaNameStart = "", bool failuresOnly = false)
+        public static string WriteToHtml(this xBDD.Model.TestRun testRun, string removeFromAreaNameStart = "", bool failuresOnly = false)
         {
             ReportingFactory factory = new ReportingFactory();
             HtmlWriter saver = factory.GetHtmlFileWriter(removeFromAreaNameStart, failuresOnly);
-            return await saver.WriteToHtml(testRun);
+            return saver.WriteToHtml(testRun);
         }
         /// <summary>
         /// Writes a a test run's test results to a sql database.

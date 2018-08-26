@@ -18,7 +18,7 @@ namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
                     .Skip("Deferred", reason => { } );
             }
             catch { }
-            return await xBDD.CurrentRun.TestRun.WriteToText();
+            return xBDD.CurrentRun.TestRun.WriteToText();
         }
     }
 }

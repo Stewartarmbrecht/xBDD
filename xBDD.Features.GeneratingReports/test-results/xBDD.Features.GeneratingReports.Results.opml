@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <opml version="2.0">
-  <head>
-  </head>
-  <body>
+<head>
+</head>
+<body>
 
 <outline text="HTML Test Run Report - Generating [Untested]">
 	<outline text="Generate A Report [Untested]">

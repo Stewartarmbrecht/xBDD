@@ -14,7 +14,7 @@ namespace xBDD.Features.GenerateReports.GenerateTextReport.WriteToTextScenarios
                 .When(xBDD.CreateStep("my action"))
                 .Then(xBDD.CreateStep("my ending condition"))
                 .Run();
-            return await xBDD.CurrentRun.TestRun.WriteToText();
+            return xBDD.CurrentRun.TestRun.WriteToText();
         }
     }
 }

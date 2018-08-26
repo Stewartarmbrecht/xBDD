@@ -18,7 +18,7 @@ namespace xBDD.Features.AutomatingUITesting
             xBDD.Browser.WebBrowser.WatchBrowser = TestConfiguration.WatchBrowswer;
         }
         [AssemblyCleanup()]
-        public async static Task TestRunComplete()
+        public static void TestRunComplete()
         {
             WebDriver.Close();
 
@@ -33,12 +33,12 @@ namespace xBDD.Features.AutomatingUITesting
 
             var htmlPath = directory + $"/../../../test-results/xBDD.Features.AutomatingUITesting.Results.html";
             Logger.LogMessage("Writing Html Report to " + htmlPath);
-            var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml(TestConfiguration.RemoveFromAreaNameStart, TestConfiguration.FailuresOnly);
+            var htmlReport = xB.CurrentRun.TestRun.WriteToHtml(TestConfiguration.RemoveFromAreaNameStart, TestConfiguration.FailuresOnly);
             File.WriteAllText(htmlPath, htmlReport);
 
             var textPath = directory + $"/../../../test-results/xBDD.Features.AutomatingUITesting.Results.txt";
             Logger.LogMessage("Writing Text Report to " + textPath);
-            var textReport = await xB.CurrentRun.TestRun.WriteToText();
+            var textReport = xB.CurrentRun.TestRun.WriteToText();
             File.WriteAllText(textPath, textReport);
 
             var jsonPath = directory + $"/../../../test-results/xBDD.Features.AutomatingUITesting.Results.json";
@@ -48,7 +48,7 @@ namespace xBDD.Features.AutomatingUITesting
 
             var opmlPath = $"{directory}/../../../test-results/xBDD.Features.AutomatingUITesting.Results.opml";
             Logger.LogMessage("Writing OPML Report to " + opmlPath);
-            var opmlReport = await xB.CurrentRun.TestRun.WriteToOpml(TestConfiguration.RemoveFromAreaNameStart);
+            var opmlReport = xB.CurrentRun.TestRun.WriteToOpml(TestConfiguration.RemoveFromAreaNameStart);
             File.WriteAllText(opmlPath, opmlReport);
 
         }
