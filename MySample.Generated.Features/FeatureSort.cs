@@ -1,4 +1,4 @@
-namespace MySample.Generated
+namespace MySample.Generated.Features
 {
     using System;
     using System.Collections.Generic;
@@ -9,7 +9,7 @@ namespace MySample.Generated
         public FeatureSort()
         {
             List<string> SortedFeatureNames = new List<string>() {
-                typeof(MySample.Generated.MyArea.MyFeature).FullName,
+                typeof(MySample.Generated.Features.MyArea.MyFeature).FullName,
             };
 
             this.SortedFeatureNames = SortedFeatureNames.ToArray();

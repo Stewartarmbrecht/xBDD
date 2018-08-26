@@ -1,6 +1,6 @@
-MySample.Generated
+MySample.Generated.Features
 
-My Sample - Generated - My Area
+My Sample - Generated - Features - My Area
 	My Feature
 		My Scenario
 			Given my step 1

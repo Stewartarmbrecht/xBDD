@@ -96,24 +96,23 @@ namespace xBDD.Tools
             [Option("-dt|--destination-format", "Sets the de type.", CommandOptionType.SingleValue)]
             public DestinationFormat DestinationFormat { get; }
             
-            [Option("-i|--indentation", "Sets the string used to indent a level in the text file.", CommandOptionType.SingleValue)]
-            public string Indentation { get; }
+            [Option("-ti|--text-indentation", "Sets the string used to indent a level in the text file.", CommandOptionType.SingleValue)]
+            public string TextIndentation { get; }
             
             [Option("-rn|--root-namespace", "Sets the root namespace for the generated feature files.", CommandOptionType.SingleValue)]
             public string RootNamespace { get; }
             
-            
             [Option("-trn|--testrun-name", "Sets the default name for the test run when the tests are executed.", CommandOptionType.SingleValue)]
             public string TestRunName { get; }
             
-            [Option("-sr|--skip-reason", "Sets the default skip reason for all scenarios.", CommandOptionType.SingleValue)]
-            public string SkipReason { get; }
+            [Option("-dsr|--default-skip-reason", "Sets the default skip reason for all scenarios.", CommandOptionType.SingleValue)]
+            public string DefaultSkipReason { get; }
 
             [Option("-fo|--features-only", "Sets the code generator to only generate feature files.", CommandOptionType.SingleValue)]
             public bool FeaturesOnly { get; }
 
-            [Option("-ran|--remove-area-name", "Sets the remove from area name start setting for report generation in the new project.", CommandOptionType.SingleValue)]
-            public string RemoveAreaNameStart { get; }
+            [Option("-ans|--area-name-skip", "The part of the area name so skip when writing certain reports.  Full Area names can be repetitive in a test project that covers a subset of features.", CommandOptionType.SingleValue)]
+            public string AreaNameSkip { get; }
 
             private int OnExecute(IConsole console)
             {
@@ -126,20 +125,20 @@ namespace xBDD.Tools
                     {
                         case SourceFormat.Text:
                             console.WriteLine($"Source File: {SourceFile}");
-                            console.WriteLine($"Indentation: {Indentation}");
+                            console.WriteLine($"Indentation: {TextIndentation}");
                             console.WriteLine($"Root Namespace: {RootNamespace}");
-                            console.WriteLine($"Skip Reason: {SkipReason}");
+                            console.WriteLine($"Skip Reason: {DefaultSkipReason}");
                             console.WriteLine($"Test Run Name: {TestRunName}");
                             TextImporter textImporter = new TextImporter();
                             console.WriteLine($"Source Content:");
                             console.WriteLine(source);
-                            testRun = textImporter.ImportText(source, Indentation, RootNamespace, SkipReason);
+                            testRun = textImporter.ImportText(source, TextIndentation, RootNamespace, DefaultSkipReason);
                             testRun.Name = TestRunName;
                             console.WriteLine($"Test Run Scenario Count: {testRun.Scenarios.Count}");
                         break;
                         case SourceFormat.Json:
                             console.WriteLine($"Source File: {SourceFile}");
-                            console.WriteLine($"Skip Reason: {SkipReason}");
+                            console.WriteLine($"Skip Reason: {DefaultSkipReason}");
                             JsonImporter jsonImporter = new JsonImporter();
                             console.WriteLine($"Source Content:");
                             console.WriteLine(source);
@@ -158,13 +157,13 @@ namespace xBDD.Tools
                                 testRun.WriteFeaturesToCode(RootNamespace, Destination);
                             } else {
                                 console.WriteLine($"Writing all code to: {Destination}");
-                                console.WriteLine($"Using area name clipping setting: {RemoveAreaNameStart}");
-                                testRun.WriteToCode(RootNamespace, Destination, RemoveAreaNameStart);
+                                console.WriteLine($"Using area name clipping setting: {AreaNameSkip}");
+                                testRun.WriteToCode(RootNamespace, Destination, AreaNameSkip);
                             }
                         break;
                         case DestinationFormat.HtmlTestRunReport:
                             console.WriteLine($"Writing Html Test Run Report To: {Destination}");
-                            var htmlReport = testRun.WriteToHtml(RemoveAreaNameStart);
+                            var htmlReport = testRun.WriteToHtml(AreaNameSkip);
                             System.IO.File.WriteAllText(Destination, htmlReport);
                         break;
                         case DestinationFormat.Text:

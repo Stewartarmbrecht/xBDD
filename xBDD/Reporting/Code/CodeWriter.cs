@@ -74,7 +74,7 @@
         }
         private void WriteSampleFeature(string directory, string rootNamespace)
         {
-            System.IO.Directory.CreateDirectory("MyArea");
+            System.IO.Directory.CreateDirectory("Features/MyArea");
             var content = $@"namespace {rootNamespace}.MyArea
 {{
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -111,7 +111,7 @@
     }}
 }}";
 
-            System.IO.File.WriteAllText($"{directory}/MyArea/MyFeature.cs",content);
+            System.IO.File.WriteAllText($"{directory}/Features/MyArea/MyFeature.cs",content);
         }
         private void WriteFeatureFile(string directory, string rootNamespace, string featureFullClassName, StringBuilder sb)
         {

@@ -4,7 +4,7 @@
   </head>
   <body>
 
-<outline text="My Sample - Generated - My Area">
+<outline text="My Sample - Generated - Features - My Area">
 	<outline text="My Feature">
 		<outline text="My Scenario">
 			<outline text="Given my step 1"/>

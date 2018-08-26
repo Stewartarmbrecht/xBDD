@@ -166,6 +166,7 @@
             "args": [
                 "${workspaceFolder}/scripts/code-generate.ps1",
                 "Automating UI Testing",
+                "xBDD",
                 "true"
             ],
             "options": {
@@ -180,6 +181,7 @@
             "args": [
                 "${workspaceFolder}/scripts/code-generate.ps1",
                 "Importing Scenarios",
+                "xBDD",
                 "true"
             ],
             "options": {
@@ -194,6 +196,7 @@
             "args": [
                 "${workspaceFolder}/scripts/code-generate.ps1",
                 "Defining Features",
+                "xBDD",
                 "true"
             ],
             "options": {
@@ -208,6 +211,7 @@
             "args": [
                 "${workspaceFolder}/scripts/code-generate.ps1",
                 "Generating Code",
+                "xBDD",
                 "true"
             ],
             "options": {
@@ -222,6 +226,7 @@
             "args": [
                 "${workspaceFolder}/scripts/code-generate.ps1",
                 "Generating Reports",
+                "xBDD",
                 "true"
             ],
             "options": {
@@ -236,6 +241,7 @@
             "args": [
                 "${workspaceFolder}/scripts/code-generate.ps1",
                 "Streamlining API Testing",
+                "xBDD",
                 "true"
             ],
             "options": {

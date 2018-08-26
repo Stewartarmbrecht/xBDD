@@ -1,4 +1,4 @@
-namespace MySample.Generated
+namespace MySample.Generated.Features
 {
     using Microsoft.Extensions.Configuration;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

@@ -1,4 +1,4 @@
-namespace MySample.Generated.MyArea
+namespace MySample.Generated.Features.MyArea
 {
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;

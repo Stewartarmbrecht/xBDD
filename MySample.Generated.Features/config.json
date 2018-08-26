@@ -1,11 +1,11 @@
 {
     "xBDD": {
-        "TestRunName": "MySample.Generated",
+        "TestRunName": "MySample.Generated.Features",
         "Browser": {
             "Watch": "false"
         },
         "HtmlReport": {
-            "RemoveFromAreaNameStart": "MySample.Generated",
+            "RemoveFromAreaNameStart": "MySample.Generated.Features",
             "FailuresOnly": "false"
         }
     }
