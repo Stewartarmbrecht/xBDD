@@ -1,0 +1,12 @@
+{
+    "xBDD": {
+        "TestRunName": "My Sample Test Run 6 Failed",
+        "Browser": {
+            "Watch": "false"
+        },
+        "HtmlReport": {
+            "RemoveFromAreaNameStart": "My Sample - Features - Test Run 6 Failed - ",
+            "FailuresOnly": "false"
+        }
+    }
+}            

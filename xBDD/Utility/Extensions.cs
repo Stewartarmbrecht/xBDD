@@ -30,7 +30,16 @@ namespace xBDD.Utility
         /// <returns>A matching namespace.</returns>
         internal static string ConvertAreaNameToNamespace(this string text)
         {
-            return text.AddSpacesToSentence().Replace(" - ",".").Replace(" ", "");
+            List<string> words = new List<string>(text.Split(' '));
+            StringBuilder sb = new StringBuilder();
+            words.ForEach(word => {
+                if(word == "-") {
+                    sb.Append(".");
+                } else {
+                    sb.Append(word.FirstCharToUpper()); 
+                }
+            });
+            return sb.ToString();
         }
 
         internal static string ConvertFeatureNameToClassName(this string text)
@@ -88,10 +97,18 @@ namespace xBDD.Utility
                 var lastCharIsLowerLetter = (lastChar.HasValue ? char.IsLetter(lastChar.Value) && char.IsLower(lastChar.Value) : false);
                 var lastCharIsUpperLetter = (lastChar.HasValue ? char.IsLetter(lastChar.Value) && char.IsUpper(lastChar.Value) : false);
                 var nextCharIsLowerLetter = (nextChar.HasValue ? char.IsLetter(nextChar.Value) && char.IsLower(nextChar.Value) : false);
+                var charIsLetter = char.IsLetter(currentChar);
+                var lastCharIsLetter = (lastChar.HasValue ? char.IsLetter(lastChar.Value) : false);
+                var nextCharIsLetter = (nextChar.HasValue ? char.IsLetter(nextChar.Value) : false);
+                var charIsNumber = char.IsDigit(currentChar);
+                var lastCharIsNumber = (lastChar.HasValue ? char.IsDigit(lastChar.Value) : false);
+                var nextCharIsNumber = (nextChar.HasValue ? char.IsDigit(nextChar.Value) : false);
 
                 var shouldAddSpace =
                     (lastCharIsLowerLetter && charIsUpperLetter) || //aB
-                    (lastCharIsUpperLetter && charIsUpperLetter && nextCharIsLowerLetter);//BBa
+                    (lastCharIsUpperLetter && charIsUpperLetter && nextCharIsLowerLetter) || //BBa
+                    (lastCharIsLetter && charIsNumber) || //a1
+                    (lastCharIsNumber && charIsLetter);
                 if (shouldAddSpace)
                     newText.Append(' ');
 

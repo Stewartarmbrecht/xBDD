@@ -1,0 +1,210 @@
+Test Run 6 Failed
+
+Area 1 Passing
+	Feature 1 Passing
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+Area 2 Skipped Untested
+	Feature 1 Passing
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+	Feature 2 Skipped Untested
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+Area 3 Skipped Building
+	Feature 1 Passing
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+	Feature 2 Skipped Untested
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+	Feature 3 Skipped Building
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Building [Building]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+Area 4 Skipped Ready
+	Feature 1 Passing
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+	Feature 2 Skipped Untested
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+	Feature 3 Skipped Building
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Building [Building]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+	Feature 4 Skipped Ready
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Building [Building]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 4 Skipped Ready [Ready]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+Area 5 Skipped Defining
+	Feature 1 Passing
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+	Feature 2 Skipped Untested
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+	Feature 3 Skipped Building
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Building [Building]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+	Feature 4 Skipped Ready
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Building [Building]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 4 Skipped Ready [Ready]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+	Feature 5 Skipped Defining
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Building [Building]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 4 Skipped Ready [Ready]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 5 Skipped Defining [Defining]
+Area 6 Failed
+	Feature 1 Passing
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+	Feature 2 Skipped Untested
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+	Feature 3 Skipped Building
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Building [Building]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+	Feature 4 Skipped Ready
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Building [Building]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 4 Skipped Ready [Ready]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+	Feature 5 Skipped Defining
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Building [Building]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 4 Skipped Ready [Ready]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 5 Skipped Defining [Defining]
+	Feature 6 Failed
+		Scenario 1 Passing
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Building [Building]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 4 Skipped Ready [Ready]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 5 Skipped Defining [Defining]
+		Scenario 6 Failed
+			Given Step 1 Passed
+			When Step 2 Failed [Failed]
+			Then Step 3 Skipped
+
+
+
+
+
+
+
+
+
+
+

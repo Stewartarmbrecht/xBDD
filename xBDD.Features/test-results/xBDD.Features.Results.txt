@@ -185,7 +185,7 @@ xBDD - Features - Generate Reports - Browse Html Report [Defining]
 		Expand All [Defining]
 		Collapse [Defining]
 		Collapse All [Defining]
-		Default Collapsed When More Than5 [Defining]
+		Default Collapsed When More Than 5 [Defining]
 	Review Area Features [Not Implemented]
 		Expand
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios

@@ -40,7 +40,7 @@
                 lastScenario = scenario;
             }
             if(sortedScenarios.Count() > 0) {
-                this.WriteFeatureFile(directory, rootNamespace, lastScenario.Feature.ClassName, sb);
+                this.WriteFeatureFile(directory, rootNamespace, lastScenario.Feature.FullClassName, sb);
                 this.WriteFeatureSortEnd(directory, rootNamespace, sbFeatureSort);
             }
         }
@@ -68,7 +68,7 @@
                 lastScenario = scenario;
             }
             if(sortedScenarios.Count() > 0) {
-                this.WriteFeatureFile(directory, rootNamespace, lastScenario.Feature.ClassName, sb);
+                this.WriteFeatureFile(directory, rootNamespace, lastScenario.Feature.FullClassName, sb);
                 this.WriteFeatureSortEnd(directory, rootNamespace, sbFeatureSort);
             }
         }
@@ -223,9 +223,8 @@
         public ReasonSort()
         {{
             this.SortedReasons = new List<string>() {{
-                ""Removing"",
-                ""Building"",
                 ""Untested"",
+                ""Building"",
                 ""Ready"",
                 ""Defining""
             }};
@@ -287,7 +286,7 @@
     <PackageReference Include=""MSTEst.TestFramework"" Version=""1.3.2"" />
     <PackageReference Include=""Selenium.WebDriver.ChromeDriver"" Version=""2.41.0"" />
     <PackageReference Include=""Selenium.WebDriver"" Version=""3.14.0"" />
-    <PackageReference Include=""xBDD"" Version=""0.0.5-alpha"" />
+    <PackageReference Include=""xBDD"" Version=""0.0.6-alpha"" />
   </ItemGroup>
 
   <ItemGroup>
@@ -353,7 +352,7 @@
             xBDD.Browser.WebBrowser.WatchBrowser = TestConfiguration.WatchBrowswer;
         }}
         [AssemblyCleanup()]
-        public async static Task TestRunComplete()
+        public static void TestRunComplete()
         {{
             WebDriver.Close();
 
@@ -368,12 +367,12 @@
 
             var htmlPath = directory + $""/../../../test-results/{namespaceRoot}.Results.html"";
             Logger.LogMessage(""Writing Html Report to "" + htmlPath);
-            var htmlReport = await xB.CurrentRun.TestRun.WriteToHtml(TestConfiguration.RemoveFromAreaNameStart, TestConfiguration.FailuresOnly);
+            var htmlReport = xB.CurrentRun.TestRun.WriteToHtml(TestConfiguration.RemoveFromAreaNameStart, TestConfiguration.FailuresOnly);
             File.WriteAllText(htmlPath, htmlReport);
 
             var textPath = directory + $""/../../../test-results/{namespaceRoot}.Results.txt"";
             Logger.LogMessage(""Writing Text Report to "" + textPath);
-            var textReport = await xB.CurrentRun.TestRun.WriteToText();
+            var textReport = xB.CurrentRun.TestRun.WriteToText();
             File.WriteAllText(textPath, textReport);
 
             var jsonPath = directory + $""/../../../test-results/{namespaceRoot}.Results.json"";
@@ -383,7 +382,7 @@
 
             var opmlPath = $""{{directory}}/../../../test-results/{namespaceRoot}.Results.opml"";
             Logger.LogMessage(""Writing OPML Report to "" + opmlPath);
-            var opmlReport = await xB.CurrentRun.TestRun.WriteToOpml(TestConfiguration.RemoveFromAreaNameStart);
+            var opmlReport = xB.CurrentRun.TestRun.WriteToOpml(TestConfiguration.RemoveFromAreaNameStart);
             File.WriteAllText(opmlPath, opmlReport);
 
         }}
@@ -470,15 +469,15 @@
 
         private void WriteScenario(string rootNamespace, string directory, Scenario lastScenario, Scenario scenario, StringBuilder sb, StringBuilder sbFeatureSort)
         {
-            if (lastScenario == null || (lastScenario != null && lastScenario.Feature.Name != scenario.Feature.Name))
+            if (lastScenario == null || (lastScenario != null && lastScenario.Feature.FullClassName != scenario.Feature.FullClassName))
             {
                 if(lastScenario != null) {
-                    var lastFeatureFullClassName = lastScenario.Feature.ClassName;
+                    var lastFeatureFullClassName = lastScenario.Feature.FullClassName;
                     this.WriteFeatureFile(directory, rootNamespace, lastFeatureFullClassName, sb);
                     sb.Clear();
                 }
                 var feature = scenario.Feature;
-                var featureFullClassName = scenario.Feature.ClassName;
+                var featureFullClassName = scenario.Feature.FullClassName;
                 var featureNamespace = featureFullClassName.Substring(0, featureFullClassName.LastIndexOf("."));
                 var featureClassName = featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
                 sbFeatureSort.AppendLine($@"                typeof({featureNamespace}.{featureClassName}).FullName,");

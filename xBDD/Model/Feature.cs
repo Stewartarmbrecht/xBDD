@@ -31,11 +31,11 @@ namespace xBDD.Model
 		public string Name { get; internal set; }
 
 		/// <summary>
-		/// Name of the feature class.
+		/// The full class name of the feature including the namespace.
 		/// </summary>
 		/// <value><see cref="String"/></value>
 		[DataMember(EmitDefaultValue=false)]
-		public string ClassName { get; internal set; }
+		public string FullClassName { get; internal set; }
 
 		/// <summary>
 		/// Value used to sort the features.

@@ -26,17 +26,17 @@ namespace xBDD.Core
 					feature.Actor = codeDetails.GetFeatureActorName();
 					feature.Capability = codeDetails.GetFeatureActorAction();
 					feature.Value = codeDetails.GetFeatureActorValue();
-					feature.ClassName = codeDetails.GetFullClassName();
+					feature.FullClassName = codeDetails.GetFullClassName();
 				}
 				features.Add(feature);				
 			}
 			return feature;
 		}
 
-		internal Feature GetByClassName(string featureFullName)
+		internal Feature GetByFullClassName(string featureFullName)
 		{
 			return features.Where(feature => {
-				return feature.ClassName == featureFullName;
+				return feature.FullClassName == featureFullName;
 			}).FirstOrDefault();
 		}
 

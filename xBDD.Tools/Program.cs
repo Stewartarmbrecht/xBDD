@@ -82,18 +82,18 @@ namespace xBDD.Tools
             Description = "Converts from one TestRun serialization format to another.")]
         private class Convert
         {
-            [Option("-s|--source-file", "Sets the path to the source file.", CommandOptionType.SingleValue)]
+            [Option("-s|--source", "Sets the path to the source file.", CommandOptionType.SingleValue)]
             [FileExists]
-            public string SourceFile { get; }
+            public string Source { get; }
             
             [Option("-sf|--source-format", "Designates the format of the source.", CommandOptionType.SingleValue)]
             public SourceFormat SourceFormat { get; }
             
-            [Option("-d|--destination-file", "Sets the source type.", CommandOptionType.SingleValue)]
+            [Option("-d|--destination", "Sets the source type.", CommandOptionType.SingleValue)]
             [DirectoryExists]
             public string Destination { get; }
             
-            [Option("-dt|--destination-format", "Sets the de type.", CommandOptionType.SingleValue)]
+            [Option("-df|--destination-format", "Sets the de type.", CommandOptionType.SingleValue)]
             public DestinationFormat DestinationFormat { get; }
             
             [Option("-ti|--text-indentation", "Sets the string used to indent a level in the text file.", CommandOptionType.SingleValue)]
@@ -105,8 +105,11 @@ namespace xBDD.Tools
             [Option("-trn|--testrun-name", "Sets the default name for the test run when the tests are executed.", CommandOptionType.SingleValue)]
             public string TestRunName { get; }
             
-            [Option("-dsr|--default-skip-reason", "Sets the default skip reason for all scenarios.", CommandOptionType.SingleValue)]
-            public string DefaultSkipReason { get; }
+            [Option("-do|--default-outcome", "Sets the default outcome for all scenarios.", CommandOptionType.SingleValue)]
+            public string DefaultOutcome { get; }
+
+            [Option("-dr|--default-reason", "Sets the default reason for all scenarios.", CommandOptionType.SingleValue)]
+            public string DefaultReason { get; }
 
             [Option("-fo|--features-only", "Sets the code generator to only generate feature files.", CommandOptionType.SingleValue)]
             public bool FeaturesOnly { get; }
@@ -118,27 +121,34 @@ namespace xBDD.Tools
             {
                 try {
                     TestRun testRun = null;
-                    string source = System.IO.File.ReadAllText(SourceFile);
+                    string source = System.IO.File.ReadAllText(Source);
+                    console.WriteLine($"Current Directory: {System.IO.Directory.GetCurrentDirectory()}");
+                    console.WriteLine($"Sourcey: {Source}");
                     console.WriteLine($"Source Type: {SourceFormat}");
                     console.WriteLine($"Source Length: {source.Length}");
                     switch (this.SourceFormat)
                     {
                         case SourceFormat.Text:
-                            console.WriteLine($"Source File: {SourceFile}");
+                            console.WriteLine($"Source File: {Source}");
                             console.WriteLine($"Indentation: {TextIndentation}");
                             console.WriteLine($"Root Namespace: {RootNamespace}");
-                            console.WriteLine($"Skip Reason: {DefaultSkipReason}");
+                            console.WriteLine($"Default Outcome: {DefaultOutcome}");
+                            console.WriteLine($"Default Reason: {DefaultReason}");
                             console.WriteLine($"Test Run Name: {TestRunName}");
                             TextImporter textImporter = new TextImporter();
                             console.WriteLine($"Source Content:");
                             console.WriteLine(source);
-                            testRun = textImporter.ImportText(source, TextIndentation, RootNamespace, DefaultSkipReason);
+                            var defaultOutcome = DefaultOutcome;
+                            if(defaultOutcome == null) {
+                                defaultOutcome = "Skipped";
+                            }
+                            testRun = textImporter.ImportText(source, TextIndentation, RootNamespace, defaultOutcome, DefaultReason);
                             testRun.Name = TestRunName;
                             console.WriteLine($"Test Run Scenario Count: {testRun.Scenarios.Count}");
                         break;
                         case SourceFormat.Json:
-                            console.WriteLine($"Source File: {SourceFile}");
-                            console.WriteLine($"Skip Reason: {DefaultSkipReason}");
+                            console.WriteLine($"Source File: {Source}");
+                            console.WriteLine($"Skip Reason: {DefaultReason}");
                             JsonImporter jsonImporter = new JsonImporter();
                             console.WriteLine($"Source Content:");
                             console.WriteLine(source);

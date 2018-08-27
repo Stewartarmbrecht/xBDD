@@ -248,6 +248,96 @@
                 "cwd": "${workspaceFolder}/scripts/"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "code-mysample-testrun1passing",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/code-generate.ps1",
+                "Test Run 1 Passing",
+                "My Sample",
+                "true"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/scripts/"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "code-mysample-testrun2SkippedUntested",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/code-generate.ps1",
+                "Test Run 2 Skipped Untested",
+                "My Sample",
+                "false"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/scripts/"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "code-mysample-testrun3SkippedBuilding",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/code-generate.ps1",
+                "Test Run 3 Skipped Building",
+                "My Sample",
+                "false"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/scripts/"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "code-mysample-testrun4SkippedReady",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/code-generate.ps1",
+                "Test Run 4 Skipped Ready",
+                "My Sample",
+                "false"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/scripts/"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "code-mysample-testrun5SkippedDefining",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/code-generate.ps1",
+                "Test Run 5 Skipped Defining",
+                "My Sample",
+                "false"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/scripts/"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "code-mysample-testrun6Failed",
+            "command": "pwsh",
+            "type": "process",
+            "args": [
+                "${workspaceFolder}/scripts/code-generate.ps1",
+                "Test Run 6 Failed",
+                "My Sample",
+                "true"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/scripts/"
+            },
+            "problemMatcher": "$msCompile"
         }
     ]
 }

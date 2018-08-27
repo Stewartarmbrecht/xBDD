@@ -1,7 +1,7 @@
-param([string]$ProjectName,[string]$ProjectRoot,[string]$DeployTools)
+param([string]$ProjectName,[string]$ProjectRootName,[string]$DeployTools)
 $CurrentLocation = Get-Location
 $ProjectNamespace = $ProjectName -replace ' ', ''
-$ProjectAreaNameSkipRoot = $ProjectRoot -replace '.',' - '
+$ProjectRoot = ($ProjectRootName -replace ' ','') -replace ' - ', '\.'
 
 Set-Location $PSScriptRoot
 If ($DeployTools -eq "true") {
@@ -16,13 +16,13 @@ dotnet xbdd convert `
 --source ./FeatureOutline.txt `
 --source-format Text `
 --text-indentation "`t" `
---default-skipped-reason "Untested" `
+--default-outcome "Passed" `
 --destination ./ `
 --destination-format code `
 --root-namespace "$ProjectRoot.Features.$ProjectNamespace" `
---features-only True `
---area-name-skip "$ProjectAreaNameSkipRoot - Features - $ProjectName - " `
---testrun-name "$ProjectRoot $ProjectName"
+--features-only False `
+--area-name-skip "$ProjectRootName - Features - $ProjectName - " `
+--testrun-name "$ProjectRootName $ProjectName"
 
 dotnet test
 

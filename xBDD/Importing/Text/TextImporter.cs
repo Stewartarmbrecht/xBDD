@@ -16,7 +16,8 @@ namespace xBDD.Importing.Text
     {
         private string indentationKey;
         private string rootNamespace;
-        private string skipReason;
+        private Outcome defaultOutcome;
+        private string defaultReason;
         private List<string> featureNames = new List<string>(); 
         private LineType GetLineType(string line, string previousLine) {
             LineType lineType = new LineType();
@@ -49,6 +50,10 @@ namespace xBDD.Importing.Text
         }
         private string GetStepName(string stepLine, StepType stepType) {
             string stepName = null;
+			var stepHasReason = stepLine.Contains("[");
+			if(stepHasReason) {
+				stepLine = stepLine.Substring(0, stepLine.IndexOf("[")-1);
+			}
             switch (stepType)
             {
                 case StepType.Given:
@@ -94,12 +99,14 @@ namespace xBDD.Importing.Text
         /// <param name="text">The text report to import.</param>
         /// <param name="indentationKey">The string used for indentation in the text file.</param>
         /// <param name="rootNamespace">The namspace to prepend to each area.<param>
-        /// <param name="skipReason">The namspace to prepend to each area.<param>
+        /// <param name="defaultOutcome">The default outcome for a scenario.<param>
+        /// <param name="defaultReason">The default reason for an scenario.<param>
         /// <returns>TestRun object hydrated from the text file outline.</returns>
-        public TestRun ImportText(string text, string indentationKey = "\t", string rootNamespace = "", string skipReason = "Defining") {
+        public TestRun ImportText(string text, string indentationKey = "\t", string rootNamespace = "", string defaultOutcome = "Skipped", string defaultReason = "Defining") {
             this.indentationKey = indentationKey;
+            this.defaultOutcome = (Outcome)Enum.Parse(typeof(Outcome), defaultOutcome);
             this.rootNamespace = rootNamespace;
-            this.skipReason = skipReason;
+            this.defaultReason = defaultReason;
             string[] lines = text.Split(
                 new[] { Environment.NewLine },
                 StringSplitOptions.None
@@ -121,9 +128,9 @@ namespace xBDD.Importing.Text
             xB.CurrentRun.SortTestRunResults(this.featureNames.ToArray());
             xB.CurrentRun.TestRun.Scenarios.ForEach(scenario => {
                 if(scenario.Outcome == Outcome.NotRun)
-                    scenario.Outcome = Outcome.Skipped;
+                    scenario.Outcome = this.defaultOutcome;
                 if(scenario.Reason == null)
-                    scenario.Reason = this.skipReason;
+                    scenario.Reason = this.defaultReason;
             });
             var testRun = xB.CurrentRun.TestRun;
             xB.CurrentRun = currentTestRunBuilder;
@@ -208,6 +215,11 @@ namespace xBDD.Importing.Text
                                 null);
                             scenarioBuilder = xB.CurrentRun.AddScenario(codeDetails,x);
                             scenarioBuilder.Scenario.Reason = reason;
+                            if(scenarioBuilder.Scenario.Reason == "Failed") {
+                                scenarioBuilder.Scenario.Outcome = Outcome.Failed;
+                            } else if (scenarioBuilder.Scenario.Reason != null) {
+                                scenarioBuilder.Scenario.Outcome = Outcome.Skipped;
+                            }
                         break;
                         case LineType.Step:
                             if(currentStep != null) {
@@ -216,7 +228,17 @@ namespace xBDD.Importing.Text
                             }
                             currentStepType = this.GetStepType(currentLineContent);
                             var stepName = this.GetStepName(currentLineContent, currentStepType);
-                            currentStep = xB.CreateStep(stepName, (s) => {});
+							var stepReason = currentLineContent.ExtractReason();
+							Action<Step> action = (s) => {};
+							if(stepReason == "Failed") {
+								action = (s) => { 
+									throw new Exception("Generated Failure"); 
+								};
+							}
+                            currentStep = xB.CreateStep(stepName, action);
+							if(stepReason == "Failed") {
+								currentStep.Outcome = Outcome.Failed;
+							}
                         break;
                         case LineType.MultilineText:
                             multilineParameter.AppendLine(currentLineContent);

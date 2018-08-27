@@ -313,14 +313,15 @@ namespace xBDD.Core
         /// list of feature names you provide.  Scenarios are sorted based on thier 
         /// sort order that you can provide when creating the scenario xB.AddScenario(this, 1 [sortOrder])
         /// </summary>
-        /// <param name="sortedFeatureNames">The sorted list of feature names to use for sorting features.</param>
-        public void SortTestRunResults(System.String[] sortedFeatureNames)
+        /// <param name="sortedFeatureFullNames">The sorted list of full feature names to use for sorting features. 
+        /// Each feature name should be the full name with the namespace included.</param>
+        public void SortTestRunResults(System.String[] sortedFeatureFullNames)
         {
-            List<string> featureNames = new List<string>(sortedFeatureNames);
+            List<string> featureNames = new List<string>(sortedFeatureFullNames);
             var featureIndex = 0;
-            featureNames.ForEach(featureName => {
+            featureNames.ForEach(featureFullName => {
                 
-                var feature = this.featureCache.GetByClassName(featureName);
+                var feature = this.featureCache.GetByFullClassName(featureFullName);
 
                 if(feature != null)
                 {
@@ -348,7 +349,7 @@ namespace xBDD.Core
                 featureName = codeDetails.GetClassName().AddSpacesToSentence();
 
             if (areaName == null && codeDetails != null)
-                areaName = codeDetails.GetNameSpace();
+                areaName = codeDetails.GetNameSpace().AddSpacesToSentence();
             
             var methodName = scenarioName;
             if(codeDetails != null)
