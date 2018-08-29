@@ -9,7 +9,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	//  [Description("In order to understand how functionality is organized")]
 	//  [Description("As a report reviewer")]
 	//  [Description("I would like to view the areas in the html report")]
-	public class ReviewAreaStats: FeatureTestClass
+	public class ReviewAreaStats: xBDDFeatureBase
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();

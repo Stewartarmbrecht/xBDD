@@ -9,7 +9,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	[YouCan("understand more detail about a feature")]
 	[By("reviewing the feature statement")]
     [TestClass]
-	public class ReviewFeatureStatement: FeatureTestClass
+	public class ReviewFeatureStatement: xBDDFeatureBase
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();

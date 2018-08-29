@@ -6,7 +6,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	using xBDD.Features.Pages;
 
 	[TestClass]
-	public class ReviewAreaDescription: FeatureTestClass
+	public class ReviewAreaDescription: xBDDFeatureBase
 	{
 		[TestMethod]
 		public async Task Expand()

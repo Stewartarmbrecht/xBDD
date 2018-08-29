@@ -9,7 +9,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	[AsA("test results reviewer")]
 	[YouCan("review area features")]
 	[By("clicking on the area name to expand and collapse the area's feature list")]
-	public class ReviewAreaFeatures: FeatureTestClass
+	public class ReviewAreaFeatures: xBDDFeatureBase
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();

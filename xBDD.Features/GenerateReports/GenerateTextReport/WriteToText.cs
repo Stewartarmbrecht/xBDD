@@ -7,7 +7,7 @@
     using xBDD.Features.Actors;
 
     [TestClass]
-    public class WriteToText: FeatureTestClass
+    public class WriteToText: xBDDFeatureBase
     {
         private Developer you = new Developer();
 

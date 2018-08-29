@@ -15,7 +15,7 @@ namespace xBDD.Tools
           Name = "dotnet xbdd",
           FullName = "dotnet-xbdd",
           Description = "Creates a new test project initialized for xBDD"),
-    Subcommand("init", typeof(Init)), 
+    Subcommand("project", typeof(Project)), 
     Subcommand("convert", typeof(Convert))]
     [HelpOption]
     class Program
@@ -34,10 +34,9 @@ namespace xBDD.Tools
             return 1;
         }
 
-        [Command("init", Description = "Initializes a new test project in the current folder."),
-         Subcommand("mstest", typeof(MSTest)),
-         Subcommand("xunit", typeof(XUnit))]
-        private class Init
+        [Command("project", Description = "Provides access to project level commands."),
+         Subcommand("generate", typeof(Generate))]
+        private class Project
         {
             private int OnExecute(IConsole console)
             {
@@ -45,37 +44,44 @@ namespace xBDD.Tools
                 return 1;
             }
 
-            [Command(Description = "Creates an MSTest project that uses xBDD."), HelpOption]
-            private class MSTest
-            {
-                private int OnExecute(IConsole console)
-                {
-                    try {
-                        var codeWriter = new xBDD.Reporting.Code.CodeWriter();
-                        var directory = System.IO.Directory.GetCurrentDirectory();
-                        var folder = directory.Substring(directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar) + 1, directory.Length - (directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar)+1));
-                        console.WriteLine($"Directory: {directory}");
-                        console.WriteLine($"Folder: {folder}");
-                        codeWriter.WriteProjectFiles(directory, folder, folder);
-                        console.WriteLine($"Project initialized.");
-                        return 0;
-                    } catch (Exception ex) {
-                        console.Error.WriteLine(ex.Message);
-                        console.Error.WriteLine(ex.StackTrace);
-                        return 1;
-                    }
-                }
-            }
+			[Command("generate", Description = "Generates code for a test project in the current folder."),
+			Subcommand("mstest", typeof(MSTest)),
+			Subcommand("xunit", typeof(XUnit))]
+			private class Generate
+			{
 
-            [Command(Description = "Creates an MSTest project that uses xBDD."), HelpOption]
-            private class XUnit
-            {
-                private int OnExecute(IConsole console)
-                {
-                    console.Error.WriteLine("This feature still needs to be implemented.");
-                    return 1;
-                }
-            }
+				[Command(Description = "Creates an MSTest project that uses xBDD."), HelpOption]
+				private class MSTest
+				{
+					private int OnExecute(IConsole console)
+					{
+						try {
+							var codeWriter = new xBDD.Reporting.Code.CodeWriter();
+							var directory = System.IO.Directory.GetCurrentDirectory();
+							var folder = directory.Substring(directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar) + 1, directory.Length - (directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar)+1));
+							console.WriteLine($"Directory: {directory}");
+							console.WriteLine($"Folder: {folder}");
+							codeWriter.WriteProjectFiles(directory, folder, folder);
+							console.WriteLine($"Project initialized.");
+							return 0;
+						} catch (Exception ex) {
+							console.Error.WriteLine(ex.Message);
+							console.Error.WriteLine(ex.StackTrace);
+							return 1;
+						}
+					}
+				}
+
+				[Command(Description = "Creates an MSTest project that uses xBDD."), HelpOption]
+				private class XUnit
+				{
+					private int OnExecute(IConsole console)
+					{
+						console.Error.WriteLine("This feature still needs to be implemented.");
+						return 1;
+					}
+				}
+			}
         }
 
         [Command("convert",

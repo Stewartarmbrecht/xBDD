@@ -45,7 +45,14 @@ namespace xBDD.Model
         /// </summary>
         /// <value><see cref="string"/></value>
 		[DataMember(EmitDefaultValue=false)]
-        public string MultilineParameter { get; set; }
+        public string InputParameter { get; set; }
+
+        /// <summary>
+        /// Multiline string markdown displayed below the step to provide an explanation of the step.
+        /// </summary>
+        /// <value><see cref="string"/></value>
+		[DataMember(EmitDefaultValue=false)]
+        public string Explanation { get; set; }
 
         /// <summary>
         /// The format for the multiline parameter.

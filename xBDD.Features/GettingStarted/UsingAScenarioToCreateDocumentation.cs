@@ -10,7 +10,7 @@ namespace xBDD.Features.GettingStarted
 	[AsA(Developer.Name)]
 	[YouCan("add a scenario that only creates documentation and does not run any code")]
 	[By("calling the Document method on the scenario")]
-	public class UsingAScenarioToCreateDocumentation: FeatureTestClass
+	public class UsingAScenarioToCreateDocumentation: xBDDFeatureBase
 	{
 		private Developer you = new Developer();
 

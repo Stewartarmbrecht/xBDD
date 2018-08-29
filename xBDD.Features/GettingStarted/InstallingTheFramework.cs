@@ -9,7 +9,7 @@ namespace xBDD.Features.GettingStarted
 	[AsA("developer")]
 	[YouCan("leverage xBDD within your .Net testing projects")]
 	[By("installing the xBDD.Core nuget package")]
-	public class InstallingTheFramework: FeatureTestClass
+	public class InstallingTheFramework: xBDDFeatureBase
 	{
 		[TestMethod]
 		public async Task ViaANugetPackage()

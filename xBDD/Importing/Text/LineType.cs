@@ -7,7 +7,17 @@ namespace xBDD.Importing.Text
         Feature,
         Scenario,
         Step,
+        FeatureStatementHeader,
         FeatureStatement,
-        MultilineText
+		ScenarioExplanationHeader,
+		ScenarioExplanation,
+		FeatureExplanationHeader,
+		FeatureExplanation,
+		StepExplanationHeader,
+		StepExplanation,
+		AreaExplanationHeader,
+		AreaExplanation,
+        StepInputHeader,
+        StepInput
     }
 }

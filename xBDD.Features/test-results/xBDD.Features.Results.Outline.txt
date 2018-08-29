@@ -1,4 +1,4 @@
-xBDD Features
+
 
 xBDD - Features - Getting Started
 	Installing The Framework

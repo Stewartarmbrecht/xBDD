@@ -44,6 +44,13 @@ namespace xBDD.Model
         public string Reason { get; internal set; }
 
 		/// <summary>
+		/// Markdown formtted explanation of the area.
+		/// </summary>
+		/// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
+		public string Explanation { get; set; }
+
+		/// <summary>
 		/// The start time for the first step.
 		/// </summary>
 		/// <value><see cref="DateTime"/></value>

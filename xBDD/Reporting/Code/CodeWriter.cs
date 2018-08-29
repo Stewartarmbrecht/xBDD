@@ -162,7 +162,7 @@
         {
             this.WriteProjectFile(directory, rootNamespace);
             this.WriteConfigJson(testRun.Name, directory, removeFromAreaNameStart);
-            this.WriteTestSetupAndBreakdown(directory, rootNamespace);
+            this.WriteXbddInitializeAndComplete(directory, rootNamespace);
             this.WriteTestConfiguration(directory, rootNamespace);
             this.WriteReasonSort(directory, rootNamespace);
             this.WriteFeatureTestClass(directory, rootNamespace);
@@ -176,13 +176,15 @@
         /// <param name="removeFromAreaNameStart">The value for this config setting.</param>
         public void WriteProjectFiles(string directory, string rootNamespace, string removeFromAreaNameStart)
         {
-            this.WriteProjectFile(directory, rootNamespace);
-            this.WriteConfigJson(rootNamespace, directory, removeFromAreaNameStart);
-            this.WriteTestSetupAndBreakdown(directory, rootNamespace);
+			this.WriteProjectFile(directory, rootNamespace);
+	        this.WriteConfigJson(rootNamespace, directory, removeFromAreaNameStart);
+            this.WriteXbddInitializeAndComplete(directory, rootNamespace);
             this.WriteTestConfiguration(directory, rootNamespace);
             this.WriteFeatureTestClass(directory, rootNamespace);
-            this.WriteFeatureSort(directory, rootNamespace);
-            this.WriteReasonSort(directory, rootNamespace);
+			this.WriteFeatureSort(directory, rootNamespace);
+			if(!System.IO.File.Exists($"{directory}/xBDDReasonSort.cs")) {
+            	this.WriteReasonSort(directory, rootNamespace);
+			}
             this.WriteSampleFeature(directory, rootNamespace);
         }
 
@@ -192,7 +194,7 @@
 {{
     using System;
     using System.Collections.Generic;
-    public class FeatureSort
+    public class xBDDFeatureSort
     {{
         public string[] SortedFeatureNames {{ get; private set; }}
 
@@ -207,7 +209,29 @@
         }}
     }}
 }}";
-            System.IO.File.WriteAllText($"{directory}/FeatureSort.cs",content);
+			if(!System.IO.File.Exists($"{directory}/xBDDFeatureSort.cs")) {
+	            System.IO.File.WriteAllText($"{directory}/xBDDFeatureSort.cs",content);
+			}
+            content = $@"namespace {rootNamespace}
+{{
+    using System;
+    using System.Collections.Generic;
+    public class xBDDFeatureSort_Generated
+    {{
+        public string[] SortedFeatureNames {{ get; private set; }}
+
+        public FeatureSort()
+        {{
+            List<string> SortedFeatureNames = new List<string>() {{
+                typeof({rootNamespace}.MyArea.MyFeature).FullName,
+            }};
+
+            this.SortedFeatureNames = SortedFeatureNames.ToArray();
+
+        }}
+    }}
+}}";
+			System.IO.File.WriteAllText($"{directory}/xBDDFeatureSort.xbdd.cs",content);
         }
 
         private void WriteReasonSort(string directory, string rootNamespace)
@@ -216,7 +240,7 @@
 {{
     using System;
     using System.Collections.Generic;
-    public class ReasonSort
+    public class xBDDReasonSort
     {{
         public List<string> SortedReasons {{ get; private set; }}
 
@@ -231,7 +255,29 @@
         }}
     }}
 }}";
-            System.IO.File.WriteAllText($"{directory}/ReasonSort.cs",content);
+			if(!System.IO.File.Exists($"{directory}/xBDDReasonSort.cs")) {
+	            System.IO.File.WriteAllText($"{directory}/xBDDReasonSort.cs",content);
+			}
+            content = $@"namespace {rootNamespace}
+{{
+    using System;
+    using System.Collections.Generic;
+    public class xBDDReasonSort_Generated
+    {{
+        public List<string> SortedReasons {{ get; private set; }}
+
+        public ReasonSort()
+        {{
+            this.SortedReasons = new List<string>() {{
+                ""Untested"",
+                ""Building"",
+                ""Ready"",
+                ""Defining""
+            }};
+        }}
+    }}
+}}";
+			System.IO.File.WriteAllText($"{directory}/xBDDReasonSort.xbdd.cs",content);
         }
 
         /// <summary>
@@ -249,7 +295,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 
 
-    public class FeatureTestClass: IFeature, IOutputWriter
+    public partial class xBDDFeatureTestClass: IFeature, IOutputWriter
     {{
         public IOutputWriter OutputWriter {{ get {{ return this; }} }}
 
@@ -260,7 +306,7 @@
     }}
 }}
 ";
-            System.IO.File.WriteAllText($"{directory}/FeatureTestClass.cs",content);
+            System.IO.File.WriteAllText($"{directory}/xBDDFeatureTestClass.cs",content);
         }
 
         /// <summary>
@@ -295,7 +341,10 @@
 
 </Project>
 ";
-            System.IO.File.WriteAllText($"{directory}/{rootNamespace}.csproj",content);
+			if(System.IO.File.Exists($"{directory}/{rootNamespace}.csproj")) {
+	            System.IO.File.WriteAllText($"{directory}/{rootNamespace}.csproj",content);
+			}
+			System.IO.File.WriteAllText($"{directory}/{rootNamespace}.csproj.xbdd",content);
         }
 
         /// <summary>
@@ -320,7 +369,9 @@
     }}
 }}            
 ";
-            System.IO.File.WriteAllText($"{directory}/config.json",content);
+			if(System.IO.File.Exists($"{directory}/xBDDConfig.json")) {
+	            System.IO.File.WriteAllText($"{directory}/xBDDConfig.json",content);
+			}
         }
 
         /// <summary>
@@ -330,7 +381,7 @@
         /// <param name="directory">The directory to write the file.</param>
         /// <param name="namespaceRoot">The root namespace to use.</param>
         /// <returns>Returns the task for writing the file to the direcotry.</returns>
-        public void WriteTestSetupAndBreakdown(string directory, string namespaceRoot)
+        public void WriteXbddInitializeAndComplete(string directory, string namespaceRoot)
         {
             var content = $@"namespace {namespaceRoot}
 {{

@@ -90,11 +90,11 @@ namespace xBDD.Reporting.Outline
 
         private void WriteStep(Step step, StringBuilder sb)
         {
-            var multiline = !String.IsNullOrEmpty(step.MultilineParameter);
+            var multiline = !String.IsNullOrEmpty(step.InputParameter);
             sb.AppendLine($"\t\t\t<outline text=\"{step.FullName.Replace(System.Environment.NewLine, "")}\"{(multiline ? "":"/")}>");
             if (multiline)
             {
-                WriteMultilineParameter(step.MultilineParameter, sb);
+                WriteMultilineParameter(step.InputParameter, sb);
                 sb.AppendLine($"\t\t\t</outline>");
             }
         }

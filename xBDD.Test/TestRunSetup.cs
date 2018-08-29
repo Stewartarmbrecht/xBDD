@@ -26,7 +26,9 @@ namespace xBDD.Test
                             $"Scenario{scenarioId}",
                             $"As a user",
                             $"You can get some value",
-                            $"By performing some action"
+                            $"By performing some action",
+							null,
+							null
                         );
                         var scenario = xB.CurrentRun.AddScenario(codeDetails, scenarioCount);
                         string skipReason = null;

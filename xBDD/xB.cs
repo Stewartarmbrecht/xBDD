@@ -3,6 +3,7 @@
     using System;
     using System.Runtime.CompilerServices;
     using System.Threading.Tasks;
+	using System.IO;
     using xBDD.Core;
     using xBDD.Model;
     using xBDD.Utility;
@@ -122,5 +123,56 @@
             if (factory == null)
                 factory = new CoreFactory();
         }
+
+		/// <summary>
+		/// Initializes the xBDD system prior to running tests.
+		/// Currenly just reads the Watch Browser setting from the config file.
+		/// </summary>
+		public static void Initialize() {
+			xBDD.Browser.WebBrowser.WatchBrowser = Configuration.WatchBrowswer;
+		}
+
+		/// <summary>
+		/// Generates standard reports from a test run and 
+		/// Closes the shared web driver and 
+		/// </summary>
+		public static void Complete(ISorting sorting, Action<string> writeOutput) {
+            xBDD.Browser.WebDriver.Close();
+
+            var directory = System.IO.Directory.GetCurrentDirectory();
+
+            xB.CurrentRun.TestRun.Name = Configuration.TestRunName;
+
+            System.IO.Directory.CreateDirectory($"{directory}/../../../test-results");
+
+            xB.CurrentRun.SortTestRunResults(sorting.GetGeneratedSortedFeatureNames());
+            xB.CurrentRun.UpdateParentReasonsAndStats(sorting.GetSortedReasons());
+
+            var htmlPath = $"{directory}/../../../test-results/xBDD.Features.Results.html";
+            writeOutput("Writing Html Report to " + htmlPath);
+            var htmlReport = xB.CurrentRun.TestRun.WriteToHtml(Configuration.RemoveFromAreaNameStart, Configuration.FailuresOnly);
+            File.WriteAllText(htmlPath, htmlReport);
+
+            var textPath = $"{directory}/../../../test-results/xBDD.Features.Results.txt";
+            writeOutput("Writing Text Report to " + textPath);
+            var textReport = xB.CurrentRun.TestRun.WriteToText();
+            File.WriteAllText(textPath, textReport);
+
+            var textOutlinePath = $"{directory}/../../../test-results/xBDD.Features.Results.Outline.txt";
+            writeOutput("Writing Text Outline Report to " + textOutlinePath);
+            var textOutlineReport = xB.CurrentRun.TestRun.WriteToText(false);
+            File.WriteAllText(textOutlinePath, textOutlineReport);
+
+            var jsonPath = $"{directory}/../../../test-results/xBDD.Features.Results.json";
+            writeOutput("Writing Json Report to " + jsonPath);
+            var jsonReport = xB.CurrentRun.TestRun.WriteToJson();
+            File.WriteAllText(jsonPath, jsonReport);
+
+            var opmlPath = $"{directory}/../../../test-results/xBDD.Features.Results.opml";
+            writeOutput("Writing OPML Report to " + opmlPath);
+            var opmlReport = xB.CurrentRun.TestRun.WriteToOpml();
+            File.WriteAllText(opmlPath, opmlReport);
+
+		}
     }
 }

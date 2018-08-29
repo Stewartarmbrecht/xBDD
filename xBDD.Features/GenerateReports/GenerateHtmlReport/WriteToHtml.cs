@@ -6,7 +6,7 @@ namespace xBDD.Features.GenerateReports.GenerateHtmlReport
 	using xBDD.Features.Pages;
 
     [TestClass]
-    public class WriteToHtml: FeatureTestClass
+    public class WriteToHtml: xBDDFeatureBase
     {
         Developer you = new Developer();
 

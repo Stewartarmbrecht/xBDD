@@ -8,7 +8,7 @@ If ($DeployTools -eq "true") {
     ./deploy-tools.ps1 
 }
 
-./code-clean-outline.ps1 "./../$ProjectRoot.Features.$ProjectNamespace/FeatureOutline.txt"
+./code-clean-outline.ps1 "./../$ProjectRoot.Features.$ProjectNamespace/xBDDFeatureImport.txt"
 
 Set-Location "$PSScriptRoot./../$ProjectRoot.Features.$ProjectNamespace/"
 

@@ -343,7 +343,7 @@ namespace xBDD.Features.Actors
                 async (s) =>
                 {
                     var sampleTestRun = await SampleApp.Features.SampleTestRun.RunTests();
-                    sampleTestRun.CurrentRun.SortTestRunResults(SampleApp.Features.SampleFeatureSort.SortedFeatureNames);
+                    sampleTestRun.CurrentRun.SortTestRunResults(new System.Collections.Generic.List<string>(SampleApp.Features.SampleFeatureSort.SortedFeatureNames));
                     var htmlReport = sampleTestRun.CurrentRun.TestRun.WriteToHtml();
                     File.WriteAllText(path, htmlReport);
                 });

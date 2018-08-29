@@ -17,6 +17,8 @@ namespace xBDD.Utility
         string asAAttribute;
         string youCanAttribute;
         string byAttribute;
+		string scenarioExplanation;
+		string featureExplanation;
 
         internal CodeDetails(MethodBase methodBase, UtilityFactory factory)
         {
@@ -35,13 +37,25 @@ namespace xBDD.Utility
         /// <param name="asAAttribute">The value of the As A attribute on the feature.</param>
         /// <param name="youCanAttribute">The value of the You Can attribute on the feature.</param>
         /// <param name="byAttribute">The value of the By attribute on the feature.</param>
-        public CodeDetails(string namespaceName, string className, string methodName, string asAAttribute, string youCanAttribute, string byAttribute) {
+        /// <param name="scenarioExplanation">Markdown that provides an explanation for the features area.</param>
+        /// <param name="featureExplanation">Markdown that provides an explanation for the feature.</param>
+        public CodeDetails(
+			string namespaceName, 
+			string className, 
+			string methodName, 
+			string asAAttribute, 
+			string youCanAttribute, 
+			string byAttribute,
+			string scenarioExplanation,
+			string featureExplanation) {
             this.namespaceName = namespaceName;
             this.className = className;
             this.methodName = methodName;
             this.asAAttribute = asAAttribute;
             this.youCanAttribute = youCanAttribute;
             this.byAttribute = byAttribute;
+			this.scenarioExplanation = scenarioExplanation;
+			this.featureExplanation = featureExplanation;
         }
 
         internal string Name { get { 
@@ -111,6 +125,32 @@ namespace xBDD.Utility
                 var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<AsAAttribute>();
                 if(attr != null)
                     text = attr.GetName();
+            }
+            return text;
+        }
+
+        internal string GetFeatureExplanation()
+        {
+            string text = null;
+            if(this.scenarioExplanation != null) {
+                text = this.scenarioExplanation;
+            } else if(methodBase != null){
+                var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<ExplanationAttribute>();
+                if(attr != null)
+                    text = attr.GetExplanation();
+            }
+            return text;
+        }
+
+        internal string GetScenarioExplanation()
+        {
+            string text = null;
+            if(this.scenarioExplanation != null) {
+                text = this.scenarioExplanation;
+            } else if(methodBase != null){
+                var attr = methodBase.GetCustomAttribute<ExplanationAttribute>();
+                if(attr != null)
+                    text = attr.GetExplanation();
             }
             return text;
         }

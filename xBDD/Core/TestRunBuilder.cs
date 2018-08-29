@@ -315,11 +315,10 @@ namespace xBDD.Core
         /// </summary>
         /// <param name="sortedFeatureFullNames">The sorted list of full feature names to use for sorting features. 
         /// Each feature name should be the full name with the namespace included.</param>
-        public void SortTestRunResults(System.String[] sortedFeatureFullNames)
+        public void SortTestRunResults(List<string> sortedFeatureFullNames)
         {
-            List<string> featureNames = new List<string>(sortedFeatureFullNames);
             var featureIndex = 0;
-            featureNames.ForEach(featureFullName => {
+            sortedFeatureFullNames.ForEach(featureFullName => {
                 
                 var feature = this.featureCache.GetByFullClassName(featureFullName);
 

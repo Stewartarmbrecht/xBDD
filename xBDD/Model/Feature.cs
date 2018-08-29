@@ -69,6 +69,13 @@ namespace xBDD.Model
 		public string Value { get; set; }
 
 		/// <summary>
+		/// Markdown formtted explanation of the feature.
+		/// </summary>
+		/// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
+		public string Explanation { get; set; }
+
+		/// <summary>
 		/// The testing outcome for the feature.
 		/// </summary>
 		/// <value><see cref="Outcome"/></value>

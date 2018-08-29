@@ -6,7 +6,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	using xBDD.Features.Pages;
 
     [TestClass]
-	public class ReviewScenario: FeatureTestClass
+	public class ReviewScenario: xBDDFeatureBase
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();

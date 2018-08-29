@@ -12,7 +12,7 @@ namespace xBDD.Features.GettingStarted
 	[AsA(Developer.Name)]
 	[YouCan("simplify the development of tests")]
 	[By("using a library of reusable steps")]
-	public class LeveragingReusableSteps: FeatureTestClass
+	public class LeveragingReusableSteps: xBDDFeatureBase
 	{
 		Developer you = new Developer();
 

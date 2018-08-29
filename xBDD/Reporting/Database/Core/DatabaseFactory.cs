@@ -29,7 +29,7 @@ namespace xBDD.Reporting.Database.Core
                 Reason = step.Reason,
                 Scenario = scenario,
                 StartTime = step.StartTime,
-                MultilineParameter = step.MultilineParameter
+                MultilineParameter = step.InputParameter
             };
         }
 

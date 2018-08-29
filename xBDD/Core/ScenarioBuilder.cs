@@ -84,6 +84,21 @@ namespace xBDD.Core
         }
 
         /// <summary>
+        /// Only used when defining a step to generate code.
+		/// Do not use in a test method to define a scenario.
+        /// </summary>
+        /// <param name="step">The step to generate code whose name represents code that 
+		/// will be written to the feature file.</param>
+        /// <returns>The scenario builder.</returns>
+        internal ScenarioBuilder Code(Step step)
+        {
+            step.ActionType = ActionType.Code;
+            step.Scenario = scenario;
+            scenario.Steps.Add(step);
+            return this;
+        }
+
+        /// <summary>
         /// Given synchronous step.
         /// Creates a step from the required parts.
         /// </summary>

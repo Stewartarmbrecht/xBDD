@@ -9,7 +9,7 @@ namespace xBDD.Features.GenerateCode
     [AsA(Developer.Name)]
     [YouCan("generate a functioning test project from test run results")]
     [By("calling the WriteAllCode method on the TestRun object.")]
-    public class GenerateProjectFilesFromTestRunResults: FeatureTestClass
+    public class GenerateProjectFilesFromTestRunResults: xBDDFeatureBase
     {
         Developer you = new Developer();
 

@@ -83,7 +83,7 @@ namespace xBDD.Core
             {
                 Name = stepName,
                 Action = action,
-                MultilineParameter = multilineParameter,
+                InputParameter = multilineParameter,
                 MultilineParameterFormat = multilineParameterFormat
             };
         }
@@ -94,7 +94,7 @@ namespace xBDD.Core
             {
                 Name = stepName,
                 ActionAsync = action,
-                MultilineParameter = multilineParameter,
+                InputParameter = multilineParameter,
                 MultilineParameterFormat = multilineParameterFormat
             };
         }

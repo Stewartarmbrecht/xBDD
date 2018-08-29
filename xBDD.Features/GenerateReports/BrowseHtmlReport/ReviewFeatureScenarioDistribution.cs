@@ -10,7 +10,7 @@ namespace xBDD.Features.GenerateReports.BrowseHtmlReport
 	[AsA("Developer")]
 	[YouCan("see the distribution of feature outcomes for an area")]
 	[By("reviewing the distribution graph next to the area badge")]
-	public class ReviewFeatureScenarioDistribution: FeatureTestClass
+	public class ReviewFeatureScenarioDistribution: xBDDFeatureBase
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();

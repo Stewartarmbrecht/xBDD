@@ -9,7 +9,7 @@ namespace xBDD.Features.GenerateReports.CustomizeHtmlReport
 	[AsA("Developer")]
 	[YouCan("control the order test results are rendered")]
 	[By("calling the SortTestRunResults method on the test run: 'xB.CurrentRun.SortTestRunResults' before running the html report")]
-	public class SortTestRunResults: FeatureTestClass
+	public class SortTestRunResults: xBDDFeatureBase
 	{
         private HtmlReportUser you = new HtmlReportUser();
         private HtmlReportPageModel the = new HtmlReportPageModel();

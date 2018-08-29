@@ -10,7 +10,7 @@ namespace xBDD.Features.GettingStarted
 	[AsA(Developer.Name)]
 	[YouCan("include (document) scenarios that are not ready to run")]
 	[By("calling the Skip method on the scenario instead of the Run method.")]
-	public class SkippingAScenario: FeatureTestClass
+	public class SkippingAScenario: xBDDFeatureBase
 	{
 		private Developer you = new Developer();
 

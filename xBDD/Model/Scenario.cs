@@ -63,6 +63,13 @@ namespace xBDD.Model
         public string Reason { get; internal set; }
 
         /// <summary>
+        /// A markdown formated explanation for the scenario.
+        /// </summary>
+        /// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
+        public string Explanation { get; internal set; }
+
+        /// <summary>
         /// The start time for executing the scenario.
         /// </summary>
         /// <value><see cref="DateTime"/></value>

@@ -9,7 +9,7 @@ namespace xBDD.Features.GettingStarted
 	[AsA("developer")]
 	[YouCan("automate a basic scenario")]
 	[By("using xB.AddScenario and the Given, When, Then, and And operations.")]
-	public class ExecutingYourFirstScenario: FeatureTestClass
+	public class ExecutingYourFirstScenario: xBDDFeatureBase
 	{
 		private Developer you = new Developer();
 

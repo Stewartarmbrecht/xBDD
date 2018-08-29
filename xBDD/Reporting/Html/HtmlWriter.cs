@@ -611,7 +611,7 @@ namespace xBDD.Reporting.Html
             WriteTag("span", sb, 10, $"step badge pointer total badge-pill {badgeClassName}", " ", true, $"step-{stepNumber}-badge");
             WriteTag("span", sb, 0, "name", step.FullName.HtmlEncode(), true);
             
-            if (!String.IsNullOrEmpty(step.MultilineParameter))
+            if (!String.IsNullOrEmpty(step.InputParameter))
             {
                 sb.Append(String.Format("<a class=\"step-input-link\" data-toggle=\"collapse\" href=\"#step-{0}-input\" aria-expanded=\"false\" aria-controls=\"step-{0}-input\"> [Input]</a>", stepNumber));
             }
@@ -646,7 +646,7 @@ namespace xBDD.Reporting.Html
             formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
             WriteTag("span", sb, 0, "step duration", $" [{formattedDuration} ms]",true);
             WriteTagClose("h5", sb, 0);
-            if (!String.IsNullOrEmpty(step.MultilineParameter))
+            if (!String.IsNullOrEmpty(step.InputParameter))
             {
                 WriteMultilineParameter(step, sb, stepNumber);
             }
@@ -702,7 +702,7 @@ namespace xBDD.Reporting.Html
                         className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.MultilineParameterFormat);
                 }
                 WriteTagOpen("pre", sb, 10, className, true, $"input-{stepNumber}");
-                sb.Append(step.MultilineParameter.HtmlEncode());
+                sb.Append(step.InputParameter.HtmlEncode());
                 WriteTagClose("pre", sb, 0);
             }
             WriteTagClose("div", sb, 0);
@@ -734,8 +734,8 @@ namespace xBDD.Reporting.Html
                                     </div>";
             sb.AppendLine(String.Format(html,
                 stepNumber, 
-                step.MultilineParameter.HtmlEncode(), 
-                step.MultilineParameter
+                step.InputParameter.HtmlEncode(), 
+                step.InputParameter
                 .Replace(System.Environment.NewLine, " \\" + System.Environment.NewLine)
                 .Replace(":", "\\:")
                 .Replace("/", "\\/")
