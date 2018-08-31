@@ -67,12 +67,12 @@ Note: Area, Feature, and Scenario names will expand when clicked.
 
 1. Install the dotnet xbdd tools...
 
-        dotnet tool install --global dotnet-xbdd --version 0.0.4-alpha
+        dotnet tool install --global dotnet-xbdd --version 0.0.7-alpha
 
 2. Create a directory for your test project and open your terminal in that project.
 3. Create the test project...
 
-        dotnet xbdd init
+        dotnet xbdd project generate MSTest
 
 4. Run the test and the test will pass...
     
