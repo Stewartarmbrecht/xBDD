@@ -28,6 +28,10 @@ namespace xBDD.Test
                             $"You can get some value",
                             $"By performing some action",
 							null,
+							null,
+							null,
+							null,
+							null,
 							null
                         );
                         var scenario = xB.CurrentRun.AddScenario(codeDetails, scenarioCount);

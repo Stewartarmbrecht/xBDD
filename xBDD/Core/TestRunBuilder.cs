@@ -156,7 +156,12 @@ namespace xBDD.Core
             return AddScenario(null, scenarioName, featureName, areaPath, sortOrder);
         }
 
-        internal ScenarioBuilder AddScenario(CodeDetails codeDetails, string scenarioName, string featureName, string areaName, int sortOrder)
+        internal ScenarioBuilder AddScenario(
+			CodeDetails codeDetails, 
+			string scenarioName, 
+			string featureName, 
+			string areaName, 
+			int sortOrder)
         {
 
             if (scenarioName == null && codeDetails != null)
@@ -176,9 +181,24 @@ namespace xBDD.Core
 			if(codeDetails != null)
 				scenarioExplanation = codeDetails.GetScenarioExplanation();
 
+			string[] scenarioAssignments = null;
+			if(codeDetails != null)
+				scenarioAssignments = codeDetails.GetScenarioAssignments();
+
+			string[] scenarioTags = null;
+			if(codeDetails != null)
+				scenarioTags = codeDetails.GetScenarioTags();
+
             var area = areaCache.GetOrCreate(TestRun, areaName);
             var feature = featureCache.GetOrCreate(area, featureName, codeDetails);
-            return factory.CreateScenarioBuilder(scenarioName, feature, methodName, scenarioExplanation, sortOrder);
+            return factory.CreateScenarioBuilder(
+				scenarioName, 
+				feature, 
+				methodName, 
+				scenarioExplanation, 
+				scenarioAssignments, 
+				scenarioTags, 
+				sortOrder);
         }
     }
 }

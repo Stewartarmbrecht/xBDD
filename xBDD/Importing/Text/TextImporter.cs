@@ -243,8 +243,11 @@ namespace xBDD.Importing.Text
 			this.scenarioCount++;
 			var namespaceName = $"{this.rootNamespace}.{areaName.ConvertAreaNameToNamespace()}";
 			var className = featureName.ConvertFeatureNameToClassName();
+			var featureAssignments = featureName.ExtractAssignments();
+			var featureTags = featureName.ExtractTags();
 			var reason = scenarioName.ExtractReason();
-			var owner = scenarioName.ExtractOwner();
+			var scenarioAssignments = scenarioName.ExtractAssignments();
+			var scenarioTags = scenarioName.ExtractTags();
 			var methodName = scenarioName.ConvertScenarioNameToMethodName();
 			CodeDetails codeDetails = new CodeDetails(
 				namespaceName,
@@ -254,7 +257,11 @@ namespace xBDD.Importing.Text
 				youCanStatement, 
 				byStatement,
 				scenarioExplanation.ToString(),
-				featureExplanation.ToString());
+				featureExplanation.ToString(),
+				scenarioAssignments,
+				scenarioTags,
+				featureAssignments,
+				featureTags);
 			var scenarioBuilder = xB.CurrentRun.AddScenario(codeDetails,this.scenarioCount + 1000);
 			scenarioBuilder.Scenario.Reason = reason;
 			if(scenarioBuilder.Scenario.Reason == "Failed") {

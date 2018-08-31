@@ -16,6 +16,7 @@ namespace xBDD.Features.GeneratingCode
 		}
 		public List<string> GetGeneratedReasons() {
 			return new List<string>() {
+				"Committed",
 				"Defining",
 			};
 		}

@@ -20,6 +20,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles
 //				.Given(you.HaveAnEmptySolutionFolder())
 //				.And(you.CopyInABacklog(that.HasAllOutcomesAndReasons))
 //				.When(you.RunTheBackLogImportUsingTheCommand())
+//					Input
+//						dotnet xBDD import backlog
 //				.Then(you.WillNotFindStandardProjectFiles(at.TestRun1Passing).Because(“passed scenarios are skipped when generating code from a backlog”))
 //				.And(you.WillFindStandardProjectFiles(at.TestRun2Untested))
 //				.And(you.WillFindStandardProjectFiles(at.TestRun3SkippedCommitted))
@@ -38,6 +40,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles
 //				.Given(you.HaveAnEmptySolutionFolder())
 //				.And(you.CopyInABacklog(that.HasNoProjects))
 //				.When(you.RunTheBackLogImportUsingTheCommand())
+//					Input
+//						dotnet xBDD import backlog
 //				.Then(you.WillSeeOutputThatMatches(the.NoProjectOutputTemplate))
 				.Skip("Defining", Assert.Inconclusive);
 		}
@@ -49,6 +53,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles
 //				.Given(you.HaveAnEmptySolutionFolder())
 //				.And(you.CopyInABacklog(that.HasAllOutcomesAndReasons))
 //				.And(you.RunTheBackLogImportUsingTheCommand())
+//					Input
+//						dotnet xBDD import backlog
 //				.And(you.ModifyAStandardProjectFile())
 //				.When(you.ImportTheBacklog())
 //				.Then(you.WillSeeOutputThatMatches(the.AllOutcomeAndReasonsOutputTemplate))

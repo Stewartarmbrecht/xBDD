@@ -63,13 +63,22 @@ namespace xBDD.Core
             return feature;
         }
 
-        internal Scenario CreateScenario(string name, Feature feature, string methodName, string explanation, int sortOrder)
+        internal Scenario CreateScenario(
+			string name, 
+			Feature feature, 
+			string methodName, 
+			string explanation, 
+			string[] assignments, 
+			string[] tags, 
+			int sortOrder)
         {
             var scenario = new Scenario()
             {
                 Name = name,
                 MethodName = methodName,
 				Explanation = explanation,
+				Assignments = assignments,
+				Tags = tags,
                 Sort = sortOrder,
                 Feature = feature,
                 StepStats = new OutcomeStats()
@@ -112,9 +121,16 @@ namespace xBDD.Core
             return new TestRunBuilder(this, CreateTestRun(testRunName));
         }
 
-        internal ScenarioBuilder CreateScenarioBuilder(string scenarioName, Feature feature, string methodName, string explanation, int sortOrder)
+        internal ScenarioBuilder CreateScenarioBuilder(
+			string scenarioName, 
+			Feature feature, 
+			string methodName, 
+			string explanation, 
+			string[] assignments,
+			string[] tags,
+			int sortOrder)
         {
-            return new ScenarioBuilder(scenarioName, feature, this, methodName, explanation, sortOrder);
+            return new ScenarioBuilder(scenarioName, feature, this, methodName, explanation, assignments, tags, sortOrder);
         }
 
         internal AreaCache CreateAreaCache()

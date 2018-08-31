@@ -1,0 +1,13 @@
+My Generated Sample - Features
+
+My Generated Sample - Features - My Area
+	My Feature
+		My Scenario
+			Given my step 1
+			When my step 2 with multiline input
+				Here 
+				is 
+				my 
+				Input!
+			And my step 3 with an explanation
+			Then my step 3 with output

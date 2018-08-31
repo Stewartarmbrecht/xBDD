@@ -16,7 +16,7 @@ namespace xBDD.Features.GeneratingCode
 		[AssemblyCleanup()]
 		public static void TestRunComplete()
 		{
-			xB.Complete(new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+			xB.Complete("xBDD.Features.GeneratingCode", new xBDDSorting(), (message) => { Logger.LogMessage(message); });
 		}
 	}
 }

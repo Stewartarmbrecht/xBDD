@@ -1,0 +1,9 @@
+MyImportedArea1
+	MyImportedFeature
+		MyImportedScenario #R-Ready
+			Given you have the xbdd tools installed
+			And you have an xBDDFeatureImport.txt file defined in the root of the project
+			When you execute 'dotnet xbdd project generate MSTest'
+			Then a new feature will be defined in the project with two partial class files
+			And you can finish the import by moving the scenarios from the feature.xbdd.cs file to the feature.cs file
+			And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature

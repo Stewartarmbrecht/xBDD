@@ -17,7 +17,7 @@ namespace xBDD.Features
         [AssemblyCleanup()]
         public static void TestRunComplete()
         {
-			xB.Complete(new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+			xB.Complete("xBDD.Features", new xBDDSorting(), (message) => { Logger.LogMessage(message); });
             xB.CurrentRun.TestRun.WriteToCode("xBDD.Features", "./Code/", "xBDD - Features - ");
         }
     }

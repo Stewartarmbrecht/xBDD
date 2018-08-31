@@ -650,7 +650,7 @@ namespace xBDD.Reporting.Html
             {
                 WriteMultilineParameter(step, sb, stepNumber);
             }
-            if (step.Exception != null && !(step.Exception is NotImplementedException) && step.Outcome != Outcome.Skipped)
+            if (step.Exception != null && step.Outcome != Outcome.Skipped)
                 WriteException(step.Exception, sb, 0, stepNumber);
 
             if (!String.IsNullOrEmpty(step.Output))

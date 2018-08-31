@@ -19,6 +19,20 @@
             "internalConsoleOptions": "openOnSessionStart"
         },
         {
+            "name": "My Generated Sample Generate Project Code",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
+			"args": ["project","generate","MSTest"],
+            "cwd": "${workspaceFolder}/MyGeneratedSample.Features/",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
             "name": "xBDD Features Generating Code Generate Project Code",
             "type": "coreclr",
             "request": "launch",
@@ -106,12 +120,6 @@
             "console": "internalConsole",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart"
-        },
-        {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickProcess}"
         }
     ,]
 }

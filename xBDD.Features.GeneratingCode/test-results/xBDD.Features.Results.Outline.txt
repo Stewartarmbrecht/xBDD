@@ -1,11 +1,273 @@
-xBDD - Features - Generating Code
+xBDD - Generating Code
 
-xBDD - Features - Generating Code - Generating Project Files [Defining]
-	Generating A New MS Test Project [Defining]
-		In An Empty Directory [Defining]
-		In An Initialized XBDD [Defining]
-		With A Test Run Name [Defining]
-		With Area Name Clipping [Defining]
+xBDD - Features - Generating Code - Generating Project Files [Failed]
+	Generating A New MS Test Project [Failed]
+		In An Empty Directory [Failed]
+			Given you have an empty project directory
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template:
+				<Project Sdk="Microsoft.NET.Sdk">
+				
+					<PropertyGroup>
+						<TargetFramework>netcoreapp2.1</TargetFramework>
+						<IsPackable>false</IsPackable>
+					</PropertyGroup>
+				
+					<ItemGroup>
+						<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+						<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
+						<PackageReference Include="Microsoft.Net.Test.Sdk" Version="15.8.0" />
+						<PackageReference Include="MSTEst.TestAdapter" Version="1.3.2" />
+						<PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />
+						<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />
+						<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />
+						<PackageReference Include="xBDD" Version="0.0.6-alpha" />
+					</ItemGroup>
+				
+					<ItemGroup>
+						<None Update="xBDDConfig.json" CopyToOutputDirectory="PreserveNewest" />
+					</ItemGroup>
+				
+				</Project>
+			And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template:
+				<Project Sdk="Microsoft.NET.Sdk">
+				
+					<PropertyGroup>
+						<TargetFramework>netcoreapp2.1</TargetFramework>
+						<IsPackable>false</IsPackable>
+					</PropertyGroup>
+				
+					<ItemGroup>
+						<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+						<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
+						<PackageReference Include="Microsoft.Net.Test.Sdk" Version="15.8.0" />
+						<PackageReference Include="MSTEst.TestAdapter" Version="1.3.2" />
+						<PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />
+						<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />
+						<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />
+						<PackageReference Include="xBDD" Version="0.0.6-alpha" />
+					</ItemGroup>
+				
+					<ItemGroup>
+						<None Update="xBDDConfig.json" CopyToOutputDirectory="PreserveNewest" />
+					</ItemGroup>
+				
+				</Project>
+			And you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:
+				{
+					"xBDD": {
+						"TestRunName": "My Generated Sample - Features",
+						"Browser": {
+							"Watch": "false"
+						},
+						"HtmlReport": {
+							"RemoveFromAreaNameStart": "My Generated Sample - Features - ",
+							"FailuresOnly": "false"
+						}
+					}
+				}
+			And you will find a file at './MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs' that matches the template:
+				namespace MyGeneratedSample.Features
+				{
+					using xBDD;
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
+				
+				
+					public partial class xBDDFeatureBase: IFeature, IOutputWriter
+					{
+						public IOutputWriter OutputWriter { get { return this; } }
+				
+						public void WriteLine(string text) {
+							text = text.Replace("{", "{{").Replace("}","}}");
+							Logger.LogMessage(text);
+						}
+					}
+				}
+			And you will find a file at './MyGeneratedSample.Features/xBddFeatureImport.txt' that matches the template:
+				MyImportedArea1
+					MyImportedFeature
+						MyImportedScenario #R-Ready
+							Given you have the xbdd tools installed
+							And you have an xBDDFeatureImport.txt file defined in the root of the project
+							When you execute 'dotnet xbdd project generate MSTest'
+							Then a new feature will be defined in the project with two partial class files
+							And you can finish the import by moving the scenarios from the feature.xbdd.cs file to the feature.cs file
+							And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature
+			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template:
+				namespace MyGeneratedSample.Features
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
+					using xBDD;
+				
+					[TestClass]
+					public class TestSetupAndBreakdown
+					{
+				
+						[AssemblyInitialize]
+						public static void TestRunStart(TestContext context)
+						{
+							xB.Initialize();
+						}
+						[AssemblyCleanup()]
+						public static void TestRunComplete()
+						{
+							xB.Complete(new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+						}
+					}
+				}
+			And you will find a file at './MyGeneratedSample.Features/xBddSorting.cs' that matches the template:
+				namespace MyGeneratedSample.Features
+				{
+					using System;
+					using System.Collections.Generic;
+					using xBDD;
+				
+					public partial class xBDDSorting: ISorting
+					{
+						public List<string> GetSortedFeatureNames() {
+							return new List<string>() {
+								typeof(MyGeneratedSample.Features.MyArea.MySample).FullName,
+							};
+						}
+						public List<string> GetSortedReasons() {
+							return new List<string>() {
+								"Removing",
+								"Untested",
+								"Committed",
+								"Ready",
+								"Defining",
+							};
+						}
+					}
+				}
+			And you will find a file at './MyGeneratedSample.Features/xBddSorting.xbdd.cs' that matches the template:
+				namespace MyGeneratedSample.Features
+				{
+					using System;
+					using System.Collections.Generic;
+					using xBDD;
+				
+					public partial class xBDDSorting: ISorting
+					{
+						public List<string> GetGeneratedSortedFeatureNames() {
+							return new List<string>() {
+								typeof(MyGeneratedSample.Features.MyArea.MySample).FullName,
+							};
+						}
+						public List<string> GetGeneratedReasons() {
+							return new List<string>() {
+								"Removing",
+								"Untested",
+								"Committed",
+								"Ready",
+								"Defining",
+							};
+						}
+					}
+				}
+			And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+				
+					[TestClass]
+					[AsA("sample user")]
+					[YouCan("have my feature value")]
+					[By("execute my feature")]
+					[Explanation(@"
+						# My Explanation
+						This is a
+						multiline explanation of the feature.
+						**And it uses markdown!**")]
+					public partial class MyFeature: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						[Explanation("This is an explanation of the scenario.")]
+						public async Task MyScenario()
+						{
+							await xB.CurrentRun.AddScenario(this, 1)
+								.Given("my step 1", (s) => { 
+				
+									//Add code to perform action.
+				
+								})
+								.When("my step 2 with multiline input", (s) => { 
+				
+									//Add code to perform action.
+				
+									}, @"
+										Here 
+										is 
+										my 
+										Input!".RemoveIndentation(6, true), TextFormat.text
+								)
+								.And("my step 3 with an explanation", (s) => { 
+				
+									//Add code to perform action.
+				
+									}, null, null, @"
+										# Step 3 Explanation 
+										This is a multiline explanation of 
+										Step 3.  It uses markdown.  It will
+										be printed out along with the step name in the
+										html report."
+								)
+								.Then("my step 3 with output", (s) => { 
+				
+									//Add code to perform action.
+				
+									s.Output = input;
+									s.OutputFormat = format;
+				
+								})
+								.Run();
+						}
+					}
+				}
+			And you will find the project execute tests with the 'dotnet test' command
+				dotnet test
+			And you will find the project generated a Html Report. [Failed - Not Implemented]
+			And you will find the project generated a Json Report. [Skipped - Previous Error]
+			And you will find the project generated a Text Report. [Skipped - Previous Error]
+			And you will find the project generated a Text Outline Report. [Skipped - Previous Error]
+			And you will find the project generated a Opml Report. [Skipped - Previous Error]
+		In An Initialized XBDD [Committed]
+			Given you have an empty project directory
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			And you modify all the standard project files
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find the files ending in xbdd.[ext] or xbdd are overwritten
+			And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten
+			And you will find the sample feature file is not modified because the xbdd backlog file already exists
+			And you will find the project compiles
+			And you will find the project execute tests with the 'dotnet test' command
+				dotnet test
+			And you will find the project generated a Html Report.
+			And you will find the project generated a Json Report.
+			And you will find the project generated a Text Report.
+			And you will find the project generated a Text Outline Report.
+			And you will find the project generated a Opml Report.
+		With A Test Run Name [Committed]
+			Given you have an empty project directory
+			When you run the command:
+				dotnet xbdd project generate MSTest --testrun-name "My Sample Test Run"
+			Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:
+				There was an exception loading the template ('./../../../Features/GeneratingProjectFiles/xBddConfigWithTestRunName.json.tmpl'). Exception Message: Could not find file 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\Features\GeneratingProjectFiles\xBddConfigWithTestRunName.json.tmpl'.
+		With Area Name Clipping [Committed]
+			Given you have an empty project directory
+			When you run the command:
+				dotnet xbdd project generate MSTest --remove-from-area-name "My Sample - Generated - Features - "
+			Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:
+				There was an exception loading the template ('./../../../Features/GeneratingProjectFiles/xBddConfigWithRemoveAreaName.json.tmpl'). Exception Message: Could not find file 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\Features\GeneratingProjectFiles\xBddConfigWithRemoveAreaName.json.tmpl'.
 xBDD - Features - Generating Code - Generating Feature Files [Defining]
 	Generate MS Test Feature Files From A Valid Feature Import File [Defining]
 		With An Empty Scenario [Defining]

@@ -140,7 +140,7 @@
 		/// Generates standard reports from a test run and 
 		/// Closes the shared web driver and 
 		/// </summary>
-		public static void Complete(ISorting sorting, Action<string> writeOutput) {
+		public static void Complete(string projectName, ISorting sorting, Action<string> writeOutput) {
             xBDD.Browser.WebDriver.Close();
 
             var directory = System.IO.Directory.GetCurrentDirectory();
@@ -152,27 +152,27 @@
             xB.CurrentRun.TestRun.SortTestRunResults(sorting.GetGeneratedSortedFeatureNames());
             xB.CurrentRun.TestRun.UpdateParentReasonsAndStats(sorting.GetSortedReasons());
 
-            var htmlPath = $"{directory}/../../../test-results/xBDD.Features.Results.html";
+            var htmlPath = $"{directory}/../../../test-results/{projectName}.Results.html";
             writeOutput("Writing Html Report to " + htmlPath);
             var htmlReport = xB.CurrentRun.TestRun.WriteToHtml(Configuration.RemoveFromAreaNameStart, Configuration.FailuresOnly);
             File.WriteAllText(htmlPath, htmlReport);
 
-            var textPath = $"{directory}/../../../test-results/xBDD.Features.Results.txt";
+            var textPath = $"{directory}/../../../test-results/{projectName}.Results.txt";
             writeOutput("Writing Text Report to " + textPath);
             var textReport = xB.CurrentRun.TestRun.WriteToText();
             File.WriteAllText(textPath, textReport);
 
-            var textOutlinePath = $"{directory}/../../../test-results/xBDD.Features.Results.Outline.txt";
+            var textOutlinePath = $"{directory}/../../../test-results/{projectName}.Results.Outline.txt";
             writeOutput("Writing Text Outline Report to " + textOutlinePath);
             var textOutlineReport = xB.CurrentRun.TestRun.WriteToText(false);
             File.WriteAllText(textOutlinePath, textOutlineReport);
 
-            var jsonPath = $"{directory}/../../../test-results/xBDD.Features.Results.json";
+            var jsonPath = $"{directory}/../../../test-results/{projectName}.Results.json";
             writeOutput("Writing Json Report to " + jsonPath);
             var jsonReport = xB.CurrentRun.TestRun.WriteToJson();
             File.WriteAllText(jsonPath, jsonReport);
 
-            var opmlPath = $"{directory}/../../../test-results/xBDD.Features.Results.opml";
+            var opmlPath = $"{directory}/../../../test-results/{projectName}.Results.opml";
             writeOutput("Writing OPML Report to " + opmlPath);
             var opmlReport = xB.CurrentRun.TestRun.WriteToOpml();
             File.WriteAllText(opmlPath, opmlReport);

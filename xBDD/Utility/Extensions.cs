@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -102,6 +103,35 @@ namespace xBDD.Utility
 			return sb.ToString();;
 		}
 
+		/// <summary>
+		/// Adds a set number of tabs in the beginning of each line of text in the 
+		/// string provided. Also adds a blank line at the beginning.
+		/// </summary>
+		/// <param name="text">The multiline string to add tabs to the beginning of each line.</param>
+		/// <param name="prefix">The number of tabs to add to the beginning of each line.</param>
+		/// <returns></returns>
+		public static string PrependLines(this string text, string prefix) {
+			StringBuilder sb = new StringBuilder();
+			if(prefix.Length > 0) {
+				string[] lines = text.Split(new[] { System.Environment.NewLine }, StringSplitOptions.None);
+				var lineCount = lines.Length;
+				if(lines[lines.Length-1].Length == 0) {
+					lineCount = lineCount-1;
+				}
+				for(int i = 0; i < lineCount; i++) {
+					sb.Append(prefix);
+					if(i == lineCount-1) {
+						sb.Append(lines[i]);
+					} else {
+						sb.AppendLine(lines[i]);
+					}
+				}
+			} else {
+				sb.Append(text);
+			}
+			return sb.ToString();;
+		}
+
         /// <summary>
         /// Converts an area name to a namespace to replacing " - " with ".".
         /// </summary>
@@ -142,47 +172,46 @@ namespace xBDD.Utility
 
         internal static string ConvertScenarioNameToMethodName(this string text)
         {
-            var scenarioName = text;
-			var hashTagIndex = text.IndexOf('#');
-			var atTagIndex = text.IndexOf('@');
-			if(hashTagIndex > -1 || atTagIndex > -1) {
-				var least = hashTagIndex;
-				if(atTagIndex > -1 && atTagIndex < hashTagIndex) {
-					least = atTagIndex;
-				}
-				scenarioName = text.Substring(0, least - 1);
+			List<string> matches = new List<string>();
+			foreach (Match match in Regex.Matches(text, @".+?(?= [#@])"))
+			{
+				matches.Add(match.Value);
 			}
-            return scenarioName.ConvertFeatureNameToClassName();
+			var scenarioName = matches.FirstOrDefault();
+			if(String.IsNullOrEmpty(scenarioName)) {
+				scenarioName = text;
+			}
+			return scenarioName.ConvertFeatureNameToClassName();
         }
 
         internal static string ExtractReason(this string text)
         {
-            if(text.Contains("#")) {
-				var start = text.IndexOf('#')+1;
-				var end = text.IndexOf(' ', start);
-				if(end == -1) {
-					end = text.Length;
-				}
-                text = text.Substring(start, end-start);
-            } else {
-                text = null;
-            }
-            return text;
+			List<string> tags = new List<string>();
+			foreach (Match match in Regex.Matches(text, @"(?<=#R-)\w+"))
+			{
+				tags.Add(match.Value);
+			}
+            return tags.FirstOrDefault();
         }
 
-        internal static string ExtractOwner(this string text)
+        internal static string[] ExtractAssignments(this string text)
         {
-            if(text.Contains("@")) {
-				var start = text.IndexOf('@')+1;
-				var end = text.IndexOf(' ', start);
-				if(end == -1) {
-					end = text.Length;
-				}
-                text = text.Substring(start, end-start);
-            } else {
-                text = null;
-            }
-            return text;
+			List<string> owners = new List<string>();
+			foreach (Match match in Regex.Matches(text, @"(?<=@)\w+"))
+			{
+				owners.Add(match.Value);
+			}
+            return owners.ToArray();
+        }
+
+        internal static string[] ExtractTags(this string text)
+        {
+			List<string> owners = new List<string>();
+			foreach (Match match in Regex.Matches(text, @"(?<=#T-)\w+"))
+			{
+				owners.Add(match.Value);
+			}
+            return owners.ToArray();
         }
 
         /// <summary>

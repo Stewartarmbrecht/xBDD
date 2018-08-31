@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Reflection;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace xBDD.Utility
 {
@@ -19,6 +22,10 @@ namespace xBDD.Utility
         string byAttribute;
 		string scenarioExplanation;
 		string featureExplanation;
+		string[] scenarioAssignments;
+		string[] scenarioTags;
+		string[] featureAssignments;
+		string[] featureTags;
 
         internal CodeDetails(MethodBase methodBase, UtilityFactory factory)
         {
@@ -39,6 +46,10 @@ namespace xBDD.Utility
         /// <param name="byAttribute">The value of the By attribute on the feature.</param>
         /// <param name="scenarioExplanation">Markdown that provides an explanation for the features area.</param>
         /// <param name="featureExplanation">Markdown that provides an explanation for the feature.</param>
+        /// <param name="scenarioAssignments">One ore more owners of the scenario.</param>
+        /// <param name="scenarioTags">One or more tags for a scenario.</param>
+        /// <param name="featureAssignments">One ore more assignments for the feature.</param>
+        /// <param name="featureTags">One or more tags for the feature.</param>
         public CodeDetails(
 			string namespaceName, 
 			string className, 
@@ -47,7 +58,11 @@ namespace xBDD.Utility
 			string youCanAttribute, 
 			string byAttribute,
 			string scenarioExplanation,
-			string featureExplanation) {
+			string featureExplanation,
+			string[] scenarioAssignments,
+			string[] scenarioTags,
+			string[] featureAssignments,
+			string[] featureTags) {
             this.namespaceName = namespaceName;
             this.className = className;
             this.methodName = methodName;
@@ -56,6 +71,10 @@ namespace xBDD.Utility
             this.byAttribute = byAttribute;
 			this.scenarioExplanation = scenarioExplanation;
 			this.featureExplanation = featureExplanation;
+			this.scenarioAssignments = scenarioAssignments;
+			this.scenarioTags = scenarioTags;
+			this.featureAssignments = featureAssignments;
+			this.featureTags = featureTags;
         }
 
         internal string Name { get { 
@@ -179,6 +198,87 @@ namespace xBDD.Utility
             }
             return text;
         }
+
+        internal string[] GetScenarioAssignments()
+        {
+            List<string> assignments = new List<string>();
+            if(this.scenarioAssignments != null) {
+                assignments.AddRange(this.scenarioAssignments);
+            } else if(methodBase != null){
+                var attr = methodBase.GetCustomAttribute<AssignmentsAttribute>();
+                if(attr != null)
+                    assignments.AddRange(attr.GetNames());
+				var gattr = methodBase.GetCustomAttribute<Generated_AssignmentsAttribute>();
+				if(gattr != null)
+					gattr.GetNames().ToList().ForEach(x => {
+						if(!assignments.Contains(x)) {
+							assignments.Add(x);
+						}
+					});
+            }
+            return assignments.ToArray();
+        }
+
+        internal string[] GetScenarioTags()
+        {
+            List<string> tags = new List<string>();
+            if(this.scenarioTags != null) {
+                tags.AddRange(this.scenarioTags);
+            } else if(methodBase != null){
+                var attr = methodBase.GetCustomAttribute<TagsAttribute>();
+                if(attr != null)
+                    tags.AddRange(attr.GetTags());
+				var gattr = methodBase.GetCustomAttribute<Generated_TagsAttribute>();
+				if(gattr != null)
+					gattr.GetTags().ToList().ForEach(x => {
+						if(!tags.Contains(x)) {
+							tags.Add(x);
+						}
+					});
+            }
+            return tags.ToArray();
+        }
+
+        internal string[] GetFeatureAssignments()
+        {
+            List<string> assignments = new List<string>();
+            if(this.featureAssignments != null) {
+                assignments.AddRange(this.featureAssignments);
+            } else if(methodBase != null){
+                var attr = methodBase.GetCustomAttribute<AssignmentsAttribute>();
+                if(attr != null)
+                    assignments.AddRange(attr.GetNames());
+				var gattr = methodBase.GetCustomAttribute<Generated_AssignmentsAttribute>();
+				if(gattr != null)
+					gattr.GetNames().ToList().ForEach(x => {
+						if(!assignments.Contains(x)) {
+							assignments.Add(x);
+						}
+					});
+            }
+            return assignments.ToArray();
+        }
+
+        internal string[] GetFeatureTags()
+        {
+            List<string> tags = new List<string>();
+            if(this.featureTags != null) {
+                tags.AddRange(this.featureTags);
+            } else if(methodBase != null){
+                var attr = methodBase.GetCustomAttribute<TagsAttribute>();
+                if(attr != null)
+                    tags.AddRange(attr.GetTags());
+				var gattr = methodBase.GetCustomAttribute<Generated_TagsAttribute>();
+				if(gattr != null)
+					gattr.GetTags().ToList().ForEach(x => {
+						if(!tags.Contains(x)) {
+							tags.Add(x);
+						}
+					});
+            }
+            return tags.ToArray();
+        }
+
 
         internal string GetNameSpace()
         {

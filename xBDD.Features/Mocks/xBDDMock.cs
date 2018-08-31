@@ -62,7 +62,7 @@ namespace xBDD
                         scenarioSortCount++;
                         scenarioCounter++;
                         var scenarioName = "MyScenario_" + scenarioCounter;
-                        var codeDetails = new xBDD.Utility.CodeDetails(areaName, featureName, scenarioName, asA, youCan, by, null, null);
+                        var codeDetails = new xBDD.Utility.CodeDetails(areaName, featureName, scenarioName, asA, youCan, by, null, null, null, null, null, null);
                         var scenario = this.CurrentRun.AddScenario(codeDetails, scenarioSortCount);
                         stepCounter++;
                         scenario.Given("my step " + stepCounter, (s2) => { });

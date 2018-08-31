@@ -63,6 +63,20 @@ namespace xBDD.Model
         public string Reason { get; internal set; }
 
         /// <summary>
+        /// The people or teams assigned to the scenario.
+        /// </summary>
+        /// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
+        public string[] Assignments { get; internal set; }
+
+        /// <summary>
+        /// The tasg associated to the scenario.
+        /// </summary>
+        /// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
+        public string[] Tags { get; internal set; }
+
+        /// <summary>
         /// A markdown formated explanation for the scenario.
         /// </summary>
         /// <value><see cref="String"/></value>

@@ -76,6 +76,20 @@ namespace xBDD.Model
 		public string Explanation { get; set; }
 
 		/// <summary>
+		/// Array of names assigned to the feature.
+		/// </summary>
+		/// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
+		public string[] Assignments { get; set; }
+
+		/// <summary>
+		/// Array of tags associated to the feature.
+		/// </summary>
+		/// <value><see cref="String"/></value>
+		[DataMember(EmitDefaultValue=false)]
+		public string[] Tags { get; set; }
+
+		/// <summary>
 		/// The testing outcome for the feature.
 		/// </summary>
 		/// <value><see cref="Outcome"/></value>

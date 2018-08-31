@@ -16,7 +16,7 @@ namespace MySample.Features.TestRun1Passing
 		[AssemblyCleanup()]
 		public static void TestRunComplete()
 		{
-			xB.Complete(new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+			xB.Complete("MySample.Features.TestRun1Passing", new xBDDSorting(), (message) => { Logger.LogMessage(message); });
 		}
 	}
 }
