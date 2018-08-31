@@ -95,7 +95,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 							Then a new feature will be defined in the project with two partial class files
 							And you can finish the import by moving the scenarios from the feature.xbdd.cs file to the feature.cs file
 							And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature
-			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template: [Failed]
 				namespace MyGeneratedSample.Features
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -118,7 +118,20 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBddSorting.cs' that matches the template:
+				Error Type: TemplateValidationException
+				   Message: Line 19 did not match template line 19 (Value/Template)
+				xB.Complete("MyGeneratedSample.Features", new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+				xB.Complete(new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+
+				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
+				               at xBDD.Features.GeneratingCode.Actors.Developer.<>c__DisplayClass3_0.<WillFindAValidFile>b__0(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\Actors\Developer.cs:line 72
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+			And you will find a file at './MyGeneratedSample.Features/xBddSorting.cs' that matches the template: [Skipped - Previous Error]
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -143,7 +156,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBddSorting.xbdd.cs' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBddSorting.xbdd.cs' that matches the template: [Skipped - Previous Error]
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -168,7 +181,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template: [Skipped - Previous Error]
 				namespace MyGeneratedSample.Features.MyArea
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -231,9 +244,9 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find the project execute tests with the 'dotnet test' command
+			And you will find the project execute tests with the 'dotnet test' command [Skipped - Previous Error]
 				dotnet test
-			And you will find the project generated a Html Report. [Failed - Not Implemented]
+			And you will find the project generated a Html Report. [Skipped - Previous Error]
 			And you will find the project generated a Json Report. [Skipped - Previous Error]
 			And you will find the project generated a Text Report. [Skipped - Previous Error]
 			And you will find the project generated a Text Outline Report. [Skipped - Previous Error]
