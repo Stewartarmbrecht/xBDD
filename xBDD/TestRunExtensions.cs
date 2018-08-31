@@ -7,6 +7,7 @@
     using System.Runtime.Serialization.Json;
     using System.Text;
     using System.Threading;
+	using System.Collections.Generic;
     using xBDD.Model;
     using xBDD.Reporting;
     using xBDD.Reporting.Html;
@@ -162,6 +163,189 @@
                 }
             }
             return json;
+        }
+        /// <summary>
+        /// Cascades the scenario skipped reasons up the hierarchy.
+        /// Also calculates the count of children for each skipped reason.
+        /// </summary>
+        /// <param name="sortedReasons">The list of reasons sorted from least to highest precedent.
+        /// <param name="testRun">The test run to update parent reasons and stats for.</param> 
+        /// A parent that has both reasons will assume the reason with the highest precedent.</param>
+        public static void UpdateParentReasonsAndStats(this xBDD.Model.TestRun testRun, List<string> sortedReasons)
+        {
+            if(!sortedReasons.Contains("Failed"))
+                sortedReasons.Add("Failed");
+
+            var additionalReasons = testRun.Scenarios
+                .Select(scenario => scenario.Reason)
+                .Distinct()
+                .Where(reason => !sortedReasons.Contains(reason) && reason != null)
+                .OrderBy(reason => reason)
+                .ToList();
+
+            sortedReasons.InsertRange(0,additionalReasons);
+
+            sortedReasons.ForEach(reason => {
+                testRun.Scenarios
+                    .Where(scenario => scenario.Reason == reason)
+                    .ToList().ForEach(scenario => {
+                        scenario.Feature.Reason = reason;
+                        if(scenario.Feature.ScenarioReasonStats.Keys.Contains(reason)) {
+                            scenario.Feature.ScenarioReasonStats[reason] = scenario.Feature.ScenarioReasonStats[reason] + 1;
+                        } else {
+                            scenario.Feature.ScenarioReasonStats.Add(reason, 1);
+                        }
+                        scenario.Feature.Area.Reason = reason;
+                        if(scenario.Feature.Area.ScenarioReasonStats.Keys.Contains(reason)) {
+                            scenario.Feature.Area.ScenarioReasonStats[reason] = scenario.Feature.Area.ScenarioReasonStats[reason] + 1;
+                        } else {
+                            scenario.Feature.Area.ScenarioReasonStats.Add(reason, 1);
+                        }
+                        testRun.Reason = reason;
+                        if(testRun.ScenarioReasonStats.Keys.Contains(reason)) {
+                            testRun.ScenarioReasonStats[reason] = testRun.ScenarioReasonStats[reason] + 1;
+                        } else {
+                            testRun.ScenarioReasonStats.Add(reason, 1);
+                        }
+                    });
+                
+            });
+
+            sortedReasons.ForEach(reason => {
+                testRun.Scenarios.
+                    Select(scenario => scenario.Feature)
+                    .ToList()
+                    .Where(feature => feature.Reason == reason)
+                    .ToList().ForEach(feature => {
+                        if(feature.Area.FeatureReasonStats.Keys.Contains(reason)) {
+                            feature.Area.FeatureReasonStats[reason] = feature.Area.FeatureReasonStats[reason] + 1;
+                        } else {
+                            feature.Area.FeatureReasonStats.Add(reason, 1);
+                        }
+                        if(testRun.FeatureReasonStats.Keys.Contains(reason)) {
+                            testRun.FeatureReasonStats[reason] = testRun.FeatureReasonStats[reason] + 1;
+                        } else {
+                            testRun.FeatureReasonStats.Add(reason, 1);
+                        }
+                    });
+                
+            });
+
+            sortedReasons.ForEach(reason => {
+                testRun.Areas
+                    .Where(area => area.Reason == reason)
+                    .ToList().ForEach(area => {
+                        if(testRun.AreaReasonStats.Keys.Contains(reason)) {
+                            testRun.AreaReasonStats[reason] = testRun.AreaReasonStats[reason] + 1;
+                        } else {
+                            testRun.AreaReasonStats.Add(reason, 1);
+                        }
+                    });
+                
+            });
+        }
+
+        private static void UpdateOutcomeStats(this OutcomeStats stats, Outcome outcome) {
+            switch(outcome) {
+                case Outcome.Failed:
+                    stats.Failed = stats.Failed + 1;
+                    stats.Total = stats.Total + 1;
+                break;
+                case Outcome.Skipped:
+                    stats.Skipped = stats.Skipped + 1;
+                    stats.Total = stats.Total + 1;
+                break;
+                case Outcome.Passed:
+                    stats.Passed = stats.Passed + 1;
+                    stats.Total = stats.Total + 1;
+                break;
+            }
+        }
+
+        private static void ClearStats(this OutcomeStats stats) {
+            stats.Total = 0;
+            stats.Failed = 0;
+            stats.Passed = 0;
+            stats.Skipped = 0;
+        }
+
+        /// <summary>
+        /// Updates the feature, area, and test outcomes and stats based on the scenario outcomes.
+        /// </summary>
+        public static void UpdateStats(this xBDD.Model.TestRun testRun)
+        {
+            List<Outcome> outcomes = new List<Outcome>() {
+                Outcome.NotRun,
+                Outcome.Passed,
+                Outcome.Skipped,
+                Outcome.Failed
+            };
+            testRun.Scenarios.ToList().ForEach(scenario => {
+                scenario.Feature.Outcome = Outcome.NotRun;
+                scenario.Feature.Area.Outcome = Outcome.NotRun;
+                scenario.Feature.Area.TestRun.Outcome = Outcome.NotRun;
+                scenario.Feature.ScenarioStats.ClearStats();
+                scenario.Feature.Area.ScenarioStats.ClearStats();
+                scenario.Feature.Area.FeatureStats.ClearStats();
+                scenario.Feature.Area.TestRun.ScenarioStats.ClearStats();
+                scenario.Feature.Area.TestRun.FeatureStats.ClearStats();
+                scenario.Feature.Area.TestRun.AreaStats.ClearStats();
+            });
+            outcomes.ForEach(outcome => {
+                testRun.Scenarios
+                    .Where(scenario => scenario.Outcome == outcome)
+                    .ToList().ForEach(scenario => {
+                        scenario.Feature.Outcome = outcome;
+                        scenario.Feature.ScenarioStats.UpdateOutcomeStats(outcome);
+                        scenario.Feature.Area.Outcome = outcome;
+                        scenario.Feature.Area.ScenarioStats.UpdateOutcomeStats(outcome);
+                        testRun.Outcome = outcome;
+                       	testRun.ScenarioStats.UpdateOutcomeStats(outcome);
+                    });
+                testRun.Scenarios.Select(x => x.Feature).ToList()
+                    .Where(feature => feature.Outcome == outcome)
+                    .ToList().ForEach(feature => {
+                        feature.Area.FeatureStats.UpdateOutcomeStats(outcome);
+                        testRun.FeatureStats.UpdateOutcomeStats(outcome);
+                    });
+                testRun.Scenarios.Select(x => x.Feature.Area).ToList()
+                    .Where(area => area.Outcome == outcome)
+                    .ToList().ForEach(area => {
+                        testRun.AreaStats.UpdateOutcomeStats(outcome);
+                    });
+                
+            });
+        }
+
+        /// <summary>
+        /// Updates the features sort property.  Features are sorted based on the 
+        /// list of feature names you provide.  Scenarios are sorted based on thier 
+        /// sort order that you can provide when creating the scenario xB.AddScenario(this, 1 [sortOrder])
+        /// </summary>
+        /// <param name="testRun">The test run to sort the features and scenarios.</param> 
+        /// <param name="sortedFeatureFullNames">The sorted list of full feature names to use for sorting features. 
+        /// Each feature name should be the full name with the namespace included.</param>
+        public static void SortTestRunResults(this xBDD.Model.TestRun testRun, List<string> sortedFeatureFullNames)
+        {
+            var featureIndex = 0;
+            sortedFeatureFullNames.ForEach(featureFullName => {
+                
+                var feature = testRun.Areas.SelectMany(x => x.Features).Where(f => f.FullClassName == featureFullName).FirstOrDefault();
+
+                if(feature != null)
+                {
+                    featureIndex++;
+                
+                    feature.Sort = featureIndex;
+                }
+
+            });
+
+            testRun.Areas.SelectMany(x => x.Features).Where(x => x.Sort == 0).ToList().ForEach(feature => {
+                feature.Sort = 1000000;
+            });
+
+            testRun.Sorted = true;
         }
     }
 }

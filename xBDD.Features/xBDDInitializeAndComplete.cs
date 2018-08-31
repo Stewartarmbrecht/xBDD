@@ -3,11 +3,7 @@ namespace xBDD.Features
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
-    using System;
-    using System.IO;
-    using System.Threading.Tasks;
     using xBDD;
-    using xBDD.Browser;
 
     [TestClass]
     public class TestSetupAndBreakdown

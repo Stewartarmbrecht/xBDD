@@ -40,7 +40,7 @@ namespace xBDD.Features
 		public List<string> GetSortedReasons() {
 			return new List<string>() {
 				"Removing",
-				"Building",
+				"Committed",
 				"Untested",
 				"Ready",
 				"Defining"

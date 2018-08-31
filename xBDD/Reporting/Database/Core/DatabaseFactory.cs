@@ -1,9 +1,9 @@
 ﻿using xb = xBDD.Model;
 namespace xBDD.Reporting.Database.Core
 {
-    public class DatabaseFactory
+    internal class DatabaseFactory
     {
-        public Scenario CreateScenario(xb.Scenario scenario, TestRun testRun)
+        internal Scenario CreateScenario(xb.Scenario scenario, TestRun testRun)
         {
             return new Scenario()
             {
@@ -18,7 +18,7 @@ namespace xBDD.Reporting.Database.Core
             };
         }
 
-        public Step CreateStep(xb.Step step, Scenario scenario)
+        internal Step CreateStep(xb.Step step, Scenario scenario)
         {
             return new Step()
             {
@@ -29,34 +29,34 @@ namespace xBDD.Reporting.Database.Core
                 Reason = step.Reason,
                 Scenario = scenario,
                 StartTime = step.StartTime,
-                MultilineParameter = step.InputParameter
+                MultilineParameter = step.Input
             };
         }
 
-        public TestRun CreateTestRun(xb.TestRun testRun)
+        internal TestRun CreateTestRun(xb.TestRun testRun)
         {
             return new TestRun()
             {
                 Name = testRun.Name
             };
         }
-        public DatabaseContext CreatexBDDDbContext(string connectionName)
+        internal DatabaseContext CreatexBDDDbContext(string connectionName)
         {
             return new DatabaseContext(connectionName);
         }
 
-        public DatabaseObjectBuilder CreateDatabaseObjectBuilder(DatabaseContext dbContext)
+        internal DatabaseObjectBuilder CreateDatabaseObjectBuilder(DatabaseContext dbContext)
         {
             DatabaseFactory dbFactory = CreateDatabaseFactory();
             return new DatabaseObjectBuilder(dbContext, dbFactory);
         }
 
-        public DatabaseFactory CreateDatabaseFactory()
+        internal DatabaseFactory CreateDatabaseFactory()
         {
             return new DatabaseFactory();
         }
 
-        public TestRunDatabaseSaver CreateTestRunDatabaseSaver(string connectionName)
+        internal TestRunDatabaseSaver CreateTestRunDatabaseSaver(string connectionName)
         {
             return new TestRunDatabaseSaver(this, connectionName);
         }

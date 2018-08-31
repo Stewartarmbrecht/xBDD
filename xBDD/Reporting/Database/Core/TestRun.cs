@@ -2,10 +2,10 @@
 
 namespace xBDD.Reporting.Database.Core
 {
-    public class TestRun
+    internal class TestRun
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public virtual ICollection<Scenario> TestData { get; set; }
+        internal int Id { get; set; }
+        internal string Name { get; set; }
+        internal virtual ICollection<Scenario> TestData { get; set; }
     }
 }

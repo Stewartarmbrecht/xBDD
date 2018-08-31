@@ -63,12 +63,13 @@ namespace xBDD.Core
             return feature;
         }
 
-        internal Scenario CreateScenario(string name, Feature feature, string methodName, int sortOrder)
+        internal Scenario CreateScenario(string name, Feature feature, string methodName, string explanation, int sortOrder)
         {
             var scenario = new Scenario()
             {
                 Name = name,
                 MethodName = methodName,
+				Explanation = explanation,
                 Sort = sortOrder,
                 Feature = feature,
                 StepStats = new OutcomeStats()
@@ -77,25 +78,27 @@ namespace xBDD.Core
             return scenario;
         }
 
-        internal Step CreateStep(string stepName, Action<Step> action, string multilineParameter, TextFormat multilineParameterFormat)
+        internal Step CreateStep(string stepName, Action<Step> action, string multilineParameter, TextFormat multilineParameterFormat, string explanation)
         {
             return new Step()
             {
                 Name = stepName,
                 Action = action,
-                InputParameter = multilineParameter,
-                MultilineParameterFormat = multilineParameterFormat
+                Input = multilineParameter,
+                InputFormat = multilineParameterFormat,
+				Explanation = explanation
             };
         }
 
-        internal Step CreateStep(string stepName, Func<Step, Task> action, string multilineParameter, TextFormat multilineParameterFormat)
+        internal Step CreateStep(string stepName, Func<Step, Task> action, string multilineParameter, TextFormat multilineParameterFormat, string explanation)
         {
             return new Step()
             {
                 Name = stepName,
                 ActionAsync = action,
-                InputParameter = multilineParameter,
-                MultilineParameterFormat = multilineParameterFormat
+                Input = multilineParameter,
+                InputFormat = multilineParameterFormat,
+				Explanation = explanation
             };
         }
 
@@ -109,9 +112,9 @@ namespace xBDD.Core
             return new TestRunBuilder(this, CreateTestRun(testRunName));
         }
 
-        internal ScenarioBuilder CreateScenarioBuilder(string scenarioName, Feature feature, string methodName, int sortOrder)
+        internal ScenarioBuilder CreateScenarioBuilder(string scenarioName, Feature feature, string methodName, string explanation, int sortOrder)
         {
-            return new ScenarioBuilder(scenarioName, feature, this, methodName, sortOrder);
+            return new ScenarioBuilder(scenarioName, feature, this, methodName, explanation, sortOrder);
         }
 
         internal AreaCache CreateAreaCache()

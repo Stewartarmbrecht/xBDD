@@ -26,9 +26,9 @@ namespace xBDD.Core
         private void WriteStep(Step step)
         {
             outputWriter.WriteLine("    " + step.FullName);
-            if (step.InputParameter != null)
+            if (step.Input != null)
             {
-                string[] lines = Regex.Split(step.InputParameter, System.Environment.NewLine);
+                string[] lines = Regex.Split(step.Input, System.Environment.NewLine);
                 for(int i =0; i < lines.Length; i++)
                 {
                     if (i == lines.Length - 1 && lines[i].Length == 0)

@@ -2,16 +2,16 @@
 
 namespace xBDD.Reporting.Database.Core
 {
-    public class TestRunDatabaseSaver
+    internal class TestRunDatabaseSaver
     {
         string connectionName;
         DatabaseFactory factory;
-        public TestRunDatabaseSaver(DatabaseFactory factory, string connectionName)
+        internal TestRunDatabaseSaver(DatabaseFactory factory, string connectionName)
         {
             this.factory = factory;
             this.connectionName = connectionName;
         }
-        public int SaveTestRun(xBDD.Model.TestRun testRun)
+        internal int SaveTestRun(xBDD.Model.TestRun testRun)
         {
             DatabaseContext dbContext = factory.CreatexBDDDbContext(connectionName);
             DatabaseObjectBuilder dbObjectBuilder = factory.CreateDatabaseObjectBuilder(dbContext);

@@ -3,17 +3,17 @@ using xBDD.Model;
 
 namespace xBDD.Reporting.Database.Core
 {
-    public class Step
+    internal class Step
     {
-        public int Id { get; set; }
-        public int ScenarioId { get; set; }
-        public virtual Scenario Scenario { get; set; }
-        public string Name { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public Outcome Outcome { get; set; }
-        public string Reason { get; set; }
-        public string Exception { get; set; }
-        public string MultilineParameter { get; set; }
+        internal int Id { get; set; }
+        internal int ScenarioId { get; set; }
+        internal virtual Scenario Scenario { get; set; }
+        internal string Name { get; set; }
+        internal DateTime StartTime { get; set; }
+        internal DateTime EndTime { get; set; }
+        internal Outcome Outcome { get; set; }
+        internal string Reason { get; set; }
+        internal string Exception { get; set; }
+        internal string MultilineParameter { get; set; }
     }
 }

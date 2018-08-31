@@ -4,12 +4,13 @@ using System.Collections.Generic;
 
 namespace xBDD.Utility
 {
+	using System;
     /// <summary>
     /// Extension methods for core processing.
     /// </summary>
-    internal static class Extensions
+    public static class Extensions
     {
-        public static string FirstCharToUpper(this string input)
+        internal static string FirstCharToUpper(this string input)
         {
             return input.First().ToString().ToUpper() + input.Substring(1);
         }
@@ -18,10 +19,88 @@ namespace xBDD.Utility
         /// </summary>
         /// <param name="text">The namespace value.</param>
         /// <returns>A matching Area name.</returns>
-        internal static string ConvertNamespaceToAreaName(this string text)
+        public static string ConvertNamespaceToAreaName(this string text)
         {
             return text.AddSpacesToSentence().Replace(".", " - ");
         }
+
+		/// <summary>
+		/// Removes a set number of tabs from the beginning of each line of text in the 
+		/// string provided.  Also removed first line if it is empty.
+		/// </summary>
+		/// <param name="text">The multiline string to remove tabs from the beginning of each line.</param>
+		/// <param name="indentation">The number of tabs to remove from the beginning of each line.</param>
+		/// <param name="removeFirstLine">Instructs the operation to remove the first line from the string.</param>
+		/// <returns></returns>
+		public static string RemoveIndentation(this string text, int indentation, bool removeFirstLine = false) {
+			StringBuilder sb = new StringBuilder();
+			if(indentation > 0) {
+				string[] lines = text.Split(new[] { System.Environment.NewLine }, StringSplitOptions.None);
+				for(int i = 0; i < lines.Length; i++) {
+					var lastLine = i == lines.Length - 1;
+					if(i==0) {
+						if(!removeFirstLine) {
+							sb.AppendLine(lines[i]);
+						}
+					} else {
+						if(lines[i].Length == 0) {
+							if(!lastLine) {
+								sb.AppendLine();
+							}
+						} else {
+							if(lines[i].Length <= indentation) {
+								if(!lastLine) {
+									sb.AppendLine();
+								}
+							} else {
+								var lineContent = lines[i].Substring(indentation,lines[i].Length-(indentation));
+								if(lastLine) {
+									sb.Append(lineContent);
+								} else {
+									sb.AppendLine(lineContent);
+								}
+							}
+						} 
+					}
+				}
+			} else {
+				sb.Append(text);
+			}
+			return sb.ToString();;
+		}
+
+		/// <summary>
+		/// Adds a set number of tabs in the beginning of each line of text in the 
+		/// string provided. Also adds a blank line at the beginning.
+		/// </summary>
+		/// <param name="text">The multiline string to add tabs to the beginning of each line.</param>
+		/// <param name="indentation">The number of tabs to add to the beginning of each line.</param>
+		/// <returns></returns>
+		public static string AddIndentation(this string text, int indentation) {
+			StringBuilder sb = new StringBuilder();
+			if(indentation > 0) {
+				string[] lines = text.Split(new[] { System.Environment.NewLine }, StringSplitOptions.None);
+				var lineCount = lines.Length;
+				if(lines[lines.Length-1].Length == 0) {
+					lineCount = lineCount-1;
+				}
+				for(int i = 0; i < lineCount; i++) {
+					if(i != 0) {
+						for(int n = 0; n < indentation; n++) {
+							sb.Append("\t");
+						}
+					}
+					if(i == lineCount-1) {
+						sb.Append(lines[i]);
+					} else {
+						sb.AppendLine(lines[i]);
+					}
+				}
+			} else {
+				sb.Append(text);
+			}
+			return sb.ToString();;
+		}
 
         /// <summary>
         /// Converts an area name to a namespace to replacing " - " with ".".
@@ -44,6 +123,15 @@ namespace xBDD.Utility
 
         internal static string ConvertFeatureNameToClassName(this string text)
         {
+			var hashTagIndex = text.IndexOf('#');
+			var atTagIndex = text.IndexOf('@');
+			if(hashTagIndex > -1 || atTagIndex > -1) {
+				var least = hashTagIndex;
+				if(atTagIndex > -1 && atTagIndex < hashTagIndex) {
+					least = atTagIndex;
+				}
+				text = text.Substring(0, least - 1);
+			}
             List<string> words = new List<string>(text.Split(' '));
             StringBuilder sb = new StringBuilder();
             words.ForEach(word => {
@@ -55,16 +143,42 @@ namespace xBDD.Utility
         internal static string ConvertScenarioNameToMethodName(this string text)
         {
             var scenarioName = text;
-            if(text.Contains("[")) {
-                scenarioName = text.Substring(0,text.IndexOf('[')-1);
-            }
+			var hashTagIndex = text.IndexOf('#');
+			var atTagIndex = text.IndexOf('@');
+			if(hashTagIndex > -1 || atTagIndex > -1) {
+				var least = hashTagIndex;
+				if(atTagIndex > -1 && atTagIndex < hashTagIndex) {
+					least = atTagIndex;
+				}
+				scenarioName = text.Substring(0, least - 1);
+			}
             return scenarioName.ConvertFeatureNameToClassName();
         }
 
         internal static string ExtractReason(this string text)
         {
-            if(text.Contains("[")) {
-                text = text.Substring(text.IndexOf('[')+1, text.Length - (text.IndexOf('[')+1)-1);
+            if(text.Contains("#")) {
+				var start = text.IndexOf('#')+1;
+				var end = text.IndexOf(' ', start);
+				if(end == -1) {
+					end = text.Length;
+				}
+                text = text.Substring(start, end-start);
+            } else {
+                text = null;
+            }
+            return text;
+        }
+
+        internal static string ExtractOwner(this string text)
+        {
+            if(text.Contains("@")) {
+				var start = text.IndexOf('@')+1;
+				var end = text.IndexOf(' ', start);
+				if(end == -1) {
+					end = text.Length;
+				}
+                text = text.Substring(start, end-start);
             } else {
                 text = null;
             }

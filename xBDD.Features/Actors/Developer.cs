@@ -153,8 +153,8 @@ namespace xBDD.Features.Actors
                         } else {
                             template = File.ReadAllText(templatePath);
                         }
-                        s.InputParameter = template;
-                        s.MultilineParameterFormat = TextFormat.text;                 
+                        s.Input = template;
+                        s.InputFormat = TextFormat.text;                 
                         output.ValidateToTemplate(template);   
                     } catch(System.Exception)
                     {
@@ -177,8 +177,8 @@ namespace xBDD.Features.Actors
                     try {
                         var templatePath = $"{System.IO.Directory.GetCurrentDirectory()}../../../../{templateFilePath}";
                         var template = File.ReadAllText(templatePath);
-                        s.InputParameter = template;
-                        s.MultilineParameterFormat = TextFormat.text;    
+                        s.Input = template;
+                        s.InputFormat = TextFormat.text;    
                         s.Output = textReportOutput.Object;
                         s.OutputFormat = TextFormat.text;             
                         textReportOutput.Object.ValidateToTemplate(template);   

@@ -3,18 +3,18 @@ using xb = xBDD.Model;
 
 namespace xBDD.Reporting.Database.Core
 {
-    public class DatabaseObjectBuilder
+    internal class DatabaseObjectBuilder
     {
         private DatabaseContext dbContext;
         private DatabaseFactory factory;
 
-        public DatabaseObjectBuilder(DatabaseContext dbContext, DatabaseFactory factory)
+        internal DatabaseObjectBuilder(DatabaseContext dbContext, DatabaseFactory factory)
         {
             this.dbContext = dbContext;
             this.factory = factory;
         }
 
-        public TestRun BuildTestRun(xb.TestRun testRun)
+        internal TestRun BuildTestRun(xb.TestRun testRun)
         {
             var testRunDb = factory.CreateTestRun(testRun);
             dbContext.TestRuns.Add(testRunDb);

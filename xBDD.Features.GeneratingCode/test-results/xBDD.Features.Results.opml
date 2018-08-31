@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+<head>
+</head>
+<body>
+
+<outline text="xBDD - Features - Generating Code - Generating Project Files [Defining]">
+	<outline text="Generating A New MS Test Project [Defining]">
+		<outline text="In An Empty Directory [Defining]">
+		</outline>
+		<outline text="In An Initialized XBDD [Defining]">
+		</outline>
+		<outline text="With A Test Run Name [Defining]">
+		</outline>
+		<outline text="With Area Name Clipping [Defining]">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Generating Code - Generating Feature Files [Defining]">
+	<outline text="Generate MS Test Feature Files From A Valid Feature Import File [Defining]">
+		<outline text="With An Empty Scenario [Defining]">
+		</outline>
+		<outline text="With A Given Step [Defining]">
+		</outline>
+		<outline text="With A When Step [Defining]">
+		</outline>
+		<outline text="With A Then Step [Defining]">
+		</outline>
+		<outline text="With An And Step [Defining]">
+		</outline>
+		<outline text="With A Code Step [Defining]">
+		</outline>
+		<outline text="With A Step Input [Defining]">
+		</outline>
+		<outline text="With A Step Explanation [Defining]">
+		</outline>
+		<outline text="With A Step With Trailing Spaces [Defining]">
+		</outline>
+		<outline text="With A Scenario Explanation [Defining]">
+		</outline>
+		<outline text="With A Scenario With Trailing Spaces [Defining]">
+		</outline>
+		<outline text="With Scenario Reason Tags [Defining]">
+		</outline>
+		<outline text="With Scenario Owner Tags [Defining]">
+		</outline>
+		<outline text="With An Existing Feature [Defining]">
+		</outline>
+		<outline text="With A Feature Explanation [Defining]">
+		</outline>
+		<outline text="With A Feature With Trailing Spaces [Defining]">
+		</outline>
+		<outline text="With An Area With Trailing Spaces [Defining]">
+		</outline>
+		<outline text="With Ignored Feature Tags [Defining]">
+		</outline>
+		<outline text="With Ignored Area Tags [Defining]">
+		</outline>
+		<outline text="With A Workflowy Text Export [Defining]">
+		</outline>
+	</outline>
+	<outline text="Generate MS Test Feature Files From An Invalid Feature Import File [Defining]">
+		<outline text="With No Areas AKA Empty [Defining]">
+		</outline>
+		<outline text="With No Features [Defining]">
+		</outline>
+		<outline text="With No Scenarios [Defining]">
+		</outline>
+		<outline text="With A Step With No Name [Defining]">
+		</outline>
+		<outline text="With A Step With Invalid Characters In The Name [Defining]">
+		</outline>
+		<outline text="With A Step With An Invalid Child Line [Defining]">
+		</outline>
+		<outline text="With A Scenario With No Name [Defining]">
+		</outline>
+		<outline text="With A Scenario With Invalid Characters In The Name [Defining]">
+		</outline>
+		<outline text="With A Scenario With An Invalid Child Line [Defining]">
+		</outline>
+		<outline text="With A Feature With No Name [Defining]">
+		</outline>
+		<outline text="With A Feature With Invalid Characters In The Name [Defining]">
+		</outline>
+		<outline text="With A Feature With An Invalid Child Line [Defining]">
+		</outline>
+		<outline text="With An Area With No Name [Defining]">
+		</outline>
+		<outline text="With An Area With Invalid Characters In The Name [Defining]">
+		</outline>
+		<outline text="With An Area With An Invalid Child Line [Defining]">
+		</outline>
+		<outline text="With A Duplicate Feature [Defining]">
+		</outline>
+		<outline text="With A Duplicate Scenario [Defining]">
+		</outline>
+	</outline>
+</outline>
+</body>
+</opml>

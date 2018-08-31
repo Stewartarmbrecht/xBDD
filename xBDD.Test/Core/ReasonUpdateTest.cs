@@ -27,7 +27,7 @@ namespace xBDD.Test
                 "Ready",
                 "Defining"
             };
-            xB.CurrentRun.UpdateParentReasonsAndStats(reasons);
+            xB.CurrentRun.TestRun.UpdateParentReasonsAndStats(reasons);
             this.ValidateTestResuls(tr);
         }
 
@@ -56,7 +56,7 @@ namespace xBDD.Test
                 "Ready",
                 "Defining"
             };
-            xB.CurrentRun.UpdateParentReasonsAndStats(reasons);
+            xB.CurrentRun.TestRun.UpdateParentReasonsAndStats(reasons);
             var statsOverrides = new Dictionary<string, Dictionary<string, int>>();
 
             statsOverrides.Add("Testrun-areas", new Dictionary<string, int>() {

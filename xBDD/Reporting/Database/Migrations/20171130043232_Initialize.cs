@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace xBDD.Reporting.Database.Migrations
 {
-    public partial class Initialize : Migration
+    internal partial class Initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

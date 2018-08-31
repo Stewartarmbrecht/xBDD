@@ -99,6 +99,11 @@ namespace xBDD.Utility
                 var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<ByAttribute>();
                 if(attr != null)
                     text = attr.GetCapabilityStatement();
+				if(text == null) {
+	                var gattr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<Generated_ByAttribute>();
+					if(gattr != null)
+						text = gattr.GetCapabilityStatement();
+				}
             }
             return text;
         }
@@ -112,6 +117,11 @@ namespace xBDD.Utility
                 var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<YouCanAttribute>();
                 if(attr != null)
                     text = attr.GetBenefitStatement();
+				if(text == null) {
+	                var gattr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<Generated_YouCanAttribute>();
+					if(gattr != null)
+						text = gattr.GetBenefitStatement();
+				}
             }
             return text;
         }
@@ -125,6 +135,11 @@ namespace xBDD.Utility
                 var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<AsAAttribute>();
                 if(attr != null)
                     text = attr.GetName();
+				if(text == null) {
+	                var gattr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<Generated_AsAAttribute>();
+					if(gattr != null)
+						text = gattr.GetName();
+				}
             }
             return text;
         }
@@ -132,12 +147,17 @@ namespace xBDD.Utility
         internal string GetFeatureExplanation()
         {
             string text = null;
-            if(this.scenarioExplanation != null) {
-                text = this.scenarioExplanation;
+            if(this.featureExplanation != null) {
+                text = this.featureExplanation;
             } else if(methodBase != null){
                 var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<ExplanationAttribute>();
                 if(attr != null)
                     text = attr.GetExplanation();
+				if(text == null) {
+	                var gattr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<Generated_ExplanationAttribute>();
+					if(gattr != null)
+						text = gattr.GetExplanation();
+				}
             }
             return text;
         }
@@ -151,6 +171,11 @@ namespace xBDD.Utility
                 var attr = methodBase.GetCustomAttribute<ExplanationAttribute>();
                 if(attr != null)
                     text = attr.GetExplanation();
+				if(text == null) {
+	                var gattr = methodBase.GetCustomAttribute<Generated_ExplanationAttribute>();
+					if(gattr != null)
+						text = gattr.GetExplanation();
+				}
             }
             return text;
         }

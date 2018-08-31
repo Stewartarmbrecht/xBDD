@@ -13,7 +13,6 @@ namespace xBDD.Browser
         private WebBrowser browser;
 
         private List<string> text;
-        private bool hitEnter;
 
         internal TextSteps(WebBrowser browser, string text)
         {

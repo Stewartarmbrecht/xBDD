@@ -90,9 +90,9 @@ namespace xBDD.Reporting.Text
             }
             else
                 sb.AppendLine();
-            if (!String.IsNullOrEmpty(step.InputParameter))
+            if (!String.IsNullOrEmpty(step.Input))
             {
-                WriteMultilineParameter(step.InputParameter, sb);
+                WriteMultilineParameter(step.Input, sb);
             }
             if (step.Exception != null && !(step.Exception is NotImplementedException) && step.Outcome != Outcome.Skipped && includeExceptions)
                 WriteException(step.Exception, sb);

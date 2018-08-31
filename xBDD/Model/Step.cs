@@ -45,7 +45,7 @@ namespace xBDD.Model
         /// </summary>
         /// <value><see cref="string"/></value>
 		[DataMember(EmitDefaultValue=false)]
-        public string InputParameter { get; set; }
+        public string Input { get; set; }
 
         /// <summary>
         /// Multiline string markdown displayed below the step to provide an explanation of the step.
@@ -60,7 +60,7 @@ namespace xBDD.Model
         /// </summary>
         /// <value><see cref="TextFormat"/></value>
 		[DataMember(EmitDefaultValue=false)]
-        public TextFormat MultilineParameterFormat { get; set; }
+        public TextFormat InputFormat { get; set; }
 
         /// <summary>
         /// The action to execute if the step is a synchronous action.

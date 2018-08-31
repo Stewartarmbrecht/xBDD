@@ -3,9 +3,9 @@ using System.Text;
 
 namespace xBDD.Reporting
 {
-    public static class HtmlUtility
+    internal static class HtmlUtility
     {
-        public static string HtmlEncode(this string text)
+        internal static string HtmlEncode(this string text)
         {
             if (text == null)
                 return null;

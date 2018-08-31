@@ -4,19 +4,19 @@ using xBDD.Model;
 
 namespace xBDD.Reporting.Database.Core
 {
-    public class Scenario
+    internal class Scenario
     {
-        public int Id { get; set; }
-        public int TestRunId { get; set; }
-        public virtual TestRun TestRun { get; set; }
-        public string Name { get; set; }
-        public string FeatureName { get; set; }
-        public string AreaPath { get; set; }
-        public Outcome Outcome { get; set; }
-        public string Reason { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public TimeSpan Time { get; set; }
-        public virtual ICollection<Step> Steps { get; set; }
+        internal int Id { get; set; }
+        internal int TestRunId { get; set; }
+        internal virtual TestRun TestRun { get; set; }
+        internal string Name { get; set; }
+        internal string FeatureName { get; set; }
+        internal string AreaPath { get; set; }
+        internal Outcome Outcome { get; set; }
+        internal string Reason { get; set; }
+        internal DateTime StartTime { get; set; }
+        internal DateTime EndTime { get; set; }
+        internal TimeSpan Time { get; set; }
+        internal virtual ICollection<Step> Steps { get; set; }
     }
 }

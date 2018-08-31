@@ -19,14 +19,17 @@ namespace xBDD.Importing.Text
         private Outcome defaultOutcome;
         private string defaultReason;
         private List<string> featureNames = new List<string>(); 
+		int scenarioCount = 0;
         private LineType GetLineType(string line, LineType previousLineType) {
             LineType lineType = new LineType();
+
 			//Step Input Header
             if(line.StartsWith($"{indentationKey}{indentationKey}{indentationKey}{indentationKey}Input"))
                 lineType = LineType.StepInputHeader;
 			//Step Explanation Header
             else if(line.StartsWith($"{indentationKey}{indentationKey}{indentationKey}{indentationKey}Explanation"))
                 lineType = LineType.StepExplanationHeader;
+
 			//Step Input
             else if(line.StartsWith($"{indentationKey}{indentationKey}{indentationKey}{indentationKey}{indentationKey}")
 				&& (previousLineType == LineType.StepInputHeader || previousLineType == LineType.StepInput))
@@ -44,10 +47,6 @@ namespace xBDD.Importing.Text
 				&& (previousLineType == LineType.ScenarioExplanationHeader || previousLineType == LineType.ScenarioExplanation))
                 lineType = LineType.ScenarioExplanation;
 
-			//Step
-            else if(line.StartsWith($"{indentationKey}{indentationKey}{indentationKey}"))
-                lineType = LineType.Step;
-
 			//Feature Explanation Header
             else if(line.StartsWith($"{indentationKey}{indentationKey}Explanation"))
                 lineType = LineType.FeatureExplanationHeader;
@@ -64,10 +63,6 @@ namespace xBDD.Importing.Text
 				&& (previousLineType == LineType.FeatureStatementHeader || previousLineType == LineType.FeatureStatement))
                 lineType = LineType.FeatureStatement;
 
-			//Scenario
-            else if(line.StartsWith($"{indentationKey}{indentationKey}"))
-                lineType = LineType.Scenario;
-
 			//Area Explanation Header
             else if(line.StartsWith($"{indentationKey}Explanation"))
                 lineType = LineType.AreaExplanation;
@@ -75,6 +70,14 @@ namespace xBDD.Importing.Text
             else if(line.StartsWith($"{indentationKey}{indentationKey}")
 				&& (previousLineType == LineType.AreaExplanationHeader || previousLineType == LineType.AreaExplanation))
                 lineType = LineType.AreaExplanation;
+
+			//Step
+            else if(line.StartsWith($"{indentationKey}{indentationKey}{indentationKey}"))
+                lineType = LineType.Step;
+
+			//Scenario
+            else if(line.StartsWith($"{indentationKey}{indentationKey}"))
+                lineType = LineType.Scenario;
 
 			//Feature
             else if(line.StartsWith(indentationKey))
@@ -111,32 +114,28 @@ namespace xBDD.Importing.Text
             return featureStatement;
         }
         private string GetStepName(string stepLine, StepType stepType) {
-            string stepName = null;
-			var stepHasReason = stepLine.Contains("#");
+            string stepName = stepLine;
+			var stepHasReason = stepName.Contains("#");
 			if(stepHasReason) {
-				stepLine = stepLine.Substring(0, stepLine.IndexOf("#")-1);
+				stepName = stepName.Substring(0, stepName.IndexOf("#")-1);
 			}
             switch (stepType)
             {
                 case StepType.Given:
-                    stepName = stepLine.Substring(6, stepLine.Length-6);
+                    stepName = stepName.Substring(6, stepName.Length-6);
                 break;
                 case StepType.When:
                 case StepType.Then:
-                    stepName = stepLine.Substring(5, stepLine.Length-5);
+                    stepName = stepName.Substring(5, stepName.Length-5);
                 break;
                 case StepType.And:
-                    stepName = stepLine.Substring(4, stepLine.Length-4);
+                    stepName = stepName.Substring(4, stepName.Length-4);
                 break;
             }
             return stepName;
         }
         private string GetFeatureStatement(string featureStatementLine, FeatureStatementType featureStatementType) {
             string featureStatement = null;
-			var featureHasTags = featureStatementLine.Contains("#");
-			if(featureHasTags) {
-				featureStatementLine = featureStatementLine.Substring(0, featureStatementLine.IndexOf("#")-1);
-			}
             switch (featureStatementType)
             {
                 case FeatureStatementType.AsA:
@@ -179,7 +178,7 @@ namespace xBDD.Importing.Text
                     lineContent = line.Substring(length*5, line.Length-(length*5));
                 break;
             }
-			if(lineContent.StartsWith("- "))
+			if(lineContent != null && lineContent.StartsWith("- "))
 				lineContent = lineContent.Substring(2,lineContent.Length-2);
             return lineContent;
         }
@@ -188,11 +187,17 @@ namespace xBDD.Importing.Text
         /// </summary>
         /// <param name="text">The text report to import.</param>
         /// <param name="indentationKey">The string used for indentation in the text file.</param>
-        /// <param name="rootNamespace">The namspace to prepend to each area.<param>
-        /// <param name="defaultOutcome">The default outcome for a scenario.<param>
-        /// <param name="defaultReason">The default reason for an scenario.<param>
+        /// <param name="rootNamespace">The namspace to prepend to each area.</param>
+        /// <param name="defaultOutcome">The default outcome for a scenario.</param>
+        /// <param name="defaultReason">The default reason for an scenario.</param>
         /// <returns>TestRun object hydrated from the text file outline.</returns>
-        public TestRun ImportText(string text, string indentationKey = "\t", string rootNamespace = "", string defaultOutcome = "Skipped", string defaultReason = "Defining") {
+        public TestRun ImportText(
+			string text, 
+			string indentationKey = "\t", 
+			string rootNamespace = "", 
+			string defaultOutcome = "Skipped", 
+			string defaultReason = "Defining") 
+		{
             this.indentationKey = indentationKey;
             this.defaultOutcome = (Outcome)Enum.Parse(typeof(Outcome), defaultOutcome);
             this.rootNamespace = rootNamespace;
@@ -201,10 +206,9 @@ namespace xBDD.Importing.Text
                 new[] { Environment.NewLine },
                 StringSplitOptions.None
             );
-            var testRunName = lines[0];
 
             var factory = new CoreFactory();
-            var testRunBuilder = factory.CreateTestRunBuilder(testRunName);
+            var testRunBuilder = factory.CreateTestRunBuilder(Configuration.TestRunName);
 
             var currentTestRunBuilder = xB.CurrentRun;
             xB.CurrentRun = testRunBuilder;
@@ -215,7 +219,7 @@ namespace xBDD.Importing.Text
                 xB.CurrentRun = currentTestRunBuilder;
                 throw;
             }
-            xB.CurrentRun.SortTestRunResults(this.featureNames);
+            xB.CurrentRun.TestRun.SortTestRunResults(this.featureNames);
             xB.CurrentRun.TestRun.Scenarios.ForEach(scenario => {
                 if(scenario.Outcome == Outcome.NotRun)
                     scenario.Outcome = this.defaultOutcome;
@@ -226,13 +230,47 @@ namespace xBDD.Importing.Text
             xB.CurrentRun = currentTestRunBuilder;
             return testRun;
         }
+		private ScenarioBuilder AddScenario(
+			string areaName,
+			string featureName, 
+			string scenarioName, 
+			string asAStatement, 
+			string youCanStatement, 
+			string byStatement, 
+			string scenarioExplanation, 
+			string featureExplanation) 
+		{
+			this.scenarioCount++;
+			var namespaceName = $"{this.rootNamespace}.{areaName.ConvertAreaNameToNamespace()}";
+			var className = featureName.ConvertFeatureNameToClassName();
+			var reason = scenarioName.ExtractReason();
+			var owner = scenarioName.ExtractOwner();
+			var methodName = scenarioName.ConvertScenarioNameToMethodName();
+			CodeDetails codeDetails = new CodeDetails(
+				namespaceName,
+				className, 
+				methodName, 
+				asAStatement, 
+				youCanStatement, 
+				byStatement,
+				scenarioExplanation.ToString(),
+				featureExplanation.ToString());
+			var scenarioBuilder = xB.CurrentRun.AddScenario(codeDetails,this.scenarioCount + 1000);
+			scenarioBuilder.Scenario.Reason = reason;
+			if(scenarioBuilder.Scenario.Reason == "Failed") {
+				scenarioBuilder.Scenario.Outcome = Outcome.Failed;
+			} else if (scenarioBuilder.Scenario.Reason != null) {
+				scenarioBuilder.Scenario.Outcome = Outcome.Skipped;
+			}
+			return scenarioBuilder;
+		}
 
-        private void AddStep(ScenarioBuilder scenarioBuilder, StepType stepType, Step step, StringBuilder inputParameter, StringBuilder explanation)
+        private void AddStep(ScenarioBuilder scenarioBuilder, StepType stepType, Step step, StringBuilder input, StringBuilder explanation)
         {
-            if(inputParameter.Length > 0) {
-                step.InputParameter = inputParameter.ToString();
-                inputParameter.Clear();
-                step.MultilineParameterFormat = TextFormat.text;
+            if(input.Length > 0) {
+                step.Input = input.ToString();
+                input.Clear();
+                step.InputFormat = TextFormat.text;
             }
             if(explanation.Length > 0) {
                 step.Explanation = explanation.ToString();
@@ -276,17 +314,34 @@ namespace xBDD.Importing.Text
 			FeatureStatementType currentFeatureStatementType = new FeatureStatementType();
             LineType previousLineType = new LineType();
             LineType currentLineType = new LineType();
-            for(int x = 2; x < lines.Length; x++) //First 2 lines are test run name and blank.
+            for(int x = 0; x < lines.Length; x++) //First 2 lines are test run name and blank.
             {
                 try {
                     previousLineType = currentLineType;
                     var currentLine = lines[x];
-                    var previousLine = lines[x-1];
+					string previousLine = null;
+					if(x > 0) {
+	                    previousLine = lines[x-1];
+					}
                     currentLineType = this.GetLineType(currentLine, previousLineType);
                     var currentLineContent = this.GetLineContent(currentLine,currentLineType);
                     switch (currentLineType)
                     {
                         case LineType.Area:
+							if(scenarioName != null) {
+								scenarioBuilder = this.AddScenario(
+									areaName, 
+									featureName, 
+									scenarioName, 
+									asAStatement, 
+									youCanStatement, 
+									byStatement, 
+									scenarioExplanation.ToString(), 
+									featureExplanation.ToString());
+								scenarioName = null;
+								scenarioExplanation.Clear();
+								featureExplanation.Clear();
+							}
                             if(currentStep != null) {
                                 this.AddStep(scenarioBuilder, currentStepType, currentStep, stepInput, stepExplanation);
                                 currentStep = null;
@@ -306,6 +361,7 @@ namespace xBDD.Importing.Text
 							stepExplanation.AppendLine(currentLineContent);
 						break;
 						case LineType.FeatureStatement:
+							currentFeatureStatementType = this.GetFeatureStatementType(currentLineContent);
 							var featureStatement = this.GetFeatureStatement(currentLineContent, currentFeatureStatementType);
 							switch(currentFeatureStatementType) {
 								case FeatureStatementType.AsA:
@@ -320,41 +376,64 @@ namespace xBDD.Importing.Text
 							}
 						break;
                         case LineType.Feature:
+							if(scenarioName != null) {
+								scenarioBuilder = this.AddScenario(
+									areaName, 
+									featureName, 
+									scenarioName, 
+									asAStatement, 
+									youCanStatement, 
+									byStatement, 
+									scenarioExplanation.ToString(), 
+									featureExplanation.ToString());
+								scenarioName = null;
+								scenarioExplanation.Clear();
+								featureExplanation.Clear();
+							}
                             if(currentStep != null) {
                                 this.AddStep(scenarioBuilder, currentStepType, currentStep, stepInput, stepExplanation);
                                 currentStep = null;
                             }
+							this.scenarioCount = 0;
                             featureName = currentLineContent;
-                            this.featureNames.Add($"{areaName.ConvertAreaNameToNamespace()}.{featureName.ConvertFeatureNameToClassName()}");
+                            this.featureNames.Add($"{rootNamespace}.{areaName.ConvertAreaNameToNamespace()}.{featureName.ConvertFeatureNameToClassName()}");
                         break;
                         case LineType.Scenario:
+							if(scenarioName != null) {
+								scenarioBuilder = this.AddScenario(
+									areaName, 
+									featureName, 
+									scenarioName, 
+									asAStatement, 
+									youCanStatement, 
+									byStatement, 
+									scenarioExplanation.ToString(), 
+									featureExplanation.ToString());
+								scenarioName = null;
+								scenarioExplanation.Clear();
+								featureExplanation.Clear();
+							}
                             if(currentStep != null) {
                                 this.AddStep(scenarioBuilder, currentStepType, currentStep, stepInput, stepExplanation);
                                 currentStep = null;
                             }
                             scenarioName = currentLineContent;
-                            var namespaceName = $"{this.rootNamespace}.{areaName.ConvertAreaNameToNamespace()}";
-                            var className = featureName.ConvertFeatureNameToClassName();
-                            var reason = scenarioName.ExtractReason();
-                            var methodName = scenarioName.ConvertScenarioNameToMethodName();
-                            CodeDetails codeDetails = new CodeDetails(
-                                namespaceName,
-                                className, 
-                                methodName, 
-                                asAStatement, 
-                                youCanStatement, 
-                                byStatement,
-								scenarioExplanation.ToString(),
-								featureExplanation.ToString());
-                            scenarioBuilder = xB.CurrentRun.AddScenario(codeDetails,x);
-                            scenarioBuilder.Scenario.Reason = reason;
-                            if(scenarioBuilder.Scenario.Reason == "Failed") {
-                                scenarioBuilder.Scenario.Outcome = Outcome.Failed;
-                            } else if (scenarioBuilder.Scenario.Reason != null) {
-                                scenarioBuilder.Scenario.Outcome = Outcome.Skipped;
-                            }
                         break;
                         case LineType.Step:
+							if(scenarioName != null) {
+								scenarioBuilder = this.AddScenario(
+									areaName, 
+									featureName, 
+									scenarioName, 
+									asAStatement, 
+									youCanStatement, 
+									byStatement, 
+									scenarioExplanation.ToString(), 
+									featureExplanation.ToString());
+								scenarioName = null;
+								scenarioExplanation.Clear();
+								featureExplanation.Clear();
+							}
                             if(currentStep != null) {
                                 this.AddStep(scenarioBuilder, currentStepType, currentStep, stepInput, stepExplanation);
                                 currentStep = null;
@@ -381,6 +460,20 @@ namespace xBDD.Importing.Text
                     throw new TextImportException(x, lines[x], Enum.GetName(typeof(LineType), previousLineType) );
                 }
             }
+			if(scenarioName != null) {
+				scenarioBuilder = this.AddScenario(
+					areaName, 
+					featureName, 
+					scenarioName, 
+					asAStatement, 
+					youCanStatement, 
+					byStatement, 
+					scenarioExplanation.ToString(), 
+					featureExplanation.ToString());
+				scenarioName = null;
+				scenarioExplanation.Clear();
+				featureExplanation.Clear();
+			}
             if(currentStep != null) {
                 this.AddStep(scenarioBuilder, currentStepType, currentStep, stepInput, stepExplanation);
                 currentStep = null;

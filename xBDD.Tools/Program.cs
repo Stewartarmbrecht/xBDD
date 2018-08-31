@@ -8,6 +8,7 @@ using xBDD.Importing.Text;
 using xBDD.Importing.Json;
 using xBDD;
 using xBDD.Model;
+using xBDD.Utility;
 
 namespace xBDD.Tools
 {
@@ -58,10 +59,11 @@ namespace xBDD.Tools
 						try {
 							var codeWriter = new xBDD.Reporting.Code.CodeWriter();
 							var directory = System.IO.Directory.GetCurrentDirectory();
-							var folder = directory.Substring(directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar) + 1, directory.Length - (directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar)+1));
+							var folderAndRootNamespace = directory.Substring(directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar) + 1, directory.Length - (directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar)+1));
+							var projectName = folderAndRootNamespace.ConvertNamespaceToAreaName();
 							console.WriteLine($"Directory: {directory}");
-							console.WriteLine($"Folder: {folder}");
-							codeWriter.WriteProjectFiles(directory, folder, folder);
+							console.WriteLine($"Folder: {folderAndRootNamespace}");
+							codeWriter.WriteProjectFiles(directory, folderAndRootNamespace, $"{projectName} - ");
 							console.WriteLine($"Project initialized.");
 							return 0;
 						} catch (Exception ex) {

@@ -41,17 +41,19 @@
         /// </summary>
         /// <param name="stepName">The text to display for the step.</param>
         /// <param name="action">The action that will be called when executing the step.</param>
-        /// <param name="multilineParameter">The multiline parameter to display below the step.</param>
-        /// <param name="multilineParameterFormat">The format to use when displaying the multiline paramter.</param>
+        /// <param name="input">The multiline parameter to display below the step.</param>
+        /// <param name="inputFormat">The format to use when displaying the multiline paramter.</param>
+        /// <param name="explanation">A explanation of what the step does if needed.true  Html reporting tools will respect markdown syntax.<see cref="TextFormat"/></param>
         /// <returns>New step that can be added to a scenario.</returns>
         public static Step CreateStep(
             string stepName, 
             Action<Step> action = null, 
-            string multilineParameter = "",
-            TextFormat multilineParameterFormat = TextFormat.text)
+            string input = "",
+            TextFormat inputFormat = TextFormat.text,
+			string explanation = null)
         {
             action = action ?? ((s) => { });
-            return factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
+            return factory.CreateStep(stepName, action, input, inputFormat, explanation);
         }
 
         /// <summary>
@@ -59,17 +61,19 @@
         /// </summary>
         /// <param name="stepName">The text to display for the step.</param>
         /// <param name="action">The asynchronous function to call.</param>
-        /// <param name="multilineParameter">The multiline parameter to display below the step.</param>
-        /// <param name="multilineParameterFormat">The format to use when displaying the multiline paramter.</param>
+        /// <param name="input">The multiline parameter to display below the step.</param>
+        /// <param name="inputFormat">The format to use when displaying the multiline paramter.</param>
+        /// <param name="explanation">A explanation of what the step does if needed.true  Html reporting tools will respect markdown syntax.<see cref="TextFormat"/></param>
         /// <returns>New async step that can be added to a scenario.</returns>
         public static Step CreateAsyncStep(
             string stepName, 
             Func<Step, Task> action = null,
-            string multilineParameter = "",
-            TextFormat multilineParameterFormat = TextFormat.text)
+            string input = "",
+            TextFormat inputFormat = TextFormat.text,
+			string explanation = null)
         {
             action = action ?? ((s) => { return Task.Run(() => { }); });
-            return factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat);
+            return factory.CreateStep(stepName, action, input, inputFormat, explanation);
         }
 
         /// <summary>
@@ -145,8 +149,8 @@
 
             System.IO.Directory.CreateDirectory($"{directory}/../../../test-results");
 
-            xB.CurrentRun.SortTestRunResults(sorting.GetGeneratedSortedFeatureNames());
-            xB.CurrentRun.UpdateParentReasonsAndStats(sorting.GetSortedReasons());
+            xB.CurrentRun.TestRun.SortTestRunResults(sorting.GetGeneratedSortedFeatureNames());
+            xB.CurrentRun.TestRun.UpdateParentReasonsAndStats(sorting.GetSortedReasons());
 
             var htmlPath = $"{directory}/../../../test-results/xBDD.Features.Results.html";
             writeOutput("Writing Html Report to " + htmlPath);

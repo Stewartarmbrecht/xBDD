@@ -7,6 +7,7 @@
     using System.Threading.Tasks;
     using System.Collections.Generic;
     using xBDD.Model;
+	using xBDD.Utility;
 
     /// <summary>
     /// Writes code files that can be used to recreate the test run provided.
@@ -25,24 +26,7 @@
         /// <returns>Nothing, the files are written to disk.</returns>
         public void WriteToCode(TestRun testRun, string rootNamespace, string directory, string removeFromAreaNameStart)
         {
-            System.IO.Directory.CreateDirectory(directory);
-            this.WriteProjectFiles(testRun, directory, rootNamespace, removeFromAreaNameStart);
-            StringBuilder sb = new StringBuilder();
-            StringBuilder sbFeatureSort = new StringBuilder();
-            this.WriteFeatureSortStart(sbFeatureSort, rootNamespace);
-            Scenario lastScenario = null;
-            var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
-            if(testRun.Sorted)
-                sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
-            foreach(var scenario in sortedScenarios)
-            {
-                this.WriteScenario(rootNamespace, directory, lastScenario, scenario, sb, sbFeatureSort);
-                lastScenario = scenario;
-            }
-            if(sortedScenarios.Count() > 0) {
-                this.WriteFeatureFile(directory, rootNamespace, lastScenario.Feature.FullClassName, sb);
-                this.WriteFeatureSortEnd(directory, rootNamespace, sbFeatureSort);
-            }
+			this.WriteCode(testRun, rootNamespace, directory, removeFromAreaNameStart, true);
         }
 
         /// <summary>
@@ -54,119 +38,9 @@
         /// <returns>Nothing, the files are written to disk.</returns>
         public void WriteFeaturesToCode(TestRun testRun, string rootNamespace, string directory)
         {
-            System.IO.Directory.CreateDirectory(directory);
-            StringBuilder sb = new StringBuilder();
-            StringBuilder sbFeatureSort = new StringBuilder();
-            this.WriteFeatureSortStart(sbFeatureSort, rootNamespace);
-            Scenario lastScenario = null;
-            var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
-            if(testRun.Sorted)
-                sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
-            foreach(var scenario in sortedScenarios)
-            {
-                this.WriteScenario(rootNamespace, directory, lastScenario, scenario, sb, sbFeatureSort);
-                lastScenario = scenario;
-            }
-            if(sortedScenarios.Count() > 0) {
-                this.WriteFeatureFile(directory, rootNamespace, lastScenario.Feature.FullClassName, sb);
-                this.WriteFeatureSortEnd(directory, rootNamespace, sbFeatureSort);
-            }
-        }
-        private void WriteSampleFeature(string directory, string rootNamespace)
-        {
-            System.IO.Directory.CreateDirectory("Features/MyArea");
-            var content = $@"namespace {rootNamespace}.MyArea
-{{
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
-	using System.Threading.Tasks;
-	using xBDD;
-
-    [TestClass]
-    [AsA(""sample user"")]
-    [YouCan(""have my feature value"")]
-    [By(""execute my feature"")]
-    public class MyFeature: FeatureTestClass
-    {{
-
-        [TestMethod]
-        public async Task MyScenario()
-        {{
-			var input = $""Here{{System.Environment.NewLine}} is{{System.Environment.NewLine}} my{{System.Environment.NewLine}} Input!"";
-			var format = TextFormat.text;
-            await xB.CurrentRun.AddScenario(this, 1)
-                .Given(""my step 1"", (s) => {{ 
-                    //Add code to perform action.
-                 }})
-                .When(""my step 2 with multiline input"", (s) => {{ 
-                    //Add code to perform action.
-                 }}, input, format)
-                .Then(""my step 3 with output"", (s) => {{ 
-                    //Add code to perform action.
-                    s.Output = input;
-                    s.OutputFormat = format;
-                 }})
-                .Run();
-        }}
-    }}
-}}";
-
-            System.IO.File.WriteAllText($"{directory}/Features/MyArea/MyFeature.cs",content);
-        }
-        private void WriteFeatureFile(string directory, string rootNamespace, string featureFullClassName, StringBuilder sb)
-        {
-            sb.AppendLine($@"    }}
-}}
-");
-            var featureFolder = $"{directory}Features/{featureFullClassName.Replace(rootNamespace,"").Substring(0, featureFullClassName.Replace(rootNamespace,"").LastIndexOf(".")).Replace(".","/")}/";
-            var featureClassName = featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
-            System.IO.Directory.CreateDirectory(featureFolder);
-            System.IO.File.WriteAllText($"{featureFolder}/{featureClassName}.cs", sb.ToString());
-        }
-        private void WriteFeatureSortStart(StringBuilder sb, string rootNamespace)
-        {
-            sb.AppendLine($@"namespace {rootNamespace}
-{{
-    using System;
-    using System.Collections.Generic;
-    public class FeatureSort
-    {{
-        public string[] SortedFeatureNames {{ get; private set; }}
-
-        public FeatureSort()
-        {{
-            List<string> SortedFeatureNames = new List<string>() {{");
-        }
-        private void WriteFeatureSortEnd(string directory, string rootNamespace, StringBuilder sb)
-        {
-            sb.AppendLine($@"            }};
-
-            this.SortedFeatureNames = SortedFeatureNames.ToArray();
-
-        }}
-    }}
-}}");
-            var filePath = $"{directory}/FeatureSort.cs";
-            System.IO.File.WriteAllText(filePath, sb.ToString());
+			this.WriteCode(testRun, rootNamespace, directory, null, false);
         }
 
-        /// <summary>
-        /// Writes all project files.
-        /// </summary>
-        /// <param name="directory">The directory to write the files in.</param>
-        /// <param name="rootNamespace">The root namspace to use.</param>
-        /// <param name="removeFromAreaNameStart">The value for this config setting.</param>
-        /// <param name="testRun">The test run to create the features for.</param>
-        /// <returns>Nothing. Files are written to disck.</returns>
-        public void WriteProjectFiles(TestRun testRun, string directory, string rootNamespace, string removeFromAreaNameStart)
-        {
-            this.WriteProjectFile(directory, rootNamespace);
-            this.WriteConfigJson(testRun.Name, directory, removeFromAreaNameStart);
-            this.WriteXbddInitializeAndComplete(directory, rootNamespace);
-            this.WriteTestConfiguration(directory, rootNamespace);
-            this.WriteReasonSort(directory, rootNamespace);
-            this.WriteFeatureTestClass(directory, rootNamespace);
-        }
         /// <summary>
         /// Writes out files to create a MSTest project that uses 
         /// best practices for xBDD.
@@ -174,390 +48,193 @@
         /// <param name="directory">The directory to write the files in.</param>
         /// <param name="rootNamespace">The root namspace to use.</param>
         /// <param name="removeFromAreaNameStart">The value for this config setting.</param>
-        public void WriteProjectFiles(string directory, string rootNamespace, string removeFromAreaNameStart)
+        public void WriteProjectFiles(
+			string directory, 
+			string rootNamespace, 
+			string removeFromAreaNameStart) 
+		{
+			var featureImportPath = $"{directory}/xBDDFeatureImport.txt";
+			if(System.IO.File.Exists(featureImportPath)) {
+				var textImporter = new Importing.Text.TextImporter();
+				var text = System.IO.File.ReadAllText(featureImportPath);
+				var indentation = "\t";
+				if(text.StartsWith("- ")) { //Workflowy export.
+					var lines = text.Split(new[] { System.Environment.NewLine }, StringSplitOptions.None);
+					StringBuilder formattedText = new StringBuilder();
+					for(int i =0; i < lines.Length; i++) {
+						var line = lines[i];
+						var dashIndex = line.IndexOf('-');
+						var lineStart = dashIndex +2;
+						var lineCount = line.Length;
+						var lineIndentation = line.Substring(0, dashIndex);
+						var lineContent = line.Substring(lineStart, lineCount - lineStart);
+						var newLineIndentation = lineIndentation.Replace("  ", "\t");
+						formattedText.Append(newLineIndentation);
+						formattedText.AppendLine(lineContent);
+					}
+					text = formattedText.ToString();
+				}
+				TestRun testRun = textImporter.ImportText(text, indentation, rootNamespace);
+				this.WriteToCode(testRun,rootNamespace, directory,removeFromAreaNameStart);
+
+			} else {
+				var writeSample = true;
+				if(System.IO.Directory.Exists($"{directory}/Features")) {
+					writeSample = false;
+				}
+				this.WriteProjectFiles(directory, rootNamespace, removeFromAreaNameStart, writeSample, null, null);
+			}
+		}
+        private void WriteProjectFiles(
+			string directory, 
+			string rootNamespace, 
+			string removeFromAreaNameStart, 
+			bool writeSample, 
+			List<string> sortedFeatureNames, 
+			List<string> sortedReasons)
         {
 			this.WriteProjectFile(directory, rootNamespace);
-	        this.WriteConfigJson(rootNamespace, directory, removeFromAreaNameStart);
-            this.WriteXbddInitializeAndComplete(directory, rootNamespace);
-            this.WriteTestConfiguration(directory, rootNamespace);
-            this.WriteFeatureTestClass(directory, rootNamespace);
-			this.WriteFeatureSort(directory, rootNamespace);
-			if(!System.IO.File.Exists($"{directory}/xBDDReasonSort.cs")) {
-            	this.WriteReasonSort(directory, rootNamespace);
+	        this.WriteXbddConfigJson(rootNamespace.ConvertNamespaceToAreaName(), directory, removeFromAreaNameStart);
+            this.WriteXbddInitializeAndCompleteClass(directory, rootNamespace);
+            this.WriteXbddFeatureBaseClass(directory, rootNamespace);
+			if(sortedFeatureNames == null) {
+				sortedFeatureNames = new List<string>() {
+					$"{rootNamespace}.MyArea.MySample"
+				};
 			}
-            this.WriteSampleFeature(directory, rootNamespace);
-        }
-
-        private void WriteFeatureSort(string directory, string rootNamespace)
-        {
-            var content = $@"namespace {rootNamespace}
-{{
-    using System;
-    using System.Collections.Generic;
-    public class xBDDFeatureSort
-    {{
-        public string[] SortedFeatureNames {{ get; private set; }}
-
-        public FeatureSort()
-        {{
-            List<string> SortedFeatureNames = new List<string>() {{
-                typeof({rootNamespace}.MyArea.MyFeature).FullName,
-            }};
-
-            this.SortedFeatureNames = SortedFeatureNames.ToArray();
-
-        }}
-    }}
-}}";
-			if(!System.IO.File.Exists($"{directory}/xBDDFeatureSort.cs")) {
-	            System.IO.File.WriteAllText($"{directory}/xBDDFeatureSort.cs",content);
+			if(sortedReasons == null) {
+				sortedReasons = new List<string>() {
+					"Removing",
+					"Committed",
+					"Untested",
+					"Ready",
+					"Defining"
+				};
 			}
-            content = $@"namespace {rootNamespace}
-{{
-    using System;
-    using System.Collections.Generic;
-    public class xBDDFeatureSort_Generated
-    {{
-        public string[] SortedFeatureNames {{ get; private set; }}
-
-        public FeatureSort()
-        {{
-            List<string> SortedFeatureNames = new List<string>() {{
-                typeof({rootNamespace}.MyArea.MyFeature).FullName,
-            }};
-
-            this.SortedFeatureNames = SortedFeatureNames.ToArray();
-
-        }}
-    }}
-}}";
-			System.IO.File.WriteAllText($"{directory}/xBDDFeatureSort.xbdd.cs",content);
-        }
-
-        private void WriteReasonSort(string directory, string rootNamespace)
-        {
-            var content = $@"namespace {rootNamespace}
-{{
-    using System;
-    using System.Collections.Generic;
-    public class xBDDReasonSort
-    {{
-        public List<string> SortedReasons {{ get; private set; }}
-
-        public ReasonSort()
-        {{
-            this.SortedReasons = new List<string>() {{
-                ""Untested"",
-                ""Building"",
-                ""Ready"",
-                ""Defining""
-            }};
-        }}
-    }}
-}}";
-			if(!System.IO.File.Exists($"{directory}/xBDDReasonSort.cs")) {
-	            System.IO.File.WriteAllText($"{directory}/xBDDReasonSort.cs",content);
+			this.WriteXbddSortingClass(directory, rootNamespace, sortedFeatureNames, sortedReasons);
+			if(writeSample) {
+	            this.WriteSampleFeature(directory, rootNamespace);
 			}
-            content = $@"namespace {rootNamespace}
-{{
-    using System;
-    using System.Collections.Generic;
-    public class xBDDReasonSort_Generated
-    {{
-        public List<string> SortedReasons {{ get; private set; }}
-
-        public ReasonSort()
-        {{
-            this.SortedReasons = new List<string>() {{
-                ""Untested"",
-                ""Building"",
-                ""Ready"",
-                ""Defining""
-            }};
-        }}
-    }}
-}}";
-			System.IO.File.WriteAllText($"{directory}/xBDDReasonSort.xbdd.cs",content);
         }
 
-        /// <summary>
-        /// Writes a project file to the specified directory.
-        /// </summary>
-        /// <param name="directory">The directory to write the project file to.</param>
-        /// <param name="rootNamespace">The root namespace to use.</param>
-        /// <returns>Returns the task for writing the file to the direcotry.</returns>
-        public void WriteFeatureTestClass(string directory, string rootNamespace)
+        private void WriteCode(TestRun testRun, string rootNamespace, string directory, string removeFromAreaNameStart, bool writeProjectFiles)
         {
-            var content = $@"namespace {rootNamespace}
-{{
-    using xBDD;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
-
-
-    public partial class xBDDFeatureTestClass: IFeature, IOutputWriter
-    {{
-        public IOutputWriter OutputWriter {{ get {{ return this; }} }}
-
-        public void WriteLine(string text) {{
-            text = text.Replace(""{{"", ""{{{{"").Replace(""}}"",""}}}}"");
-            Logger.LogMessage(text);
-        }}
-    }}
-}}
-";
-            System.IO.File.WriteAllText($"{directory}/xBDDFeatureTestClass.cs",content);
+            System.IO.Directory.CreateDirectory(directory);
+            StringBuilder sb = new StringBuilder();
+            Scenario lastScenario = null;
+			List<string> sortedFeatureNames = new List<string>();
+			List<string> reasons = new List<string>();
+            var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
+            if(testRun.Sorted)
+                sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
+            foreach(var scenario in sortedScenarios)
+            {
+                var featureNameAndReason = this.WriteScenario(rootNamespace, directory, lastScenario, scenario, sb);
+				if(!sortedFeatureNames.Contains(featureNameAndReason.featureName)) {
+					sortedFeatureNames.Add(featureNameAndReason.featureName);
+				}
+				if(!reasons.Contains(featureNameAndReason.reason)) {
+					reasons.Add(featureNameAndReason.reason);
+				}
+                lastScenario = scenario;
+            }
+            if(sortedScenarios.Count() > 0) {
+                this.WriteFeatureClass(directory, rootNamespace, lastScenario.Feature.FullClassName, sb);
+            }
+			if(writeProjectFiles) {
+	            this.WriteProjectFiles(directory, rootNamespace, removeFromAreaNameStart, false, sortedFeatureNames, reasons);
+			}
         }
 
-        /// <summary>
-        /// Writes a project file to the specified directory.
-        /// </summary>
-        /// <param name="directory">The directory to write the project file to.</param>
-        /// <param name="rootNamespace">The root namespace to use.</param>
-        /// <returns>Returns the task for writing the file to the direcotry.</returns>
-        public void WriteProjectFile(string directory, string rootNamespace)
+
+        private void WriteProjectFile(string directory, string rootNamespace)
         {
-            var content = $@"<Project Sdk=""Microsoft.NET.Sdk"">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-    <IsPackable>false</IsPackable>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include=""Microsoft.Extensions.Configuration"" Version=""2.1.1"" />
-    <PackageReference Include=""Microsoft.Extensions.Configuration.EnvironmentVariables"" Version=""2.1.1"" />
-    <PackageReference Include=""Microsoft.Net.Test.Sdk"" Version=""15.8.0"" />
-    <PackageReference Include=""MSTEst.TestAdapter"" Version=""1.3.2"" />
-    <PackageReference Include=""MSTEst.TestFramework"" Version=""1.3.2"" />
-    <PackageReference Include=""Selenium.WebDriver.ChromeDriver"" Version=""2.41.0"" />
-    <PackageReference Include=""Selenium.WebDriver"" Version=""3.14.0"" />
-    <PackageReference Include=""xBDD"" Version=""0.0.6-alpha"" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update=""config.json"" CopyToOutputDirectory=""PreserveNewest"" />
-  </ItemGroup>
-
-</Project>
-";
-			if(System.IO.File.Exists($"{directory}/{rootNamespace}.csproj")) {
+            var content = this.GetProjectFile();
+			if(!System.IO.File.Exists($"{directory}/{rootNamespace}.csproj")) {
 	            System.IO.File.WriteAllText($"{directory}/{rootNamespace}.csproj",content);
 			}
 			System.IO.File.WriteAllText($"{directory}/{rootNamespace}.csproj.xbdd",content);
         }
 
-        /// <summary>
-        /// Writes a config.json file.
-        /// </summary>
-        /// <param name="directory">Direcotry to write the file in.</param>
-        /// <param name="testRunName">Value for the TestRunName setting.</param>
-        /// <param name="removeFromAreaNameStart">The string to remove from the beginning of the area name.</param>
-        /// <returns>Returns the task for writing the file to the direcotry.</returns>
-        public void WriteConfigJson(string testRunName, string directory, string removeFromAreaNameStart)
+        private void WriteXbddConfigJson(string testRunName, string directory, string removeFromAreaNameStart)
         {
-            var content = $@"{{
-    ""xBDD"": {{
-        ""TestRunName"": ""{testRunName}"",
-        ""Browser"": {{
-            ""Watch"": ""false""
-        }},
-        ""HtmlReport"": {{
-            ""RemoveFromAreaNameStart"": ""{removeFromAreaNameStart}"",
-            ""FailuresOnly"": ""false""
-        }}
-    }}
-}}            
-";
-			if(System.IO.File.Exists($"{directory}/xBDDConfig.json")) {
+			if(!System.IO.File.Exists($"{directory}/xBDDConfig.json")) {
+	            var content = this.GetXbddConfigJson(testRunName, removeFromAreaNameStart);
 	            System.IO.File.WriteAllText($"{directory}/xBDDConfig.json",content);
 			}
         }
 
-        /// <summary>
-        /// Writes a test setup and breakdown class to run 
-        /// code before and after the test run.
-        /// </summary>
-        /// <param name="directory">The directory to write the file.</param>
-        /// <param name="namespaceRoot">The root namespace to use.</param>
-        /// <returns>Returns the task for writing the file to the direcotry.</returns>
-        public void WriteXbddInitializeAndComplete(string directory, string namespaceRoot)
+        private void WriteXbddInitializeAndCompleteClass(string directory, string namespaceRoot)
         {
-            var content = $@"namespace {namespaceRoot}
-{{
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
-    using System;
-    using System.IO;
-    using System.Threading.Tasks;
-    using xBDD;
-    using xBDD.Browser;
-
-    [TestClass]
-    public class TestSetupAndBreakdown
-    {{
-
-        [AssemblyInitialize]
-        public static void TestRunStart(TestContext context)
-        {{
-            xBDD.Browser.WebBrowser.WatchBrowser = TestConfiguration.WatchBrowswer;
-        }}
-        [AssemblyCleanup()]
-        public static void TestRunComplete()
-        {{
-            WebDriver.Close();
-
-            var directory = System.IO.Directory.GetCurrentDirectory();
-
-            xB.CurrentRun.TestRun.Name = TestConfiguration.TestRunName;
-
-            System.IO.Directory.CreateDirectory($""{{directory}}/../../../test-results"");
-
-            xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
-            xB.CurrentRun.UpdateParentReasonsAndStats(new ReasonSort().SortedReasons);
-
-            var htmlPath = directory + $""/../../../test-results/{namespaceRoot}.Results.html"";
-            Logger.LogMessage(""Writing Html Report to "" + htmlPath);
-            var htmlReport = xB.CurrentRun.TestRun.WriteToHtml(TestConfiguration.RemoveFromAreaNameStart, TestConfiguration.FailuresOnly);
-            File.WriteAllText(htmlPath, htmlReport);
-
-            var textPath = directory + $""/../../../test-results/{namespaceRoot}.Results.txt"";
-            Logger.LogMessage(""Writing Text Report to "" + textPath);
-            var textReport = xB.CurrentRun.TestRun.WriteToText();
-            File.WriteAllText(textPath, textReport);
-
-            var jsonPath = directory + $""/../../../test-results/{namespaceRoot}.Results.json"";
-            Logger.LogMessage(""Writing Json Report to "" + jsonPath);
-            var jsonReport = xB.CurrentRun.TestRun.WriteToJson();
-            File.WriteAllText(jsonPath, jsonReport);
-
-            var opmlPath = $""{{directory}}/../../../test-results/{namespaceRoot}.Results.opml"";
-            Logger.LogMessage(""Writing OPML Report to "" + opmlPath);
-            var opmlReport = xB.CurrentRun.TestRun.WriteToOpml(TestConfiguration.RemoveFromAreaNameStart);
-            File.WriteAllText(opmlPath, opmlReport);
-
-        }}
-    }}
-}}
-";   
-            System.IO.File.WriteAllText($"{directory}/TestSetupAndBreakdown.cs",content);
+            var content = this.GetXbddInitializeAndComplete(namespaceRoot);
+            System.IO.File.WriteAllText($"{directory}/xBDDInitializeAndComplete.cs",content);
         }
 
-        /// <summary>
-        /// Writes a test configuration file that is used to access
-        /// xBDD configuration information in the config.json.
-        /// </summary>
-        /// <param name="directory">The directory to write the file in.</param>
-        /// <param name="rootNamespace">The root namespace to use for the class.</param>
-        /// <returns>Returns the task for writing the file to the direcotry.</returns>
-        public void WriteTestConfiguration(string directory, string rootNamespace)
+        private void WriteXbddFeatureBaseClass(string directory, string rootNamespace)
         {
-            var testConfiguration = $@"namespace {rootNamespace}
-{{
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
-    using xBDD;
-    using System.IO;
-    using System.Threading.Tasks;
-
-    public static class TestConfiguration
-    {{
-        private static IConfigurationRoot configHolder;
-        private static IConfigurationRoot config 
-        {{
-            get 
-            {{
-                if(configHolder == null)
-                {{
-                    ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
-                    configurationBuilder
-                        .AddJsonFile(""Config.json"",true)
-                        .AddEnvironmentVariables(); // Bool indicates file is optional
-
-                    configHolder = configurationBuilder.Build();
-                }}
-                return configHolder;
-            }}
-        }}
-        public static bool FailuresOnly 
-        {{
-            get 
-            {{
-                var value = false;
-                bool.TryParse(config[""xBDD:HtmlReport:FailuresOnly""], out value);
-                return value;
-            }}
-        }}
-        public static string TestRunName
-        {{
-            get 
-            {{
-                return config[""xBDD:TestRunName""];
-            }}
-        }}
-        public static bool WatchBrowswer
-        {{
-            get 
-            {{
-                var value = false;
-                bool.TryParse(config[""xBDD:Browser:Watch""], out value);
-                return value;
-            }}
-        }}
-        public static string RemoveFromAreaNameStart
-        {{
-            get 
-            {{
-                return config[""xBDD:HtmlReport:RemoveFromAreaNameStart""];
-            }}
-        }}
-    }}
-}}
-";
-            System.IO.File.WriteAllText($"{directory}/TestConfiguration.cs",testConfiguration);
+            var content = this.GetXbddFeatureBaseClass(rootNamespace);
+            System.IO.File.WriteAllText($"{directory}/xBDDFeatureBase.cs",content);
         }
 
-        private void WriteScenario(string rootNamespace, string directory, Scenario lastScenario, Scenario scenario, StringBuilder sb, StringBuilder sbFeatureSort)
+        private void WriteSampleFeature(string directory, string rootNamespace)
+        {
+            System.IO.Directory.CreateDirectory("Features/MyArea");
+            var content = GetSampleFeature(rootNamespace);
+            System.IO.File.WriteAllText($"{directory}/Features/MyArea/MyFeature.cs",content);
+        }
+        private void WriteFeatureCustomClass(string directory, string rootNamespace, Feature feature)
+        {
+			var featureFullClassName = feature.FullClassName;
+			var featureNamespace = featureFullClassName.Substring(0, featureFullClassName.LastIndexOf("."));
+			var featureClassName = featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
+			StringBuilder sb = new StringBuilder();
+			sb.AppendLine(this.GetFeatureClassStart(feature, false));
+            sb.AppendLine(this.GetFeatureClassEnd());
+            var featureFolder = $"{directory}/Features/{featureFullClassName.Replace(rootNamespace,"").Substring(0, featureFullClassName.Replace(rootNamespace,"").LastIndexOf(".")).Replace(".","/")}/";
+            System.IO.Directory.CreateDirectory(featureFolder);
+            System.IO.File.WriteAllText($"{featureFolder}/{featureClassName}.cs", sb.ToString());
+        }
+        private void WriteFeatureClass(string directory, string rootNamespace, string featureFullClassName, StringBuilder sb)
+        {
+            sb.AppendLine(this.GetFeatureClassEnd());
+            var featureFolder = $"{directory}/Features/{featureFullClassName.Replace(rootNamespace,"").Substring(0, featureFullClassName.Replace(rootNamespace,"").LastIndexOf(".")).Replace(".","/")}/";
+            var featureClassName = featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
+            System.IO.Directory.CreateDirectory(featureFolder);
+            System.IO.File.WriteAllText($"{featureFolder}/{featureClassName}.xbdd.cs", sb.ToString());
+        }
+        private void WriteXbddSortingClass(string directory, string rootNamespace, List<string> features, List<string> reasons)
+        {
+            var filePath = $"{directory}/xBDDSorting.cs";
+            var generatedFilePath = $"{directory}/xBDDSorting.xbdd.cs";
+			if(!System.IO.File.Exists(filePath)) {
+	            System.IO.File.WriteAllText(filePath, this.GetXbddSortingFile(rootNamespace, features, reasons));
+			}
+			System.IO.File.WriteAllText(generatedFilePath, this.GetXbddSortingGeneratedFile(rootNamespace, features, reasons));
+        }
+        private (string featureName, string reason) WriteScenario(
+			string rootNamespace, 
+			string directory, 
+			Scenario lastScenario, 
+			Scenario scenario, 
+			StringBuilder sb)
         {
             if (lastScenario == null || (lastScenario != null && lastScenario.Feature.FullClassName != scenario.Feature.FullClassName))
             {
                 if(lastScenario != null) {
                     var lastFeatureFullClassName = lastScenario.Feature.FullClassName;
-                    this.WriteFeatureFile(directory, rootNamespace, lastFeatureFullClassName, sb);
+					this.WriteFeatureCustomClass(directory, rootNamespace, lastScenario.Feature);
+                    this.WriteFeatureClass(directory, rootNamespace, lastFeatureFullClassName, sb);
                     sb.Clear();
                 }
                 var feature = scenario.Feature;
-                var featureFullClassName = scenario.Feature.FullClassName;
-                var featureNamespace = featureFullClassName.Substring(0, featureFullClassName.LastIndexOf("."));
-                var featureClassName = featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
-                sbFeatureSort.AppendLine($@"                typeof({featureNamespace}.{featureClassName}).FullName,");
-                sb.AppendLine($@"
-namespace {featureNamespace}
-{{
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
-	using System.Threading.Tasks;
-	using xBDD;
-
-    [TestClass]
-    [AsA(""{feature.Actor}"")]
-    [YouCan(""{feature.Value}"")]
-    [By(""{feature.Capability}"")]
-    public class {featureClassName}: FeatureTestClass
-    {{");
+                sb.AppendLine(this.GetFeatureClassStart(feature, true));
             }
-            sb.AppendLine($@"
-        [TestMethod]
-        public async Task {scenario.MethodName}()
-        {{
-            await xB.CurrentRun.AddScenario(this, {scenario.Sort})");
+
+            sb.AppendLine(this.GetScenarioMethodStart(scenario));
             foreach(var step in scenario.Steps)
             {
                 WriteStep(step, sb);
             }
-            var skip = $".Skip(\"{scenario.Reason}\", Assert.Inconclusive);";
-            var run = ".Run();";
             string action = null;
             switch (scenario.Outcome)
             {
@@ -571,14 +248,330 @@ namespace {featureNamespace}
                     action = ".Run();";
                 break;
             }
-            sb.AppendLine($@"                {action}
-        }}");
+            sb.AppendLine(this.GetScenarioMethodEnd(action));
+			return (scenario.Feature.FullClassName, scenario.Reason);
         }
 
         private void WriteStep(Step step, StringBuilder sb)
         {
             var exception = "throw new Exception();";
-            sb.AppendLine($@"                .{Enum.GetName(typeof(ActionType),step.ActionType)}(""{step.Name.Replace(System.Environment.NewLine,"")}"", (s) => {{ {(step.Outcome == Outcome.Failed ? exception : "" )} }})");
+			if(step.ActionType == ActionType.Code) {
+				sb.AppendLine($"//				{step.Name}");
+			} else {
+				var inputAndExplanation = "";
+				if(!String.IsNullOrEmpty(step.Input)) {
+					if(step.Input.Contains(System.Environment.NewLine)) {
+						inputAndExplanation = $@",
+												@""
+													{step.Input.AddIndentation(13)}"".RemoveIndentation(6,true), 
+												TextFormat.{Enum.GetName(typeof(TextFormat), step.InputFormat)}".RemoveIndentation(7);
+					} else {
+						inputAndExplanation = $@",
+												@""{step.Input}"", 
+												TextFormat.{Enum.GetName(typeof(TextFormat), step.InputFormat)}".RemoveIndentation(7);
+					}
+				}
+				if(!String.IsNullOrEmpty(step.Explanation)) {
+					if(inputAndExplanation.Length == 0) {
+						inputAndExplanation = $@", 
+												null, 
+												null".RemoveIndentation(7);
+					}
+					if(step.Explanation.Contains(System.Environment.NewLine)) {
+						inputAndExplanation = $@"{inputAndExplanation.AddIndentation(7)},
+												@""
+													{step.Explanation.AddIndentation(13)}"".RemoveIndentation(6,true)".RemoveIndentation(7);
+					} else {
+						inputAndExplanation = $@"{inputAndExplanation.AddIndentation(7)},
+												@""{step.Explanation}""".RemoveIndentation(7);
+					}
+				}
+	            sb.AppendLine($@"				
+									.{Enum.GetName(typeof(ActionType),step.ActionType)}(""{step.Name.Replace(System.Environment.NewLine,"")}"", 
+										(s) => {{ 
+											{(step.Outcome == Outcome.Failed ? exception : "// Enter your code here." )} 
+										}}{inputAndExplanation.AddIndentation(5)})".RemoveIndentation(5, true));
+			}
         }
+
+		private string GetProjectFile() {
+			return $@"
+				<Project Sdk=""Microsoft.NET.Sdk"">
+
+					<PropertyGroup>
+						<TargetFramework>netcoreapp2.1</TargetFramework>
+						<IsPackable>false</IsPackable>
+					</PropertyGroup>
+
+					<ItemGroup>
+						<PackageReference Include=""Microsoft.Extensions.Configuration"" Version=""2.1.1"" />
+						<PackageReference Include=""Microsoft.Extensions.Configuration.EnvironmentVariables"" Version=""2.1.1"" />
+						<PackageReference Include=""Microsoft.Net.Test.Sdk"" Version=""15.8.0"" />
+						<PackageReference Include=""MSTEst.TestAdapter"" Version=""1.3.2"" />
+						<PackageReference Include=""MSTEst.TestFramework"" Version=""1.3.2"" />
+						<PackageReference Include=""Selenium.WebDriver.ChromeDriver"" Version=""2.41.0"" />
+						<PackageReference Include=""Selenium.WebDriver"" Version=""3.14.0"" />
+						<PackageReference Include=""xBDD"" Version=""0.0.6-alpha"" />
+					</ItemGroup>
+
+					<ItemGroup>
+						<None Update=""xBDDConfig.json"" CopyToOutputDirectory=""PreserveNewest"" />
+					</ItemGroup>
+
+				</Project>".RemoveIndentation(4, true);
+		}
+
+		private string GetXbddConfigJson(string testRunName, string removeFromAreaNameStart) {
+			return $@"
+				{{
+					""xBDD"": {{
+						""TestRunName"": ""{testRunName}"",
+						""Browser"": {{
+							""Watch"": ""false""
+						}},
+						""HtmlReport"": {{
+							""RemoveFromAreaNameStart"": ""{removeFromAreaNameStart}"",
+							""FailuresOnly"": ""false""
+						}}
+					}}
+				}}".RemoveIndentation(4, true);			
+		}
+
+		private string GetXbddInitializeAndComplete(string namespaceRoot) {
+			return $@"
+				namespace {namespaceRoot}
+				{{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
+					using xBDD;
+
+					[TestClass]
+					public class TestSetupAndBreakdown
+					{{
+
+						[AssemblyInitialize]
+						public static void TestRunStart(TestContext context)
+						{{
+							xB.Initialize();
+						}}
+						[AssemblyCleanup()]
+						public static void TestRunComplete()
+						{{
+							xB.Complete(new xBDDSorting(), (message) => {{ Logger.LogMessage(message); }});
+						}}
+					}}
+				}}".RemoveIndentation(4, true);   			
+		}
+
+		private string GetXbddFeatureBaseClass(string rootNamespace) {
+			return $@"
+				namespace {rootNamespace}
+				{{
+					using xBDD;
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
+
+
+					public partial class xBDDFeatureBase: IFeature, IOutputWriter
+					{{
+						public IOutputWriter OutputWriter {{ get {{ return this; }} }}
+
+						public void WriteLine(string text) {{
+							text = text.Replace(""{{"", ""{{{{"").Replace(""}}"",""}}}}"");
+							Logger.LogMessage(text);
+						}}
+					}}
+				}}".RemoveIndentation(4, true);			
+		}
+
+		private string GetSampleFeature(string rootNamespace) {
+			return $@"
+				namespace {rootNamespace}.MyArea
+				{{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+
+					[TestClass]
+					[AsA(""sample user"")]
+					[YouCan(""have my feature value"")]
+					[By(""execute my feature"")]
+					[Explanation(@""
+						# My Explanation
+						This is a
+						multiline explanation of the feature.
+						**And it uses markdown!**"",2)]
+					public partial class MyFeature: xBDDFeatureBase
+					{{
+
+						[TestMethod]
+						[Explanation(""This is an explanation of the scenario."")]
+						public async Task MyScenario()
+						{{
+							var input = @""
+								Here 
+								is 
+								my 
+								Input!"".RemoveIndentation(4);
+							var format = TextFormat.text;
+							await xB.CurrentRun.AddScenario(this, 1)
+								.Given(""my step 1"", (s) => {{ 
+									//Add code to perform action.
+								}})
+								.When(""my step 2 with multiline input"", (s) => {{ 
+									//Add code to perform action.
+								}}, input, format)
+								.And(""my step 3 with an explanation"", (s) => {{ 
+									//Add code to perform action.
+								}}, null, null, ""Step 3 explanation can also use __markdown__!"")
+								.Then(""my step 3 with output"", (s) => {{ 
+									//Add code to perform action.
+									s.Output = input;
+									s.OutputFormat = format;
+								}})
+								.Run();
+						}}
+					}}
+				}}".RemoveIndentation(4, true);			
+		}
+
+		private string GetXbddSortingFile(string rootNamespace, List<string> features, List<string> reasons) {
+			var featuresString = new StringBuilder();
+			features.ForEach(x => {
+				if(features.Last() == x ) {
+					featuresString.Append($"typeof({x}).FullName,");
+				} else {
+					featuresString.AppendLine($"typeof({x}).FullName,");
+				}
+			});
+			var reasonsString = new StringBuilder();
+			reasons.ForEach(x => {
+				if(reasons.Last() == x) {
+					reasonsString.Append($"\"{x}\",");
+				} else {
+					reasonsString.AppendLine($"\"{x}\",");
+				}
+			});
+			return $@"
+				namespace {rootNamespace}
+				{{
+					using System;
+					using System.Collections.Generic;
+					using xBDD;
+
+					public partial class xBDDSorting: ISorting
+					{{
+						public List<string> GetSortedFeatureNames() {{
+							return new List<string>() {{
+								{featuresString.ToString().AddIndentation(8)}
+							}};
+						}}
+						public List<string> GetSortedReasons() {{
+							return new List<string>() {{
+								{reasonsString.ToString().AddIndentation(8)}
+							}};
+						}}
+					}}
+				}}".RemoveIndentation(4, true);
+		}
+
+		private string GetXbddSortingGeneratedFile(string rootNamespace, List<string> features, List<string> reasons) {
+			var featuresString = new StringBuilder();
+			features.ForEach(x => {
+				featuresString.AppendLine($"typeof({x}).FullName,");
+			});
+			var reasonsString = new StringBuilder();
+			reasons.ForEach(x => {
+				reasonsString.AppendLine($"\"{x}\",");
+			});
+			return $@"
+				namespace {rootNamespace}
+				{{
+					using System;
+					using System.Collections.Generic;
+					using xBDD;
+
+					public partial class xBDDSorting: ISorting
+					{{
+						public List<string> GetGeneratedSortedFeatureNames() {{
+							return new List<string>() {{
+								{featuresString.ToString().AddIndentation(8)}
+							}};
+						}}
+						public List<string> GetGeneratedReasons() {{
+							return new List<string>() {{
+								{reasonsString.ToString().AddIndentation(8)}
+							}};
+						}}
+					}}
+				}}".RemoveIndentation(4, true);
+		}
+
+		private string GetFeatureClassStart(Feature feature, bool generated) {
+			var featureFullClassName =feature.FullClassName;
+			var featureNamespace = featureFullClassName.Substring(0, featureFullClassName.LastIndexOf("."));
+			var featureClassName = featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
+			var explanation = "";
+			if(!String.IsNullOrEmpty(feature.Explanation)) {
+				var isMultiline = feature.Explanation.Contains(System.Environment.NewLine);
+				if(isMultiline) {
+					explanation = $@"
+							[{(generated ? "Generated_" : "")}Explanation(@""
+								{feature.Explanation.AddIndentation(8)}"",2)]".RemoveIndentation(6);
+				} else {
+					explanation = $@"
+							[{(generated ? "Generated_" : "")}Explanation(@""{feature.Explanation}"")]".RemoveIndentation(6);
+				}
+			}
+
+			return $@"
+				namespace {featureNamespace}
+				{{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+
+					{(generated ? "" : "[TestClass]")}
+					[{(generated ? "Generated_" : "")}AsA(""{feature.Actor}"")]
+					[{(generated ? "Generated_" : "")}YouCan(""{feature.Value}"")]
+					[{(generated ? "Generated_" : "")}By(""{feature.Capability}"")]{explanation.AddIndentation(4)}
+					public partial class {featureClassName}: xBDDFeatureBase
+					{{".RemoveIndentation(4, true);
+		}
+		private string GetFeatureClassEnd() {
+			return $@"
+				    }}
+				}}".RemoveIndentation(4);
+		}
+
+		private string GetScenarioMethodStart(Scenario scenario) {
+			var explanation = "";
+			if(!String.IsNullOrEmpty(scenario.Explanation)) {
+				var isMultiline = scenario.Explanation.Contains(System.Environment.NewLine);
+				if(isMultiline) {
+					explanation = $@"
+								[Explanation(@""
+									{scenario.Explanation.AddIndentation(9)}"",3)]".RemoveIndentation(6);
+				} else {
+					explanation = $@"
+								[Explanation(@""{scenario.Explanation}"")]".RemoveIndentation(6);
+				}
+			}
+
+			return $@"
+						[TestMethod]{explanation.AddIndentation(4)}
+						public async Task {scenario.MethodName}()
+						{{
+							await xB.AddScenario(this, {scenario.Sort})".RemoveIndentation(4);	
+		}
+
+		private string GetScenarioMethodEnd(string action) {
+			return $@"
+								{action}
+						}}".RemoveIndentation(4, true);
+		}
     }
 }

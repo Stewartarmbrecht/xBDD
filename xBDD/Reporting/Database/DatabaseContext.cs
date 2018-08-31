@@ -4,15 +4,15 @@ using Microsoft.Extensions.Configuration;
 
 namespace xBDD.Reporting.Database.Core
 {
-    public class DatabaseContext : DbContext
+    internal class DatabaseContext : DbContext
     {
         string connectionString;
 
-        public DatabaseContext()
+        internal DatabaseContext()
         {
             this.connectionString = Configuration.DatabaseConnectionString;
         }
-        public DatabaseContext(string connectionString)
+        internal DatabaseContext(string connectionString)
         {
             this.connectionString = connectionString ?? Configuration.DatabaseConnectionString;;
         }
@@ -31,16 +31,16 @@ namespace xBDD.Reporting.Database.Core
             optionsBuilder.UseSqlServer(connectionString);
         }
 
-        public bool EnsureDatabase()
+        internal bool EnsureDatabase()
         {
             return Database.EnsureCreated();
         }
 
-        public DbSet<TestRun> TestRuns { get; set; }
-        public DbSet<Scenario> Scenarios { get; set; }
-        public DbSet<Step> Steps { get; set; }
+        internal DbSet<TestRun> TestRuns { get; set; }
+        internal DbSet<Scenario> Scenarios { get; set; }
+        internal DbSet<Step> Steps { get; set; }
 
-        public string ServerName
+        internal string ServerName
         {
             get
             {
@@ -48,7 +48,7 @@ namespace xBDD.Reporting.Database.Core
             }
         }
 
-        public string DatabaseName
+        internal string DatabaseName
         {
             get
             {
