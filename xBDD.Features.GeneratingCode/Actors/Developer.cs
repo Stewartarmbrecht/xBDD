@@ -7,6 +7,8 @@ namespace xBDD.Features.GeneratingCode.Actors
     using System.Diagnostics;
 	using System.IO;
 	using TemplateValidator;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	public class Developer
 	{
 		public Step HaveAnEmptyProjectDirectory() {
@@ -119,35 +121,74 @@ namespace xBDD.Features.GeneratingCode.Actors
 				}, reportPath, TextFormat.sh);
 		}
 		public Step ModifyAllTheStandardProjectFiles() {
+			var fileStructure = new xBDD.Features.GeneratingCode.Interfaces.FileSystem();
+			List<FileMetadata> standardFilePaths = new List<FileMetadata>() {
+				fileStructure.MyGeneratedSample_Features.Features_MySampleArea_MySampleFeature_cs,
+				fileStructure.MyGeneratedSample_Features.MyGeneratedSample_Features_csproj,
+				fileStructure.MyGeneratedSample_Features.MyGeneratedSample_Features_csproj_xbdd,
+				fileStructure.MyGeneratedSample_Features.xBddConfig_json,
+				fileStructure.MyGeneratedSample_Features.xBddFeatureBase_xbdd_cs,
+				fileStructure.MyGeneratedSample_Features.xBddFeatureImport_txt,
+				fileStructure.MyGeneratedSample_Features.xBDDInitializeAndComplete_cs,
+				fileStructure.MyGeneratedSample_Features.xBddSorting_cs,
+				fileStructure.MyGeneratedSample_Features.xBddSorting_xbdd_cs
+			};
 			return xB.CreateStep("you modify all the standard project files",
 				s => {
-					throw new System.NotImplementedException();
+					standardFilePaths.ForEach(x => {
+						var content = System.IO.File.ReadAllText(x.FilePath);
+						content = $"{x.ModifiedComment}{content}";
+						System.IO.File.WriteAllText(x.FilePath, content);
+					});
 				});
 		}
-		public Step WillFindTheFilesEndingInXbddDotFileTypeOrXbddAreOverwritten() {
+		public Step WillFindTheFilesEndingInXbddAreOverwritten() {
+			var fileStructure = new xBDD.Features.GeneratingCode.Interfaces.FileSystem();
+			List<FileMetadata> standardFilePaths = new List<FileMetadata>() {
+				fileStructure.MyGeneratedSample_Features.MyGeneratedSample_Features_csproj_xbdd,
+				fileStructure.MyGeneratedSample_Features.xBddFeatureBase_xbdd_cs,
+				fileStructure.MyGeneratedSample_Features.xBddSorting_xbdd_cs
+			};
 			return xB.CreateStep("you will find the files ending in xbdd.[ext] or xbdd are overwritten",
 				s => {
-					throw new System.NotImplementedException();
+					standardFilePaths.ForEach(x => {
+						var content = System.IO.File.ReadAllText(x.FilePath);
+						Assert.IsTrue(!content.StartsWith(x.ModifiedComment));
+					});
 				});
 		}
 
-		public Step WillFindTheFilesNotEndingInXbddDotFileTypeOrXbddAreNotOverwritten() {
+		public Step WillFindTheFilesNotEndingInXbddAreNotOverwritten() {
+			var fileStructure = new xBDD.Features.GeneratingCode.Interfaces.FileSystem();
+			List<FileMetadata> standardFilePaths = new List<FileMetadata>() {
+				fileStructure.MyGeneratedSample_Features.MyGeneratedSample_Features_csproj,
+				fileStructure.MyGeneratedSample_Features.xBddConfig_json,
+				fileStructure.MyGeneratedSample_Features.xBddFeatureImport_txt,
+				fileStructure.MyGeneratedSample_Features.xBDDInitializeAndComplete_cs,
+				fileStructure.MyGeneratedSample_Features.xBddSorting_cs,
+			};
 			return xB.CreateStep("you will find the files not ending in xbdd.[ext] or xbdd are not overwritten",
 				s => {
-					throw new System.NotImplementedException();
+					standardFilePaths.ForEach(x => {
+						var content = System.IO.File.ReadAllText(x.FilePath);
+						Assert.IsTrue(content.StartsWith(x.ModifiedComment),
+							$"the file ('{x.FilePath}') does not start with '{x.ModifiedComment}'");
+					});
 				});
 		}
 
 		public Step WillFindTheSampleFeatureFileIsNotModifiedBecauseTheXbddBacklogFileAlreadyExisted() {
+			var fileStructure = new xBDD.Features.GeneratingCode.Interfaces.FileSystem();
+			List<FileMetadata> standardFilePaths = new List<FileMetadata>() {
+				fileStructure.MyGeneratedSample_Features.Features_MySampleArea_MySampleFeature_cs,
+			};
 			return xB.CreateStep("you will find the sample feature file is not modified because the xbdd backlog file already exists",
 				s => {
-					throw new System.NotImplementedException();
-				});
-		}
-		public Step WillFindTheProjectCompiles() {
-			return xB.CreateStep("you will find the project compiles",
-				s => {
-					throw new System.NotImplementedException();
+					standardFilePaths.ForEach(x => {
+						var content = System.IO.File.ReadAllText(x.FilePath);
+						Assert.IsTrue(content.StartsWith(x.ModifiedComment),
+							$"the file ('{x.FilePath}') does not start with '{x.ModifiedComment}'");
+					});
 				});
 		}
 	}

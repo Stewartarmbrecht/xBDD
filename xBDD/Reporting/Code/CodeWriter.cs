@@ -175,8 +175,10 @@
 
 		private void WriteXbddInitializeAndCompleteClass(string directory, string namespaceRoot)
 		{
-			var content = this.GetXbddInitializeAndComplete(namespaceRoot);
-			System.IO.File.WriteAllText($"{directory}/xBDDInitializeAndComplete.cs",content);
+			if(!System.IO.File.Exists($"{directory}/xBDDInitializeAndComplete.cs")) {
+				var content = this.GetXbddInitializeAndComplete(namespaceRoot);
+				System.IO.File.WriteAllText($"{directory}/xBDDInitializeAndComplete.cs",content);
+			}
 		}
 
 		private void WriteXbddFeatureBaseClass(string directory, string rootNamespace)

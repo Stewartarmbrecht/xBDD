@@ -142,17 +142,16 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 				.When(you.RunTheCommand(command, directory))
 				.And(you.ModifyAllTheStandardProjectFiles())
 				.When(you.RunTheCommand(command, directory))
-				.Then(you.WillFindTheFilesEndingInXbddDotFileTypeOrXbddAreOverwritten())
-				.And(you.WillFindTheFilesNotEndingInXbddDotFileTypeOrXbddAreNotOverwritten())
+				.Then(you.WillFindTheFilesEndingInXbddAreOverwritten())
+				.And(you.WillFindTheFilesNotEndingInXbddAreNotOverwritten())
 				.And(you.WillFindTheSampleFeatureFileIsNotModifiedBecauseTheXbddBacklogFileAlreadyExisted())
-				.And(you.WillFindTheProjectCompiles())
 				.And(you.WillFindTheProjectExecutesTests())
 				.And(you.WillFindTheProjectGenerated(ReportType.HtmlReport))
 				.And(you.WillFindTheProjectGenerated(ReportType.JsonReport))
 				.And(you.WillFindTheProjectGenerated(ReportType.TextReport))
 				.And(you.WillFindTheProjectGenerated(ReportType.TextOutlineReport))
 				.And(you.WillFindTheProjectGenerated(ReportType.OpmlReport))
-				.Skip("Committed", Assert.Inconclusive);
+				.Run();
 		}
 
 		[TestMethod]

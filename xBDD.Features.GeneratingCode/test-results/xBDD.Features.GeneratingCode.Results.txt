@@ -244,7 +244,7 @@ xBDD - Features - Generating Code - Generating Project Files [Committed]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
 			And you will find the project generated a Opml Report.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
-		In An Initialized XBDD [Committed]
+		In An Initialized XBDD
 			Given you have an empty project directory
 			When you run the command:
 				dotnet xbdd project generate MSTest
@@ -254,7 +254,6 @@ xBDD - Features - Generating Code - Generating Project Files [Committed]
 			Then you will find the files ending in xbdd.[ext] or xbdd are overwritten
 			And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten
 			And you will find the sample feature file is not modified because the xbdd backlog file already exists
-			And you will find the project compiles
 			And you will find the project execute tests with the 'dotnet test' command
 				dotnet test
 			And you will find the project generated a Html Report.
@@ -272,13 +271,13 @@ xBDD - Features - Generating Code - Generating Project Files [Committed]
 			When you run the command:
 				dotnet xbdd project generate MSTest --testrun-name "My Sample Test Run"
 			Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:
-				There was an exception loading the template ('./../../../Features/GeneratingProjectFiles/xBddConfigWithTestRunName.json.tmpl'). Exception Message: Could not find file 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\Features\GeneratingProjectFiles\xBddConfigWithTestRunName.json.tmpl'.
+				There was an exception loading the template ('./../../../Features/GeneratingProjectFiles/xBddConfigWithTestRunName.json.tmpl'). Exception Message: Could not find file '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingCode/Features/GeneratingProjectFiles/xBddConfigWithTestRunName.json.tmpl'.
 		With Area Name Clipping [Committed]
 			Given you have an empty project directory
 			When you run the command:
 				dotnet xbdd project generate MSTest --remove-from-area-name "My Sample - Generated - Features - "
 			Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:
-				There was an exception loading the template ('./../../../Features/GeneratingProjectFiles/xBddConfigWithRemoveAreaName.json.tmpl'). Exception Message: Could not find file 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\Features\GeneratingProjectFiles\xBddConfigWithRemoveAreaName.json.tmpl'.
+				There was an exception loading the template ('./../../../Features/GeneratingProjectFiles/xBddConfigWithRemoveAreaName.json.tmpl'). Exception Message: Could not find file '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingCode/Features/GeneratingProjectFiles/xBddConfigWithRemoveAreaName.json.tmpl'.
 xBDD - Features - Generating Code - Generating Feature Files [Defining]
 	Generate MS Test Feature Files From A Valid Feature Import File [Defining]
 		With An Empty Scenario [Defining]
