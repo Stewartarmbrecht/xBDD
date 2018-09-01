@@ -1,7 +1,7 @@
 xBDD - Generating Code
 
-xBDD - Features - Generating Code - Generating Project Files [Committed]
-	Generating A New MS Test Project [Committed]
+xBDD - Features - Generating Code - Generating Project Files
+	Generating A New MS Test Project
 		In An Empty Directory
 			Given you have an empty project directory
 			When you run the command:
@@ -283,12 +283,23 @@ xBDD - Features - Generating Code - Generating Project Files [Committed]
 						}
 					}
 				}
-		With Area Name Clipping [Committed]
+		With Area Name Clipping
 			Given you have an empty project directory
 			When you run the command:
-				dotnet xbdd project generate MSTest --remove-from-area-name "My Sample - Generated - Features - "
+				dotnet xbdd project generate MSTest --remove-from-area-name "Modified"
 			Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:
-				There was an exception loading the template ('./../../../Features/GeneratingProjectFiles/xBddConfigWithRemoveAreaName.json.tmpl'). Exception Message: Could not find file '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingCode/Features/GeneratingProjectFiles/xBddConfigWithRemoveAreaName.json.tmpl'.
+				{
+					"xBDD": {
+						"TestRunName": "My Generated Sample - Features",
+						"Browser": {
+							"Watch": "false"
+						},
+						"HtmlReport": {
+							"RemoveFromAreaNameStart": "Modified",
+							"FailuresOnly": "false"
+						}
+					}
+				}
 xBDD - Features - Generating Code - Generating Feature Files [Defining]
 	Generate MS Test Feature Files From A Valid Feature Import File [Defining]
 		With An Empty Scenario [Defining]

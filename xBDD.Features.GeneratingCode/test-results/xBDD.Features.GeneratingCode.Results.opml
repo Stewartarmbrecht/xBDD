@@ -4,8 +4,8 @@
 </head>
 <body>
 
-<outline text="xBDD - Features - Generating Code - Generating Project Files [Committed]">
-	<outline text="Generating A New MS Test Project [Committed]">
+<outline text="xBDD - Features - Generating Code - Generating Project Files">
+	<outline text="Generating A New MS Test Project">
 		<outline text="In An Empty Directory">
 			<outline text="Given you have an empty project directory"/>
 			<outline text="When you run the command:">
@@ -316,13 +316,24 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Area Name Clipping [Committed]">
+		<outline text="With Area Name Clipping">
 			<outline text="Given you have an empty project directory"/>
 			<outline text="When you run the command:">
-				<outline text="dotnet xbdd project generate MSTest --remove-from-area-name "My Sample - Generated - Features - "" />
+				<outline text="dotnet xbdd project generate MSTest --remove-from-area-name "Modified"" />
 			</outline>
 			<outline text="Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:">
-				<outline text="There was an exception loading the template ('./../../../Features/GeneratingProjectFiles/xBddConfigWithRemoveAreaName.json.tmpl'). Exception Message: Could not find file '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingCode/Features/GeneratingProjectFiles/xBddConfigWithRemoveAreaName.json.tmpl'." />
+				<outline text="{" />
+				<outline text="	"xBDD": {" />
+				<outline text="		"TestRunName": "My Generated Sample - Features"," />
+				<outline text="		"Browser": {" />
+				<outline text="			"Watch": "false"" />
+				<outline text="		}," />
+				<outline text="		"HtmlReport": {" />
+				<outline text="			"RemoveFromAreaNameStart": "Modified"," />
+				<outline text="			"FailuresOnly": "false"" />
+				<outline text="		}" />
+				<outline text="	}" />
+				<outline text="}" />
 			</outline>
 		</outline>
 	</outline>

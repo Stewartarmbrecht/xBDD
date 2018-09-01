@@ -56,6 +56,8 @@ namespace xBDD.Tools
 				{
                     [Option("-tn|--testrun-name", "Sets the default test run name in the xBDDConfig.json file.", CommandOptionType.SingleValue)]
                     public string TestRunName { get; }
+                    [Option("-rfan|--remove-from-area-name", "Sets the default test run name in the xBDDConfig.json file.", CommandOptionType.SingleValue)]
+                    public string RemoveFromAreaName { get; }
 					private int OnExecute(IConsole console)
 					{
 						try {
@@ -69,7 +71,11 @@ namespace xBDD.Tools
                             if(String.IsNullOrEmpty(testRunName)) {
                                 testRunName = folderAndRootNamespace.ConvertNamespaceToAreaName();
                             }
-							codeWriter.WriteProjectFiles(directory, folderAndRootNamespace, testRunName, $"{projectName} - ");
+                            var removeFromAreaName = RemoveFromAreaName;
+                            if(String.IsNullOrEmpty(removeFromAreaName)) {
+                                removeFromAreaName = $"{projectName} - ";
+                            }
+							codeWriter.WriteProjectFiles(directory, folderAndRootNamespace, testRunName, removeFromAreaName);
 							console.WriteLine($"Project initialized.");
 							return 0;
 						} catch (Exception ex) {

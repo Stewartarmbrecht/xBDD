@@ -175,10 +175,9 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 		{
 			await xB.AddScenario(this, 1004)
 				.Given(you.HaveAnEmptyProjectDirectory())
-				.When(you.RunTheCommand($"{command} --remove-from-area-name \"My Sample - Generated - Features - \"", directory))
+				.When(you.RunTheCommand($"{command} --remove-from-area-name \"Modified\"", directory))
 				.Then(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBddConfigWithRemoveAreaName_json))
-				.Skip("Committed", Assert.Inconclusive);
+				.Run();
 		}
-
     }
 }
