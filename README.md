@@ -42,12 +42,21 @@ and scenarios) is a long ways from accomplishing this.  However, you can see thi
 keep in mind that some are disorganized, will be rewritten, and will likely look very different once the 
 initial version of this platform is released.
 
+*__Note:__ Area, Feature, and Scenario names will expand when clicked.*
+
+### Sample
+
 * [MySample.Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/MySample.Features/test-results/MySample.Features.Results.All.FullSorted.html) - Set of tests defined in a sample project used for testing xBDD.
 
+### Active Focus
 
-Note: Area, Feature, and Scenario names will expand when clicked.
+* [xBDD.Features.GeneratingCode](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.html) - Features for generating code.
+
+### Old Tests (to be replaced)
 
 * [xBDD.Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features/test-results/xBDD.Features.Results.html) - Old set of tests to be replaced by the following projects:
+
+### Features To Be Defined (Links will return 404)
 
 * [xBDD.Features.DefiningFeatures](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.html) - Features for defining features, scenarios, and steps.
 
@@ -56,8 +65,6 @@ Note: Area, Feature, and Scenario names will expand when clicked.
 * [xBDD.Features.StreamliningAPITesting](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.html) - Features for testing an API.
 
 * [xBDD.Features.GeneratingReports](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.html) - Features for generating reports from test resutls.
-
-* [xBDD.Features.GeneratingCode](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.html) - Features for generating code.
 
 * [xBDD.Features.ImportingScenarios](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.ImportingScenarios/test-results/xBDD.Features.ImportingScenarios.Results.html) - Features for importing .
 
