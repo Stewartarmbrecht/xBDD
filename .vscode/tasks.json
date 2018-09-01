@@ -45,7 +45,7 @@
             "options": {
 				"cwd": "${workspaceFolder}",
 				"env": {
-                    "xBDD:HtmlReport:FailuresOnly": "true"
+                    "xBDD:HtmlReport:FailuresOnly": "false"
                 }
             },
             "args": [

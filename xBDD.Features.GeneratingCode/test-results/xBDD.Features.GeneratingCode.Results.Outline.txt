@@ -1,8 +1,8 @@
 xBDD - Generating Code
 
-xBDD - Features - Generating Code - Generating Project Files [Failed]
-	Generating A New MS Test Project [Failed]
-		In An Empty Directory [Failed]
+xBDD - Features - Generating Code - Generating Project Files [Committed]
+	Generating A New MS Test Project [Committed]
+		In An Empty Directory
 			Given you have an empty project directory
 			When you run the command:
 				dotnet xbdd project generate MSTest
@@ -22,7 +22,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						<PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />
 						<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />
 						<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />
-						<PackageReference Include="xBDD" Version="0.0.6-alpha" />
+						<PackageReference Include="xBDD" Version="0.0.7-alpha" />
 					</ItemGroup>
 				
 					<ItemGroup>
@@ -46,7 +46,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						<PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />
 						<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />
 						<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />
-						<PackageReference Include="xBDD" Version="0.0.6-alpha" />
+						<PackageReference Include="xBDD" Version="0.0.7-alpha" />
 					</ItemGroup>
 				
 					<ItemGroup>
@@ -95,7 +95,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 							Then a new feature will be defined in the project with two partial class files
 							And you can finish the import by moving the scenarios from the feature.xbdd.cs file to the feature.cs file
 							And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature
-			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template: [Failed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template:
 				namespace MyGeneratedSample.Features
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -114,11 +114,11 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						[AssemblyCleanup()]
 						public static void TestRunComplete()
 						{
-							xB.Complete(new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+							xB.Complete("MyGeneratedSample.Features", new xBDDSorting(), (message) => { Logger.LogMessage(message); });
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBddSorting.cs' that matches the template: [Skipped - Previous Error]
+			And you will find a file at './MyGeneratedSample.Features/xBddSorting.cs' that matches the template:
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -129,7 +129,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 					{
 						public List<string> GetSortedFeatureNames() {
 							return new List<string>() {
-								typeof(MyGeneratedSample.Features.MyArea.MySample).FullName,
+								typeof(MyGeneratedSample.Features.MyArea.MyFeature).FullName,
 							};
 						}
 						public List<string> GetSortedReasons() {
@@ -143,7 +143,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBddSorting.xbdd.cs' that matches the template: [Skipped - Previous Error]
+			And you will find a file at './MyGeneratedSample.Features/xBddSorting.xbdd.cs' that matches the template:
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -154,7 +154,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 					{
 						public List<string> GetGeneratedSortedFeatureNames() {
 							return new List<string>() {
-								typeof(MyGeneratedSample.Features.MyArea.MySample).FullName,
+								typeof(MyGeneratedSample.Features.MyArea.MyFeature).FullName,
 							};
 						}
 						public List<string> GetGeneratedReasons() {
@@ -168,13 +168,14 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template: [Skipped - Previous Error]
+			And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template:
 				namespace MyGeneratedSample.Features.MyArea
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
 					using System.Threading.Tasks;
 					using xBDD;
+					using xBDD.Utility;
 				
 					[TestClass]
 					[AsA("sample user")]
@@ -212,7 +213,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				
 									//Add code to perform action.
 				
-									}, null, null, @"
+									}, null, TextFormat.text, @"
 										# Step 3 Explanation 
 										This is a multiline explanation of 
 										Step 3.  It uses markdown.  It will
@@ -223,21 +224,26 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				
 									//Add code to perform action.
 				
-									s.Output = input;
-									s.OutputFormat = format;
+									s.Output = "Here is my output.";
+									s.OutputFormat = TextFormat.text;
 				
 								})
 								.Run();
 						}
 					}
 				}
-			And you will find the project execute tests with the 'dotnet test' command [Skipped - Previous Error]
+			And you will find the project execute tests with the 'dotnet test' command
 				dotnet test
-			And you will find the project generated a Html Report. [Skipped - Previous Error]
-			And you will find the project generated a Json Report. [Skipped - Previous Error]
-			And you will find the project generated a Text Report. [Skipped - Previous Error]
-			And you will find the project generated a Text Outline Report. [Skipped - Previous Error]
-			And you will find the project generated a Opml Report. [Skipped - Previous Error]
+			And you will find the project generated a Html Report.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
+			And you will find the project generated a Json Report.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
+			And you will find the project generated a Text Report.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
+			And you will find the project generated a Text Outline Report.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
+			And you will find the project generated a Opml Report.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
 		In An Initialized XBDD [Committed]
 			Given you have an empty project directory
 			When you run the command:
@@ -252,10 +258,15 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 			And you will find the project execute tests with the 'dotnet test' command
 				dotnet test
 			And you will find the project generated a Html Report.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
 			And you will find the project generated a Json Report.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
 			And you will find the project generated a Text Report.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
 			And you will find the project generated a Text Outline Report.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
 			And you will find the project generated a Opml Report.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
 		With A Test Run Name [Committed]
 			Given you have an empty project directory
 			When you run the command:

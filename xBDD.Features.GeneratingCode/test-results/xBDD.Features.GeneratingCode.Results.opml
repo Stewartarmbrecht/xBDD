@@ -4,9 +4,9 @@
 </head>
 <body>
 
-<outline text="xBDD - Features - Generating Code - Generating Project Files [Failed]">
-	<outline text="Generating A New MS Test Project [Failed]">
-		<outline text="In An Empty Directory [Failed]">
+<outline text="xBDD - Features - Generating Code - Generating Project Files [Committed]">
+	<outline text="Generating A New MS Test Project [Committed]">
+		<outline text="In An Empty Directory">
 			<outline text="Given you have an empty project directory"/>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
@@ -27,7 +27,7 @@
 				<outline text="		<PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />" />
 				<outline text="		<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />" />
 				<outline text="		<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />" />
-				<outline text="		<PackageReference Include="xBDD" Version="0.0.6-alpha" />" />
+				<outline text="		<PackageReference Include="xBDD" Version="0.0.7-alpha" />" />
 				<outline text="	</ItemGroup>" />
 				<outline text="" />
 				<outline text="	<ItemGroup>" />
@@ -52,7 +52,7 @@
 				<outline text="		<PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />" />
 				<outline text="		<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />" />
 				<outline text="		<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />" />
-				<outline text="		<PackageReference Include="xBDD" Version="0.0.6-alpha" />" />
+				<outline text="		<PackageReference Include="xBDD" Version="0.0.7-alpha" />" />
 				<outline text="	</ItemGroup>" />
 				<outline text="" />
 				<outline text="	<ItemGroup>" />
@@ -124,7 +124,7 @@
 				<outline text="		[AssemblyCleanup()]" />
 				<outline text="		public static void TestRunComplete()" />
 				<outline text="		{" />
-				<outline text="			xB.Complete(new xBDDSorting(), (message) => { Logger.LogMessage(message); });" />
+				<outline text="			xB.Complete("MyGeneratedSample.Features", new xBDDSorting(), (message) => { Logger.LogMessage(message); });" />
 				<outline text="		}" />
 				<outline text="	}" />
 				<outline text="}" />
@@ -140,7 +140,7 @@
 				<outline text="	{" />
 				<outline text="		public List<string> GetSortedFeatureNames() {" />
 				<outline text="			return new List<string>() {" />
-				<outline text="				typeof(MyGeneratedSample.Features.MyArea.MySample).FullName," />
+				<outline text="				typeof(MyGeneratedSample.Features.MyArea.MyFeature).FullName," />
 				<outline text="			};" />
 				<outline text="		}" />
 				<outline text="		public List<string> GetSortedReasons() {" />
@@ -166,7 +166,7 @@
 				<outline text="	{" />
 				<outline text="		public List<string> GetGeneratedSortedFeatureNames() {" />
 				<outline text="			return new List<string>() {" />
-				<outline text="				typeof(MyGeneratedSample.Features.MyArea.MySample).FullName," />
+				<outline text="				typeof(MyGeneratedSample.Features.MyArea.MyFeature).FullName," />
 				<outline text="			};" />
 				<outline text="		}" />
 				<outline text="		public List<string> GetGeneratedReasons() {" />
@@ -188,6 +188,7 @@
 				<outline text="	using System;" />
 				<outline text="	using System.Threading.Tasks;" />
 				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
 				<outline text="" />
 				<outline text="	[TestClass]" />
 				<outline text="	[AsA("sample user")]" />
@@ -225,7 +226,7 @@
 				<outline text="" />
 				<outline text="					//Add code to perform action." />
 				<outline text="" />
-				<outline text="					}, null, null, @"" />
+				<outline text="					}, null, TextFormat.text, @"" />
 				<outline text="						# Step 3 Explanation " />
 				<outline text="						This is a multiline explanation of " />
 				<outline text="						Step 3.  It uses markdown.  It will" />
@@ -236,8 +237,8 @@
 				<outline text="" />
 				<outline text="					//Add code to perform action." />
 				<outline text="" />
-				<outline text="					s.Output = input;" />
-				<outline text="					s.OutputFormat = format;" />
+				<outline text="					s.Output = "Here is my output.";" />
+				<outline text="					s.OutputFormat = TextFormat.text;" />
 				<outline text="" />
 				<outline text="				})" />
 				<outline text="				.Run();" />
@@ -248,11 +249,21 @@
 			<outline text="And you will find the project execute tests with the 'dotnet test' command">
 				<outline text="dotnet test" />
 			</outline>
-			<outline text="And you will find the project generated a Html Report."/>
-			<outline text="And you will find the project generated a Json Report."/>
-			<outline text="And you will find the project generated a Text Report."/>
-			<outline text="And you will find the project generated a Text Outline Report."/>
-			<outline text="And you will find the project generated a Opml Report."/>
+			<outline text="And you will find the project generated a Html Report.">
+				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html" />
+			</outline>
+			<outline text="And you will find the project generated a Json Report.">
+				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json" />
+			</outline>
+			<outline text="And you will find the project generated a Text Report.">
+				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt" />
+			</outline>
+			<outline text="And you will find the project generated a Text Outline Report.">
+				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt" />
+			</outline>
+			<outline text="And you will find the project generated a Opml Report.">
+				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml" />
+			</outline>
 		</outline>
 		<outline text="In An Initialized XBDD [Committed]">
 			<outline text="Given you have an empty project directory"/>
@@ -270,11 +281,21 @@
 			<outline text="And you will find the project execute tests with the 'dotnet test' command">
 				<outline text="dotnet test" />
 			</outline>
-			<outline text="And you will find the project generated a Html Report."/>
-			<outline text="And you will find the project generated a Json Report."/>
-			<outline text="And you will find the project generated a Text Report."/>
-			<outline text="And you will find the project generated a Text Outline Report."/>
-			<outline text="And you will find the project generated a Opml Report."/>
+			<outline text="And you will find the project generated a Html Report.">
+				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html" />
+			</outline>
+			<outline text="And you will find the project generated a Json Report.">
+				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json" />
+			</outline>
+			<outline text="And you will find the project generated a Text Report.">
+				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt" />
+			</outline>
+			<outline text="And you will find the project generated a Text Outline Report.">
+				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt" />
+			</outline>
+			<outline text="And you will find the project generated a Opml Report.">
+				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml" />
+			</outline>
 		</outline>
 		<outline text="With A Test Run Name [Committed]">
 			<outline text="Given you have an empty project directory"/>

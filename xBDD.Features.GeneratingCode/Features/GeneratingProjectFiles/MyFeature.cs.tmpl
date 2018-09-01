@@ -4,6 +4,7 @@ namespace MyGeneratedSample.Features.MyArea
 	using System;
 	using System.Threading.Tasks;
 	using xBDD;
+	using xBDD.Utility;
 
 	[TestClass]
 	[AsA("sample user")]
@@ -41,7 +42,7 @@ namespace MyGeneratedSample.Features.MyArea
 
 					//Add code to perform action.
 
-					}, null, null, @"
+					}, null, TextFormat.text, @"
 						# Step 3 Explanation 
 						This is a multiline explanation of 
 						Step 3.  It uses markdown.  It will
@@ -52,8 +53,8 @@ namespace MyGeneratedSample.Features.MyArea
 
 					//Add code to perform action.
 
-					s.Output = input;
-					s.OutputFormat = format;
+					s.Output = "Here is my output.";
+					s.OutputFormat = TextFormat.text;
 
 				})
 				.Run();

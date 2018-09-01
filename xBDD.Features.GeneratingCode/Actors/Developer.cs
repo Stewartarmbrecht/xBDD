@@ -86,10 +86,37 @@ namespace xBDD.Features.GeneratingCode.Actors
 
 		public Step WillFindTheProjectGenerated (ReportType reportType) {
 			var reportName = System.Enum.GetName(typeof(ReportType), reportType);
+			var baseUrl = "./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results";
+			string reportPath = "";
+			TextFormat format = new TextFormat();
+			switch(reportType) {
+				case ReportType.HtmlReport:
+					reportPath = $"{baseUrl}.html";
+					format = TextFormat.htmlpreview;
+				break;
+				case ReportType.JsonReport:
+					reportPath = $"{baseUrl}.json";
+					format = TextFormat.js;
+				break;
+				case ReportType.OpmlReport:
+					reportPath = $"{baseUrl}.opml";
+					format = TextFormat.xml;
+				break;
+				case ReportType.TextOutlineReport:
+					reportPath = $"{baseUrl}.Outline.txt";
+					format = TextFormat.text;
+				break;
+				case ReportType.TextReport:
+					reportPath = $"{baseUrl}.txt";
+					format = TextFormat.text;
+				break;
+			}
 			return xB.CreateStep($"you will find the project generated a {reportName.ConvertNamespaceToAreaName()}.",
 				s => {
-					throw new System.NotImplementedException();
-				});
+					var report = System.IO.File.ReadAllText(reportPath);
+					s.Output = report;
+					s.OutputFormat = format;
+				}, reportPath, TextFormat.sh);
 		}
 		public Step ModifyAllTheStandardProjectFiles() {
 			return xB.CreateStep("you modify all the standard project files",
