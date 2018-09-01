@@ -296,13 +296,24 @@
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml" />
 			</outline>
 		</outline>
-		<outline text="With A Test Run Name [Committed]">
+		<outline text="With A Test Run Name">
 			<outline text="Given you have an empty project directory"/>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest --testrun-name "My Sample Test Run"" />
 			</outline>
 			<outline text="Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:">
-				<outline text="There was an exception loading the template ('./../../../Features/GeneratingProjectFiles/xBddConfigWithTestRunName.json.tmpl'). Exception Message: Could not find file '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingCode/Features/GeneratingProjectFiles/xBddConfigWithTestRunName.json.tmpl'." />
+				<outline text="{" />
+				<outline text="	"xBDD": {" />
+				<outline text="		"TestRunName": "My Sample Test Run"," />
+				<outline text="		"Browser": {" />
+				<outline text="			"Watch": "false"" />
+				<outline text="		}," />
+				<outline text="		"HtmlReport": {" />
+				<outline text="			"RemoveFromAreaNameStart": "My Generated Sample - Features - "," />
+				<outline text="			"FailuresOnly": "false"" />
+				<outline text="		}" />
+				<outline text="	}" />
+				<outline text="}" />
 			</outline>
 		</outline>
 		<outline text="With Area Name Clipping [Committed]">

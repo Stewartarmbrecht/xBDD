@@ -164,7 +164,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 				.Given(you.HaveAnEmptyProjectDirectory())
 				.When(you.RunTheCommand($"{command} --testrun-name \"My Sample Test Run\"", directory))
 				.Then(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBddConfigWithTestRunName_json))
-				.Skip("Committed", Assert.Inconclusive);
+				.Run();
 		}
 
 		[TestMethod]

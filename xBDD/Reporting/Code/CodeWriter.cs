@@ -47,10 +47,12 @@
 		/// </summary>
 		/// <param name="directory">The directory to write the files in.</param>
 		/// <param name="rootNamespace">The root namspace to use.</param>
+		/// <param name="testRunName">The default test run name to set in the xBDDConfig.json file if one is created.</param>
 		/// <param name="removeFromAreaNameStart">The value for this config setting.</param>
 		public void WriteProjectFiles(
 			string directory, 
 			string rootNamespace, 
+			string testRunName,
 			string removeFromAreaNameStart) 
 		{
 			var featureImportPath = $"{directory}/xBDDFeatureImport.txt";
@@ -75,19 +77,21 @@
 					text = formattedText.ToString();
 				}
 				TestRun testRun = textImporter.ImportText(text, indentation, rootNamespace);
-				this.WriteToCode(testRun,rootNamespace, directory,removeFromAreaNameStart);
+				testRun.Name = testRunName;
+				this.WriteToCode(testRun, rootNamespace, directory, removeFromAreaNameStart);
 
 			} else {
 				var writeSample = true;
 				if(System.IO.Directory.Exists($"{directory}/Features")) {
 					writeSample = false;
 				}
-				this.WriteProjectFiles(directory, rootNamespace, removeFromAreaNameStart, writeSample, null, null);
+				this.WriteProjectFiles(directory, rootNamespace, testRunName, removeFromAreaNameStart, writeSample, null, null);
 			}
 		}
 		private void WriteProjectFiles(
 			string directory, 
 			string rootNamespace, 
+			string testRunName,
 			string removeFromAreaNameStart, 
 			bool writeSample, 
 			List<string> sortedFeatureNames, 
@@ -95,7 +99,7 @@
 		{
 			this.WriteProjectFile(directory, rootNamespace);
 			this.WriteXbddFeatureImportTxt(directory,rootNamespace);
-			this.WriteXbddConfigJson(rootNamespace.ConvertNamespaceToAreaName(), directory, removeFromAreaNameStart);
+			this.WriteXbddConfigJson(testRunName, directory, removeFromAreaNameStart);
 			this.WriteXbddInitializeAndCompleteClass(directory, rootNamespace);
 			this.WriteXbddFeatureBaseClass(directory, rootNamespace);
 			if(sortedFeatureNames == null) {
@@ -118,7 +122,12 @@
 			}
 		}
 
-		private void WriteCode(TestRun testRun, string rootNamespace, string directory, string removeFromAreaNameStart, bool writeProjectFiles)
+		private void WriteCode(
+			TestRun testRun, 
+			string rootNamespace, 
+			string directory, 
+			string removeFromAreaNameStart, 
+			bool writeProjectFiles)
 		{
 			System.IO.Directory.CreateDirectory(directory);
 			StringBuilder sb = new StringBuilder();
@@ -143,7 +152,7 @@
 				this.WriteFeatureClass(directory, rootNamespace, lastScenario.Feature.FullClassName, sb);
 			}
 			if(writeProjectFiles) {
-				this.WriteProjectFiles(directory, rootNamespace, removeFromAreaNameStart, false, sortedFeatureNames, reasons);
+				this.WriteProjectFiles(directory, rootNamespace, testRun.Name, removeFromAreaNameStart, false, sortedFeatureNames, reasons);
 			}
 		}
 

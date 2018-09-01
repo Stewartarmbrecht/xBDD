@@ -54,6 +54,8 @@ namespace xBDD.Tools
 				[Command(Description = "Creates an MSTest project that uses xBDD."), HelpOption]
 				private class MSTest
 				{
+                    [Option("-tn|--testrun-name", "Sets the default test run name in the xBDDConfig.json file.", CommandOptionType.SingleValue)]
+                    public string TestRunName { get; }
 					private int OnExecute(IConsole console)
 					{
 						try {
@@ -63,7 +65,11 @@ namespace xBDD.Tools
 							var projectName = folderAndRootNamespace.ConvertNamespaceToAreaName();
 							console.WriteLine($"Directory: {directory}");
 							console.WriteLine($"Folder: {folderAndRootNamespace}");
-							codeWriter.WriteProjectFiles(directory, folderAndRootNamespace, $"{projectName} - ");
+                            var testRunName = TestRunName;
+                            if(String.IsNullOrEmpty(testRunName)) {
+                                testRunName = folderAndRootNamespace.ConvertNamespaceToAreaName();
+                            }
+							codeWriter.WriteProjectFiles(directory, folderAndRootNamespace, testRunName, $"{projectName} - ");
 							console.WriteLine($"Project initialized.");
 							return 0;
 						} catch (Exception ex) {

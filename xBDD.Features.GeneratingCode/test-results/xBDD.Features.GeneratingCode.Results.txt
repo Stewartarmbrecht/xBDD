@@ -266,12 +266,23 @@ xBDD - Features - Generating Code - Generating Project Files [Committed]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
 			And you will find the project generated a Opml Report.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
-		With A Test Run Name [Committed]
+		With A Test Run Name
 			Given you have an empty project directory
 			When you run the command:
 				dotnet xbdd project generate MSTest --testrun-name "My Sample Test Run"
 			Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:
-				There was an exception loading the template ('./../../../Features/GeneratingProjectFiles/xBddConfigWithTestRunName.json.tmpl'). Exception Message: Could not find file '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingCode/Features/GeneratingProjectFiles/xBddConfigWithTestRunName.json.tmpl'.
+				{
+					"xBDD": {
+						"TestRunName": "My Sample Test Run",
+						"Browser": {
+							"Watch": "false"
+						},
+						"HtmlReport": {
+							"RemoveFromAreaNameStart": "My Generated Sample - Features - ",
+							"FailuresOnly": "false"
+						}
+					}
+				}
 		With Area Name Clipping [Committed]
 			Given you have an empty project directory
 			When you run the command:
