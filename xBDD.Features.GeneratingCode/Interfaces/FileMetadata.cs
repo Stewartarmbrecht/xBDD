@@ -4,5 +4,6 @@ namespace xBDD.Features.GeneratingCode.Interfaces
 		public string FilePath;
 		public string TemplatePath;
 		public string ModifiedComment;
+		public string StepNameAddition;
 	}
 }

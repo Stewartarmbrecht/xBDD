@@ -1,0 +1,9 @@
+My Area
+	My Feature
+		My Scenario
+			Given step 1
+			When step 2
+			Then step 3
+			And step 4
+My Area 2
+	My Feature 2

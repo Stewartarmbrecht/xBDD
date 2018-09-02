@@ -6,6 +6,7 @@ namespace xBDD.Features.GeneratingCode.Actors
 	using xBDD.Features.GeneratingCode.Interfaces;
     using System.Diagnostics;
 	using System.IO;
+	using System.Text;
 	using TemplateValidator;
 	using System.Collections.Generic;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -21,18 +22,66 @@ namespace xBDD.Features.GeneratingCode.Actors
 					System.IO.Directory.CreateDirectory(directory);
 				}, null, TextFormat.text, "Creates a MySample.Generated folder that will contain the test project files. Deletes all content under the folder if it already exists.");
 		}
-		public Step RunTheCommand (string command, string directory) {
-            var fullCommand = $"{command} | Out-File output.txt";
+		public Step Add(FileMetadata fileMetaData) {
+			return xB.CreateStep($"add a {fileMetaData.StepNameAddition} file",
+				s => {
+					var filePath = "./MyGeneratedSample.Features/xBDDFeatureImport.txt";
+					System.IO.File.Copy(fileMetaData.FilePath, filePath);
+					s.Output = System.IO.File.ReadAllText(filePath);
+					s.OutputFormat = TextFormat.text;
+				});
+		}
+		public Step RunTheXbddToolsCommand (string[] args, string directory) {
+            //var fullCommand = $"{command} | Out-File output.txt";
 			return xB.CreateStep("you run the command:",
 				s => {
-					this.ExecuteCommand(s, directory, fullCommand);
+					this.ExecuteXbddToolsCommand(s, directory, args);
 				},
-				command,
+				$"dotnet xbdd {string.Join(" ",args)}",
 				TextFormat.sh,
 				"Executes the command in powershell.");
 		}
 
-		private void ExecuteCommand(Step s, string directory, string fullCommand) {
+		private void ExecuteXbddToolsCommand(Step s, string directory, string[] fullCommand) {
+			xBDD.Tools.Program program = new xBDD.Tools.Program();
+			var currentDirectory = System.IO.Directory.GetCurrentDirectory();
+			System.IO.Directory.SetCurrentDirectory(directory);
+			var mockConsole = new Mocks.MockConsole();
+			xBDD.Tools.Program.Test(mockConsole, fullCommand);
+			var output = mockConsole.Output.GetStringBuilder().ToString();
+			System.IO.File.WriteAllText("output.txt", output);
+			System.IO.Directory.SetCurrentDirectory(currentDirectory);
+			s.Output = output;
+			s.OutputFormat = TextFormat.text;
+
+			// Process cmd = new Process();
+			// cmd.StartInfo.FileName = "pwsh";
+			// cmd.StartInfo.RedirectStandardInput = true;
+			// cmd.StartInfo.RedirectStandardOutput = true;
+			// cmd.StartInfo.CreateNoWindow = true;
+			// cmd.StartInfo.UseShellExecute = false;
+			// cmd.Start();
+
+			// cmd.StandardInput.WriteLine($"Set-Location {directory}");
+			// cmd.StandardInput.Flush();
+			// cmd.StandardInput.WriteLine(fullCommand);
+			// cmd.StandardInput.Flush();
+			// cmd.StandardInput.Close();
+			// cmd.WaitForExit(60000);
+			// cmd.Close();
+			// cmd.Dispose();
+			// using (var fileStream = new FileStream($"{directory}/output.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+			// {
+			// 	using (var textReader = new StreamReader(fileStream))
+			// 	{
+			// 		s.Output = textReader.ReadToEnd();
+			// 		s.OutputFormat = TextFormat.text;
+			// 	}
+			// }
+		}
+
+		private void ExecutePowershellCommand(Step s, string directory, string fullCommand) {
+
 			Process cmd = new Process();
 			cmd.StartInfo.FileName = "pwsh";
 			cmd.StartInfo.RedirectStandardInput = true;
@@ -60,13 +109,23 @@ namespace xBDD.Features.GeneratingCode.Actors
 		}
 
 		public Step WillFindAValidFile (FileMetadata fileMetaData) {
+			var stepName = $"you will find a file at '{fileMetaData.FilePath}' that matches the template:";
+			return this.ValidateFileAgainstTemplate(fileMetaData, stepName);
+		}
+
+		public Step WillSeeOutputWithAnException(FileMetadata fileMetaData) {
+			var stepName = $"you will see output with an exception for {fileMetaData.StepNameAddition}";
+			return this.ValidateFileAgainstTemplate(fileMetaData, stepName);
+		}
+
+		private Step ValidateFileAgainstTemplate(FileMetadata fileMetaData, string stepName) {
 			var template = "";
 			try {
 				template = System.IO.File.ReadAllText(fileMetaData.TemplatePath);
 			} catch (System.Exception ex) {
 				template = $"There was an exception loading the template ('{fileMetaData.TemplatePath}'). Exception Message: {ex.Message}";
 			}
-			return xB.CreateStep($"you will find a file at '{fileMetaData.FilePath}' that matches the template:",
+			return xB.CreateStep(stepName,
 				s => {
 					var fileText = System.IO.File.ReadAllText(fileMetaData.FilePath);
 					s.Output = fileText;
@@ -98,7 +157,7 @@ namespace xBDD.Features.GeneratingCode.Actors
 			return xB.CreateStep("you will find the project execute tests with the 'dotnet test' command",
 				s => {
 					this.UpdateProjectFileToLocalReference();
-					this.ExecuteCommand(s, "./MyGeneratedSample.Features", fullCommand);
+					this.ExecutePowershellCommand(s, "./MyGeneratedSample.Features", fullCommand);
 				},
 				"dotnet test",
 				TextFormat.sh,

@@ -5,6 +5,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 	using System.Threading.Tasks;
 	using xBDD;
 	using xBDD.Utility;
+	using xBDD.Features.GeneratingCode.Actors;
+	using xBDD.Features.GeneratingCode.Interfaces;
 
 	[TestClass]
 	[AsA("Developer")]
@@ -13,11 +15,22 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 	public partial class WithAnInvalidOutline: xBDDFeatureBase
 	{
 
+		string directory = "./MyGeneratedSample.Features";
+		string[] xbddToolsCommandArgs = new[] { "project", "generate", "MSTest" };
+		Developer you = new Developer();
+		FileSystem an = new FileSystem();
+		FileSystem.ExceptionOutputs of = new FileSystem.ExceptionOutputs();
+
 		[TestMethod]
+		[TestCategory("Now")]
 		public async Task WithNoAreasAKAEmpty()
 		{
 			await xB.AddScenario(this, 1)
-				.Skip("Defining", Assert.Inconclusive);
+				.Given(you.HaveAnEmptyProjectDirectory())
+				.And(you.Add(an.InvalidOutline.WithNoAreasAKAEmpty))
+				.When(you.RunTheXbddToolsCommand(xbddToolsCommandArgs, directory))
+				.Then(you.WillSeeOutputWithAnException(of.NoAreasAKAEmpty))
+				.Run();
 		}
 
 		[TestMethod]

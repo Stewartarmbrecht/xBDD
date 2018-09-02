@@ -182,6 +182,43 @@ namespace xBDD.Importing.Text
 				lineContent = lineContent.Substring(2,lineContent.Length-2);
             return lineContent;
         }
+
+        /// <summary>
+        /// Imports the Workflowy text formatted export and converts
+        /// it to a hydrated test run.  Make sure to delete the first 
+        /// 2 lines of the workflowy export so that the first line in your
+        /// saved file is an Area name.
+        /// </summary>
+        /// <param name="text">Workflowy plan text eport to import.</param>
+        /// <param name="rootNamespace">The namspace to prepend to each area.</param>
+        /// <param name="defaultOutcome">The default outcome for a scenario.</param>
+        /// <param name="defaultReason">The default reason for an scenario.</param>
+        /// <returns>TestRun object hydrated from the text file outline.</returns>
+        public TestRun ImportWorkflowyText(
+            string text, 
+			string rootNamespace = "", 
+			string defaultOutcome = "Skipped", 
+			string defaultReason = "Defining") 
+        {
+            var indentation = "\t";
+            if(text.StartsWith("- ")) { //Workflowy export.
+                var lines = text.Split(new[] { System.Environment.NewLine }, StringSplitOptions.None);
+                StringBuilder formattedText = new StringBuilder();
+                for(int i =0; i < lines.Length; i++) {
+                    var line = lines[i];
+                    var dashIndex = line.IndexOf('-');
+                    var lineStart = dashIndex +2;
+                    var lineCount = line.Length;
+                    var lineIndentation = line.Substring(0, dashIndex);
+                    var lineContent = line.Substring(lineStart, lineCount - lineStart);
+                    var newLineIndentation = lineIndentation.Replace("  ", "\t");
+                    formattedText.Append(newLineIndentation);
+                    formattedText.AppendLine(lineContent);
+                }
+                text = formattedText.ToString();
+            }
+            return this.ImportText(text, indentation, rootNamespace, defaultOutcome, defaultReason);
+        }
         /// <summary>
         /// Creates a test run object from a text file.
         /// </summary>
@@ -198,6 +235,9 @@ namespace xBDD.Importing.Text
 			string defaultOutcome = "Skipped", 
 			string defaultReason = "Defining") 
 		{
+            if(text.Length == 0) {
+                throw new Exception("The file is empty.");
+            }
             this.indentationKey = indentationKey;
             this.defaultOutcome = (Outcome)Enum.Parse(typeof(Outcome), defaultOutcome);
             this.rootNamespace = rootNamespace;

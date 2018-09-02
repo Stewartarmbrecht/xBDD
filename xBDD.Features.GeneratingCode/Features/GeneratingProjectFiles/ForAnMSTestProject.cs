@@ -3,6 +3,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using System;
 	using System.Threading.Tasks;
+	using System.Collections.Generic;
 	using xBDD;
 	using xBDD.Utility;
 	using xBDD.Features.GeneratingCode.Interfaces;
@@ -11,11 +12,11 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 	
 	[AsA("Developer")]
 	[YouCan("generate a new MS Test Project")]
-	[By("executing the 'dotnet xbdd project generate MSTest' command")]
+	[By("executing the 'dotnet xbdd project generate MSTest' xbddToolsCommandArgs")]
 	[Explanation(@"
 		## xBDD Tools
 		
-		You can install a command line utility that will help you generate a 
+		You can install a xbddToolsCommandArgs line utility that will help you generate a 
 		dotnet core test project with a file structure that will help you follow best 
 		practices for when building your tests.  All you need is an empty directory 
 		that you want to create a new project within.  The xBDD framework will create 
@@ -30,7 +31,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 		
 		2. **[FolderName].csproj.xBDD** - xBDD will also create an identical project file that ends in 
 		.xbdd that it will continue to update each time you execute the `dotnet xbdd project generate 
-		MSTest` command.  You can use this file to update your project file in the future if xBDD 
+		MSTest` xbddToolsCommandArgs.  You can use this file to update your project file in the future if xBDD 
 		makes any changes to the default project file.
 		
 		3. **TestInitializeAndComplete.xbdd.cs** - This class handles the test initialize and cleanup 
@@ -99,7 +100,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 	public partial class ForAnMSTestProject: xBDDFeatureBase
 	{
 		string directory = "./MyGeneratedSample.Features";
-		string command = "dotnet xbdd project generate MSTest";
+		string[] xbddToolsCommandArgs = new[] { "project", "generate", "MSTest" };
 		Developer you = new Developer();
 		FileSystem at = new FileSystem();
 
@@ -112,7 +113,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 		{
 			await xB.AddScenario(this, 1001)
 				.Given(you.HaveAnEmptyProjectDirectory())
-				.When(you.RunTheCommand(command, directory))
+				.When(you.RunTheXbddToolsCommand(xbddToolsCommandArgs, directory))
 				.Then(you.WillFindAValidFile(at.MyGeneratedSample_Features.MyGeneratedSample_Features_csproj))
 				.And(you.WillFindAValidFile(at.MyGeneratedSample_Features.MyGeneratedSample_Features_csproj_xbdd))
 				.And(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBddConfig_json))
@@ -133,15 +134,15 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 
 		[TestMethod]
 		[Explanation(@"
-			Verifies some files are created but not overwritten when the command is executed a second time.  All files that either end in xBDD.[FileType] or end in .xbdd will be overwritten each time the project is generated.  This allows teams to 'upgrade' their default files when they change due to an upgrade.  Or it allows teams to regenerate copies of certain files like the FeatureSort or ReasonSort to make it easier to identify new additions and add them to their custom versions.",3)]
+			Verifies some files are created but not overwritten when the xbddToolsCommandArgs is executed a second time.  All files that either end in xBDD.[FileType] or end in .xbdd will be overwritten each time the project is generated.  This allows teams to 'upgrade' their default files when they change due to an upgrade.  Or it allows teams to regenerate copies of certain files like the FeatureSort or ReasonSort to make it easier to identify new additions and add them to their custom versions.",3)]
 		[Assignments("Stewart")]
 		public async Task InAnInitializedXBDD()
 		{
 			await xB.AddScenario(this, 1002)
 				.Given(you.HaveAnEmptyProjectDirectory())
-				.When(you.RunTheCommand(command, directory))
+				.When(you.RunTheXbddToolsCommand(xbddToolsCommandArgs, directory))
 				.And(you.ModifyAllTheStandardProjectFiles())
-				.When(you.RunTheCommand(command, directory))
+				.When(you.RunTheXbddToolsCommand(xbddToolsCommandArgs, directory))
 				.Then(you.WillFindTheFilesEndingInXbddAreOverwritten())
 				.And(you.WillFindTheFilesNotEndingInXbddAreNotOverwritten())
 				.And(you.WillFindTheSampleFeatureFileIsNotModifiedBecauseTheXbddBacklogFileAlreadyExisted())
@@ -156,26 +157,34 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 
 		[TestMethod]
 		[Explanation(@"
-			You can specify the value of testrun name setting in the `xBDDConfig.json` file through a `--testrun-name` option for the xbdd command.  The default value is the name of the project folder.",3)]
+			You can specify the value of testrun name setting in the `xBDDConfig.json` file through a `--testrun-name` option for the xbdd xbddToolsCommandArgs.  The default value is the name of the project folder.",3)]
 		[Assignments("Stewart")]
 		public async Task WithATestRunName()
 		{
+			List<string> args = new List<string>();
+			args.AddRange(this.xbddToolsCommandArgs);
+			args.Add("--testrun-name");
+			args.Add("My Sample Test Run");
 			await xB.AddScenario(this, 1003)
 				.Given(you.HaveAnEmptyProjectDirectory())
-				.When(you.RunTheCommand($"{command} --testrun-name \"My Sample Test Run\"", directory))
+				.When(you.RunTheXbddToolsCommand(args.ToArray(), directory))
 				.Then(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBddConfigWithTestRunName_json))
 				.Run();
 		}
 
 		[TestMethod]
 		[Explanation(@"
-			You can specify the value of 'remove from area name' setting in the `xBDDConfig.json` file through a `--remove-from-area-name` option for the xbdd command.  The default value is the name of the project folder with '.' replaced by ' - '.",3)]
+			You can specify the value of 'remove from area name' setting in the `xBDDConfig.json` file through a `--remove-from-area-name` option for the xbdd xbddToolsCommandArgs.  The default value is the name of the project folder with '.' replaced by ' - '.",3)]
 		[Assignments("Stewart")]
 		public async Task WithAreaNameClipping()
 		{
+			List<string> args = new List<string>();
+			args.AddRange(this.xbddToolsCommandArgs);
+			args.Add("--remove-from-area-name");
+			args.Add("Modified");
 			await xB.AddScenario(this, 1004)
 				.Given(you.HaveAnEmptyProjectDirectory())
-				.When(you.RunTheCommand($"{command} --remove-from-area-name \"Modified\"", directory))
+				.When(you.RunTheXbddToolsCommand(args.ToArray(), directory))
 				.Then(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBddConfigWithRemoveAreaName_json))
 				.Run();
 		}

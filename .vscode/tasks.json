@@ -50,24 +50,10 @@
             },
             "args": [
 				"${workspaceFolder}/scripts/test.ps1",
-				"xBDD.Features.GeneratingCode"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "test-generatingcode-fo",
-            "group": "test",
-            "command": "pwsh",
-            "type": "process",
-            "options": {
-				"cwd": "${workspaceFolder}",
-				"env": {
-                    "xBDD:HtmlReport:FailuresOnly": "true"
-                }
-            },
-            "args": [
-				"${workspaceFolder}/scripts/test.ps1",
-				"xBDD.Features.GeneratingCode"
+                "xBDD.Features.GeneratingCode",
+                "true",
+                "false",
+                "false",
             ],
             "problemMatcher": "$msCompile"
         },

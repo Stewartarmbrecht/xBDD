@@ -299,7 +299,7 @@
 		<outline text="With A Test Run Name">
 			<outline text="Given you have an empty project directory"/>
 			<outline text="When you run the command:">
-				<outline text="dotnet xbdd project generate MSTest --testrun-name "My Sample Test Run"" />
+				<outline text="dotnet xbdd project generate MSTest --testrun-name My Sample Test Run" />
 			</outline>
 			<outline text="Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:">
 				<outline text="{" />
@@ -319,7 +319,7 @@
 		<outline text="With Area Name Clipping">
 			<outline text="Given you have an empty project directory"/>
 			<outline text="When you run the command:">
-				<outline text="dotnet xbdd project generate MSTest --remove-from-area-name "Modified"" />
+				<outline text="dotnet xbdd project generate MSTest --remove-from-area-name Modified" />
 			</outline>
 			<outline text="Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:">
 				<outline text="{" />
@@ -340,7 +340,17 @@
 </outline>
 <outline text="xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Defining]">
 	<outline text="With An Invalid Outline [Defining]">
-		<outline text="With No Areas AKA Empty [Defining]">
+		<outline text="With No Areas AKA Empty">
+			<outline text="Given you have an empty project directory"/>
+			<outline text="And add a with no areas (aka empty file) file"/>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output with an exception for No Areas (AKA Empty)">
+				<outline text="{{Directory\: .*\/MyGeneratedSample\.Features}}" />
+				<outline text="Folder: MyGeneratedSample.Features" />
+				<outline text="Error: The file is empty." />
+			</outline>
 		</outline>
 		<outline text="With No Features [Defining]">
 		</outline>

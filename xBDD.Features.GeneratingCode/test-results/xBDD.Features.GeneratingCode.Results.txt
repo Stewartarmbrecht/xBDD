@@ -269,7 +269,7 @@ xBDD - Features - Generating Code - Generating Project Files
 		With A Test Run Name
 			Given you have an empty project directory
 			When you run the command:
-				dotnet xbdd project generate MSTest --testrun-name "My Sample Test Run"
+				dotnet xbdd project generate MSTest --testrun-name My Sample Test Run
 			Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:
 				{
 					"xBDD": {
@@ -286,7 +286,7 @@ xBDD - Features - Generating Code - Generating Project Files
 		With Area Name Clipping
 			Given you have an empty project directory
 			When you run the command:
-				dotnet xbdd project generate MSTest --remove-from-area-name "Modified"
+				dotnet xbdd project generate MSTest --remove-from-area-name Modified
 			Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:
 				{
 					"xBDD": {
@@ -302,7 +302,15 @@ xBDD - Features - Generating Code - Generating Project Files
 				}
 xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Defining]
 	With An Invalid Outline [Defining]
-		With No Areas AKA Empty [Defining]
+		With No Areas AKA Empty
+			Given you have an empty project directory
+			And add a with no areas (aka empty file) file
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output with an exception for No Areas (AKA Empty)
+				{{Directory\: .*\/MyGeneratedSample\.Features}}
+				Folder: MyGeneratedSample.Features
+				Error: The file is empty.
 		With No Features [Defining]
 		With No Scenarios [Defining]
 		With A Step With No Name [Defining]

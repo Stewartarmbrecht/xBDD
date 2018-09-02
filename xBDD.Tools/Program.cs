@@ -19,10 +19,11 @@ namespace xBDD.Tools
     Subcommand("project", typeof(Project)), 
     Subcommand("convert", typeof(Convert))]
     [HelpOption]
-    class Program
+    public class Program
     {
         public static void Main(string[] args) => CommandLineApplication.Execute<Program>(args);
 
+        public static void Test(IConsole console, string[] args) => CommandLineApplication.Execute<Program>(console, args);
         // Return codes
         public const int EXCEPTION = 2;
         public const int ERROR = 1;
@@ -79,8 +80,8 @@ namespace xBDD.Tools
 							console.WriteLine($"Project initialized.");
 							return 0;
 						} catch (Exception ex) {
-							console.Error.WriteLine(ex.Message);
-							console.Error.WriteLine(ex.StackTrace);
+							console.Error.WriteLine($"Error: {ex.Message}");
+							//console.Error.WriteLine(ex.StackTrace);
 							return 1;
 						}
 					}

@@ -59,24 +59,7 @@
 			if(System.IO.File.Exists(featureImportPath)) {
 				var textImporter = new Importing.Text.TextImporter();
 				var text = System.IO.File.ReadAllText(featureImportPath);
-				var indentation = "\t";
-				if(text.StartsWith("- ")) { //Workflowy export.
-					var lines = text.Split(new[] { System.Environment.NewLine }, StringSplitOptions.None);
-					StringBuilder formattedText = new StringBuilder();
-					for(int i =0; i < lines.Length; i++) {
-						var line = lines[i];
-						var dashIndex = line.IndexOf('-');
-						var lineStart = dashIndex +2;
-						var lineCount = line.Length;
-						var lineIndentation = line.Substring(0, dashIndex);
-						var lineContent = line.Substring(lineStart, lineCount - lineStart);
-						var newLineIndentation = lineIndentation.Replace("  ", "\t");
-						formattedText.Append(newLineIndentation);
-						formattedText.AppendLine(lineContent);
-					}
-					text = formattedText.ToString();
-				}
-				TestRun testRun = textImporter.ImportText(text, indentation, rootNamespace);
+				TestRun testRun = textImporter.ImportWorkflowyText(text, rootNamespace);
 				testRun.Name = testRunName;
 				this.WriteToCode(testRun, rootNamespace, directory, removeFromAreaNameStart);
 
