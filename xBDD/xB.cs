@@ -149,7 +149,7 @@
 
             System.IO.Directory.CreateDirectory($"{directory}/../../../test-results");
 
-            xB.CurrentRun.TestRun.SortTestRunResults(sorting.GetGeneratedSortedFeatureNames());
+            xB.CurrentRun.TestRun.SortTestRunResults(sorting.GetSortedFeatureNames());
             xB.CurrentRun.TestRun.UpdateParentReasonsAndStats(sorting.GetSortedReasons());
 
             var htmlPath = $"{directory}/../../../test-results/{projectName}.Results.html";

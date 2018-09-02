@@ -1,7 +1,7 @@
 xBDD - Generating Code
 
 xBDD - Features - Generating Code - Generating Project Files
-	Generating A New MS Test Project
+	For An MS Test Project
 		In An Empty Directory
 			Given you have an empty project directory
 			When you run the command:
@@ -300,8 +300,26 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-xBDD - Features - Generating Code - Generating Feature Files [Defining]
-	Generate MS Test Feature Files From A Valid Feature Import File [Defining]
+xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Defining]
+	With An Invalid Outline [Defining]
+		With No Areas AKA Empty [Defining]
+		With No Features [Defining]
+		With No Scenarios [Defining]
+		With A Step With No Name [Defining]
+		With A Step With Invalid Characters In The Name [Defining]
+		With A Step With An Invalid Child Line [Defining]
+		With A Scenario With No Name [Defining]
+		With A Scenario With Invalid Characters In The Name [Defining]
+		With A Scenario With An Invalid Child Line [Defining]
+		With A Feature With No Name [Defining]
+		With A Feature With Invalid Characters In The Name [Defining]
+		With A Feature With An Invalid Child Line [Defining]
+		With An Area With No Name [Defining]
+		With An Area With Invalid Characters In The Name [Defining]
+		With An Area With An Invalid Child Line [Defining]
+		With A Duplicate Feature [Defining]
+		With A Duplicate Scenario [Defining]
+	For An MS Test Project [Defining]
 		With An Empty Scenario [Defining]
 		With A Given Step [Defining]
 		With A When Step [Defining]
@@ -322,21 +340,7 @@ xBDD - Features - Generating Code - Generating Feature Files [Defining]
 		With Ignored Feature Tags [Defining]
 		With Ignored Area Tags [Defining]
 		With A Workflowy Text Export [Defining]
-	Generate MS Test Feature Files From An Invalid Feature Import File [Defining]
-		With No Areas AKA Empty [Defining]
-		With No Features [Defining]
-		With No Scenarios [Defining]
-		With A Step With No Name [Defining]
-		With A Step With Invalid Characters In The Name [Defining]
-		With A Step With An Invalid Child Line [Defining]
-		With A Scenario With No Name [Defining]
-		With A Scenario With Invalid Characters In The Name [Defining]
-		With A Scenario With An Invalid Child Line [Defining]
-		With A Feature With No Name [Defining]
-		With A Feature With Invalid Characters In The Name [Defining]
-		With A Feature With An Invalid Child Line [Defining]
-		With An Area With No Name [Defining]
-		With An Area With Invalid Characters In The Name [Defining]
-		With An Area With An Invalid Child Line [Defining]
-		With A Duplicate Feature [Defining]
-		With A Duplicate Scenario [Defining]
+xBDD - Features - Generating Code - Generating Solution Files - Using An Xbdd Feature Import File [Defining]
+		With All Test Run Outcomes [Defining]
+		With No Projects [Defining]
+		With An Existing Project That Has Modified Project Files [Defining]

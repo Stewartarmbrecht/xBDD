@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using xBDD.Model;
+using xBDD.Utility;
 
 namespace xBDD.Reporting.Html
 {
@@ -122,17 +123,23 @@ namespace xBDD.Reporting.Html
             }
             var html = $@"
                     <nav class=""navbar navbar-expand-lg navbar-light bg-light"">
-                    <a class=""navbar-brand"" href=""#"">xBDD Test Results{failuresOnlyText}</a>
-                    <button id=""menu-button"" class=""navbar-toggler"" type=""button"" data-toggle=""collapse"" data-target=""#navbarNavAltMarkup"" aria-controls=""navbarNavAltMarkup"" aria-expanded=""false"" aria-label=""Toggle navigation"">
-                        <span class=""navbar-toggler-icon""></span>
-                    </button>
-                    <div class=""collapse navbar-collapse"" id=""navbarNavAltMarkup"">
-                        <div class=""navbar-nav"">
-                        <a class=""nav-item nav-link active"" href=""javascript: $('ol.features').collapse('show');"" id=""expand-all-areas-button"">Expand All Areas <span class=""sr-only"">(current)</span></a>
+                        <a class=""navbar-brand"" href=""#"">xBDD Test Results{failuresOnlyText}</a>
+                        <button id=""menu-button"" 
+                            class=""navbar-toggler"" 
+                            type=""button"" 
+                            data-toggle=""collapse"" 
+                            data-target=""#navbarNavAltMarkup"" 
+                            aria-controls=""navbarNavAltMarkup"" 
+                            aria-expanded=""false"" 
+                            aria-label=""Toggle navigation"">
+                            <span class=""navbar-toggler-icon""></span>
+                        </button>
+                        <div class=""collapse navbar-collapse"" id=""navbarNavAltMarkup"">
+                            <div class=""navbar-nav"">
+                            <a class=""nav-item nav-link active"" href=""javascript: $('ol.features').collapse('show');"" id=""expand-all-areas-button"">Expand All Areas <span class=""sr-only"">(current)</span></a>
+                            </div>
                         </div>
-                    </div>
-                    </nav>            
-            ";
+                    </nav>".RemoveIndentation(4, true);
 
             sb.Append(html);
         }
@@ -710,37 +717,48 @@ namespace xBDD.Reporting.Html
 
         void WriteMultilineParameterWithHtmlPreview(Step step, StringBuilder sb, int stepNumber)
         {
-            var html = @"                                    <div class=""mp rounded"">
-                                        <ul class=""nav nav-tabs"" role=""tablist"">
-                                            <li role=""presentation"" class=""active""><a href=""#preview{0}"" aria-controls=""preview{0}"" role=""tab"" data-toggle=""tab"">Preview</a></li>
-                                            <li role=""presentation""><a href=""#code{0}"" aria-controls=""code{0}"" role=""tab"" data-toggle=""tab"">Code</a></li>
-                                        </ul>
-                                        <div class=""tab-content"">
-                                            <div role=""tabpanel"" class=""tab-pane active"" id=""preview{0}"">
-                                                <iframe width=""100%"" id=""iframe{0}""></iframe>
-                                                <script type=""text/javascript"">
-                                                    var iframe{0}doc = document.getElementById('iframe{0}').contentWindow.document;
-                                                    iframe{0}doc.open();
-                                                    var html{0} = ""{2}"";
-                                                    iframe{0}doc.write(html{0});
-                                                    resizeIframe(document.getElementById('iframe{0}'));
-                                                    iframe{0}doc.close();
-                                                </script>
-                                            </div>
-                                            <div role=""tabpanel"" class=""tab-pane"" id=""code{0}"">
-                                                <pre class=""mp prettyprint lang-html"">{1}</pre>
-                                            </div>
-                                        </div>
-                                    </div>";
-            sb.AppendLine(String.Format(html,
-                stepNumber, 
-                step.Input.HtmlEncode(), 
-                step.Input
+            var previewCode = step.Input.HtmlEncode();
+            var previewHtml = step.Input
                 .Replace(System.Environment.NewLine, " \\" + System.Environment.NewLine)
                 .Replace(":", "\\:")
                 .Replace("/", "\\/")
                 .Replace("!", "\\!")
-                .Replace("\"", "\\\"")));
+                .Replace("\"", "\\\"");
+            var html = $@"
+                                    <div class=""mp rounded"">
+                                        <div class=""nav nav-tabs"" role=""tablist"">
+                                            <a href=""#preview{stepNumber}""
+                                                id=""#preview{stepNumber}-tab""
+                                                class=""nav-item nav-link active"" 
+                                                aria-controls=""preview{stepNumber}"" 
+                                                aria-selected=""true""
+                                                role=""tab"" 
+                                                data-toggle=""tab"">Preview</a>
+                                            <a href=""#code{stepNumber}"" 
+                                                id=""#code{stepNumber}-tab""
+                                                class=""nav-item nav-link"" 
+                                                aria-controls=""code{stepNumber}"" 
+                                                role=""tab"" 
+                                                data-toggle=""tab"">Code</a>
+                                        </div>
+                                        <div class=""tab-content"">
+                                            <div role=""tabpanel"" class=""tab-pane active"" id=""preview{stepNumber}"">
+                                                <iframe width=""100%"" id=""iframe{stepNumber}""></iframe>
+                                                <script type=""text/javascript"">
+                                                    var iframe{stepNumber}doc = document.getElementById('iframe{stepNumber}').contentWindow.document;
+                                                    iframe{stepNumber}doc.open();
+                                                    var html{stepNumber} = ""{previewHtml}"";
+                                                    iframe{stepNumber}doc.write(html{stepNumber});
+                                                    resizeIframe(document.getElementById('iframe{stepNumber}'));
+                                                    iframe{stepNumber}doc.close();
+                                                </script>
+                                            </div>
+                                            <div role=""tabpanel"" class=""tab-pane"" id=""code{stepNumber}"">
+                                                <pre class=""mp prettyprint lang-html"">{previewCode}</pre>
+                                            </div>
+                                        </div>
+                                    </div>";
+            sb.AppendLine(html);
         }
 
         void WriteOutput(Step step, StringBuilder sb, int stepNumber)
@@ -768,35 +786,46 @@ namespace xBDD.Reporting.Html
 
         void WriteOutputWithHtmlPreview(Step step, StringBuilder sb, int stepNumber)
         {
-            var html = @"                                        <strong><h5>Output</h5></strong>
-                                        <ul class=""nav nav-tabs"" role=""tablist"">
-                                            <li role=""presentation"" class=""active""><a href=""#output-preview-{0}"" aria-controls=""output-preview-{0}"" role=""tab"" data-toggle=""tab"">Preview</a></li>
-                                            <li role=""presentation""><a href=""#output-code-{0}"" aria-controls=""output-code-{0}"" role=""tab"" data-toggle=""tab"">Code</a></li>
-                                        </ul>
-                                        <div class=""tab-content"">
-                                            <div role=""tabpanel"" class=""tab-pane active"" id=""output-preview-{0}"">
-                                                <iframe width=""100%"" height=""400px"" id=""iframe{0}""></iframe>
-                                                <script type=""text/javascript"">
-                                                    var iframe{0}doc = document.getElementById('iframe{0}').contentWindow.document;
-                                                    iframe{0}doc.open();
-                                                    var html{0} = ""{2}"";
-                                                    iframe{0}doc.write(html{0});
-                                                    iframe{0}doc.close();
-                                                </script>
-                                            </div>
-                                            <div role=""tabpanel"" class=""tab-pane"" id=""output-code-{0}"">
-                                                <pre class=""mp prettyprint lang-html"">{1}</pre>
-                                            </div>
-                                        </div>";
-            sb.AppendLine(String.Format(html,
-                stepNumber, 
-                step.Output.HtmlEncode(), 
-                step.Output
-                .Replace(System.Environment.NewLine, " \\"+System.Environment.NewLine)
+            var htmlCode = step.Output.HtmlEncode();
+            var htmlPreview = step.Output
+                .Replace(System.Environment.NewLine, $" \\{System.Environment.NewLine}")
                 .Replace(":", "\\:")
                 .Replace("/", "\\/")
                 .Replace("!", "\\!")
-                .Replace("\"", "\\\"")));
+                .Replace("\"", "\\\"");
+            var html = $@"
+                                        <strong><h5>Output</h5></strong>
+                                        <div class=""nav nav-tabs"" role=""tablist"">
+                                            <a href=""#output-preview-{stepNumber}""
+                                                id=""#output-preview-{stepNumber}-tab""
+                                                class=""nav-item nav-link active"" 
+                                                aria-controls=""output-preview-{stepNumber}"" 
+                                                aria-selected=""true""
+                                                role=""tab"" 
+                                                data-toggle=""tab"">Preview</a>
+                                            <a href=""#output-code-{stepNumber}"" 
+                                                id=""#output-code-{stepNumber}-tab""
+                                                class=""nav-item nav-link"" 
+                                                aria-controls=""output-code-{stepNumber}"" 
+                                                role=""tab"" 
+                                                data-toggle=""tab"">Code</a>
+                                        </div>
+                                        <div class=""tab-content"">
+                                            <div role=""tabpanel"" class=""tab-pane active"" id=""output-preview-{stepNumber}"">
+                                                <iframe width=""100%"" height=""400px"" id=""iframe{stepNumber}""></iframe>
+                                                <script type=""text/javascript"">
+                                                    var iframe{stepNumber}doc = document.getElementById('iframe{stepNumber}').contentWindow.document;
+                                                    iframe{stepNumber}doc.open();
+                                                    var html{stepNumber} = ""{htmlPreview}"";
+                                                    iframe{stepNumber}doc.write(html{stepNumber});
+                                                    iframe{stepNumber}doc.close();
+                                                </script>
+                                            </div>
+                                            <div role=""tabpanel"" class=""tab-pane"" id=""output-code-{stepNumber}"">
+                                                <pre class=""mp prettyprint lang-html"">{htmlCode}</pre>
+                                            </div>
+                                        </div>";
+            sb.AppendLine(html);
         }
 
         void WriteTag(string tag, StringBuilder sb, 

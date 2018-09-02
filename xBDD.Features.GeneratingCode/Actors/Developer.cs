@@ -75,10 +75,29 @@ namespace xBDD.Features.GeneratingCode.Actors
 				}, template, TextFormat.cs);
 		}
 
+		private void UpdateProjectFileToLocalReference() {
+			var fileSystem = new xBDD.Features.GeneratingCode.Interfaces.FileSystem();
+			var projectFilePath = fileSystem.MyGeneratedSample_Features.MyGeneratedSample_Features_csproj.FilePath;
+			var projectFileContent = System.IO.File.ReadAllText(projectFilePath);
+			projectFileContent = projectFileContent.Replace(
+				@"
+						<PackageReference Include=""xBDD"" Version=""0.0.7-alpha"" />
+					</ItemGroup>".RemoveIndentation(4, true), 
+				@"
+					</ItemGroup>
+
+					<ItemGroup>
+						<ProjectReference Include=""..\..\..\..\..\xBDD\xBDD.csproj"" />
+					</ItemGroup>".RemoveIndentation(4, true));
+			System.IO.File.Delete(projectFilePath);
+			System.IO.File.WriteAllText(projectFilePath, projectFileContent);
+		}
+
 		public Step WillFindTheProjectExecutesTests () {
             var fullCommand = $"dotnet test | Out-File output.txt";
 			return xB.CreateStep("you will find the project execute tests with the 'dotnet test' command",
 				s => {
+					this.UpdateProjectFileToLocalReference();
 					this.ExecuteCommand(s, "./MyGeneratedSample.Features", fullCommand);
 				},
 				"dotnet test",

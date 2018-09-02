@@ -1,4 +1,4 @@
-namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles
+namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles.UsingAnXbddFeatureImportFile
 {
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using System;
@@ -7,10 +7,11 @@ namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles
 	using xBDD.Utility;
 
 	
-	[Generated_AsA("Developer")]
-	[Generated_YouCan("generate a new MS Test Project")]
-	[Generated_By("executing the 'dotnet xbdd project generate MSTest' command")]
-	public partial class GenerateCodeFromASolutionLevelFeatureImportFile: xBDDFeatureBase
+	[AsA("Developer")]
+	[YouCan("generate a new MS Test Project")]
+	[By("executing the 'dotnet xbdd project generate MSTest' command")]
+	[TestClass]
+	public partial class ForAnMSTestProject: xBDDFeatureBase
 	{
 
 		[TestMethod]

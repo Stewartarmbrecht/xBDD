@@ -96,7 +96,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 		5. **OPML Outline Report** - An Outline Processor Markup Language representation of 
 		the test run results.  This can be used to copy features back into Workflowy.",2)]
 	[TestClass]
-	public partial class GeneratingANewMSTestProject: xBDDFeatureBase
+	public partial class ForAnMSTestProject: xBDDFeatureBase
 	{
 		string directory = "./MyGeneratedSample.Features";
 		string command = "dotnet xbdd project generate MSTest";

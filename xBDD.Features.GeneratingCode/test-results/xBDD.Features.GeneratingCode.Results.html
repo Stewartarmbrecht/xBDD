@@ -9,10 +9,16 @@
     <style> div#testrun-dates { margin: 0rem 0rem .5rem 5rem; } h1.testrun-name { margin: .5rem 0rem 0rem 0rem; } span.area.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; } span.badge-distro { width: 3.5rem; display: inline-block; height: 1.5rem; vertical-align: bottom; } span.area.stats { font-size: 75%; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; border-radius: .25rem; height: 1.5em; display: inline-block; width: 1.75rem; position: absolute; margin-left: 2rem; z-index: -1; vertical-align: middle; } span.feature.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; } span.scenario.badge { width: 2rem } span.duration { font-size: 1rem; color: gray; } span.reason { font-size: 1rem; color: gray; } span.status { font-size: 1rem; color: gray; } span.step.duration { font-size: .75rem; color: gray; } span.oi.oi-info { font-size: 80% } ol.areas { margin: .5rem 0rem; } ol { margin-left: 3rem; } span.badge { margin-left: .25rem; } span.distro { width: 1.5rem; height: 1.5rem; display: inline-block; margin-left: 2rem; border: 1px solid white; } span.name { margin-left: .75rem; } dl.exception { margin: 1rem 3rem; padding: 1rem; } dl.exception dt { margin-bottom: .25rem; } ol.features { margin-bottom: 2rem; } ol.scenarios { margin-bottom: 1.5rem; } ol.steps { margin-bottom: 1rem; } iframe { border: 1px solid gray; resize: both; overflow: auto; } h2, h3, h4, h5 { font-size: 1.25rem; margin: .5rem; font-weight: 400; } h5 { font-size: 1rem; margin: .25rem .75rem; } dl.error-type, dl.error-message, dl.error-stack { padding: .5rem; } dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding: .5rem; } pre.feature-statement { margin: 0rem 0rem 1rem 3rem; padding: .5rem; } .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; } td.graph td { padding: 0px !important; } .table { margin: 0px !important; } .table td.bar { padding: 0px !important; } .testrun-percent-bar { background-color: #56C1F7; } .area-percent-bar { background-color: #A4DEFB; } .pointer { cursor: pointer } pre { white-space: pre !important; } pre.mp { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thin; } pre.output { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thins; } .collapsing { -webkit-transition: none; transition: none; display: none; }</style>
 </head>
 <body class="container-fluid">
-
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a class="navbar-brand" href="#">xBDD Test Results</a>
-                    <button id="menu-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <button id="menu-button" 
+                        class="navbar-toggler" 
+                        type="button" 
+                        data-toggle="collapse" 
+                        data-target="#navbarNavAltMarkup" 
+                        aria-controls="navbarNavAltMarkup" 
+                        aria-expanded="false" 
+                        aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -20,35 +26,19 @@
                         <a class="nav-item nav-link active" href="javascript: $('ol.features').collapse('show');" id="expand-all-areas-button">Expand All Areas <span class="sr-only">(current)</span></a>
                         </div>
                     </div>
-                    </nav>            
-                <div class="page-header" style="margin-top: 0px !important;">
-        <h1 class="testrun-name"><span class="testrun badge pointer badge-pill total badge-warning" title="Areas">2</span>
+                </nav>    <div class="page-header" style="margin-top: 0px !important;">
+        <h1 class="testrun-name"><span class="testrun badge pointer badge-pill total badge-warning" title="Areas">3</span>
 <span class="name">xBDD - Generating Code</span>
 <span class="testrun reason"> [Defining]</span>
-<span class="testrun duration"> [18,363 ms]</span>
+<span class="testrun duration"> [24,321 ms]</span>
         </h1>
     </div>
     <div style="margin-top: 0px !important;" id="testrun-dates">
-<span id="testrun-start-date" title="Start">2018-09-01 07:44 AM GMT-05:00</span>
+<span id="testrun-start-date" title="Start">2018-09-02 07:42 AM GMT-05:00</span>
     </div>
     <table class="table table-condensed " style="width: 100%; empty-cells: show;">
         <tr id="testrun-area-stats">
             <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
-            <td class="passed success text-center" style="width: 3.3333333333333%;">1</td>
-            <td class="skipped warning text-center" style="width: 3.3333333333333%;">1</td>
-            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
-            <td class="outcome-bar-chart" style="width: 90%;">
-    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
-        <tr>
-            <td class="bar passed-bar bg-success text-center" style="width: 50%"></td>
-            <td class="bar skipped-bar bg-warning text-center" style="width: 50%"></td>
-            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
-        </tr>
-    </table>
-        </td>
-    </tr>
-        <tr id="testrun-feature-stats">
-            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
             <td class="passed success text-center" style="width: 3.3333333333333%;">1</td>
             <td class="skipped warning text-center" style="width: 3.3333333333333%;">2</td>
             <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
@@ -62,16 +52,31 @@
     </table>
         </td>
     </tr>
-        <tr id="testrun-scenario-stats">
-            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
-            <td class="passed success text-center" style="width: 3.3333333333333%;">4</td>
-            <td class="skipped warning text-center" style="width: 3.3333333333333%;">37</td>
+        <tr id="testrun-feature-stats">
+            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+            <td class="passed success text-center" style="width: 3.3333333333333%;">1</td>
+            <td class="skipped warning text-center" style="width: 3.3333333333333%;">3</td>
             <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
             <td class="outcome-bar-chart" style="width: 90%;">
     <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
         <tr>
-            <td class="bar passed-bar bg-success text-center" style="width: 9.75609756097561%"></td>
-            <td class="bar skipped-bar bg-warning text-center" style="width: 90.2439024390244%"></td>
+            <td class="bar passed-bar bg-success text-center" style="width: 25%"></td>
+            <td class="bar skipped-bar bg-warning text-center" style="width: 75%"></td>
+            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+        </tr>
+    </table>
+        </td>
+    </tr>
+        <tr id="testrun-scenario-stats">
+            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+            <td class="passed success text-center" style="width: 3.3333333333333%;">4</td>
+            <td class="skipped warning text-center" style="width: 3.3333333333333%;">40</td>
+            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+            <td class="outcome-bar-chart" style="width: 90%;">
+    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+        <tr>
+            <td class="bar passed-bar bg-success text-center" style="width: 9.09090909090909%"></td>
+            <td class="bar skipped-bar bg-warning text-center" style="width: 90.9090909090909%"></td>
             <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
         </tr>
     </table>
@@ -85,7 +90,7 @@
 </span>
 </span>
                 <span class="name pointer" id="area-1-name" data-toggle="collapse" href="#area-1-features" aria-expanded="false" aria-controls="area-1-features" >Generating Project Files</span>
-<span class="area duration"> [18,096 ms]</span>
+<span class="area duration"> [24,112 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-1-stats">
                 <tr id="area-1-feature-stats">
@@ -125,8 +130,8 @@
 <span class="feature distro pointer" id="feature-1-distro"><div class="distro bg-success" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
 </span>
 </span>
-<span class="feature-statement-link badge pointer badge-secondary" id="feature-1-statement-link" data-toggle="collapse" href="#feature-1-statement" aria-expanded="false" aria-controls="feature-1-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-1-scenarios" aria-expanded="false" aria-controls="feature-1-scenarios" >Generating A New MS Test Project</span>
-<span class="feature duration"> [18,096 ms]</span>
+<span class="feature-statement-link badge pointer badge-secondary" id="feature-1-statement-link" data-toggle="collapse" href="#feature-1-statement" aria-expanded="false" aria-controls="feature-1-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-1-scenarios" aria-expanded="false" aria-controls="feature-1-scenarios" >For An MS Test Project</span>
+<span class="feature duration"> [24,112 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-1-stats">
                         <tr id="feature-1-scenario-stats">
@@ -154,19 +159,19 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         <li class="scenario passed" id="scenario-1">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-1-steps" aria-expanded="false" aria-controls="scenario-1-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">17</span>
 <span class="name pointer">In An Empty Directory</span>
-<span class="scenario duration"> [6,103 ms]</span>
+<span class="scenario duration"> [9,501 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-1-steps" aria-expanded="false">
                                 <li id="step-1">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-1-badge"> </span>
 <span class="name">Given you have an empty project directory</span>
-<span class="step duration"> [5 ms]</span>
+<span class="step duration"> [12 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-2">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-2-badge"> </span>
 <span class="name">When you run the command:</span>
-<a class="step-input-link" data-toggle="collapse" href="#step-2-input" aria-expanded="false" aria-controls="step-2-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-2-output" aria-expanded="false" aria-controls="step-2-output"> [Output]</a><span class="step duration"> [1,185 ms]</span>
+<a class="step-input-link" data-toggle="collapse" href="#step-2-input" aria-expanded="false" aria-controls="step-2-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-2-output" aria-expanded="false" aria-controls="step-2-output"> [Output]</a><span class="step duration"> [1,641 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-2-input" aria-expanded="false">
                                         <pre class="mp rounded prettyprint lang-sh" id="input-2">dotnet xbdd project generate MSTest</pre>
@@ -180,8 +185,8 @@ Project initialized.
                                 </li>
                                 <li id="step-3">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-3-badge"> </span>
-<span class="name">Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template:</span>
-<a class="step-input-link" data-toggle="collapse" href="#step-3-input" aria-expanded="false" aria-controls="step-3-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-3-output" aria-expanded="false" aria-controls="step-3-output"> [Output]</a><span class="step duration"> [6 ms]</span>
+<span class="name">Then you will find a file at &#39;./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj&#39; that matches the template:</span>
+<a class="step-input-link" data-toggle="collapse" href="#step-3-input" aria-expanded="false" aria-controls="step-3-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-3-output" aria-expanded="false" aria-controls="step-3-output"> [Output]</a><span class="step duration"> [7 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-3-input" aria-expanded="false">
                                         <pre class="mp rounded prettyprint lang-cs" id="input-3">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
@@ -236,7 +241,7 @@ Project initialized.
                                 </li>
                                 <li id="step-4">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-4-badge"> </span>
-<span class="name">And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template:</span>
+<span class="name">And you will find a file at &#39;./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd&#39; that matches the template:</span>
 <a class="step-input-link" data-toggle="collapse" href="#step-4-input" aria-expanded="false" aria-controls="step-4-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-4-output" aria-expanded="false" aria-controls="step-4-output"> [Output]</a><span class="step duration"> [0 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-4-input" aria-expanded="false">
@@ -292,7 +297,7 @@ Project initialized.
                                 </li>
                                 <li id="step-5">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-5-badge"> </span>
-<span class="name">And you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:</span>
+<span class="name">And you will find a file at &#39;./MyGeneratedSample.Features/xBddConfig.json&#39; that matches the template:</span>
 <a class="step-input-link" data-toggle="collapse" href="#step-5-input" aria-expanded="false" aria-controls="step-5-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-5-output" aria-expanded="false" aria-controls="step-5-output"> [Output]</a><span class="step duration"> [0 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-5-input" aria-expanded="false">
@@ -326,7 +331,7 @@ Project initialized.
                                 </li>
                                 <li id="step-6">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-6-badge"> </span>
-<span class="name">And you will find a file at './MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs' that matches the template:</span>
+<span class="name">And you will find a file at &#39;./MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs&#39; that matches the template:</span>
 <a class="step-input-link" data-toggle="collapse" href="#step-6-input" aria-expanded="false" aria-controls="step-6-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-6-output" aria-expanded="false" aria-controls="step-6-output"> [Output]</a><span class="step duration"> [0 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-6-input" aria-expanded="false">
@@ -370,7 +375,7 @@ Project initialized.
                                 </li>
                                 <li id="step-7">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-7-badge"> </span>
-<span class="name">And you will find a file at './MyGeneratedSample.Features/xBddFeatureImport.txt' that matches the template:</span>
+<span class="name">And you will find a file at &#39;./MyGeneratedSample.Features/xBddFeatureImport.txt&#39; that matches the template:</span>
 <a class="step-input-link" data-toggle="collapse" href="#step-7-input" aria-expanded="false" aria-controls="step-7-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-7-output" aria-expanded="false" aria-controls="step-7-output"> [Output]</a><span class="step duration"> [0 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-7-input" aria-expanded="false">
@@ -379,7 +384,7 @@ Project initialized.
 		MyImportedScenario #R-Ready
 			Given you have the xbdd tools installed
 			And you have an xBDDFeatureImport.txt file defined in the root of the project
-			When you execute 'dotnet xbdd project generate MSTest'
+			When you execute &#39;dotnet xbdd project generate MSTest&#39;
 			Then a new feature will be defined in the project with two partial class files
 			And you can finish the import by moving the scenarios from the feature.xbdd.cs file to the feature.cs file
 			And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature</pre>
@@ -390,7 +395,7 @@ Project initialized.
 		MyImportedScenario #R-Ready
 			Given you have the xbdd tools installed
 			And you have an xBDDFeatureImport.txt file defined in the root of the project
-			When you execute 'dotnet xbdd project generate MSTest'
+			When you execute &#39;dotnet xbdd project generate MSTest&#39;
 			Then a new feature will be defined in the project with two partial class files
 			And you can finish the import by moving the scenarios from the feature.xbdd.cs file to the feature.cs file
 			And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature</pre>
@@ -398,7 +403,7 @@ Project initialized.
                                 </li>
                                 <li id="step-8">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-8-badge"> </span>
-<span class="name">And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template:</span>
+<span class="name">And you will find a file at &#39;./MyGeneratedSample.Features/xBDDInitializeAndComplete.cs&#39; that matches the template:</span>
 <a class="step-input-link" data-toggle="collapse" href="#step-8-input" aria-expanded="false" aria-controls="step-8-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-8-output" aria-expanded="false" aria-controls="step-8-output"> [Output]</a><span class="step duration"> [0 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-8-input" aria-expanded="false">
@@ -452,7 +457,7 @@ Project initialized.
                                 </li>
                                 <li id="step-9">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-9-badge"> </span>
-<span class="name">And you will find a file at './MyGeneratedSample.Features/xBddSorting.cs' that matches the template:</span>
+<span class="name">And you will find a file at &#39;./MyGeneratedSample.Features/xBddSorting.cs&#39; that matches the template:</span>
 <a class="step-input-link" data-toggle="collapse" href="#step-9-input" aria-expanded="false" aria-controls="step-9-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-9-output" aria-expanded="false" aria-controls="step-9-output"> [Output]</a><span class="step duration"> [0 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-9-input" aria-expanded="false">
@@ -510,7 +515,7 @@ Project initialized.
                                 </li>
                                 <li id="step-10">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-10-badge"> </span>
-<span class="name">And you will find a file at './MyGeneratedSample.Features/xBddSorting.xbdd.cs' that matches the template:</span>
+<span class="name">And you will find a file at &#39;./MyGeneratedSample.Features/xBddSorting.xbdd.cs&#39; that matches the template:</span>
 <a class="step-input-link" data-toggle="collapse" href="#step-10-input" aria-expanded="false" aria-controls="step-10-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-10-output" aria-expanded="false" aria-controls="step-10-output"> [Output]</a><span class="step duration"> [0 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-10-input" aria-expanded="false">
@@ -568,7 +573,7 @@ Project initialized.
                                 </li>
                                 <li id="step-11">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-11-badge"> </span>
-<span class="name">And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template:</span>
+<span class="name">And you will find a file at &#39;./MyGeneratedSample.Features/Features/MyArea/MyFeature.cs&#39; that matches the template:</span>
 <a class="step-input-link" data-toggle="collapse" href="#step-11-input" aria-expanded="false" aria-controls="step-11-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-11-output" aria-expanded="false" aria-controls="step-11-output"> [Output]</a><span class="step duration"> [0 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-11-input" aria-expanded="false">
@@ -704,8 +709,8 @@ Project initialized.
                                 </li>
                                 <li id="step-12">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-12-badge"> </span>
-<span class="name">And you will find the project execute tests with the 'dotnet test' command</span>
-<a class="step-input-link" data-toggle="collapse" href="#step-12-input" aria-expanded="false" aria-controls="step-12-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-12-output" aria-expanded="false" aria-controls="step-12-output"> [Output]</a><span class="step duration"> [4,889 ms]</span>
+<span class="name">And you will find the project execute tests with the &#39;dotnet test&#39; command</span>
+<a class="step-input-link" data-toggle="collapse" href="#step-12-input" aria-expanded="false" aria-controls="step-12-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-12-output" aria-expanded="false" aria-controls="step-12-output"> [Output]</a><span class="step duration"> [7,829 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-12-input" aria-expanded="false">
                                         <pre class="mp rounded prettyprint lang-sh" id="input-12">dotnet test</pre>
@@ -722,7 +727,7 @@ Starting test execution, please wait...
 
 Total tests: 1. Passed: 1. Failed: 0. Skipped: 0.
 Test Run Successful.
-Test execution time: 1.2040 Seconds
+Test execution time: 1.5871 Seconds
 </pre>
 </div>
                                 </li>
@@ -735,11 +740,23 @@ Test execution time: 1.2040 Seconds
                                         <pre class="mp rounded prettyprint lang-sh" id="input-13">./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html</pre>
 </div>
                                     <div class="output collapse" id="step-13-output" aria-expanded="false">
+
                                         <strong><h5>Output</h5></strong>
-                                        <ul class="nav nav-tabs" role="tablist">
-                                            <li role="presentation" class="active"><a href="#output-preview-13" aria-controls="output-preview-13" role="tab" data-toggle="tab">Preview</a></li>
-                                            <li role="presentation"><a href="#output-code-13" aria-controls="output-code-13" role="tab" data-toggle="tab">Code</a></li>
-                                        </ul>
+                                        <div class="nav nav-tabs" role="tablist">
+                                            <a href="#output-preview-13"
+                                                id="#output-preview-13-tab"
+                                                class="nav-item nav-link active" 
+                                                aria-controls="output-preview-13" 
+                                                aria-selected="true"
+                                                role="tab" 
+                                                data-toggle="tab">Preview</a>
+                                            <a href="#output-code-13" 
+                                                id="#output-code-13-tab"
+                                                class="nav-item nav-link" 
+                                                aria-controls="output-code-13" 
+                                                role="tab" 
+                                                data-toggle="tab">Code</a>
+                                        </div>
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane active" id="output-preview-13">
                                                 <iframe width="100%" height="400px" id="iframe13"></iframe>
@@ -757,26 +774,31 @@ Test execution time: 1.2040 Seconds
     <style> div#testrun-dates { margin\: 0rem 0rem .5rem 5rem; } h1.testrun-name { margin\: .5rem 0rem 0rem 0rem; } span.area.badge { width\: 2.5rem; height\: 1.5rem; position\: absolute; border\: 1px white solid; } span.badge-distro { width\: 3.5rem; display\: inline-block; height\: 1.5rem; vertical-align\: bottom; } span.area.stats { font-size\: 75%; font-weight\: 700; line-height\: 1; text-align\: center; white-space\: nowrap; border-radius\: .25rem; height\: 1.5em; display\: inline-block; width\: 1.75rem; position\: absolute; margin-left\: 2rem; z-index\: -1; vertical-align\: middle; } span.feature.badge { width\: 2.5rem; height\: 1.5rem; position\: absolute; border\: 1px white solid; } span.scenario.badge { width\: 2rem } span.duration { font-size\: 1rem; color\: gray; } span.reason { font-size\: 1rem; color\: gray; } span.status { font-size\: 1rem; color\: gray; } span.step.duration { font-size\: .75rem; color\: gray; } span.oi.oi-info { font-size\: 80% } ol.areas { margin\: .5rem 0rem; } ol { margin-left\: 3rem; } span.badge { margin-left\: .25rem; } span.distro { width\: 1.5rem; height\: 1.5rem; display\: inline-block; margin-left\: 2rem; border\: 1px solid white; } span.name { margin-left\: .75rem; } dl.exception { margin\: 1rem 3rem; padding\: 1rem; } dl.exception dt { margin-bottom\: .25rem; } ol.features { margin-bottom\: 2rem; } ol.scenarios { margin-bottom\: 1.5rem; } ol.steps { margin-bottom\: 1rem; } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; } h2, h3, h4, h5 { font-size\: 1.25rem; margin\: .5rem; font-weight\: 400; } h5 { font-size\: 1rem; margin\: .25rem .75rem; } dl.error-type, dl.error-message, dl.error-stack { padding\: .5rem; } dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding\: .5rem; } pre.feature-statement { margin\: 0rem 0rem 1rem 3rem; padding\: .5rem; } .table th, .table td { border-top\: none \!important; line-height\: 1 \!important; padding\: 2px 10px \!important; } td.graph td { padding\: 0px \!important; } .table { margin\: 0px \!important; } .table td.bar { padding\: 0px \!important; } .testrun-percent-bar { background-color\: #56C1F7; } .area-percent-bar { background-color\: #A4DEFB; } .pointer { cursor\: pointer } pre { white-space\: pre \!important; } pre.mp { margin\: 1rem auto; width\: 95%; border\: lightgray; border-style\: solid; padding\: 1rem; border-width\: thin; } pre.output { margin\: 1rem auto; width\: 95%; border\: lightgray; border-style\: solid; padding\: 1rem; border-width\: thins; } .collapsing { -webkit-transition\: none; transition\: none; display\: none; }<\/style> \
 <\/head> \
 <body class=\"container-fluid\"> \
- \
-                    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\"> \
-                    <a class=\"navbar-brand\" href=\"#\">xBDD Test Results<\/a> \
-                    <button id=\"menu-button\" class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"> \
-                        <span class=\"navbar-toggler-icon\"><\/span> \
-                    <\/button> \
-                    <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\"> \
-                        <div class=\"navbar-nav\"> \
-                        <a class=\"nav-item nav-link active\" href=\"javascript\: $('ol.features').collapse('show');\" id=\"expand-all-areas-button\">Expand All Areas <span class=\"sr-only\">(current)<\/span><\/a> \
-                        <\/div> \
-                    <\/div> \
-                    <\/nav>             \
-                <div class=\"page-header\" style=\"margin-top\: 0px \!important;\"> \
+                <nav class=\"navbar navbar-expand-lg navbar-light bg-light\"> \
+                    <a class=\"navbar-brand\" href=\"#\">xBDD Test Results<\/a> \
+                    <button id=\"menu-button\"  \
+                        class=\"navbar-toggler\"  \
+                        type=\"button\"  \
+                        data-toggle=\"collapse\"  \
+                        data-target=\"#navbarNavAltMarkup\"  \
+                        aria-controls=\"navbarNavAltMarkup\"  \
+                        aria-expanded=\"false\"  \
+                        aria-label=\"Toggle navigation\"> \
+                        <span class=\"navbar-toggler-icon\"><\/span> \
+                    <\/button> \
+                    <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\"> \
+                        <div class=\"navbar-nav\"> \
+                        <a class=\"nav-item nav-link active\" href=\"javascript\: $('ol.features').collapse('show');\" id=\"expand-all-areas-button\">Expand All Areas <span class=\"sr-only\">(current)<\/span><\/a> \
+                        <\/div> \
+                    <\/div> \
+                <\/nav>    <div class=\"page-header\" style=\"margin-top\: 0px \!important;\"> \
         <h1 class=\"testrun-name\"><span class=\"testrun badge pointer badge-pill total badge-success\" title=\"Areas\">1<\/span> \
 <span class=\"name\">My Generated Sample - Features<\/span> \
-<span class=\"testrun duration\"> [19 ms]<\/span> \
+<span class=\"testrun duration\"> [20 ms]<\/span> \
         <\/h1> \
     <\/div> \
     <div style=\"margin-top\: 0px \!important;\" id=\"testrun-dates\"> \
-<span id=\"testrun-start-date\" title=\"Start\">2018-09-01 07\:44 AM GMT-05\:00<\/span> \
+<span id=\"testrun-start-date\" title=\"Start\">2018-09-02 07\:42 AM GMT-05\:00<\/span> \
     <\/div> \
     <table class=\"table table-condensed \" style=\"width\: 100%; empty-cells\: show;\"> \
         <tr id=\"testrun-area-stats\"> \
@@ -832,7 +854,7 @@ Test execution time: 1.2040 Seconds
 <\/span> \
 <\/span> \
                 <span class=\"name pointer\" id=\"area-1-name\" data-toggle=\"collapse\" href=\"#area-1-features\" aria-expanded=\"false\" aria-controls=\"area-1-features\" >My Area<\/span> \
-<span class=\"area duration\"> [19 ms]<\/span> \
+<span class=\"area duration\"> [20 ms]<\/span> \
             <\/h2> \
             <table class=\"table table-condensed collapse\" style=\"width\: 100%; empty-cells\: show;\" id=\"area-1-stats\"> \
                 <tr id=\"area-1-feature-stats\"> \
@@ -873,7 +895,7 @@ Test execution time: 1.2040 Seconds
 <\/span> \
 <\/span> \
 <span class=\"feature-statement-link badge pointer badge-secondary\" id=\"feature-1-statement-link\" data-toggle=\"collapse\" href=\"#feature-1-statement\" aria-expanded=\"false\" aria-controls=\"feature-1-statement\"><span class=\"oi oi-info\" aria-hidden=\"true\"><\/span><\/span>                        <span class=\"name pointer\" data-toggle=\"collapse\" href=\"#feature-1-scenarios\" aria-expanded=\"false\" aria-controls=\"feature-1-scenarios\" >My Feature<\/span> \
-<span class=\"feature duration\"> [19 ms]<\/span> \
+<span class=\"feature duration\"> [20 ms]<\/span> \
                     <\/h3> \
                     <table class=\"table table-condensed collapse\" style=\"width\: 100%; empty-cells\: show;\" id=\"feature-1-stats\"> \
                         <tr id=\"feature-1-scenario-stats\"> \
@@ -901,13 +923,13 @@ By execute my feature<\/pre> \
                         <li class=\"scenario passed\" id=\"scenario-1\"> \
                             <h4 class=\"panel-heading\" data-toggle=\"collapse\" href=\"#scenario-1-steps\" aria-expanded=\"false\" aria-controls=\"scenario-1-steps\" >                                <span class=\"scenario badge pointer total badge-success\" title=\"Steps\">4<\/span> \
 <span class=\"name pointer\">My Scenario<\/span> \
-<span class=\"scenario duration\"> [19 ms]<\/span> \
+<span class=\"scenario duration\"> [20 ms]<\/span> \
                             <\/h4> \
                             <ol class=\"steps list-unstyled collapse\" id=\"scenario-1-steps\" aria-expanded=\"false\"> \
                                 <li id=\"step-1\"> \
                                     <h5>                                        <span class=\"step badge pointer total badge-pill step passed badge-success\" id=\"step-1-badge\"> <\/span> \
 <span class=\"name\">Given my step 1<\/span> \
-<span class=\"step duration\"> [2 ms]<\/span> \
+<span class=\"step duration\"> [0 ms]<\/span> \
 <\/h5> \
                                 <\/li> \
                                 <li id=\"step-2\"> \
@@ -967,26 +989,31 @@ Input\!<\/pre> \
     &lt;style&gt; div#testrun-dates { margin: 0rem 0rem .5rem 5rem; } h1.testrun-name { margin: .5rem 0rem 0rem 0rem; } span.area.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; } span.badge-distro { width: 3.5rem; display: inline-block; height: 1.5rem; vertical-align: bottom; } span.area.stats { font-size: 75%; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; border-radius: .25rem; height: 1.5em; display: inline-block; width: 1.75rem; position: absolute; margin-left: 2rem; z-index: -1; vertical-align: middle; } span.feature.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; } span.scenario.badge { width: 2rem } span.duration { font-size: 1rem; color: gray; } span.reason { font-size: 1rem; color: gray; } span.status { font-size: 1rem; color: gray; } span.step.duration { font-size: .75rem; color: gray; } span.oi.oi-info { font-size: 80% } ol.areas { margin: .5rem 0rem; } ol { margin-left: 3rem; } span.badge { margin-left: .25rem; } span.distro { width: 1.5rem; height: 1.5rem; display: inline-block; margin-left: 2rem; border: 1px solid white; } span.name { margin-left: .75rem; } dl.exception { margin: 1rem 3rem; padding: 1rem; } dl.exception dt { margin-bottom: .25rem; } ol.features { margin-bottom: 2rem; } ol.scenarios { margin-bottom: 1.5rem; } ol.steps { margin-bottom: 1rem; } iframe { border: 1px solid gray; resize: both; overflow: auto; } h2, h3, h4, h5 { font-size: 1.25rem; margin: .5rem; font-weight: 400; } h5 { font-size: 1rem; margin: .25rem .75rem; } dl.error-type, dl.error-message, dl.error-stack { padding: .5rem; } dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding: .5rem; } pre.feature-statement { margin: 0rem 0rem 1rem 3rem; padding: .5rem; } .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; } td.graph td { padding: 0px !important; } .table { margin: 0px !important; } .table td.bar { padding: 0px !important; } .testrun-percent-bar { background-color: #56C1F7; } .area-percent-bar { background-color: #A4DEFB; } .pointer { cursor: pointer } pre { white-space: pre !important; } pre.mp { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thin; } pre.output { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thins; } .collapsing { -webkit-transition: none; transition: none; display: none; }&lt;/style&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
-
-                    &lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-light&quot;&gt;
+                &lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-light&quot;&gt;
                     &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;xBDD Test Results&lt;/a&gt;
-                    &lt;button id=&quot;menu-button&quot; class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbarNavAltMarkup&quot; aria-controls=&quot;navbarNavAltMarkup&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+                    &lt;button id=&quot;menu-button&quot; 
+                        class=&quot;navbar-toggler&quot; 
+                        type=&quot;button&quot; 
+                        data-toggle=&quot;collapse&quot; 
+                        data-target=&quot;#navbarNavAltMarkup&quot; 
+                        aria-controls=&quot;navbarNavAltMarkup&quot; 
+                        aria-expanded=&quot;false&quot; 
+                        aria-label=&quot;Toggle navigation&quot;&gt;
                         &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
                     &lt;/button&gt;
                     &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarNavAltMarkup&quot;&gt;
                         &lt;div class=&quot;navbar-nav&quot;&gt;
-                        &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript: $('ol.features').collapse('show');&quot; id=&quot;expand-all-areas-button&quot;&gt;Expand All Areas &lt;span class=&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
+                        &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript: $(&#39;ol.features&#39;).collapse(&#39;show&#39;);&quot; id=&quot;expand-all-areas-button&quot;&gt;Expand All Areas &lt;span class=&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
-                    &lt;/nav&gt;            
-                &lt;div class=&quot;page-header&quot; style=&quot;margin-top: 0px !important;&quot;&gt;
+                &lt;/nav&gt;    &lt;div class=&quot;page-header&quot; style=&quot;margin-top: 0px !important;&quot;&gt;
         &lt;h1 class=&quot;testrun-name&quot;&gt;&lt;span class=&quot;testrun badge pointer badge-pill total badge-success&quot; title=&quot;Areas&quot;&gt;1&lt;/span&gt;
 &lt;span class=&quot;name&quot;&gt;My Generated Sample - Features&lt;/span&gt;
-&lt;span class=&quot;testrun duration&quot;&gt; [19 ms]&lt;/span&gt;
+&lt;span class=&quot;testrun duration&quot;&gt; [20 ms]&lt;/span&gt;
         &lt;/h1&gt;
     &lt;/div&gt;
     &lt;div style=&quot;margin-top: 0px !important;&quot; id=&quot;testrun-dates&quot;&gt;
-&lt;span id=&quot;testrun-start-date&quot; title=&quot;Start&quot;&gt;2018-09-01 07:44 AM GMT-05:00&lt;/span&gt;
+&lt;span id=&quot;testrun-start-date&quot; title=&quot;Start&quot;&gt;2018-09-02 07:42 AM GMT-05:00&lt;/span&gt;
     &lt;/div&gt;
     &lt;table class=&quot;table table-condensed &quot; style=&quot;width: 100%; empty-cells: show;&quot;&gt;
         &lt;tr id=&quot;testrun-area-stats&quot;&gt;
@@ -1042,7 +1069,7 @@ Input\!<\/pre> \
 &lt;/span&gt;
 &lt;/span&gt;
                 &lt;span class=&quot;name pointer&quot; id=&quot;area-1-name&quot; data-toggle=&quot;collapse&quot; href=&quot;#area-1-features&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;area-1-features&quot; &gt;My Area&lt;/span&gt;
-&lt;span class=&quot;area duration&quot;&gt; [19 ms]&lt;/span&gt;
+&lt;span class=&quot;area duration&quot;&gt; [20 ms]&lt;/span&gt;
             &lt;/h2&gt;
             &lt;table class=&quot;table table-condensed collapse&quot; style=&quot;width: 100%; empty-cells: show;&quot; id=&quot;area-1-stats&quot;&gt;
                 &lt;tr id=&quot;area-1-feature-stats&quot;&gt;
@@ -1083,7 +1110,7 @@ Input\!<\/pre> \
 &lt;/span&gt;
 &lt;/span&gt;
 &lt;span class=&quot;feature-statement-link badge pointer badge-secondary&quot; id=&quot;feature-1-statement-link&quot; data-toggle=&quot;collapse&quot; href=&quot;#feature-1-statement&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;feature-1-statement&quot;&gt;&lt;span class=&quot;oi oi-info&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;/span&gt;                        &lt;span class=&quot;name pointer&quot; data-toggle=&quot;collapse&quot; href=&quot;#feature-1-scenarios&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;feature-1-scenarios&quot; &gt;My Feature&lt;/span&gt;
-&lt;span class=&quot;feature duration&quot;&gt; [19 ms]&lt;/span&gt;
+&lt;span class=&quot;feature duration&quot;&gt; [20 ms]&lt;/span&gt;
                     &lt;/h3&gt;
                     &lt;table class=&quot;table table-condensed collapse&quot; style=&quot;width: 100%; empty-cells: show;&quot; id=&quot;feature-1-stats&quot;&gt;
                         &lt;tr id=&quot;feature-1-scenario-stats&quot;&gt;
@@ -1111,13 +1138,13 @@ By execute my feature&lt;/pre&gt;
                         &lt;li class=&quot;scenario passed&quot; id=&quot;scenario-1&quot;&gt;
                             &lt;h4 class=&quot;panel-heading&quot; data-toggle=&quot;collapse&quot; href=&quot;#scenario-1-steps&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;scenario-1-steps&quot; &gt;                                &lt;span class=&quot;scenario badge pointer total badge-success&quot; title=&quot;Steps&quot;&gt;4&lt;/span&gt;
 &lt;span class=&quot;name pointer&quot;&gt;My Scenario&lt;/span&gt;
-&lt;span class=&quot;scenario duration&quot;&gt; [19 ms]&lt;/span&gt;
+&lt;span class=&quot;scenario duration&quot;&gt; [20 ms]&lt;/span&gt;
                             &lt;/h4&gt;
                             &lt;ol class=&quot;steps list-unstyled collapse&quot; id=&quot;scenario-1-steps&quot; aria-expanded=&quot;false&quot;&gt;
                                 &lt;li id=&quot;step-1&quot;&gt;
                                     &lt;h5&gt;                                        &lt;span class=&quot;step badge pointer total badge-pill step passed badge-success&quot; id=&quot;step-1-badge&quot;&gt; &lt;/span&gt;
 &lt;span class=&quot;name&quot;&gt;Given my step 1&lt;/span&gt;
-&lt;span class=&quot;step duration&quot;&gt; [2 ms]&lt;/span&gt;
+&lt;span class=&quot;step duration&quot;&gt; [0 ms]&lt;/span&gt;
 &lt;/h5&gt;
                                 &lt;/li&gt;
                                 &lt;li id=&quot;step-2&quot;&gt;
@@ -1158,7 +1185,7 @@ Input!&lt;/pre&gt;
     &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js&quot; integrity=&quot;sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js&quot; integrity=&quot;sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
-    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + &#39;px&#39;; }&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
                                             </div>
@@ -1174,7 +1201,7 @@ Input!&lt;/pre&gt;
                                         <pre class="mp rounded prettyprint lang-sh" id="input-14">./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json</pre>
 </div>
                                     <div class="output collapse" id="step-14-output" aria-expanded="false">
-                                        <pre class="prettyprint lang-js" id="output-14">{&quot;Areas&quot;:[{&quot;Features&quot;:[{&quot;Actor&quot;:&quot;sample user&quot;,&quot;Assignments&quot;:[],&quot;Capability&quot;:&quot;execute my feature&quot;,&quot;Explanation&quot;:&quot;\n\t\t# My Explanation\n\t\tThis is a\n\t\tmultiline explanation of the feature.\n\t\t**And it uses markdown!**&quot;,&quot;FullClassName&quot;:&quot;MyGeneratedSample.Features.MyArea.MyFeature&quot;,&quot;Name&quot;:&quot;My Feature&quot;,&quot;Scenarios&quot;:[{&quot;Assignments&quot;:[],&quot;Explanation&quot;:&quot;This is an explanation of the scenario.&quot;,&quot;MethodName&quot;:&quot;MyScenario&quot;,&quot;Name&quot;:&quot;My Scenario&quot;,&quot;Outcome&quot;:1,&quot;Sort&quot;:1,&quot;Steps&quot;:[{&quot;EndTime&quot;:&quot;\/Date(1535805849044-0500)\/&quot;,&quot;Input&quot;:&quot;&quot;,&quot;Name&quot;:&quot;my step 1&quot;,&quot;Outcome&quot;:1,&quot;StartTime&quot;:&quot;\/Date(1535805849041-0500)\/&quot;},{&quot;ActionType&quot;:1,&quot;EndTime&quot;:&quot;\/Date(1535805849050-0500)\/&quot;,&quot;Input&quot;:&quot;Here \nis \nmy \nInput!&quot;,&quot;Name&quot;:&quot;my step 2 with multiline input&quot;,&quot;Outcome&quot;:1,&quot;StartTime&quot;:&quot;\/Date(1535805849050-0500)\/&quot;},{&quot;ActionType&quot;:3,&quot;EndTime&quot;:&quot;\/Date(1535805849050-0500)\/&quot;,&quot;Explanation&quot;:&quot;\n\t\t\t\t\t\t# Step 3 Explanation \n\t\t\t\t\t\tThis is a multiline explanation of \n\t\t\t\t\t\tStep 3.  It uses markdown.  It will\n\t\t\t\t\t\tbe printed out along with the step name in the\n\t\t\t\t\t\thtml report.&quot;,&quot;Name&quot;:&quot;my step 3 with an explanation&quot;,&quot;Outcome&quot;:1,&quot;StartTime&quot;:&quot;\/Date(1535805849050-0500)\/&quot;},{&quot;ActionType&quot;:2,&quot;EndTime&quot;:&quot;\/Date(1535805849050-0500)\/&quot;,&quot;Input&quot;:&quot;&quot;,&quot;Name&quot;:&quot;my step 3 with output&quot;,&quot;Outcome&quot;:1,&quot;Output&quot;:&quot;Here is my output.&quot;,&quot;StartTime&quot;:&quot;\/Date(1535805849050-0500)\/&quot;}],&quot;Tags&quot;:[]}],&quot;Sort&quot;:1,&quot;Tags&quot;:[],&quot;Value&quot;:&quot;have my feature value&quot;}],&quot;Name&quot;:&quot;My Generated Sample - Features - My Area&quot;}],&quot;Name&quot;:&quot;My Generated Sample - Features&quot;}</pre>
+                                        <pre class="prettyprint lang-js" id="output-14">{&quot;Areas&quot;:[{&quot;Features&quot;:[{&quot;Actor&quot;:&quot;sample user&quot;,&quot;Assignments&quot;:[],&quot;Capability&quot;:&quot;execute my feature&quot;,&quot;Explanation&quot;:&quot;\n\t\t# My Explanation\n\t\tThis is a\n\t\tmultiline explanation of the feature.\n\t\t**And it uses markdown!**&quot;,&quot;FullClassName&quot;:&quot;MyGeneratedSample.Features.MyArea.MyFeature&quot;,&quot;Name&quot;:&quot;My Feature&quot;,&quot;Scenarios&quot;:[{&quot;Assignments&quot;:[],&quot;Explanation&quot;:&quot;This is an explanation of the scenario.&quot;,&quot;MethodName&quot;:&quot;MyScenario&quot;,&quot;Name&quot;:&quot;My Scenario&quot;,&quot;Outcome&quot;:1,&quot;Sort&quot;:1,&quot;Steps&quot;:[{&quot;EndTime&quot;:&quot;\/Date(1535892172336-0500)\/&quot;,&quot;Input&quot;:&quot;&quot;,&quot;Name&quot;:&quot;my step 1&quot;,&quot;Outcome&quot;:1,&quot;StartTime&quot;:&quot;\/Date(1535892172335-0500)\/&quot;},{&quot;ActionType&quot;:1,&quot;EndTime&quot;:&quot;\/Date(1535892172343-0500)\/&quot;,&quot;Input&quot;:&quot;Here \nis \nmy \nInput!&quot;,&quot;Name&quot;:&quot;my step 2 with multiline input&quot;,&quot;Outcome&quot;:1,&quot;StartTime&quot;:&quot;\/Date(1535892172343-0500)\/&quot;},{&quot;ActionType&quot;:3,&quot;EndTime&quot;:&quot;\/Date(1535892172343-0500)\/&quot;,&quot;Explanation&quot;:&quot;\n\t\t\t\t\t\t# Step 3 Explanation \n\t\t\t\t\t\tThis is a multiline explanation of \n\t\t\t\t\t\tStep 3.  It uses markdown.  It will\n\t\t\t\t\t\tbe printed out along with the step name in the\n\t\t\t\t\t\thtml report.&quot;,&quot;Name&quot;:&quot;my step 3 with an explanation&quot;,&quot;Outcome&quot;:1,&quot;StartTime&quot;:&quot;\/Date(1535892172343-0500)\/&quot;},{&quot;ActionType&quot;:2,&quot;EndTime&quot;:&quot;\/Date(1535892172343-0500)\/&quot;,&quot;Input&quot;:&quot;&quot;,&quot;Name&quot;:&quot;my step 3 with output&quot;,&quot;Outcome&quot;:1,&quot;Output&quot;:&quot;Here is my output.&quot;,&quot;StartTime&quot;:&quot;\/Date(1535892172343-0500)\/&quot;}],&quot;Tags&quot;:[]}],&quot;Sort&quot;:1,&quot;Tags&quot;:[],&quot;Value&quot;:&quot;have my feature value&quot;}],&quot;Name&quot;:&quot;My Generated Sample - Features - My Area&quot;}],&quot;Name&quot;:&quot;My Generated Sample - Features&quot;}</pre>
 </div>
                                 </li>
                                 <li id="step-15">
@@ -1267,19 +1294,19 @@ My Generated Sample - Features - My Area
                         <li class="scenario passed" id="scenario-2">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-2-steps" aria-expanded="false" aria-controls="scenario-2-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">13</span>
 <span class="name pointer">In An Initialized XBDD</span>
-<span class="scenario duration"> [9,129 ms]</span>
+<span class="scenario duration"> [11,613 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-2-steps" aria-expanded="false">
                                 <li id="step-18">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-18-badge"> </span>
 <span class="name">Given you have an empty project directory</span>
-<span class="step duration"> [7 ms]</span>
+<span class="step duration"> [9 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-19">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-19-badge"> </span>
 <span class="name">When you run the command:</span>
-<a class="step-input-link" data-toggle="collapse" href="#step-19-input" aria-expanded="false" aria-controls="step-19-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-19-output" aria-expanded="false" aria-controls="step-19-output"> [Output]</a><span class="step duration"> [1,209 ms]</span>
+<a class="step-input-link" data-toggle="collapse" href="#step-19-input" aria-expanded="false" aria-controls="step-19-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-19-output" aria-expanded="false" aria-controls="step-19-output"> [Output]</a><span class="step duration"> [1,698 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-19-input" aria-expanded="false">
                                         <pre class="mp rounded prettyprint lang-sh" id="input-19">dotnet xbdd project generate MSTest</pre>
@@ -1300,7 +1327,7 @@ Project initialized.
                                 <li id="step-21">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-21-badge"> </span>
 <span class="name">When you run the command:</span>
-<a class="step-input-link" data-toggle="collapse" href="#step-21-input" aria-expanded="false" aria-controls="step-21-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-21-output" aria-expanded="false" aria-controls="step-21-output"> [Output]</a><span class="step duration"> [2,114 ms]</span>
+<a class="step-input-link" data-toggle="collapse" href="#step-21-input" aria-expanded="false" aria-controls="step-21-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-21-output" aria-expanded="false" aria-controls="step-21-output"> [Output]</a><span class="step duration"> [2,424 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-21-input" aria-expanded="false">
                                         <pre class="mp rounded prettyprint lang-sh" id="input-21">dotnet xbdd project generate MSTest</pre>
@@ -1332,8 +1359,8 @@ Project initialized.
                                 </li>
                                 <li id="step-25">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-25-badge"> </span>
-<span class="name">And you will find the project execute tests with the 'dotnet test' command</span>
-<a class="step-input-link" data-toggle="collapse" href="#step-25-input" aria-expanded="false" aria-controls="step-25-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-25-output" aria-expanded="false" aria-controls="step-25-output"> [Output]</a><span class="step duration"> [5,791 ms]</span>
+<span class="name">And you will find the project execute tests with the &#39;dotnet test&#39; command</span>
+<a class="step-input-link" data-toggle="collapse" href="#step-25-input" aria-expanded="false" aria-controls="step-25-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-25-output" aria-expanded="false" aria-controls="step-25-output"> [Output]</a><span class="step duration"> [7,474 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-25-input" aria-expanded="false">
                                         <pre class="mp rounded prettyprint lang-sh" id="input-25">dotnet test</pre>
@@ -1350,7 +1377,7 @@ Starting test execution, please wait...
 
 Total tests: 1. Passed: 1. Failed: 0. Skipped: 0.
 Test Run Successful.
-Test execution time: 1.4312 Seconds
+Test execution time: 1.3237 Seconds
 </pre>
 </div>
                                 </li>
@@ -1363,11 +1390,23 @@ Test execution time: 1.4312 Seconds
                                         <pre class="mp rounded prettyprint lang-sh" id="input-26">./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html</pre>
 </div>
                                     <div class="output collapse" id="step-26-output" aria-expanded="false">
+
                                         <strong><h5>Output</h5></strong>
-                                        <ul class="nav nav-tabs" role="tablist">
-                                            <li role="presentation" class="active"><a href="#output-preview-26" aria-controls="output-preview-26" role="tab" data-toggle="tab">Preview</a></li>
-                                            <li role="presentation"><a href="#output-code-26" aria-controls="output-code-26" role="tab" data-toggle="tab">Code</a></li>
-                                        </ul>
+                                        <div class="nav nav-tabs" role="tablist">
+                                            <a href="#output-preview-26"
+                                                id="#output-preview-26-tab"
+                                                class="nav-item nav-link active" 
+                                                aria-controls="output-preview-26" 
+                                                aria-selected="true"
+                                                role="tab" 
+                                                data-toggle="tab">Preview</a>
+                                            <a href="#output-code-26" 
+                                                id="#output-code-26-tab"
+                                                class="nav-item nav-link" 
+                                                aria-controls="output-code-26" 
+                                                role="tab" 
+                                                data-toggle="tab">Code</a>
+                                        </div>
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane active" id="output-preview-26">
                                                 <iframe width="100%" height="400px" id="iframe26"></iframe>
@@ -1385,26 +1424,31 @@ Test execution time: 1.4312 Seconds
     <style> div#testrun-dates { margin\: 0rem 0rem .5rem 5rem; } h1.testrun-name { margin\: .5rem 0rem 0rem 0rem; } span.area.badge { width\: 2.5rem; height\: 1.5rem; position\: absolute; border\: 1px white solid; } span.badge-distro { width\: 3.5rem; display\: inline-block; height\: 1.5rem; vertical-align\: bottom; } span.area.stats { font-size\: 75%; font-weight\: 700; line-height\: 1; text-align\: center; white-space\: nowrap; border-radius\: .25rem; height\: 1.5em; display\: inline-block; width\: 1.75rem; position\: absolute; margin-left\: 2rem; z-index\: -1; vertical-align\: middle; } span.feature.badge { width\: 2.5rem; height\: 1.5rem; position\: absolute; border\: 1px white solid; } span.scenario.badge { width\: 2rem } span.duration { font-size\: 1rem; color\: gray; } span.reason { font-size\: 1rem; color\: gray; } span.status { font-size\: 1rem; color\: gray; } span.step.duration { font-size\: .75rem; color\: gray; } span.oi.oi-info { font-size\: 80% } ol.areas { margin\: .5rem 0rem; } ol { margin-left\: 3rem; } span.badge { margin-left\: .25rem; } span.distro { width\: 1.5rem; height\: 1.5rem; display\: inline-block; margin-left\: 2rem; border\: 1px solid white; } span.name { margin-left\: .75rem; } dl.exception { margin\: 1rem 3rem; padding\: 1rem; } dl.exception dt { margin-bottom\: .25rem; } ol.features { margin-bottom\: 2rem; } ol.scenarios { margin-bottom\: 1.5rem; } ol.steps { margin-bottom\: 1rem; } iframe { border\: 1px solid gray; resize\: both; overflow\: auto; } h2, h3, h4, h5 { font-size\: 1.25rem; margin\: .5rem; font-weight\: 400; } h5 { font-size\: 1rem; margin\: .25rem .75rem; } dl.error-type, dl.error-message, dl.error-stack { padding\: .5rem; } dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding\: .5rem; } pre.feature-statement { margin\: 0rem 0rem 1rem 3rem; padding\: .5rem; } .table th, .table td { border-top\: none \!important; line-height\: 1 \!important; padding\: 2px 10px \!important; } td.graph td { padding\: 0px \!important; } .table { margin\: 0px \!important; } .table td.bar { padding\: 0px \!important; } .testrun-percent-bar { background-color\: #56C1F7; } .area-percent-bar { background-color\: #A4DEFB; } .pointer { cursor\: pointer } pre { white-space\: pre \!important; } pre.mp { margin\: 1rem auto; width\: 95%; border\: lightgray; border-style\: solid; padding\: 1rem; border-width\: thin; } pre.output { margin\: 1rem auto; width\: 95%; border\: lightgray; border-style\: solid; padding\: 1rem; border-width\: thins; } .collapsing { -webkit-transition\: none; transition\: none; display\: none; }<\/style> \
 <\/head> \
 <body class=\"container-fluid\"> \
- \
-                    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\"> \
-                    <a class=\"navbar-brand\" href=\"#\">xBDD Test Results<\/a> \
-                    <button id=\"menu-button\" class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"> \
-                        <span class=\"navbar-toggler-icon\"><\/span> \
-                    <\/button> \
-                    <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\"> \
-                        <div class=\"navbar-nav\"> \
-                        <a class=\"nav-item nav-link active\" href=\"javascript\: $('ol.features').collapse('show');\" id=\"expand-all-areas-button\">Expand All Areas <span class=\"sr-only\">(current)<\/span><\/a> \
-                        <\/div> \
-                    <\/div> \
-                    <\/nav>             \
-                <div class=\"page-header\" style=\"margin-top\: 0px \!important;\"> \
+                <nav class=\"navbar navbar-expand-lg navbar-light bg-light\"> \
+                    <a class=\"navbar-brand\" href=\"#\">xBDD Test Results<\/a> \
+                    <button id=\"menu-button\"  \
+                        class=\"navbar-toggler\"  \
+                        type=\"button\"  \
+                        data-toggle=\"collapse\"  \
+                        data-target=\"#navbarNavAltMarkup\"  \
+                        aria-controls=\"navbarNavAltMarkup\"  \
+                        aria-expanded=\"false\"  \
+                        aria-label=\"Toggle navigation\"> \
+                        <span class=\"navbar-toggler-icon\"><\/span> \
+                    <\/button> \
+                    <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\"> \
+                        <div class=\"navbar-nav\"> \
+                        <a class=\"nav-item nav-link active\" href=\"javascript\: $('ol.features').collapse('show');\" id=\"expand-all-areas-button\">Expand All Areas <span class=\"sr-only\">(current)<\/span><\/a> \
+                        <\/div> \
+                    <\/div> \
+                <\/nav>    <div class=\"page-header\" style=\"margin-top\: 0px \!important;\"> \
         <h1 class=\"testrun-name\"><span class=\"testrun badge pointer badge-pill total badge-success\" title=\"Areas\">1<\/span> \
 <span class=\"name\">My Generated Sample - Features<\/span> \
-<span class=\"testrun duration\"> [30 ms]<\/span> \
+<span class=\"testrun duration\"> [16 ms]<\/span> \
         <\/h1> \
     <\/div> \
     <div style=\"margin-top\: 0px \!important;\" id=\"testrun-dates\"> \
-<span id=\"testrun-start-date\" title=\"Start\">2018-09-01 07\:44 AM GMT-05\:00<\/span> \
+<span id=\"testrun-start-date\" title=\"Start\">2018-09-02 07\:43 AM GMT-05\:00<\/span> \
     <\/div> \
     <table class=\"table table-condensed \" style=\"width\: 100%; empty-cells\: show;\"> \
         <tr id=\"testrun-area-stats\"> \
@@ -1460,7 +1504,7 @@ Test execution time: 1.4312 Seconds
 <\/span> \
 <\/span> \
                 <span class=\"name pointer\" id=\"area-1-name\" data-toggle=\"collapse\" href=\"#area-1-features\" aria-expanded=\"false\" aria-controls=\"area-1-features\" >My Area<\/span> \
-<span class=\"area duration\"> [30 ms]<\/span> \
+<span class=\"area duration\"> [16 ms]<\/span> \
             <\/h2> \
             <table class=\"table table-condensed collapse\" style=\"width\: 100%; empty-cells\: show;\" id=\"area-1-stats\"> \
                 <tr id=\"area-1-feature-stats\"> \
@@ -1501,7 +1545,7 @@ Test execution time: 1.4312 Seconds
 <\/span> \
 <\/span> \
 <span class=\"feature-statement-link badge pointer badge-secondary\" id=\"feature-1-statement-link\" data-toggle=\"collapse\" href=\"#feature-1-statement\" aria-expanded=\"false\" aria-controls=\"feature-1-statement\"><span class=\"oi oi-info\" aria-hidden=\"true\"><\/span><\/span>                        <span class=\"name pointer\" data-toggle=\"collapse\" href=\"#feature-1-scenarios\" aria-expanded=\"false\" aria-controls=\"feature-1-scenarios\" >My Feature<\/span> \
-<span class=\"feature duration\"> [30 ms]<\/span> \
+<span class=\"feature duration\"> [16 ms]<\/span> \
                     <\/h3> \
                     <table class=\"table table-condensed collapse\" style=\"width\: 100%; empty-cells\: show;\" id=\"feature-1-stats\"> \
                         <tr id=\"feature-1-scenario-stats\"> \
@@ -1529,13 +1573,13 @@ By execute my feature<\/pre> \
                         <li class=\"scenario passed\" id=\"scenario-1\"> \
                             <h4 class=\"panel-heading\" data-toggle=\"collapse\" href=\"#scenario-1-steps\" aria-expanded=\"false\" aria-controls=\"scenario-1-steps\" >                                <span class=\"scenario badge pointer total badge-success\" title=\"Steps\">4<\/span> \
 <span class=\"name pointer\">My Scenario<\/span> \
-<span class=\"scenario duration\"> [30 ms]<\/span> \
+<span class=\"scenario duration\"> [16 ms]<\/span> \
                             <\/h4> \
                             <ol class=\"steps list-unstyled collapse\" id=\"scenario-1-steps\" aria-expanded=\"false\"> \
                                 <li id=\"step-1\"> \
                                     <h5>                                        <span class=\"step badge pointer total badge-pill step passed badge-success\" id=\"step-1-badge\"> <\/span> \
 <span class=\"name\">Given my step 1<\/span> \
-<span class=\"step duration\"> [5 ms]<\/span> \
+<span class=\"step duration\"> [0 ms]<\/span> \
 <\/h5> \
                                 <\/li> \
                                 <li id=\"step-2\"> \
@@ -1595,26 +1639,31 @@ Input\!<\/pre> \
     &lt;style&gt; div#testrun-dates { margin: 0rem 0rem .5rem 5rem; } h1.testrun-name { margin: .5rem 0rem 0rem 0rem; } span.area.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; } span.badge-distro { width: 3.5rem; display: inline-block; height: 1.5rem; vertical-align: bottom; } span.area.stats { font-size: 75%; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; border-radius: .25rem; height: 1.5em; display: inline-block; width: 1.75rem; position: absolute; margin-left: 2rem; z-index: -1; vertical-align: middle; } span.feature.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; } span.scenario.badge { width: 2rem } span.duration { font-size: 1rem; color: gray; } span.reason { font-size: 1rem; color: gray; } span.status { font-size: 1rem; color: gray; } span.step.duration { font-size: .75rem; color: gray; } span.oi.oi-info { font-size: 80% } ol.areas { margin: .5rem 0rem; } ol { margin-left: 3rem; } span.badge { margin-left: .25rem; } span.distro { width: 1.5rem; height: 1.5rem; display: inline-block; margin-left: 2rem; border: 1px solid white; } span.name { margin-left: .75rem; } dl.exception { margin: 1rem 3rem; padding: 1rem; } dl.exception dt { margin-bottom: .25rem; } ol.features { margin-bottom: 2rem; } ol.scenarios { margin-bottom: 1.5rem; } ol.steps { margin-bottom: 1rem; } iframe { border: 1px solid gray; resize: both; overflow: auto; } h2, h3, h4, h5 { font-size: 1.25rem; margin: .5rem; font-weight: 400; } h5 { font-size: 1rem; margin: .25rem .75rem; } dl.error-type, dl.error-message, dl.error-stack { padding: .5rem; } dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding: .5rem; } pre.feature-statement { margin: 0rem 0rem 1rem 3rem; padding: .5rem; } .table th, .table td { border-top: none !important; line-height: 1 !important; padding: 2px 10px !important; } td.graph td { padding: 0px !important; } .table { margin: 0px !important; } .table td.bar { padding: 0px !important; } .testrun-percent-bar { background-color: #56C1F7; } .area-percent-bar { background-color: #A4DEFB; } .pointer { cursor: pointer } pre { white-space: pre !important; } pre.mp { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thin; } pre.output { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thins; } .collapsing { -webkit-transition: none; transition: none; display: none; }&lt;/style&gt;
 &lt;/head&gt;
 &lt;body class=&quot;container-fluid&quot;&gt;
-
-                    &lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-light&quot;&gt;
+                &lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-light&quot;&gt;
                     &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;xBDD Test Results&lt;/a&gt;
-                    &lt;button id=&quot;menu-button&quot; class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbarNavAltMarkup&quot; aria-controls=&quot;navbarNavAltMarkup&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+                    &lt;button id=&quot;menu-button&quot; 
+                        class=&quot;navbar-toggler&quot; 
+                        type=&quot;button&quot; 
+                        data-toggle=&quot;collapse&quot; 
+                        data-target=&quot;#navbarNavAltMarkup&quot; 
+                        aria-controls=&quot;navbarNavAltMarkup&quot; 
+                        aria-expanded=&quot;false&quot; 
+                        aria-label=&quot;Toggle navigation&quot;&gt;
                         &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
                     &lt;/button&gt;
                     &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarNavAltMarkup&quot;&gt;
                         &lt;div class=&quot;navbar-nav&quot;&gt;
-                        &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript: $('ol.features').collapse('show');&quot; id=&quot;expand-all-areas-button&quot;&gt;Expand All Areas &lt;span class=&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
+                        &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript: $(&#39;ol.features&#39;).collapse(&#39;show&#39;);&quot; id=&quot;expand-all-areas-button&quot;&gt;Expand All Areas &lt;span class=&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
-                    &lt;/nav&gt;            
-                &lt;div class=&quot;page-header&quot; style=&quot;margin-top: 0px !important;&quot;&gt;
+                &lt;/nav&gt;    &lt;div class=&quot;page-header&quot; style=&quot;margin-top: 0px !important;&quot;&gt;
         &lt;h1 class=&quot;testrun-name&quot;&gt;&lt;span class=&quot;testrun badge pointer badge-pill total badge-success&quot; title=&quot;Areas&quot;&gt;1&lt;/span&gt;
 &lt;span class=&quot;name&quot;&gt;My Generated Sample - Features&lt;/span&gt;
-&lt;span class=&quot;testrun duration&quot;&gt; [30 ms]&lt;/span&gt;
+&lt;span class=&quot;testrun duration&quot;&gt; [16 ms]&lt;/span&gt;
         &lt;/h1&gt;
     &lt;/div&gt;
     &lt;div style=&quot;margin-top: 0px !important;&quot; id=&quot;testrun-dates&quot;&gt;
-&lt;span id=&quot;testrun-start-date&quot; title=&quot;Start&quot;&gt;2018-09-01 07:44 AM GMT-05:00&lt;/span&gt;
+&lt;span id=&quot;testrun-start-date&quot; title=&quot;Start&quot;&gt;2018-09-02 07:43 AM GMT-05:00&lt;/span&gt;
     &lt;/div&gt;
     &lt;table class=&quot;table table-condensed &quot; style=&quot;width: 100%; empty-cells: show;&quot;&gt;
         &lt;tr id=&quot;testrun-area-stats&quot;&gt;
@@ -1670,7 +1719,7 @@ Input\!<\/pre> \
 &lt;/span&gt;
 &lt;/span&gt;
                 &lt;span class=&quot;name pointer&quot; id=&quot;area-1-name&quot; data-toggle=&quot;collapse&quot; href=&quot;#area-1-features&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;area-1-features&quot; &gt;My Area&lt;/span&gt;
-&lt;span class=&quot;area duration&quot;&gt; [30 ms]&lt;/span&gt;
+&lt;span class=&quot;area duration&quot;&gt; [16 ms]&lt;/span&gt;
             &lt;/h2&gt;
             &lt;table class=&quot;table table-condensed collapse&quot; style=&quot;width: 100%; empty-cells: show;&quot; id=&quot;area-1-stats&quot;&gt;
                 &lt;tr id=&quot;area-1-feature-stats&quot;&gt;
@@ -1711,7 +1760,7 @@ Input\!<\/pre> \
 &lt;/span&gt;
 &lt;/span&gt;
 &lt;span class=&quot;feature-statement-link badge pointer badge-secondary&quot; id=&quot;feature-1-statement-link&quot; data-toggle=&quot;collapse&quot; href=&quot;#feature-1-statement&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;feature-1-statement&quot;&gt;&lt;span class=&quot;oi oi-info&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;/span&gt;                        &lt;span class=&quot;name pointer&quot; data-toggle=&quot;collapse&quot; href=&quot;#feature-1-scenarios&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;feature-1-scenarios&quot; &gt;My Feature&lt;/span&gt;
-&lt;span class=&quot;feature duration&quot;&gt; [30 ms]&lt;/span&gt;
+&lt;span class=&quot;feature duration&quot;&gt; [16 ms]&lt;/span&gt;
                     &lt;/h3&gt;
                     &lt;table class=&quot;table table-condensed collapse&quot; style=&quot;width: 100%; empty-cells: show;&quot; id=&quot;feature-1-stats&quot;&gt;
                         &lt;tr id=&quot;feature-1-scenario-stats&quot;&gt;
@@ -1739,13 +1788,13 @@ By execute my feature&lt;/pre&gt;
                         &lt;li class=&quot;scenario passed&quot; id=&quot;scenario-1&quot;&gt;
                             &lt;h4 class=&quot;panel-heading&quot; data-toggle=&quot;collapse&quot; href=&quot;#scenario-1-steps&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;scenario-1-steps&quot; &gt;                                &lt;span class=&quot;scenario badge pointer total badge-success&quot; title=&quot;Steps&quot;&gt;4&lt;/span&gt;
 &lt;span class=&quot;name pointer&quot;&gt;My Scenario&lt;/span&gt;
-&lt;span class=&quot;scenario duration&quot;&gt; [30 ms]&lt;/span&gt;
+&lt;span class=&quot;scenario duration&quot;&gt; [16 ms]&lt;/span&gt;
                             &lt;/h4&gt;
                             &lt;ol class=&quot;steps list-unstyled collapse&quot; id=&quot;scenario-1-steps&quot; aria-expanded=&quot;false&quot;&gt;
                                 &lt;li id=&quot;step-1&quot;&gt;
                                     &lt;h5&gt;                                        &lt;span class=&quot;step badge pointer total badge-pill step passed badge-success&quot; id=&quot;step-1-badge&quot;&gt; &lt;/span&gt;
 &lt;span class=&quot;name&quot;&gt;Given my step 1&lt;/span&gt;
-&lt;span class=&quot;step duration&quot;&gt; [5 ms]&lt;/span&gt;
+&lt;span class=&quot;step duration&quot;&gt; [0 ms]&lt;/span&gt;
 &lt;/h5&gt;
                                 &lt;/li&gt;
                                 &lt;li id=&quot;step-2&quot;&gt;
@@ -1786,7 +1835,7 @@ Input!&lt;/pre&gt;
     &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js&quot; integrity=&quot;sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js&quot; integrity=&quot;sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
-    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }&lt;/script&gt;
+    &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + &#39;px&#39;; }&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
                                             </div>
@@ -1802,7 +1851,7 @@ Input!&lt;/pre&gt;
                                         <pre class="mp rounded prettyprint lang-sh" id="input-27">./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json</pre>
 </div>
                                     <div class="output collapse" id="step-27-output" aria-expanded="false">
-                                        <pre class="prettyprint lang-js" id="output-27">{&quot;Areas&quot;:[{&quot;Features&quot;:[{&quot;Actor&quot;:&quot;sample user&quot;,&quot;Assignments&quot;:[],&quot;Capability&quot;:&quot;execute my feature&quot;,&quot;Explanation&quot;:&quot;\n\t\t# My Explanation\n\t\tThis is a\n\t\tmultiline explanation of the feature.\n\t\t**And it uses markdown!**&quot;,&quot;FullClassName&quot;:&quot;MyGeneratedSample.Features.MyArea.MyFeature&quot;,&quot;Name&quot;:&quot;My Feature&quot;,&quot;Scenarios&quot;:[{&quot;Assignments&quot;:[],&quot;Explanation&quot;:&quot;This is an explanation of the scenario.&quot;,&quot;MethodName&quot;:&quot;MyScenario&quot;,&quot;Name&quot;:&quot;My Scenario&quot;,&quot;Outcome&quot;:1,&quot;Sort&quot;:1,&quot;Steps&quot;:[{&quot;EndTime&quot;:&quot;\/Date(1535805858135-0500)\/&quot;,&quot;Input&quot;:&quot;&quot;,&quot;Name&quot;:&quot;my step 1&quot;,&quot;Outcome&quot;:1,&quot;StartTime&quot;:&quot;\/Date(1535805858129-0500)\/&quot;},{&quot;ActionType&quot;:1,&quot;EndTime&quot;:&quot;\/Date(1535805858141-0500)\/&quot;,&quot;Input&quot;:&quot;Here \nis \nmy \nInput!&quot;,&quot;Name&quot;:&quot;my step 2 with multiline input&quot;,&quot;Outcome&quot;:1,&quot;StartTime&quot;:&quot;\/Date(1535805858141-0500)\/&quot;},{&quot;ActionType&quot;:3,&quot;EndTime&quot;:&quot;\/Date(1535805858141-0500)\/&quot;,&quot;Explanation&quot;:&quot;\n\t\t\t\t\t\t# Step 3 Explanation \n\t\t\t\t\t\tThis is a multiline explanation of \n\t\t\t\t\t\tStep 3.  It uses markdown.  It will\n\t\t\t\t\t\tbe printed out along with the step name in the\n\t\t\t\t\t\thtml report.&quot;,&quot;Name&quot;:&quot;my step 3 with an explanation&quot;,&quot;Outcome&quot;:1,&quot;StartTime&quot;:&quot;\/Date(1535805858141-0500)\/&quot;},{&quot;ActionType&quot;:2,&quot;EndTime&quot;:&quot;\/Date(1535805858141-0500)\/&quot;,&quot;Input&quot;:&quot;&quot;,&quot;Name&quot;:&quot;my step 3 with output&quot;,&quot;Outcome&quot;:1,&quot;Output&quot;:&quot;Here is my output.&quot;,&quot;StartTime&quot;:&quot;\/Date(1535805858141-0500)\/&quot;}],&quot;Tags&quot;:[]}],&quot;Sort&quot;:1000000,&quot;Tags&quot;:[],&quot;Value&quot;:&quot;have my feature value&quot;}],&quot;Name&quot;:&quot;My Generated Sample - Features - My Area&quot;}],&quot;Name&quot;:&quot;My Generated Sample - Features&quot;}</pre>
+                                        <pre class="prettyprint lang-js" id="output-27">{&quot;Areas&quot;:[{&quot;Features&quot;:[{&quot;Actor&quot;:&quot;sample user&quot;,&quot;Assignments&quot;:[],&quot;Capability&quot;:&quot;execute my feature&quot;,&quot;Explanation&quot;:&quot;\n\t\t# My Explanation\n\t\tThis is a\n\t\tmultiline explanation of the feature.\n\t\t**And it uses markdown!**&quot;,&quot;FullClassName&quot;:&quot;MyGeneratedSample.Features.MyArea.MyFeature&quot;,&quot;Name&quot;:&quot;My Feature&quot;,&quot;Scenarios&quot;:[{&quot;Assignments&quot;:[],&quot;Explanation&quot;:&quot;This is an explanation of the scenario.&quot;,&quot;MethodName&quot;:&quot;MyScenario&quot;,&quot;Name&quot;:&quot;My Scenario&quot;,&quot;Outcome&quot;:1,&quot;Sort&quot;:1,&quot;Steps&quot;:[{&quot;EndTime&quot;:&quot;\/Date(1535892184040-0500)\/&quot;,&quot;Input&quot;:&quot;&quot;,&quot;Name&quot;:&quot;my step 1&quot;,&quot;Outcome&quot;:1,&quot;StartTime&quot;:&quot;\/Date(1535892184039-0500)\/&quot;},{&quot;ActionType&quot;:1,&quot;EndTime&quot;:&quot;\/Date(1535892184046-0500)\/&quot;,&quot;Input&quot;:&quot;Here \nis \nmy \nInput!&quot;,&quot;Name&quot;:&quot;my step 2 with multiline input&quot;,&quot;Outcome&quot;:1,&quot;StartTime&quot;:&quot;\/Date(1535892184045-0500)\/&quot;},{&quot;ActionType&quot;:3,&quot;EndTime&quot;:&quot;\/Date(1535892184046-0500)\/&quot;,&quot;Explanation&quot;:&quot;\n\t\t\t\t\t\t# Step 3 Explanation \n\t\t\t\t\t\tThis is a multiline explanation of \n\t\t\t\t\t\tStep 3.  It uses markdown.  It will\n\t\t\t\t\t\tbe printed out along with the step name in the\n\t\t\t\t\t\thtml report.&quot;,&quot;Name&quot;:&quot;my step 3 with an explanation&quot;,&quot;Outcome&quot;:1,&quot;StartTime&quot;:&quot;\/Date(1535892184046-0500)\/&quot;},{&quot;ActionType&quot;:2,&quot;EndTime&quot;:&quot;\/Date(1535892184046-0500)\/&quot;,&quot;Input&quot;:&quot;&quot;,&quot;Name&quot;:&quot;my step 3 with output&quot;,&quot;Outcome&quot;:1,&quot;Output&quot;:&quot;Here is my output.&quot;,&quot;StartTime&quot;:&quot;\/Date(1535892184046-0500)\/&quot;}],&quot;Tags&quot;:[]}],&quot;Sort&quot;:1,&quot;Tags&quot;:[],&quot;Value&quot;:&quot;have my feature value&quot;}],&quot;Name&quot;:&quot;My Generated Sample - Features - My Area&quot;}],&quot;Name&quot;:&quot;My Generated Sample - Features&quot;}</pre>
 </div>
                                 </li>
                                 <li id="step-28">
@@ -1895,7 +1944,7 @@ My Generated Sample - Features - My Area
                         <li class="scenario passed" id="scenario-3">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-3-steps" aria-expanded="false" aria-controls="scenario-3-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
 <span class="name pointer">With A Test Run Name</span>
-<span class="scenario duration"> [1,341 ms]</span>
+<span class="scenario duration"> [1,586 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-3-steps" aria-expanded="false">
                                 <li id="step-31">
@@ -1907,7 +1956,7 @@ My Generated Sample - Features - My Area
                                 <li id="step-32">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-32-badge"> </span>
 <span class="name">When you run the command:</span>
-<a class="step-input-link" data-toggle="collapse" href="#step-32-input" aria-expanded="false" aria-controls="step-32-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-32-output" aria-expanded="false" aria-controls="step-32-output"> [Output]</a><span class="step duration"> [1,324 ms]</span>
+<a class="step-input-link" data-toggle="collapse" href="#step-32-input" aria-expanded="false" aria-controls="step-32-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-32-output" aria-expanded="false" aria-controls="step-32-output"> [Output]</a><span class="step duration"> [1,569 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-32-input" aria-expanded="false">
                                         <pre class="mp rounded prettyprint lang-sh" id="input-32">dotnet xbdd project generate MSTest --testrun-name &quot;My Sample Test Run&quot;</pre>
@@ -1921,7 +1970,7 @@ Project initialized.
                                 </li>
                                 <li id="step-33">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-33-badge"> </span>
-<span class="name">Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:</span>
+<span class="name">Then you will find a file at &#39;./MyGeneratedSample.Features/xBddConfig.json&#39; that matches the template:</span>
 <a class="step-input-link" data-toggle="collapse" href="#step-33-input" aria-expanded="false" aria-controls="step-33-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-33-output" aria-expanded="false" aria-controls="step-33-output"> [Output]</a><span class="step duration"> [0 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-33-input" aria-expanded="false">
@@ -1958,19 +2007,19 @@ Project initialized.
                         <li class="scenario passed" id="scenario-4">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-4-steps" aria-expanded="false" aria-controls="scenario-4-steps" >                                <span class="scenario badge pointer total badge-success" title="Steps">3</span>
 <span class="name pointer">With Area Name Clipping</span>
-<span class="scenario duration"> [1,480 ms]</span>
+<span class="scenario duration"> [1,401 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-4-steps" aria-expanded="false">
                                 <li id="step-34">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-34-badge"> </span>
 <span class="name">Given you have an empty project directory</span>
-<span class="step duration"> [1 ms]</span>
+<span class="step duration"> [2 ms]</span>
 </h5>
                                 </li>
                                 <li id="step-35">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-35-badge"> </span>
 <span class="name">When you run the command:</span>
-<a class="step-input-link" data-toggle="collapse" href="#step-35-input" aria-expanded="false" aria-controls="step-35-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-35-output" aria-expanded="false" aria-controls="step-35-output"> [Output]</a><span class="step duration"> [1,477 ms]</span>
+<a class="step-input-link" data-toggle="collapse" href="#step-35-input" aria-expanded="false" aria-controls="step-35-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-35-output" aria-expanded="false" aria-controls="step-35-output"> [Output]</a><span class="step duration"> [1,398 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-35-input" aria-expanded="false">
                                         <pre class="mp rounded prettyprint lang-sh" id="input-35">dotnet xbdd project generate MSTest --remove-from-area-name &quot;Modified&quot;</pre>
@@ -1984,7 +2033,7 @@ Project initialized.
                                 </li>
                                 <li id="step-36">
                                     <h5>                                        <span class="step badge pointer total badge-pill step passed badge-success" id="step-36-badge"> </span>
-<span class="name">Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:</span>
+<span class="name">Then you will find a file at &#39;./MyGeneratedSample.Features/xBddConfig.json&#39; that matches the template:</span>
 <a class="step-input-link" data-toggle="collapse" href="#step-36-input" aria-expanded="false" aria-controls="step-36-input"> [Input]</a><a class="step-output-link" data-toggle="collapse" href="#step-36-output" aria-expanded="false" aria-controls="step-36-output"> [Output]</a><span class="step duration"> [0 ms]</span>
 </h5>
                                     <div class="input collapse" id="step-36-input" aria-expanded="false">
@@ -2027,9 +2076,9 @@ Project initialized.
 <span class="area distro pointer" id="area-2-distro"><div class="distro bg-warning" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
 </span>
 </span>
-                <span class="name pointer" id="area-2-name" data-toggle="collapse" href="#area-2-features" aria-expanded="false" aria-controls="area-2-features" >Generating Feature Files</span>
+                <span class="name pointer" id="area-2-name" data-toggle="collapse" href="#area-2-features" aria-expanded="false" aria-controls="area-2-features" >Generating Feature Files - Using An Xbdd Feature Import File</span>
 <span class="area reason"> [Defining]</span>
-<span class="area duration"> [263 ms]</span>
+<span class="area duration"> [121 ms]</span>
             </h2>
             <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-2-stats">
                 <tr id="area-2-feature-stats">
@@ -2065,19 +2114,19 @@ Project initialized.
             </table>
             <ol class="features list-unstyled collapse" style="border-left: 2px solid #917545;" id="area-2-features" aria-expanded="false">
                 <li class="feature" id="feature-2">
-                    <h3 id="vertical-align: top !important;"><span class="feature badge-distro" id="feature-2-badge-distro" data-toggle="collapse" href="#feature-2-stats" aria-expanded="false" aria-controls="feature-2-stats"  title="Scenarios"><span class="feature badge badge-pill pointer total badge-warning" id="feature-2-badge">20</span>
+                    <h3 id="vertical-align: top !important;"><span class="feature badge-distro" id="feature-2-badge-distro" data-toggle="collapse" href="#feature-2-stats" aria-expanded="false" aria-controls="feature-2-stats"  title="Scenarios"><span class="feature badge badge-pill pointer total badge-warning" id="feature-2-badge">17</span>
 <span class="feature distro pointer" id="feature-2-distro"><div class="distro bg-warning" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
 </span>
 </span>
-<span class="feature-statement-link badge pointer badge-secondary" id="feature-2-statement-link" data-toggle="collapse" href="#feature-2-statement" aria-expanded="false" aria-controls="feature-2-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-2-scenarios" aria-expanded="false" aria-controls="feature-2-scenarios" >Generate MS Test Feature Files From A Valid Feature Import File</span>
+<span class="feature-statement-link badge pointer badge-secondary" id="feature-2-statement-link" data-toggle="collapse" href="#feature-2-statement" aria-expanded="false" aria-controls="feature-2-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-2-scenarios" aria-expanded="false" aria-controls="feature-2-scenarios" >With An Invalid Outline</span>
 <span class="feature reason"> [Defining]</span>
-<span class="feature duration"> [93 ms]</span>
+<span class="feature duration"> [66 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-2-stats">
                         <tr id="feature-2-scenario-stats">
                             <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
                             <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
-                            <td class="skipped warning text-center" style="width: 3.3333333333333%;">20</td>
+                            <td class="skipped warning text-center" style="width: 3.3333333333333%;">17</td>
                             <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
                             <td class="outcome-bar-chart" style="width: 90%;">
                     <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
@@ -2092,13 +2141,13 @@ Project initialized.
                     </table>
                     <div class="output collapse" id="feature-2-statement" aria-expanded="false">
                         <pre class="feature-statement bg-light rounded" id="feature-2-statement">As a Developer
-You can generate a new MS Test Project
-By executing the 'dotnet xbdd project generate MSTest' command</pre>
+You can quickly troubleshoot an invalid feature import outline
+By reviewing the detailed error messages in the xBDD tools output</pre>
 </div>
                     <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #917545;" id="feature-2-scenarios" aria-expanded="false">
                         <li class="scenario skipped" id="scenario-5">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-5-steps" aria-expanded="false" aria-controls="scenario-5-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With An Empty Scenario</span>
+<span class="name pointer">With No Areas AKA Empty</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2107,7 +2156,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-6">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-6-steps" aria-expanded="false" aria-controls="scenario-6-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Given Step</span>
+<span class="name pointer">With No Features</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2116,7 +2165,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-7">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-7-steps" aria-expanded="false" aria-controls="scenario-7-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A When Step</span>
+<span class="name pointer">With No Scenarios</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2125,7 +2174,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-8">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-8-steps" aria-expanded="false" aria-controls="scenario-8-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Then Step</span>
+<span class="name pointer">With A Step With No Name</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2134,7 +2183,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-9">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-9-steps" aria-expanded="false" aria-controls="scenario-9-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With An And Step</span>
+<span class="name pointer">With A Step With Invalid Characters In The Name</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2143,7 +2192,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-10">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-10-steps" aria-expanded="false" aria-controls="scenario-10-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Code Step</span>
+<span class="name pointer">With A Step With An Invalid Child Line</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2152,7 +2201,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-11">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-11-steps" aria-expanded="false" aria-controls="scenario-11-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Step Input</span>
+<span class="name pointer">With A Scenario With No Name</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2161,7 +2210,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-12">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-12-steps" aria-expanded="false" aria-controls="scenario-12-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Step Explanation</span>
+<span class="name pointer">With A Scenario With Invalid Characters In The Name</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2170,7 +2219,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-13">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-13-steps" aria-expanded="false" aria-controls="scenario-13-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Step With Trailing Spaces</span>
+<span class="name pointer">With A Scenario With An Invalid Child Line</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2179,7 +2228,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-14">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-14-steps" aria-expanded="false" aria-controls="scenario-14-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Scenario Explanation</span>
+<span class="name pointer">With A Feature With No Name</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2188,7 +2237,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-15">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-15-steps" aria-expanded="false" aria-controls="scenario-15-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Scenario With Trailing Spaces</span>
+<span class="name pointer">With A Feature With Invalid Characters In The Name</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2197,101 +2246,74 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-16">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-16-steps" aria-expanded="false" aria-controls="scenario-16-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With Scenario Reason Tags</span>
+<span class="name pointer">With A Feature With An Invalid Child Line</span>
 <span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [0 ms]</span>
+<span class="scenario duration"> [1 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-16-steps" aria-expanded="false">
                             </ol>
                         </li>
                         <li class="scenario skipped" id="scenario-17">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-17-steps" aria-expanded="false" aria-controls="scenario-17-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With Scenario Owner Tags</span>
+<span class="name pointer">With An Area With No Name</span>
 <span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [8 ms]</span>
+<span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-17-steps" aria-expanded="false">
                             </ol>
                         </li>
                         <li class="scenario skipped" id="scenario-18">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-18-steps" aria-expanded="false" aria-controls="scenario-18-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With An Existing Feature</span>
+<span class="name pointer">With An Area With Invalid Characters In The Name</span>
 <span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [6 ms]</span>
+<span class="scenario duration"> [9 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-18-steps" aria-expanded="false">
                             </ol>
                         </li>
                         <li class="scenario skipped" id="scenario-19">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-19-steps" aria-expanded="false" aria-controls="scenario-19-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Feature Explanation</span>
+<span class="name pointer">With An Area With An Invalid Child Line</span>
 <span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [4 ms]</span>
+<span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-19-steps" aria-expanded="false">
                             </ol>
                         </li>
                         <li class="scenario skipped" id="scenario-20">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-20-steps" aria-expanded="false" aria-controls="scenario-20-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Feature With Trailing Spaces</span>
+<span class="name pointer">With A Duplicate Feature</span>
 <span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [2 ms]</span>
+<span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-20-steps" aria-expanded="false">
                             </ol>
                         </li>
                         <li class="scenario skipped" id="scenario-21">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-21-steps" aria-expanded="false" aria-controls="scenario-21-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With An Area With Trailing Spaces</span>
+<span class="name pointer">With A Duplicate Scenario</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-21-steps" aria-expanded="false">
                             </ol>
                         </li>
-                        <li class="scenario skipped" id="scenario-22">
-                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-22-steps" aria-expanded="false" aria-controls="scenario-22-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With Ignored Feature Tags</span>
-<span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [0 ms]</span>
-                            </h4>
-                            <ol class="steps list-unstyled collapse" id="scenario-22-steps" aria-expanded="false">
-                            </ol>
-                        </li>
-                        <li class="scenario skipped" id="scenario-23">
-                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-23-steps" aria-expanded="false" aria-controls="scenario-23-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With Ignored Area Tags</span>
-<span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [0 ms]</span>
-                            </h4>
-                            <ol class="steps list-unstyled collapse" id="scenario-23-steps" aria-expanded="false">
-                            </ol>
-                        </li>
-                        <li class="scenario skipped" id="scenario-24">
-                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-24-steps" aria-expanded="false" aria-controls="scenario-24-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Workflowy Text Export</span>
-<span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [0 ms]</span>
-                            </h4>
-                            <ol class="steps list-unstyled collapse" id="scenario-24-steps" aria-expanded="false">
-                            </ol>
-                        </li>
                     </ol>
                 </li>
                 <li class="feature" id="feature-3">
-                    <h3 id="vertical-align: top !important;"><span class="feature badge-distro" id="feature-3-badge-distro" data-toggle="collapse" href="#feature-3-stats" aria-expanded="false" aria-controls="feature-3-stats"  title="Scenarios"><span class="feature badge badge-pill pointer total badge-warning" id="feature-3-badge">17</span>
+                    <h3 id="vertical-align: top !important;"><span class="feature badge-distro" id="feature-3-badge-distro" data-toggle="collapse" href="#feature-3-stats" aria-expanded="false" aria-controls="feature-3-stats"  title="Scenarios"><span class="feature badge badge-pill pointer total badge-warning" id="feature-3-badge">20</span>
 <span class="feature distro pointer" id="feature-3-distro"><div class="distro bg-warning" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
 </span>
 </span>
-<span class="feature-statement-link badge pointer badge-secondary" id="feature-3-statement-link" data-toggle="collapse" href="#feature-3-statement" aria-expanded="false" aria-controls="feature-3-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-3-scenarios" aria-expanded="false" aria-controls="feature-3-scenarios" >Generate MS Test Feature Files From An Invalid Feature Import File</span>
+<span class="feature-statement-link badge pointer badge-secondary" id="feature-3-statement-link" data-toggle="collapse" href="#feature-3-statement" aria-expanded="false" aria-controls="feature-3-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-3-scenarios" aria-expanded="false" aria-controls="feature-3-scenarios" >For An MS Test Project</span>
 <span class="feature reason"> [Defining]</span>
-<span class="feature duration"> [165 ms]</span>
+<span class="feature duration"> [52 ms]</span>
                     </h3>
                     <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-3-stats">
                         <tr id="feature-3-scenario-stats">
                             <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
                             <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
-                            <td class="skipped warning text-center" style="width: 3.3333333333333%;">17</td>
+                            <td class="skipped warning text-center" style="width: 3.3333333333333%;">20</td>
                             <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
                             <td class="outcome-bar-chart" style="width: 90%;">
                     <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
@@ -2310,27 +2332,54 @@ You can generate a new MS Test Project
 By executing the 'dotnet xbdd project generate MSTest' command</pre>
 </div>
                     <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #917545;" id="feature-3-scenarios" aria-expanded="false">
+                        <li class="scenario skipped" id="scenario-22">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-22-steps" aria-expanded="false" aria-controls="scenario-22-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
+<span class="name pointer">With An Empty Scenario</span>
+<span class="scenario reason"> [Defining]</span>
+<span class="scenario duration"> [1 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-22-steps" aria-expanded="false">
+                            </ol>
+                        </li>
+                        <li class="scenario skipped" id="scenario-23">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-23-steps" aria-expanded="false" aria-controls="scenario-23-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
+<span class="name pointer">With A Given Step</span>
+<span class="scenario reason"> [Defining]</span>
+<span class="scenario duration"> [0 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-23-steps" aria-expanded="false">
+                            </ol>
+                        </li>
+                        <li class="scenario skipped" id="scenario-24">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-24-steps" aria-expanded="false" aria-controls="scenario-24-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
+<span class="name pointer">With A When Step</span>
+<span class="scenario reason"> [Defining]</span>
+<span class="scenario duration"> [0 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-24-steps" aria-expanded="false">
+                            </ol>
+                        </li>
                         <li class="scenario skipped" id="scenario-25">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-25-steps" aria-expanded="false" aria-controls="scenario-25-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With No Areas AKA Empty</span>
+<span class="name pointer">With A Then Step</span>
 <span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [6 ms]</span>
+<span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-25-steps" aria-expanded="false">
                             </ol>
                         </li>
                         <li class="scenario skipped" id="scenario-26">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-26-steps" aria-expanded="false" aria-controls="scenario-26-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With No Features</span>
+<span class="name pointer">With An And Step</span>
 <span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [1 ms]</span>
+<span class="scenario duration"> [5 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-26-steps" aria-expanded="false">
                             </ol>
                         </li>
                         <li class="scenario skipped" id="scenario-27">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-27-steps" aria-expanded="false" aria-controls="scenario-27-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With No Scenarios</span>
+<span class="name pointer">With A Code Step</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2339,25 +2388,25 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-28">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-28-steps" aria-expanded="false" aria-controls="scenario-28-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Step With No Name</span>
+<span class="name pointer">With A Step Input</span>
 <span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [6 ms]</span>
+<span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-28-steps" aria-expanded="false">
                             </ol>
                         </li>
                         <li class="scenario skipped" id="scenario-29">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-29-steps" aria-expanded="false" aria-controls="scenario-29-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Step With Invalid Characters In The Name</span>
+<span class="name pointer">With A Step Explanation</span>
 <span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [2 ms]</span>
+<span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-29-steps" aria-expanded="false">
                             </ol>
                         </li>
                         <li class="scenario skipped" id="scenario-30">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-30-steps" aria-expanded="false" aria-controls="scenario-30-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Step With An Invalid Child Line</span>
+<span class="name pointer">With A Step With Trailing Spaces</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2366,7 +2415,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-31">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-31-steps" aria-expanded="false" aria-controls="scenario-31-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Scenario With No Name</span>
+<span class="name pointer">With A Scenario Explanation</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2375,7 +2424,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-32">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-32-steps" aria-expanded="false" aria-controls="scenario-32-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Scenario With Invalid Characters In The Name</span>
+<span class="name pointer">With A Scenario With Trailing Spaces</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2384,7 +2433,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-33">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-33-steps" aria-expanded="false" aria-controls="scenario-33-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Scenario With An Invalid Child Line</span>
+<span class="name pointer">With Scenario Reason Tags</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2393,25 +2442,25 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-34">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-34-steps" aria-expanded="false" aria-controls="scenario-34-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Feature With No Name</span>
+<span class="name pointer">With Scenario Owner Tags</span>
 <span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [8 ms]</span>
+<span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-34-steps" aria-expanded="false">
                             </ol>
                         </li>
                         <li class="scenario skipped" id="scenario-35">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-35-steps" aria-expanded="false" aria-controls="scenario-35-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Feature With Invalid Characters In The Name</span>
+<span class="name pointer">With An Existing Feature</span>
 <span class="scenario reason"> [Defining]</span>
-<span class="scenario duration"> [2 ms]</span>
+<span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-35-steps" aria-expanded="false">
                             </ol>
                         </li>
                         <li class="scenario skipped" id="scenario-36">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-36-steps" aria-expanded="false" aria-controls="scenario-36-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Feature With An Invalid Child Line</span>
+<span class="name pointer">With A Feature Explanation</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2420,7 +2469,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-37">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-37-steps" aria-expanded="false" aria-controls="scenario-37-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With An Area With No Name</span>
+<span class="name pointer">With A Feature With Trailing Spaces</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2429,7 +2478,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-38">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-38-steps" aria-expanded="false" aria-controls="scenario-38-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With An Area With Invalid Characters In The Name</span>
+<span class="name pointer">With An Area With Trailing Spaces</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2438,7 +2487,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-39">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-39-steps" aria-expanded="false" aria-controls="scenario-39-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With An Area With An Invalid Child Line</span>
+<span class="name pointer">With Ignored Feature Tags</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2447,7 +2496,7 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-40">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-40-steps" aria-expanded="false" aria-controls="scenario-40-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Duplicate Feature</span>
+<span class="name pointer">With Ignored Area Tags</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
@@ -2456,11 +2505,116 @@ By executing the 'dotnet xbdd project generate MSTest' command</pre>
                         </li>
                         <li class="scenario skipped" id="scenario-41">
                             <h4 class="panel-heading" data-toggle="collapse" href="#scenario-41-steps" aria-expanded="false" aria-controls="scenario-41-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
-<span class="name pointer">With A Duplicate Scenario</span>
+<span class="name pointer">With A Workflowy Text Export</span>
 <span class="scenario reason"> [Defining]</span>
 <span class="scenario duration"> [0 ms]</span>
                             </h4>
                             <ol class="steps list-unstyled collapse" id="scenario-41-steps" aria-expanded="false">
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li class="area" id="area-3">
+            <h2><span class="area badge-distro" id="area-3-badge-distro" data-toggle="collapse" href="#area-3-stats" aria-expanded="false" aria-controls="area-3-stats"  title="Features"><span class="area badge badge-pill pointer total badge-warning" id="area-3-badge">1</span>
+<span class="area distro pointer" id="area-3-distro"><div class="distro bg-warning" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
+</span>
+</span>
+                <span class="name pointer" id="area-3-name" data-toggle="collapse" href="#area-3-features" aria-expanded="false" aria-controls="area-3-features" >Generating Solution Files - Using An Xbdd Feature Import File</span>
+<span class="area reason"> [Defining]</span>
+<span class="area duration"> [72 ms]</span>
+            </h2>
+            <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="area-3-stats">
+                <tr id="area-3-feature-stats">
+                    <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+                    <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
+                    <td class="skipped warning text-center" style="width: 3.3333333333333%;">1</td>
+                    <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                    <td class="outcome-bar-chart" style="width: 90%;">
+            <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                <tr>
+                    <td class="bar passed-bar bg-success text-center" style="width: 0%"></td>
+                    <td class="bar skipped-bar bg-warning text-center" style="width: 100%"></td>
+                    <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                </tr>
+            </table>
+                </td>
+            </tr>
+                <tr id="area-3-scenario-stats">
+                    <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+                    <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
+                    <td class="skipped warning text-center" style="width: 3.3333333333333%;">3</td>
+                    <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                    <td class="outcome-bar-chart" style="width: 90%;">
+            <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                <tr>
+                    <td class="bar passed-bar bg-success text-center" style="width: 0%"></td>
+                    <td class="bar skipped-bar bg-warning text-center" style="width: 100%"></td>
+                    <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                </tr>
+            </table>
+                </td>
+            </tr>
+            </table>
+            <ol class="features list-unstyled collapse" style="border-left: 2px solid #917545;" id="area-3-features" aria-expanded="false">
+                <li class="feature" id="feature-4">
+                    <h3 id="vertical-align: top !important;"><span class="feature badge-distro" id="feature-4-badge-distro" data-toggle="collapse" href="#feature-4-stats" aria-expanded="false" aria-controls="feature-4-stats"  title="Scenarios"><span class="feature badge badge-pill pointer total badge-warning" id="feature-4-badge">3</span>
+<span class="feature distro pointer" id="feature-4-distro"><div class="distro bg-warning" style="height: 100%; width: 100%; border-top-right-radius: .25em; border-bottom-right-radius: .25em;"></div>
+</span>
+</span>
+<span class="feature-statement-link badge pointer badge-secondary" id="feature-4-statement-link" data-toggle="collapse" href="#feature-4-statement" aria-expanded="false" aria-controls="feature-4-statement"><span class="oi oi-info" aria-hidden="true"></span></span>                        <span class="name pointer" data-toggle="collapse" href="#feature-4-scenarios" aria-expanded="false" aria-controls="feature-4-scenarios" >For An MS Test Project</span>
+<span class="feature reason"> [Defining]</span>
+<span class="feature duration"> [72 ms]</span>
+                    </h3>
+                    <table class="table table-condensed collapse" style="width: 100%; empty-cells: show;" id="feature-4-stats">
+                        <tr id="feature-4-scenario-stats">
+                            <td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+                            <td class="passed success text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="skipped warning text-center" style="width: 3.3333333333333%;">3</td>
+                            <td class="failed danger text-center" style="width: 3.3333333333333%;">0</td>
+                            <td class="outcome-bar-chart" style="width: 90%;">
+                    <table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+                        <tr>
+                            <td class="bar passed-bar bg-success text-center" style="width: 0%"></td>
+                            <td class="bar skipped-bar bg-warning text-center" style="width: 100%"></td>
+                            <td class="bar failed-bar bg-danger text-center" style="width: 0%"></td>
+                        </tr>
+                    </table>
+                        </td>
+                    </tr>
+                    </table>
+                    <div class="output collapse" id="feature-4-statement" aria-expanded="false">
+                        <pre class="feature-statement bg-light rounded" id="feature-4-statement">As a Developer
+You can generate a new MS Test Project
+By executing the 'dotnet xbdd project generate MSTest' command</pre>
+</div>
+                    <ol class="scenarios list-unstyled collapse" style="border-left: 2px solid #917545;" id="feature-4-scenarios" aria-expanded="false">
+                        <li class="scenario skipped" id="scenario-42">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-42-steps" aria-expanded="false" aria-controls="scenario-42-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
+<span class="name pointer">With All Test Run Outcomes</span>
+<span class="scenario reason"> [Defining]</span>
+<span class="scenario duration"> [8 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-42-steps" aria-expanded="false">
+                            </ol>
+                        </li>
+                        <li class="scenario skipped" id="scenario-43">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-43-steps" aria-expanded="false" aria-controls="scenario-43-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
+<span class="name pointer">With No Projects</span>
+<span class="scenario reason"> [Defining]</span>
+<span class="scenario duration"> [0 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-43-steps" aria-expanded="false">
+                            </ol>
+                        </li>
+                        <li class="scenario skipped" id="scenario-44">
+                            <h4 class="panel-heading" data-toggle="collapse" href="#scenario-44-steps" aria-expanded="false" aria-controls="scenario-44-steps" >                                <span class="scenario badge pointer total badge-warning" title="Steps">0</span>
+<span class="name pointer">With An Existing Project That Has Modified Project Files</span>
+<span class="scenario reason"> [Defining]</span>
+<span class="scenario duration"> [0 ms]</span>
+                            </h4>
+                            <ol class="steps list-unstyled collapse" id="scenario-44-steps" aria-expanded="false">
                             </ol>
                         </li>
                     </ol>
