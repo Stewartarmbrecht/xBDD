@@ -377,14 +377,16 @@ namespace xBDD.Importing.Text
 		private string GetLineContent(string line, LineType lineType, int lineNumber) {
 			string lineContent = null;
 			var length = $"{this.indentationKey}".Length;
-			var nameRegex = "^[a-zA-Z][a-zA-Z _0-9]*( - )*[a-zA-Z _0-9]*$";
+			var areaNameRegex = "^[a-zA-Z][a-zA-Z _0-9\\.]*$";
+			var featureAndScenarioNameRegex = "^[a-zA-Z][a-zA-Z _0-9]*$";
 			switch (lineType)
 			{
 				case LineType.Area:
 					lineContent = line;
 					if(lineContent.Length == 0)
 						throw new TextImportException($"Line {lineNumber}: An area is defined with no name.");
-					if(!Regex.Match(lineContent, nameRegex).Success)
+					var areaName = lineContent.ConvertAreaNameToNamespace();
+					if(!Regex.Match(areaName, areaNameRegex).Success)
 						throw new TextImportException($@"An area is defined with invalid characters in the name.
 							Line {lineNumber}: '{lineContent}'
 							Explanation: An area name must start with a letter and can only contain
@@ -399,7 +401,7 @@ namespace xBDD.Importing.Text
 					var featureName = lineContent.ConvertFeatureNameToClassName(); 
 					if(featureName.Length == 0)
 						throw new TextImportException($"Line {lineNumber}: A feature is defined with no name.");
-					if(!Regex.Match(featureName, nameRegex).Success)
+					if(!Regex.Match(featureName, featureAndScenarioNameRegex).Success)
 						throw new TextImportException($@"A feature is defined with invalid characters in the name.
 							Line {lineNumber}: '{lineContent}'
 							Explanation: A feature name must start with a letter and can only contain
@@ -412,7 +414,7 @@ namespace xBDD.Importing.Text
 					var scenarioName = lineContent.ConvertScenarioNameToMethodName();
 					if(scenarioName.Length == 0)
 						throw new TextImportException($"Line {lineNumber}: A scenario is defined with no name.");
-					if(!Regex.Match(scenarioName, nameRegex).Success)
+					if(!Regex.Match(scenarioName, featureAndScenarioNameRegex).Success)
 						throw new TextImportException($@"A scenario is defined with invalid characters in the name.
 							Line {lineNumber}: '{lineContent}'
 							Explanation: A scenario name must start with a letter and can only contain
@@ -562,7 +564,7 @@ namespace xBDD.Importing.Text
 				scenarioTags,
 				featureAssignments,
 				featureTags);
-			var scenarioBuilder = xB.CurrentRun.AddScenario(codeDetails,this.scenarioCount + 1000);
+			var scenarioBuilder = xB.CurrentRun.AddScenario(codeDetails,this.scenarioCount * 1000);
 			scenarioBuilder.Scenario.Reason = reason;
 			if(scenarioBuilder.Scenario.Reason == "Failed") {
 				scenarioBuilder.Scenario.Outcome = Outcome.Failed;

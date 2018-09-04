@@ -12,7 +12,6 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 	using xBDD.Features.GeneratingCode.Actors;
 
 	
-	[TestCategory("Now")]
 	[AsA("Developer")]
 	[YouCan("generate a new MS Test Project")]
 	[By("executing the 'dotnet xbdd project generate MSTest' xbddToolsCommandArgs")]

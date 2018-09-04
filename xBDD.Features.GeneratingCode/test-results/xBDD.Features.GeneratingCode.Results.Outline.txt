@@ -7,7 +7,6 @@ xBDD - Features - Generating Code - Generating Project Files
 			When you run the command:
 				dotnet xbdd project generate MSTest
 			Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template:
-				 File Path: ./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj
 				<Project Sdk="Microsoft.NET.Sdk">
 				
 					<PropertyGroup>
@@ -32,7 +31,6 @@ xBDD - Features - Generating Code - Generating Project Files
 				
 				</Project>
 			And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template:
-				 File Path: ./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd
 				<Project Sdk="Microsoft.NET.Sdk">
 				
 					<PropertyGroup>
@@ -57,7 +55,6 @@ xBDD - Features - Generating Code - Generating Project Files
 				
 				</Project>
 			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
-				 File Path: ./MyGeneratedSample.Features/xBDDConfig.json
 				{
 					"xBDD": {
 						"TestRunName": "My Generated Sample - Features",
@@ -71,7 +68,6 @@ xBDD - Features - Generating Code - Generating Project Files
 					}
 				}
 			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs' that matches the template:
-				// File Path: ./MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs
 				namespace MyGeneratedSample.Features
 				{
 					using xBDD;
@@ -90,7 +86,6 @@ xBDD - Features - Generating Code - Generating Project Files
 					}
 				}
 			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template:
-				 File Path: ./MyGeneratedSample.Features/xBDDFeatureImport.txt
 				MyImportedArea1
 					MyImportedFeature
 						MyImportedScenario #R-Ready
@@ -101,7 +96,6 @@ xBDD - Features - Generating Code - Generating Project Files
 							And you can finish the import by moving the scenarios from the feature.xbdd.cs file to the feature.cs file
 							And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature
 			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template:
-				// File Path: ./MyGeneratedSample.Features/xBDDInitializeAndComplete.cs
 				namespace MyGeneratedSample.Features
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -125,7 +119,6 @@ xBDD - Features - Generating Code - Generating Project Files
 					}
 				}
 			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.cs' that matches the template:
-				// File Path: ./MyGeneratedSample.Features/xBDDSorting.cs
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -151,7 +144,6 @@ xBDD - Features - Generating Code - Generating Project Files
 					}
 				}
 			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.xbdd.cs' that matches the template:
-				// File Path: ./MyGeneratedSample.Features/xBDDSorting.xbdd.cs
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -177,7 +169,6 @@ xBDD - Features - Generating Code - Generating Project Files
 					}
 				}
 			And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template:
-				// File Path: ./MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
 				namespace MyGeneratedSample.Features.MyArea
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -316,7 +307,6 @@ xBDD - Features - Generating Code - Generating Project Files
 			When you run the command:
 				dotnet xbdd project generate MSTest --testrun-name My Sample Test Run
 			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
-				 File Path: ./MyGeneratedSample.Features/xBDDConfig.json
 				{
 					"xBDD": {
 						"TestRunName": "My Sample Test Run",
@@ -334,7 +324,6 @@ xBDD - Features - Generating Code - Generating Project Files
 			When you run the command:
 				dotnet xbdd project generate MSTest --remove-from-area-name Modified
 			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
-				 File Path: ./MyGeneratedSample.Features/xBDDConfig.json
 				{
 					"xBDD": {
 						"TestRunName": "My Generated Sample - Features",
@@ -347,7 +336,7 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Defining]
+xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File
 	With An Invalid Outline
 		With Invalid Characters In Area Name
 			Given you have an empty directory
@@ -1148,27 +1137,1396 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 2: '		Invalid Line'
 				Explanation: An area line can only be followed by an indented 'Explanation' header or 
 				             indented Feature line.
-	For An MS Test Project [Defining]
-		With An Empty Scenario [Defining]
-		With A Given Step [Defining]
-		With A When Step [Defining]
-		With A Then Step [Defining]
-		With An And Step [Defining]
-		With A Code Step [Defining]
-		With A Step Input [Defining]
-		With A Step Explanation [Defining]
-		With A Step With Trailing Spaces [Defining]
-		With A Scenario Explanation [Defining]
-		With A Scenario With Trailing Spaces [Defining]
-		With Scenario Reason Tags [Defining]
-		With Scenario Owner Tags [Defining]
-		With An Existing Feature [Defining]
-		With A Feature Explanation [Defining]
-		With A Feature With Trailing Spaces [Defining]
-		With An Area With Trailing Spaces [Defining]
-		With Ignored Feature Tags [Defining]
-		With Ignored Area Tags [Defining]
-		With A Workflowy Text Export [Defining]
+	For An MS Test Project
+		With An Empty Scenario
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Given Step
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A When Step
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+							When Step 2
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.When("Step 2",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Then Step
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+							When Step 2
+							Then Step 3
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.When("Step 2",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Then("Step 3",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With An And Step
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+							When Step 2
+							Then Step 3
+							And Step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.When("Step 2",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Then("Step 3",
+									(s) => { 
+										// Enter your code here.
+									})
+								.And("Step 4",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Code Step
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+							When Step 2
+							Then Step 3
+							And Step 4
+							.And(this.IsSomeCode())
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.When("Step 2",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Then("Step 3",
+									(s) => { 
+										// Enter your code here.
+									})
+								.And("Step 4",
+									(s) => { 
+										// Enter your code here.
+									})
+				//				.And(this.IsSomeCode())
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Step Input
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+								Input
+									Here Is
+									My Multiline Input
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									},
+									@"
+										Here Is
+										My Multiline Input".RemoveIndentation(6,true),
+									TextFormat.text)
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Step Input Single Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+								Input
+									Here Is My Single Line Input
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									},
+									"Here Is My Single Line Input",
+									TextFormat.text)
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Step Explanation
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+								Explanation
+									Here Is
+									My Multiline Explanation
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									}, 
+									null, 
+									null,
+									@"
+										Here Is
+										My Multiline Explanation".RemoveIndentation(6,true))
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Step Explanation Single Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+								Explanation
+									Here Is My Singleline Explanation
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									}, 
+									null, 
+									null,
+									"Here Is My Singleline Explanation")
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Step With Trailing Spaces
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1           
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1           ",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Scenario Explanation
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Explanation
+								Here is my 
+								multiline scenario 
+								explanation
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						[Explanation(@"
+							Here is my 
+							multiline scenario 
+							explanation",3)]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Scenario With Trailing Spaces
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1          
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Scenario Reason Tags
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1 #R-MyReason
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("MyReason", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Duplicate Scenario Reason Tags
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1 #R-MyReason1 #R-MyReason2
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("MyReason1", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Scenario Owner Tags
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1 @MyOwner1 @MyOwner2
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						[Assignments("MyOwner1","MyOwner2")]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Scenario General Tags
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1 #T-MyTag1 #T-MyTag2
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						[Tags("MyTag1","MyTag2")]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With An Existing Feature
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			And you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+			And you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.xbdd.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Feature Explanation
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						Explanation
+							Here is my 
+							multiline feature 
+							explanation
+						My Scenario 1
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					[Explanation(@"
+						Here is my 
+						multiline feature 
+						explanation",2)]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Feature Statement
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						Explanation
+							Here is my 
+							multiline feature 
+							explanation
+						Statement
+							As a user
+							You can derive some value
+							By performing some action with the product
+						My Scenario 1
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					[AsA("user")]
+					[YouCan("derive some value")]
+					[By("performing some action with the product")]
+					[Explanation(@"
+						Here is my 
+						multiline feature 
+						explanation",2)]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Feature With Trailing Spaces
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1     
+						My Scenario 1
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With An Area With Trailing Spaces
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1     
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Ignored Feature Reason Tags
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1 #R-IgnoredReasonTag
+						My Scenario 1
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Feature General Tags
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1 #T-MyFeatureTag #T-MyFeatureTag2
+						My Scenario 1
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					[Tags("MyFeatureTag","MyFeatureTag2")]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Feature Owner Tags
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1 @MyFeatureOwner1 @MyFeatureOwner2
+						My Scenario 1
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					[Assignments("MyFeatureOwner1","MyFeatureOwner2")]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Ignored Area Tags
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1 #R-Ignored #T-Ignored @Ignored
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With A Workflowy Text Export
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				- My Area 1 - My Sub Area 1
+				  - My Feature 1
+				    - My Scenario 1
+				      - Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Duplicate Area And Feature
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 2
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+						[TestMethod]
+						public async Task MyScenario2()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Duplicate Area And Feature Nonconsecutive
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+				My Area 2 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 2
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+						[TestMethod]
+						public async Task MyScenario2()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Duplicate Area
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 0
+						My Scenario 1
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 2
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario2()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Duplicate Feature
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+					My Feature 1
+						My Scenario 2
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+						[TestMethod]
+						public async Task MyScenario2()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Duplicate Feature Nonconsecutive
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+					My Feature 2
+						My Scenario 1
+					My Feature 1
+						My Scenario 2
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+						[TestMethod]
+						public async Task MyScenario2()
+						{
+							await xB.AddScenario(this, 1000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Duplicate Scenario
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+						My Scenario 1
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 2000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
+		With Duplicate Scenario Nonconsecutive
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+						My Scenario 2
+						My Scenario 1
+							Given Step 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+				{
+					using Microsoft.VisualStudio.TestTools.UnitTesting;
+					using System;
+					using System.Threading.Tasks;
+					using xBDD;
+					using xBDD.Utility;
+				
+					[TestClass]
+					public partial class MyFeature1: xBDDFeatureBase
+					{
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 1000)
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+						[TestMethod]
+						public async Task MyScenario2()
+						{
+							await xB.AddScenario(this, 2000)
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+						[TestMethod]
+						public async Task MyScenario1()
+						{
+							await xB.AddScenario(this, 3000)
+								.Given("Step 1",
+									(s) => { 
+										// Enter your code here.
+									})
+								.Skip("Defining", Assert.Inconclusive);
+						}
+				
+					}
+				}
 xBDD - Features - Generating Code - Generating Solution Files - Using An Xbdd Feature Import File [Defining]
 		With All Test Run Outcomes [Defining]
 		With No Projects [Defining]

@@ -215,8 +215,8 @@ xBDD - Features - Generate Reports - Browse Html Report [Failed]
 			And you click the the collapse all areas link
 			And you wait till the area 1 features is not visible
 			And you wait till the area 2 features is not visible
-	Review Area Stats
-		Failed Skipped And Passing Feature Stats
+	Review Area Stats [Failed]
+		Failed Skipped And Passing Feature Stats [Failed]
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios
 			And you wait till the area 3 title line is visible
 			And you click the the area 3 title line
@@ -227,8 +227,8 @@ xBDD - Features - Generate Reports - Browse Html Report [Failed]
 			And you will see the area 3 feature failed count has text '2'
 			And you will see the area 3 feature stats bar chart is visible
 			And you will see the area 3 feature success bar has a width of 33.3%
-			And you will see the area 3 feature skipped bar has a width of 0%
-			And you will see the area 3 feature failed bar has a width of 66.6%
+			And you will see the area 3 feature skipped bar has a width of 0% [Failed]
+			And you will see the area 3 feature failed bar has a width of 66.6% [Skipped - Previous Error]
 		Failed Skipped And Passing Scenario Stats
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios
 			And you wait till the area 3 title line is visible

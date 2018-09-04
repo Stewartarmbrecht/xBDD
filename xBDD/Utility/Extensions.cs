@@ -139,7 +139,16 @@ namespace xBDD.Utility
         /// <returns>A matching namespace.</returns>
         internal static string ConvertAreaNameToNamespace(this string text)
         {
-            List<string> words = new List<string>(text.Split(' '));
+			var hashTagIndex = text.IndexOf('#');
+			var atTagIndex = text.IndexOf('@');
+			if(hashTagIndex > -1 || atTagIndex > -1) {
+				var least = hashTagIndex > -1 ? hashTagIndex : atTagIndex;
+				if(atTagIndex > -1 && atTagIndex < least) {
+					least = atTagIndex;
+				}
+				text = text.Substring(0, least - 1);
+			}
+            List<string> words = new List<string>(text.Trim().Split(' '));
             StringBuilder sb = new StringBuilder();
             words.ForEach(word => {
                 if(word == "-") {
@@ -156,13 +165,13 @@ namespace xBDD.Utility
 			var hashTagIndex = text.IndexOf('#');
 			var atTagIndex = text.IndexOf('@');
 			if(hashTagIndex > -1 || atTagIndex > -1) {
-				var least = hashTagIndex;
-				if(atTagIndex > -1 && atTagIndex < hashTagIndex) {
+				var least = hashTagIndex > -1 ? hashTagIndex : atTagIndex;
+				if(atTagIndex > -1 && atTagIndex < least) {
 					least = atTagIndex;
 				}
 				text = text.Substring(0, least - 1);
 			}
-            List<string> words = new List<string>(text.Split(' '));
+            List<string> words = new List<string>(text.Trim().Split(' '));
             StringBuilder sb = new StringBuilder();
             words.ForEach(word => {
                sb.Append(word.FirstCharToUpper()); 

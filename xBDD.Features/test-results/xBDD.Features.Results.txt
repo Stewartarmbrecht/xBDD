@@ -215,8 +215,8 @@ xBDD - Features - Generate Reports - Browse Html Report [Failed]
 			And you click the the collapse all areas link
 			And you wait till the area 1 features is not visible
 			And you wait till the area 2 features is not visible
-	Review Area Stats
-		Failed Skipped And Passing Feature Stats
+	Review Area Stats [Failed]
+		Failed Skipped And Passing Feature Stats [Failed]
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios
 			And you wait till the area 3 title line is visible
 			And you click the the area 3 title line
@@ -227,8 +227,18 @@ xBDD - Features - Generate Reports - Browse Html Report [Failed]
 			And you will see the area 3 feature failed count has text '2'
 			And you will see the area 3 feature stats bar chart is visible
 			And you will see the area 3 feature success bar has a width of 33.3%
-			And you will see the area 3 feature skipped bar has a width of 0%
-			And you will see the area 3 feature failed bar has a width of 66.6%
+			And you will see the area 3 feature skipped bar has a width of 0% [Failed]
+				Error Type: Exception
+				   Message: The web element (the area 3 feature skipped bar - #area-3-feature-stats td.skipped-bar) was not visible
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass13_0.<WaitTillVisible>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 250
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Browser.PageElementSteps.<>c__DisplayClass6_0.<<Style>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementSteps.cs:line 73
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
+			And you will see the area 3 feature failed bar has a width of 66.6% [Skipped - Previous Error]
 		Failed Skipped And Passing Scenario Stats
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios
 			And you wait till the area 3 title line is visible
@@ -468,14 +478,14 @@ xBDD - Features - Generate Reports - Browse Html Report [Failed]
 			And you will see the step 2 text input has text 'Here is my Input!' [Failed]
 				Error Type: Exception
 				   Message: The web element (the step 2 text input - #input-2.mp) was not found.
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass13_0.<WaitTillVisible>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/WebBrowser.cs:line 248
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass13_0.<WaitTillVisible>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 248
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementSteps.<>c__DisplayClass5_0.<<HasText>b__0>d.MoveNext() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/PageElementSteps.cs:line 39
+				               at xBDD.Browser.PageElementSteps.<>c__DisplayClass5_0.<<HasText>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementSteps.cs:line 39
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 29
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
 		Code [Untested]
 		Html With Preview [Untested]
 		Collapse [Untested]
@@ -499,14 +509,14 @@ xBDD - Features - Generate Reports - Browse Html Report [Failed]
 			And you will see the step 3 text output has text 'Here is my output!' [Failed]
 				Error Type: Exception
 				   Message: The web element (the step 3 text output - #output-3.text) was not found.
-				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass13_0.<WaitTillVisible>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/WebBrowser.cs:line 248
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass13_0.<WaitTillVisible>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Browser\WebBrowser.cs:line 248
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Browser.PageElementSteps.<>c__DisplayClass5_0.<<HasText>b__0>d.MoveNext() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/PageElementSteps.cs:line 39
+				               at xBDD.Browser.PageElementSteps.<>c__DisplayClass5_0.<<HasText>b__0>d.MoveNext() in C:\Users\stearm01\source\xBDD\xBDD\Browser\PageElementSteps.cs:line 39
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 29
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 29
 		Code [Defining]
 		Html With Preview [Defining]
 		Collapse [Defining]

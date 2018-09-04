@@ -58,6 +58,26 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "test-generatingcode-fo",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+                    "xBDD:HtmlReport:FailuresOnly": "false"
+                }
+            },
+            "args": [
+				"${workspaceFolder}/scripts/test.ps1",
+                "xBDD.Features.GeneratingCode",
+                "true",
+                "false",
+                "true",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "test-long",
             "group": "test",
             "command": "pwsh",

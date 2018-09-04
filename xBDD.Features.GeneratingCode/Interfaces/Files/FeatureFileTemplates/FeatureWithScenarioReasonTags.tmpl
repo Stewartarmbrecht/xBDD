@@ -1,0 +1,25 @@
+namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+{
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using System;
+	using System.Threading.Tasks;
+	using xBDD;
+	using xBDD.Utility;
+
+	[TestClass]
+	public partial class MyFeature1: xBDDFeatureBase
+	{
+
+		[TestMethod]
+		public async Task MyScenario1()
+		{
+			await xB.AddScenario(this, 1000)
+				.Given("Step 1",
+					(s) => { 
+						// Enter your code here.
+					})
+				.Skip("MyReason", Assert.Inconclusive);
+		}
+
+	}
+}

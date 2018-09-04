@@ -15,8 +15,6 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 	public partial class WithAnInvalidOutline: xBDDFeatureBase
 	{
 
-		const string baseUri = "./../../../Interfaces/Files/InvalidFeatureImportFiles";
-		const string outputPath = "./MyGeneratedSample.Features/output.txt";
 		string directory = "./MyGeneratedSample.Features";
 		string[] xbddToolsCommandArgs = new[] { "project", "generate", "MSTest" };
 		Developer you = new Developer();

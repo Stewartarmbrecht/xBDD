@@ -267,8 +267,8 @@
 			<outline text="And you wait till the area 2 features is not visible"/>
 		</outline>
 	</outline>
-	<outline text="Review Area Stats">
-		<outline text="Failed Skipped And Passing Feature Stats">
+	<outline text="Review Area Stats [Failed]">
+		<outline text="Failed Skipped And Passing Feature Stats [Failed]">
 			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you wait till the area 3 title line is visible"/>
 			<outline text="And you click the the area 3 title line"/>

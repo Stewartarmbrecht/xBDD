@@ -86,28 +86,23 @@ namespace xBDD.Features.GeneratingCode.Actors
 		public Step WillFindAMatchingFile (string filePath, string templatePath, TextFormat format) {
 			var stepName = $"you will find a file at '{filePath}' that matches the template:";
 			var template = "";
+			var missingTemplate = false;
 			try {
 				template = System.IO.File.ReadAllText(templatePath);
 			} catch (System.Exception ex) {
 				template = $"There was an exception loading the template ('{templatePath}'). Exception Message: {ex.Message}";
+				missingTemplate = true;
 			}
-			var lineComment = "";
-			switch(format) {
-				case TextFormat.cs:
-					lineComment = "//";
-				break;
-				case TextFormat.bsh:
-					lineComment = "#";
-				break;
-			}
-			var templateDisplay = $"{lineComment} File Path: {filePath}{System.Environment.NewLine}{template}";
 			return xB.CreateStep(stepName,
 				s => {
 					var fileText = System.IO.File.ReadAllText(filePath);
 					s.Output = fileText;
 					s.OutputFormat = format;
+					if(missingTemplate) {
+						System.IO.File.WriteAllText(templatePath, fileText);
+					}
 					fileText.ValidateToTemplate(template);
-				}, templateDisplay, format);
+				}, template, format);
 		}
 		public Step WillSeeOutput(string outputTemplate, Wrapper<string> output) {
 			var stepName = $"you will see output matching the following template:";

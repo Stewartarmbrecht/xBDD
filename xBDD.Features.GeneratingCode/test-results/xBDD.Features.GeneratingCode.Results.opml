@@ -12,7 +12,6 @@
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
 			<outline text="Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template:">
-				<outline text=" File Path: ./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj" />
 				<outline text="<Project Sdk="Microsoft.NET.Sdk">" />
 				<outline text="" />
 				<outline text="	<PropertyGroup>" />
@@ -38,7 +37,6 @@
 				<outline text="</Project>" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template:">
-				<outline text=" File Path: ./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd" />
 				<outline text="<Project Sdk="Microsoft.NET.Sdk">" />
 				<outline text="" />
 				<outline text="	<PropertyGroup>" />
@@ -64,7 +62,6 @@
 				<outline text="</Project>" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:">
-				<outline text=" File Path: ./MyGeneratedSample.Features/xBDDConfig.json" />
 				<outline text="{" />
 				<outline text="	"xBDD": {" />
 				<outline text="		"TestRunName": "My Generated Sample - Features"," />
@@ -79,7 +76,6 @@
 				<outline text="}" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs' that matches the template:">
-				<outline text="// File Path: ./MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs" />
 				<outline text="namespace MyGeneratedSample.Features" />
 				<outline text="{" />
 				<outline text="	using xBDD;" />
@@ -99,7 +95,6 @@
 				<outline text="}" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template:">
-				<outline text=" File Path: ./MyGeneratedSample.Features/xBDDFeatureImport.txt" />
 				<outline text="MyImportedArea1" />
 				<outline text="	MyImportedFeature" />
 				<outline text="		MyImportedScenario #R-Ready" />
@@ -111,7 +106,6 @@
 				<outline text="			And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template:">
-				<outline text="// File Path: ./MyGeneratedSample.Features/xBDDInitializeAndComplete.cs" />
 				<outline text="namespace MyGeneratedSample.Features" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
@@ -136,7 +130,6 @@
 				<outline text="}" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDSorting.cs' that matches the template:">
-				<outline text="// File Path: ./MyGeneratedSample.Features/xBDDSorting.cs" />
 				<outline text="namespace MyGeneratedSample.Features" />
 				<outline text="{" />
 				<outline text="	using System;" />
@@ -163,7 +156,6 @@
 				<outline text="}" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDSorting.xbdd.cs' that matches the template:">
-				<outline text="// File Path: ./MyGeneratedSample.Features/xBDDSorting.xbdd.cs" />
 				<outline text="namespace MyGeneratedSample.Features" />
 				<outline text="{" />
 				<outline text="	using System;" />
@@ -190,7 +182,6 @@
 				<outline text="}" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template:">
-				<outline text="// File Path: ./MyGeneratedSample.Features/Features/MyArea/MyFeature.cs" />
 				<outline text="namespace MyGeneratedSample.Features.MyArea" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
@@ -351,7 +342,6 @@
 				<outline text="dotnet xbdd project generate MSTest --testrun-name My Sample Test Run" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:">
-				<outline text=" File Path: ./MyGeneratedSample.Features/xBDDConfig.json" />
 				<outline text="{" />
 				<outline text="	"xBDD": {" />
 				<outline text="		"TestRunName": "My Sample Test Run"," />
@@ -372,7 +362,6 @@
 				<outline text="dotnet xbdd project generate MSTest --remove-from-area-name Modified" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:">
-				<outline text=" File Path: ./MyGeneratedSample.Features/xBDDConfig.json" />
 				<outline text="{" />
 				<outline text="	"xBDD": {" />
 				<outline text="		"TestRunName": "My Generated Sample - Features"," />
@@ -389,7 +378,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Defining]">
+<outline text="xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File">
 	<outline text="With An Invalid Outline">
 		<outline text="With Invalid Characters In Area Name">
 			<outline text="Given you have an empty directory"/>
@@ -1314,46 +1303,1533 @@
 			</outline>
 		</outline>
 	</outline>
-	<outline text="For An MS Test Project [Defining]">
-		<outline text="With An Empty Scenario [Defining]">
+	<outline text="For An MS Test Project">
+		<outline text="With An Empty Scenario">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With A Given Step [Defining]">
+		<outline text="With A Given Step">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With A When Step [Defining]">
+		<outline text="With A When Step">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+				<outline text="			When Step 2" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.When("Step 2"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With A Then Step [Defining]">
+		<outline text="With A Then Step">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+				<outline text="			When Step 2" />
+				<outline text="			Then Step 3" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.When("Step 2"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Then("Step 3"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With An And Step [Defining]">
+		<outline text="With An And Step">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+				<outline text="			When Step 2" />
+				<outline text="			Then Step 3" />
+				<outline text="			And Step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.When("Step 2"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Then("Step 3"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.And("Step 4"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With A Code Step [Defining]">
+		<outline text="With A Code Step">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+				<outline text="			When Step 2" />
+				<outline text="			Then Step 3" />
+				<outline text="			And Step 4" />
+				<outline text="			.And(this.IsSomeCode())" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.When("Step 2"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Then("Step 3"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.And("Step 4"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="//				.And(this.IsSomeCode())" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With A Step Input [Defining]">
+		<outline text="With A Step Input">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+				<outline text="				Input" />
+				<outline text="					Here Is" />
+				<outline text="					My Multiline Input" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					}," />
+				<outline text="					@"" />
+				<outline text="						Here Is" />
+				<outline text="						My Multiline Input".RemoveIndentation(6,true)," />
+				<outline text="					TextFormat.text)" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With A Step Explanation [Defining]">
+		<outline text="With A Step Input Single Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+				<outline text="				Input" />
+				<outline text="					Here Is My Single Line Input" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					}," />
+				<outline text="					"Here Is My Single Line Input"," />
+				<outline text="					TextFormat.text)" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With A Step With Trailing Spaces [Defining]">
+		<outline text="With A Step Explanation">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+				<outline text="				Explanation" />
+				<outline text="					Here Is" />
+				<outline text="					My Multiline Explanation" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					}, " />
+				<outline text="					null, " />
+				<outline text="					null," />
+				<outline text="					@"" />
+				<outline text="						Here Is" />
+				<outline text="						My Multiline Explanation".RemoveIndentation(6,true))" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With A Scenario Explanation [Defining]">
+		<outline text="With A Step Explanation Single Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+				<outline text="				Explanation" />
+				<outline text="					Here Is My Singleline Explanation" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					}, " />
+				<outline text="					null, " />
+				<outline text="					null," />
+				<outline text="					"Here Is My Singleline Explanation")" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With A Scenario With Trailing Spaces [Defining]">
+		<outline text="With A Step With Trailing Spaces">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1           " />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1           "," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With Scenario Reason Tags [Defining]">
+		<outline text="With A Scenario Explanation">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				multiline scenario " />
+				<outline text="				explanation" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		[Explanation(@"" />
+				<outline text="			Here is my " />
+				<outline text="			multiline scenario " />
+				<outline text="			explanation",3)]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With Scenario Owner Tags [Defining]">
+		<outline text="With A Scenario With Trailing Spaces">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1          " />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With An Existing Feature [Defining]">
+		<outline text="With Scenario Reason Tags">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1 #R-MyReason" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("MyReason", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With A Feature Explanation [Defining]">
+		<outline text="With Duplicate Scenario Reason Tags">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1 #R-MyReason1 #R-MyReason2" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("MyReason1", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With A Feature With Trailing Spaces [Defining]">
+		<outline text="With Scenario Owner Tags">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1 @MyOwner1 @MyOwner2" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		[Assignments("MyOwner1","MyOwner2")]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With An Area With Trailing Spaces [Defining]">
+		<outline text="With Scenario General Tags">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1 #T-MyTag1 #T-MyTag2" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		[Tags("MyTag1","MyTag2")]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With Ignored Feature Tags [Defining]">
+		<outline text="With An Existing Feature">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="And you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+			<outline text="And you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.xbdd.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With Ignored Area Tags [Defining]">
+		<outline text="With A Feature Explanation">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			multiline feature " />
+				<outline text="			explanation" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	[Explanation(@"" />
+				<outline text="		Here is my " />
+				<outline text="		multiline feature " />
+				<outline text="		explanation",2)]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
-		<outline text="With A Workflowy Text Export [Defining]">
+		<outline text="With A Feature Statement">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			multiline feature " />
+				<outline text="			explanation" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can derive some value" />
+				<outline text="			By performing some action with the product" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	[AsA("user")]" />
+				<outline text="	[YouCan("derive some value")]" />
+				<outline text="	[By("performing some action with the product")]" />
+				<outline text="	[Explanation(@"" />
+				<outline text="		Here is my " />
+				<outline text="		multiline feature " />
+				<outline text="		explanation",2)]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With A Feature With Trailing Spaces">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1     " />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With An Area With Trailing Spaces">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1     " />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With Ignored Feature Reason Tags">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1 #R-IgnoredReasonTag" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With Feature General Tags">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1 #T-MyFeatureTag #T-MyFeatureTag2" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	[Tags("MyFeatureTag","MyFeatureTag2")]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With Feature Owner Tags">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1 @MyFeatureOwner1 @MyFeatureOwner2" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	[Assignments("MyFeatureOwner1","MyFeatureOwner2")]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With Ignored Area Tags">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1 #R-Ignored #T-Ignored @Ignored" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With A Workflowy Text Export">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="- My Area 1 - My Sub Area 1" />
+				<outline text="  - My Feature 1" />
+				<outline text="    - My Scenario 1" />
+				<outline text="      - Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With Duplicate Area And Feature">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 2" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario2()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With Duplicate Area And Feature Nonconsecutive">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="My Area 2 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 2" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario2()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With Duplicate Area">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 0" />
+				<outline text="		My Scenario 1" />
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 2" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario2()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With Duplicate Feature">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 2" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario2()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With Duplicate Feature Nonconsecutive">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="	My Feature 2" />
+				<outline text="		My Scenario 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 2" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario2()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With Duplicate Scenario">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 2000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
+		</outline>
+		<outline text="With Duplicate Scenario Nonconsecutive">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	My Feature 1" />
+				<outline text="		My Scenario 1" />
+				<outline text="		My Scenario 2" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Given Step 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+				<outline text="{" />
+				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
+				<outline text="	using System;" />
+				<outline text="	using System.Threading.Tasks;" />
+				<outline text="	using xBDD;" />
+				<outline text="	using xBDD.Utility;" />
+				<outline text="" />
+				<outline text="	[TestClass]" />
+				<outline text="	public partial class MyFeature1: xBDDFeatureBase" />
+				<outline text="	{" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 1000)" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario2()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 2000)" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="		[TestMethod]" />
+				<outline text="		public async Task MyScenario1()" />
+				<outline text="		{" />
+				<outline text="			await xB.AddScenario(this, 3000)" />
+				<outline text="				.Given("Step 1"," />
+				<outline text="					(s) => { " />
+				<outline text="						// Enter your code here." />
+				<outline text="					})" />
+				<outline text="				.Skip("Defining", Assert.Inconclusive);" />
+				<outline text="		}" />
+				<outline text="" />
+				<outline text="	}" />
+				<outline text="}" />
+			</outline>
 		</outline>
 </outline>
 <outline text="xBDD - Features - Generating Code - Generating Solution Files - Using An Xbdd Feature Import File [Defining]">

@@ -132,6 +132,7 @@
 				lastScenario = scenario;
 			}
 			if(sortedScenarios.Count() > 0) {
+				//this.WriteFeatureCustomClass(directory, rootNamespace, lastScenario.Feature);
 				this.WriteFeatureClass(directory, rootNamespace, lastScenario.Feature.FullClassName, sb);
 			}
 			if(writeProjectFiles) {
@@ -185,25 +186,24 @@
 			var content = GetSampleFeature(rootNamespace);
 			System.IO.File.WriteAllText($"{directory}/Features/MyArea/MyFeature.cs",content);
 		}
-		private void WriteFeatureCustomClass(string directory, string rootNamespace, Feature feature)
-		{
-			var featureFullClassName = feature.FullClassName;
-			var featureNamespace = featureFullClassName.Substring(0, featureFullClassName.LastIndexOf("."));
-			var featureClassName = featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
-			StringBuilder sb = new StringBuilder();
-			sb.AppendLine(this.GetFeatureClassStart(feature, false));
-			sb.AppendLine(this.GetFeatureClassEnd());
-			var featureFolder = $"{directory}/Features/{featureFullClassName.Replace(rootNamespace,"").Substring(0, featureFullClassName.Replace(rootNamespace,"").LastIndexOf(".")).Replace(".","/")}/";
-			System.IO.Directory.CreateDirectory(featureFolder);
-			System.IO.File.WriteAllText($"{featureFolder}/{featureClassName}.cs", sb.ToString());
+		private string GetFeatureFolder(string directory, string rootNamespace, string featureFullClassName){
+			return $"{directory}/Features/{featureFullClassName.Replace(rootNamespace,"").Substring(0, featureFullClassName.Replace(rootNamespace,"").LastIndexOf(".")).Replace(".","/")}/";
 		}
+		private string GetFeatureClassName(string featureFullClassName) {
+			return featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
+		}
+
 		private void WriteFeatureClass(string directory, string rootNamespace, string featureFullClassName, StringBuilder sb)
 		{
-			sb.AppendLine(this.GetFeatureClassEnd());
-			var featureFolder = $"{directory}/Features/{featureFullClassName.Replace(rootNamespace,"").Substring(0, featureFullClassName.Replace(rootNamespace,"").LastIndexOf(".")).Replace(".","/")}/";
-			var featureClassName = featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
+			sb.Append(this.GetFeatureClassEnd());
+			var featureFolder = this.GetFeatureFolder(directory, rootNamespace, featureFullClassName);;
+			var featureClassName = this.GetFeatureClassName(featureFullClassName);
 			System.IO.Directory.CreateDirectory(featureFolder);
-			System.IO.File.WriteAllText($"{featureFolder}/{featureClassName}.xbdd.cs", sb.ToString());
+			if(System.IO.File.Exists($"{featureFolder}/{featureClassName}.cs")) {
+				System.IO.File.WriteAllText($"{featureFolder}/{featureClassName}.xbdd.cs", sb.ToString());
+			} else {
+				System.IO.File.WriteAllText($"{featureFolder}/{featureClassName}.cs", sb.ToString());
+			}
 		}
 		private void WriteXbddSortingClass(string directory, string rootNamespace, List<string> features, List<string> reasons)
 		{
@@ -225,12 +225,11 @@
 			{
 				if(lastScenario != null) {
 					var lastFeatureFullClassName = lastScenario.Feature.FullClassName;
-					this.WriteFeatureCustomClass(directory, rootNamespace, lastScenario.Feature);
 					this.WriteFeatureClass(directory, rootNamespace, lastFeatureFullClassName, sb);
 					sb.Clear();
 				}
 				var feature = scenario.Feature;
-				sb.AppendLine(this.GetFeatureClassStart(feature, true));
+				sb.AppendLine(this.GetFeatureClassStart(directory, rootNamespace, feature));
 			}
 
 			sb.AppendLine(this.GetScenarioMethodStart(scenario));
@@ -279,36 +278,44 @@
 			} else {
 				var inputAndExplanation = "";
 				if(!String.IsNullOrEmpty(step.Input)) {
-					if(step.Input.Contains(System.Environment.NewLine)) {
+					var input = step.Input;
+					if(input.EndsWith(System.Environment.NewLine)) {
+						input = input.Substring(0, input.Length - System.Environment.NewLine.Length);
+					}
+					if(input.Contains(System.Environment.NewLine)) {
 						inputAndExplanation = $@",
 												@""
-													{step.Input.AddIndentation(13)}"".RemoveIndentation(6,true), 
+													{input.AddIndentation(13)}"".RemoveIndentation(6,true),
 												TextFormat.{Enum.GetName(typeof(TextFormat), step.InputFormat)}".RemoveIndentation(7);
 					} else {
 						inputAndExplanation = $@",
-												@""{step.Input}"", 
+												""{input}"",
 												TextFormat.{Enum.GetName(typeof(TextFormat), step.InputFormat)}".RemoveIndentation(7);
 					}
 				}
 				if(!String.IsNullOrEmpty(step.Explanation)) {
+					var explanation = step.Explanation;
+					if(explanation.EndsWith(System.Environment.NewLine)) {
+						explanation = explanation.Substring(0, explanation.Length - System.Environment.NewLine.Length);
+					}
 					if(inputAndExplanation.Length == 0) {
 						inputAndExplanation = $@", 
 												null, 
 												null".RemoveIndentation(7);
 					}
-					if(step.Explanation.Contains(System.Environment.NewLine)) {
+					if(explanation.Contains(System.Environment.NewLine)) {
 						inputAndExplanation = $@"{inputAndExplanation.AddIndentation(7)},
 												@""
-													{step.Explanation.AddIndentation(13)}"".RemoveIndentation(6,true)".RemoveIndentation(7);
+													{explanation.AddIndentation(13)}"".RemoveIndentation(6,true)".RemoveIndentation(7);
 					} else {
 						inputAndExplanation = $@"{inputAndExplanation.AddIndentation(7)},
-												@""{step.Explanation}""".RemoveIndentation(7);
+												""{explanation}""".RemoveIndentation(7);
 					}
 				}
 				sb.AppendLine($@"				
-									.{Enum.GetName(typeof(ActionType),step.ActionType)}(""{step.Name.Replace(System.Environment.NewLine,"")}"", 
+									.{Enum.GetName(typeof(ActionType),step.ActionType)}(""{step.Name.Replace(System.Environment.NewLine,"")}"",
 										(s) => {{ 
-											{(step.Outcome == Outcome.Failed ? exception : "// Enter your code here." )} 
+											{(step.Outcome == Outcome.Failed ? exception : "// Enter your code here." )}
 										}}{inputAndExplanation.AddIndentation(5)})".RemoveIndentation(5, true));
 			}
 		}
@@ -555,10 +562,12 @@
 				}}".RemoveIndentation(4, true);
 		}
 
-		private string GetFeatureClassStart(Feature feature, bool generated) {
-			var featureFullClassName =feature.FullClassName;
+		private string GetFeatureClassStart(string directory, string rootNamespace, Feature feature) {
+			var featureFullClassName = feature.FullClassName;
 			var featureNamespace = featureFullClassName.Substring(0, featureFullClassName.LastIndexOf("."));
-			var featureClassName = featureFullClassName.Substring(featureFullClassName.LastIndexOf(".")+1, featureFullClassName.Length - (featureFullClassName.LastIndexOf(".")+1));
+			var featureClassName = this.GetFeatureClassName(featureFullClassName);
+			var featureFolder = this.GetFeatureFolder(directory, rootNamespace, featureFullClassName);
+			var generated = System.IO.File.Exists($"{featureFolder}/{featureClassName}.cs");
 			var explanation = "";
 			if(!String.IsNullOrEmpty(feature.Explanation)) {
 				var isMultiline = feature.Explanation.Contains(System.Environment.NewLine);
@@ -571,6 +580,31 @@
 							[{(generated ? "Generated_" : "")}Explanation(@""{feature.Explanation}"")]".RemoveIndentation(6);
 				}
 			}
+			var asAStatement = "";
+			if(!String.IsNullOrEmpty(feature.Actor)) {
+				asAStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}AsA(\"{feature.Actor}\")]";
+			}
+
+			var youCanStatement = "";
+			if(!String.IsNullOrEmpty(feature.Value)) {
+				youCanStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}YouCan(\"{feature.Value}\")]";
+			}
+
+			var byStatement = "";
+			if(!String.IsNullOrEmpty(feature.Value)) {
+				byStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}By(\"{feature.Capability}\")]";
+			}
+
+			var assignments = "";
+			if(feature.Assignments.Length > 0) {
+				assignments = $@"
+						[Assignments(""{string.Join("\",\"",feature.Assignments)}"")]".RemoveIndentation(5);
+			}
+			var tags = "";
+			if(feature.Tags.Length > 0) {
+				tags = $@"
+						[Tags(""{string.Join("\",\"",feature.Tags)}"")]".RemoveIndentation(5);
+			}
 
 			return $@"
 				namespace {featureNamespace}
@@ -581,10 +615,7 @@
 					using xBDD;
 					using xBDD.Utility;
 
-					{(generated ? "" : "[TestClass]")}
-					[{(generated ? "Generated_" : "")}AsA(""{feature.Actor}"")]
-					[{(generated ? "Generated_" : "")}YouCan(""{feature.Value}"")]
-					[{(generated ? "Generated_" : "")}By(""{feature.Capability}"")]{explanation.AddIndentation(4)}
+					{(generated ? "" : "[TestClass]")}{asAStatement.AddIndentation(4)}{youCanStatement.AddIndentation(4)}{byStatement.AddIndentation(4)}{explanation.AddIndentation(4)}{assignments.AddIndentation(4)}{tags.AddIndentation(4)}
 					public partial class {featureClassName}: xBDDFeatureBase
 					{{".RemoveIndentation(4, true);
 		}
