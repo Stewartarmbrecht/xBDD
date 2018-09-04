@@ -28,7 +28,7 @@
 				<outline text="		<PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />" />
 				<outline text="		<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />" />
 				<outline text="		<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />" />
-				<outline text="		<PackageReference Include="xBDD" Version="0.0.7-alpha" />" />
+				<outline text="		<PackageReference Include="xBDD" Version="0.0.8-alpha" />" />
 				<outline text="	</ItemGroup>" />
 				<outline text="" />
 				<outline text="	<ItemGroup>" />
@@ -54,7 +54,7 @@
 				<outline text="		<PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />" />
 				<outline text="		<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />" />
 				<outline text="		<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />" />
-				<outline text="		<PackageReference Include="xBDD" Version="0.0.7-alpha" />" />
+				<outline text="		<PackageReference Include="xBDD" Version="0.0.8-alpha" />" />
 				<outline text="	</ItemGroup>" />
 				<outline text="" />
 				<outline text="	<ItemGroup>" />

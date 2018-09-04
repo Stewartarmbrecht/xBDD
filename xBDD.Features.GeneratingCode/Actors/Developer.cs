@@ -16,7 +16,7 @@ namespace xBDD.Features.GeneratingCode.Actors
 			var projectFileContent = System.IO.File.ReadAllText(projectFilePath);
 			projectFileContent = projectFileContent.Replace(
 				@"
-						<PackageReference Include=""xBDD"" Version=""0.0.7-alpha"" />
+						<PackageReference Include=""xBDD"" Version=""0.0.8-alpha"" />
 					</ItemGroup>".RemoveIndentation(4, true), 
 				@"
 					</ItemGroup>

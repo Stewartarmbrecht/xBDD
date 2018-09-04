@@ -74,7 +74,7 @@ initial version of this platform is released.
 
 1. Install the dotnet xbdd tools...
 
-        dotnet tool install --global dotnet-xbdd --version 0.0.7-alpha
+        dotnet tool install --global dotnet-xbdd --version 0.0.8-alpha
 
 2. Create a directory for your test project and open your terminal in that project.
 3. Create the test project...

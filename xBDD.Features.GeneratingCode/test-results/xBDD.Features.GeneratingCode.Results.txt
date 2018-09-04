@@ -23,7 +23,7 @@ xBDD - Features - Generating Code - Generating Project Files
 						<PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />
 						<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />
 						<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />
-						<PackageReference Include="xBDD" Version="0.0.7-alpha" />
+						<PackageReference Include="xBDD" Version="0.0.8-alpha" />
 					</ItemGroup>
 				
 					<ItemGroup>
@@ -48,7 +48,7 @@ xBDD - Features - Generating Code - Generating Project Files
 						<PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />
 						<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />
 						<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />
-						<PackageReference Include="xBDD" Version="0.0.7-alpha" />
+						<PackageReference Include="xBDD" Version="0.0.8-alpha" />
 					</ItemGroup>
 				
 					<ItemGroup>

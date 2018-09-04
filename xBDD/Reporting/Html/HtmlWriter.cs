@@ -96,7 +96,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" .area-percent-bar { background-color: #A4DEFB; }");
             sb.Append(" .pointer { cursor: pointer }");
             sb.Append(" pre { white-space: pre !important; }");
-            sb.Append(" pre.mp { margin: 1rem auto; width: 95%; }");
+            sb.Append(" pre.input { margin: 1rem auto; width: 95%; }");
             sb.Append(" pre.output { margin: 1rem auto; width: 95%; }");
             sb.Append(" .collapsing { -webkit-transition: none; transition: none; display: none; }");
             sb.Append(" pre.prettyprint {  background-color: #eee; }");
