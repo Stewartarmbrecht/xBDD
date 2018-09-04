@@ -7,11 +7,12 @@
 <outline text="xBDD - Features - Generating Code - Generating Project Files">
 	<outline text="For An MS Test Project">
 		<outline text="In An Empty Directory">
-			<outline text="Given you have an empty project directory"/>
+			<outline text="Given you have an empty directory"/>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
 			<outline text="Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template:">
+				<outline text=" File Path: ./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj" />
 				<outline text="<Project Sdk="Microsoft.NET.Sdk">" />
 				<outline text="" />
 				<outline text="	<PropertyGroup>" />
@@ -37,6 +38,7 @@
 				<outline text="</Project>" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template:">
+				<outline text=" File Path: ./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd" />
 				<outline text="<Project Sdk="Microsoft.NET.Sdk">" />
 				<outline text="" />
 				<outline text="	<PropertyGroup>" />
@@ -61,7 +63,8 @@
 				<outline text="" />
 				<outline text="</Project>" />
 			</outline>
-			<outline text="And you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:">
+			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:">
+				<outline text=" File Path: ./MyGeneratedSample.Features/xBDDConfig.json" />
 				<outline text="{" />
 				<outline text="	"xBDD": {" />
 				<outline text="		"TestRunName": "My Generated Sample - Features"," />
@@ -75,7 +78,8 @@
 				<outline text="	}" />
 				<outline text="}" />
 			</outline>
-			<outline text="And you will find a file at './MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs' that matches the template:">
+			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs' that matches the template:">
+				<outline text="// File Path: ./MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs" />
 				<outline text="namespace MyGeneratedSample.Features" />
 				<outline text="{" />
 				<outline text="	using xBDD;" />
@@ -94,7 +98,8 @@
 				<outline text="	}" />
 				<outline text="}" />
 			</outline>
-			<outline text="And you will find a file at './MyGeneratedSample.Features/xBddFeatureImport.txt' that matches the template:">
+			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template:">
+				<outline text=" File Path: ./MyGeneratedSample.Features/xBDDFeatureImport.txt" />
 				<outline text="MyImportedArea1" />
 				<outline text="	MyImportedFeature" />
 				<outline text="		MyImportedScenario #R-Ready" />
@@ -106,6 +111,7 @@
 				<outline text="			And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template:">
+				<outline text="// File Path: ./MyGeneratedSample.Features/xBDDInitializeAndComplete.cs" />
 				<outline text="namespace MyGeneratedSample.Features" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
@@ -129,7 +135,8 @@
 				<outline text="	}" />
 				<outline text="}" />
 			</outline>
-			<outline text="And you will find a file at './MyGeneratedSample.Features/xBddSorting.cs' that matches the template:">
+			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDSorting.cs' that matches the template:">
+				<outline text="// File Path: ./MyGeneratedSample.Features/xBDDSorting.cs" />
 				<outline text="namespace MyGeneratedSample.Features" />
 				<outline text="{" />
 				<outline text="	using System;" />
@@ -155,7 +162,8 @@
 				<outline text="	}" />
 				<outline text="}" />
 			</outline>
-			<outline text="And you will find a file at './MyGeneratedSample.Features/xBddSorting.xbdd.cs' that matches the template:">
+			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDSorting.xbdd.cs' that matches the template:">
+				<outline text="// File Path: ./MyGeneratedSample.Features/xBDDSorting.xbdd.cs" />
 				<outline text="namespace MyGeneratedSample.Features" />
 				<outline text="{" />
 				<outline text="	using System;" />
@@ -182,6 +190,7 @@
 				<outline text="}" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template:">
+				<outline text="// File Path: ./MyGeneratedSample.Features/Features/MyArea/MyFeature.cs" />
 				<outline text="namespace MyGeneratedSample.Features.MyArea" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
@@ -249,59 +258,100 @@
 			<outline text="And you will find the project execute tests with the 'dotnet test' command">
 				<outline text="dotnet test" />
 			</outline>
-			<outline text="And you will find the project generated a Html Report.">
+			<outline text="And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.">
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html" />
 			</outline>
-			<outline text="And you will find the project generated a Json Report.">
+			<outline text="And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'.">
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json" />
 			</outline>
-			<outline text="And you will find the project generated a Text Report.">
+			<outline text="And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'.">
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt" />
 			</outline>
-			<outline text="And you will find the project generated a Text Outline Report.">
+			<outline text="And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'.">
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt" />
 			</outline>
-			<outline text="And you will find the project generated a Opml Report.">
+			<outline text="And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.">
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml" />
 			</outline>
 		</outline>
 		<outline text="In An Initialized XBDD">
-			<outline text="Given you have an empty project directory"/>
+			<outline text="Given you have an empty directory"/>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="And you modify all the standard project files"/>
+			<outline text="And you modify all the standard project files">
+				<outline text="MyGeneratedSample.Features/MyGeneratedSample.Features.csproj," />
+				<outline text="MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd," />
+				<outline text="MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs," />
+				<outline text="MyGeneratedSample.Features/xBddSorting.cs," />
+				<outline text="MyGeneratedSample.Features/xBddSorting.xbdd.cs," />
+				<outline text="MyGeneratedSample.Features/xBddConfig.json," />
+				<outline text="MyGeneratedSample.Features/xBddFeatureImport.txt," />
+				<outline text="MyGeneratedSample.Features/xBddInitializeAndComplete.cs," />
+				<outline text="MyGeneratedSample.Features/Features/MyArea/MyFeature.cs" />
+			</outline>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find the files ending in xbdd.[ext] or xbdd are overwritten"/>
-			<outline text="And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten"/>
-			<outline text="And you will find the sample feature file is not modified because the xbdd backlog file already exists"/>
+			<outline text="Then you will find the files ending in xbdd.[ext] or xbdd are overwritten">
+				<outline text="MyGeneratedSample.Features/MyGeneratedSample.Features.csproj," />
+				<outline text="MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd," />
+				<outline text="MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs," />
+				<outline text="MyGeneratedSample.Features/xBddSorting.cs," />
+				<outline text="MyGeneratedSample.Features/xBddSorting.xbdd.cs," />
+				<outline text="MyGeneratedSample.Features/xBddConfig.json," />
+				<outline text="MyGeneratedSample.Features/xBddFeatureImport.txt," />
+				<outline text="MyGeneratedSample.Features/xBddInitializeAndComplete.cs," />
+				<outline text="MyGeneratedSample.Features/Features/MyArea/MyFeature.cs" />
+			</outline>
+			<outline text="And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten">
+				<outline text="MyGeneratedSample.Features/MyGeneratedSample.Features.csproj," />
+				<outline text="MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd," />
+				<outline text="MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs," />
+				<outline text="MyGeneratedSample.Features/xBddSorting.cs," />
+				<outline text="MyGeneratedSample.Features/xBddSorting.xbdd.cs," />
+				<outline text="MyGeneratedSample.Features/xBddConfig.json," />
+				<outline text="MyGeneratedSample.Features/xBddFeatureImport.txt," />
+				<outline text="MyGeneratedSample.Features/xBddInitializeAndComplete.cs," />
+				<outline text="MyGeneratedSample.Features/Features/MyArea/MyFeature.cs" />
+			</outline>
+			<outline text="And you will find the sample feature file is not modified because the xbdd backlog file already exists">
+				<outline text="MyGeneratedSample.Features/MyGeneratedSample.Features.csproj," />
+				<outline text="MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd," />
+				<outline text="MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs," />
+				<outline text="MyGeneratedSample.Features/xBddSorting.cs," />
+				<outline text="MyGeneratedSample.Features/xBddSorting.xbdd.cs," />
+				<outline text="MyGeneratedSample.Features/xBddConfig.json," />
+				<outline text="MyGeneratedSample.Features/xBddFeatureImport.txt," />
+				<outline text="MyGeneratedSample.Features/xBddInitializeAndComplete.cs," />
+				<outline text="MyGeneratedSample.Features/Features/MyArea/MyFeature.cs" />
+			</outline>
 			<outline text="And you will find the project execute tests with the 'dotnet test' command">
 				<outline text="dotnet test" />
 			</outline>
-			<outline text="And you will find the project generated a Html Report.">
+			<outline text="And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.">
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html" />
 			</outline>
-			<outline text="And you will find the project generated a Json Report.">
+			<outline text="And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'.">
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json" />
 			</outline>
-			<outline text="And you will find the project generated a Text Report.">
+			<outline text="And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'.">
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt" />
 			</outline>
-			<outline text="And you will find the project generated a Text Outline Report.">
+			<outline text="And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'.">
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt" />
 			</outline>
-			<outline text="And you will find the project generated a Opml Report.">
+			<outline text="And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.">
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml" />
 			</outline>
 		</outline>
 		<outline text="With A Test Run Name">
-			<outline text="Given you have an empty project directory"/>
+			<outline text="Given you have an empty directory"/>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest --testrun-name My Sample Test Run" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:">
+			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:">
+				<outline text=" File Path: ./MyGeneratedSample.Features/xBDDConfig.json" />
 				<outline text="{" />
 				<outline text="	"xBDD": {" />
 				<outline text="		"TestRunName": "My Sample Test Run"," />
@@ -317,11 +367,12 @@
 			</outline>
 		</outline>
 		<outline text="With Area Name Clipping">
-			<outline text="Given you have an empty project directory"/>
+			<outline text="Given you have an empty directory"/>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest --remove-from-area-name Modified" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:">
+			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:">
+				<outline text=" File Path: ./MyGeneratedSample.Features/xBDDConfig.json" />
 				<outline text="{" />
 				<outline text="	"xBDD": {" />
 				<outline text="		"TestRunName": "My Generated Sample - Features"," />
@@ -339,50 +390,928 @@
 	</outline>
 </outline>
 <outline text="xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Defining]">
-	<outline text="With An Invalid Outline [Defining]">
-		<outline text="With No Areas AKA Empty">
-			<outline text="Given you have an empty project directory"/>
-			<outline text="And add a with no areas (aka empty file) file"/>
+	<outline text="With An Invalid Outline">
+		<outline text="With Invalid Characters In Area Name">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My $%^& Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1 #R-Committed @Stewart #T-LoveIT" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1 #R-Committed @Jane #T-HateIT" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				scenario explanation" />
+				<outline text="			Given step 1" />
+				<outline text="				Explanation" />
+				<outline text="					Here is my " />
+				<outline text="					step explanation" />
+				<outline text="				Input" />
+				<outline text="					Here is my " />
+				<outline text="					step input" />
+				<outline text="			When step 2" />
+				<outline text="			Then step 3" />
+				<outline text="			And step 4" />
+			</outline>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will see output with an exception for No Areas (AKA Empty)">
-				<outline text="{{Directory\: .*\/MyGeneratedSample\.Features}}" />
-				<outline text="Folder: MyGeneratedSample.Features" />
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An area is defined with invalid characters in the name." />
+				<outline text="Line 1: 'My Area 1 - My $%^& Sub Area 1'" />
+				<outline text="Explanation: An area name must start with a letter and can only contain" />
+				<outline text="             letters, numbers, spaces, underscores, and ' - '." />
+				<outline text="             The ' - ' string is converted to '.' to define the features " />
+				<outline text="             namespace in the test project." />
+			</outline>
+		</outline>
+		<outline text="With Invalid Characters In Feature Name">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My $%^& Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				scenario explanation" />
+				<outline text="			Given step 1" />
+				<outline text="				Explanation" />
+				<outline text="					Here is my " />
+				<outline text="					step explanation" />
+				<outline text="				Input" />
+				<outline text="					Here is my " />
+				<outline text="					step input" />
+				<outline text="			When step 2" />
+				<outline text="			Then step 3" />
+				<outline text="			And step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: A feature is defined with invalid characters in the name." />
+				<outline text="Line 6: 'My $%^& Feature 1'" />
+				<outline text="Explanation: A feature name must start with a letter and can only contain" />
+				<outline text="             letters, numbers, spaces, and underscores." />
+			</outline>
+		</outline>
+		<outline text="With Invalid Characters In Scenario Name">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1 #R-Committed @Stewart #T-LoveIT" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My $%^& Scenario 1" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				scenario explanation" />
+				<outline text="			Given step 1" />
+				<outline text="				Explanation" />
+				<outline text="					Here is my " />
+				<outline text="					step explanation" />
+				<outline text="				Input" />
+				<outline text="					Here is my " />
+				<outline text="					step input" />
+				<outline text="			When step 2" />
+				<outline text="			Then step 3" />
+				<outline text="			And step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: A scenario is defined with invalid characters in the name." />
+				<outline text="Line 15: 'My $%^& Scenario 1'" />
+				<outline text="Explanation: A scenario name must start with a letter and can only contain" />
+				<outline text="             letters, numbers, spaces, and underscores." />
+			</outline>
+		</outline>
+		<outline text="With Empty Feature Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1 #R-Committed @Stewart #T-LoveIT" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				scenario explanation" />
+				<outline text="			Given step 1" />
+				<outline text="				Explanation" />
+				<outline text="					Here is my " />
+				<outline text="					step explanation" />
+				<outline text="				Input" />
+				<outline text="					Here is my " />
+				<outline text="					step input" />
+				<outline text="			When step 2" />
+				<outline text="			Then step 3" />
+				<outline text="			And step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: Line 6: A feature is defined with no name." />
+			</outline>
+		</outline>
+		<outline text="With Empty Scenario Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				scenario explanation" />
+				<outline text="			Given step 1" />
+				<outline text="				Explanation" />
+				<outline text="					Here is my " />
+				<outline text="					step explanation" />
+				<outline text="				Input" />
+				<outline text="					Here is my " />
+				<outline text="					step input" />
+				<outline text="			When step 2" />
+				<outline text="			Then step 3" />
+				<outline text="			And step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: Line 15: A scenario is defined with no name." />
+			</outline>
+		</outline>
+		<outline text="With Empty Step Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				scenario explanation" />
+				<outline text="			Given step 1" />
+				<outline text="				Explanation" />
+				<outline text="					Here is my " />
+				<outline text="					step explanation" />
+				<outline text="				Input" />
+				<outline text="					Here is my " />
+				<outline text="					step input" />
+				<outline text="			When step 2" />
+				<outline text="			" />
+				<outline text="			And step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: Line 27: A step is defined with no name." />
+			</outline>
+		</outline>
+		<outline text="With Step Input Header On Last Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				scenario explanation" />
+				<outline text="			Given step 1" />
+				<outline text="				Explanation" />
+				<outline text="					Here is my " />
+				<outline text="					step explanation" />
+				<outline text="				Input" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'No Line' is following a step input header." />
+				<outline text="Line 23: ''" />
+				<outline text="Explanation: A step input header line can only be followed by an indented input line." />
+			</outline>
+		</outline>
+		<outline text="With Step Explanation Header On Last Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				scenario explanation" />
+				<outline text="			Given step 1" />
+				<outline text="				Explanation" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'No Line' is following a step explanation header." />
+				<outline text="Line 20: ''" />
+				<outline text="Explanation: A step explanation header line can only be followed by an indented " />
+				<outline text="             explanation line." />
+			</outline>
+		</outline>
+		<outline text="With Scenario Explanation Header On Last Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Explanation" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'No Line' is following an scenario explanation header line." />
+				<outline text="Line 16: ''" />
+				<outline text="Explanation: A scenario explanation header line can only be followed by an indented " />
+				<outline text="             explanation line." />
+			</outline>
+		</outline>
+		<outline text="With Feature Explanation On Last Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'No Line' is following a feature explanation line." />
+				<outline text="Line 13: ''" />
+				<outline text="Explanation: A Feature explanation line can only be followed by another explanation " />
+				<outline text="             line, a feature statement header line or an outdented (2x) scenario line." />
+			</outline>
+		</outline>
+		<outline text="With Feature Explanation Header On Last Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'No Line' is following a feature explanation header line." />
+				<outline text="Line 11: ''" />
+				<outline text="Explanation: A feature explanation header line can only be followed by an indented " />
+				<outline text="             explanation line." />
+			</outline>
+		</outline>
+		<outline text="With Feature Statement On Last Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'No Line' is following a feature Statement line." />
+				<outline text="Line 10: ''" />
+				<outline text="Explanation: A feature statement line can only be followed by another statement line, " />
+				<outline text="             a feature explanation header line or an outdented (2x) scenario line." />
+			</outline>
+		</outline>
+		<outline text="With Feature Statement Header On Last Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'No Line' is following a feature statement header line." />
+				<outline text="Line 7: ''" />
+				<outline text="Explanation: A feature statement header line can only be followed by an indented " />
+				<outline text="             statement line." />
+			</outline>
+		</outline>
+		<outline text="With Feature On Last Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'No Line' following a feature line." />
+				<outline text="Line 6: ''" />
+				<outline text="Explanation: A feature line can only be followed by an indented scenario name, indented" />
+				<outline text="             'Explanation' header or indented 'Statement' header." />
+			</outline>
+		</outline>
+		<outline text="With Area Explanation On Last Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'No Line' is following an area explanation line." />
+				<outline text="Line 4: ''" />
+				<outline text="Explanation: An area explanation line can only be followed by another explanation line " />
+				<outline text="             or an outdented (2x) feature line." />
+			</outline>
+		</outline>
+		<outline text="With Area Explanation Header On Last Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'No Line' is following an area explanation header line." />
+				<outline text="Line 2: ''" />
+				<outline text="Explanation: An area explanation header line can only be followed by an indented " />
+				<outline text="             explanation line." />
+			</outline>
+		</outline>
+		<outline text="With Area On Last Line">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'No Line' is following an area line." />
+				<outline text="Line 1: ''" />
+				<outline text="Explanation: An area line can only be followed by an indented 'Explanation' header or " />
+				<outline text="             indented Feature line." />
+			</outline>
+		</outline>
+		<outline text="With No Lines">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:"/>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
 				<outline text="Error: The file is empty." />
 			</outline>
 		</outline>
-		<outline text="With No Features [Defining]">
+		<outline text="With Invalid Line After Step Input Header">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				scenario explanation" />
+				<outline text="			Given step 1" />
+				<outline text="				Explanation" />
+				<outline text="					Here is my " />
+				<outline text="					step explanation" />
+				<outline text="				Input" />
+				<outline text="			When step 2 Is Invalid Line" />
+				<outline text="			Then step 3" />
+				<outline text="			And step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'Step' is following a step input header." />
+				<outline text="Line 24: '			When step 2 Is Invalid Line'" />
+				<outline text="Explanation: A step input header line can only be followed by an indented input line." />
+			</outline>
 		</outline>
-		<outline text="With No Scenarios [Defining]">
+		<outline text="With Invalid Line After Step Explanation Header">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				scenario explanation" />
+				<outline text="			Given step 1" />
+				<outline text="				Explanation" />
+				<outline text="				Input" />
+				<outline text="					Here is the" />
+				<outline text="					Step input " />
+				<outline text="			When step 2" />
+				<outline text="			Then step 3" />
+				<outline text="			And step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'StepInputHeader' is following a step explanation header." />
+				<outline text="Line 21: '				Input'" />
+				<outline text="Explanation: A step explanation header line can only be followed by an indented " />
+				<outline text="             explanation line." />
+			</outline>
 		</outline>
-		<outline text="With A Step With No Name [Defining]">
+		<outline text="With Invalid Line After Step">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				scenario explanation" />
+				<outline text="			Given step 1" />
+				<outline text="				Invalid Line" />
+				<outline text="			When step 2" />
+				<outline text="			Then step 3" />
+				<outline text="			And step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'Unknown' is following a step line." />
+				<outline text="Line 20: '				Invalid Line'" />
+				<outline text="Explanation: A step line can only be followed by another step line or an indented " />
+				<outline text="             'Explanation' or 'Input' header line, or outdented scenario, feature, or " />
+				<outline text="             area." />
+			</outline>
 		</outline>
-		<outline text="With A Step With Invalid Characters In The Name [Defining]">
+		<outline text="With Invalid Step Line After Step">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Explanation" />
+				<outline text="				Here is my " />
+				<outline text="				scenario explanation" />
+				<outline text="			Given step 1" />
+				<outline text="			Invalid Line" />
+				<outline text="			Then step 3" />
+				<outline text="			And step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: Invalid step starter." />
+				<outline text="Line 20: 'Invalid Line'" />
+				<outline text="Explanation: A step can start with either 'Given', 'When', 'Then', 'And', or '.'" />
+				<outline text="             Steps that start with '.' will have it's text interpreted as literal code " />
+				<outline text="             when generating feature classes." />
+			</outline>
 		</outline>
-		<outline text="With A Step With An Invalid Child Line [Defining]">
+		<outline text="With Invalid Line After Scenario Explanation Header">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Explanation" />
+				<outline text="			Given step 1" />
+				<outline text="			Then step 3" />
+				<outline text="			And step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'Step' is following an scenario explanation header line." />
+				<outline text="Line 17: '			Given step 1'" />
+				<outline text="Explanation: A scenario explanation header line can only be followed by an indented " />
+				<outline text="             explanation line." />
+			</outline>
 		</outline>
-		<outline text="With A Scenario With No Name [Defining]">
+		<outline text="With Invalid Line After Scenario">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1" />
+				<outline text="			Invalid Line" />
+				<outline text="			Given step 1" />
+				<outline text="			Then step 3" />
+				<outline text="			And step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: Invalid step starter." />
+				<outline text="Line 16: 'Invalid Line'" />
+				<outline text="Explanation: A step can start with either 'Given', 'When', 'Then', 'And', or '.'" />
+				<outline text="             Steps that start with '.' will have it's text interpreted as literal code " />
+				<outline text="             when generating feature classes." />
+			</outline>
 		</outline>
-		<outline text="With A Scenario With Invalid Characters In The Name [Defining]">
+		<outline text="With Invalid Indented Step Line After Scenario">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="			Here is my " />
+				<outline text="			feature explanation" />
+				<outline text="" />
+				<outline text="		My Scenario 1" />
+				<outline text="				Given step 1" />
+				<outline text="			Then step 3" />
+				<outline text="			And step 4" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'Unknown' is following a scenario line." />
+				<outline text="Line 16: '				Given step 1'" />
+				<outline text="Explanation: A scenario line can only be followed by another scenario line, an indented" />
+				<outline text="             'Explanation' header or indented step line, or an outdented feature or " />
+				<outline text="             area line." />
+			</outline>
 		</outline>
-		<outline text="With A Scenario With An Invalid Child Line [Defining]">
+		<outline text="With Invalid Line After Feature Explanation Header">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="			As a user" />
+				<outline text="			You can get some value" />
+				<outline text="			By doing something" />
+				<outline text="		Explanation" />
+				<outline text="		My Scenario 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'Scenario' is following a feature explanation header line." />
+				<outline text="Line 11: '		My Scenario 1'" />
+				<outline text="Explanation: A feature explanation header line can only be followed by an indented " />
+				<outline text="             explanation line." />
+			</outline>
 		</outline>
-		<outline text="With A Feature With No Name [Defining]">
+		<outline text="With Invalid Line After Feature Statement Header">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="	My Feature 1" />
+				<outline text="		Statement" />
+				<outline text="		My Scenario 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'Scenario' is following a feature statement header line." />
+				<outline text="Line 7: '		My Scenario 1'" />
+				<outline text="Explanation: A feature statement header line can only be followed by an indented " />
+				<outline text="             statement line." />
+			</outline>
 		</outline>
-		<outline text="With A Feature With Invalid Characters In The Name [Defining]">
+		<outline text="With Invalid Line After Feature">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="		Here is " />
+				<outline text="		my explanation" />
+				<outline text="	My Feature 1" />
+				<outline text="	My Feature 2" />
+				<outline text="		My Scenario 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'Feature' following a feature line." />
+				<outline text="Line 6: '	My Feature 2'" />
+				<outline text="Explanation: A feature line can only be followed by an indented scenario name, indented" />
+				<outline text="             'Explanation' header or indented 'Statement' header." />
+			</outline>
 		</outline>
-		<outline text="With A Feature With An Invalid Child Line [Defining]">
+		<outline text="With Invalid Line After Area Explanation Header">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="	Explanation" />
+				<outline text="	My Feature 1" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'Feature' is following an area explanation header line." />
+				<outline text="Line 3: '	My Feature 1'" />
+				<outline text="Explanation: An area explanation header line can only be followed by an indented " />
+				<outline text="             explanation line." />
+			</outline>
 		</outline>
-		<outline text="With An Area With No Name [Defining]">
+		<outline text="With Invalid Line After Area">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Area 1 - My Sub Area 2" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'Area' is following an area line." />
+				<outline text="Line 2: 'My Area 1 - My Sub Area 2'" />
+				<outline text="Explanation: An area line can only be followed by an indented 'Explanation' header or " />
+				<outline text="             indented Feature line." />
+			</outline>
 		</outline>
-		<outline text="With An Area With Invalid Characters In The Name [Defining]">
-		</outline>
-		<outline text="With An Area With An Invalid Child Line [Defining]">
-		</outline>
-		<outline text="With A Duplicate Feature [Defining]">
-		</outline>
-		<outline text="With A Duplicate Scenario [Defining]">
+		<outline text="With Invalid Indented Line After Area">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:">
+				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="		Invalid Line" />
+			</outline>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd project generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="{{.*}}/rl" />
+				<outline text="Error: An invalid line of type 'Scenario' is following an area line." />
+				<outline text="Line 2: '		Invalid Line'" />
+				<outline text="Explanation: An area line can only be followed by an indented 'Explanation' header or " />
+				<outline text="             indented Feature line." />
+			</outline>
 		</outline>
 	</outline>
 	<outline text="For An MS Test Project [Defining]">

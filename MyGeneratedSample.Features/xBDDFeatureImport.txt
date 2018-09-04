@@ -1,7 +1,23 @@
 MyImportedArea1
 	MyImportedFeature
+		Statement
+			As a user
+			You can have some value
+			By performing some action
+		Explanation
+			This an explanation.
+			That is on multiple lines
 		MyImportedScenario #R-Ready
+			Explanation
+				This an explanation.
+				That is on multiple lines
 			Given you have the xbdd tools installed
+				Explanation
+					This an explanation.
+					That is on multiple lines
+				Input
+					This is the Input
+					That is on multiple lines
 			And you have an xBDDFeatureImport.txt file defined in the root of the project
 			When you execute 'dotnet xbdd project generate MSTest'
 			Then a new feature will be defined in the project with two partial class files

@@ -51,7 +51,7 @@
             "args": [
 				"${workspaceFolder}/scripts/test.ps1",
                 "xBDD.Features.GeneratingCode",
-                "true",
+                "false",
                 "false",
                 "false",
             ],

@@ -151,7 +151,5 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 			await xB.AddScenario(this, 1020)
 				.Skip("Defining", Assert.Inconclusive);
 		}
-
-
     }
 }

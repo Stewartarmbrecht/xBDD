@@ -4,12 +4,16 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 	using System;
 	using System.Threading.Tasks;
 	using System.Collections.Generic;
+	using System.Linq;
+	using System.Linq.Expressions;
 	using xBDD;
+	using xBDD.Model;
 	using xBDD.Utility;
 	using xBDD.Features.GeneratingCode.Interfaces;
 	using xBDD.Features.GeneratingCode.Actors;
 
 	
+	[TestCategory("Now")]
 	[AsA("Developer")]
 	[YouCan("generate a new MS Test Project")]
 	[By("executing the 'dotnet xbdd project generate MSTest' xbddToolsCommandArgs")]
@@ -104,31 +108,114 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 		Developer you = new Developer();
 		FileSystem at = new FileSystem();
 
+		private Step youWillFindAnHtmlReport() {
+			return you.WillFind("an HTML Report", TextFormat.htmlpreview, 
+				"./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html"
+			);
+		}
+		private Step youWillFindAJsonReport() {
+				return you.WillFind("a JSON Report", TextFormat.js, 
+					"./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json"
+				);
+		}
+		private Step youWillFindATextReport() {
+				return you.WillFind("a Text Report", TextFormat.text, 
+					"./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt"
+				);
+		}
+		private Step youWillFindATextOutlineReport() {
+				return you.WillFind("a Text Outline Report", TextFormat.text, 
+					"./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt"
+				);
+		}
+		private Step youWillFindAnOpmlReport() {
+				return you.WillFind("a OPML Outline Report", TextFormat.xml, 
+					"./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml"
+				);
+		}
+
+		private string nl = System.Environment.NewLine;
+
+		private (string FilePath, string Comment, TextFormat Format) projectFile => 
+			("MyGeneratedSample.Features/MyGeneratedSample.Features.csproj",$"<!--Modified-->{nl}",TextFormat.xml);
+		private (string FilePath, string Comment, TextFormat Format) sorting =>
+			("MyGeneratedSample.Features/xBddSorting.cs",$"// Modified{nl}",TextFormat.cs);
+		private (string FilePath, string Comment, TextFormat Format) projectFileXbdd => 
+			("MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd",$"<!--Modified-->{nl}",TextFormat.xml);
+		private (string FilePath, string Comment, TextFormat Format) featureBaseXbdd =>
+			("MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs",$"// Modified{nl}",TextFormat.cs);
+		private (string FilePath, string Comment, TextFormat Format) sortingXbdd =>
+			("MyGeneratedSample.Features/xBddSorting.xbdd.cs",$"// Modified{nl}",TextFormat.cs);		
+		private (string FilePath, string Comment, TextFormat Format) config =>
+			("MyGeneratedSample.Features/xBddConfig.json",$" {nl}",TextFormat.js);
+		private (string FilePath, string Comment, TextFormat Format) featureImport =>
+			("MyGeneratedSample.Features/xBddFeatureImport.txt",$"{nl}",TextFormat.text);
+		private (string FilePath, string Comment, TextFormat Format) initializeAndComplete =>
+			("MyGeneratedSample.Features/xBddInitializeAndComplete.cs",$"// Modified{nl}",TextFormat.cs);
+		private (string FilePath, string Comment, TextFormat Format) featureFile =>
+			("MyGeneratedSample.Features/Features/MyArea/MyFeature.cs",$"// Mmodified{nl}", TextFormat.cs);
+
+
 		[TestMethod]
 		[Explanation(@"
 			This is the default scenario expected for generating MS Project files.",3)]
 		[Assignments("Stewart","John")]
 		[Tags("Something","SomethingElse")]
-		public async Task InAnEmptyDirectory()
-		{
+		public async Task InAnEmptyDirectory() {
 			await xB.AddScenario(this, 1001)
-				.Given(you.HaveAnEmptyProjectDirectory())
+				.Given(you.HaveAnEmptyDirectory("./MyGeneratedSample.Features"))
 				.When(you.RunTheXbddToolsCommand(xbddToolsCommandArgs, directory))
-				.Then(you.WillFindAValidFile(at.MyGeneratedSample_Features.MyGeneratedSample_Features_csproj))
-				.And(you.WillFindAValidFile(at.MyGeneratedSample_Features.MyGeneratedSample_Features_csproj_xbdd))
-				.And(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBddConfig_json))
-				.And(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBddFeatureBase_xbdd_cs))
-				.And(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBddFeatureImport_txt))
-				.And(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBDDInitializeAndComplete_cs))
-				.And(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBddSorting_cs))
-				.And(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBddSorting_xbdd_cs))
-				.And(you.WillFindAValidFile(at.MyGeneratedSample_Features.Features_MySampleArea_MySampleFeature_cs))
+				.Then(you.WillFindAMatchingFile(
+					"./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj",
+					"./../../../Interfaces/Files/ProjectFileTemplates/MyGeneratedSample.Features.csproj.tmpl",
+					TextFormat.xml
+				))
+				.And(you.WillFindAMatchingFile(
+					"./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd",
+					"./../../../Interfaces/Files/ProjectFileTemplates/MyGeneratedSample.Features.csproj.tmpl",
+					TextFormat.xml
+				))
+				.And(you.WillFindAMatchingFile(
+					"./MyGeneratedSample.Features/xBDDConfig.json",
+					"./../../../Interfaces/Files/ProjectFileTemplates/xBDDConfig.json.tmpl",
+					TextFormat.js
+				))
+				.And(you.WillFindAMatchingFile(
+					"./MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs",
+					"./../../../Interfaces/Files/ProjectFileTemplates/xBDDFeatureBase.xbdd.cs.tmpl",
+					TextFormat.cs
+				))
+				.And(you.WillFindAMatchingFile(
+					"./MyGeneratedSample.Features/xBDDFeatureImport.txt",
+					"./../../../Interfaces/Files/ProjectFileTemplates/xBDDFeatureImport.txt.tmpl",
+					TextFormat.text
+				))
+				.And(you.WillFindAMatchingFile(
+					"./MyGeneratedSample.Features/xBDDInitializeAndComplete.cs",
+					"./../../../Interfaces/Files/ProjectFileTemplates/xBDDInitializeAndComplete.cs.tmpl",
+					TextFormat.cs
+				))
+				.And(you.WillFindAMatchingFile(
+					"./MyGeneratedSample.Features/xBDDSorting.cs",
+					"./../../../Interfaces/Files/ProjectFileTemplates/xBDDSorting.cs.tmpl",
+					TextFormat.cs
+				))
+				.And(you.WillFindAMatchingFile(
+					"./MyGeneratedSample.Features/xBDDSorting.xbdd.cs",
+					"./../../../Interfaces/Files/ProjectFileTemplates/xBDDSorting.xbdd.cs.tmpl",
+					TextFormat.cs
+				))
+				.And(you.WillFindAMatchingFile(
+					"./MyGeneratedSample.Features/Features/MyArea/MyFeature.cs",
+					"./../../../Interfaces/Files/ProjectFileTemplates/MyFeature.cs.tmpl",
+					TextFormat.cs
+				))
 				.And(you.WillFindTheProjectExecutesTests())
-				.And(you.WillFindTheProjectGenerated(ReportType.HtmlReport))
-				.And(you.WillFindTheProjectGenerated(ReportType.JsonReport))
-				.And(you.WillFindTheProjectGenerated(ReportType.TextReport))
-				.And(you.WillFindTheProjectGenerated(ReportType.TextOutlineReport))
-				.And(you.WillFindTheProjectGenerated(ReportType.OpmlReport))
+				.And(youWillFindAnHtmlReport())
+				.And(youWillFindAJsonReport())
+				.And(youWillFindATextReport())
+				.And(youWillFindATextOutlineReport())
+				.And(youWillFindAnOpmlReport())
 				.Run();
 		}
 
@@ -136,22 +223,98 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 		[Explanation(@"
 			Verifies some files are created but not overwritten when the xbddToolsCommandArgs is executed a second time.  All files that either end in xBDD.[FileType] or end in .xbdd will be overwritten each time the project is generated.  This allows teams to 'upgrade' their default files when they change due to an upgrade.  Or it allows teams to regenerate copies of certain files like the FeatureSort or ReasonSort to make it easier to identify new additions and add them to their custom versions.",3)]
 		[Assignments("Stewart")]
-		public async Task InAnInitializedXBDD()
-		{
+		public async Task InAnInitializedXBDD() {
+			var nl = System.Environment.NewLine;
+			List<(string FilePath, string Comment, TextFormat Format)> standardFilePaths = new List<(string FilePath, string Comment, TextFormat Format)>() {
+				projectFile,
+				projectFileXbdd,
+				featureBaseXbdd,
+				sorting,
+				sortingXbdd,
+				config,
+				featureImport,
+				initializeAndComplete,
+				featureFile
+			};
+			List<(string FilePath, string Comment, TextFormat Format)> protectedFiles = new List<(string FilePath, string Comment, TextFormat Format)>() {
+				projectFile,
+				sorting,
+				config,
+				featureImport,
+				initializeAndComplete
+			};
+			List<(string FilePath, string Comment, TextFormat Format)> overwrittenFiles = new List<(string FilePath, string Comment, TextFormat Format)>() {
+				projectFileXbdd,
+				featureBaseXbdd,
+				sortingXbdd
+			};
+			List<(string FilePath, string Comment, TextFormat Format)> featureFiles = new List<(string FilePath, string Comment, TextFormat Format)>() {
+				featureFile,
+			};
+
 			await xB.AddScenario(this, 1002)
-				.Given(you.HaveAnEmptyProjectDirectory())
+				.Given(you.HaveAnEmptyDirectory("./MyGeneratedSample.Features"))
 				.When(you.RunTheXbddToolsCommand(xbddToolsCommandArgs, directory))
-				.And(you.ModifyAllTheStandardProjectFiles())
+				.And("you modify all the standard project files", (s) => {
+					standardFilePaths.ForEach(x => {
+						var content = System.IO.File.ReadAllText(x.FilePath);
+						try {
+							content = $"{x.Comment}{content}";
+							System.IO.File.WriteAllText(x.FilePath, content);
+						} catch {
+							s.Output = content;
+							s.OutputFormat = x.Format;
+							throw;
+						}
+					});
+				}, string.Join($",{nl}", standardFilePaths.Select(x => x.FilePath)), TextFormat.text)
 				.When(you.RunTheXbddToolsCommand(xbddToolsCommandArgs, directory))
-				.Then(you.WillFindTheFilesEndingInXbddAreOverwritten())
-				.And(you.WillFindTheFilesNotEndingInXbddAreNotOverwritten())
-				.And(you.WillFindTheSampleFeatureFileIsNotModifiedBecauseTheXbddBacklogFileAlreadyExisted())
+				.Then("you will find the files ending in xbdd.[ext] or xbdd are overwritten", (s) => {
+					overwrittenFiles.ForEach(x => {
+						var content = System.IO.File.ReadAllText(x.FilePath);
+						try {
+							Assert.IsTrue(!content.StartsWith(x.Comment), $"The file was not overwritten: {x.FilePath}");
+						} catch {
+							s.Output = content;
+							s.OutputFormat = x.Format;
+							throw;
+						}
+					});
+				}, string.Join($",{nl}", standardFilePaths.Select(x => x.FilePath)), TextFormat.text)
+				.And("you will find the files not ending in xbdd.[ext] or xbdd are not overwritten", (s) => {
+					protectedFiles.ForEach(x => {
+						var content = System.IO.File.ReadAllText(x.FilePath);
+						s.Output = content;
+						s.OutputFormat = x.Format;
+						try {
+							Assert.IsTrue(content.StartsWith(x.Comment), $"The file was overwritten: {x.FilePath}");
+						} catch {
+							s.Output = content;
+							s.OutputFormat = x.Format;
+							throw;
+						}
+					});
+				}, string.Join($",{nl}", standardFilePaths.Select(x => x.FilePath)), TextFormat.text)
+				.And("you will find the sample feature file is not modified because the xbdd backlog file already exists", (s) => {
+					featureFiles.ForEach(x => {
+						var content = System.IO.File.ReadAllText(x.FilePath);
+						s.Output = content;
+						s.OutputFormat = x.Format;
+						try {
+							Assert.IsTrue(content.StartsWith(x.Comment), $"The file was overwritten: {x.FilePath}");
+						} catch {
+							s.Output = content;
+							s.OutputFormat = x.Format;
+							throw;
+						}
+					});
+				}, string.Join($",{nl}", standardFilePaths.Select(x => x.FilePath)), TextFormat.text)
 				.And(you.WillFindTheProjectExecutesTests())
-				.And(you.WillFindTheProjectGenerated(ReportType.HtmlReport))
-				.And(you.WillFindTheProjectGenerated(ReportType.JsonReport))
-				.And(you.WillFindTheProjectGenerated(ReportType.TextReport))
-				.And(you.WillFindTheProjectGenerated(ReportType.TextOutlineReport))
-				.And(you.WillFindTheProjectGenerated(ReportType.OpmlReport))
+				.And(youWillFindAnHtmlReport())
+				.And(youWillFindAJsonReport())
+				.And(youWillFindATextReport())
+				.And(youWillFindATextOutlineReport())
+				.And(youWillFindAnOpmlReport())
 				.Run();
 		}
 
@@ -159,16 +322,19 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 		[Explanation(@"
 			You can specify the value of testrun name setting in the `xBDDConfig.json` file through a `--testrun-name` option for the xbdd xbddToolsCommandArgs.  The default value is the name of the project folder.",3)]
 		[Assignments("Stewart")]
-		public async Task WithATestRunName()
-		{
+		public async Task WithATestRunName() {
 			List<string> args = new List<string>();
 			args.AddRange(this.xbddToolsCommandArgs);
 			args.Add("--testrun-name");
 			args.Add("My Sample Test Run");
 			await xB.AddScenario(this, 1003)
-				.Given(you.HaveAnEmptyProjectDirectory())
+				.Given(you.HaveAnEmptyDirectory("./MyGeneratedSample.Features"))
 				.When(you.RunTheXbddToolsCommand(args.ToArray(), directory))
-				.Then(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBddConfigWithTestRunName_json))
+				.And(you.WillFindAMatchingFile(
+					"./MyGeneratedSample.Features/xBDDConfig.json",
+					"./../../../Interfaces/Files/ProjectFileTemplates/xBDDConfigWithATestRunName.json.tmpl",
+					TextFormat.js
+				))
 				.Run();
 		}
 
@@ -176,16 +342,19 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 		[Explanation(@"
 			You can specify the value of 'remove from area name' setting in the `xBDDConfig.json` file through a `--remove-from-area-name` option for the xbdd xbddToolsCommandArgs.  The default value is the name of the project folder with '.' replaced by ' - '.",3)]
 		[Assignments("Stewart")]
-		public async Task WithAreaNameClipping()
-		{
+		public async Task WithAreaNameClipping() {
 			List<string> args = new List<string>();
 			args.AddRange(this.xbddToolsCommandArgs);
 			args.Add("--remove-from-area-name");
 			args.Add("Modified");
 			await xB.AddScenario(this, 1004)
-				.Given(you.HaveAnEmptyProjectDirectory())
+				.Given(you.HaveAnEmptyDirectory("./MyGeneratedSample.Features"))
 				.When(you.RunTheXbddToolsCommand(args.ToArray(), directory))
-				.Then(you.WillFindAValidFile(at.MyGeneratedSample_Features.xBddConfigWithRemoveAreaName_json))
+				.And(you.WillFindAMatchingFile(
+					"./MyGeneratedSample.Features/xBDDConfig.json",
+					"./../../../Interfaces/Files/ProjectFileTemplates/xBDDConfigWithAreaNameClipping.json.tmpl",
+					TextFormat.js
+				))
 				.Run();
 		}
     }

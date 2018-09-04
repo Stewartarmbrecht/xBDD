@@ -3,6 +3,8 @@ namespace xBDD.Importing.Text
     enum LineType
     {
         Unknown,
+        LastLine,
+        Empty,
         Area,
         Feature,
         Scenario,

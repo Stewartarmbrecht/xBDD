@@ -73,7 +73,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" span.step.duration { font-size: .75rem; color: gray; }");
             sb.Append(" span.oi.oi-info { font-size: 80% }");
             sb.Append(" ol.areas { margin: .5rem 0rem; }");
-            sb.Append(" ol { margin-left: 3rem; }");
+            sb.Append(" ol.areas, ol.features, ol.scenarios, ol.steps { margin-left: 3rem; }");
             sb.Append(" span.badge { margin-left: .25rem; }");
             sb.Append(" span.distro { width: 1.5rem; height: 1.5rem; display: inline-block; margin-left: 2rem; border: 1px solid white; }");
             sb.Append(" span.name { margin-left: .75rem; }");
@@ -96,9 +96,11 @@ namespace xBDD.Reporting.Html
             sb.Append(" .area-percent-bar { background-color: #A4DEFB; }");
             sb.Append(" .pointer { cursor: pointer }");
             sb.Append(" pre { white-space: pre !important; }");
-            sb.Append(" pre.mp { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thin; }");
-            sb.Append(" pre.output { margin: 1rem auto; width: 95%; border: lightgray; border-style: solid; padding: 1rem; border-width: thins; }");
+            sb.Append(" pre.mp { margin: 1rem auto; width: 95%; }");
+            sb.Append(" pre.output { margin: 1rem auto; width: 95%; }");
             sb.Append(" .collapsing { -webkit-transition: none; transition: none; display: none; }");
+            sb.Append(" pre.prettyprint {  background-color: #eee; }");
+            sb.Append(" .linenums li { list-style-type: decimal !important;}");
             sb.AppendLine("</style>");  
         }
 
@@ -110,7 +112,7 @@ namespace xBDD.Reporting.Html
             sb.AppendLine("    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>");
             sb.AppendLine("    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>");
             sb.AppendLine("    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\" integrity=\"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy\" crossorigin=\"anonymous\"></script>");
-            sb.AppendLine("    <script src=\"https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sunburst\"></script>");
+            sb.AppendLine("    <script src=\"https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js\"></script>");
             sb.AppendLine("    <script language=\"javascript\" type=\"text/javascript\">function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; }</script>");
             WriteTagClose("body", sb, 0);
         }
@@ -701,13 +703,9 @@ namespace xBDD.Reporting.Html
             }
             else
             {
-                var className = "mp rounded";
-                if (step.InputFormat != TextFormat.text)
-                {
-                    className = className + " prettyprint";
-                    if (step.InputFormat != TextFormat.code)
-                        className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.InputFormat);
-                }
+                var className = "mp prettyprint linenums rounded";
+                if (step.InputFormat != TextFormat.code)
+                    className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.InputFormat);
                 WriteTagOpen("pre", sb, 10, className, true, $"input-{stepNumber}");
                 sb.Append(step.Input.HtmlEncode());
                 WriteTagClose("pre", sb, 0);
@@ -754,7 +752,7 @@ namespace xBDD.Reporting.Html
                                                 </script>
                                             </div>
                                             <div role=""tabpanel"" class=""tab-pane"" id=""code{stepNumber}"">
-                                                <pre class=""mp prettyprint lang-html"">{previewCode}</pre>
+                                                <pre class=""mp prettyprint linenums lang-html"">{previewCode}</pre>
                                             </div>
                                         </div>
                                     </div>";
@@ -770,13 +768,9 @@ namespace xBDD.Reporting.Html
             }
             else
             {
-                var className = "output rounded text";
-                if (step.OutputFormat != TextFormat.text)
-                {
-                    className = "prettyprint";
-                    if (step.OutputFormat != TextFormat.code)
-                        className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.OutputFormat);
-                }
+                var className = "output prettyprint linenums rounded";
+                if (step.OutputFormat != TextFormat.code)
+                    className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.OutputFormat);
                 WriteTagOpen("pre", sb, 10, className, true, "output-" + stepNumber);
                 sb.Append(step.Output.HtmlEncode());
                 WriteTagClose("pre", sb, 0);
@@ -822,7 +816,7 @@ namespace xBDD.Reporting.Html
                                                 </script>
                                             </div>
                                             <div role=""tabpanel"" class=""tab-pane"" id=""output-code-{stepNumber}"">
-                                                <pre class=""mp prettyprint lang-html"">{htmlCode}</pre>
+                                                <pre class=""mp prettyprint linenums lang-html"">{htmlCode}</pre>
                                             </div>
                                         </div>";
             sb.AppendLine(html);

@@ -3,10 +3,11 @@ xBDD - Generating Code
 xBDD - Features - Generating Code - Generating Project Files
 	For An MS Test Project
 		In An Empty Directory
-			Given you have an empty project directory
+			Given you have an empty directory
 			When you run the command:
 				dotnet xbdd project generate MSTest
 			Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template:
+				 File Path: ./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj
 				<Project Sdk="Microsoft.NET.Sdk">
 				
 					<PropertyGroup>
@@ -31,6 +32,7 @@ xBDD - Features - Generating Code - Generating Project Files
 				
 				</Project>
 			And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template:
+				 File Path: ./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd
 				<Project Sdk="Microsoft.NET.Sdk">
 				
 					<PropertyGroup>
@@ -54,7 +56,8 @@ xBDD - Features - Generating Code - Generating Project Files
 					</ItemGroup>
 				
 				</Project>
-			And you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
+				 File Path: ./MyGeneratedSample.Features/xBDDConfig.json
 				{
 					"xBDD": {
 						"TestRunName": "My Generated Sample - Features",
@@ -67,7 +70,8 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs' that matches the template:
+				// File Path: ./MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs
 				namespace MyGeneratedSample.Features
 				{
 					using xBDD;
@@ -85,7 +89,8 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBddFeatureImport.txt' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template:
+				 File Path: ./MyGeneratedSample.Features/xBDDFeatureImport.txt
 				MyImportedArea1
 					MyImportedFeature
 						MyImportedScenario #R-Ready
@@ -96,6 +101,7 @@ xBDD - Features - Generating Code - Generating Project Files
 							And you can finish the import by moving the scenarios from the feature.xbdd.cs file to the feature.cs file
 							And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature
 			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template:
+				// File Path: ./MyGeneratedSample.Features/xBDDInitializeAndComplete.cs
 				namespace MyGeneratedSample.Features
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -118,7 +124,8 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBddSorting.cs' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.cs' that matches the template:
+				// File Path: ./MyGeneratedSample.Features/xBDDSorting.cs
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -143,7 +150,8 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBddSorting.xbdd.cs' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.xbdd.cs' that matches the template:
+				// File Path: ./MyGeneratedSample.Features/xBDDSorting.xbdd.cs
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -169,6 +177,7 @@ xBDD - Features - Generating Code - Generating Project Files
 					}
 				}
 			And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template:
+				// File Path: ./MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
 				namespace MyGeneratedSample.Features.MyArea
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -234,43 +243,80 @@ xBDD - Features - Generating Code - Generating Project Files
 				}
 			And you will find the project execute tests with the 'dotnet test' command
 				dotnet test
-			And you will find the project generated a Html Report.
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
-			And you will find the project generated a Json Report.
+			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
-			And you will find the project generated a Text Report.
+			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
-			And you will find the project generated a Text Outline Report.
+			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
-			And you will find the project generated a Opml Report.
+			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
 		In An Initialized XBDD
-			Given you have an empty project directory
+			Given you have an empty directory
 			When you run the command:
 				dotnet xbdd project generate MSTest
 			And you modify all the standard project files
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+				MyGeneratedSample.Features/xBddSorting.cs,
+				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+				MyGeneratedSample.Features/xBddConfig.json,
+				MyGeneratedSample.Features/xBddFeatureImport.txt,
+				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
 			When you run the command:
 				dotnet xbdd project generate MSTest
 			Then you will find the files ending in xbdd.[ext] or xbdd are overwritten
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+				MyGeneratedSample.Features/xBddSorting.cs,
+				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+				MyGeneratedSample.Features/xBddConfig.json,
+				MyGeneratedSample.Features/xBddFeatureImport.txt,
+				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
 			And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+				MyGeneratedSample.Features/xBddSorting.cs,
+				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+				MyGeneratedSample.Features/xBddConfig.json,
+				MyGeneratedSample.Features/xBddFeatureImport.txt,
+				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
 			And you will find the sample feature file is not modified because the xbdd backlog file already exists
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+				MyGeneratedSample.Features/xBddSorting.cs,
+				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+				MyGeneratedSample.Features/xBddConfig.json,
+				MyGeneratedSample.Features/xBddFeatureImport.txt,
+				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
 			And you will find the project execute tests with the 'dotnet test' command
 				dotnet test
-			And you will find the project generated a Html Report.
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
-			And you will find the project generated a Json Report.
+			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
-			And you will find the project generated a Text Report.
+			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
-			And you will find the project generated a Text Outline Report.
+			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
-			And you will find the project generated a Opml Report.
+			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
 		With A Test Run Name
-			Given you have an empty project directory
+			Given you have an empty directory
 			When you run the command:
 				dotnet xbdd project generate MSTest --testrun-name My Sample Test Run
-			Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
+				 File Path: ./MyGeneratedSample.Features/xBDDConfig.json
 				{
 					"xBDD": {
 						"TestRunName": "My Sample Test Run",
@@ -284,10 +330,11 @@ xBDD - Features - Generating Code - Generating Project Files
 					}
 				}
 		With Area Name Clipping
-			Given you have an empty project directory
+			Given you have an empty directory
 			When you run the command:
 				dotnet xbdd project generate MSTest --remove-from-area-name Modified
-			Then you will find a file at './MyGeneratedSample.Features/xBddConfig.json' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
+				 File Path: ./MyGeneratedSample.Features/xBDDConfig.json
 				{
 					"xBDD": {
 						"TestRunName": "My Generated Sample - Features",
@@ -301,32 +348,806 @@ xBDD - Features - Generating Code - Generating Project Files
 					}
 				}
 xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Defining]
-	With An Invalid Outline [Defining]
-		With No Areas AKA Empty
-			Given you have an empty project directory
-			And add a with no areas (aka empty file) file
+	With An Invalid Outline
+		With Invalid Characters In Area Name
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My $%^& Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1 #R-Committed @Stewart #T-LoveIT
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1 #R-Committed @Jane #T-HateIT
+							Explanation
+								Here is my 
+								scenario explanation
+							Given step 1
+								Explanation
+									Here is my 
+									step explanation
+								Input
+									Here is my 
+									step input
+							When step 2
+							Then step 3
+							And step 4
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will see output with an exception for No Areas (AKA Empty)
-				{{Directory\: .*\/MyGeneratedSample\.Features}}
-				Folder: MyGeneratedSample.Features
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An area is defined with invalid characters in the name.
+				Line 1: 'My Area 1 - My $%^& Sub Area 1'
+				Explanation: An area name must start with a letter and can only contain
+				             letters, numbers, spaces, underscores, and ' - '.
+				             The ' - ' string is converted to '.' to define the features 
+				             namespace in the test project.
+		With Invalid Characters In Feature Name
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My $%^& Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1
+							Explanation
+								Here is my 
+								scenario explanation
+							Given step 1
+								Explanation
+									Here is my 
+									step explanation
+								Input
+									Here is my 
+									step input
+							When step 2
+							Then step 3
+							And step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: A feature is defined with invalid characters in the name.
+				Line 6: 'My $%^& Feature 1'
+				Explanation: A feature name must start with a letter and can only contain
+				             letters, numbers, spaces, and underscores.
+		With Invalid Characters In Scenario Name
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1 #R-Committed @Stewart #T-LoveIT
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My $%^& Scenario 1
+							Explanation
+								Here is my 
+								scenario explanation
+							Given step 1
+								Explanation
+									Here is my 
+									step explanation
+								Input
+									Here is my 
+									step input
+							When step 2
+							Then step 3
+							And step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: A scenario is defined with invalid characters in the name.
+				Line 15: 'My $%^& Scenario 1'
+				Explanation: A scenario name must start with a letter and can only contain
+				             letters, numbers, spaces, and underscores.
+		With Empty Feature Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1 #R-Committed @Stewart #T-LoveIT
+							Explanation
+								Here is my 
+								scenario explanation
+							Given step 1
+								Explanation
+									Here is my 
+									step explanation
+								Input
+									Here is my 
+									step input
+							When step 2
+							Then step 3
+							And step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: Line 6: A feature is defined with no name.
+		With Empty Scenario Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						
+							Explanation
+								Here is my 
+								scenario explanation
+							Given step 1
+								Explanation
+									Here is my 
+									step explanation
+								Input
+									Here is my 
+									step input
+							When step 2
+							Then step 3
+							And step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: Line 15: A scenario is defined with no name.
+		With Empty Step Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1
+							Explanation
+								Here is my 
+								scenario explanation
+							Given step 1
+								Explanation
+									Here is my 
+									step explanation
+								Input
+									Here is my 
+									step input
+							When step 2
+							
+							And step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: Line 27: A step is defined with no name.
+		With Step Input Header On Last Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1
+							Explanation
+								Here is my 
+								scenario explanation
+							Given step 1
+								Explanation
+									Here is my 
+									step explanation
+								Input
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'No Line' is following a step input header.
+				Line 23: ''
+				Explanation: A step input header line can only be followed by an indented input line.
+		With Step Explanation Header On Last Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1
+							Explanation
+								Here is my 
+								scenario explanation
+							Given step 1
+								Explanation
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'No Line' is following a step explanation header.
+				Line 20: ''
+				Explanation: A step explanation header line can only be followed by an indented 
+				             explanation line.
+		With Scenario Explanation Header On Last Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1
+							Explanation
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'No Line' is following an scenario explanation header line.
+				Line 16: ''
+				Explanation: A scenario explanation header line can only be followed by an indented 
+				             explanation line.
+		With Feature Explanation On Last Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'No Line' is following a feature explanation line.
+				Line 13: ''
+				Explanation: A Feature explanation line can only be followed by another explanation 
+				             line, a feature statement header line or an outdented (2x) scenario line.
+		With Feature Explanation Header On Last Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'No Line' is following a feature explanation header line.
+				Line 11: ''
+				Explanation: A feature explanation header line can only be followed by an indented 
+				             explanation line.
+		With Feature Statement On Last Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'No Line' is following a feature Statement line.
+				Line 10: ''
+				Explanation: A feature statement line can only be followed by another statement line, 
+				             a feature explanation header line or an outdented (2x) scenario line.
+		With Feature Statement Header On Last Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'No Line' is following a feature statement header line.
+				Line 7: ''
+				Explanation: A feature statement header line can only be followed by an indented 
+				             statement line.
+		With Feature On Last Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'No Line' following a feature line.
+				Line 6: ''
+				Explanation: A feature line can only be followed by an indented scenario name, indented
+				             'Explanation' header or indented 'Statement' header.
+		With Area Explanation On Last Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'No Line' is following an area explanation line.
+				Line 4: ''
+				Explanation: An area explanation line can only be followed by another explanation line 
+				             or an outdented (2x) feature line.
+		With Area Explanation Header On Last Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'No Line' is following an area explanation header line.
+				Line 2: ''
+				Explanation: An area explanation header line can only be followed by an indented 
+				             explanation line.
+		With Area On Last Line
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'No Line' is following an area line.
+				Line 1: ''
+				Explanation: An area line can only be followed by an indented 'Explanation' header or 
+				             indented Feature line.
+		With No Lines
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
 				Error: The file is empty.
-		With No Features [Defining]
-		With No Scenarios [Defining]
-		With A Step With No Name [Defining]
-		With A Step With Invalid Characters In The Name [Defining]
-		With A Step With An Invalid Child Line [Defining]
-		With A Scenario With No Name [Defining]
-		With A Scenario With Invalid Characters In The Name [Defining]
-		With A Scenario With An Invalid Child Line [Defining]
-		With A Feature With No Name [Defining]
-		With A Feature With Invalid Characters In The Name [Defining]
-		With A Feature With An Invalid Child Line [Defining]
-		With An Area With No Name [Defining]
-		With An Area With Invalid Characters In The Name [Defining]
-		With An Area With An Invalid Child Line [Defining]
-		With A Duplicate Feature [Defining]
-		With A Duplicate Scenario [Defining]
+		With Invalid Line After Step Input Header
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1
+							Explanation
+								Here is my 
+								scenario explanation
+							Given step 1
+								Explanation
+									Here is my 
+									step explanation
+								Input
+							When step 2 Is Invalid Line
+							Then step 3
+							And step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'Step' is following a step input header.
+				Line 24: '			When step 2 Is Invalid Line'
+				Explanation: A step input header line can only be followed by an indented input line.
+		With Invalid Line After Step Explanation Header
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1
+							Explanation
+								Here is my 
+								scenario explanation
+							Given step 1
+								Explanation
+								Input
+									Here is the
+									Step input 
+							When step 2
+							Then step 3
+							And step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'StepInputHeader' is following a step explanation header.
+				Line 21: '				Input'
+				Explanation: A step explanation header line can only be followed by an indented 
+				             explanation line.
+		With Invalid Line After Step
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1
+							Explanation
+								Here is my 
+								scenario explanation
+							Given step 1
+								Invalid Line
+							When step 2
+							Then step 3
+							And step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'Unknown' is following a step line.
+				Line 20: '				Invalid Line'
+				Explanation: A step line can only be followed by another step line or an indented 
+				             'Explanation' or 'Input' header line, or outdented scenario, feature, or 
+				             area.
+		With Invalid Step Line After Step
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1
+							Explanation
+								Here is my 
+								scenario explanation
+							Given step 1
+							Invalid Line
+							Then step 3
+							And step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: Invalid step starter.
+				Line 20: 'Invalid Line'
+				Explanation: A step can start with either 'Given', 'When', 'Then', 'And', or '.'
+				             Steps that start with '.' will have it's text interpreted as literal code 
+				             when generating feature classes.
+		With Invalid Line After Scenario Explanation Header
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1
+							Explanation
+							Given step 1
+							Then step 3
+							And step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'Step' is following an scenario explanation header line.
+				Line 17: '			Given step 1'
+				Explanation: A scenario explanation header line can only be followed by an indented 
+				             explanation line.
+		With Invalid Line After Scenario
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1
+							Invalid Line
+							Given step 1
+							Then step 3
+							And step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: Invalid step starter.
+				Line 16: 'Invalid Line'
+				Explanation: A step can start with either 'Given', 'When', 'Then', 'And', or '.'
+				             Steps that start with '.' will have it's text interpreted as literal code 
+				             when generating feature classes.
+		With Invalid Indented Step Line After Scenario
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+				
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+							Here is my 
+							feature explanation
+				
+						My Scenario 1
+								Given step 1
+							Then step 3
+							And step 4
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'Unknown' is following a scenario line.
+				Line 16: '				Given step 1'
+				Explanation: A scenario line can only be followed by another scenario line, an indented
+				             'Explanation' header or indented step line, or an outdented feature or 
+				             area line.
+		With Invalid Line After Feature Explanation Header
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+					My Feature 1
+						Statement
+							As a user
+							You can get some value
+							By doing something
+						Explanation
+						My Scenario 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'Scenario' is following a feature explanation header line.
+				Line 11: '		My Scenario 1'
+				Explanation: A feature explanation header line can only be followed by an indented 
+				             explanation line.
+		With Invalid Line After Feature Statement Header
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+					My Feature 1
+						Statement
+						My Scenario 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'Scenario' is following a feature statement header line.
+				Line 7: '		My Scenario 1'
+				Explanation: A feature statement header line can only be followed by an indented 
+				             statement line.
+		With Invalid Line After Feature
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+						Here is 
+						my explanation
+					My Feature 1
+					My Feature 2
+						My Scenario 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'Feature' following a feature line.
+				Line 6: '	My Feature 2'
+				Explanation: A feature line can only be followed by an indented scenario name, indented
+				             'Explanation' header or indented 'Statement' header.
+		With Invalid Line After Area Explanation Header
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+					Explanation
+					My Feature 1
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'Feature' is following an area explanation header line.
+				Line 3: '	My Feature 1'
+				Explanation: An area explanation header line can only be followed by an indented 
+				             explanation line.
+		With Invalid Line After Area
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+				My Area 1 - My Sub Area 2
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'Area' is following an area line.
+				Line 2: 'My Area 1 - My Sub Area 2'
+				Explanation: An area line can only be followed by an indented 'Explanation' header or 
+				             indented Feature line.
+		With Invalid Indented Line After Area
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+				My Area 1 - My Sub Area 1
+						Invalid Line
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will see output matching the following template:
+				{{.*}}/rl
+				Error: An invalid line of type 'Scenario' is following an area line.
+				Line 2: '		Invalid Line'
+				Explanation: An area line can only be followed by an indented 'Explanation' header or 
+				             indented Feature line.
 	For An MS Test Project [Defining]
 		With An Empty Scenario [Defining]
 		With A Given Step [Defining]

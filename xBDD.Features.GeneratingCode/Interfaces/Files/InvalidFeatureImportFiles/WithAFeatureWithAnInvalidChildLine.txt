@@ -1,8 +1,0 @@
-MyArea
-	MyFeature
-			My Invalid feature child line
-		MyScenario
-			Given step 1
-			When step 2
-			Then step 3
-			And step 4

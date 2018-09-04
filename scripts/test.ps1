@@ -23,4 +23,4 @@ if($FilterToNow -eq "true") {
 }
 
 Write-Output "dotnet test ./../$ProjectFolder/$ProjectFolder.csproj -v n --no-build $Filter "
-iex "dotnet test ./../$ProjectFolder/$ProjectFolder.csproj -v n --no-build $Filter"
+Invoke-Expression "dotnet test ./../$ProjectFolder/$ProjectFolder.csproj -v n --no-build $Filter"

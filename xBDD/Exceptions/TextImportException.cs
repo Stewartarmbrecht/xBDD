@@ -20,5 +20,9 @@ namespace xBDD
             '{lineContent}'")
         {
         }
+        internal TextImportException(string message)
+            : base(message)
+        {
+        }
     }
 }

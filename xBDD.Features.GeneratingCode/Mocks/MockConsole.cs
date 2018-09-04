@@ -49,7 +49,14 @@ namespace xBDD.Features.GeneratingCode.Mocks
         //
         // Summary:
         //     Raised when Ctrl+C is pressed.
-        public event ConsoleCancelEventHandler CancelKeyPress;
+        public event ConsoleCancelEventHandler CancelKeyPress {
+            add {
+                throw new System.NotImplementedException();
+            }
+            remove {
+                throw new System.NotImplementedException();
+            }
+        }
 
         //
         // Summary:

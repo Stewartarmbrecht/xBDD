@@ -12,6 +12,9 @@ using xBDD.Utility;
 
 namespace xBDD.Tools
 {
+    /// <summary>
+    /// Command line utility for xBDD
+    /// </summary>
     [Command(
           Name = "dotnet xbdd",
           FullName = "dotnet-xbdd",
@@ -21,13 +24,22 @@ namespace xBDD.Tools
     [HelpOption]
     public class Program
     {
+        /// <summary>
+        /// Entry point for xBDD tools.
+        /// </summary>
+        /// <param name="args">The args to pass to xBDD tools.</param>
         public static void Main(string[] args) => CommandLineApplication.Execute<Program>(args);
 
+        /// <summary>
+        /// Entry point for testing xBDD tools tha allows you to pass in a mock console object.
+        /// </summary>
+        /// <param name="console">The console accepting the command.</param>
+        /// <param name="args">The args to pass to xBDD tools.</param>
         public static void Test(IConsole console, string[] args) => CommandLineApplication.Execute<Program>(console, args);
         // Return codes
-        public const int EXCEPTION = 2;
-        public const int ERROR = 1;
-        public const int OK = 0;
+        internal const int EXCEPTION = 2;
+        internal const int ERROR = 1;
+        internal const int OK = 0;
 
         private int OnExecute(CommandLineApplication app, IConsole console)
         {
