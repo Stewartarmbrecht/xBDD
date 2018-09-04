@@ -3,7 +3,6 @@ namespace xBDD.Features.GeneratingCode.Actors
 	using xBDD;
 	using xBDD.Model;
 	using xBDD.Utility;
-	using xBDD.Features.GeneratingCode.Interfaces;
     using System.Diagnostics;
 	using System.IO;
 	using System.Text;
@@ -13,7 +12,6 @@ namespace xBDD.Features.GeneratingCode.Actors
 	public class Developer
 	{
 		private void UpdateProjectFileToLocalReference() {
-			var fileSystem = new xBDD.Features.GeneratingCode.Interfaces.FileSystem();
 			var projectFilePath = "./MyGeneratedSample.Features/MyGeneratedSample.Features.csproj";
 			var projectFileContent = System.IO.File.ReadAllText(projectFilePath);
 			projectFileContent = projectFileContent.Replace(

@@ -62,7 +62,7 @@ xBDD - Features - Generate Reports - Generate Html Report
 				<html>
 				{{.*}}/rl
 				</html>
-xBDD - Features - Generate Reports - Browse Html Report [Defining]
+xBDD - Features - Generate Reports - Browse Html Report [Failed]
 	Review Test Run
 		From A Test Run With No Scenarios
 			When you navigate to the test html report from a test run with no scenarios
@@ -450,7 +450,7 @@ xBDD - Features - Generate Reports - Browse Html Report [Defining]
 			Then you will see the step 59 exception is visible
 		Collapse All [Defining]
 		Expand All [Defining]
-	Review Step Multiline Parameter [Defining]
+	Review Step Multiline Parameter [Failed]
 		Collapsed By Default
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios
 			And you click when the area 1 title line is visible
@@ -458,35 +458,55 @@ xBDD - Features - Generate Reports - Browse Html Report [Defining]
 			And you click when the scenario 1 name is visible
 			Then you will see the step 2 input link is visible
 			And you will see the step 2 input is not visible
-		General Text
+		General Text [Failed]
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios
 			And you click when the area 1 title line is visible
 			And you click when the feature 1 name is visible
 			And you click when the scenario 1 name is visible
 			And you click when the step 2 input link is visible
 			Then you will see the step 2 input is visible
-			And you will see the step 2 text input has text 'Here is my Input!'
+			And you will see the step 2 text input has text 'Here is my Input!' [Failed]
+				Error Type: Exception
+				   Message: The web element (the step 2 text input - #input-2.mp) was not found.
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass13_0.<WaitTillVisible>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/WebBrowser.cs:line 248
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Browser.PageElementSteps.<>c__DisplayClass5_0.<<HasText>b__0>d.MoveNext() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/PageElementSteps.cs:line 39
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 29
 		Code [Untested]
 		Html With Preview [Untested]
 		Collapse [Untested]
 		Collapse All [Defining]
 		Expand [Untested]
 		Expand All [Defining]
-	Review Step Output [Defining]
+	Review Step Output [Failed]
 		Collapsed By Default
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios
 			And you click when the area 1 title line is visible
 			And you click when the feature 1 name is visible
 			And you click when the scenario 1 name is visible
 			Then you will see the step 3 output link is visible
-		General Text
+		General Text [Failed]
 			When you navigate to the test html report from a test run with passing, skipped, and failed scenarios
 			And you click when the area 1 title line is visible
 			And you click when the feature 1 name is visible
 			And you click when the scenario 1 name is visible
 			And you click when the step 3 output link is visible
 			Then you will see the step 3 output is visible
-			And you will see the step 3 text output has text 'Here is my output!'
+			And you will see the step 3 text output has text 'Here is my output!' [Failed]
+				Error Type: Exception
+				   Message: The web element (the step 3 text output - #output-3.text) was not found.
+				     Stack:    at xBDD.Browser.WebBrowser.<>c__DisplayClass13_0.<WaitTillVisible>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/WebBrowser.cs:line 248
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Browser.PageElementSteps.<>c__DisplayClass5_0.<<HasText>b__0>d.MoveNext() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Browser/PageElementSteps.cs:line 39
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 29
 		Code [Defining]
 		Html With Preview [Defining]
 		Collapse [Defining]

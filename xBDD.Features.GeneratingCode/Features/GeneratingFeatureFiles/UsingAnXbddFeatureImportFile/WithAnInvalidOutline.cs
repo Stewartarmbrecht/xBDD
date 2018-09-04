@@ -7,7 +7,6 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 	using xBDD;
 	using xBDD.Utility;
 	using xBDD.Features.GeneratingCode.Actors;
-	using xBDD.Features.GeneratingCode.Interfaces;
 
 	[TestClass]
 	[AsA("Developer")]

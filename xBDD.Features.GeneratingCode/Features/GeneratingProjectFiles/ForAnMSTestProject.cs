@@ -9,7 +9,6 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 	using xBDD;
 	using xBDD.Model;
 	using xBDD.Utility;
-	using xBDD.Features.GeneratingCode.Interfaces;
 	using xBDD.Features.GeneratingCode.Actors;
 
 	
@@ -106,7 +105,6 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 		string directory = "./MyGeneratedSample.Features";
 		string[] xbddToolsCommandArgs = new[] { "project", "generate", "MSTest" };
 		Developer you = new Developer();
-		FileSystem at = new FileSystem();
 
 		private Step youWillFindAnHtmlReport() {
 			return you.WillFind("an HTML Report", TextFormat.htmlpreview, 

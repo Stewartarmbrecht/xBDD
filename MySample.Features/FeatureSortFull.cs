@@ -4,11 +4,11 @@ namespace MySample.Features
     using System.Collections.Generic;
     public class FeatureSortFull
     {
-        public string[] SortedFeatureNames { get; private set; }
+        public List<string> SortedFeatureNames { get; private set; }
 
         public FeatureSortFull()
         {
-            List<string> SortedFeatureNames = new List<string>() {
+            SortedFeatureNames = new List<string>() {
                 typeof(MySample.Features.MyArea_0_Unsorted.MyFeature_0_Unsorted).FullName,
                 typeof(MySample.Features.MyArea_1_AllPassing.MyFeature_1_Passing).FullName,
                 typeof(MySample.Features.MyArea_1_AllPassing.MyFeature_2_Passing_PartialStatement).FullName,
@@ -29,9 +29,6 @@ namespace MySample.Features
                 typeof(MySample.Features.MyFirstArea.MyFirstFeature).FullName,
                 typeof(MySample.Features.MyFirstArea.MyFirstFailingFeature).FullName,
             };
-
-            this.SortedFeatureNames = SortedFeatureNames.ToArray();
-
         }
     }
 }

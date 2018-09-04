@@ -30,9 +30,9 @@ namespace MySample.Features
 
             if(TestConfiguration.SortTestRun) {
                 if(TestConfiguration.FullySortTestRun) {
-                    xB.CurrentRun.SortTestRunResults(new FeatureSortFull().SortedFeatureNames);
+                    xB.CurrentRun.TestRun.SortTestRunResults(new FeatureSortFull().SortedFeatureNames);
                 } else {
-                    xB.CurrentRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
+                    xB.CurrentRun.TestRun.SortTestRunResults(new FeatureSort().SortedFeatureNames);
                 }
             }
 

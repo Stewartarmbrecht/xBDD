@@ -100,7 +100,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" pre.output { margin: 1rem auto; width: 95%; }");
             sb.Append(" .collapsing { -webkit-transition: none; transition: none; display: none; }");
             sb.Append(" pre.prettyprint {  background-color: #eee; }");
-            sb.Append(" .linenums li { list-style-type: decimal !important;}");
+            sb.Append(" .linenums li { list-style-type: decimal !iinputortant;}");
             sb.AppendLine("</style>");  
         }
 
@@ -697,13 +697,14 @@ namespace xBDD.Reporting.Html
         void WriteMultilineParameter(Step step, StringBuilder sb, int stepNumber)
         {
             WriteTagOpen("div", sb, 9, "input collapse", false, "step-" + stepNumber + "-input", null, " aria-expanded=\"false\"");
+            WriteTag("div", sb, 10, "input title", "Input", false, "step-" + stepNumber + "-input-title");
             if(step.InputFormat == TextFormat.htmlpreview)
             {
                 WriteMultilineParameterWithHtmlPreview(step, sb, stepNumber);
             }
             else
             {
-                var className = "mp prettyprint linenums rounded";
+                var className = "input prettyprint linenums rounded";
                 if (step.InputFormat != TextFormat.code)
                     className = className + " lang-" + Enum.GetName(typeof(TextFormat), step.InputFormat);
                 WriteTagOpen("pre", sb, 10, className, true, $"input-{stepNumber}");
@@ -723,7 +724,7 @@ namespace xBDD.Reporting.Html
                 .Replace("!", "\\!")
                 .Replace("\"", "\\\"");
             var html = $@"
-                                    <div class=""mp rounded"">
+                                    <div class=""input rounded"">
                                         <div class=""nav nav-tabs"" role=""tablist"">
                                             <a href=""#preview{stepNumber}""
                                                 id=""#preview{stepNumber}-tab""
@@ -752,7 +753,7 @@ namespace xBDD.Reporting.Html
                                                 </script>
                                             </div>
                                             <div role=""tabpanel"" class=""tab-pane"" id=""code{stepNumber}"">
-                                                <pre class=""mp prettyprint linenums lang-html"">{previewCode}</pre>
+                                                <pre class=""input prettyprint linenums lang-html"">{previewCode}</pre>
                                             </div>
                                         </div>
                                     </div>";
@@ -762,6 +763,8 @@ namespace xBDD.Reporting.Html
         void WriteOutput(Step step, StringBuilder sb, int stepNumber)
         {
             WriteTagOpen("div", sb, 9, "output collapse", false, "step-" + stepNumber + "-output", null, " aria-expanded=\"false\"");
+            WriteTag("div", sb, 10, "output title", "Output", false, "step-" + stepNumber + "-output-title");
+
             if(step.OutputFormat == TextFormat.htmlpreview)
             {
                 WriteOutputWithHtmlPreview(step, sb, stepNumber);
@@ -816,7 +819,7 @@ namespace xBDD.Reporting.Html
                                                 </script>
                                             </div>
                                             <div role=""tabpanel"" class=""tab-pane"" id=""output-code-{stepNumber}"">
-                                                <pre class=""mp prettyprint linenums lang-html"">{htmlCode}</pre>
+                                                <pre class=""input prettyprint linenums lang-html"">{htmlCode}</pre>
                                             </div>
                                         </div>";
             sb.AppendLine(html);

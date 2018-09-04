@@ -82,7 +82,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generate Reports - Browse Html Report [Defining]">
+<outline text="xBDD - Features - Generate Reports - Browse Html Report [Failed]">
 	<outline text="Review Test Run">
 		<outline text="From A Test Run With No Scenarios">
 			<outline text="When you navigate to the test html report from a test run with no scenarios"/>
@@ -545,7 +545,7 @@
 		<outline text="Expand All [Defining]">
 		</outline>
 	</outline>
-	<outline text="Review Step Multiline Parameter [Defining]">
+	<outline text="Review Step Multiline Parameter [Failed]">
 		<outline text="Collapsed By Default">
 			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area 1 title line is visible"/>
@@ -554,7 +554,7 @@
 			<outline text="Then you will see the step 2 input link is visible"/>
 			<outline text="And you will see the step 2 input is not visible"/>
 		</outline>
-		<outline text="General Text">
+		<outline text="General Text [Failed]">
 			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area 1 title line is visible"/>
 			<outline text="And you click when the feature 1 name is visible"/>
@@ -576,7 +576,7 @@
 		<outline text="Expand All [Defining]">
 		</outline>
 	</outline>
-	<outline text="Review Step Output [Defining]">
+	<outline text="Review Step Output [Failed]">
 		<outline text="Collapsed By Default">
 			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area 1 title line is visible"/>
@@ -584,7 +584,7 @@
 			<outline text="And you click when the scenario 1 name is visible"/>
 			<outline text="Then you will see the step 3 output link is visible"/>
 		</outline>
-		<outline text="General Text">
+		<outline text="General Text [Failed]">
 			<outline text="When you navigate to the test html report from a test run with passing, skipped, and failed scenarios"/>
 			<outline text="And you click when the area 1 title line is visible"/>
 			<outline text="And you click when the feature 1 name is visible"/>

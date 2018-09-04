@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.TestRun1P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xBDD.Features.GeneratingCode", "xbdd.features.generatingcode\xBDD.Features.GeneratingCode.csproj", "{344358E6-A882-42A9-B7EA-1F6613F0DFA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features", "MySample.Features\MySample.Features.csproj", "{A331C320-3C4F-4A8B-A627-A8365C0463EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,5 +102,17 @@ Global
 		{344358E6-A882-42A9-B7EA-1F6613F0DFA0}.Release|x64.Build.0 = Release|Any CPU
 		{344358E6-A882-42A9-B7EA-1F6613F0DFA0}.Release|x86.ActiveCfg = Release|Any CPU
 		{344358E6-A882-42A9-B7EA-1F6613F0DFA0}.Release|x86.Build.0 = Release|Any CPU
+		{A331C320-3C4F-4A8B-A627-A8365C0463EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A331C320-3C4F-4A8B-A627-A8365C0463EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A331C320-3C4F-4A8B-A627-A8365C0463EB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A331C320-3C4F-4A8B-A627-A8365C0463EB}.Debug|x64.Build.0 = Debug|Any CPU
+		{A331C320-3C4F-4A8B-A627-A8365C0463EB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A331C320-3C4F-4A8B-A627-A8365C0463EB}.Debug|x86.Build.0 = Debug|Any CPU
+		{A331C320-3C4F-4A8B-A627-A8365C0463EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A331C320-3C4F-4A8B-A627-A8365C0463EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A331C320-3C4F-4A8B-A627-A8365C0463EB}.Release|x64.ActiveCfg = Release|Any CPU
+		{A331C320-3C4F-4A8B-A627-A8365C0463EB}.Release|x64.Build.0 = Release|Any CPU
+		{A331C320-3C4F-4A8B-A627-A8365C0463EB}.Release|x86.ActiveCfg = Release|Any CPU
+		{A331C320-3C4F-4A8B-A627-A8365C0463EB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
