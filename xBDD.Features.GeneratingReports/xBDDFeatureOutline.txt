@@ -1,0 +1,640 @@
+HTML Summary Report - Generating #R-Defining
+	Generate a report @Stewart
+		With Full Test Run #R-Committed
+			Given you have the following json test run reports
+				Input
+					./MySamle.Features.TestRun1Passing/test-results/MySamle.Features.TestRun1Passing.json
+					./MySamle.Features.TestRun2SkippedUntested/test-results/MySamle.Features.TestRun2SkippedUntested.json
+					./MySamle.Features.TestRun3SkippedBuilding/test-results/MySamle.Features.TestRun3SkippedBuilding.json
+					./MySamle.Features.TestRun4SkippedReady/test-results/MySamle.Features.TestRun4SkippedReady.json
+					./MySamle.Features.TestRun5SkippedDefining/test-results/MySamle.Features.TestRun5SkippedReady.json
+					./MySamle.Features.TestRun6Failed/test-results/MySamle.Features.TestRun6Failed.json
+			When you execute the xBDD Tools Command
+				Input
+					dotnet xbdd solution summarize `
+					./MySamle.Features.TestRun1Passing/test-results/MySamle.Features.TestRun1Passing.json `
+					./MySamle.Features.TestRun2SkippedUntested/test-results/MySamle.Features.TestRun2SkippedUntested.json" `
+					./MySamle.Features.TestRun3SkippedBuilding/test-results/MySamle.Features.TestRun3SkippedBuilding.json `
+					./MySamle.Features.TestRun4SkippedReady/test-results/MySamle.Features.TestRun4SkippedReady.json `
+					./MySamle.Features.TestRun5SkippedDefining/test-results/MySamle.Features.TestRun5SkippedReady.json `
+					./MySamle.Features.TestRun6Failed/test-results/MySamle.Features.TestRun6Failed.json `
+			Then the project will generate an Html summary report
+				Input
+					./MySample/test-results/MySample.Summary.html
+			And you can view the report in a browser
+		With No Json Files #R-Defining
+		With An Invalid Json File #R-Defining
+		With A Single Json File #R-Defining
+		With A Missing Json File #R-Defining
+HTML Summary Report - Review Test Summary Information
+	Review test summary name @Stewart
+		With Name #R-Committed
+			.Given(you.NavigateTo(aPassingTestSummaryReport))
+			.Then(you.WillSee(the.TestSummaryName).HasText("My Sample - Test Summary 1 Passing"))
+		With No Name #R-Committed
+			.Given(you.NavigateTo(aPassingTestSummaryReport))
+			.Then(you.WillSee(the.TestSummaryName).HasText("[Missing!]"))
+	Review test summary explanation @Stewart
+		Expanding the Explanation #R-Committedn
+		Collapsing the Explanation #R-Committed
+		With No Explanation #R-Committed
+	Review test summary status @Stewart
+		With Passing Status #R-Committed
+		With Some Skipped Status #R-Committed
+		With Some Failing Status #R-Committed
+	Review test summary test run status distribution @Stewart
+		With All Passing #R-Committed
+		With Some Skipped #R-Committed
+		With Some Failing #R-Committed
+		With Some Skipped and Some Failing #R-Committed
+		With All Skipped #R-Committed
+		With All Failing #R-Committed
+		With No Areas #R-Committed
+	Review test summary area status distribution @Stewart
+		With All Passing #R-Committed
+		With Some Skipped #R-Committed
+		With Some Failing #R-Committed
+		With Some Skipped and Some Failing #R-Committed
+		With All Skipped #R-Committed
+		With All Failing #R-Committed
+		With No Areas #R-Committed
+	Review test summary feature status distribution
+		With All Passing #R-Committed
+		With Some Skipped #R-Committed
+		With Some Failing #R-Committed
+		With Some Skipped and Some Failing #R-Committed
+		With All Skipped #R-Committed
+		With All Failing #R-Committed
+		With No Features #R-Committed
+	Review test summary scenario status distribution
+		With All Passing #R-Committed
+		With Some Skipped #R-Committed
+		With Some Failing #R-Committed
+		With Some Skipped and Some Failing #R-Committed
+		With All Skipped #R-Committed
+		With All Failing #R-Committed
+		With No Scenarios #R-Committed
+	Review test summary test run status statistics
+		With All Passing #R-Committed
+		With Some Skipped #R-Committed
+		With Some Failing #R-Committed
+		With Some Skipped and Some Failing #R-Committed
+		With All Skipped #R-Committed
+		With All Failing #R-Committed
+		With No Areas #R-Committed
+	Review test summary area status statistics
+		With All Passing #R-Committed
+		With Some Skipped #R-Committed
+		With Some Failing #R-Committed
+		With Some Skipped and Some Failing #R-Committed
+		With All Skipped #R-Committed
+		With All Failing #R-Committed
+		With No Areas #R-Committed
+	Review test summary feature status statistics
+		With All Passing #R-Committed
+		With Some Skipped #R-Committed
+		With Some Failing #R-Committed
+		With Some Skipped and Some Failing #R-Committed
+		With All Skipped #R-Committed
+		With All Failing #R-Committed
+		With No Features #R-Committed
+	Review test summary scenario status statistics
+		With All Passing #R-Committed
+		With Some Skipped #R-Committed
+		With Some Failing #R-Committed
+		With Some Skipped and Some Failing #R-Committed
+		With All Skipped #R-Committed
+		With All Failing #R-Committed
+		With No Scenarios #R-Committed
+	Review test summary areas
+		Expanding Areas #R-Committed
+		Collapsing Areas #R-Committed
+		With No Areas #R-Committed
+HTML Test Run Report - Review Test Run Information
+	Review test run name
+		With Name #R-Committed
+		With No Name #R-Committed
+	Review test run status
+		With Passing Status #R-Committed
+		With Some Skipped Status #R-Committed
+		With Some Failing Status #R-Committed
+	Review test run feature status distribution
+		With All Passing #R-Committed
+		With Some Skipped #R-Committed
+		With Some Failing #R-Committed
+		With Some Skipped and Some Failing #R-Committed
+		With All Skipped #R-Committed
+		With All Failing #R-Committed
+		With No Features #R-Committed
+	Review test run scenario status distribution
+		With All Passing #R-Committed
+		With Some Skipped #R-Committed
+		With Some Failing #R-Committed
+		With Some Skipped and Some Failing #R-Committed
+		With All Skipped #R-Committed
+		With All Failing #R-Committed
+		With No Scenarios #R-Committed
+	Review test run feature status statistics
+		Expanding #R-Committed
+		Collapsing #R-Committed
+		With All Passing #R-Committed
+		With Some Skipped #R-Committed
+		With Some Failing #R-Committed
+		With Some Skipped and Some Failing #R-Committed
+		With All Skipped #R-Committed
+		With All Failing #R-Committed
+		With No Features #R-Committed
+	Review test run scenario status statistics
+		Expanding #R-Committed
+		Collapsing #R-Committed
+		With All Passing #R-Committed
+		With Some Skipped #R-Committed
+		With Some Failing #R-Committed
+		With Some Skipped and Some Failing #R-Committed
+		With All Skipped #R-Committed
+		With All Failing #R-Committed
+		With No Scenarios #R-Committed
+	Review test run explanation
+		Expanding explanation #R-Committed
+		Collapsing explanation #R-Committed
+		Without explanation #R-Committed
+	Review test run features
+		Expanding features #R-Committed
+		Collapsing features #R-Committed
+		Without features #R-Committed
+HTML Test Run Report - Review Area Information
+	Review area name
+		With Name #R-Untested
+		With No Name #R-Untested
+	Review area status
+		With Passing Status #R-Untested
+		With Some Skipped Status #R-Untested
+		With Some Failing Status #R-Untested
+	Review area feature status distribution
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Features #R-Untested
+	Review area scenario status distribution
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Scenarios #R-Untested
+	Review area feature status statistics
+		Expanding #R-Untested
+		Collapsing #R-Untested
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Features #R-Untested
+	Review area scenario status statistics
+		Expanding #R-Untested
+		Collapsing #R-Untested
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Scenarios #R-Untested
+	Review area explanation
+		Expanding explanation #R-Untested
+		Collapsing explanation #R-Untested
+		Without explanation #R-Untested
+	Review area features
+		Expanding features #R-Untested
+		Collapsing features #R-Untested
+		Without features #R-Untested
+HTML Test Run Report - Generating #R-Untested
+	Generate a report @Stewart
+		With Full Test Run #R-Untested
+			Given you have a test run project that creates all outcomes
+			When you execute the dotnet test command
+				Input
+					dotnet test
+			Then the project will generate an Html test run report that has all features exercised
+		With No Scenarios #R-Untested
+			Given you have a test run project that does not have any scenarios
+			When you execute the command
+				Input
+					dotnet test
+			Then the project will generate an empty Html test run report
+		With No Tests in the Project #R-Untested
+			Given you have a test run project that does not have any tests
+			When you execute the command
+				Input
+					dotnet test
+			Then the project will generate an empty Html test run report
+	Generate a Failures Only Report @Stewart
+		With Failures #R-Untested
+			Given you have a test run project that creates all outcomes
+			When you execute the dotnet test command with the failures only environment variable set to true
+				Input
+					$Emv:xBDD:HtmlReport:FailuresOnly = "true"
+					dotnet test
+			Then the project will generate an Html test run report that has only the failed scenarios
+		With No Scenarios #R-Untested
+			Given you have a test run project that does not have any scenarios
+			When you execute the dotnet test command with the failures only environment variable set to true
+				Input
+					$Emv:xBDD:HtmlReport:FailuresOnly = "true"
+					dotnet test
+			Then the project will generate an empty Html test run report
+		With No Failures #R-Untested
+			Given you have a test run project that is passing
+			When you execute the dotnet test command with the failures only environment variable set to true
+				Input
+					$Emv:xBDD:HtmlReport:FailuresOnly = "true"
+					dotnet test
+			Then the project will generate an Html test run report that has only the failed scenarios
+	View a report @Stewart
+		From a File Server #R-Untested
+			Given you have executed a test run project that creates all outcomes
+			Then you can view the html report by loading the following file into your browser
+				Input
+					./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html
+		From a Web Server #R-Defining
+HTML Test Run Report - Review Test Run Information
+	Review test run name @Stewart
+		With Name #R-Untested
+			.Given(you.NavigateTo(aPassingTestRunReport))
+			.Then(you.WillSee(the.TestRunName).HasText("My Sample - Test Run 1 Passing"))
+		With No Name #R-Untested
+			.Given(you.NavigateTo(aPassingTestRunReport))
+			.Then(you.WillSee(the.TestRunName).HasText("[Missing!]"))
+	Review test run explanation @Stewart
+		Expanding the Explanatio #R-Untested
+		Collapsing the Explanation #R-Untested
+		With No Explanation #R-Untested
+	Review test run status @Stewart
+		With Passing Status #R-Untested
+		With Some Skipped Status #R-Untested
+		With Some Failing Status #R-Untested
+	Review test run area status distribution @Stewart
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Areas #R-Untested
+	Review test run feature status distribution
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Features #R-Untested
+	Review test run scenario status distribution
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Scenarios #R-Untested
+	Review test run area status statistics
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Areas #R-Untested
+	Review test run feature status statistics
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Features #R-Untested
+	Review test run scenario status statistics
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Scenarios #R-Untested
+	Review test run areas
+		Expanding Areas #R-Untested
+		Collapsing Areas #R-Untested
+		With No Areas #R-Untested
+HTML Test Run Report - Review Area Information
+	Review area name
+		With Name #R-Untested
+		With No Name #R-Untested
+	Review area status
+		With Passing Status #R-Untested
+		With Some Skipped Status #R-Untested
+		With Some Failing Status #R-Untested
+	Review area feature status distribution
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Features #R-Untested
+	Review area scenario status distribution
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Scenarios #R-Untested
+	Review area feature status statistics
+		Expanding #R-Untested
+		Collapsing #R-Untested
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Features #R-Untested
+	Review area scenario status statistics
+		Expanding #R-Untested
+		Collapsing #R-Untested
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Scenarios #R-Untested
+	Review area explanation
+		Expanding explanation #R-Untested
+		Collapsing explanation #R-Untested
+		Without explanation #R-Untested
+	Review area features
+		Expanding features #R-Untested
+		Collapsing features #R-Untested
+		Without features #R-Untested
+HTML Test Run Report - Review Feature Information
+	Review feature information
+		With Name #R-Untested
+		With No Name #R-Untested
+		With Single Assignments #R-Defining
+		With Multiple Assignments #R-Defining
+		With Single Tag #R-Defining
+		With Multiple Tags #R-Defining
+	Review feature status
+		With Passing Status #R-Untested
+		With Some Skipped Status #R-Untested
+		With Some Failing Status #R-Untested
+	Review feature statement
+		Expanding feature statement #R-Untested
+		Collapsing feature statement #R-Untested
+		With full statement #R-Untested
+		With missing parts #R-Untested
+		Without statement #R-Untested
+	Review feature scenario status distribution
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Scenarios #R-Untested
+	Review feature explanation
+		Expanding explanation #R-Defining
+		Collapsing explanation #R-Defining
+		With no explanation #R-Defining
+	Review feature scenario status statistics
+		Expanding #R-Untested
+		Collapsing #R-Untested
+		With All Passing #R-Untested
+		With Some Skipped #R-Untested
+		With Some Failing #R-Untested
+		With Some Skipped and Some Failing #R-Untested
+		With All Skipped #R-Untested
+		With All Failing #R-Untested
+		With No Scenarios #R-Untested
+	Review feature scenarios
+		Expanding scenarios #R-Untested
+		Collapsing scenarios #R-Untested
+		With no scenarios #R-Untested
+HTML Test Run Report - Review Scenario Information
+	Review scenario information
+		With Name #R-Untested
+		With No Name #R-Untested
+		With Single Assignments #R-Defining
+		With Multiple Assignments #R-Defining
+		With Single Tag #R-Defining
+		With Multiple Tags #R-Defining
+	Review scenario explanation
+		Expanding explanation #R-Untested
+		Collapsing explanation #R-Untested
+		With no explanation #R-Untested
+	Review scenario status
+		With Passing Status #R-Untested
+		With Some Skipped Status #R-Untested
+		With Some Failing Status #R-Untested
+	Review scenario steps
+		Expanding steps #R-Untested
+		Collapsing steps #R-Untested
+		With no steps #R-Untested
+HTML Test Run Report - Review Step Information
+	Review step information
+		With Name #R-Untested
+		With No Name #R-Untested
+	Review step status
+		With Passing Status #R-Untested
+		With Some Skipped Status #R-Untested
+		With Some Failing Status #R-Untested
+	Review step input
+		Expanding input #R-Untested
+		Collapsing input #R-Untested
+		Without input #R-Untested
+	Review step output
+		Expanding output #R-Untested
+		Collapsing output #R-Untested
+		Without output #R-Untested
+	Review step error
+		Expanding exception #R-Untested
+		Collapsing exception #R-Untested
+		With inner exception #R-Untested
+		With no exception #R-Untested
+	Review step explanation
+		Expanding explanation #R-Defining
+		Collapsing explanation #R-Defining
+		Without explanation #R-Defining
+JSON Test Run Report
+	Generate a Json Report With General Scenarios
+		With Full Test Run #R-Untested
+		With Empty Test Run #R-Untested
+		With No Scenarios #R-Untested
+		With No Tests in the Project #R-Untested
+		With Test Filtering #R-Untested
+		With xBDD Test Run Filtering #R-Defining
+	Generate a Json Report with Test Run Scenarios
+		With Full Test Run #R-Untested #R-Untested
+		With No Test Run Name #R-Untested #R-Untested
+		With Test Run Explanation Empty #R-Defining
+		With No Areas #R-Untested #R-Untested
+		With Areas #R-Untested #R-Untested
+	Generate a Json Report with Area Scenarios
+		With Full Area #R-Untested
+		With Area Name Clipping #R-Untested
+		With Area Name Empty #R-Untested
+		With Area Explanation Empty #R-Defining
+		With No Features #R-Untested
+		With Features #R-Untested
+	Generate a Json Report with Feature Scenarios
+		With Full Feature #R-Untested
+		With Feature Name Empty #R-Untested
+		With Feature Explanation Empty #R-Defining
+		With No Scenarios #R-Untested
+		With Scenarios #R-Untested
+	Generate a Json Report with Scenario Scenarios
+		With Full Scenario #R-Untested
+		With Scenario Name Empty #R-Untested
+		With Scenario Explanation Empty #R-Defining
+		With No Steps #R-Untested
+		With Steps #R-Untested
+	Generate a Json Report with Step Scenarios
+		With Full Step #R-Untested
+		With Step Name Empty #R-Untested
+		With Step Explanation Empty #R-Defining
+		With Step Input Empty #R-Untested
+		With Step Output Empty #R-Untested
+		With Step Exception #R-Untested
+		With Step Inner Exception #R-Untested
+Outline Test Run Report
+	Generate an Outline Report With General Scenarios
+		With Full Test Run #R-Untested
+		With Empty Test Run #R-Untested
+		With No Scenarios #R-Untested
+		With No Tests in the Project #R-Untested
+		With Test Filtering #R-Untested
+		With xBDD Test Run Filtering #R-Defining
+	Generate an Outline Report with Test Run Scenarios
+		With Full Test Run #R-Untested
+		With No Test Run Name #R-Untested
+		With Test Run Explanation Empty #R-Defining
+		With No Areas #R-Untested
+		With Areas #R-Untested
+	Generate an Outline Report with Area Scenarios
+		With Full Area #R-Untested
+		With Area Name Clipping #R-Untested
+		With Area Name Empty #R-Untested
+		With Area Explanation Empty #R-Defining
+		With No Features #R-Untested
+		With Features #R-Untested
+	Generate an Outline Report with Feature Scenarios
+		With Full Feature #R-Untested
+		With Feature Name Empty #R-Untested
+		With Feature Explanation Empty #R-Defining
+		With No Scenarios #R-Untested
+		With Scenarios #R-Untested
+	Generate an Outline Report with Scenario Scenarios
+		With Full Scenario #R-Untested
+		With Scenario Name Empty #R-Untested
+		With Scenario Explanation Empty #R-Defining
+		With No Steps #R-Untested
+		With Steps #R-Untested
+	Generate an Outline Report with Step Scenarios
+		With Full Step #R-Untested
+		With Step Name Empty #R-Untested
+		With Step Explanation Empty #R-Defining
+		With Step Input Empty #R-Untested
+		With Step Output Empty #R-Untested
+		With Step Exception #R-Untested
+		With Step Inner Exception #R-Untested
+Text Test Run Report
+	Generate a Text Report With General Scenarios
+		With Full Test Run #R-Untested
+		With Empty Test Run #R-Untested
+		With No Scenarios #R-Untested
+		With No Tests in the Project #R-Untested
+		With Test Filtering #R-Untested
+		With xBDD Test Run Filtering #R-Defining
+	Generate a Text Report with Test Run Scenarios
+		With Full Test Run #R-Untested
+		With No Test Run Name #R-Untested
+		With Test Run Explanation Empty #R-Defining
+		With No Areas #R-Untested
+		With Areas #R-Untested
+	Generate a Text Report with Area Scenarios
+		With Full Area #R-Untested
+		With Area Name Clipping
+		With Area Name Empty #R-Untested
+		With Area Explanation Empty #R-Defining
+		With No Features #R-Untested
+		With Features #R-Untested
+	Generate a Text Report with Feature Scenarios
+		With Full Feature #R-Untested
+		With Feature Name Empty #R-Untested
+		With Feature Explanation Empty #R-Defining
+		With No Scenarios #R-Untested
+		With Scenarios #R-Untested
+	Generate a Text Report with Scenario Scenarios
+		With Full Scenario #R-Untested
+		With Scenario Name Empty #R-Untested
+		With Scenario Explanation Empty #R-Defining
+		With No Steps #R-Untested
+		With Steps #R-Untested
+	Generate a Text Report with Step Scenarios
+		With Full Step #R-Untested
+		With Step Name Empty #R-Untested
+		With Step Explanation Empty #R-Defining
+		With Step Input Empty #R-Untested
+		With Step Output Empty #R-Untested
+		With Step Exception #R-Untested
+		With Step Inner Exception #R-Untested
+Text Outline Test Run Report
+	Generate a Text Outline Report With General Scenarios
+		With Full Test Run #R-Untested
+		With Empty Test Run #R-Untested
+		With No Scenarios #R-Untested
+		With No Tests in the Project #R-Untested
+		With Test Filtering #R-Untested
+		With xBDD Test Run Filtering #R-Defining
+	Generate a Text Outline Report with Test Run Scenarios
+		With Full Test Run #R-Untested
+		With No Test Run Name #R-Untested
+		With Test Run Explanation Empty #R-Defining
+		With No Areas #R-Untested
+		With Areas #R-Untested
+	Generate a Text Outline Report with Area Scenarios
+		With Full Area #R-Untested
+		With Area Name Clipping #R-Untested
+		With Area Name Empty #R-Untested
+		With Area Explanation Empty #R-Defining
+		With No Features #R-Untested
+		With Features #R-Untested
+	Generate a Text Outline Report with Feature Scenarios
+		With Full Feature #R-Untested
+		With Feature Name Empty #R-Untested
+		With Feature Explanation Empty #R-Defining
+		With No Scenarios #R-Untested
+		With Scenarios #R-Untested
+	Generate a Text Outline Report with Scenario Scenarios
+		With Full Scenario #R-Untested
+		With Scenario Name Empty #R-Untested
+		With Scenario Explanation Empty #R-Defining
+		With No Steps #R-Untested
+		With Steps #R-Untested
+	Generate a Text Outline Report with Step Scenarios
+		With Full Step #R-Untested
+		With Step Name Empty #R-Untested
+		With Step Explanation Empty #R-Defining
+		With Step Input Empty #R-Untested
+		With Step Output Empty #R-Untested
+		With Step Exception #R-Untested
+		With Step Inner Exception #R-Untested
+
+
