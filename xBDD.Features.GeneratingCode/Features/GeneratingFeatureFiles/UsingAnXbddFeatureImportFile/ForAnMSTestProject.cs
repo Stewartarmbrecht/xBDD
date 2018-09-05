@@ -183,6 +183,24 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 			await this.ExecuteStep(900, outline, featureFilePath);
 		}
 
+		[TestCategory("Now")]
+		[TestMethod]
+		public async Task WithAStepExplanationWithQuotes()
+		{
+			var outline = $@"
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+								Explanation
+									Here Is
+									""My"" Multiline Explanation".RemoveIndentation(4, true);
+
+			var featureFilePath = $"{directory}/Features/MyArea1/MySubArea1/MyFeature1.cs";
+			
+			await this.ExecuteStep(910, outline, featureFilePath);
+		}
+
 		[TestMethod]
 		public async Task WithAStepExplanationSingleLine()
 		{
@@ -197,6 +215,23 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 			var featureFilePath = $"{directory}/Features/MyArea1/MySubArea1/MyFeature1.cs";
 			
 			await this.ExecuteStep(1000, outline, featureFilePath);
+		}
+
+		[TestCategory("Now")]
+		[TestMethod]
+		public async Task WithAStepExplanationSingleLineWithQuotes()
+		{
+			var outline = $@"
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+								Explanation
+									Here Is ""My"" Singleline Explanation".RemoveIndentation(4, true);
+
+			var featureFilePath = $"{directory}/Features/MyArea1/MySubArea1/MyFeature1.cs";
+			
+			await this.ExecuteStep(1010, outline, featureFilePath);
 		}
 
 		[TestMethod]
@@ -229,6 +264,25 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 			var featureFilePath = $"{directory}/Features/MyArea1/MySubArea1/MyFeature1.cs";
 			
 			await this.ExecuteStep(1200, outline, featureFilePath);
+		}
+
+		[TestCategory("Now")]
+		[TestMethod]
+		public async Task WithAScenarioExplanationWithQuotes()
+		{
+			var outline = $@"
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Explanation
+								Here is ""my"" 
+								multiline scenario 
+								explanation
+							Given Step 1".RemoveIndentation(4, true);
+
+			var featureFilePath = $"{directory}/Features/MyArea1/MySubArea1/MyFeature1.cs";
+			
+			await this.ExecuteStep(1210, outline, featureFilePath);
 		}
 
 		[TestMethod]
@@ -323,6 +377,25 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Explanation
 							Here is my 
+							multiline feature 
+							explanation
+						My Scenario 1
+							Given Step 1".RemoveIndentation(4, true);
+
+			var featureFilePath = $"{directory}/Features/MyArea1/MySubArea1/MyFeature1.cs";
+			
+			await this.ExecuteStep(1700, outline, featureFilePath);
+		}
+
+		[TestCategory("Now")]
+		[TestMethod]
+		public async Task WithAFeatureExplanationWithQuotes()
+		{
+			var outline = $@"
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						Explanation
+							Here is ""my"" 
 							multiline feature 
 							explanation
 						My Scenario 1

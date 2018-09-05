@@ -285,11 +285,11 @@
 					if(input.Contains(System.Environment.NewLine)) {
 						inputAndExplanation = $@",
 												@""
-													{input.AddIndentation(13)}"".RemoveIndentation(6,true),
+													{input.Replace("\"", "\"\"").AddIndentation(13)}"".RemoveIndentation(6,true),
 												TextFormat.{Enum.GetName(typeof(TextFormat), step.InputFormat)}".RemoveIndentation(7);
 					} else {
 						inputAndExplanation = $@",
-												""{input}"",
+												""{input.Replace("\"", "\\\"")}"",
 												TextFormat.{Enum.GetName(typeof(TextFormat), step.InputFormat)}".RemoveIndentation(7);
 					}
 				}
@@ -306,10 +306,10 @@
 					if(explanation.Contains(System.Environment.NewLine)) {
 						inputAndExplanation = $@"{inputAndExplanation.AddIndentation(7)},
 												@""
-													{explanation.AddIndentation(13)}"".RemoveIndentation(6,true)".RemoveIndentation(7);
+													{explanation.Replace("\"", "\"\"").AddIndentation(13)}"".RemoveIndentation(6,true)".RemoveIndentation(7);
 					} else {
 						inputAndExplanation = $@"{inputAndExplanation.AddIndentation(7)},
-												""{explanation}""".RemoveIndentation(7);
+												""{explanation.Replace("\"", "\\\"")}""".RemoveIndentation(7);
 					}
 				}
 				sb.AppendLine($@"				
@@ -570,29 +570,23 @@
 			var generated = System.IO.File.Exists($"{featureFolder}/{featureClassName}.cs");
 			var explanation = "";
 			if(!String.IsNullOrEmpty(feature.Explanation)) {
-				var isMultiline = feature.Explanation.Contains(System.Environment.NewLine);
-				if(isMultiline) {
-					explanation = $@"
-							[{(generated ? "Generated_" : "")}Explanation(@""
-								{feature.Explanation.AddIndentation(8)}"",2)]".RemoveIndentation(6);
-				} else {
-					explanation = $@"
-							[{(generated ? "Generated_" : "")}Explanation(@""{feature.Explanation}"")]".RemoveIndentation(6);
-				}
+				explanation = $@"
+						[{(generated ? "Generated_" : "")}Explanation(@""
+							{feature.Explanation.Replace("\"", "\"\"").AddIndentation(7)}"",2)]".RemoveIndentation(5);
 			}
 			var asAStatement = "";
 			if(!String.IsNullOrEmpty(feature.Actor)) {
-				asAStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}AsA(\"{feature.Actor}\")]";
+				asAStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}AsA(\"{feature.Actor.Replace("\"", "\\\"")}\")]";
 			}
 
 			var youCanStatement = "";
 			if(!String.IsNullOrEmpty(feature.Value)) {
-				youCanStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}YouCan(\"{feature.Value}\")]";
+				youCanStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}YouCan(\"{feature.Value.Replace("\"", "\\\"")}\")]";
 			}
 
 			var byStatement = "";
 			if(!String.IsNullOrEmpty(feature.Value)) {
-				byStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}By(\"{feature.Capability}\")]";
+				byStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}By(\"{feature.Capability.Replace("\"", "\\\"")}\")]";
 			}
 
 			var assignments = "";
@@ -628,15 +622,9 @@
 		private string GetScenarioMethodStart(Scenario scenario) {
 			var explanation = "";
 			if(!String.IsNullOrEmpty(scenario.Explanation)) {
-				var isMultiline = scenario.Explanation.Contains(System.Environment.NewLine);
-				if(isMultiline) {
-					explanation = $@"
-								[Explanation(@""
-									{scenario.Explanation.AddIndentation(9)}"",3)]".RemoveIndentation(6);
-				} else {
-					explanation = $@"
-								[Explanation(@""{scenario.Explanation}"")]".RemoveIndentation(6);
-				}
+				explanation = $@"
+						[Explanation(@""
+							{scenario.Explanation.Replace("\"", "\"\"").AddIndentation(7)}"",3)]".RemoveIndentation(4);
 			}
 
 			var assignments = "";
