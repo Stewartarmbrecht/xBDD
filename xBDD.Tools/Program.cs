@@ -6,6 +6,7 @@ using System.IO;
 using System.Collections.Generic;
 using xBDD.Importing.Text;
 using xBDD.Importing.Json;
+using xBDD.Importing.Solution;
 using xBDD;
 using xBDD.Model;
 using xBDD.Utility;
@@ -20,6 +21,7 @@ namespace xBDD.Tools
           FullName = "dotnet-xbdd",
           Description = "Creates a new test project initialized for xBDD"),
     Subcommand("project", typeof(Project)), 
+    Subcommand("solution", typeof(Solution)), 
     Subcommand("convert", typeof(Convert))]
     [HelpOption]
     public class Program
@@ -50,8 +52,7 @@ namespace xBDD.Tools
 
         [Command("project", Description = "Provides access to project level commands."),
          Subcommand("generate", typeof(Generate))]
-        private class Project
-        {
+        private class Project {
             private int OnExecute(IConsole console)
             {
                 console.Error.WriteLine("You must specify an action. See --help for more details.");
@@ -61,17 +62,17 @@ namespace xBDD.Tools
 			[Command("generate", Description = "Generates code for a test project in the current folder."),
 			Subcommand("mstest", typeof(MSTest)),
 			Subcommand("xunit", typeof(XUnit))]
-			private class Generate
+			internal class Generate
 			{
 
 				[Command(Description = "Creates an MSTest project that uses xBDD."), HelpOption]
-				private class MSTest
+				internal class MSTest
 				{
                     [Option("-tn|--testrun-name", "Sets the default test run name in the xBDDConfig.json file.", CommandOptionType.SingleValue)]
                     public string TestRunName { get; }
                     [Option("-rfan|--remove-from-area-name", "Sets the default test run name in the xBDDConfig.json file.", CommandOptionType.SingleValue)]
                     public string RemoveFromAreaName { get; }
-					private int OnExecute(IConsole console)
+					internal int OnExecute(IConsole console)
 					{
 						try {
 							var codeWriter = new xBDD.Reporting.Code.CodeWriter();
@@ -111,10 +112,60 @@ namespace xBDD.Tools
 			}
         }
 
+        [Command("solution", Description = "Provides access to solution level commands."),
+         Subcommand("generate", typeof(Generate))]
+        private class Solution {
+            private int OnExecute(IConsole console)
+            {
+                console.Error.WriteLine("You must specify an action. See --help for more details.");
+                return 1;
+            }
+
+			[Command("generate", Description = "Generates code for a test project in the current folder."),
+			Subcommand("mstest", typeof(MSTest)),
+			Subcommand("xunit", typeof(XUnit))]
+			private class Generate
+			{
+
+				[Command(Description = "Creates an MSTest project that uses xBDD."), HelpOption]
+				private class MSTest
+				{
+					private int OnExecute(IConsole console)
+					{
+						try {
+                            var solutionOutline = System.IO.File.ReadAllText("./xBDDSolutionImport.txt");
+                            var solutionImporter = new SolutionImporter();
+                            var projectFolders = solutionImporter.ImportSolution(solutionOutline, "\t");
+                            foreach(string projectFolder in projectFolders) {
+                                System.IO.Directory.SetCurrentDirectory($"./{projectFolder}");
+                                var textImporter = new xBDD.Tools.Program.Project.Generate.MSTest();
+                                textImporter.OnExecute(console);
+                                System.IO.Directory.SetCurrentDirectory($"./../");
+                            }
+							return 0;
+						} catch (Exception ex) {
+							console.Error.WriteLine($"Error: {ex.Message}");
+							//console.Error.WriteLine(ex.StackTrace);
+							return 1;
+						}
+					}
+				}
+
+				[Command(Description = "Creates an xUnit project that uses xBDD."), HelpOption]
+				private class XUnit
+				{
+					private int OnExecute(IConsole console)
+					{
+						console.Error.WriteLine("This feature still needs to be implemented.");
+						return 1;
+					}
+				}
+			}
+        }
+
         [Command("convert",
             Description = "Converts from one TestRun serialization format to another.")]
-        private class Convert
-        {
+        private class Convert {
             [Option("-s|--source", "Sets the path to the source file.", CommandOptionType.SingleValue)]
             [FileExists]
             public string Source { get; }

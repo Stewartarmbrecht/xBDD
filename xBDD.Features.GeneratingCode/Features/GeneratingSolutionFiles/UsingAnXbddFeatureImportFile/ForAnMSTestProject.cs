@@ -3,35 +3,64 @@ namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles.UsingAnXbddFeatur
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using System;
 	using System.Threading.Tasks;
+    using System.Runtime.CompilerServices;
 	using xBDD;
 	using xBDD.Utility;
+	using xBDD.Features.GeneratingCode.Actors;
 
-	
+	[TestCategory("Now")]
 	[AsA("Developer")]
-	[YouCan("generate a new MS Test Project")]
-	[By("executing the 'dotnet xbdd project generate MSTest' command")]
+	[YouCan("generate a new MS Test solution or new feature files for multiple projects from a single outline")]
+	[By("executing the 'dotnet xbdd solution generate MSTest' command in a director that has a valid solution outline")]
 	[TestClass]
 	public partial class ForAnMSTestProject: xBDDFeatureBase
 	{
 
-		[TestMethod]
-		public async Task WithAllTestRunOutcomes()
+		string directory = "./MyGeneratedSample";
+		string templateDirectory = "./../../../Interfaces/Files/SolutionFeatureFileTemplates";
+		string[] xbddToolsCommandArgs = new[] { "solution", "generate", "MSTest" };
+		Developer you = new Developer();
+
+		private async Task ExecuteScenario(
+			int number, 
+			string outline, 
+			string firstFeatureFilePath, 
+			string secondFeatureFilePath,
+			[CallerMemberName]string methodName = null) 
 		{
-			await xB.AddScenario(this, 1001)
-//				.Given(you.HaveAnEmptySolutionFolder())
-//				.And(you.CopyInABacklog(that.HasAllOutcomesAndReasons))
-//				.When(you.RunTheBackLogImportUsingTheCommand())
-//					Input
-//						dotnet xBDD import backlog
-//				.Then(you.WillNotFindStandardProjectFiles(at.TestRun1Passing).Because(“passed scenarios are skipped when generating code from a backlog”))
-//				.And(you.WillFindStandardProjectFiles(at.TestRun2Untested))
-//				.And(you.WillFindStandardProjectFiles(at.TestRun3SkippedCommitted))
-//				.And(you.WillFindStandardProjectFiles(at.TestRun4SkippedReady))
-//				.And(you.WillFindStandardProjectFiles(at.TestRun5SkippedDefining))
-//				.And(you.WillFindStandardProjectFiles(at.TestRun6Failed))
-//				.And(you.WillFindAFeatureFile(for.TestRun6Failed.Area6.Feature6Failed.FilePath, thatMatches.TestRun6Failed.Area6Failed.Feature6Failed.FileContent)
-//				.And(you.WillNotFindAFeatureFile(for.TestRun2SkippedCommitted.Area1.Feature1Passed.File))
-				.Skip("Defining", Assert.Inconclusive);
+			var outputWrapper = new Wrapper<string>();
+			var featureOutlineTemplatePath1 = $"{templateDirectory}/xBddFeatureOutline{methodName}1.tmpl";
+			var featureOutlineTemplatePath2 = $"{templateDirectory}/xBddFeatureOutline{methodName}2.tmpl";
+			await xB.AddScenario(this, number, methodName)
+				.Given(you.HaveAnEmptyDirectory("./MyGeneratedSample"))
+				.And($"add a scenario outline file with the following content:",
+					s => {
+						var filePath = "./MyGeneratedSample/xBDDSolutionImport.txt";
+						System.IO.File.WriteAllText(filePath, outline);
+					}, outline, TextFormat.text)
+				.When(you.RunTheXbddToolsCommand(xbddToolsCommandArgs, directory, outputWrapper))
+				.Then(you.WillFindAMatchingFile(firstFeatureFilePath, featureOutlineTemplatePath1, TextFormat.cs))
+				.And(you.WillFindAMatchingFile(secondFeatureFilePath, featureOutlineTemplatePath2, TextFormat.cs))
+				.Run();
+		}
+
+		[TestMethod]
+		public async Task WithAValidSolutionDefinition()
+		{
+			var outline = $@"
+				Project: MyGeneratedSample.Features.Area1
+					My Area A - My Sub Area B
+						My Feature C
+							My Scenario D 
+				Project: MyGeneratedSample.Features.Area2
+					My Area E - My Sub Area F
+						My Feature G
+							My Scenario H".RemoveIndentation(4, true);
+
+			var featureOutlineFilePath1 = $"{directory}/MyGeneratedSample.Features.Area1/xBddFeatureImport.txt";
+			var featureOutlineFilePath2 = $"{directory}/MyGeneratedSample.Features.Area2/xBddFeatureImport.txt";
+			
+			await this.ExecuteScenario(100, outline, featureOutlineFilePath1, featureOutlineFilePath2);
 		}
 
 		[TestMethod]
