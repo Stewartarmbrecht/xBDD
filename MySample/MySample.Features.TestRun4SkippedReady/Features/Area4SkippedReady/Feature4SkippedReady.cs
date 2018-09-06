@@ -37,7 +37,7 @@ namespace MySample.Features.TestRun4SkippedReady.Area4SkippedReady
 		}
 
 		[TestMethod]
-		public async Task Scenario3SkippedBuilding()
+		public async Task Scenario3SkippedCommitted()
 		{
 			await xB.AddScenario(this, 3000)
 				.Given("Step 1 Skipped",

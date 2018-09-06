@@ -1,4 +1,4 @@
-namespace MySample.Features.TestRun4SkippedReady.Area4SkippedReady
+namespace MySample.Features.TestRun3SkippedCommitted.Area3SkippedCommitted
 {
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using System;
@@ -7,7 +7,7 @@ namespace MySample.Features.TestRun4SkippedReady.Area4SkippedReady
 	using xBDD.Utility;
 
 	[TestClass]
-	public partial class Feature3SkippedBuilding: xBDDFeatureBase
+	public partial class Feature3SkippedCommitted: xBDDFeatureBase
 	{
 
 		[TestMethod]
@@ -37,7 +37,7 @@ namespace MySample.Features.TestRun4SkippedReady.Area4SkippedReady
 		}
 
 		[TestMethod]
-		public async Task Scenario3SkippedBuilding()
+		public async Task Scenario3SkippedCommitted()
 		{
 			await xB.AddScenario(this, 3000)
 				.Given("Step 1 Skipped",

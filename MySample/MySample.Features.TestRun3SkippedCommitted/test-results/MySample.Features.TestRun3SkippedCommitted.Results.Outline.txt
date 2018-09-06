@@ -17,7 +17,7 @@ My Sample - Features - Test Run 3 Skipped Committed - Area 2 Skipped Untested [U
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested [Untested]
-My Sample - Features - Test Run 3 Skipped Committed - Area 3 Skipped Building [Committed]
+My Sample - Features - Test Run 3 Skipped Committed - Area 3 Skipped Committed [Committed]
 	Feature 1 Passing [Defining]
 		Scenario 1 Passing [Defining]
 			Given Step 1 Passing
@@ -29,13 +29,13 @@ My Sample - Features - Test Run 3 Skipped Committed - Area 3 Skipped Building [C
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested [Untested]
-	Feature 3 Skipped Building [Committed]
+	Feature 3 Skipped Committed [Committed]
 		Scenario 1 Passing [Defining]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested [Untested]
-		Scenario 3 Skipped Building [Committed]
+		Scenario 3 Skipped Committed [Committed]
 			Given Step 1 Skipped
 			When Step 2 Skipped
 			Then Step 3 Skipped

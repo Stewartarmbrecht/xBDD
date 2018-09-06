@@ -1,4 +1,4 @@
-namespace MySample.Features.TestRun4SkippedReady.Area3SkippedBuilding
+namespace MySample.Features.TestRun4SkippedReady.Area3SkippedCommitted
 {
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using System;

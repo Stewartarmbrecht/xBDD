@@ -29,7 +29,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="My Sample - Features - Test Run 3 Skipped Committed - Area 3 Skipped Building [Committed]">
+<outline text="My Sample - Features - Test Run 3 Skipped Committed - Area 3 Skipped Committed [Committed]">
 	<outline text="Feature 1 Passing [Defining]">
 		<outline text="Scenario 1 Passing [Defining]">
 			<outline text="Given Step 1 Passing"/>
@@ -46,7 +46,7 @@
 		<outline text="Scenario 2 Skipped Untested [Untested]">
 		</outline>
 	</outline>
-	<outline text="Feature 3 Skipped Building [Committed]">
+	<outline text="Feature 3 Skipped Committed [Committed]">
 		<outline text="Scenario 1 Passing [Defining]">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
@@ -54,7 +54,7 @@
 		</outline>
 		<outline text="Scenario 2 Skipped Untested [Untested]">
 		</outline>
-		<outline text="Scenario 3 Skipped Building [Committed]">
+		<outline text="Scenario 3 Skipped Committed [Committed]">
 			<outline text="Given Step 1 Skipped"/>
 			<outline text="When Step 2 Skipped"/>
 			<outline text="Then Step 3 Skipped"/>

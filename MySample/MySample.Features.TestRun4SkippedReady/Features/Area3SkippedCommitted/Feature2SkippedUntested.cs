@@ -1,4 +1,4 @@
-namespace MySample.Features.TestRun3SkippedCommitted.Area3SkippedBuilding
+namespace MySample.Features.TestRun4SkippedReady.Area3SkippedCommitted
 {
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using System;
@@ -7,7 +7,7 @@ namespace MySample.Features.TestRun3SkippedCommitted.Area3SkippedBuilding
 	using xBDD.Utility;
 
 	[TestClass]
-	public partial class Feature1Passing: xBDDFeatureBase
+	public partial class Feature2SkippedUntested: xBDDFeatureBase
 	{
 
 		[TestMethod]
@@ -27,6 +27,13 @@ namespace MySample.Features.TestRun3SkippedCommitted.Area3SkippedBuilding
 						// Enter your code here.
 					})
 				.Skip("Defining", Assert.Inconclusive);
+		}
+
+		[TestMethod]
+		public async Task Scenario2SkippedUntested()
+		{
+			await xB.AddScenario(this, 2000)
+				.Skip("Untested", Assert.Inconclusive);
 		}
 
 	}

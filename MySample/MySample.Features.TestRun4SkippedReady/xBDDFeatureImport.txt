@@ -16,7 +16,7 @@ Area 2 Skipped Untested
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested #R-Untested
-Area 3 Skipped Building
+Area 3 Skipped Committed
 	Feature 1 Passing
 		Scenario 1 Passing
 			Given Step 1 Passing
@@ -28,13 +28,13 @@ Area 3 Skipped Building
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested #R-Untested
-	Feature 3 Skipped Building
+	Feature 3 Skipped Committed
 		Scenario 1 Passing
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested #R-Untested
-		Scenario 3 Skipped Building #R-Committed
+		Scenario 3 Skipped Committed #R-Committed
 			Given Step 1 Skipped
 			When Step 2 Skipped
 			Then Step 3 Skipped
@@ -50,13 +50,13 @@ Area 4 Skipped Ready
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested #R-Untested
-	Feature 3 Skipped Building
+	Feature 3 Skipped Committed
 		Scenario 1 Passing
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested #R-Untested
-		Scenario 3 Skipped Building #R-Committed
+		Scenario 3 Skipped Committed #R-Committed
 			Given Step 1 Skipped
 			When Step 2 Skipped
 			Then Step 3 Skipped
@@ -66,7 +66,7 @@ Area 4 Skipped Ready
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested #R-Untested
-		Scenario 3 Skipped Building #R-Committed
+		Scenario 3 Skipped Committed #R-Committed
 			Given Step 1 Skipped
 			When Step 2 Skipped
 			Then Step 3 Skipped

@@ -11,9 +11,9 @@ namespace MySample.Features.TestRun3SkippedCommitted
 				typeof(MySample.Features.TestRun3SkippedCommitted.Area1Passing.Feature1Passing).FullName,
 				typeof(MySample.Features.TestRun3SkippedCommitted.Area2SkippedUntested.Feature1Passing).FullName,
 				typeof(MySample.Features.TestRun3SkippedCommitted.Area2SkippedUntested.Feature2SkippedUntested).FullName,
-				typeof(MySample.Features.TestRun3SkippedCommitted.Area3SkippedBuilding.Feature1Passing).FullName,
-				typeof(MySample.Features.TestRun3SkippedCommitted.Area3SkippedBuilding.Feature2SkippedUntested).FullName,
-				typeof(MySample.Features.TestRun3SkippedCommitted.Area3SkippedBuilding.Feature3SkippedBuilding).FullName,
+				typeof(MySample.Features.TestRun3SkippedCommitted.Area3SkippedCommitted.Feature1Passing).FullName,
+				typeof(MySample.Features.TestRun3SkippedCommitted.Area3SkippedCommitted.Feature2SkippedUntested).FullName,
+				typeof(MySample.Features.TestRun3SkippedCommitted.Area3SkippedCommitted.Feature3SkippedCommitted).FullName,
 			};
 		}
 		public List<string> GetGeneratedReasons() {
