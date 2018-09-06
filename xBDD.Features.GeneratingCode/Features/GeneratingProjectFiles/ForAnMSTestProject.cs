@@ -9,8 +9,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 	using xBDD;
 	using xBDD.Model;
 	using xBDD.Utility;
-	using xBDD.Features.GeneratingCode.Actors;
-
+	using xBDD.Features.Common;
 	
 	[AsA("Developer")]
 	[YouCan("generate a new MS Test Project")]

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\xBDD\xBDD.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
+		<PackageReference Include="TemplateValidator" Version="1.0.0" />
+		<PackageReference Include="Microsoft.Net.Test.Sdk" Version="15.8.0" />
+		<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />
+		<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />
+	</ItemGroup>
+
+</Project>

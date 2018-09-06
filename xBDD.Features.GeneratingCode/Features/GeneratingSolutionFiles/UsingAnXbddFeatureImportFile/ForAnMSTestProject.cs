@@ -6,7 +6,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles.UsingAnXbddFeatur
     using System.Runtime.CompilerServices;
 	using xBDD;
 	using xBDD.Utility;
-	using xBDD.Features.GeneratingCode.Actors;
+	using xBDD.Features.Common;
 
 	[AsA("Developer")]
 	[YouCan("generate a new MS Test solution or new feature files for multiple projects from a single outline")]

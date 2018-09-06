@@ -3,43 +3,55 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using System;
 	using System.Threading.Tasks;
+	using System.Linq;
+	using System.Linq.Expressions;
 	using xBDD;
 	using xBDD.Utility;
+	using xBDD.Features.Common;
 
+	[TestCategory("Now")]
 	[TestClass]
 	[Assignments("Stewart")]
 	public partial class GenerateAReport: xBDDFeatureBase
 	{
+		Developer you = new Developer();
+
+		string directory = "./../../../../";
+
+		string[] jsonReports => new[] {
+			"./MySamle.Features.TestRun1Passing/test-results/MySamle.Features.TestRun1Passing.json",
+			"./MySamle.Features.TestRun2SkippedUntested/test-results/MySamle.Features.TestRun2SkippedUntested.json",
+			"./MySamle.Features.TestRun3SkippedBuilding/test-results/MySamle.Features.TestRun3SkippedBuilding.json",
+			"./MySamle.Features.TestRun4SkippedReady/test-results/MySamle.Features.TestRun4SkippedReady.json",
+			"./MySamle.Features.TestRun5SkippedDefining/test-results/MySamle.Features.TestRun5SkippedReady.json",
+			"./MySamle.Features.TestRun6Failed/test-results/MySamle.Features.TestRun6Failed.json"
+		};
+		string jsonReportString => string.Join($",{Environment.NewLine}", jsonReports);
+		string[] xbddSummaryCommand => new[] { "dotnet", "xbdd", "solution", "summary" };
+		string[] xbddFullSummaryCommend => xbddSummaryCommand.Concat(jsonReports).ToArray();
+		string xbddFullSummaryCommandString => string.Join($",{Environment.NewLine}", xbddFullSummaryCommend);
 
 		[TestMethod]
 		public async Task WithFullTestRun()
 		{
+			Wrapper<string> output = new Wrapper<string>();
 			await xB.AddScenario(this, 1000)
 				.Given("you have the following json test run reports",
 					(s) => { 
-						// Enter your code here.
+						try {
+							System.IO.Directory.SetCurrentDirectory("./../../../../");
+							foreach(string jsonFilePath in jsonReports) {
+								Assert.IsTrue(System.IO.File.Exists(jsonFilePath), 
+									$"The file ('{jsonFilePath}') does not exist.");
+							}
+							System.IO.Directory.SetCurrentDirectory("./../../../../");
+						} catch {
+							System.IO.Directory.SetCurrentDirectory("./../../../../");
+						}
 					},
-					@"
-						./MySamle.Features.TestRun1Passing/test-results/MySamle.Features.TestRun1Passing.json
-						./MySamle.Features.TestRun2SkippedUntested/test-results/MySamle.Features.TestRun2SkippedUntested.json
-						./MySamle.Features.TestRun3SkippedBuilding/test-results/MySamle.Features.TestRun3SkippedBuilding.json
-						./MySamle.Features.TestRun4SkippedReady/test-results/MySamle.Features.TestRun4SkippedReady.json
-						./MySamle.Features.TestRun5SkippedDefining/test-results/MySamle.Features.TestRun5SkippedReady.json
-						./MySamle.Features.TestRun6Failed/test-results/MySamle.Features.TestRun6Failed.json".RemoveIndentation(6,true),
+					this.jsonReportString,
 					TextFormat.text)
-				.When("you execute the xBDD Tools Command",
-					(s) => { 
-						// Enter your code here.
-					},
-					@"
-						dotnet xbdd solution summarize `
-						./MySamle.Features.TestRun1Passing/test-results/MySamle.Features.TestRun1Passing.json `
-						./MySamle.Features.TestRun2SkippedUntested/test-results/MySamle.Features.TestRun2SkippedUntested.json `
-						./MySamle.Features.TestRun3SkippedBuilding/test-results/MySamle.Features.TestRun3SkippedBuilding.json `
-						./MySamle.Features.TestRun4SkippedReady/test-results/MySamle.Features.TestRun4SkippedReady.json `
-						./MySamle.Features.TestRun5SkippedDefining/test-results/MySamle.Features.TestRun5SkippedReady.json `
-						./MySamle.Features.TestRun6Failed/test-results/MySamle.Features.TestRun6Failed.json `".RemoveIndentation(6,true),
-					TextFormat.text)
+				.When(you.RunTheXbddToolsCommand(this.xbddFullSummaryCommend, directory, output))
 				.Then("the project will generate an Html summary report",
 					(s) => { 
 						// Enter your code here.
@@ -50,7 +62,7 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating
 					(s) => { 
 						// Enter your code here.
 					})
-				.Skip("Committed", Assert.Inconclusive);
+				.Run();
 		}
 
 		[TestMethod]

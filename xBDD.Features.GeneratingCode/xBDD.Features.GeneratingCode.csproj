@@ -19,7 +19,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\xBDD\xBDD.csproj" />
-		<ProjectReference Include="..\xBDD.Tools\xBDD.Tools.csproj" />
+		<ProjectReference Include="..\xBDD.Features.Common\xBDD.Features.Common.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

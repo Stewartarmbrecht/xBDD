@@ -12,7 +12,7 @@ namespace xBDD.Features.Actors
 	using xBDD.Model;
     using xBDD.Browser;
 
-	public class Developer: User
+	public class Developer: BrowserUser
 	{
 		internal const string Name = "developer";
 		internal Step HaveTheFollowingClass(string description, string pathToFile)

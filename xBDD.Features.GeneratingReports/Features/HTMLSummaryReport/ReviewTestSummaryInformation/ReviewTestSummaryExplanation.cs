@@ -15,7 +15,7 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.ReviewTestSummaryInf
 		public async Task ExpandingTheExplanation()
 		{
 			await xB.AddScenario(this, 1000)
-				.Skip("Committedn", Assert.Inconclusive);
+				.Skip("Committed", Assert.Inconclusive);
 		}
 
 		[TestMethod]

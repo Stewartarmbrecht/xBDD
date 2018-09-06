@@ -78,6 +78,46 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "test-generatingreports",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+                    "xBDD:HtmlReport:FailuresOnly": "false"
+                }
+            },
+            "args": [
+				"${workspaceFolder}/scripts/test.ps1",
+                "xBDD.Features.GeneratingReports",
+                "false",
+                "false",
+                "false",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test-generatingreports-fo",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+                    "xBDD:HtmlReport:FailuresOnly": "true"
+                }
+            },
+            "args": [
+				"${workspaceFolder}/scripts/test.ps1",
+                "xBDD.Features.GeneratingReports",
+                "true",
+                "false",
+                "true",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "test-long",
             "group": "test",
             "command": "pwsh",

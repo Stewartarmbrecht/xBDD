@@ -6,7 +6,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
     using System.Runtime.CompilerServices;
 	using xBDD;
 	using xBDD.Utility;
-	using xBDD.Features.GeneratingCode.Actors;
+	using xBDD.Features.Common;
 
 	[TestClass]
 	[AsA("Developer")]

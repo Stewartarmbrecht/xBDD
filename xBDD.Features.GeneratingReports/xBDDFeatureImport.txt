@@ -35,7 +35,7 @@ HTML Summary Report - Review Test Summary Information
 			.Given(you.NavigateTo(aPassingTestSummaryReport))
 			.Then(you.WillSee(the.TestSummaryName).HasText("[Missing!]"))
 	Review test summary explanation @Stewart
-		Expanding the Explanation #R-Committedn
+		Expanding the Explanation #R-Committed
 		Collapsing the Explanation #R-Committed
 		With No Explanation #R-Committed
 	Review test summary status @Stewart

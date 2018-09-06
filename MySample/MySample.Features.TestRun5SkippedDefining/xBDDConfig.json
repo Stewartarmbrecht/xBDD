@@ -1,0 +1,12 @@
+{
+	"xBDD": {
+		"TestRunName": "My Sample - Features - Test Run 5 Skipped Defining",
+		"Browser": {
+			"Watch": "false"
+		},
+		"HtmlReport": {
+			"RemoveFromAreaNameStart": "My Sample - Features - Test Run 5 Skipped Defining - ",
+			"FailuresOnly": "false"
+		}
+	}
+}

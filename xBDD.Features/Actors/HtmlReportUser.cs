@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace xBDD.Features.Actors
 {
-    public class HtmlReportUser: User
+    public class HtmlReportUser: BrowserUser
     {
         public Step WillSeeTheHtmlReportIsNotCreated(string reportName)
         {

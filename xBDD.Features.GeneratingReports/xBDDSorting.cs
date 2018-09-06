@@ -97,7 +97,7 @@ namespace xBDD.Features.GeneratingReports
 			return new List<string>() {
 				"Committed",
 				"Defining",
-				"Committedn",
+				"Committed",
 				"Untested",
 			};
 		}
