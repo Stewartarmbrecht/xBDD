@@ -110,7 +110,7 @@ HTML Summary Report - Review Test Summary Information
 		Expanding Areas #R-Committed
 		Collapsing Areas #R-Committed
 		With No Areas #R-Committed
-HTML Test Run Report - Review Test Run Information
+HTML Summary Report - Review Test Run Information
 	Review test run name
 		With Name #R-Committed
 		With No Name #R-Committed
@@ -162,58 +162,6 @@ HTML Test Run Report - Review Test Run Information
 		Expanding features #R-Committed
 		Collapsing features #R-Committed
 		Without features #R-Committed
-HTML Test Run Report - Review Area Information
-	Review area name
-		With Name #R-Untested
-		With No Name #R-Untested
-	Review area status
-		With Passing Status #R-Untested
-		With Some Skipped Status #R-Untested
-		With Some Failing Status #R-Untested
-	Review area feature status distribution
-		With All Passing #R-Untested
-		With Some Skipped #R-Untested
-		With Some Failing #R-Untested
-		With Some Skipped and Some Failing #R-Untested
-		With All Skipped #R-Untested
-		With All Failing #R-Untested
-		With No Features #R-Untested
-	Review area scenario status distribution
-		With All Passing #R-Untested
-		With Some Skipped #R-Untested
-		With Some Failing #R-Untested
-		With Some Skipped and Some Failing #R-Untested
-		With All Skipped #R-Untested
-		With All Failing #R-Untested
-		With No Scenarios #R-Untested
-	Review area feature status statistics
-		Expanding #R-Untested
-		Collapsing #R-Untested
-		With All Passing #R-Untested
-		With Some Skipped #R-Untested
-		With Some Failing #R-Untested
-		With Some Skipped and Some Failing #R-Untested
-		With All Skipped #R-Untested
-		With All Failing #R-Untested
-		With No Features #R-Untested
-	Review area scenario status statistics
-		Expanding #R-Untested
-		Collapsing #R-Untested
-		With All Passing #R-Untested
-		With Some Skipped #R-Untested
-		With Some Failing #R-Untested
-		With Some Skipped and Some Failing #R-Untested
-		With All Skipped #R-Untested
-		With All Failing #R-Untested
-		With No Scenarios #R-Untested
-	Review area explanation
-		Expanding explanation #R-Untested
-		Collapsing explanation #R-Untested
-		Without explanation #R-Untested
-	Review area features
-		Expanding features #R-Untested
-		Collapsing features #R-Untested
-		Without features #R-Untested
 HTML Test Run Report - Generating #R-Untested
 	Generate a report @Stewart
 		With Full Test Run #R-Untested
