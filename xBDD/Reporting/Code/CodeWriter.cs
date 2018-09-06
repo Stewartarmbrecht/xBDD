@@ -313,7 +313,7 @@
 					}
 				}
 				sb.AppendLine($@"				
-									.{Enum.GetName(typeof(ActionType),step.ActionType)}(""{step.Name.Replace(System.Environment.NewLine,"")}"",
+									.{Enum.GetName(typeof(ActionType),step.ActionType)}(""{step.Name.Replace("\"","\\\"").Replace(System.Environment.NewLine,"")}"",
 										(s) => {{ 
 											{(step.Outcome == Outcome.Failed ? exception : "// Enter your code here." )}
 										}}{inputAndExplanation.AddIndentation(5)})".RemoveIndentation(5, true));

@@ -8,7 +8,6 @@ namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles.UsingAnXbddFeatur
 	using xBDD.Utility;
 	using xBDD.Features.GeneratingCode.Actors;
 
-	[TestCategory("Now")]
 	[AsA("Developer")]
 	[YouCan("generate a new MS Test solution or new feature files for multiple projects from a single outline")]
 	[By("executing the 'dotnet xbdd solution generate MSTest' command in a director that has a valid solution outline")]

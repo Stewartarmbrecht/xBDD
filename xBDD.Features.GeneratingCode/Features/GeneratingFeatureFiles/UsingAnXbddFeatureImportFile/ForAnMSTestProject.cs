@@ -68,6 +68,20 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 		}
 
 		[TestMethod]
+		public async Task WithAGivenStepWithQuotes()
+		{
+			var outline = $@"
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given ""My"" Step 1".RemoveIndentation(4, true);
+
+			var featureFilePath = $"{directory}/Features/MyArea1/MySubArea1/MyFeature1.cs";
+			
+			await this.ExecuteStep(200, outline, featureFilePath);
+		}
+
+		[TestMethod]
 		public async Task WithAWhenStep()
 		{
 			var outline = $@"
@@ -151,6 +165,23 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 		}
 
 		[TestMethod]
+		public async Task WithAStepInputWithQuotes()
+		{
+			var outline = $@"
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+								Input
+									Here Is
+									""My"" Multiline Input".RemoveIndentation(4, true);
+
+			var featureFilePath = $"{directory}/Features/MyArea1/MySubArea1/MyFeature1.cs";
+			
+			await this.ExecuteStep(700, outline, featureFilePath);
+		}
+
+		[TestMethod]
 		public async Task WithAStepInputSingleLine()
 		{
 			var outline = $@"
@@ -160,6 +191,22 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 							Given Step 1
 								Input
 									Here Is My Single Line Input".RemoveIndentation(4, true);
+
+			var featureFilePath = $"{directory}/Features/MyArea1/MySubArea1/MyFeature1.cs";
+			
+			await this.ExecuteStep(800, outline, featureFilePath);
+		}
+
+		[TestMethod]
+		public async Task WithAStepInputSingleLineWithQuotes()
+		{
+			var outline = $@"
+				My Area 1 - My Sub Area 1
+					My Feature 1
+						My Scenario 1
+							Given Step 1
+								Input
+									Here Is ""My"" Single Line Input".RemoveIndentation(4, true);
 
 			var featureFilePath = $"{directory}/Features/MyArea1/MySubArea1/MyFeature1.cs";
 			
@@ -183,7 +230,6 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 			await this.ExecuteStep(900, outline, featureFilePath);
 		}
 
-		[TestCategory("Now")]
 		[TestMethod]
 		public async Task WithAStepExplanationWithQuotes()
 		{
@@ -217,7 +263,6 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 			await this.ExecuteStep(1000, outline, featureFilePath);
 		}
 
-		[TestCategory("Now")]
 		[TestMethod]
 		public async Task WithAStepExplanationSingleLineWithQuotes()
 		{
@@ -266,7 +311,6 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 			await this.ExecuteStep(1200, outline, featureFilePath);
 		}
 
-		[TestCategory("Now")]
 		[TestMethod]
 		public async Task WithAScenarioExplanationWithQuotes()
 		{
@@ -387,7 +431,6 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 			await this.ExecuteStep(1700, outline, featureFilePath);
 		}
 
-		[TestCategory("Now")]
 		[TestMethod]
 		public async Task WithAFeatureExplanationWithQuotes()
 		{
