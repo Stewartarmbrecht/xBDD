@@ -22,9 +22,13 @@ namespace xBDD.Reporting
             return new CodeWriter();
         }
 
-        internal HtmlWriter GetHtmlFileWriter(string removeFromAreaNameStart, bool failuresOnly)
+        internal HtmlTestRunReportWriter GetHtmlTestRunReportWriter(string removeFromAreaNameStart, bool failuresOnly)
         {
-            return new HtmlWriter(removeFromAreaNameStart, failuresOnly);
+            return new HtmlTestRunReportWriter(removeFromAreaNameStart, failuresOnly);
+        }
+        internal HtmlTestSummaryReportWriter GetHtmlTestSummaryReportWriter(string removeFromTestRunNameStart)
+        {
+            return new HtmlTestSummaryReportWriter(removeFromTestRunNameStart);
         }
     }
 }

@@ -1,30 +1,83 @@
 xBDD - Features - Generating Reports
 
-xBDD - Features - Generating Reports - HTML Summary Report - Generating [Committed]
-	Generate A Report [Committed]
-		With Full Test Run [Committed]
+xBDD - Features - Generating Reports - HTML Summary Report - Generating
+	Generate A Report
+		With Full Test Run
 			Given you have the following json test run reports
-				./MySamle.Features.TestRun1Passing/test-results/MySamle.Features.TestRun1Passing.json,
-				./MySamle.Features.TestRun2SkippedUntested/test-results/MySamle.Features.TestRun2SkippedUntested.json,
-				./MySamle.Features.TestRun3SkippedBuilding/test-results/MySamle.Features.TestRun3SkippedBuilding.json,
-				./MySamle.Features.TestRun4SkippedReady/test-results/MySamle.Features.TestRun4SkippedReady.json,
-				./MySamle.Features.TestRun5SkippedDefining/test-results/MySamle.Features.TestRun5SkippedReady.json,
-				./MySamle.Features.TestRun6Failed/test-results/MySamle.Features.TestRun6Failed.json
-			When you execute the xBDD Tools Command
-				dotnet,
-				xbdd,
-				solution,
-				summary,
-				./MySamle.Features.TestRun1Passing/test-results/MySamle.Features.TestRun1Passing.json,
-				./MySamle.Features.TestRun2SkippedUntested/test-results/MySamle.Features.TestRun2SkippedUntested.json,
-				./MySamle.Features.TestRun3SkippedBuilding/test-results/MySamle.Features.TestRun3SkippedBuilding.json,
-				./MySamle.Features.TestRun4SkippedReady/test-results/MySamle.Features.TestRun4SkippedReady.json,
-				./MySamle.Features.TestRun5SkippedDefining/test-results/MySamle.Features.TestRun5SkippedReady.json,
-				./MySamle.Features.TestRun6Failed/test-results/MySamle.Features.TestRun6Failed.json
-			Then the project will generate an Html summary report
-				./MySample/test-results/MySample.Summary.html
-			And you can view the report in a browser
-		With No Json Files [Defining]
-		With An Invalid Json File [Defining]
-		With A Single Json File [Defining]
-		With A Missing Json File [Defining]
+				./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json,
+				./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json,
+				./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json,
+				./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json,
+				./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json,
+				./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json
+			When you run the command:
+				dotnet xbdd solution summarize --output MySample.TestSummary.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json
+			Then you will see output matching the following template:
+				Output: MySample.TestSummary.html
+				Name: My Sample - Features
+				TestRunNameClip: My Sample - Features - 
+				Reasons: Untested, Committed, Ready, Defining
+				Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
+				Json Report: ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json
+				Json Report: ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json
+				Json Report: ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json
+				Json Report: ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json
+				Json Report: ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json
+			And you will find a new HTML Report created at './MySample.TestSummary.html' file located at 'c:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.html'.
+				c:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.html
+		With No Json Files
+			Given you do not have a summary report file located at './MySample.TestSummary.WithNoJsonFiles.html'.
+				./MySample.TestSummary.WithNoJsonFiles.html
+			When you run the command:
+				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithNoJsonFiles.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining
+			Then you will see output matching the following template:
+				Output: ./MySample.TestSummary.WithNoJsonFiles.html
+				Name: My Sample - Features
+				TestRunNameClip: My Sample - Features - 
+				Reasons: Untested, Committed, Ready, Defining
+			And you will find a file at 'c:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithNoJsonFiles.html' that matches the template:
+				{{.*}}/rl
+					<title>My Sample - Features</title>
+				{{.*}}/rl
+						<h1 class="report-name">
+							<span class="report badge pointer badge-pill total badge-secondary" title="Test Runs">0</span>
+							<span class="name">My Sample - Features</span>
+							<span class="report duration"> [0 ms]</span>
+						</h1>
+				{{.*}}/rl
+		With A Single Json File
+			Given you do not have a summary report file located at './MySample.TestSummary.WithASingleJsonFile.html'.
+				./MySample.TestSummary.WithASingleJsonFile.html
+			When you run the command:
+				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithASingleJsonFile.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
+			Then you will see output matching the following template:
+				Output: ./MySample.TestSummary.WithASingleJsonFile.html
+				Name: My Sample - Features
+				TestRunNameClip: My Sample - Features - 
+				Reasons: Untested, Committed, Ready, Defining
+				Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
+			And you will find a file at 'c:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template:
+				{{.*}}/rl
+					<title>My Sample - Features</title>
+				{{.*}}/rl
+						<h1 class="report-name">
+							<span class="report badge pointer badge-pill total badge-warning" title="Test Runs">1</span>
+							<span class="name">My Sample - Features</span>
+							<span class="report reason"> [Defining]</span>
+							<span class="report duration"> [0 ms]</span>
+						</h1>
+				{{.*}}/rl
+		With A Missing Json File
+			Given you do not have a summary report file located at './MySample.TestSummary.WithAMissingJsonFile.html'.
+				./MySample.TestSummary.WithAMissingJsonFile.html
+			When you run the command:
+				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithAMissingJsonFile.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./Missing.json
+			Then you will see output matching the following template:
+				Output: ./MySample.TestSummary.WithAMissingJsonFile.html
+				Name: My Sample - Features
+				TestRunNameClip: My Sample - Features - 
+				Reasons: Untested, Committed, Ready, Defining
+				Json Report: ./Missing.json
+				Error: Could not find file 'c:\Users\stearm01\source\xBDD\MySample\Missing.json'.
+			And you will not find the html report located at 'c:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'.
+				c:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html

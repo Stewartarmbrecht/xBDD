@@ -104,14 +104,28 @@ namespace xBDD.Features.Common
 					fileText.ValidateToTemplate(template);
 				}, template, format);
 		}
-		public Step WillSeeOutput(string outputTemplate, Wrapper<string> output) {
+		public Step WillSeeOutput(string outputTemplate, Wrapper<string> output, bool templateFile = false) {
 			var stepName = $"you will see output matching the following template:";
+			var template = outputTemplate;
+			var templateFound = false;
+			if(templateFile) {
+				if(System.IO.File.Exists(outputTemplate)) {
+					template = System.IO.File.ReadAllText(outputTemplate);
+					templateFound = true;
+				}
+				else {
+					template = $"Error: The templat file ('{outputTemplate}') could not be found!";
+				}
+			}
 			return xB.CreateStep(stepName,
 				s => {
+					if(templateFile && !templateFound) {
+						System.IO.File.WriteAllText(outputTemplate, output.Object);
+					}
 					s.Output = output.Object;
 					s.OutputFormat = TextFormat.cs;
-					output.Object.ValidateToTemplate(outputTemplate);
-				}, outputTemplate, TextFormat.text);
+					output.Object.ValidateToTemplate(template);
+				}, template, TextFormat.text);
 		}
 		public Step WillFindTheProjectExecutesTests () {
             var fullCommand = $"dotnet test | Out-File output.txt";
@@ -131,6 +145,22 @@ namespace xBDD.Features.Common
 					s.Output = report;
 					s.OutputFormat = format;
 				}, filePath, TextFormat.sh);
+		}
+		public Step WillNotFind(string fileDescription, string filePath) {
+			return xB.CreateStep($"you will not find {fileDescription} located at '{filePath}'.",
+				s => {
+					if(System.IO.File.Exists(filePath)) {
+						throw new System.Exception($"The file ('{filePath}') does exist.");
+					}
+				}, filePath, TextFormat.text);
+		}
+		public Step DoNotHave(string fileDescription, string filePath) {
+			return xB.CreateStep($"you do not have {fileDescription} located at '{filePath}'.",
+				s => {
+					if(System.IO.File.Exists(filePath)) {
+						System.IO.File.Delete(filePath);
+					}
+				}, filePath, TextFormat.text);
 		}
 	}
 }

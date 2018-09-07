@@ -19,6 +19,23 @@ namespace xBDD.Core
             UtilityFactory = new UtilityFactory();
         }
         internal UtilityFactory UtilityFactory { get; private set; }
+        internal TestRunGroup CreateTestRunGroup(string name)
+        {
+            return new TestRunGroup()
+            {
+                Name = name,
+                TestRunStats = new OutcomeStats(),
+                AreaStats = new OutcomeStats(),
+                FeatureStats = new OutcomeStats(),
+                ScenarioStats = new OutcomeStats(),
+                StepStats = new OutcomeStats(),
+                TestRunReasonStats = new Dictionary<string, int>(),
+                AreaReasonStats = new Dictionary<string, int>(),
+                FeatureReasonStats = new Dictionary<string, int>(),
+                ScenarioReasonStats = new Dictionary<string, int>(),
+            };
+        }
+
         internal TestRun CreateTestRun(string name)
         {
             return new TestRun()

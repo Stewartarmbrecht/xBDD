@@ -115,11 +115,11 @@
         /// <param name="removeFromAreaNameStart">The starting part of the area names you want to remove.</param>
         /// <param name="failuresOnly">Tells the html writer to only write out failed scenarios.</param>
         /// <returns>String that is a multiline text format of the test results.</returns>
-        public static string WriteToHtml(this xBDD.Model.TestRun testRun, string removeFromAreaNameStart = "", bool failuresOnly = false)
+        public static string WriteToHtmlTestRunReport(this xBDD.Model.TestRun testRun, string removeFromAreaNameStart = "", bool failuresOnly = false)
         {
             ReportingFactory factory = new ReportingFactory();
-            HtmlWriter saver = factory.GetHtmlFileWriter(removeFromAreaNameStart, failuresOnly);
-            return saver.WriteToHtml(testRun);
+            HtmlTestRunReportWriter saver = factory.GetHtmlTestRunReportWriter(removeFromAreaNameStart, failuresOnly);
+            return saver.WriteToHtmlTestRunReport(testRun);
         }
         /// <summary>
         /// Writes a a test run's test results to a sql database.

@@ -38,7 +38,7 @@ namespace MySample.Features
 
             var htmlPath = directory + $"/../../../test-results/{TestConfiguration.HtmlReportFileName}";
             Logger.LogMessage("Writing Html Report to " + htmlPath);
-            var htmlReport = xB.CurrentRun.TestRun.WriteToHtml(TestConfiguration.RemoveFromAreaNameStart, TestConfiguration.FailuresOnly);
+            var htmlReport = xB.CurrentRun.TestRun.WriteToHtmlTestRunReport(TestConfiguration.RemoveFromAreaNameStart, TestConfiguration.FailuresOnly);
             File.WriteAllText(htmlPath, htmlReport);
 
             var textPath = directory + $"/../../../test-results/{TestConfiguration.TextReportFileName}";

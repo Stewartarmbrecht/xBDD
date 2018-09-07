@@ -154,7 +154,7 @@
 
             var htmlPath = $"{directory}/../../../test-results/{projectName}.Results.html";
             writeOutput("Writing Html Report to " + htmlPath);
-            var htmlReport = xB.CurrentRun.TestRun.WriteToHtml(Configuration.RemoveFromAreaNameStart, Configuration.FailuresOnly);
+            var htmlReport = xB.CurrentRun.TestRun.WriteToHtmlTestRunReport(Configuration.RemoveFromAreaNameStart, Configuration.FailuresOnly);
             File.WriteAllText(htmlPath, htmlReport);
 
             var textPath = $"{directory}/../../../test-results/{projectName}.Results.txt";

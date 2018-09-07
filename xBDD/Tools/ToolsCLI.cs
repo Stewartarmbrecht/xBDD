@@ -108,7 +108,8 @@ namespace xBDD.Tools
         }
 
         [Command("solution", Description = "Provides access to solution level commands."),
-         Subcommand("generate", typeof(Generate))]
+         Subcommand("generate", typeof(Generate)),
+		 Subcommand("summarize", typeof(Summarize))]
         private class Solution {
             private int OnExecute(IConsole console)
             {
@@ -152,6 +153,57 @@ namespace xBDD.Tools
 					private int OnExecute(IConsole console)
 					{
 						console.Error.WriteLine("This feature still needs to be implemented.");
+						return 1;
+					}
+				}
+			}
+			
+			[Command("summarize", Description = "Creates an HTML Summary report for the JSON test run reports specified.", ThrowOnUnexpectedArgument = false)]
+			private class Summarize
+			{
+
+				[Option("-o|--output", "Sets the output file for the HTML summary.", CommandOptionType.SingleValue)]
+				public string Output { get; }
+
+				[Option("-n|--name", "Sets the name of the test run summary.", CommandOptionType.SingleValue)]
+				public string Name { get; }
+
+				[Option("-trnc|--testrun-name-clip", "Defines the start of each test run name that should be removed before rendering in the report.", CommandOptionType.SingleValue)]
+				public string TestRunNameClip { get; }
+
+				[Option("-ro|--reason-order", "Comma separated list of reasons in order of precedence from least to greatest.", CommandOptionType.SingleValue)]
+				public string Reasons { get; }
+
+				public string[] RemainingArguments { get; }
+				private int OnExecute(IConsole console)
+				{
+					try {
+						var jsonImporter = new JsonImporter();
+						var factory = new Core.CoreFactory();
+						var testRunGroup = factory.CreateTestRunGroup(Name);
+						console.WriteLine($"Output: {Output}");
+						console.WriteLine($"Name: {Name}");
+						console.WriteLine($"TestRunNameClip: {TestRunNameClip}");
+						console.WriteLine($"Reasons: {Reasons}");
+						foreach(string jsonReport in RemainingArguments) {
+							console.WriteLine($"Json Report: {jsonReport}");
+							var testRunJson = System.IO.File.ReadAllText(jsonReport);
+							var testRun = jsonImporter.ImportJson(testRunJson);
+							testRunGroup.TestRuns.Add(testRun);
+						}
+						List<string> reasons = new List<string>();
+						reasons.AddRange(Reasons.Split(','));
+						for(int i = 0; i < reasons.Count; i++) {
+							reasons[i] = reasons[i].Trim();
+						}
+						
+						testRunGroup.CalculatProperties(reasons);
+
+						var html = testRunGroup.WriteToHtmlSummaryReport(TestRunNameClip);
+						System.IO.File.WriteAllText(Output, html);
+						return 0;
+					} catch (Exception ex) {
+						console.Error.WriteLine($"Error: {ex.Message}");
 						return 1;
 					}
 				}
@@ -252,7 +304,7 @@ namespace xBDD.Tools
                         break;
                         case DestinationFormat.HtmlTestRunReport:
                             console.WriteLine($"Writing Html Test Run Report To: {Destination}");
-                            var htmlReport = testRun.WriteToHtml(AreaNameSkip);
+                            var htmlReport = testRun.WriteToHtmlTestRunReport(AreaNameSkip);
                             System.IO.File.WriteAllText(Destination, htmlReport);
                         break;
                         case DestinationFormat.Text:

@@ -42,7 +42,7 @@ namespace xBDD.Features.Actors
                             .Run();
                     }
                     catch { }
-                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtmlTestRunReport();
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
@@ -98,7 +98,7 @@ namespace xBDD.Features.Actors
                         .When("my step 23", (s2) => { })
                         .Then("my step 24", (s2) => { })
                         .Run();
-                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtmlTestRunReport();
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
@@ -120,7 +120,7 @@ namespace xBDD.Features.Actors
                 {
                     var xBDD = new xBDDMock();
                     await xBDD.RunATestRunWithAFullTestRunWithAllOutcomes();
-                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml(null, failuresOnly);
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtmlTestRunReport(null, failuresOnly);
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
@@ -154,7 +154,7 @@ namespace xBDD.Features.Actors
                             .Run();
                     }
                     catch { }
-                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtmlTestRunReport();
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
@@ -180,7 +180,7 @@ namespace xBDD.Features.Actors
                          })
                         .Then("my step 3", (s2) => { })
                         .Run();
-                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtmlTestRunReport();
                     File.WriteAllText(path, htmlReport);
                 },
                 output,
@@ -206,7 +206,7 @@ namespace xBDD.Features.Actors
                          })
                         .Then("my step 3", (s2) => { })
                         .Run();
-                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtmlTestRunReport();
                     File.WriteAllText(path, htmlReport);
                 },
                 input,
@@ -245,7 +245,7 @@ namespace xBDD.Features.Actors
                     xBDD.CurrentRun.TestRun.Areas[0].Features[0].Actor = actor;
                     xBDD.CurrentRun.TestRun.Areas[0].Features[0].Value = value;
                     xBDD.CurrentRun.TestRun.Areas[0].Features[0].Capability = capability;
-                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml(areaNameSkip, failuresOnly);
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtmlTestRunReport(areaNameSkip, failuresOnly);
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
@@ -270,7 +270,7 @@ namespace xBDD.Features.Actors
                             .Run();
                     }
                     catch { }
-                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtmlTestRunReport();
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
@@ -297,7 +297,7 @@ namespace xBDD.Features.Actors
                         .When("my step 2", (s2) => { })
                         .Then("my step 3", (s2) => { })
                         .Skip("Defining", reason => { } );
-                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml(null, failuresOnly);
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtmlTestRunReport(null, failuresOnly);
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
@@ -313,7 +313,7 @@ namespace xBDD.Features.Actors
                 {
                     var xBDD = new xBDDMock();
                     xBDD.CurrentRun.TestRun.Name = "My Test Run";
-                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtml();
+                    var htmlReport = xBDD.CurrentRun.TestRun.WriteToHtmlTestRunReport();
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
@@ -328,7 +328,7 @@ namespace xBDD.Features.Actors
                 async (s) =>
                 {
                     var sampleTestRun = await SampleApp.Features.SampleTestRun.RunTests();
-                    var htmlReport = sampleTestRun.CurrentRun.TestRun.WriteToHtml();
+                    var htmlReport = sampleTestRun.CurrentRun.TestRun.WriteToHtmlTestRunReport();
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
@@ -344,7 +344,7 @@ namespace xBDD.Features.Actors
                 {
                     var sampleTestRun = await SampleApp.Features.SampleTestRun.RunTests();
                     sampleTestRun.CurrentRun.TestRun.SortTestRunResults(new System.Collections.Generic.List<string>(SampleApp.Features.SampleFeatureSort.SortedFeatureNames));
-                    var htmlReport = sampleTestRun.CurrentRun.TestRun.WriteToHtml();
+                    var htmlReport = sampleTestRun.CurrentRun.TestRun.WriteToHtmlTestRunReport();
                     File.WriteAllText(path, htmlReport);
                 });
             return step;
