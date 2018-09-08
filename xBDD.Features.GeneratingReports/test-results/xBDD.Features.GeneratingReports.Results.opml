@@ -4,9 +4,9 @@
 </head>
 <body>
 
-<outline text="xBDD - Features - Generating Reports - HTML Summary Report - Generating">
-	<outline text="Generate A Report">
-		<outline text="With Full Test Run">
+<outline text="xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]">
+	<outline text="Generate A Report [Failed]">
+		<outline text="With Full Test Run [Failed]">
 			<outline text="Given you have the following json test run reports">
 				<outline text="./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json," />
 				<outline text="./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json," />
@@ -16,7 +16,7 @@
 				<outline text="./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json" />
 			</outline>
 			<outline text="When you run the command:">
-				<outline text="dotnet xbdd solution summarize --output MySample.TestSummary.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json" />
+				<outline text="dotnet xbdd solution summarize --output MySample.TestSummary.WithFullTestRun.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json" />
 			</outline>
 			<outline text="Then you will see output matching the following template:">
 				<outline text="Output: MySample.TestSummary.html" />
@@ -30,11 +30,11 @@
 				<outline text="Json Report: ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json" />
 				<outline text="Json Report: ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json" />
 			</outline>
-			<outline text="And you will find a new HTML Report created at './MySample.TestSummary.html' file located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.html'.">
-				<outline text="C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.html" />
+			<outline text="And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'.">
+				<outline text="C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html" />
 			</outline>
 		</outline>
-		<outline text="With No Json Files">
+		<outline text="With No Json Files [Failed]">
 			<outline text="Given you do not have a summary report file located at './MySample.TestSummary.WithNoJsonFiles.html'.">
 				<outline text="./MySample.TestSummary.WithNoJsonFiles.html" />
 			</outline>
@@ -59,7 +59,7 @@
 				<outline text="{{.*}}/rl" />
 			</outline>
 		</outline>
-		<outline text="With A Single Json File">
+		<outline text="With A Single Json File [Failed]">
 			<outline text="Given you do not have a summary report file located at './MySample.TestSummary.WithASingleJsonFile.html'.">
 				<outline text="./MySample.TestSummary.WithASingleJsonFile.html" />
 			</outline>
@@ -80,13 +80,12 @@
 				<outline text="		<h1 class="report-name">" />
 				<outline text="			<span class="report badge pointer badge-pill total badge-warning" title="Test Runs">1</span>" />
 				<outline text="			<span class="name">My Sample - Features</span>" />
-				<outline text="			<span class="report reason"> [Defining]</span>" />
 				<outline text="			<span class="report duration"> [0 ms]</span>" />
 				<outline text="		</h1>" />
 				<outline text="{{.*}}/rl" />
 			</outline>
 		</outline>
-		<outline text="With A Missing Json File">
+		<outline text="With A Missing Json File [Failed]">
 			<outline text="Given you do not have a summary report file located at './MySample.TestSummary.WithAMissingJsonFile.html'.">
 				<outline text="./MySample.TestSummary.WithAMissingJsonFile.html" />
 			</outline>
@@ -110,6 +109,8 @@
 <outline text="xBDD - Features - Generating Reports - HTML Summary Report - Review Test Summary Information [Committed]">
 	<outline text="Review Test Summary Name [Committed]">
 		<outline text="With Name [Committed]">
+			<outline text="Given you navigate to a passing test summary report"/>
+			<outline text="Then you will see the test summary name has text 'My Sample - Test Summary 1 Passing'"/>
 		</outline>
 		<outline text="With No Name [Committed]">
 		</outline>

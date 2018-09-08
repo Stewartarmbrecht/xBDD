@@ -1,0 +1,15 @@
+Build started 9/4/2018 6:27:29 PM.
+Test run for C:\Users\stearm01\source\xBDD\MySample.Features\bin\Debug\netcoreapp2.1\MySample.Features.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+No test matches the given testcase filter `NoMatchAtAll` in C:\Users\stearm01\source\xBDD\MySample.Features\bin\Debug\netcoreapp2.1\MySample.Features.dll
+
+Additionally, path to test adapters can be specified using /TestAdapterPath command. Example  /TestAdapterPath:<pathToCustomAdapters>.
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.03

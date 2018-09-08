@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <TestRunName>xBDD Reporting</TestRunName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\xBDD\xBDD.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
+    <PackageReference Include="TemplateValidator" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Net.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="MSTEst.TestAdapter" Version="1.3.2" />
+    <PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.14.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="xBDDConfig.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\EmptyTestRun.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\RunEmptyScenario.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\RunMultipleAreas.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\RunMultipleFeaturesSameArea.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\RunMultipleScenariosSameFeature.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\RunScenarioWithFailedStep.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\RunScenarioWithNotImplementedStep.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\RunScenarioWithSkippedStep.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\RunScenarioWithSteps.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\RunScenarioWithStepWithMultilineParameter.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\SkippedEmptyScenario.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="GenerateReports\GenerateTextReport\WriteToTextScenarios\SkippedScenarioWithSteps.txt" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

@@ -26,7 +26,7 @@ namespace MySample.Features.TestRun4SkippedReady.Area2SkippedUntested
 					(s) => { 
 						// Enter your code here.
 					})
-				.Skip("Defining", Assert.Inconclusive);
+				.Run();
 		}
 
 		[TestMethod]

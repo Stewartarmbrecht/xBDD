@@ -4,23 +4,23 @@
 </head>
 <body>
 
-<outline text="My Sample - Features - Test Run 5 Skipped Defining - Area 1 Passing [Defining]">
-	<outline text="Feature 1 Passing [Defining]">
-		<outline text="Scenario 1 Passing [Defining]">
+<outline text="My Sample - Features - Test Run 5 Skipped Defining - Area 1 Passing">
+	<outline text="Feature 1 Passing">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
 		</outline>
 </outline>
 <outline text="My Sample - Features - Test Run 5 Skipped Defining - Area 2 Skipped Untested [Untested]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
 		</outline>
 	</outline>
 	<outline text="Feature 2 Skipped Untested [Untested]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
@@ -30,15 +30,15 @@
 	</outline>
 </outline>
 <outline text="My Sample - Features - Test Run 5 Skipped Defining - Area 3 Skipped Committed [Committed]">
-	<outline text="Feature 1 Passing [Defining]">
-		<outline text="Scenario 1 Passing [Defining]">
+	<outline text="Feature 1 Passing">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
 		</outline>
 	</outline>
 	<outline text="Feature 2 Skipped Untested [Untested]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
@@ -47,7 +47,7 @@
 		</outline>
 	</outline>
 	<outline text="Feature 3 Skipped Committed [Committed]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
@@ -62,15 +62,15 @@
 	</outline>
 </outline>
 <outline text="My Sample - Features - Test Run 5 Skipped Defining - Area 4 Skipped Ready [Ready]">
-	<outline text="Feature 1 Passing [Defining]">
-		<outline text="Scenario 1 Passing [Defining]">
+	<outline text="Feature 1 Passing">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
 		</outline>
 	</outline>
 	<outline text="Feature 2 Skipped Untested [Untested]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
@@ -79,7 +79,7 @@
 		</outline>
 	</outline>
 	<outline text="Feature 3 Skipped Committed [Committed]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
@@ -93,7 +93,7 @@
 		</outline>
 	</outline>
 	<outline text="Feature 4 Skipped Ready [Ready]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
@@ -113,15 +113,15 @@
 	</outline>
 </outline>
 <outline text="My Sample - Features - Test Run 5 Skipped Defining - Area 5 Skipped Defining [Ready]">
-	<outline text="Feature 1 Passing [Defining]">
-		<outline text="Scenario 1 Passing [Defining]">
+	<outline text="Feature 1 Passing">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
 		</outline>
 	</outline>
 	<outline text="Feature 2 Skipped Untested [Untested]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
@@ -130,7 +130,7 @@
 		</outline>
 	</outline>
 	<outline text="Feature 3 Skipped Committed [Committed]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
@@ -144,7 +144,7 @@
 		</outline>
 	</outline>
 	<outline text="Feature 4 Skipped Ready [Ready]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
@@ -163,7 +163,7 @@
 		</outline>
 	</outline>
 	<outline text="Feature 5 Skipped Defining [Ready]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>

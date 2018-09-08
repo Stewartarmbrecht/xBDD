@@ -1,0 +1,13 @@
+Initial Setup
+	Running MSTest Project Scenarios
+		Running all scenarios #R-Untested
+		Running scenarios filtered by MSTest test cateogry #R-Untested
+		Running scenarios filtered by area name #R-Untested
+		Running scenarios filtered by feature name #R-Untested
+		Running scenarios filtered by scenario name #R-Untested
+		Running scenarios filtered by assignment #R-Defining
+		Running scenarios filtered by tag #R-Defining
+		Running scenarios filtered by reason #R-Defining
+		Running a single scenario #R-Untested
+		Debugging a single scenario #R-Untested
+		Documenting scenarios and skipping scenario execution when running tests #R-Defining

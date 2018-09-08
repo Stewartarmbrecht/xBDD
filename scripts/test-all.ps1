@@ -1,20 +1,23 @@
 Set-Location $PSScriptRoot
 
-dotnet build ./../xBDD.Features/xBDD.Features.csproj 
-dotnet test ./../xBDD.Features/xBDD.Features.csproj -v n --no-build
+Set-Location "../"
 
-dotnet build ./../xBDD.Features.DefiningFeatures/xBDD.Features.DefiningFeatures.csproj 
-dotnet test ./../xBDD.Features.DefiningFeatures/xBDD.Features.DefiningFeatures.csproj -v n --no-build
+dotnet test
 
-dotnet build ./../xBDD.Features.AutomatingUITEsting/xBDD.Features.AutomatingUITEsting.csproj 
-dotnet test ./../xBDD.Features.AutomatingUITEsting/xBDD.Features.AutomatingUITEsting.csproj -v n --no-build
-
-dotnet build ./../xBDD.Features.GeneratingCode/xBDD.Features.GeneratingCode.csproj 
-dotnet test ./../xBDD.Features.GeneratingCode/xBDD.Features.GeneratingCode.csproj -v n --no-build
-
-dotnet build ./../xBDD.Features.GeneratingReports/xBDD.Features.GeneratingReports.csproj 
-dotnet test ./../xBDD.Features.GeneratingReports/xBDD.Features.GeneratingReports.csproj -v n --no-build
-
-dotnet build ./../xBDD.Features.ImportingScenarios/xBDD.Features.ImportingScenarios.csproj 
-dotnet test ./../xBDD.Features.ImportingScenarios/xBDD.Features.ImportingScenarios.csproj -v n --no-build
-
+dotnet xbdd solution summarize `
+--output xBDD.Features.Summary.html `
+--name "xBDD - Features" `
+--testrun-name-clip "xBDD - Features - " `
+--reason-order "Removing,Untested,Committed,Ready,Defining" `
+./xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.json `
+./xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.html `
+./xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.json `
+./xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.html `
+./xBDD.Features.AutomatingUITesting/test-results/xBDD.Features.AutomatingUITesting.Results.json `
+./xBDD.Features.AutomatingUITesting/test-results/xBDD.Features.AutomatingUITesting.Results.html `
+./xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.json `
+./xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.html `
+./xBDD.Features.RunningScenarios/test-results/xBDD.Features.RunningScenarios.Results.json `
+./xBDD.Features.RunningScenarios/test-results/xBDD.Features.RunningScenarios.Results.html `
+./xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.json `
+./xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.html

@@ -26,7 +26,7 @@ namespace MySample.Features.TestRun4SkippedReady.Area4SkippedReady
 					(s) => { 
 						// Enter your code here.
 					})
-				.Skip("Defining", Assert.Inconclusive);
+				.Run();
 		}
 
 		[TestMethod]
@@ -71,7 +71,7 @@ namespace MySample.Features.TestRun4SkippedReady.Area4SkippedReady
 					(s) => { 
 						// Enter your code here.
 					})
-				.Skip("Defining", Assert.Inconclusive);
+				.Skip("Ready", Assert.Inconclusive);
 		}
 
 	}

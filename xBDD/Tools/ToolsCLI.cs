@@ -185,16 +185,21 @@ namespace xBDD.Tools
 						console.WriteLine($"Name: {Name}");
 						console.WriteLine($"TestRunNameClip: {TestRunNameClip}");
 						console.WriteLine($"Reasons: {Reasons}");
-						foreach(string jsonReport in RemainingArguments) {
+						int i = 0;
+						while(i < RemainingArguments.Length) {
+							var jsonReport = RemainingArguments[i];
+							var htmlReport = RemainingArguments[i+1];
 							console.WriteLine($"Json Report: {jsonReport}");
 							var testRunJson = System.IO.File.ReadAllText(jsonReport);
 							var testRun = jsonImporter.ImportJson(testRunJson);
+							testRun.FilePath = htmlReport;
 							testRunGroup.TestRuns.Add(testRun);
+							i = i+2;
 						}
 						List<string> reasons = new List<string>();
 						reasons.AddRange(Reasons.Split(','));
-						for(int i = 0; i < reasons.Count; i++) {
-							reasons[i] = reasons[i].Trim();
+						for(int i2 = 0; i2 < reasons.Count; i2++) {
+							reasons[i2] = reasons[i2].Trim();
 						}
 						
 						testRunGroup.CalculatProperties(reasons);

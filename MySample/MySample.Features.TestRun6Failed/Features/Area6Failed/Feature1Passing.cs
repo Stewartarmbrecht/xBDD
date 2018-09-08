@@ -26,7 +26,7 @@ namespace MySample.Features.TestRun6Failed.Area6Failed
 					(s) => { 
 						// Enter your code here.
 					})
-				.Skip("Defining", Assert.Inconclusive);
+				.Run();
 		}
 
 	}

@@ -18,7 +18,7 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating
 
 		string directory = $"{System.IO.Directory.GetCurrentDirectory()}/../../../../MySample/";
 
-		string summaryReportName = "MySample.TestSummary.html";
+		string summaryReportName = "MySample.TestSummary.WithFullTestRun.html";
 
 		string[] jsonReportFilePaths => new[] {
 			"./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json",

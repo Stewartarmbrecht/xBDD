@@ -1,0 +1,20 @@
+﻿{
+    "Data": {
+        "DefaultConnection": {
+            "ConnectionString": "Server=.;Database=xBDDTestResults;User=sa;Password=reallyStrongPwd123"
+        },
+        "TestingConnection": {
+            "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=xBDDTesting;Trusted_Connection=True;"
+        }
+    },
+    "xBDD": {
+        "TestRunName": "xBDD Features - Legacy Tests",
+        "Browser": {
+            "Watch": "false"
+        },
+        "HtmlReport": {
+            "RemoveFromAreaNameStart": "xBDD - Features - ",
+            "FailuresOnly": "false"
+        }
+    }
+}

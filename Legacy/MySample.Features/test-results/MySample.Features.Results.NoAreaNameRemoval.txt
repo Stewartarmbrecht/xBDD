@@ -1,0 +1,51 @@
+My Sample Features
+
+My Sample - Features - My Area 1 All Passing
+	My Feature 1 Passing
+		My Scenario 1
+			Given my step 1
+			When my step 2 with multiline input
+				Here
+				 is
+				 my
+				 Input!
+			Then my step 3 with output
+		My Scenario 2
+			Given my step 4
+			When my step 5
+			Then my step 6
+		My Scenario 3
+			Given my step 7
+			When my step 8
+			Then my step 9
+	My Feature 2 Passing Partial Statement
+		My Scenario 4
+			Given my step 10
+			When my step 11
+			Then my step 12
+		My Scenario 5
+			Given my step 13
+			When my step 14
+			Then my step 15
+		My Scenario 6
+			Given my step 16
+			When my step 17
+			Then my step 18
+	My Feature 3 Passing Missing Statement
+		My Scenario 7
+			Given my step 19
+			When my step 20
+			Then my step 21
+		My Scenario 8
+			Given my step 22
+			When my step 23
+			Then my step 24
+		My Scenario 9
+			Given my step 25
+			When my step 26
+			Then my step 27
+	My Feature 4 Passing Reusable Steps
+		My Scenario 10 With Reusable Steps
+			Given you execute step 28
+			When you execute step 29
+			Then you execute step 30

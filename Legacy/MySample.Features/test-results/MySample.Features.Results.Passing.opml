@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+<head>
+</head>
+<body>
+
+<outline text="My Sample - Features - My Area 1 All Passing">
+	<outline text="My Feature 1 Passing">
+		<outline text="My Scenario 1">
+			<outline text="Given my step 1"/>
+			<outline text="When my step 2 with multiline input">
+				<outline text="Here" />
+				<outline text=" is" />
+				<outline text=" my" />
+				<outline text=" Input!" />
+			</outline>
+			<outline text="Then my step 3 with output"/>
+		</outline>
+		<outline text="My Scenario 2">
+			<outline text="Given my step 4"/>
+			<outline text="When my step 5"/>
+			<outline text="Then my step 6"/>
+		</outline>
+		<outline text="My Scenario 3">
+			<outline text="Given my step 7"/>
+			<outline text="When my step 8"/>
+			<outline text="Then my step 9"/>
+		</outline>
+	</outline>
+	<outline text="My Feature 2 Passing Partial Statement">
+		<outline text="My Scenario 4">
+			<outline text="Given my step 10"/>
+			<outline text="When my step 11"/>
+			<outline text="Then my step 12"/>
+		</outline>
+		<outline text="My Scenario 5">
+			<outline text="Given my step 13"/>
+			<outline text="When my step 14"/>
+			<outline text="Then my step 15"/>
+		</outline>
+		<outline text="My Scenario 6">
+			<outline text="Given my step 16"/>
+			<outline text="When my step 17"/>
+			<outline text="Then my step 18"/>
+		</outline>
+	</outline>
+	<outline text="My Feature 3 Passing Missing Statement">
+		<outline text="My Scenario 7">
+			<outline text="Given my step 19"/>
+			<outline text="When my step 20"/>
+			<outline text="Then my step 21"/>
+		</outline>
+		<outline text="My Scenario 8">
+			<outline text="Given my step 22"/>
+			<outline text="When my step 23"/>
+			<outline text="Then my step 24"/>
+		</outline>
+		<outline text="My Scenario 9">
+			<outline text="Given my step 25"/>
+			<outline text="When my step 26"/>
+			<outline text="Then my step 27"/>
+		</outline>
+	</outline>
+	<outline text="My Feature 4 Passing Reusable Steps">
+		<outline text="My Scenario 10 With Reusable Steps">
+			<outline text="Given you execute step 28"/>
+			<outline text="When you execute step 29"/>
+			<outline text="Then you execute step 30"/>
+		</outline>
+	</outline>
+</outline>
+</body>
+</opml>

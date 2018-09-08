@@ -45,7 +45,7 @@ namespace xBDD.Reporting.Html
 			statistics.Add("Areas", testRun.AreaStats);
 			statistics.Add("Features", testRun.FeatureStats);
 			statistics.Add("Scenarios", testRun.ScenarioStats);
-			hW.WriteBanner(sb, testRun.Areas.Count, testRun.Outcome, testRun.Reason, testRun.Name, "Areas", testRun.StartTime, testRun.EndTime, statistics);
+			hW.WriteBanner(sb, testRun.ScenarioStats.Total, testRun.Outcome, testRun.Reason, testRun.Name, "Areas", testRun.StartTime, testRun.EndTime, statistics);
 			WriteAreas(testRun, sb);
 			hW.WriteBodyEnd(sb);
             hW.WriteHtmlEnd(sb);
@@ -108,10 +108,12 @@ namespace xBDD.Reporting.Html
 					"Area", 
 					this.areaCounter, 
 					name, 
+					null,
 					area.Outcome, 
 					area.Reason, 
 					area.StartTime,
 					area.EndTime,
+					area.ScenarioStats.Total,
 					"Features",
 					area.FeatureStats,
 					areaStatistics,
@@ -176,7 +178,7 @@ namespace xBDD.Reporting.Html
             var badgeAttributes = $" data-toggle=\"collapse\" href=\"#feature-{featureCounter}-stats\" aria-expanded=\"false\" aria-controls=\"feature-{featureCounter}-stats\" ";
             hW.WriteTagOpen("h3", sb, 5, null, true, "vertical-align: top !important;", null, null);
 
-            hW.WriteBadge("feature", "Scenarios", featureCounter, scenario.Feature.ScenarioStats, sb, badgeAttributes, badgeClassName);
+            hW.WriteBadge("feature", "Scenarios", featureCounter, scenario.Feature.ScenarioStats, scenario.Feature.ScenarioStats.Total, sb, badgeAttributes, badgeClassName);
 
             //hW.WriteTag("span", sb, 6, $"feature badge pointer total {badgeClassName}", scenario.Feature.ScenarioStats.Total.ToString(), true, null, null, $"{badgeAttributes} title=\"Scenarios\"");
             if (scenario.Feature.Actor != null || scenario.Feature.Value != null || scenario.Feature.Capability != null)

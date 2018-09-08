@@ -1,0 +1,126 @@
+Defining Steps
+	Adding steps to a scenario
+		Adding a synchronous step #R-Untested
+		Adding an asynchronous step #R-Untested
+		Adding a reusable step #R-Untested
+	Setting an input for a step
+		When creating the step #R-Untested
+		When executing the step #R-Untested
+	Sharing values between steps
+		Object refereneces #R-Untested
+		Literal values #R-Untested
+	Setting the output for a step
+		When executing a step #R-Untested
+Defining Scenarios
+	Adding scenarios
+		With steps #R-Untested
+		Without steps #R-Untested
+		Using a VSCode snippet #R-Defining
+	Setting an output writer for a scenario
+		When creating a scenario #R-Untested
+		When creating a feature #R-Untested
+	Setting the default reporting sort for a scenario
+		Setting the sort on all scenarios #R-Untested
+		Setting the sort on none of the scenarios #R-Untested
+		Setting the sort on some of the scenarios #R-Untested
+Defining Features
+	Adding features
+		With scenarios #R-Untested
+		Without scenarios #R-Untested
+		With a VSCode snippet #R-Untested
+		Using a base class #R-Untested
+	Setting the feature statement
+		Using standard attributes #R-Untested
+		Using a single attribute #R-Untested
+	Overriding a feature name
+		When adding a scenario #R-Untested
+		Via an attribute #R-Untested
+Defining Areas
+	Overriding an area name
+		When creating a scenario #R-Untested
+		For a single feature via attribute #R-Untested
+		For a namespace #R-Untested
+Defining A Test Run
+	Setting the test run name
+		Via code #R-Untested
+		Via an environment variable #R-Untested
+Setting Ids
+	Setting an ID for a scenario
+		That is unique #R-Defining
+		That is not unique #R-Defining
+		That is an empty string #R-Defining
+	Setting an ID for a feature
+		Via an attribute #R-Defining
+Setting Status
+	Setting the status of a scenario
+		To Defining #R-Untested
+		To Ready #R-Untested
+		To Committed #R-Untested
+		To Untested #R-Untested
+		To Failing #R-Untested
+		To Blocked #R-Untested
+		To Fixing #R-Defining
+		To Built #R-Defining
+		To Deployed #R-Defining
+		To Executing #R-Defining
+		To Deprecated #R-Defining
+	Setting the status of a feature
+		To Defining #R-Defining
+		To Ready #R-Defining
+		To Building #R-Defining
+Adding Estimates
+	Setting a feature scenario estimate
+		Placeholder #R-Defining
+	Setting a feature value estimate
+		Placeholder #R-Defining
+	Setting a feature level of effort estimate
+		Placeholder #R-Defining
+	Setting a area estimates using a placeholder feature
+		Placeholder #R-Defining
+Adding Tags
+	Adding tags to a scenario
+		In code #R-Untested
+		Via an attribute #R-Untested
+	Adding tags to a feature
+		In code #R-Untested
+		Via an attribute #R-Untested
+	Adding tags to an area
+		Via code #R-Defining
+		Via an assembly attribute #R-Defining
+	Adding tags to a test run
+		Via code #R-Defining
+		Via an assembly attribute #R-Defining
+Adding Explanations
+	Adding an explanation to a step
+		Straight texts #R-Untested
+		Leveraging markdown #R-Untested
+		Adding refereneces to other features #R-Defining
+		Adding refereneces to other scenarios #R-Defining
+	Adding an explanation to a scenario
+		Using plain text #R-Untested
+		Using markdown #R-Untested
+	Adding an explanation to a feature
+		Via an attribute with inline text #R-Untested
+		Via an attribute with a file reference #R-Defining
+		Using plain text #R-Untested
+		Using markdown #R-Untested
+	Adding an explanation to an area
+		Via an attribute with inline text #R-Defining
+		Via an attribute with a file reference #R-Defining
+		Using plain text #R-Defining
+		Using markdown #R-Defining
+	Adding an explanation to a test run
+		Via an attribute with inline text #R-Defining
+		Via an attribute with a file reference #R-Defining
+		Using plain text #R-Defining
+		Using markdown #R-Defining
+Setting Ownership
+	Setting an owner for a scenario
+		Setting a single owner #R-Untested
+		Setting multiple owners #R-Untested
+	Setting an owner for a feature
+		Setting a single owner #R-Untested
+		Setting multiple owners #R-Untested
+
+
+

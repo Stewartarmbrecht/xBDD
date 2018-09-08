@@ -4,23 +4,23 @@
 </head>
 <body>
 
-<outline text="My Sample - Features - Test Run 2 Skipped Untested - Area 1 Passing [Defining]">
-	<outline text="Feature 1 Passing [Defining]">
-		<outline text="Scenario 1 Passing [Defining]">
+<outline text="My Sample - Features - Test Run 2 Skipped Untested - Area 1 Passing">
+	<outline text="Feature 1 Passing">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
 		</outline>
 </outline>
 <outline text="My Sample - Features - Test Run 2 Skipped Untested - Area 2 Skipped Untested [Untested]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>
 		</outline>
 	</outline>
 	<outline text="Feature 2 Skipped Untested [Untested]">
-		<outline text="Scenario 1 Passing [Defining]">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
 			<outline text="Then Step 3 Passing"/>

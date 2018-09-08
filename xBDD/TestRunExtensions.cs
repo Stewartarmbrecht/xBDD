@@ -296,25 +296,26 @@
                     .Where(scenario => scenario.Outcome == outcome)
                     .ToList().ForEach(scenario => {
                         scenario.Feature.Outcome = outcome;
-                        scenario.Feature.ScenarioStats.UpdateOutcomeStats(outcome);
                         scenario.Feature.Area.Outcome = outcome;
-                        scenario.Feature.Area.ScenarioStats.UpdateOutcomeStats(outcome);
                         testRun.Outcome = outcome;
-                       	testRun.ScenarioStats.UpdateOutcomeStats(outcome);
                     });
-                testRun.Scenarios.Select(x => x.Feature).ToList()
-                    .Where(feature => feature.Outcome == outcome)
-                    .ToList().ForEach(feature => {
-                        feature.Area.FeatureStats.UpdateOutcomeStats(outcome);
-                        testRun.FeatureStats.UpdateOutcomeStats(outcome);
-                    });
-                testRun.Scenarios.Select(x => x.Feature.Area).ToList()
-                    .Where(area => area.Outcome == outcome)
-                    .ToList().ForEach(area => {
-                        testRun.AreaStats.UpdateOutcomeStats(outcome);
-                    });
-                
             });
+
+			testRun.Areas.ForEach(area => {
+				area.Features.ForEach(feature => {
+					feature.Scenarios.ForEach(scenario => {
+						feature.ScenarioStats.UpdateOutcomeStats(scenario.Outcome);
+						feature.StepStats.AddStats(scenario.StepStats);
+					});
+					area.FeatureStats.UpdateOutcomeStats(feature.Outcome);
+					area.ScenarioStats.AddStats(feature.ScenarioStats);
+					area.StepStats.AddStats(feature.StepStats);
+				});
+				testRun.AreaStats.UpdateOutcomeStats(area.Outcome);
+				testRun.FeatureStats.AddStats(area.FeatureStats);
+				testRun.ScenarioStats.AddStats(area.ScenarioStats);
+				testRun.StepStats.AddStats(area.StepStats);
+			});
         }
 
         /// <summary>

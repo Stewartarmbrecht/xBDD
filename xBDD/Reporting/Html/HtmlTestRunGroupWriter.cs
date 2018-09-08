@@ -44,7 +44,7 @@ namespace xBDD.Reporting.Html
 			statistics.Add("Scenarios", testRunGroup.ScenarioStats);
 			hW.WriteBanner(
 				sb, 
-				testRunGroup.TestRuns.Count, 
+				testRunGroup.ScenarioStats.Total, 
 				testRunGroup.Outcome, 
 				testRunGroup.Reason, 
 				testRunGroup.Name,
@@ -72,10 +72,12 @@ namespace xBDD.Reporting.Html
 					"testrun",
 					testRunCount,
 					testRun.Name,
+					testRun.FilePath,
 					testRun.Outcome,
 					testRun.Reason,
 					testRun.StartTime,
 					testRun.EndTime,
+					testRun.ScenarioStats.Total,
 					"Areas",
 					testRun.AreaStats,
 					statistics,

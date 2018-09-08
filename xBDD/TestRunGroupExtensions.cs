@@ -141,7 +141,7 @@
             stats.Skipped = 0;
         }
 
-        private static void AddStats(this OutcomeStats stats, OutcomeStats addStats) {
+        public static void AddStats(this OutcomeStats stats, OutcomeStats addStats) {
             stats.Total = stats.Total + addStats.Total;
             stats.Failed = stats.Failed + addStats.Failed;
             stats.Passed = stats.Passed + addStats.Passed;

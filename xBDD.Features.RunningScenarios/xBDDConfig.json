@@ -1,0 +1,12 @@
+{
+	"xBDD": {
+		"TestRunName": "xBDD - Features - Running Scenarios",
+		"Browser": {
+			"Watch": "false"
+		},
+		"HtmlReport": {
+			"RemoveFromAreaNameStart": "xBDD - Features - Running Scenarios - ",
+			"FailuresOnly": "false"
+		}
+	}
+}

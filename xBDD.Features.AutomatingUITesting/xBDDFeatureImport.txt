@@ -1,0 +1,174 @@
+Setup
+	Setup a test project
+		To use new browser sessions for each scenario #R-Untested
+		To use the same browser session for all scenarios #R-Untested
+Navigating
+	Navigate as a user
+		With specific size setting on the browser window #R-Untested
+		To a valid URL #R-Untested
+		To an invalid URL #R-Untested
+		When no internet connection #R-Untested
+		To a valid file #R-Untested
+		To a non html text file #R-Untested
+		To a binary file #R-Untested
+		To a missing file #R-Untested
+Entering Text
+	Sending Standard Keys
+		To a valid input #R-Untested
+		To an invalid input #R-Untested
+	Sending Special Keys
+		To a valid input #R-Untested
+		To an invalid input #R-Untested
+	Pasting Text
+		When visible #R-Defining
+		When does not exist #R-Defining
+		When not visible #R-Defining
+		When not a valid input #R-Defining
+Clicking
+	Left Click Immediate
+		When visible #R-Untested
+		When does not exist #R-Untested
+		When not visible #R-Untested
+	Left Click When Visible
+		With success #R-Untested
+		With specific wait time #R-Untested
+		With failed condition #R-Untested
+	Left Click When Other Condition
+		Make Impossible #R-Removing
+			Explanation
+				Split out Wait conditions from click conditions
+				Use class inheritance
+Validating The Page
+	Validate Element Is Visible
+		With Success #R-Untested
+		With Custom Step Name #R-Untested
+		With Specific Wait Time #R-Untested
+		With Page Captured As Output #R-Untested
+		With Element Screenshot Captured As Output #R-Defining
+		With Failure #R-Untested
+	Validate Element Is Not visible
+		With Success #R-Untested
+		With Custom Step Name #R-Untested
+		With Specific Wait Time #R-Untested
+		With Page Captured As Output #R-Untested
+		With Failure #R-Untested
+	Validate Element Has Text
+		With Success #R-Untested
+		With Custom Step Name #R-Untested
+		With Specific Wait Time #R-Untested
+		With Page Captured As Output #R-Untested
+		With Element Screenshot Captured As Output #R-Defining
+		With Failure #R-Untested
+	Validate Element Has Style
+		With Success #R-Untested
+		With Custom Step Name #R-Untested
+		With Specific Wait Time #R-Untested
+		With Page Captured As Output #R-Untested
+		With Element Screenshot Captured As Output #R-Defining
+		With Failure #R-Untested
+	Validate Element Has Title
+		With Success #R-Untested
+		With Custom Step Name #R-Untested
+		With Specific Wait Time #R-Untested
+		With Page Captured As Output #R-Untested
+		With Element Screenshot Captured As Output #R-Defining
+		With Failure #R-Untested
+	Validate Element Has Attribute
+		With Success #R-Untested
+		With Custom Step Name #R-Untested
+		With Specific Wait Time #R-Untested
+		With Page Captured As Output #R-Untested
+		With Element Screenshot Captured As Output #R-Defining
+		With Failure #R-Untested
+Custom Steps
+	Creating a Custom Step
+		Successful #R-Untested
+		Failure #R-Untested
+	Loading a Page
+		Successful #R-Untested
+		Failure #R-Untested
+	Sending Keys to an Element
+		Successful #R-Untested
+		Failure #R-Untested
+	Clicking an Element
+		Successful #R-Untested
+		Failure #R-Untested
+	Getting the Page Source
+		Successful #R-Untested
+		Failure #R-Untested
+	Accessing the Web Driver
+		Successful #R-Untested
+		Failure #R-Untested
+	Validating a Pages Title
+		Successful #R-Untested
+		Failure #R-Untested
+	Validating an Elements Text
+		Successful #R-Untested
+		Failure #R-Untested
+	Validating an Elements Style
+		Successful #R-Untested
+		Failure #R-Untested
+	Validating an Elements Title
+		Successful #R-Untested
+		Failure #R-Untested
+	Waiting Till an Element is Visible
+		Successful #R-Untested
+		Failure #R-Untested
+	Waiting Till an Element is Not Visible
+		Successful #R-Untested
+		Failure #R-Untested
+	Validate an Element Does Not Exist
+		Successful #R-Untested
+		Failure #R-Untested
+Uploading And Download Files
+	Upload a file
+		Successful #R-Defining
+		Unsuccessful #R-Defining
+	Download a file
+		Successful #R-Defining
+		Unsuccessful #R-Defining
+Advanced Clicking
+	Right Click Immediate
+		When visible #R-Defining
+		When does not exist #R-Defining
+		When not visible #R-Defining
+	Right Click When Visible
+		With success #R-Defining
+		With specific wait time #R-Defining
+		With failed condition #R-Defining
+	Double Click Immediate
+		When visible #R-Defining
+		When does not exist #R-Defining
+		When not visible #R-Defining
+	Double Click When Visible
+		With success #R-Defining
+		With specific wait time #R-Defining
+		With failed condition #R-Defining
+	Drop downs
+		With success #R-Defining
+		With failure #R-Defining
+	Scrolling
+		With success #R-Defining
+		With failure #R-Defining
+	Hovering
+		With success #R-Defining
+		With failure #R-Defining
+	Dragging
+		With success #R-Defining
+		With failure #R-Defining
+Advanced Actions
+	Play a video
+		Successful #R-Defining
+		Failure #R-Defining
+	Capture screen image
+		Successful #R-Defining
+		Failure #R-Defining
+	Capture video
+		Successful #R-Defining
+		Failure #R-Defining
+	Toggle think times
+		Successful #R-Defining
+		Failure #R-Defining
+	Set default wait time
+		Successful #R-Defining
+		Failure #R-Defining

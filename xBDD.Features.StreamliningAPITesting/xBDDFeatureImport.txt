@@ -1,0 +1,36 @@
+Issuing Requests
+	Issue a get
+		Placeholder #R-Defining
+	Issue a post
+		Placeholder #R-Defining
+	Issue a put
+		Placeholder #R-Defining
+	Issue a delete
+		Placeholder #R-Defining
+	Modify the headers
+		Placeholder #R-Defining
+	Modify the body
+		Placeholder #R-Defining
+	Modify the cookies
+		Placeholder #R-Defining
+Validating Responses
+	Validate a response code
+		Placeholder #R-Defining
+	Follow a 300 response
+		Placeholder #R-Defining
+	Process a 500 response
+		Placeholder #R-Defining
+	Process a 400 response
+		Placeholder #R-Defining
+	Process a 200 response
+		With a JSON response #R-Defining
+		With an XML response #R-Defining
+		With a text response #R-Defining
+	Access headers
+		Placeholder #R-Defining
+	Access cookies
+		Placeholder #R-Defining
+	Validate a response against a template
+		Placeholder #R-Defining
+	Capture a template from a response
+		Placeholder #R-Defining

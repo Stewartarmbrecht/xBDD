@@ -1,8 +1,8 @@
 My Sample - Features - Test Run 1 Passing
 
-My Sample - Features - Test Run 1 Passing - Area 1 Passing With All Features Exercised [Defining]
-	Feature 1 Passing [Defining]
-		Scenario 1 Passing [Defining]
+My Sample - Features - Test Run 1 Passing - Area 1 Passing With All Features Exercised
+	Feature 1 Passing
+		Scenario 1 Passing
 			Given Step 1 Passing With Explanation And Input
 				Here 
 				is some multiline

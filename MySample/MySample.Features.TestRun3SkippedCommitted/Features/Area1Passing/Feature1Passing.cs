@@ -26,7 +26,7 @@ namespace MySample.Features.TestRun3SkippedCommitted.Area1Passing
 					(s) => { 
 						// Enter your code here.
 					})
-				.Skip("Defining", Assert.Inconclusive);
+				.Run();
 		}
 
 	}

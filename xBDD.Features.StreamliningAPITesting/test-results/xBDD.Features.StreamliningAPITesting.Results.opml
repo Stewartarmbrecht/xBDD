@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+<head>
+</head>
+<body>
+
+<outline text="xBDD - Features - Streamlining API Testing - Issuing Requests [Defining]">
+	<outline text="Issue A Get [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Issue A Post [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Issue A Put [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Issue A Delete [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Modify The Headers [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Modify The Body [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Modify The Cookies [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Streamlining API Testing - Validating Responses [Defining]">
+	<outline text="Validate A Response Code [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Follow A 300 Response [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Process A 500 Response [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Process A 400 Response [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Process A 200 Response [Defining]">
+		<outline text="With AJSON Response [Defining]">
+		</outline>
+		<outline text="With An XML Response [Defining]">
+		</outline>
+		<outline text="With A Text Response [Defining]">
+		</outline>
+	</outline>
+	<outline text="Access Headers [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Access Cookies [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Validate A Response Against A Template [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+	<outline text="Capture A Template From A Response [Defining]">
+		<outline text="Placeholder [Defining]">
+		</outline>
+	</outline>
+</outline>
+</body>
+</opml>

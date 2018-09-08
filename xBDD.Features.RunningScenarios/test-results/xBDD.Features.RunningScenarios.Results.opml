@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+<head>
+</head>
+<body>
+
+<outline text="xBDD - Features - Running Scenarios - Initial Setup [Defining]">
+	<outline text="Running MS Test Project Scenarios [Defining]">
+		<outline text="Running All Scenarios [Untested]">
+		</outline>
+		<outline text="Running Scenarios Filtered By MS Test Test Cateogry [Untested]">
+		</outline>
+		<outline text="Running Scenarios Filtered By Area Name [Untested]">
+		</outline>
+		<outline text="Running Scenarios Filtered By Feature Name [Untested]">
+		</outline>
+		<outline text="Running Scenarios Filtered By Scenario Name [Untested]">
+		</outline>
+		<outline text="Running Scenarios Filtered By Assignment [Defining]">
+		</outline>
+		<outline text="Running Scenarios Filtered By Tag [Defining]">
+		</outline>
+		<outline text="Running Scenarios Filtered By Reason [Defining]">
+		</outline>
+		<outline text="Running A Single Scenario [Untested]">
+		</outline>
+		<outline text="Debugging A Single Scenario [Untested]">
+		</outline>
+		<outline text="Documenting Scenarios And Skipping Scenario Execution When Running Tests [Defining]">
+		</outline>
+	</outline>
+</outline>
+</body>
+</opml>

@@ -43,8 +43,10 @@ namespace xBDD.Reporting.Html
             sb.Append("    <style>");
             sb.Append(" div#report-dates { margin: 0rem 0rem .5rem 5rem; }");
             sb.Append(" h1.report-name { margin: .5rem 0rem 0rem 0rem; }");
+            sb.Append(" span.testrun.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; }");
             sb.Append(" span.area.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; }");
             sb.Append(" span.badge-distro { width: 3.5rem; display: inline-block; height: 1.5rem; vertical-align: bottom; }");
+            sb.Append(" span.testrun.stats { font-size: 75%; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; border-radius: .25rem; height: 1.5em; display: inline-block; width: 1.75rem; position: absolute; margin-left: 2rem; z-index: -1; vertical-align: middle; }");
             sb.Append(" span.area.stats { font-size: 75%; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; border-radius: .25rem; height: 1.5em; display: inline-block; width: 1.75rem; position: absolute; margin-left: 2rem; z-index: -1; vertical-align: middle; }");
             sb.Append(" span.feature.badge { width: 2.5rem; height: 1.5rem; position: absolute; border: 1px white solid; }");
             sb.Append(" span.scenario.badge { width: 2rem }");
@@ -53,8 +55,9 @@ namespace xBDD.Reporting.Html
             sb.Append(" span.status { font-size: 1rem; color: gray; }");
             sb.Append(" span.step.duration { font-size: .75rem; color: gray; }");
             sb.Append(" span.oi.oi-info { font-size: 80% }");
+            sb.Append(" ol.testruns { margin: .5rem 0rem; }");
             sb.Append(" ol.areas { margin: .5rem 0rem; }");
-            sb.Append(" ol.areas, ol.features, ol.scenarios, ol.steps { margin-left: 3rem; }");
+            sb.Append(" ol.testruns, ol.areas, ol.features, ol.scenarios, ol.steps { margin-left: 3rem; }");
             sb.Append(" span.badge { margin-left: .25rem; }");
             sb.Append(" span.distro { width: 1.5rem; height: 1.5rem; display: inline-block; margin-left: 2rem; border: 1px solid white; }");
             sb.Append(" span.name { margin-left: .75rem; }");
@@ -74,6 +77,7 @@ namespace xBDD.Reporting.Html
             sb.Append(" .table { margin: 0px !important; }");
             sb.Append(" .table td.bar { padding: 0px !important; }");
             sb.Append(" .report-percent-bar { background-color: #56C1F7; }");
+            sb.Append(" .testrun-percent-bar { background-color: #A4DEFB; }");
             sb.Append(" .area-percent-bar { background-color: #A4DEFB; }");
             sb.Append(" .pointer { cursor: pointer }");
             sb.Append(" pre { white-space: pre !important; }");
@@ -173,7 +177,7 @@ namespace xBDD.Reporting.Html
             WriteTagOpen("div", sb, 1, "page-header", false, null, "margin-top: 0px !important;");
             WriteTagOpen("h1", sb, 2, cssClass, false);
 
-            WriteTag("span", sb, 3, $"report badge pointer badge-pill total {badgeClass}", childCount.ToString(), false, true, null, null, $" title=\"{childTitle}\"");
+            WriteTag("span", sb, 3, $"report badge pointer badge-pill total {badgeClass}", childCount.ToString(), false, true, null, null, $" title=\"Scenarios\"");
             WriteTag("span", sb, 3, "name", name.HtmlEncode(), false, true);
 
             if(reason != null) {
@@ -242,12 +246,12 @@ namespace xBDD.Reporting.Html
             WriteTagClose("table", sb, baseIndent);
         }
 
-        internal void WriteBadge(string type, string title, int count, OutcomeStats stats, StringBuilder sb, string badgeAttributes, string badgeClassName) {
-            WriteTagOpen("span", sb, 0, $"{type} badge-distro", true, $"{type}-{count}-badge-distro", null, $"{badgeAttributes} title=\"{title}\"");
+        internal void WriteBadge(string type, string title, int position, OutcomeStats stats, int scenarioCount, StringBuilder sb, string badgeAttributes, string badgeClassName) {
+            WriteTagOpen("span", sb, 0, $"{type} badge-distro", true, $"{type}-{position}-badge-distro", null, $"{badgeAttributes} title=\"Scenarios\"");
 
             //Create Badge with distribution 
-            WriteTag("span", sb, 0, $"{type} badge badge-pill pointer total {badgeClassName}", stats.Total.ToString(), true, true, $"{type}-{count}-badge", null);
-            WriteTagOpen("span", sb, 0, $"{type} distro pointer", true, $"{type}-{count}-distro");
+            WriteTag("span", sb, 0, $"{type} badge badge-pill pointer total {badgeClassName}", scenarioCount.ToString(), true, true, $"{type}-{position}-badge", null);
+            WriteTagOpen("span", sb, 0, $"{type} distro pointer", true, $"{type}-{position}-distro");
             double totalCount = stats.Total;
             double passedPercent = ((double)stats.Passed/totalCount)*100;
             double skippedPercent = ((double)stats.Skipped/totalCount)*100;
@@ -287,10 +291,12 @@ namespace xBDD.Reporting.Html
 			string typeName, 
 			int itemNumber, 
 			string name, 
+			string filePath,
 			Outcome outcome, 
 			string reason, 
 			DateTime startTime,
 			DateTime endTime,
+			int scenarioCount,
 			string childType, 
 			OutcomeStats childStats,
 			Dictionary<string, OutcomeStats> statistics,
@@ -328,16 +334,21 @@ namespace xBDD.Reporting.Html
             var expandedText = expanded ? "true" : "false";
             WriteTagOpen("li", sb, 2, typeName.ToLower(), false, $"{typeName.ToLower()}-" + itemNumber);
 
-            var titleAttributes = $" data-toggle=\"collapse\" href=\"#{typeName.ToLower()}-{itemNumber}-{childType.ToLower()}\" aria-expanded=\"{expandedText}\" aria-controls=\"{typeName.ToLower()}-{itemNumber}-{childType.ToLower()}\" ";
             var badgeAttributes = $" data-toggle=\"collapse\" href=\"#{typeName.ToLower()}-{itemNumber}-stats\" aria-expanded=\"false\" aria-controls=\"{typeName.ToLower()}-{itemNumber}-stats\" ";
             WriteTagOpen("h2", sb, 3, className, true, null, null, null);
 
-            WriteBadge(typeName.ToLower(), childType, itemNumber, childStats, sb, badgeAttributes, badgeClassName);
+            WriteBadge(typeName.ToLower(), childType, itemNumber, childStats, scenarioCount, sb, badgeAttributes, badgeClassName);
 
             if(name.Length == 0) {
                 name = "[Missing! (or Full Name Skipped)]";
             }
-            WriteTag("span", sb, 4, "name pointer", name.HtmlEncode(), false, true,  $"area-{itemNumber}-name", null, titleAttributes);
+			if(filePath != null) {
+				var titleAttributes = $" href=\"{filePath}\"";
+	            WriteTag("a", sb, 4, "name pointer", name.HtmlEncode(), false, true,  $"area-{itemNumber}-name", null, titleAttributes);
+			} else {
+				var titleAttributes = $" data-toggle=\"collapse\" href=\"#{typeName.ToLower()}-{itemNumber}-{childType.ToLower()}\" aria-expanded=\"{expandedText}\" aria-controls=\"{typeName.ToLower()}-{itemNumber}-{childType.ToLower()}\" ";
+	            WriteTag("span", sb, 4, "name pointer", name.HtmlEncode(), false, true,  $"area-{itemNumber}-name", null, titleAttributes);
+			}
             
             if(reason != null) {
                 WriteTag("span", sb, 4, $"{typeName.ToLower()} reason", $" [{reason.HtmlEncode()}]", false, true);

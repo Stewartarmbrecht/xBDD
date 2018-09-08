@@ -10,13 +10,15 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.ReviewTestSummaryInf
 	[Assignments("Stewart")]
 	public partial class ReviewTestSummaryName: xBDDFeatureBase
 	{
+		xBDD.Browser.BrowserUser you = new xBDD.Browser.BrowserUser();
+		(string Description, string FilePath) aPassingTestSummaryReport = (Description: "a passing test summary report", FilePath: ""); 
 
 		[TestMethod]
 		public async Task WithName()
 		{
 			await xB.AddScenario(this, 1000)
-//				.Given(you.NavigateTo(aPassingTestSummaryReport))
-//				.Then(you.WillSee(the.TestSummaryName).HasText("My Sample - Test Summary 1 Passing"))
+				.Given(you.NavigateTo(aPassingTestSummaryReport))
+				.Then(you.WillSee("the test summary name", "report-name").HasText("My Sample - Test Summary 1 Passing"))
 				.Skip("Committed", Assert.Inconclusive);
 		}
 

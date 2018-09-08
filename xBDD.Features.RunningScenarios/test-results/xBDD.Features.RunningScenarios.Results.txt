@@ -1,0 +1,15 @@
+xBDD - Features - Running Scenarios
+
+xBDD - Features - Running Scenarios - Initial Setup [Defining]
+	Running MS Test Project Scenarios [Defining]
+		Running All Scenarios [Untested]
+		Running Scenarios Filtered By MS Test Test Cateogry [Untested]
+		Running Scenarios Filtered By Area Name [Untested]
+		Running Scenarios Filtered By Feature Name [Untested]
+		Running Scenarios Filtered By Scenario Name [Untested]
+		Running Scenarios Filtered By Assignment [Defining]
+		Running Scenarios Filtered By Tag [Defining]
+		Running Scenarios Filtered By Reason [Defining]
+		Running A Single Scenario [Untested]
+		Debugging A Single Scenario [Untested]
+		Documenting Scenarios And Skipping Scenario Execution When Running Tests [Defining]

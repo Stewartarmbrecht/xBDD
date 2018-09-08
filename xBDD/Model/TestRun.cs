@@ -43,6 +43,12 @@ namespace xBDD.Model
 		public string Name { get; set; }
         
         /// <summary>
+        /// The file path to the html report for the test run.
+        /// </summary>
+        /// <value>The relative uri to the html report for the test run.</value>
+		public string FilePath { get; set; }
+        
+        /// <summary>
         /// Indicates whether the test run has been explicitly
         /// </summary>
         /// <value>Boolean value indicating whether the test run has been explicitly sorted.</value>

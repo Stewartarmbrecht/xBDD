@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+<head>
+</head>
+<body>
+
+<outline text="xBDD - Features - Automating UI Testing - Setup [Untested]">
+	<outline text="Setup A Test Project [Untested]">
+		<outline text="To Use New Browser Sessions For Each Scenario [Untested]">
+		</outline>
+		<outline text="To Use The Same Browser Session For All Scenarios [Untested]">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Navigating [Untested]">
+	<outline text="Navigate As A User [Untested]">
+		<outline text="With Specific Size Setting On The Browser Window [Untested]">
+		</outline>
+		<outline text="To A Valid URL [Untested]">
+		</outline>
+		<outline text="To An Invalid URL [Untested]">
+		</outline>
+		<outline text="When No Internet Connection [Untested]">
+		</outline>
+		<outline text="To A Valid File [Untested]">
+		</outline>
+		<outline text="To A Non Html Text File [Untested]">
+		</outline>
+		<outline text="To A Binary File [Untested]">
+		</outline>
+		<outline text="To A Missing File [Untested]">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Entering Text [Defining]">
+	<outline text="Sending Standard Keys [Untested]">
+		<outline text="To A Valid Input [Untested]">
+		</outline>
+		<outline text="To An Invalid Input [Untested]">
+		</outline>
+	</outline>
+	<outline text="Sending Special Keys [Untested]">
+		<outline text="To A Valid Input [Untested]">
+		</outline>
+		<outline text="To An Invalid Input [Untested]">
+		</outline>
+	</outline>
+	<outline text="Pasting Text [Defining]">
+		<outline text="When Visible [Defining]">
+		</outline>
+		<outline text="When Does Not Exist [Defining]">
+		</outline>
+		<outline text="When Not Visible [Defining]">
+		</outline>
+		<outline text="When Not A Valid Input [Defining]">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Clicking [Removing]">
+	<outline text="Left Click Immediate [Untested]">
+		<outline text="When Visible [Untested]">
+		</outline>
+		<outline text="When Does Not Exist [Untested]">
+		</outline>
+		<outline text="When Not Visible [Untested]">
+		</outline>
+	</outline>
+	<outline text="Left Click When Visible [Untested]">
+		<outline text="With Success [Untested]">
+		</outline>
+		<outline text="With Specific Wait Time [Untested]">
+		</outline>
+		<outline text="With Failed Condition [Untested]">
+		</outline>
+	</outline>
+	<outline text="Left Click When Other Condition [Removing]">
+		<outline text="Make Impossible [Removing]">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Validating The Page [Defining]">
+	<outline text="Validate Element Is Visible [Defining]">
+		<outline text="With Success [Untested]">
+		</outline>
+		<outline text="With Custom Step Name [Untested]">
+		</outline>
+		<outline text="With Specific Wait Time [Untested]">
+		</outline>
+		<outline text="With Page Captured As Output [Untested]">
+		</outline>
+		<outline text="With Element Screenshot Captured As Output [Defining]">
+		</outline>
+		<outline text="With Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Validate Element Is Not Visible [Untested]">
+		<outline text="With Success [Untested]">
+		</outline>
+		<outline text="With Custom Step Name [Untested]">
+		</outline>
+		<outline text="With Specific Wait Time [Untested]">
+		</outline>
+		<outline text="With Page Captured As Output [Untested]">
+		</outline>
+		<outline text="With Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Validate Element Has Text [Defining]">
+		<outline text="With Success [Untested]">
+		</outline>
+		<outline text="With Custom Step Name [Untested]">
+		</outline>
+		<outline text="With Specific Wait Time [Untested]">
+		</outline>
+		<outline text="With Page Captured As Output [Untested]">
+		</outline>
+		<outline text="With Element Screenshot Captured As Output [Defining]">
+		</outline>
+		<outline text="With Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Validate Element Has Style [Defining]">
+		<outline text="With Success [Untested]">
+		</outline>
+		<outline text="With Custom Step Name [Untested]">
+		</outline>
+		<outline text="With Specific Wait Time [Untested]">
+		</outline>
+		<outline text="With Page Captured As Output [Untested]">
+		</outline>
+		<outline text="With Element Screenshot Captured As Output [Defining]">
+		</outline>
+		<outline text="With Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Validate Element Has Title [Defining]">
+		<outline text="With Success [Untested]">
+		</outline>
+		<outline text="With Custom Step Name [Untested]">
+		</outline>
+		<outline text="With Specific Wait Time [Untested]">
+		</outline>
+		<outline text="With Page Captured As Output [Untested]">
+		</outline>
+		<outline text="With Element Screenshot Captured As Output [Defining]">
+		</outline>
+		<outline text="With Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Validate Element Has Attribute [Defining]">
+		<outline text="With Success [Untested]">
+		</outline>
+		<outline text="With Custom Step Name [Untested]">
+		</outline>
+		<outline text="With Specific Wait Time [Untested]">
+		</outline>
+		<outline text="With Page Captured As Output [Untested]">
+		</outline>
+		<outline text="With Element Screenshot Captured As Output [Defining]">
+		</outline>
+		<outline text="With Failure [Untested]">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Custom Steps [Untested]">
+	<outline text="Creating A Custom Step [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Loading A Page [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Sending Keys To An Element [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Clicking An Element [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Getting The Page Source [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Accessing The Web Driver [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Validating A Pages Title [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Validating An Elements Text [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Validating An Elements Style [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Validating An Elements Title [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Waiting Till An Element Is Visible [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Waiting Till An Element Is Not Visible [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+	<outline text="Validate An Element Does Not Exist [Untested]">
+		<outline text="Successful [Untested]">
+		</outline>
+		<outline text="Failure [Untested]">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Uploading And Download Files [Defining]">
+	<outline text="Upload A File [Defining]">
+		<outline text="Successful [Defining]">
+		</outline>
+		<outline text="Unsuccessful [Defining]">
+		</outline>
+	</outline>
+	<outline text="Download A File [Defining]">
+		<outline text="Successful [Defining]">
+		</outline>
+		<outline text="Unsuccessful [Defining]">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Advanced Clicking [Defining]">
+	<outline text="Right Click Immediate [Defining]">
+		<outline text="When Visible [Defining]">
+		</outline>
+		<outline text="When Does Not Exist [Defining]">
+		</outline>
+		<outline text="When Not Visible [Defining]">
+		</outline>
+	</outline>
+	<outline text="Right Click When Visible [Defining]">
+		<outline text="With Success [Defining]">
+		</outline>
+		<outline text="With Specific Wait Time [Defining]">
+		</outline>
+		<outline text="With Failed Condition [Defining]">
+		</outline>
+	</outline>
+	<outline text="Double Click Immediate [Defining]">
+		<outline text="When Visible [Defining]">
+		</outline>
+		<outline text="When Does Not Exist [Defining]">
+		</outline>
+		<outline text="When Not Visible [Defining]">
+		</outline>
+	</outline>
+	<outline text="Double Click When Visible [Defining]">
+		<outline text="With Success [Defining]">
+		</outline>
+		<outline text="With Specific Wait Time [Defining]">
+		</outline>
+		<outline text="With Failed Condition [Defining]">
+		</outline>
+	</outline>
+	<outline text="Drop Downs [Defining]">
+		<outline text="With Success [Defining]">
+		</outline>
+		<outline text="With Failure [Defining]">
+		</outline>
+	</outline>
+	<outline text="Scrolling [Defining]">
+		<outline text="With Success [Defining]">
+		</outline>
+		<outline text="With Failure [Defining]">
+		</outline>
+	</outline>
+	<outline text="Hovering [Defining]">
+		<outline text="With Success [Defining]">
+		</outline>
+		<outline text="With Failure [Defining]">
+		</outline>
+	</outline>
+	<outline text="Dragging [Defining]">
+		<outline text="With Success [Defining]">
+		</outline>
+		<outline text="With Failure [Defining]">
+		</outline>
+	</outline>
+</outline>
+<outline text="xBDD - Features - Automating UI Testing - Advanced Actions [Defining]">
+	<outline text="Play A Video [Defining]">
+		<outline text="Successful [Defining]">
+		</outline>
+		<outline text="Failure [Defining]">
+		</outline>
+	</outline>
+	<outline text="Capture Screen Image [Defining]">
+		<outline text="Successful [Defining]">
+		</outline>
+		<outline text="Failure [Defining]">
+		</outline>
+	</outline>
+	<outline text="Capture Video [Defining]">
+		<outline text="Successful [Defining]">
+		</outline>
+		<outline text="Failure [Defining]">
+		</outline>
+	</outline>
+	<outline text="Toggle Think Times [Defining]">
+		<outline text="Successful [Defining]">
+		</outline>
+		<outline text="Failure [Defining]">
+		</outline>
+	</outline>
+	<outline text="Set Default Wait Time [Defining]">
+		<outline text="Successful [Defining]">
+		</outline>
+		<outline text="Failure [Defining]">
+		</outline>
+	</outline>
+</outline>
+</body>
+</opml>

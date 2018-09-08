@@ -4,9 +4,9 @@
 </head>
 <body>
 
-<outline text="My Sample - Features - Test Run 1 Passing - Area 1 Passing With All Features Exercised [Defining]">
-	<outline text="Feature 1 Passing [Defining]">
-		<outline text="Scenario 1 Passing [Defining]">
+<outline text="My Sample - Features - Test Run 1 Passing - Area 1 Passing With All Features Exercised">
+	<outline text="Feature 1 Passing">
+		<outline text="Scenario 1 Passing">
 			<outline text="Given Step 1 Passing With Explanation And Input">
 				<outline text="Here " />
 				<outline text="is some multiline" />

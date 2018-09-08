@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+<head>
+</head>
+<body>
+
+<outline text="My Sample - Features - My Area 0 Unsorted">
+	<outline text="My Feature 0 Unsorted">
+		<outline text="My Scenario 0 Unsorted">
+			<outline text="Given my step 1"/>
+			<outline text="When my step 2"/>
+			<outline text="Then my step 3"/>
+		</outline>
+		<outline text="My Scenario 1 Sorted">
+			<outline text="Given my step 1"/>
+			<outline text="When my step 2"/>
+			<outline text="Then my step 3"/>
+		</outline>
+		<outline text="My Scenario 2 Sorted">
+			<outline text="Given my step 1"/>
+			<outline text="When my step 2"/>
+			<outline text="Then my step 3"/>
+		</outline>
+	</outline>
+</outline>
+<outline text="My Sample - Features - My Area 1 All Passing">
+	<outline text="My Feature 1 Passing">
+		<outline text="My Scenario 1">
+			<outline text="Given my step 1"/>
+			<outline text="When my step 2 with multiline input">
+				<outline text="Here" />
+				<outline text=" is" />
+				<outline text=" my" />
+				<outline text=" Input!" />
+			</outline>
+			<outline text="Then my step 3 with output"/>
+		</outline>
+		<outline text="My Scenario 2">
+			<outline text="Given my step 4"/>
+			<outline text="When my step 5"/>
+			<outline text="Then my step 6"/>
+		</outline>
+		<outline text="My Scenario 3">
+			<outline text="Given my step 7"/>
+			<outline text="When my step 8"/>
+			<outline text="Then my step 9"/>
+		</outline>
+	</outline>
+	<outline text="My Feature 2 Passing Partial Statement">
+		<outline text="My Scenario 4">
+			<outline text="Given my step 10"/>
+			<outline text="When my step 11"/>
+			<outline text="Then my step 12"/>
+		</outline>
+		<outline text="My Scenario 5">
+			<outline text="Given my step 13"/>
+			<outline text="When my step 14"/>
+			<outline text="Then my step 15"/>
+		</outline>
+		<outline text="My Scenario 6">
+			<outline text="Given my step 16"/>
+			<outline text="When my step 17"/>
+			<outline text="Then my step 18"/>
+		</outline>
+	</outline>
+	<outline text="My Feature 3 Passing Missing Statement">
+		<outline text="My Scenario 7">
+			<outline text="Given my step 19"/>
+			<outline text="When my step 20"/>
+			<outline text="Then my step 21"/>
+		</outline>
+		<outline text="My Scenario 8">
+			<outline text="Given my step 22"/>
+			<outline text="When my step 23"/>
+			<outline text="Then my step 24"/>
+		</outline>
+		<outline text="My Scenario 9">
+			<outline text="Given my step 25"/>
+			<outline text="When my step 26"/>
+			<outline text="Then my step 27"/>
+		</outline>
+	</outline>
+	<outline text="My Feature 4 Passing Reusable Steps">
+		<outline text="My Scenario 10 With Reusable Steps">
+			<outline text="Given you execute step 28"/>
+			<outline text="When you execute step 29"/>
+			<outline text="Then you execute step 30"/>
+		</outline>
+	</outline>
+</outline>
+<outline text="My Sample - Features - My Area 2 Some Skipped">
+	<outline text="My Feature 5 Some Skipped">
+		<outline text="My Scenario 11 [Deferred]">
+			<outline text="Given my step 31"/>
+			<outline text="When my step 32"/>
+			<outline text="Then my step 33"/>
+		</outline>
+		<outline text="My Scenario 12 [Deferred]">
+			<outline text="Given my step 34"/>
+			<outline text="When my step 35"/>
+			<outline text="Then my step 36"/>
+		</outline>
+		<outline text="My Scenario 13">
+			<outline text="Given my step 37"/>
+			<outline text="When my step 38"/>
+			<outline text="Then my step 39"/>
+		</outline>
+	</outline>
+	<outline text="My Feature 6 Some Skipped">
+		<outline text="My Scenario 14 [Deferred]">
+			<outline text="Given my step 40"/>
+			<outline text="When my step 41"/>
+			<outline text="Then my step 42"/>
+		</outline>
+		<outline text="My Scenario 15 [Deferred]">
+			<outline text="Given my step 43"/>
+			<outline text="When my step 44"/>
+			<outline text="Then my step 45"/>
+		</outline>
+		<outline text="My Scenario 16">
+			<outline text="Given my step 46"/>
+			<outline text="When my step 47"/>
+			<outline text="Then my step 48"/>
+		</outline>
+	</outline>
+	<outline text="My Feature 7 None Skipped">
+		<outline text="My Scenario 17">
+			<outline text="Given my step 49"/>
+			<outline text="When my step 50"/>
+			<outline text="Then my step 51"/>
+		</outline>
+		<outline text="My Scenario 18">
+			<outline text="Given my step 52"/>
+			<outline text="When my step 53"/>
+			<outline text="Then my step 54"/>
+		</outline>
+		<outline text="My Scenario 19">
+			<outline text="Given my step 55"/>
+			<outline text="When my step 56"/>
+			<outline text="Then my step 57"/>
+		</outline>
+	</outline>
+</outline>
+<outline text="My Sample - Features - My Area 3 Some Failed">
+	<outline text="My Feature 10 All Passed">
+		<outline text="My Scenario 26 Passed">
+			<outline text="Given my step 76"/>
+			<outline text="When my step 77"/>
+			<outline text="Then my step 78"/>
+		</outline>
+		<outline text="My Scenario 27 Passed">
+			<outline text="Given my step 79"/>
+			<outline text="When my step 80"/>
+			<outline text="Then my step 81"/>
+		</outline>
+		<outline text="My Scenario 28 Passed">
+			<outline text="Given my step 82"/>
+			<outline text="When my step 83"/>
+			<outline text="Then my step 84"/>
+		</outline>
+	</outline>
+	<outline text="My Feature 8 Some Failed">
+		<outline text="My Scenario 20 Failed [Failed]">
+			<outline text="Given my step 58"/>
+			<outline text="When my failed step 59"/>
+			<outline text="Then my step 60"/>
+		</outline>
+		<outline text="My Scenario 21 Failed [Failed]">
+			<outline text="Given my step 61"/>
+			<outline text="When my step 62"/>
+			<outline text="Then my step 63"/>
+		</outline>
+		<outline text="My Scenario 22 Passed">
+			<outline text="Given my step 64"/>
+			<outline text="When my step 65"/>
+			<outline text="Then my step 66"/>
+		</outline>
+	</outline>
+	<outline text="My Feature 9 Some Skipped">
+		<outline text="My Scenario 23 Failedd [Failed]">
+			<outline text="Given my step 67"/>
+			<outline text="When my step 68"/>
+			<outline text="Then my step 69"/>
+		</outline>
+		<outline text="My Scenario 24 Skipped [Deferred]">
+			<outline text="Given my step 70"/>
+			<outline text="When my step 71"/>
+			<outline text="Then my step 72"/>
+		</outline>
+		<outline text="My Scenario 25 Passed">
+			<outline text="Given my step 73"/>
+			<outline text="When my step 74"/>
+			<outline text="Then my step 75"/>
+		</outline>
+	</outline>
+</outline>
+<outline text="My Sample - Features - My Area 4 Complete Failure">
+	<outline text="My Feature 11 Complete Failure">
+		<outline text="My Scenario 29 Complete Failure [Failed]">
+			<outline text="Given my step 85"/>
+			<outline text="When my failed step 86"/>
+			<outline text="Then my step 87"/>
+		</outline>
+	</outline>
+</outline>
+<outline text="My Sample - Features - My Area 5 Sort Flip">
+	<outline text="My Feature 12 Third">
+		<outline text="My Scenario 30 Unsorted 38 Sorted [Failed]">
+			<outline text="Given my step 88 112"/>
+			<outline text="When my step 89 113 failed"/>
+			<outline text="Then my step 90 114"/>
+		</outline>
+		<outline text="My Scenario 31 Unsorted 37 Sorted">
+			<outline text="Given my step 91 109"/>
+			<outline text="When my step 92 110"/>
+			<outline text="Then my step 93 111"/>
+		</outline>
+		<outline text="My Scenario 32 Unsorted 36 Sorted">
+			<outline text="Given my step 94 106"/>
+			<outline text="When my step 95 107"/>
+			<outline text="Then my step 96 108"/>
+		</outline>
+	</outline>
+	<outline text="My Feature 13 First">
+		<outline text="My Scenario 33 Unsorted 32 Sorted">
+			<outline text="Given my step 97 94"/>
+			<outline text="When my step 98 95"/>
+			<outline text="Then my step 99 96"/>
+		</outline>
+		<outline text="My Scenario 34 Unsorted 31 Sorted">
+			<outline text="Given my step 100 91"/>
+			<outline text="When my step 101 92"/>
+			<outline text="Then my step 102 93"/>
+		</outline>
+		<outline text="My Scenario 35 Unsorted 30 Sorted">
+			<outline text="Given my step 103 88"/>
+			<outline text="When my step 104 89"/>
+			<outline text="Then my step 105 90"/>
+		</outline>
+	</outline>
+	<outline text="My Feature 14 Second">
+		<outline text="My Scenario 36 Unsorted 35 Sorted">
+			<outline text="Given my step 106 103"/>
+			<outline text="When my step 107 104"/>
+			<outline text="Then my step 108 105"/>
+		</outline>
+		<outline text="My Scenario 37 Unsorted 34 Sorted">
+			<outline text="Given my step 109 100"/>
+			<outline text="When my step 110 101"/>
+			<outline text="Then my step 111 102"/>
+		</outline>
+		<outline text="My Scenario 38 Unsorted 33 Sorted">
+			<outline text="Given my step 112 97"/>
+			<outline text="When my step 113 98"/>
+			<outline text="Then my step 114 99"/>
+		</outline>
+	</outline>
+</outline>
+<outline text="My Sample - Features - My Area 6 All Skipped">
+	<outline text="My Feature 15 All Skipped">
+		<outline text="My Scenario 39 All Skipped [Deferred]">
+			<outline text="Given my step 115"/>
+			<outline text="When my step 116"/>
+			<outline text="Then my step 117"/>
+		</outline>
+	</outline>
+</outline>
+<outline text="My Sample - Features - My Area 7 All Failed">
+	<outline text="My Feature 16 All Failed">
+		<outline text="My Scenario 40 Failed [Failed]">
+			<outline text="Given my step 118"/>
+			<outline text="When my step 119 failed"/>
+			<outline text="Then my step 120"/>
+		</outline>
+	</outline>
+</outline>
+<outline text="My Sample - Features - My First Area">
+	<outline text="My First Failing Feature">
+		<outline text="My First Scenario [Failed]">
+			<outline text="Given my step 1"/>
+			<outline text="When my step 2"/>
+			<outline text="Then my step 3"/>
+		</outline>
+	</outline>
+	<outline text="My First Feature">
+		<outline text="My First Scenario">
+			<outline text="Given my step 1"/>
+			<outline text="When my step 2"/>
+			<outline text="Then my step 3"/>
+		</outline>
+	</outline>
+</outline>
+</body>
+</opml>

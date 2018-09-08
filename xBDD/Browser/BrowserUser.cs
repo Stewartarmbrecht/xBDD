@@ -32,6 +32,18 @@ namespace xBDD.Browser
         }
 
         /// <summary>
+        /// Creates a step that navigates to a url using the
+        /// chrome driver.
+        /// </summary>
+		/// <param name="descAndFile">A tuple with the description and file path of the page to load.</param>
+        /// <returns>xBDD Step to add to a scneario.</returns>
+        public Step NavigateTo((string Description, string FilePath) descAndFile)
+        {
+            var pageLocation = new PageLocation(descAndFile.Description, descAndFile.FilePath);
+            return NavigateTo(pageLocation);
+        }
+
+        /// <summary>
         /// Navigates the browser the location specified.
         /// </summary>
         /// <param name="pageLocation">The location to load into the browser.</param>
