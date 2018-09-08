@@ -1,13 +1,15 @@
 # xBDD
-xBDD is a Behavior Driven Development framework that runs inside the testing framework of your choice and 
+xBDD is a Behavior Driven Development framework that runs inside the testing framework of your choice (eventually, currently only running in MSTest :) ) and 
 provides the following key features:
 1. Streamlined UI and API Testing Framework
 2. Product Documentation Generator
+3. Development Progress Reporting (Backlog and WIP Visibility)
 
-When connected to xBDD's online services, this framework can also provide:
-1. Product Development Monitoring Dashboards
+When connected to xBDD's online services, this framework will also provide:
+1. Product Development Flow Dashboards
 3. Product Planning and Collaboration Workspaces
 4. Feature Utilization and Performance Monitoring System
+*THIS ONLINE SERVICE HAS YET TO BE DEVELOPED*
 
 This project is currently being built.  The objectives for it are changing as it is built.  Here is the current list of goals:
 
@@ -26,6 +28,8 @@ features included in Visual Studio, VS Code, or other IDEs.
 in any testing platform that supports .Net code.
 1. **DotNet Core (Cross Platform) Capable** - Capable of running where ever dotnet core can run.
 2. **Hybrid Asynchronous Support** - You can define scenarios that run both synchronous and asynchronous steps.
+2. **Lanugage Portable** - We are organizing it's own testing library so that reusing the tests on a ported 
+xBDD instance (like to JavaScript) will be possible.
 
 ### Product Documentation
 1. **Gherkin Style Output** - Test runs will generate information that can be used to build reports 
@@ -44,29 +48,33 @@ initial version of this platform is released.
 
 *__Note:__ Area, Feature, and Scenario names will expand when clicked.*
 
-### Sample
+### SUMMARY
 
-* [MySample.Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/MySample.Features/test-results/MySample.Features.Results.All.FullSorted.html) - Set of tests defined in a sample project used for testing xBDD.
+* [xBDD Features Summary](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.Summary.GitHub.html) - Features for generating reports.
 
 ### Active Focus
 
-* [xBDD.Features.GeneratingCode](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.html) - Features for generating code.
+* [Generating Code](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingCode/test-results/xBDD.Features.Generatingcode.Results.html) - Features for generating solutions (with multiple test projects), test projects and features.
 
-### Old Tests (to be replaced)
-
-* [xBDD.Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features/test-results/xBDD.Features.Results.html) - Old set of tests to be replaced by the following projects:
+* [Generating Reports](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.html) - Features for generating reports.
 
 ### Features To Be Defined (Links will return 404)
 
-* [xBDD.Features.DefiningFeatures](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.html) - Features for defining features, scenarios, and steps.
+* [Defining Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.html) - Features for defining features, scenarios, and steps.
 
-* [xBDD.Features.AutomatingUITesting](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.AutomatingUITesting/test-results/xBDD.Features.AutomatingUITesting.Results.html) - Features for running browser automation tests.
+* [Automating UI Testing](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.AutomatingUITesting/test-results/xBDD.Features.AutomatingUITesting.Results.html) - Features for running browser automation tests.
 
-* [xBDD.Features.StreamliningAPITesting](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.html) - Features for testing an API.
+* [Streamlining API Testing](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.html) - Features for testing an API.
 
-* [xBDD.Features.GeneratingReports](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.html) - Features for generating reports from test resutls.
+* [Running Scenarios](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.RunningScenarios/test-results/xBDD.Features.RunningScenarios.Results.html) - Features for running filtered sets of scenarios.
 
-* [xBDD.Features.ImportingScenarios](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.ImportingScenarios/test-results/xBDD.Features.ImportingScenarios.Results.html) - Features for importing .
+### Sample
+
+* [MySample.Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/Legacy/MySample.Features/test-results/MySample.Features.Results.All.FullSorted.html) - Set of tests defined in a sample project used for testing xBDD.
+
+### Old Tests (to be replaced)
+
+* [Legacy Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/Legacy/xBDD.Features/test-results/xBDD.Features.Results.html) - Old set of tests to be replaced by the following projects.  WARNING MULTIPLE FAILING TESTS WITH CAPTURED OUTPUT IS CAUSING EXTEMELY SLOW RESPONSE TIMES IN THE BROWSER.
 
 ## Getting Started
 

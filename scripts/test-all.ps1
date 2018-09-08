@@ -21,3 +21,21 @@ dotnet xbdd solution summarize `
 ./xBDD.Features.RunningScenarios/test-results/xBDD.Features.RunningScenarios.Results.html `
 ./xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.json `
 ./xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.html
+
+dotnet xbdd solution summarize `
+--output xBDD.Features.Summary.Github.html `
+--name "xBDD - Features" `
+--testrun-name-clip "xBDD - Features - " `
+--reason-order "Removing,Untested,Committed,Ready,Defining" `
+./xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.json `
+https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.html `
+./xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.json `
+https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.html `
+./xBDD.Features.AutomatingUITesting/test-results/xBDD.Features.AutomatingUITesting.Results.json `
+https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.AutomatingUITesting/test-results/xBDD.Features.AutomatingUITesting.Results.html `
+./xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.json `
+https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.html `
+./xBDD.Features.RunningScenarios/test-results/xBDD.Features.RunningScenarios.Results.json `
+https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.RunningScenarios/test-results/xBDD.Features.RunningScenarios.Results.html `
+./xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.json `
+https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.html
