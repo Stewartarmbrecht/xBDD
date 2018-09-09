@@ -4,9 +4,9 @@
 </head>
 <body>
 
-<outline text="xBDD - Features - Generating Code - Generating Project Files">
-	<outline text="For An MS Test Project">
-		<outline text="In An Empty Directory">
+<outline text="xBDD - Features - Generating Code - Generating Project Files [Failed]">
+	<outline text="For An MS Test Project [Failed]">
+		<outline text="In An Empty Directory [Failed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
@@ -265,7 +265,7 @@
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml" />
 			</outline>
 		</outline>
-		<outline text="In An Initialized XBDD">
+		<outline text="In An Initialized XBDD [Failed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
@@ -336,7 +336,7 @@
 				<outline text="./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml" />
 			</outline>
 		</outline>
-		<outline text="With A Test Run Name">
+		<outline text="With A Test Run Name [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest --testrun-name My Sample Test Run" />
@@ -356,7 +356,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Area Name Clipping">
+		<outline text="With Area Name Clipping [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest --remove-from-area-name Modified" />
@@ -378,9 +378,9 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File">
-	<outline text="With An Invalid Outline">
-		<outline text="With Invalid Characters In Area Name">
+<outline text="xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Failed]">
+	<outline text="With An Invalid Outline [Passed]">
+		<outline text="With Invalid Characters In Area Name [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My $%^& Sub Area 1" />
@@ -425,7 +425,7 @@
 				<outline text="             namespace in the test project." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Characters In Feature Name">
+		<outline text="With Invalid Characters In Feature Name [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -468,7 +468,7 @@
 				<outline text="             letters, numbers, spaces, and underscores." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Characters In Scenario Name">
+		<outline text="With Invalid Characters In Scenario Name [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -511,7 +511,7 @@
 				<outline text="             letters, numbers, spaces, and underscores." />
 			</outline>
 		</outline>
-		<outline text="With Empty Feature Line">
+		<outline text="With Empty Feature Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -551,7 +551,7 @@
 				<outline text="Error: Line 6: A feature is defined with no name." />
 			</outline>
 		</outline>
-		<outline text="With Empty Scenario Line">
+		<outline text="With Empty Scenario Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -591,7 +591,7 @@
 				<outline text="Error: Line 15: A scenario is defined with no name." />
 			</outline>
 		</outline>
-		<outline text="With Empty Step Line">
+		<outline text="With Empty Step Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -631,7 +631,7 @@
 				<outline text="Error: Line 27: A step is defined with no name." />
 			</outline>
 		</outline>
-		<outline text="With Step Input Header On Last Line">
+		<outline text="With Step Input Header On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -668,7 +668,7 @@
 				<outline text="Explanation: A step input header line can only be followed by an indented input line." />
 			</outline>
 		</outline>
-		<outline text="With Step Explanation Header On Last Line">
+		<outline text="With Step Explanation Header On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -703,7 +703,7 @@
 				<outline text="             explanation line." />
 			</outline>
 		</outline>
-		<outline text="With Scenario Explanation Header On Last Line">
+		<outline text="With Scenario Explanation Header On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -734,7 +734,7 @@
 				<outline text="             explanation line." />
 			</outline>
 		</outline>
-		<outline text="With Feature Explanation On Last Line">
+		<outline text="With Feature Explanation On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -762,7 +762,7 @@
 				<outline text="             line, a feature statement header line or an outdented (2x) scenario line." />
 			</outline>
 		</outline>
-		<outline text="With Feature Explanation Header On Last Line">
+		<outline text="With Feature Explanation Header On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -788,7 +788,7 @@
 				<outline text="             explanation line." />
 			</outline>
 		</outline>
-		<outline text="With Feature Statement On Last Line">
+		<outline text="With Feature Statement On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -813,7 +813,7 @@
 				<outline text="             a feature explanation header line or an outdented (2x) scenario line." />
 			</outline>
 		</outline>
-		<outline text="With Feature Statement Header On Last Line">
+		<outline text="With Feature Statement Header On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -835,7 +835,7 @@
 				<outline text="             statement line." />
 			</outline>
 		</outline>
-		<outline text="With Feature On Last Line">
+		<outline text="With Feature On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -856,7 +856,7 @@
 				<outline text="             'Explanation' header or indented 'Statement' header." />
 			</outline>
 		</outline>
-		<outline text="With Area Explanation On Last Line">
+		<outline text="With Area Explanation On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -875,7 +875,7 @@
 				<outline text="             or an outdented (2x) feature line." />
 			</outline>
 		</outline>
-		<outline text="With Area Explanation Header On Last Line">
+		<outline text="With Area Explanation Header On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -892,7 +892,7 @@
 				<outline text="             explanation line." />
 			</outline>
 		</outline>
-		<outline text="With Area On Last Line">
+		<outline text="With Area On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -908,7 +908,7 @@
 				<outline text="             indented Feature line." />
 			</outline>
 		</outline>
-		<outline text="With No Lines">
+		<outline text="With No Lines [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:"/>
 			<outline text="When you run the command:">
@@ -919,7 +919,7 @@
 				<outline text="Error: The file is empty." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Line After Step Input Header">
+		<outline text="With Invalid Line After Step Input Header [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -959,7 +959,7 @@
 				<outline text="Explanation: A step input header line can only be followed by an indented input line." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Line After Step Explanation Header">
+		<outline text="With Invalid Line After Step Explanation Header [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1000,7 +1000,7 @@
 				<outline text="             explanation line." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Line After Step">
+		<outline text="With Invalid Line After Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1039,7 +1039,7 @@
 				<outline text="             area." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Step Line After Step">
+		<outline text="With Invalid Step Line After Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1077,7 +1077,7 @@
 				<outline text="             when generating feature classes." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Line After Scenario Explanation Header">
+		<outline text="With Invalid Line After Scenario Explanation Header [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1111,7 +1111,7 @@
 				<outline text="             explanation line." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Line After Scenario">
+		<outline text="With Invalid Line After Scenario [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1146,7 +1146,7 @@
 				<outline text="             when generating feature classes." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Indented Step Line After Scenario">
+		<outline text="With Invalid Indented Step Line After Scenario [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1180,7 +1180,7 @@
 				<outline text="             area line." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Line After Feature Explanation Header">
+		<outline text="With Invalid Line After Feature Explanation Header [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1206,7 +1206,7 @@
 				<outline text="             explanation line." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Line After Feature Statement Header">
+		<outline text="With Invalid Line After Feature Statement Header [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1228,7 +1228,7 @@
 				<outline text="             statement line." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Line After Feature">
+		<outline text="With Invalid Line After Feature [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1250,7 +1250,7 @@
 				<outline text="             'Explanation' header or indented 'Statement' header." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Line After Area Explanation Header">
+		<outline text="With Invalid Line After Area Explanation Header [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1268,7 +1268,7 @@
 				<outline text="             explanation line." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Line After Area">
+		<outline text="With Invalid Line After Area [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1285,7 +1285,7 @@
 				<outline text="             indented Feature line." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Indented Line After Area">
+		<outline text="With Invalid Indented Line After Area [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1303,8 +1303,8 @@
 			</outline>
 		</outline>
 	</outline>
-	<outline text="For An MS Test Project">
-		<outline text="With An Empty Scenario">
+	<outline text="For An MS Test Project [Failed]">
+		<outline text="With An Empty Scenario [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1338,7 +1338,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Given Step">
+		<outline text="With A Given Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1377,7 +1377,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Given Step With Quotes">
+		<outline text="With A Given Step With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1416,7 +1416,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A When Step">
+		<outline text="With A When Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1460,7 +1460,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Then Step">
+		<outline text="With A Then Step [Failed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1509,7 +1509,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With An And Step">
+		<outline text="With An And Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1563,7 +1563,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Code Step">
+		<outline text="With A Code Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1619,7 +1619,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Step Input">
+		<outline text="With A Step Input [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1665,7 +1665,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Step Input With Quotes">
+		<outline text="With A Step Input With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1711,7 +1711,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Step Input Single Line">
+		<outline text="With A Step Input Single Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1754,7 +1754,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Step Input Single Line With Quotes">
+		<outline text="With A Step Input Single Line With Quotes [Failed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1797,7 +1797,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Step Explanation">
+		<outline text="With A Step Explanation [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1844,7 +1844,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Step Explanation With Quotes">
+		<outline text="With A Step Explanation With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1891,7 +1891,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Step Explanation Single Line">
+		<outline text="With A Step Explanation Single Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1935,7 +1935,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Step Explanation Single Line With Quotes">
+		<outline text="With A Step Explanation Single Line With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -1979,7 +1979,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Step With Trailing Spaces">
+		<outline text="With A Step With Trailing Spaces [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2018,7 +2018,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Scenario Explanation">
+		<outline text="With A Scenario Explanation [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2065,7 +2065,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Scenario Explanation With Quotes">
+		<outline text="With A Scenario Explanation With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2112,7 +2112,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Scenario With Trailing Spaces">
+		<outline text="With A Scenario With Trailing Spaces [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2151,7 +2151,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Scenario Reason Tags">
+		<outline text="With Scenario Reason Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2190,7 +2190,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Duplicate Scenario Reason Tags">
+		<outline text="With Duplicate Scenario Reason Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2229,7 +2229,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Scenario Owner Tags">
+		<outline text="With Scenario Owner Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2269,7 +2269,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Scenario General Tags">
+		<outline text="With Scenario General Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2309,7 +2309,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With An Existing Feature">
+		<outline text="With An Existing Feature [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2378,7 +2378,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Feature Explanation">
+		<outline text="With A Feature Explanation [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2425,7 +2425,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Feature Explanation With Quotes">
+		<outline text="With A Feature Explanation With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2472,7 +2472,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Feature Statement">
+		<outline text="With A Feature Statement [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2526,7 +2526,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Feature With Trailing Spaces">
+		<outline text="With A Feature With Trailing Spaces [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2565,7 +2565,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With An Area With Trailing Spaces">
+		<outline text="With An Area With Trailing Spaces [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1     " />
@@ -2604,7 +2604,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Ignored Feature Reason Tags">
+		<outline text="With Ignored Feature Reason Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2643,7 +2643,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Feature General Tags">
+		<outline text="With Feature General Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2683,7 +2683,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Feature Owner Tags">
+		<outline text="With Feature Owner Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2723,7 +2723,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Ignored Area Tags">
+		<outline text="With Ignored Area Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1 #R-Ignored #T-Ignored @Ignored" />
@@ -2762,7 +2762,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Workflowy Text Export">
+		<outline text="With A Workflowy Text Export [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="- My Area 1 - My Sub Area 1" />
@@ -2801,7 +2801,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Duplicate Area And Feature">
+		<outline text="With Duplicate Area And Feature [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2850,7 +2850,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Duplicate Area And Feature Nonconsecutive">
+		<outline text="With Duplicate Area And Feature Nonconsecutive [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2902,7 +2902,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Duplicate Area">
+		<outline text="With Duplicate Area [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2944,7 +2944,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Duplicate Feature">
+		<outline text="With Duplicate Feature [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -2992,7 +2992,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Duplicate Feature Nonconsecutive">
+		<outline text="With Duplicate Feature Nonconsecutive [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -3042,7 +3042,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Duplicate Scenario">
+		<outline text="With Duplicate Scenario [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -3089,7 +3089,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Duplicate Scenario Nonconsecutive">
+		<outline text="With Duplicate Scenario Nonconsecutive [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Area 1 - My Sub Area 1" />
@@ -3146,7 +3146,7 @@
 		</outline>
 </outline>
 <outline text="xBDD - Features - Generating Code - Generating Solution Files - Using An Xbdd Feature Import File [Defining]">
-		<outline text="With A Valid Solution Definition">
+		<outline text="With A Valid Solution Definition [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="Project: MyGeneratedSample.Features.Area1" />

@@ -2,7 +2,7 @@
 	"TestRunReport": {
 		"ReportName": "xBDD - Generating Code",
 		"ReportFolder": "/../../../test-results/",
-		"FileName": "xBDD.Features.GeneratingReports",
+		"FileName": "xBDD.Features.GeneratingCode.Results",
 		"FailuresOnly": "false",
 		"AreaNameSkip": "xBDD - Features - Generating Code - "
 	},

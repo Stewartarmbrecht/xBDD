@@ -1,12 +1,12 @@
-xBDD - Generating Code
 
-xBDD - Features - Generating Code - Generating Project Files
-	For An MS Test Project
-		In An Empty Directory
-			Given you have an empty directory
-			When you run the command:
+
+xBDD - Features - Generating Code - Generating Project Files [Failed]
+	For An MS Test Project [Failed]
+		In An Empty Directory [Failed]
+			Given you have an empty directory [Passed]
+			When you run the command: [Passed]
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template:
+			Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template: [Passed]
 				<Project Sdk="Microsoft.NET.Sdk">
 				
 					<PropertyGroup>
@@ -30,7 +30,7 @@ xBDD - Features - Generating Code - Generating Project Files
 					</ItemGroup>
 				
 				</Project>
-			And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template: [Passed]
 				<Project Sdk="Microsoft.NET.Sdk">
 				
 					<PropertyGroup>
@@ -54,7 +54,7 @@ xBDD - Features - Generating Code - Generating Project Files
 					</ItemGroup>
 				
 				</Project>
-			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template: [Passed]
 				{
 					"xBDD": {
 						"TestRunName": "My Generated Sample - Features",
@@ -67,7 +67,7 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs' that matches the template: [Passed]
 				namespace MyGeneratedSample.Features
 				{
 					using xBDD;
@@ -85,7 +85,7 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template: [Passed]
 				MyImportedArea1
 					MyImportedFeature
 						MyImportedScenario #R-Ready
@@ -95,7 +95,7 @@ xBDD - Features - Generating Code - Generating Project Files
 							Then a new feature will be defined in the project with two partial class files
 							And you can finish the import by moving the scenarios from the feature.xbdd.cs file to the feature.cs file
 							And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature
-			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template: [Passed]
 				namespace MyGeneratedSample.Features
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -118,7 +118,7 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.cs' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.cs' that matches the template: [Passed]
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -143,7 +143,7 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.xbdd.cs' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.xbdd.cs' that matches the template: [Passed]
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -168,7 +168,7 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template: [Passed]
 				namespace MyGeneratedSample.Features.MyArea
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -232,23 +232,39 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-			And you will find the project execute tests with the 'dotnet test' command
+			And you will find the project execute tests with the 'dotnet test' command [Passed]
 				dotnet test
-			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Failed]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
-			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'.
+				Error Type: DirectoryNotFoundException
+				   Message: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\test-results\MyGeneratedSample.Features.Results.html'.
+				     Stack:    at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+				               at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+				               at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+				               at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+				               at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks)
+				               at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+				               at System.IO.File.ReadAllText(String path)
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass7_0.<WillFind>b__0(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features.Common\Developer.cs:line 144
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Skipped - Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
-			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'.
+			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'. [Skipped - Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
-			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'.
+			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'. [Skipped - Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
-			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.
+			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'. [Skipped - Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
-		In An Initialized XBDD
-			Given you have an empty directory
-			When you run the command:
+		In An Initialized XBDD [Failed]
+			Given you have an empty directory [Passed]
+			When you run the command: [Passed]
 				dotnet xbdd project generate MSTest
-			And you modify all the standard project files
+			And you modify all the standard project files [Passed]
 				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
 				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
 				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
@@ -258,9 +274,9 @@ xBDD - Features - Generating Code - Generating Project Files
 				MyGeneratedSample.Features/xBddFeatureImport.txt,
 				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
 				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
-			When you run the command:
+			When you run the command: [Passed]
 				dotnet xbdd project generate MSTest
-			Then you will find the files ending in xbdd.[ext] or xbdd are overwritten
+			Then you will find the files ending in xbdd.[ext] or xbdd are overwritten [Passed]
 				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
 				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
 				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
@@ -270,7 +286,7 @@ xBDD - Features - Generating Code - Generating Project Files
 				MyGeneratedSample.Features/xBddFeatureImport.txt,
 				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
 				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
-			And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten
+			And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten [Passed]
 				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
 				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
 				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
@@ -280,7 +296,7 @@ xBDD - Features - Generating Code - Generating Project Files
 				MyGeneratedSample.Features/xBddFeatureImport.txt,
 				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
 				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
-			And you will find the sample feature file is not modified because the xbdd backlog file already exists
+			And you will find the sample feature file is not modified because the xbdd backlog file already exists [Passed]
 				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
 				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
 				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
@@ -290,19 +306,35 @@ xBDD - Features - Generating Code - Generating Project Files
 				MyGeneratedSample.Features/xBddFeatureImport.txt,
 				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
 				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
-			And you will find the project execute tests with the 'dotnet test' command
+			And you will find the project execute tests with the 'dotnet test' command [Passed]
 				dotnet test
-			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Failed]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
-			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'.
+				Error Type: DirectoryNotFoundException
+				   Message: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\test-results\MyGeneratedSample.Features.Results.html'.
+				     Stack:    at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+				               at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+				               at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+				               at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+				               at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks)
+				               at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+				               at System.IO.File.ReadAllText(String path)
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass7_0.<WillFind>b__0(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features.Common\Developer.cs:line 144
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Skipped - Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
-			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'.
+			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'. [Skipped - Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
-			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'.
+			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'. [Skipped - Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
-			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.
+			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'. [Skipped - Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
-		With A Test Run Name
+		With A Test Run Name [Passed]
 			Given you have an empty directory
 			When you run the command:
 				dotnet xbdd project generate MSTest --testrun-name My Sample Test Run
@@ -319,7 +351,7 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-		With Area Name Clipping
+		With Area Name Clipping [Passed]
 			Given you have an empty directory
 			When you run the command:
 				dotnet xbdd project generate MSTest --remove-from-area-name Modified
@@ -336,9 +368,9 @@ xBDD - Features - Generating Code - Generating Project Files
 						}
 					}
 				}
-xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File
-	With An Invalid Outline
-		With Invalid Characters In Area Name
+xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Failed]
+	With An Invalid Outline [Passed]
+		With Invalid Characters In Area Name [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My $%^& Sub Area 1
@@ -379,7 +411,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				             letters, numbers, spaces, underscores, and ' - '.
 				             The ' - ' string is converted to '.' to define the features 
 				             namespace in the test project.
-		With Invalid Characters In Feature Name
+		With Invalid Characters In Feature Name [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -418,7 +450,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 6: 'My $%^& Feature 1'
 				Explanation: A feature name must start with a letter and can only contain
 				             letters, numbers, spaces, and underscores.
-		With Invalid Characters In Scenario Name
+		With Invalid Characters In Scenario Name [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -457,7 +489,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 15: 'My $%^& Scenario 1'
 				Explanation: A scenario name must start with a letter and can only contain
 				             letters, numbers, spaces, and underscores.
-		With Empty Feature Line
+		With Empty Feature Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -493,7 +525,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 			Then you will see output matching the following template:
 				{{.*}}/rl
 				Error: Line 6: A feature is defined with no name.
-		With Empty Scenario Line
+		With Empty Scenario Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -529,7 +561,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 			Then you will see output matching the following template:
 				{{.*}}/rl
 				Error: Line 15: A scenario is defined with no name.
-		With Empty Step Line
+		With Empty Step Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -565,7 +597,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 			Then you will see output matching the following template:
 				{{.*}}/rl
 				Error: Line 27: A step is defined with no name.
-		With Step Input Header On Last Line
+		With Step Input Header On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -598,7 +630,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Error: An invalid line of type 'No Line' is following a step input header.
 				Line 23: ''
 				Explanation: A step input header line can only be followed by an indented input line.
-		With Step Explanation Header On Last Line
+		With Step Explanation Header On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -629,7 +661,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 20: ''
 				Explanation: A step explanation header line can only be followed by an indented 
 				             explanation line.
-		With Scenario Explanation Header On Last Line
+		With Scenario Explanation Header On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -656,7 +688,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 16: ''
 				Explanation: A scenario explanation header line can only be followed by an indented 
 				             explanation line.
-		With Feature Explanation On Last Line
+		With Feature Explanation On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -680,7 +712,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 13: ''
 				Explanation: A Feature explanation line can only be followed by another explanation 
 				             line, a feature statement header line or an outdented (2x) scenario line.
-		With Feature Explanation Header On Last Line
+		With Feature Explanation Header On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -702,7 +734,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 11: ''
 				Explanation: A feature explanation header line can only be followed by an indented 
 				             explanation line.
-		With Feature Statement On Last Line
+		With Feature Statement On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -723,7 +755,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 10: ''
 				Explanation: A feature statement line can only be followed by another statement line, 
 				             a feature explanation header line or an outdented (2x) scenario line.
-		With Feature Statement Header On Last Line
+		With Feature Statement Header On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -741,7 +773,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 7: ''
 				Explanation: A feature statement header line can only be followed by an indented 
 				             statement line.
-		With Feature On Last Line
+		With Feature On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -758,7 +790,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 6: ''
 				Explanation: A feature line can only be followed by an indented scenario name, indented
 				             'Explanation' header or indented 'Statement' header.
-		With Area Explanation On Last Line
+		With Area Explanation On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -773,7 +805,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 4: ''
 				Explanation: An area explanation line can only be followed by another explanation line 
 				             or an outdented (2x) feature line.
-		With Area Explanation Header On Last Line
+		With Area Explanation Header On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -786,7 +818,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 2: ''
 				Explanation: An area explanation header line can only be followed by an indented 
 				             explanation line.
-		With Area On Last Line
+		With Area On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -798,7 +830,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 1: ''
 				Explanation: An area line can only be followed by an indented 'Explanation' header or 
 				             indented Feature line.
-		With No Lines
+		With No Lines [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 			When you run the command:
@@ -806,7 +838,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 			Then you will see output matching the following template:
 				{{.*}}/rl
 				Error: The file is empty.
-		With Invalid Line After Step Input Header
+		With Invalid Line After Step Input Header [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -842,7 +874,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Error: An invalid line of type 'Step' is following a step input header.
 				Line 24: '			When step 2 Is Invalid Line'
 				Explanation: A step input header line can only be followed by an indented input line.
-		With Invalid Line After Step Explanation Header
+		With Invalid Line After Step Explanation Header [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -879,7 +911,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 21: '				Input'
 				Explanation: A step explanation header line can only be followed by an indented 
 				             explanation line.
-		With Invalid Line After Step
+		With Invalid Line After Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -914,7 +946,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Explanation: A step line can only be followed by another step line or an indented 
 				             'Explanation' or 'Input' header line, or outdented scenario, feature, or 
 				             area.
-		With Invalid Step Line After Step
+		With Invalid Step Line After Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -948,7 +980,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Explanation: A step can start with either 'Given', 'When', 'Then', 'And', or '.'
 				             Steps that start with '.' will have it's text interpreted as literal code 
 				             when generating feature classes.
-		With Invalid Line After Scenario Explanation Header
+		With Invalid Line After Scenario Explanation Header [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -978,7 +1010,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 17: '			Given step 1'
 				Explanation: A scenario explanation header line can only be followed by an indented 
 				             explanation line.
-		With Invalid Line After Scenario
+		With Invalid Line After Scenario [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1009,7 +1041,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Explanation: A step can start with either 'Given', 'When', 'Then', 'And', or '.'
 				             Steps that start with '.' will have it's text interpreted as literal code 
 				             when generating feature classes.
-		With Invalid Indented Step Line After Scenario
+		With Invalid Indented Step Line After Scenario [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1039,7 +1071,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Explanation: A scenario line can only be followed by another scenario line, an indented
 				             'Explanation' header or indented step line, or an outdented feature or 
 				             area line.
-		With Invalid Line After Feature Explanation Header
+		With Invalid Line After Feature Explanation Header [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1061,7 +1093,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 11: '		My Scenario 1'
 				Explanation: A feature explanation header line can only be followed by an indented 
 				             explanation line.
-		With Invalid Line After Feature Statement Header
+		With Invalid Line After Feature Statement Header [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1079,7 +1111,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 7: '		My Scenario 1'
 				Explanation: A feature statement header line can only be followed by an indented 
 				             statement line.
-		With Invalid Line After Feature
+		With Invalid Line After Feature [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1097,7 +1129,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 6: '	My Feature 2'
 				Explanation: A feature line can only be followed by an indented scenario name, indented
 				             'Explanation' header or indented 'Statement' header.
-		With Invalid Line After Area Explanation Header
+		With Invalid Line After Area Explanation Header [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1111,7 +1143,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 3: '	My Feature 1'
 				Explanation: An area explanation header line can only be followed by an indented 
 				             explanation line.
-		With Invalid Line After Area
+		With Invalid Line After Area [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1124,7 +1156,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 2: 'My Area 1 - My Sub Area 2'
 				Explanation: An area line can only be followed by an indented 'Explanation' header or 
 				             indented Feature line.
-		With Invalid Indented Line After Area
+		With Invalid Indented Line After Area [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1137,8 +1169,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 2: '		Invalid Line'
 				Explanation: An area line can only be followed by an indented 'Explanation' header or 
 				             indented Feature line.
-	For An MS Test Project
-		With An Empty Scenario
+	For An MS Test Project [Failed]
+		With An Empty Scenario [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1168,7 +1200,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Given Step
+		With A Given Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1203,7 +1235,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Given Step With Quotes
+		With A Given Step With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1238,7 +1270,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A When Step
+		With A When Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1278,18 +1310,33 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Then Step
-			Given you have an empty directory
-			And add a scenario outline file with the following content:
+		With A Then Step [Failed]
+			Given you have an empty directory [Passed]
+			And add a scenario outline file with the following content: [Failed]
 				My Area 1 - My Sub Area 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
 							When Step 2
 							Then Step 3
-			When you run the command:
+				Error Type: UnauthorizedAccessException
+				   Message: Access to the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\xBDDFeatureImport.txt' is denied.
+				     Stack:    at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+				               at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+				               at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+				               at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize)
+				               at System.IO.StreamWriter..ctor(String path)
+				               at System.IO.File.WriteAllText(String path, String contents)
+				               at xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeatureImportFile.ForAnMSTestProject.<>c__DisplayClass4_0.<ExecuteStep>b__0(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\Features\GeneratingFeatureFiles\UsingAnXbddFeatureImportFile\ForAnMSTestProject.cs:line 29
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+			When you run the command: [Skipped - Previous Error]
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template: [Skipped - Previous Error]
 				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -1323,7 +1370,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With An And Step
+		With An And Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1373,7 +1420,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Code Step
+		With A Code Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1425,7 +1472,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Step Input
+		With A Step Input [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1467,7 +1514,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Step Input With Quotes
+		With A Step Input With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1509,7 +1556,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Step Input Single Line
+		With A Step Input Single Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1548,18 +1595,33 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Step Input Single Line With Quotes
-			Given you have an empty directory
-			And add a scenario outline file with the following content:
+		With A Step Input Single Line With Quotes [Failed]
+			Given you have an empty directory [Passed]
+			And add a scenario outline file with the following content: [Failed]
 				My Area 1 - My Sub Area 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
 								Input
 									Here Is "My" Single Line Input
-			When you run the command:
+				Error Type: UnauthorizedAccessException
+				   Message: Access to the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\xBDDFeatureImport.txt' is denied.
+				     Stack:    at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+				               at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+				               at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+				               at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize)
+				               at System.IO.StreamWriter..ctor(String path)
+				               at System.IO.File.WriteAllText(String path, String contents)
+				               at xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeatureImportFile.ForAnMSTestProject.<>c__DisplayClass4_0.<ExecuteStep>b__0(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\Features\GeneratingFeatureFiles\UsingAnXbddFeatureImportFile\ForAnMSTestProject.cs:line 29
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+			When you run the command: [Skipped - Previous Error]
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template: [Skipped - Previous Error]
 				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -1587,7 +1649,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Step Explanation
+		With A Step Explanation [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1630,7 +1692,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Step Explanation With Quotes
+		With A Step Explanation With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1673,7 +1735,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Step Explanation Single Line
+		With A Step Explanation Single Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1713,7 +1775,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Step Explanation Single Line With Quotes
+		With A Step Explanation Single Line With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1753,7 +1815,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Step With Trailing Spaces
+		With A Step With Trailing Spaces [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1788,7 +1850,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Scenario Explanation
+		With A Scenario Explanation [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1831,7 +1893,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Scenario Explanation With Quotes
+		With A Scenario Explanation With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1874,7 +1936,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Scenario With Trailing Spaces
+		With A Scenario With Trailing Spaces [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1909,7 +1971,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Scenario Reason Tags
+		With Scenario Reason Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1944,7 +2006,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Duplicate Scenario Reason Tags
+		With Duplicate Scenario Reason Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -1979,7 +2041,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Scenario Owner Tags
+		With Scenario Owner Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2015,7 +2077,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Scenario General Tags
+		With Scenario General Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2051,7 +2113,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With An Existing Feature
+		With An Existing Feature [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2114,7 +2176,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Feature Explanation
+		With A Feature Explanation [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2157,7 +2219,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Feature Explanation With Quotes
+		With A Feature Explanation With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2200,7 +2262,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Feature Statement
+		With A Feature Statement [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2250,7 +2312,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Feature With Trailing Spaces
+		With A Feature With Trailing Spaces [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2285,7 +2347,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With An Area With Trailing Spaces
+		With An Area With Trailing Spaces [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1     
@@ -2320,7 +2382,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Ignored Feature Reason Tags
+		With Ignored Feature Reason Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2355,7 +2417,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Feature General Tags
+		With Feature General Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2391,7 +2453,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Feature Owner Tags
+		With Feature Owner Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2427,7 +2489,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Ignored Area Tags
+		With Ignored Area Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1 #R-Ignored #T-Ignored @Ignored
@@ -2462,7 +2524,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Workflowy Text Export
+		With A Workflowy Text Export [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				- My Area 1 - My Sub Area 1
@@ -2497,7 +2559,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Duplicate Area And Feature
+		With Duplicate Area And Feature [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2542,7 +2604,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Duplicate Area And Feature Nonconsecutive
+		With Duplicate Area And Feature Nonconsecutive [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2590,7 +2652,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Duplicate Area
+		With Duplicate Area [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2628,7 +2690,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Duplicate Feature
+		With Duplicate Feature [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2672,7 +2734,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Duplicate Feature Nonconsecutive
+		With Duplicate Feature Nonconsecutive [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2718,7 +2780,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Duplicate Scenario
+		With Duplicate Scenario [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2761,7 +2823,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Duplicate Scenario Nonconsecutive
+		With Duplicate Scenario Nonconsecutive [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
@@ -2813,7 +2875,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					}
 				}
 xBDD - Features - Generating Code - Generating Solution Files - Using An Xbdd Feature Import File [Defining]
-		With A Valid Solution Definition
+		With A Valid Solution Definition [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
 				Project: MyGeneratedSample.Features.Area1
