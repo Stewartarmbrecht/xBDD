@@ -1,4 +1,4 @@
-xBDD - Features - Running Scenarios
+xBDD - Running Scenarios
 
 xBDD - Features - Running Scenarios - Initial Setup [Defining]
 	Running MS Test Project Scenarios [Defining]

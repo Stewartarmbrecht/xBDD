@@ -1,13 +1,16 @@
 Set-Location $PSScriptRoot
 
+./deploy-tools.ps1
+
 Set-Location "../"
+
 
 dotnet test
 
 dotnet xbdd solution summarize `
 --output xBDD.Features.Summary.html `
 --name "xBDD - Features" `
---testrun-name-clip "xBDD - Features - " `
+--testrun-name-clip "xBDD - " `
 --reason-order "Removing,Untested,Committed,Ready,Defining" `
 ./xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.json `
 ./xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.html `
@@ -25,7 +28,7 @@ dotnet xbdd solution summarize `
 dotnet xbdd solution summarize `
 --output xBDD.Features.Summary.Github.html `
 --name "xBDD - Features" `
---testrun-name-clip "xBDD - Features - " `
+--testrun-name-clip "xBDD - " `
 --reason-order "Removing,Untested,Committed,Ready,Defining" `
 ./xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.json `
 https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.html `

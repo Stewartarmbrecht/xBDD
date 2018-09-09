@@ -1,19 +1,25 @@
-xBDD - Features - Generating Reports
+xBDD - Generating Reports
 
 xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 	Generate A Report [Failed]
-		With Full Test Run [Failed]
+		With Full Test Run
 			Given you have the following json test run reports
 				./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json,
+				./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html,
 				./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json,
+				./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.html,
 				./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json,
+				./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.html,
 				./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json,
+				./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.html,
 				./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json,
-				./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json
+				./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.html,
+				./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json,
+				./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.html
 			When you run the command:
-				dotnet xbdd solution summarize --output MySample.TestSummary.WithFullTestRun.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json
-			Then you will see output matching the following template: [Failed]
-				Output: MySample.TestSummary.html
+				dotnet xbdd solution summarize --output MySample.TestSummary.WithFullTestRun.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.html ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.html ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.html ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.html ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.html
+			Then you will see output matching the following template:
+				Output: MySample.TestSummary.WithFullTestRun.html
 				Name: My Sample - Features
 				TestRunNameClip: My Sample - Features - 
 				Reasons: Untested, Committed, Ready, Defining
@@ -23,35 +29,7 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 				Json Report: ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json
 				Json Report: ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json
 				Json Report: ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json
-				Error Type: TemplateValidationException
-				   Message: Line 1 did not match template line 1 (Value/Template)
-	Output: MySample.TestSummary.WithFullTestRun.html
-	Output: MySample.TestSummary.html
-Line 6 did not match template line 6 (Value/Template)
-	Json Report: ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json
-	Json Report: ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json
-Line 7 did not match template line 7 (Value/Template)
-	Json Report: ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json
-	Json Report: ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json
-Line 8 did not match template line 8 (Value/Template)
-	
-	Json Report: ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json
-Extra template line at line number 9 (Template)
-	Json Report: ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json
-Extra template line at line number 10 (Template)
-	Json Report: ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json
-Extra template line at line number 11 (Template)
-	
-
-				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 127
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-			And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'. [Skipped - Previous Error]
+			And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'.
 				C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html
 		With No Json Files [Failed]
 			Given you do not have a summary report file located at './MySample.TestSummary.WithNoJsonFiles.html'.
@@ -74,12 +52,12 @@ Extra template line at line number 11 (Template)
 						</h1>
 				{{.*}}/rl
 				Error Type: TemplateValidationException
-				   Message: Line 27 did not match template line 5 (Value/Template)
+				   Message: Line 39 did not match template line 5 (Value/Template)
 				<span class="report badge pointer badge-pill total badge-secondary" title="Scenarios">0</span>
 				<span class="report badge pointer badge-pill total badge-secondary" title="Test Runs">0</span>
 
 				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass4_0.<WillFindAMatchingFile>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 104
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass4_0.<WillFindAMatchingFile>b__0(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features.Common\Developer.cs:line 104
 				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
@@ -90,27 +68,14 @@ Extra template line at line number 11 (Template)
 			Given you do not have a summary report file located at './MySample.TestSummary.WithASingleJsonFile.html'.
 				./MySample.TestSummary.WithASingleJsonFile.html
 			When you run the command:
-				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithASingleJsonFile.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
-			Then you will see output matching the following template: [Failed]
+				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithASingleJsonFile.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html
+			Then you will see output matching the following template:
 				Output: ./MySample.TestSummary.WithASingleJsonFile.html
 				Name: My Sample - Features
 				TestRunNameClip: My Sample - Features - 
 				Reasons: Untested, Committed, Ready, Defining
 				Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
-				Error Type: TemplateValidationException
-				   Message: Line 5 did not match template line 5 (Value/Template)
-	Error: Index was outside the bounds of the array.
-	Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
-
-				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 127
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-			And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template: [Skipped - Previous Error]
+			And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template: [Failed]
 				{{.*}}/rl
 					<title>My Sample - Features</title>
 				{{.*}}/rl
@@ -120,37 +85,32 @@ Extra template line at line number 11 (Template)
 							<span class="report duration"> [0 ms]</span>
 						</h1>
 				{{.*}}/rl
-		With A Missing Json File [Failed]
-			Given you do not have a summary report file located at './MySample.TestSummary.WithAMissingJsonFile.html'.
-				./MySample.TestSummary.WithAMissingJsonFile.html
-			When you run the command:
-				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithAMissingJsonFile.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./Missing.json
-			Then you will see output matching the following template: [Failed]
-				Output: ./MySample.TestSummary.WithAMissingJsonFile.html
-				Name: My Sample - Features
-				TestRunNameClip: My Sample - Features - 
-				Reasons: Untested, Committed, Ready, Defining
-				Json Report: ./Missing.json
-				Error: Could not find file 'C:\Users\stearm01\source\xBDD\MySample\Missing.json'.
 				Error Type: TemplateValidationException
-				   Message: Line 5 did not match template line 5 (Value/Template)
-	Error: Index was outside the bounds of the array.
-	Json Report: ./Missing.json
-Line 6 did not match template line 6 (Value/Template)
-	
-	Error: Could not find file 'C:\Users\stearm01\source\xBDD\MySample\Missing.json'.
-Extra template line at line number 7 (Template)
-	
+				   Message: Line 39 did not match template line 5 (Value/Template)
+				<span class="report badge pointer badge-pill total badge-success" title="Scenarios">1</span>
+				<span class="report badge pointer badge-pill total badge-warning" title="Test Runs">1</span>
 
 				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 127
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass4_0.<WillFindAMatchingFile>b__0(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features.Common\Developer.cs:line 104
 				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-			And you will not find the html report located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'. [Skipped - Previous Error]
+		With A Missing Json File
+			Given you do not have a summary report file located at './MySample.TestSummary.WithAMissingJsonFile.html'.
+				./MySample.TestSummary.WithAMissingJsonFile.html
+			When you run the command:
+				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithAMissingJsonFile.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./Missing.json ./Missing.html
+			Then you will see output matching the following template:
+				Output: ./MySample.TestSummary.WithAMissingJsonFile.html
+				Name: My Sample - Features
+				TestRunNameClip: My Sample - Features - 
+				Reasons: Untested, Committed, Ready, Defining
+				Json Report: ./Missing.json
+				Error: Could not find file 'C:\Users\stearm01\source\xBDD\MySample\Missing.json'.
+			And you will not find the html report located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'.
 				C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html
 xBDD - Features - Generating Reports - HTML Summary Report - Review Test Summary Information [Committed]
 	Review Test Summary Name [Committed]

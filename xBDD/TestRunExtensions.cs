@@ -1,5 +1,6 @@
 ﻿namespace xBDD
 {
+	using System;
     using System.Globalization;
     using System.Threading.Tasks;
     using System.Linq;
@@ -29,23 +30,64 @@
         /// <param name="testrun">The test run to set the start and end times for.</param>
         public static void CalculateStartAndEndTimes(this xBDD.Model.TestRun testrun)
         {
-            testrun.Areas.ForEach(area => {
-                var featuresStart = area.Features.OrderBy(feature => feature.StartTime);
-                featuresStart.ToList().ForEach(feature => {
-                    var scenariosStart = feature.Scenarios.OrderBy(scenario => scenario.StartTime);
-                    feature.StartTime = scenariosStart.First().StartTime;
-                    var scenariosEnd = feature.Scenarios.OrderByDescending(scenario => scenario.EndTime);
-                    feature.EndTime = scenariosEnd.First().EndTime;
-                });
-                area.StartTime = featuresStart.First().StartTime;
-                var featuresEnd = area.Features.OrderByDescending(feature => feature.EndTime);
-                area.EndTime = featuresEnd.First().EndTime;
-            });
+			testrun.Areas.SelectMany(x => x.Features).SelectMany(x => x.Scenarios).ToList()
+				.ForEach(scenario => {
+				if(scenario.Steps.Count > 0) {
+					var earliest = scenario.Steps
+						.OrderBy(step => step.StartTime)
+						.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
+						.FirstOrDefault();
+					if(earliest != null)
+						scenario.StartTime = earliest.StartTime;
+					var latest = scenario.Steps
+						.OrderByDescending(step => step.EndTime)
+						.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
+						.FirstOrDefault();
+					if(latest != null)
+						scenario.EndTime = latest.StartTime;
+				}
+			});
+			testrun.Areas.SelectMany(x => x.Features).ToList().ForEach(feature => {
+				var earliest = feature.Scenarios
+					.OrderBy(scenario => scenario.StartTime)
+					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
+					.FirstOrDefault();
+				if(earliest != null)
+					feature.StartTime = earliest.StartTime;
+				var latest = feature.Scenarios
+					.OrderByDescending(scenario => scenario.EndTime)
+					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
+					.FirstOrDefault();
+				if(latest != null)
+					feature.EndTime = latest.StartTime;
+			});
+			testrun.Areas.ToList().ForEach(area => {
+				var earliest = area.Features
+					.OrderBy(feature => feature.StartTime)
+					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
+					.FirstOrDefault();
+				if(earliest != null)
+					area.StartTime = earliest.StartTime;
+				var latest = area.Features
+					.OrderByDescending(feature => feature.EndTime)
+					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
+					.FirstOrDefault();
+				if(latest != null)
+					area.EndTime = latest.StartTime;
+			});
             if(testrun.Areas.Count > 0) {
-                var areasStart = testrun.Areas.OrderBy(area => area.StartTime);
-                testrun.StartTime = areasStart.First().StartTime;
-                var areasEnd = testrun.Areas.OrderByDescending(area => area.EndTime);
-                testrun.EndTime = areasEnd.First().EndTime;
+                var earliest = testrun.Areas.
+					OrderBy(area => area.StartTime)
+					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
+					.FirstOrDefault();
+				if(earliest != null)
+					testrun.StartTime = earliest.StartTime;
+                var latest = testrun.Areas
+					.OrderByDescending(area => area.EndTime)
+					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
+					.FirstOrDefault();
+				if(latest != null)
+					testrun.EndTime = latest.StartTime;
             }
         }
         /// <summary>
@@ -112,13 +154,15 @@
         /// Writes a text representation of a test run's test results.
         /// </summary>
         /// <param name="testRun">The test run whose results you want to write to text.</param>
-        /// <param name="removeFromAreaNameStart">The starting part of the area names you want to remove.</param>
-        /// <param name="failuresOnly">Tells the html writer to only write out failed scenarios.</param>
+        /// <param name="config">The report configuration.</param>
         /// <returns>String that is a multiline text format of the test results.</returns>
-        public static string WriteToHtmlTestRunReport(this xBDD.Model.TestRun testRun, string removeFromAreaNameStart = "", bool failuresOnly = false)
+        public static string WriteToHtmlTestRunReport(
+			this xBDD.Model.TestRun testRun, 
+			TestRunReportConfiguration config,
+			List<ReportReasonConfiguration> sortedReasons)
         {
             ReportingFactory factory = new ReportingFactory();
-            HtmlTestRunReportWriter saver = factory.GetHtmlTestRunReportWriter(removeFromAreaNameStart, failuresOnly);
+            HtmlTestRunReportWriter saver = factory.GetHtmlTestRunReportWriter(config, sortedReasons);
             return saver.WriteToHtmlTestRunReport(testRun);
         }
         /// <summary>
@@ -176,14 +220,32 @@
             if(!sortedReasons.Contains("Failed"))
                 sortedReasons.Add("Failed");
 
-            var additionalReasons = testRun.Scenarios
+            var additionalScenarioReasons = testRun.Scenarios
                 .Select(scenario => scenario.Reason)
                 .Distinct()
                 .Where(reason => !sortedReasons.Contains(reason) && reason != null)
                 .OrderBy(reason => reason)
                 .ToList();
 
-            sortedReasons.InsertRange(0,additionalReasons);
+            sortedReasons.InsertRange(0,additionalScenarioReasons);
+
+            var additionalStepReasons = testRun.Scenarios.SelectMany(x => x.Steps)
+                .Select(step => step.Reason)
+                .Distinct()
+                .Where(reason => !sortedReasons.Contains(reason) && reason != null)
+                .OrderBy(reason => reason)
+                .ToList();
+
+            sortedReasons.InsertRange(0,additionalStepReasons);
+
+            sortedReasons.ForEach(reason => {
+                testRun.Scenarios.SelectMany(x => x.Steps)
+                    .Where(step => step.Reason == reason)
+                    .ToList().ForEach(step => {
+                        step.Scenario.Reason = reason;
+                    });
+                
+            });
 
             sortedReasons.ForEach(reason => {
                 testRun.Scenarios
@@ -292,8 +354,19 @@
                 scenario.Feature.Area.TestRun.AreaStats.ClearStats();
             });
             outcomes.ForEach(outcome => {
+                testRun.Scenarios.SelectMany(x => x.Steps)
+                    .Where(step => step.Outcome == outcome)
+                    .ToList().ForEach(step => {
+                        step.Scenario.Outcome = outcome;
+                        step.Scenario.Feature.Outcome = outcome;
+                        step.Scenario.Feature.Area.Outcome = outcome;
+                        testRun.Outcome = outcome;
+                    });
+            });
+
+            outcomes.ForEach(outcome => {
                 testRun.Scenarios
-                    .Where(scenario => scenario.Outcome == outcome)
+                    .Where(scenario => scenario.Outcome == outcome && scenario.Steps.Count == 0)
                     .ToList().ForEach(scenario => {
                         scenario.Feature.Outcome = outcome;
                         scenario.Feature.Area.Outcome = outcome;

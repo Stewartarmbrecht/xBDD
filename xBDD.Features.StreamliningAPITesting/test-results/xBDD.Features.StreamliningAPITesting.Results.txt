@@ -1,4 +1,4 @@
-xBDD - Features - Streamlining API Testing
+xBDD - Streamlining API Testing
 
 xBDD - Features - Streamlining API Testing - Issuing Requests [Defining]
 	Issue A Get [Defining]

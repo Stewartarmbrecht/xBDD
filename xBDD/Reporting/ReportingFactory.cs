@@ -1,4 +1,5 @@
-﻿using xBDD.Reporting.Html;
+﻿using System.Collections.Generic;
+using xBDD.Reporting.Html;
 using xBDD.Reporting.Text;
 using xBDD.Reporting.Code;
 using xBDD.Reporting.Outline;
@@ -22,13 +23,13 @@ namespace xBDD.Reporting
             return new CodeWriter();
         }
 
-        internal HtmlTestRunReportWriter GetHtmlTestRunReportWriter(string removeFromAreaNameStart, bool failuresOnly)
+        internal HtmlTestRunReportWriter GetHtmlTestRunReportWriter(TestRunReportConfiguration config, List<ReportReasonConfiguration> sortedReasonConfigurations)
         {
-            return new HtmlTestRunReportWriter(removeFromAreaNameStart, failuresOnly);
+            return new HtmlTestRunReportWriter(config, sortedReasonConfigurations);
         }
-        internal HtmlTestSummaryReportWriter GetHtmlTestSummaryReportWriter(string removeFromTestRunNameStart)
+        internal HtmlTestRunGroupReportWriter GetHtmlTestSummaryReportWriter(TestRunGroupReportConfiguration config, List<ReportReasonConfiguration> sortedReasonConfigurations)
         {
-            return new HtmlTestSummaryReportWriter(removeFromTestRunNameStart);
+            return new HtmlTestRunGroupReportWriter(config, sortedReasonConfigurations);
         }
     }
 }

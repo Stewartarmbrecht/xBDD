@@ -1,12 +1,17 @@
 {
-	"xBDD": {
-		"TestRunName": "xBDD - Generating Code",
-		"Browser": {
-			"Watch": "false"
-		},
-		"HtmlReport": {
-			"RemoveFromAreaNameStart": "xBDD - Features - Generating Code - ",
-			"FailuresOnly": "false"
-		}
-	}
+	"TestRunReport": {
+		"ReportName": "xBDD - Generating Code",
+		"ReportFolder": "/../../../test-results/",
+		"FileName": "xBDD.Features.GeneratingReports",
+		"FailuresOnly": "false",
+		"AreaNameSkip": "xBDD - Features - Generating Code - "
+	},
+	"SortedReasonConfigurations": [
+		{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
+		{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
+		{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
+		{"Reason": "Ready","BackgroundColor": "rgb(157,195,230)","FontColor": "White"},
+		{"Reason": "Defining","BackgroundColor": "rgb(222,235,247)","FontColor": "Black"},
+		{ "Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
+	]
 }

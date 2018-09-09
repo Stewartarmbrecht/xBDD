@@ -1,4 +1,4 @@
-xBDD - Features - Automating UI Testing
+xBDD - Automating UI Testing
 
 xBDD - Features - Automating UI Testing - Setup [Untested]
 	Setup A Test Project [Untested]

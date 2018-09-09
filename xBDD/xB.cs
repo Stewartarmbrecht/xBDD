@@ -1,9 +1,14 @@
 ﻿namespace xBDD
 {
     using System;
+	using System.Collections.Generic;
     using System.Runtime.CompilerServices;
+    using System.Runtime.Serialization.Json;
+	using System.Text;
     using System.Threading.Tasks;
 	using System.IO;
+	using System.Linq;
+	using System.Linq.Expressions;
     using xBDD.Core;
     using xBDD.Model;
     using xBDD.Utility;
@@ -140,39 +145,41 @@
 		/// Generates standard reports from a test run and 
 		/// Closes the shared web driver and 
 		/// </summary>
-		public static void Complete(string projectName, ISorting sorting, Action<string> writeOutput) {
+		public static void Complete(string configFilePath, List<string> sortedFeatureNames, Action<string> writeOutput) {
+			var config = Importing.Configuration.ConfigurationImporter.ImportConfiguration(configFilePath);
+
             xBDD.Browser.WebDriver.Close();
 
             var directory = System.IO.Directory.GetCurrentDirectory();
 
             xB.CurrentRun.TestRun.Name = Configuration.TestRunName;
 
-            System.IO.Directory.CreateDirectory($"{directory}/../../../test-results");
+            System.IO.Directory.CreateDirectory($"{directory}{config.TestRunReport.ReportFolder}");
 
-            xB.CurrentRun.TestRun.SortTestRunResults(sorting.GetSortedFeatureNames());
-            xB.CurrentRun.TestRun.UpdateParentReasonsAndStats(sorting.GetSortedReasons());
+            xB.CurrentRun.TestRun.SortTestRunResults(sortedFeatureNames);
+            xB.CurrentRun.TestRun.UpdateParentReasonsAndStats(config.SortedReasonConfigurations.Select(x => x.Reason).ToList());
 
-            var htmlPath = $"{directory}/../../../test-results/{projectName}.Results.html";
+            var htmlPath = $"{directory}{config.TestRunReport.ReportFolder}/{config.TestRunReport.FileName}.html";
             writeOutput("Writing Html Report to " + htmlPath);
-            var htmlReport = xB.CurrentRun.TestRun.WriteToHtmlTestRunReport(Configuration.RemoveFromAreaNameStart, Configuration.FailuresOnly);
+            var htmlReport = xB.CurrentRun.TestRun.WriteToHtmlTestRunReport(config.TestRunReport, config.SortedReasonConfigurations);
             File.WriteAllText(htmlPath, htmlReport);
 
-            var textPath = $"{directory}/../../../test-results/{projectName}.Results.txt";
+            var textPath = $"{directory}{config.TestRunReport.ReportFolder}/{config.TestRunReport.FileName}.txt";
             writeOutput("Writing Text Report to " + textPath);
             var textReport = xB.CurrentRun.TestRun.WriteToText();
             File.WriteAllText(textPath, textReport);
 
-            var textOutlinePath = $"{directory}/../../../test-results/{projectName}.Results.Outline.txt";
+            var textOutlinePath = $"{directory}{config.TestRunReport.ReportFolder}/{config.TestRunReport.FileName}.Outline.txt";
             writeOutput("Writing Text Outline Report to " + textOutlinePath);
             var textOutlineReport = xB.CurrentRun.TestRun.WriteToText(false);
             File.WriteAllText(textOutlinePath, textOutlineReport);
 
-            var jsonPath = $"{directory}/../../../test-results/{projectName}.Results.json";
+            var jsonPath = $"{directory}{config.TestRunReport.ReportFolder}/{config.TestRunReport.FileName}.json";
             writeOutput("Writing Json Report to " + jsonPath);
             var jsonReport = xB.CurrentRun.TestRun.WriteToJson();
             File.WriteAllText(jsonPath, jsonReport);
 
-            var opmlPath = $"{directory}/../../../test-results/{projectName}.Results.opml";
+            var opmlPath = $"{directory}{config.TestRunReport.ReportFolder}/{config.TestRunReport.FileName}.opml";
             writeOutput("Writing OPML Report to " + opmlPath);
             var opmlReport = xB.CurrentRun.TestRun.WriteToOpml();
             File.WriteAllText(opmlPath, opmlReport);

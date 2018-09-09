@@ -1,4 +1,4 @@
-xBDD - Features - Defining Features
+xBDD - Defining Features
 
 xBDD - Features - Defining Features - Defining Steps [Untested]
 	Adding Steps To A Scenario [Untested]

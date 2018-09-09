@@ -1,5 +1,6 @@
 ﻿namespace xBDD
 {
+	using System;
     using System.Globalization;
     using System.Threading.Tasks;
     using System.Linq;
@@ -28,10 +29,12 @@
         /// <param name="testRunGroup">The test run whose results you want to write to text.</param>
         /// <param name="testRunNameClip">The starting part of the test run names you want to remove.</param>
         /// <returns>String that is a multiline text format of the test results.</returns>
-        public static string WriteToHtmlSummaryReport(this xBDD.Model.TestRunGroup testRunGroup, string testRunNameClip = "")
+        public static string WriteToHtmlSummaryReport(this xBDD.Model.TestRunGroup testRunGroup, 
+			TestRunGroupReportConfiguration config,
+			List<ReportReasonConfiguration> sortedReasonConfigurations)
         {
             ReportingFactory factory = new ReportingFactory();
-            HtmlTestSummaryReportWriter saver = factory.GetHtmlTestSummaryReportWriter(testRunNameClip);
+            HtmlTestRunGroupReportWriter saver = factory.GetHtmlTestSummaryReportWriter(config, sortedReasonConfigurations);
             return saver.WriteToHtmlSummaryReport(testRunGroup);
         }
 
@@ -59,10 +62,18 @@
 				testRun.CalculateStartAndEndTimes();
             });
             if(testRunGroup.TestRuns.Count > 0) {
-                var testRunsStart = testRunGroup.TestRuns.OrderBy(testRun => testRun.StartTime);
-                testRunGroup.StartTime = testRunsStart.First().StartTime;
-                var testRunsEnd = testRunGroup.TestRuns.OrderByDescending(testRun => testRun.EndTime);
-                testRunGroup.EndTime = testRunsEnd.First().EndTime;
+                var earliest = testRunGroup.TestRuns
+					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
+					.OrderBy(testRun => testRun.StartTime)
+					.FirstOrDefault();
+				if(earliest != null)
+					testRunGroup.StartTime = earliest.StartTime;
+                var latest = testRunGroup.TestRuns
+					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
+					.OrderByDescending(testRun => testRun.EndTime)
+					.FirstOrDefault();
+				if(latest != null)
+					testRunGroup.EndTime = latest.StartTime;
             }
         }
 

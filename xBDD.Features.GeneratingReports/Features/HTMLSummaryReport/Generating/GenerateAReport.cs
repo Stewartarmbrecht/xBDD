@@ -22,11 +22,17 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating
 
 		string[] jsonReportFilePaths => new[] {
 			"./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json",
+			"./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html",
 			"./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json",
+			"./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.html",
 			"./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json",
+			"./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.html",
 			"./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json",
+			"./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.html",
 			"./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json",
-			"./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json"
+			"./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.html",
+			"./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json",
+			"./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.html"
 		};
 		string jsonReports => string.Join($",{Environment.NewLine}", jsonReportFilePaths);
 		string[] xbddSummaryCommandStart => new[] { "solution", "summarize", 
@@ -100,7 +106,8 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating
 				"--name", "My Sample - Features",
 				"--testrun-name-clip", "My Sample - Features - ", 
 				"--reason-order", "Untested, Committed, Ready, Defining",
-				"./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json"};
+				"./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json",
+				"./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html"};
 			Wrapper<string> output = new Wrapper<string>();
 			await xB.AddScenario(this, 2000)
 				.Given(you.DoNotHave("a summary report file", summaryReportPath))
@@ -122,7 +129,8 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating
 				"--name", "My Sample - Features",
 				"--testrun-name-clip", "My Sample - Features - ", 
 				"--reason-order", "Untested, Committed, Ready, Defining",
-				"./Missing.json"};
+				"./Missing.json",
+				"./Missing.html"};
 			Wrapper<string> output = new Wrapper<string>();
 			await xB.AddScenario(this, 2000)
 				.Given(you.DoNotHave("a summary report file", summaryReportPath))

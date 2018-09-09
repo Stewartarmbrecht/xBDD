@@ -2,6 +2,7 @@ namespace xBDD.Features.RunningScenarios
 {
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
+	using System.Collections.Generic;
 	using xBDD;
 
 	[TestClass]
@@ -16,7 +17,10 @@ namespace xBDD.Features.RunningScenarios
 		[AssemblyCleanup()]
 		public static void TestRunComplete()
 		{
-			xB.Complete("xBDD.Features.RunningScenarios", new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+			var sortedFeatureNames = new List<string>() {
+				typeof(xBDD.Features.RunningScenarios.InitialSetup.RunningMSTestProjectScenarios).FullName,
+			};
+			xB.Complete("xBDDConfig.json", sortedFeatureNames, (message) => { Logger.LogMessage(message); });
 		}
 	}
 }

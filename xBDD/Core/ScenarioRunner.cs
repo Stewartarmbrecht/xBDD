@@ -25,8 +25,10 @@ namespace xBDD.Core
         {
             scenario.StartTime = DateTime.Now;
             scenario.EndTime = scenario.StartTime;
-            if (scenario.Outcome == Outcome.NotRun)
+            if (scenario.Outcome == Outcome.NotRun) {
                 scenario.Outcome = Outcome.Passed;
+				scenario.Reason = "Passed";
+			}
             statsCascader.CascadeSkippedOrNotRunScenarioStats(scenario);
         }
 
@@ -49,6 +51,7 @@ namespace xBDD.Core
                         if(passWhenNoAction)
                         {
                             step.Outcome = Outcome.Passed;
+							step.Reason = "Passed";
                             step.StartTime = DateTime.Now;
                             step.EndTime = step.StartTime;
                             statsCascader.CascadeStepStats(step, false);

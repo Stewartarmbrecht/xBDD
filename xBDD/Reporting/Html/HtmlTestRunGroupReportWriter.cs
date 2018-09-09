@@ -11,16 +11,19 @@ namespace xBDD.Reporting.Html
     /// <summary>
     /// Writes the results of a test run to an HTML represenation.
     /// </summary>
-    public class HtmlTestSummaryReportWriter
+    public class HtmlTestRunGroupReportWriter
     {
         int areaCounter = 0;
         int featureCounter = 0;
         int scenarioCounter = 0;
         int stepCounter = 0;
-        string testRunNameSkip = "";
-		HtmlWriter hW = new HtmlWriter();
-        internal HtmlTestSummaryReportWriter(string testRunNameSkip) {
-            this.testRunNameSkip = testRunNameSkip;
+        TestRunGroupReportConfiguration config;
+		List<ReportReasonConfiguration> sortedReasonConfigurations;
+		HtmlWriter hW;
+        internal HtmlTestRunGroupReportWriter(TestRunGroupReportConfiguration config, List<ReportReasonConfiguration> sortedReasonConfigurations) {
+            this.config = config;
+			this.sortedReasonConfigurations = sortedReasonConfigurations;
+			this.hW = new HtmlWriter(this.sortedReasonConfigurations);
         }
 
         /// <summary>
@@ -28,12 +31,12 @@ namespace xBDD.Reporting.Html
         /// </summary>
         /// <param name="testRunGroup">The test run to write to HTML.</param>
         /// <returns>The HTML string representation of the test run results.</returns>
-        public string WriteToHtmlSummaryReport(TestRunGroup testRunGroup) {
+        public string WriteToHtmlSummaryReport(
+			TestRunGroup testRunGroup) 
+		{
             StringBuilder sb = new StringBuilder();
             
-			hW.WriteHeaderStart(testRunGroup.Name, sb);
-            hW.WriteStyles(sb);
-            hW.WriteHeaderEnd(sb);
+			hW.WriteHeader(sb, this.config);
 			hW.WriteBodyStart(sb);
             hW.WriteNavBarStart(sb, false);
             hW.WriteNavBarEnd(sb);
@@ -42,16 +45,22 @@ namespace xBDD.Reporting.Html
 			statistics.Add("Areas", testRunGroup.AreaStats);
 			statistics.Add("Features", testRunGroup.FeatureStats);
 			statistics.Add("Scenarios", testRunGroup.ScenarioStats);
+			Dictionary<string, Dictionary<string, int>> reasonStats = new Dictionary<string, Dictionary<string, int>>();
+			reasonStats.Add("Test Runs", testRunGroup.TestRunReasonStats);
+			reasonStats.Add("Areas", testRunGroup.AreaReasonStats);
+			reasonStats.Add("Features", testRunGroup.FeatureReasonStats);
+			reasonStats.Add("Scenarios", testRunGroup.ScenarioReasonStats);
 			hW.WriteBanner(
 				sb, 
-				testRunGroup.ScenarioStats.Total, 
-				testRunGroup.Outcome, 
-				testRunGroup.Reason, 
-				testRunGroup.Name,
-				"Test Runs", 
-				testRunGroup.StartTime, 
-				testRunGroup.EndTime, 
-				statistics);
+				"testrungroup", 
+				this.config.ReportName,
+				testRunGroup.Outcome,
+				testRunGroup.Reason,
+				testRunGroup.StartTime,
+				testRunGroup.EndTime,
+				statistics,
+				reasonStats
+				);
 			WriteTestRuns(testRunGroup, sb);
 			hW.WriteBodyEnd(sb);
             hW.WriteHtmlEnd(sb);
@@ -67,6 +76,10 @@ namespace xBDD.Reporting.Html
 				statistics.Add("Areas",testRun.AreaStats);
 				statistics.Add("Features",testRun.FeatureStats);
 				statistics.Add("Scenarios",testRun.ScenarioStats);
+				Dictionary<string, Dictionary<string, int>> reasonStats = new Dictionary<string, Dictionary<string, int>>();
+				reasonStats.Add("Areas",testRun.AreaReasonStats);
+				reasonStats.Add("Features",testRun.FeatureReasonStats);
+				reasonStats.Add("Scenarios",testRun.ScenarioReasonStats);
 				hW.WriteLineItemOpen(
 					sb,
 					"testrun",
@@ -81,6 +94,7 @@ namespace xBDD.Reporting.Html
 					"Areas",
 					testRun.AreaStats,
 					statistics,
+					reasonStats,
 					false);
 				hW.WriteLineItemClose(sb);
             }
