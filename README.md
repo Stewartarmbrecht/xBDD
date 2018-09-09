@@ -54,7 +54,7 @@ initial version of this platform is released.
 
 ### Active Focus
 
-* [Generating Code](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingCode/test-results/xBDD.Features.Generatingcode.Results.html) - Features for generating solutions (with multiple test projects), test projects and features.
+* [Generating Code](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingCode/test-results/xBDD.Features.Generatingcode.html) - Features for generating solutions (with multiple test projects), test projects and features.
 
 * [Generating Reports](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.html) - Features for generating reports.
 
