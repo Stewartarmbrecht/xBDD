@@ -1,36 +1,36 @@
-My Sample - Features - Test Run 5 Skipped Defining
+My Sample - Test Run 5 Skipped Defining
 
-My Sample - Features - Test Run 5 Skipped Defining - Area 1 Passing
-	Feature 1 Passing
-		Scenario 1 Passing
+My Sample - Features - Test Run 5 Skipped Defining - Area 1 Passing [Passed]
+	Feature 1 Passing [Passed]
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
 My Sample - Features - Test Run 5 Skipped Defining - Area 2 Skipped Untested [Untested]
-		Scenario 1 Passing
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
 	Feature 2 Skipped Untested [Untested]
-		Scenario 1 Passing
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested [Untested]
 My Sample - Features - Test Run 5 Skipped Defining - Area 3 Skipped Committed [Committed]
-	Feature 1 Passing
-		Scenario 1 Passing
+	Feature 1 Passing [Passed]
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
 	Feature 2 Skipped Untested [Untested]
-		Scenario 1 Passing
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested [Untested]
 	Feature 3 Skipped Committed [Committed]
-		Scenario 1 Passing
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
@@ -40,19 +40,19 @@ My Sample - Features - Test Run 5 Skipped Defining - Area 3 Skipped Committed [C
 			When Step 2 Skipped
 			Then Step 3 Skipped
 My Sample - Features - Test Run 5 Skipped Defining - Area 4 Skipped Ready [Ready]
-	Feature 1 Passing
-		Scenario 1 Passing
+	Feature 1 Passing [Passed]
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
 	Feature 2 Skipped Untested [Untested]
-		Scenario 1 Passing
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested [Untested]
 	Feature 3 Skipped Committed [Committed]
-		Scenario 1 Passing
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
@@ -62,7 +62,7 @@ My Sample - Features - Test Run 5 Skipped Defining - Area 4 Skipped Ready [Ready
 			When Step 2 Skipped
 			Then Step 3 Skipped
 	Feature 4 Skipped Ready [Ready]
-		Scenario 1 Passing
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
@@ -75,20 +75,20 @@ My Sample - Features - Test Run 5 Skipped Defining - Area 4 Skipped Ready [Ready
 			Given Step 1 Skipped
 			When Step 2 Skipped
 			Then Step 3 Skipped
-My Sample - Features - Test Run 5 Skipped Defining - Area 5 Skipped Defining [Ready]
-	Feature 1 Passing
-		Scenario 1 Passing
+My Sample - Features - Test Run 5 Skipped Defining - Area 5 Skipped Defining [Defining]
+	Feature 1 Passing [Passed]
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
 	Feature 2 Skipped Untested [Untested]
-		Scenario 1 Passing
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested [Untested]
 	Feature 3 Skipped Committed [Committed]
-		Scenario 1 Passing
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
@@ -98,7 +98,7 @@ My Sample - Features - Test Run 5 Skipped Defining - Area 5 Skipped Defining [Re
 			When Step 2 Skipped
 			Then Step 3 Skipped
 	Feature 4 Skipped Ready [Ready]
-		Scenario 1 Passing
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
@@ -111,8 +111,8 @@ My Sample - Features - Test Run 5 Skipped Defining - Area 5 Skipped Defining [Re
 			Given Step 1 Skipped
 			When Step 2 Skipped
 			Then Step 3 Skipped
-	Feature 5 Skipped Defining [Ready]
-		Scenario 1 Passing
+	Feature 5 Skipped Defining [Defining]
+		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing

@@ -1,5 +1,6 @@
 namespace MySample.Features.TestRun2SkippedUntested
 {
+	using System.Collections.Generic;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 	using xBDD;
@@ -16,7 +17,12 @@ namespace MySample.Features.TestRun2SkippedUntested
 		[AssemblyCleanup()]
 		public static void TestRunComplete()
 		{
-			xB.Complete("MySample.Features.TestRun2SkippedUntested", new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+			var features = new List<string>() {
+				typeof(MySample.Features.TestRun2SkippedUntested.Area1Passing.Feature1Passing).FullName,
+				typeof(MySample.Features.TestRun2SkippedUntested.Area2SkippedUntested.Feature1Passing).FullName,
+				typeof(MySample.Features.TestRun2SkippedUntested.Area2SkippedUntested.Feature2SkippedUntested).FullName,
+			};
+			xB.Complete("xBDDConfig.json", features, (message) => { Logger.LogMessage(message); });
 		}
 	}
 }

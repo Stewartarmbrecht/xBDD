@@ -245,10 +245,10 @@ namespace xBDD.Utility
             if(this.featureAssignments != null) {
                 assignments.AddRange(this.featureAssignments);
             } else if(methodBase != null){
-                var attr = methodBase.GetCustomAttribute<AssignmentsAttribute>();
+                var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<AssignmentsAttribute>();
                 if(attr != null)
                     assignments.AddRange(attr.GetNames());
-				var gattr = methodBase.GetCustomAttribute<Generated_AssignmentsAttribute>();
+				var gattr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<Generated_AssignmentsAttribute>();
 				if(gattr != null)
 					gattr.GetNames().ToList().ForEach(x => {
 						if(!assignments.Contains(x)) {
@@ -265,10 +265,10 @@ namespace xBDD.Utility
             if(this.featureTags != null) {
                 tags.AddRange(this.featureTags);
             } else if(methodBase != null){
-                var attr = methodBase.GetCustomAttribute<TagsAttribute>();
+                var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<TagsAttribute>();
                 if(attr != null)
                     tags.AddRange(attr.GetTags());
-				var gattr = methodBase.GetCustomAttribute<Generated_TagsAttribute>();
+				var gattr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<Generated_TagsAttribute>();
 				if(gattr != null)
 					gattr.GetTags().ToList().ForEach(x => {
 						if(!tags.Contains(x)) {

@@ -1,0 +1,198 @@
+My Sample - Test Run 6 Failed
+
+My Sample - Features - Test Run 6 Failed - Area 1 Passing [Passed]
+	Feature 1 Passing [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+My Sample - Features - Test Run 6 Failed - Area 2 Skipped Untested [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+	Feature 2 Skipped Untested [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+My Sample - Features - Test Run 6 Failed - Area 3 Skipped Committed [Passed]
+	Feature 1 Passing [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+	Feature 2 Skipped Untested [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+	Feature 3 Skipped Committed [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Committed [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+My Sample - Features - Test Run 6 Failed - Area 4 Skipped Ready [Passed]
+	Feature 1 Passing [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+	Feature 2 Skipped Untested [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+	Feature 3 Skipped Committed [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Committed [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+	Feature 4 Skipped Ready [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Committed [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 4 Skipped Ready [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+My Sample - Features - Test Run 6 Failed - Area 5 Skipped Defining [Defining]
+	Feature 1 Passing [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+	Feature 2 Skipped Untested [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+	Feature 3 Skipped Committed [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Committed [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+	Feature 4 Skipped Ready [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Committed [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 4 Skipped Ready [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+	Feature 5 Skipped Defining [Defining]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Committed [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 4 Skipped Ready [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 5 Skipped Defining [Defining]
+My Sample - Features - Test Run 6 Failed - Area 6 Failed [Failed]
+	Feature 1 Passing [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+	Feature 2 Skipped Untested [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+	Feature 3 Skipped Committed [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Committed [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+	Feature 4 Skipped Ready [Passed]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Committed [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 4 Skipped Ready [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+	Feature 5 Skipped Defining [Defining]
+		Scenario 1 Passing [Passed]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Committed [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 4 Skipped Ready [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 5 Skipped Defining [Defining]
+	Feature 6 Failed [Failed]
+		Scenario 1 Passing [Scenario Skipped]
+			Given Step 1 Passing
+			When Step 2 Passing
+			Then Step 3 Passing
+		Scenario 2 Skipped Untested [Untested]
+		Scenario 3 Skipped Committed [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 4 Skipped Ready [Scenario Skipped]
+			Given Step 1 Skipped
+			When Step 2 Skipped
+			Then Step 3 Skipped
+		Scenario 5 Skipped Defining [Defining]
+		Scenario 6 Failed [Failed]
+			Given Step 1 Passed [Passed]
+			When Step 2 Failed [Failed]
+			Then Step 3 Skipped [Skipped - Previous Error]

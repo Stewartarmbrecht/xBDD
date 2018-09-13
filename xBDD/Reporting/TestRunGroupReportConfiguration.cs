@@ -6,7 +6,7 @@ namespace xBDD.Reporting
 	{
 		public string ReportName { get; set; }
 		public string FileName { get; set; }
-		public string TestRunNameSkip { get; set; }
+		public string RootNameSkip { get; set; }
 		public List<TestRunGroupReportTestRunConfiguration> TestRunConfigurations { get; set; }
 	}
 }

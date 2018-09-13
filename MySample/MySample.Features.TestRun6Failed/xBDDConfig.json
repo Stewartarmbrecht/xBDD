@@ -1,12 +1,18 @@
 {
-	"xBDD": {
-		"TestRunName": "My Sample - Features - Test Run 6 Failed",
-		"Browser": {
-			"Watch": "false"
-		},
-		"HtmlReport": {
-			"RemoveFromAreaNameStart": "My Sample - Features - Test Run 6 Failed - ",
-			"FailuresOnly": "false"
-		}
-	}
+	"TestRunReport": {
+		"ReportName": "My Sample - Test Run 6 Failed",
+		"ReportFolder": "/../../../test-results/",
+		"FileName": "MySample.Features.TestRun6Failed.Results",
+		"FailuresOnly": "false",
+		"RootNameSkip": "My Sample - Features - Test Run 6 Failed - "
+	},
+	"SortedReasonConfigurations": [
+		{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
+		{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
+		{"Reason": "Untested","BackgroundColor": "rgb(237,125,49)","FontColor": "White"},
+		{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
+		{"Reason": "Ready","BackgroundColor": "rgb(157,195,230)","FontColor": "White"},
+		{"Reason": "Defining","BackgroundColor": "rgb(222,235,247)","FontColor": "Black"},
+		{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
+	]
 }

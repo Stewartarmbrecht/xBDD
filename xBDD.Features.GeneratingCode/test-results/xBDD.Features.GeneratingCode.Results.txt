@@ -1,4 +1,4 @@
-
+xBDD - Generating Code
 
 xBDD - Features - Generating Code - Generating Project Files [Failed]
 	For An MS Test Project [Failed]
@@ -368,7 +368,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Failed]
+xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Passed]
 	With An Invalid Outline [Passed]
 		With Invalid Characters In Area Name [Passed]
 			Given you have an empty directory
@@ -1169,7 +1169,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 2: '		Invalid Line'
 				Explanation: An area line can only be followed by an indented 'Explanation' header or 
 				             indented Feature line.
-	For An MS Test Project [Failed]
+	For An MS Test Project [Passed]
 		With An Empty Scenario [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
@@ -1310,33 +1310,18 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Then Step [Failed]
-			Given you have an empty directory [Passed]
-			And add a scenario outline file with the following content: [Failed]
+		With A Then Step [Passed]
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
 							When Step 2
 							Then Step 3
-				Error Type: UnauthorizedAccessException
-				   Message: Access to the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\xBDDFeatureImport.txt' is denied.
-				     Stack:    at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-				               at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-				               at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-				               at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize)
-				               at System.IO.StreamWriter..ctor(String path)
-				               at System.IO.File.WriteAllText(String path, String contents)
-				               at xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeatureImportFile.ForAnMSTestProject.<>c__DisplayClass4_0.<ExecuteStep>b__0(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\Features\GeneratingFeatureFiles\UsingAnXbddFeatureImportFile\ForAnMSTestProject.cs:line 29
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-			When you run the command: [Skipped - Previous Error]
+			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template: [Skipped - Previous Error]
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
 				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -1595,33 +1580,18 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Step Input Single Line With Quotes [Failed]
-			Given you have an empty directory [Passed]
-			And add a scenario outline file with the following content: [Failed]
+		With A Step Input Single Line With Quotes [Passed]
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
 				My Area 1 - My Sub Area 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
 								Input
 									Here Is "My" Single Line Input
-				Error Type: UnauthorizedAccessException
-				   Message: Access to the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\xBDDFeatureImport.txt' is denied.
-				     Stack:    at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-				               at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-				               at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-				               at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize)
-				               at System.IO.StreamWriter..ctor(String path)
-				               at System.IO.File.WriteAllText(String path, String contents)
-				               at xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeatureImportFile.ForAnMSTestProject.<>c__DisplayClass4_0.<ExecuteStep>b__0(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\Features\GeneratingFeatureFiles\UsingAnXbddFeatureImportFile\ForAnMSTestProject.cs:line 29
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-			When you run the command: [Skipped - Previous Error]
+			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template: [Skipped - Previous Error]
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
 				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;

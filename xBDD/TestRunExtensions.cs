@@ -220,32 +220,45 @@
             if(!sortedReasons.Contains("Failed"))
                 sortedReasons.Add("Failed");
 
+			testRun.Scenarios.ForEach(scenario => {
+				scenario.Steps.ForEach(step => {
+					switch(step.Reason) {
+						case "Passed":
+							scenario.Reason = "Passed";
+						break;
+						case "Previous Error":
+							scenario.Reason = "Failed";
+						break;
+						case "Scenario Skipped":
+							// do nothing because reason would be set when the scenario was skipped.
+						break;
+						case "No Action":
+							scenario.Reason = "Failed";
+						break;
+						case "Exception Thrown":
+							scenario.Reason = "Failed";
+						break;
+					}
+				});
+			});
+
             var additionalScenarioReasons = testRun.Scenarios
                 .Select(scenario => scenario.Reason)
-                .Distinct()
                 .Where(reason => !sortedReasons.Contains(reason) && reason != null)
+                .Distinct()
                 .OrderBy(reason => reason)
                 .ToList();
 
-            sortedReasons.InsertRange(0,additionalScenarioReasons);
+            sortedReasons.InsertRange(0,additionalScenarioReasons.Distinct());
 
-            var additionalStepReasons = testRun.Scenarios.SelectMany(x => x.Steps)
-                .Select(step => step.Reason)
-                .Distinct()
-                .Where(reason => !sortedReasons.Contains(reason) && reason != null)
-                .OrderBy(reason => reason)
-                .ToList();
+            // var additionalStepReasons = testRun.Scenarios.SelectMany(x => x.Steps)
+            //     .Select(step => step.Reason)
+            //     .Distinct()
+            //     .Where(reason => !sortedReasons.Contains(reason) && reason != null)
+            //     .OrderBy(reason => reason)
+            //     .ToList();
 
-            sortedReasons.InsertRange(0,additionalStepReasons);
-
-            sortedReasons.ForEach(reason => {
-                testRun.Scenarios.SelectMany(x => x.Steps)
-                    .Where(step => step.Reason == reason)
-                    .ToList().ForEach(step => {
-                        step.Scenario.Reason = reason;
-                    });
-                
-            });
+            // sortedReasons.InsertRange(0,additionalStepReasons);
 
             sortedReasons.ForEach(reason => {
                 testRun.Scenarios
@@ -274,11 +287,12 @@
             });
 
             sortedReasons.ForEach(reason => {
-                testRun.Scenarios.
-                    Select(scenario => scenario.Feature)
-                    .ToList()
-                    .Where(feature => feature.Reason == reason)
-                    .ToList().ForEach(feature => {
+                testRun.Scenarios
+                    .Where(scenario => scenario.Feature.Reason == reason)
+                    .Select(scenario => scenario.Feature)
+					.Distinct()
+					.ToList()
+					.ForEach(feature => {
                         if(feature.Area.FeatureReasonStats.Keys.Contains(reason)) {
                             feature.Area.FeatureReasonStats[reason] = feature.Area.FeatureReasonStats[reason] + 1;
                         } else {
@@ -421,5 +435,34 @@
 
             testRun.Sorted = true;
         }
+        /// <summary>
+        /// Cascades the scenario skipped reasons up the hierarchy.
+        /// Also calculates the count of children for each skipped reason.
+        /// </summary>
+        /// <param name="sortedReasons">The list of reasons sorted from least to highest precedent.
+        /// <param name="sortedFeatureFullNames">The list of feature full name sorted in the order they should appear.
+        /// <param name="testRun">The test run group to update parent reasons and stats for.</param> 
+        /// A parent that has both reasons will assume the reason with the highest precedent.</param>
+        public static void CalculatProperties(this xBDD.Model.TestRun testRun, List<string> sortedReasons, List<string> sortedFeatureFullNames)
+        {
+			testRun.CalculateStartAndEndTimes();
+			testRun.UpdateParentReasonsAndStats(sortedReasons);
+			testRun.UpdateStats();
+			testRun.SortTestRunResults(sortedFeatureFullNames);
+		}
+
+		public static List<ReportReasonConfiguration> GetSortedReasons(this xBDD.Model.TestRun testRun, xBDDConfiguration config) {
+			var reasonConfigs = config.SortedReasonConfigurations.Select(x => x).ToList();
+			var configuredReasonSortNames = config.SortedReasonConfigurations.Select(x => x.Reason).ToList();
+			var additionalTestRunReasons = testRun.Scenarios
+				.Where(x => !configuredReasonSortNames.Contains(x.Reason))
+				.Select(x => x.Reason)
+				.Distinct();
+			foreach(var additionalReason in additionalTestRunReasons) {
+				reasonConfigs.Insert(0, new ReportReasonConfiguration() {Reason = additionalReason, FontColor="White", BackgroundColor="Gray"});
+			}
+
+			return reasonConfigs;
+		}
     }
 }

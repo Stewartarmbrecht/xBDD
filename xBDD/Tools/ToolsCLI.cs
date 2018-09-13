@@ -180,7 +180,7 @@ namespace xBDD.Tools
 						var reasons = string.Join(",",config.SortedReasonConfigurations.Select(x=>x.Reason).ToArray());
 						console.WriteLine($"Output: {config.TestRunGroupReport.FileName}");
 						console.WriteLine($"Name: {config.TestRunGroupReport.ReportName}");
-						console.WriteLine($"TestRunNameClip: {config.TestRunGroupReport.TestRunNameSkip}");
+						console.WriteLine($"TestRunNameClip: {config.TestRunGroupReport.RootNameSkip}");
 						console.WriteLine($"Reasons: {reasons}");
 						foreach(var testRunConfiguration in config.TestRunGroupReport.TestRunConfigurations) {
 							var jsonReport = testRunConfiguration.JsonFilePath;

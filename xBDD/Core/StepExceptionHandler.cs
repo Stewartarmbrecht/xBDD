@@ -29,7 +29,7 @@ namespace xBDD.Core
         {
             step.EndTime = DateTime.Now;
             step.Outcome = Outcome.Failed;
-            step.Reason = "Failed - Not Implemented";
+            step.Reason = "Not Implemented";
             step.Exception = ex;
             if (scenario.Reason == null)
                 scenario.Reason = "Failed";
@@ -40,7 +40,7 @@ namespace xBDD.Core
         {
             step.EndTime = DateTime.Now;
             step.Outcome = Outcome.Failed;
-            step.Reason = "Failed";
+            step.Reason = "Exception Thrown";
             step.Exception = ex;
             if (scenario.Reason == null)
                 scenario.Reason = "Failed";

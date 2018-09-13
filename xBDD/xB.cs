@@ -152,16 +152,15 @@
 
             var directory = System.IO.Directory.GetCurrentDirectory();
 
-            xB.CurrentRun.TestRun.Name = Configuration.TestRunName;
+            xB.CurrentRun.TestRun.Name = config.TestRunReport.ReportName;
 
             System.IO.Directory.CreateDirectory($"{directory}{config.TestRunReport.ReportFolder}");
 
-            xB.CurrentRun.TestRun.SortTestRunResults(sortedFeatureNames);
-            xB.CurrentRun.TestRun.UpdateParentReasonsAndStats(config.SortedReasonConfigurations.Select(x => x.Reason).ToList());
+            xB.CurrentRun.TestRun.CalculatProperties(config.SortedReasonConfigurations.Select(x => x.Reason).ToList(), sortedFeatureNames);
 
             var htmlPath = $"{directory}{config.TestRunReport.ReportFolder}/{config.TestRunReport.FileName}.html";
             writeOutput("Writing Html Report to " + htmlPath);
-            var htmlReport = xB.CurrentRun.TestRun.WriteToHtmlTestRunReport(config.TestRunReport, config.SortedReasonConfigurations);
+            var htmlReport = xB.CurrentRun.TestRun.WriteToHtmlTestRunReport(config.TestRunReport, xB.CurrentRun.TestRun.GetSortedReasons(config));
             File.WriteAllText(htmlPath, htmlReport);
 
             var textPath = $"{directory}{config.TestRunReport.ReportFolder}/{config.TestRunReport.FileName}.txt";

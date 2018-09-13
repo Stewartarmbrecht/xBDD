@@ -1,5 +1,6 @@
 namespace MySample.Features.TestRun1Passing
 {
+	using System.Collections.Generic;
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 	using xBDD;
@@ -16,7 +17,10 @@ namespace MySample.Features.TestRun1Passing
 		[AssemblyCleanup()]
 		public static void TestRunComplete()
 		{
-			xB.Complete("MySample.Features.TestRun1Passing", new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+			var features = new List<string>() {
+				typeof(MySample.Features.TestRun1Passing.Area1PassingWithAllFeaturesExercised.Feature1Passing).FullName,
+			};
+			xB.Complete("xBDDConfig.json", features, (message) => { Logger.LogMessage(message); });
 		}
 	}
 }

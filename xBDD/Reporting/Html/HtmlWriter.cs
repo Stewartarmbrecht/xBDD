@@ -8,122 +8,114 @@ using xBDD.Utility;
 
 namespace xBDD.Reporting.Html
 {
-    /// <summary>
-    /// Writes the results of a test run to an HTML represenation.
-    /// </summary>
-    public class HtmlWriter
-    {
+	/// <summary>
+	/// Writes the results of a test run to an HTML represenation.
+	/// </summary>
+	public class HtmlWriter
+	{
 		List<ReportReasonConfiguration> sortedReasons;
-		public HtmlWriter(List<ReportReasonConfiguration> sortedReasons) {
+		ITestRunReportConfiguration config;
+		int lineItemNumber = 0;
+		public HtmlWriter(List<ReportReasonConfiguration> sortedReasons, ITestRunReportConfiguration config) {
 			this.sortedReasons = sortedReasons;
+			this.config = config;
 		}
-        internal void WriteHtmlStart(StringBuilder sb)
-        {
-            sb.AppendLine(@"
+		internal void WriteHtmlStart(StringBuilder sb)
+		{
+			sb.AppendLine(@"
 				<!DOCTYPE html>
 					<html>".RemoveIndentation(4, true));
-        }
-        internal void WriteHtmlEnd(StringBuilder sb)
-        {
-            sb.Append("</html>");
-        }
-        internal void WriteHeader(StringBuilder sb, ITestRunReportConfiguration config)
-        {
-            sb.AppendLine($@"
+		}
+		internal void WriteHtmlEnd(StringBuilder sb)
+		{
+			sb.Append("</html>");
+		}
+		internal void WriteHeader(StringBuilder sb)
+		{
+			sb.AppendLine($@"
 					<head>
-            			<meta charset=""utf-8"" />
-            			<meta name=""viewport"" content=""width=device-width, initial-scale=1"" />
+						<meta charset=""utf-8"" />
+						<meta name=""viewport"" content=""width=device-width, initial-scale=1"" />
 						<title>{config.ReportName.HtmlEncode()}</title>
-            			<link rel=""stylesheet"" 
+						<link rel=""stylesheet"" 
 							href=""https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"" 
 							integrity=""sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=\"" 
 							crossorigin=""anonymous"" />
-            			<link rel=""stylesheet"" 
+						<link rel=""stylesheet"" 
 							href=""https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"" 
 							integrity=""sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"" crossorigin=""anonymous"">
-            					   <style>
+								   <style>
 
 										/* General */
 
-										.container {{ padding: 0rem; margin: 0rem; }}
-
-										span.badge-distro {{ display: inline-block; vertical-align: bottom; }}
-										span.badge {{ margin-left: .25rem; background-color: gray; position: absolute; border: 1px white solid; }}
-										span.name {{ vertical-align: top; }}
-										span.distro {{ display: inline-block; border: 1px solid white; }}
-										span.status {{ font-size: 1rem; color: gray; vertical-align: text-top; }}
-										span.reason {{ font-size: 1rem; color: gray; vertical-align: text-top; }}
-										span.duration {{ font-size: 1rem; color: gray; vertical-align: text-top; }}
+										.container-fluid {{ padding: 0rem; margin: 0rem; }}
+										.flip {{-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: ""FlipH"";}}
 
 										.pointer {{ cursor: pointer }}
-										span.oi.oi-info {{ font-size: 80% }}
-
-										h2 {{ margin: 1rem 0rem 0rem 0rem; font-size: 1.5rem; font-weight: 400; border-top: rgb(68,114,198) solid 1px; padding: 1rem 0rem 0rem 0rem; }}
-										h3 {{ margin: .75rem 0rem 0rem 0rem; font-size: 1.25rem; font-weight: 400; }}
-										h4 {{ margin: .5rem 0rem 0rem 0rem; font-size: 1.25rem; font-weight: 400; }}
-										h5 {{ margin: .25rem 0rem 0rem 0rem; font-size: 1rem; }}
-
-										/* Stats */
-
-										.table {{ margin: 0px !important; }}
-										.table th, .table td {{ border-top: none !important; line-height: 1 !important; padding: 0px 2px !important; }}
-										td.graph td {{ padding: 0px !important; }}
-										.table td.bar {{ padding: 0px !important; }}
-			
-								   		/* Report */
-										
-										h1.report-name {{ margin: .5rem 0rem 0rem 0rem; }}
-										span.report.badge-distro {{ width: 6rem; height: 3rem; }}
-										span.report.badge {{ width: 4.5rem; height: 3rem; }}
-										span.report.distro {{ width: 3rem; height: 3rem; margin-left: 3rem; }}
-										span.report.name {{ margin-left: .75rem; }}
-
-										div#report-dates {{ margin: 0rem 0rem .5rem 5rem; }}
-
-										/* Test Run */
 
 										ol.testruns {{ margin: 1rem 0rem 1rem 0rem; }}
-										span.testrun.badge-distro {{ width: 6rem; height: 2rem; }}
-										span.testrun.badge {{ width: 4.5rem; height: 2rem; }}
-										span.testrun.distro {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
-										span.testrun.name {{ margin-left: .75rem; }}
-
-										/* Area */
-
 										ol.areas {{ margin: 1rem 0rem 1rem 0rem; }}
-										span.area.badge-distro {{ width: 6rem; height: 2rem; }}
-										span.area.badge {{ width: 4.5rem; height: 2rem; }}
-										span.area.distro {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
-										span.area.name {{ color: rgb(68,114,198); }}
-
-										/* Feature */
-
 										ol.features {{ margin: 1rem 0rem 1rem 0rem; }}
-										span.feature.badge-distro {{ width: 6rem; height: 2rem; }}
-										span.feature.badge {{ width: 4.5rem; height: 1.5rem; }}
-										span.feature-statement-link.badge {{ position: inherit; width: 1.5rem; height: 1.5rem; vertical-align: top; }}
-										span.feature.distro {{ width: 3rem; height: 1.5rem; margin-left: 3rem; }}
-										span.feature.name {{ margin-left: .75rem; color: rgb(68,114,198); }}
-										pre.feature-statement {{ margin: 0rem 0rem 1rem 3rem; padding: .5rem; }}
-
-										/* Scenario */
-
 										ol.scenarios {{ margin: 1rem 0rem 1rem 0rem; }}
-										span.scenario.badge {{ width: 3rem; margin-left: 3rem; position: inherit; }}
-										span.scenario.name {{ margin-left: .75rem; vertical-align: middle; font-style: italic; color: rgb(68,114,198) }}
-										span.scenario.reason {{ vertical-align: middle; }}
-										span.scenario.duration {{ vertical-align: middle; }}
-
-										/* Step */
-
 										ol.steps {{ margin: 1rem 0rem 1rem 0rem;}}
-										span.step.badge {{ width: 2rem; margin-left: 4rem; position: inherit; }}
-										span.step.name {{ margin-left: .75rem; font-weight: 400; }}
+
+										li.testrun {{ margin: 1rem 0rem 0rem 0rem; padding: 1rem 0rem 0rem 0rem; }}
+										li.area {{ margin: 1rem 0rem 0rem 0rem; border-top: rgb(68,114,198) solid 1px; padding: 1rem 0rem 0rem 0rem; }}
+										li.feature {{ margin: .75rem 0rem 0rem 0rem; }}
+										li.scenario {{ margin: .5rem 0rem 0rem 0rem; }}
+										li.step {{ margin: .25rem 0rem 0rem 0rem; }}
+
+										div.badge-distro {{ display: inline-block; vertical-align: middle; }}
+										div.testrun.badge-distro {{ width: 6rem; height: 2rem; }}
+										div.area.badge-distro {{ width: 6rem; height: 2rem; }}
+										div.feature.badge-distro {{ width: 6rem; height: 2rem; }}
+										div.scenario.badge-distro {{ width: 6rem; height: 1.5rem; }}
+										div.step.badge-distro {{ width: 6rem; height: 1rem; }}
+
+										div.badge {{ background-color: #80808029; border: 1px white solid; width: 1.5rem; height: 1.5rem; vertical-align: middle; }}
+										div.badge:hover {{ background-color: #4343af }}
+										div.testrun.badge {{ width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }}
+										div.area.badge {{ width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }}
+										div.feature.badge {{ width: 4rem; margin-left: .25rem; height: 1.75rem; position: absolute; font-size: 1rem;  }}
+										div.scenario.badge {{ width: 3rem; margin-left: .75rem; position: inherit; }}
+										div.step.badge {{ width: 2rem; margin-left: 1.25rem; position: inherit; }}
+
 										span.step.reason {{ font-size: 1rem; color: gray; font-weight: 100; }}
-										span.step.duration {{ font-size: 1rem; color: gray; font-weight: 100; }}
+
+										div.distro {{ display: inline-block; border: 1px solid white; }}
+										div.testrun.distro {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
+										div.area.distro {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
+										div.feature.distro {{ width: 3rem; height: 1.75rem; margin-left: 3rem; }}
+
+										div.feature-statement-link.badge {{ position: inherit; width: 1.5rem; height: 1.5rem; vertical-align: top; }}
 										a.step-input-link {{ font-size: 1rem; color: gray !important; vertical-align: text-top; font-weight: 100; }}
 										a.step-output-link {{ font-size: 1rem; color: gray !important; vertical-align: text-top; font-weight: 100; }}
 										a.step-error-link {{ font-size: 1rem; color: gray !important; vertical-align: text-top; font-weight: 100; }}
+
+										span.name {{ vertical-align: top; }}
+										span.testrun.name {{ font-size: 2rem; font-weight: 400; margin-left: .75rem; }}
+										span.area.name {{ font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }}
+										span.feature.name {{ font-size: 1.25rem; font-weight: 400; color: rgb(68,114,198); }}
+										span.scenario.name {{ font-size: 1.25rem; font-weight: 400; vertical-align: middle; font-style: italic; color: rgb(68,114,198) }}
+										span.step.name {{ font-size: 1rem;  font-weight: 400; }}
+
+										span.assignments {{ vertical-align: sub; color: Gray; font-size: .75rem; }}
+										span.tags {{ vertical-align: sub; color: Gray; font-size: .75rem; }}
+
+										div.reason-duration {{ font-size: 1rem; color: gray; vertical-align: text-top; white-space: nowrap; }}
+										span.step.reason-duration {{ font-size: 1rem; color: gray; font-weight: 100; }}
+
+										span.step.duration {{ font-size: 1rem; color: gray; font-weight: 100; }}
+
+										/* Stats */
+
+										.table {{ margin: 2px !important; }}
+										.table th, .table td {{ border-top: none !important; line-height: 1 !important; padding: 0px 10px !important; }}
+										td.graph td {{ padding: 0px !important; }}
+										.table td.bar {{ padding: 0px !important; }}
+										li.stats {{ margin-top: .5rem; }}
+			
+										div#report-dates {{ margin: 0rem 0rem .5rem 5rem; }}
 
 										/* Exceptions */
 
@@ -142,251 +134,364 @@ namespace xBDD.Reporting.Html
 										.linenums li {{ list-style-type: decimal !iinputortant;}}".RemoveIndentation(4,true));
 			this.sortedReasons.ForEach(reason => {
 				sb.AppendLine($@"
-										.badge.{reason.Reason} {{ background-color: {reason.BackgroundColor}; color: {reason.FontColor};}}".RemoveIndentation(5,true));
+										.badge.{reason.Reason} {{ background-color: {reason.BackgroundColor}; color: {reason.FontColor};}}".RemoveIndentation(4,true));
 			});
 			sb.AppendLine(@"
 									</style>
 								</header>".RemoveIndentation(4,true));
-        }
+		}
 
-        internal void WriteBodyStart(StringBuilder sb)
-        {
-            WriteTagOpen("body", sb, 0, "container-fluid", false);
-        }
-
-        internal void WriteBodyEnd(StringBuilder sb)
+		internal void WriteBodyStart(StringBuilder sb)
 		{
-			//            sb.AppendLine("    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>");
-			//            sb.AppendLine("    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>");
-			//            sb.AppendLine("    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\" integrity=\"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy\" crossorigin=\"anonymous\"></script>");
+			sb.AppendLine($@"
+				<body>
+					<script language=""javascript"" type=""text/javascript"">
+						function resizeIframe(obj) {{ 
+							obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; 
+						}}
+					</script>".RemoveIndentation(4,true));
+		}
+
+		internal void WriteBodyEnd(StringBuilder sb)
+		{
 			sb.AppendLine(@"
 					<script>
-						function toggleVisibility(elementId) {{
+						function toggleVisibility(elementId, resize, iFrameId) {{
 							var x = document.getElementById(elementId);
 							if (x.style.display === ""none"") {{
 								x.style.display = ""block"";
+								if(resize) {
+									resizeIframe(document.getElementById(iFrameId));
+								}
 							}} else {{
 								x.style.display = ""none"";
 							}}
 						}}
 					</script>
 					<script src=""https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js""></script>
-					<script language=""javascript"" type=""text/javascript"">
-						function resizeIframe(obj) { 
-							obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; 
-						}
-					</script>
 				</body>".RemoveIndentation(4, true));
-        }
-
-        internal void WriteNavBarStart(StringBuilder sb, bool failuresOnly)
-        {
-            var failuresOnlyText = "";
-            if(failuresOnly) {
-                failuresOnlyText = " [Failures Only]";
-            }
-            sb.Append($@"
-                    <nav class=""navbar navbar-expand-lg navbar-light bg-light"">
-                        <a class=""navbar-brand"" href=""#"">xBDD Test Results{failuresOnlyText}</a>
-                        <button id=""menu-button"" 
-                            class=""navbar-toggler"" 
-                            type=""button"" 
-                            data-toggle=""collapse"" 
-                            data-target=""#navbarNavAltMarkup"" 
-                            aria-controls=""navbarNavAltMarkup"" 
-                            aria-expanded=""false"" 
-                            aria-label=""Toggle navigation"">
-                            <span class=""navbar-toggler-icon""></span>
-                        </button>
-                        <div class=""collapse navbar-collapse"" id=""navbarNavAltMarkup"">
-                            <div class=""navbar-nav"">".RemoveIndentation(4, true));
-        }
-
-        internal void WriteNavBarEnd(StringBuilder sb)
-        {
-            sb.Append($@"
-                            </div>
-                        </div>
-                    </nav>".RemoveIndentation(4, true));
-        }
-
-		internal void WriteDuration(StringBuilder sb, DateTime endTime, DateTime startTime, string objectTypeName) {
-            var duration = endTime - startTime;
-            var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
-            formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
-			sb.Append($@"
-				<span class=""{objectTypeName} duration"">[{formattedDuration} ms]</span>".RemoveIndentation(4,true));
 		}
 
-		internal void WriteReason(StringBuilder sb, string objectType, string reason) {
-            if(reason != null) {
-                sb.AppendLine($@"
-								<span class=""{objectType} reason col-1"">[{reason.HtmlEncode()}]</span>".RemoveIndentation(5,true));
-            } else {
-				sb.AppendLine($@"<span class=""col-1""></span>");
+		internal void WriteNavBarStart(StringBuilder sb, bool failuresOnly)
+		{
+			var failuresOnlyText = "";
+			if(failuresOnly) {
+				failuresOnlyText = " [Failures Only]";
 			}
+			sb.Append($@"
+					<nav class=""navbar navbar-expand-lg navbar-light bg-light"">
+						<a class=""navbar-brand"" href=""#"">xBDD Test Results{failuresOnlyText}</a>
+						<button id=""menu-button"" 
+							class=""navbar-toggler"" 
+							type=""button"" 
+							data-toggle=""collapse"" 
+							data-target=""#navbarNavAltMarkup"" 
+							aria-controls=""navbarNavAltMarkup"" 
+							aria-expanded=""false"" 
+							aria-label=""Toggle navigation"">
+							<span class=""navbar-toggler-icon""></span>
+						</button>
+						<div class=""collapse navbar-collapse"" id=""navbarNavAltMarkup"">
+							<div class=""navbar-nav"">".RemoveIndentation(4, true));
+		}
+
+		internal void WriteNavBarEnd(StringBuilder sb)
+		{
+			sb.Append($@"
+							</div>
+						</div>
+					</nav>".RemoveIndentation(4, true));
+		}
+		internal void WriteDuration(
+			StringBuilder sb, 
+			string objectType, 
+			DateTime endTime, 
+			DateTime startTime, 
+			string reasonReplacement = null
+		) {
+			var duration = endTime - startTime;
+			var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
+			formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
+			sb.Append($@"
+				<div class=""col-2 {objectType} reason-duration text-right"">
+					<span class=""{objectType} duration"">[{formattedDuration} ms]</span>
+				</div>".RemoveIndentation(4, true));
 		}
 
 		internal void WriteStartTime(StringBuilder sb, DateTime startTime) {
-            if(startTime != DateTime.MinValue) {
+			if(startTime != DateTime.MinValue) {
 				sb.AppendLine($@"
 						<div id=""report-dates"" style=""margin-top: 0px !important;"">
-							<span id=""report-start-date"" title=""Start Time"">{startTime.ToString("yyyy-MM-dd hh:mm tt \"GMT\"zzz")}</span>
+							<div id=""report-start-date"" title=""Start Time"">{startTime.ToString("yyyy-MM-dd hh:mm tt \"GMT\"zzz")}</div>
 						</div>
-				".RemoveIndentation(5,true));
-            }
-		}
-
-        internal void WriteBanner(
-			StringBuilder sb, 
-			string objectType,
-			string name, 
-			Outcome outcome, 
-			string reason, 
-			DateTime startTime, 
-			DateTime endTime, 
-			Dictionary<string, OutcomeStats> statistics,
-			Dictionary<string, Dictionary<string,int>> reasonStats) 
-		{
-			WritePageHeader(sb, objectType, name, outcome, reason, endTime, startTime, reasonStats["Scenarios"]);
-
-			WriteStartTime(sb, startTime);
-
-			WriteStats(sb, objectType.ToLower(), 0, 1, statistics, reasonStats, false);
-            
-        }
-
-		internal void WritePageHeader(
-			StringBuilder sb, 
-			string objectType, 
-			string name, 
-			Outcome outcome, 
-			string reason, 
-			DateTime endTime, 
-			DateTime startTime, 
-			Dictionary<string, int> scenarioReasonStats) 
-		{
-            WriteTagOpen("div", sb, 1, "page-header", false, null, "margin-top: 0px !important;");
-            WriteTagOpen("h1", sb, 2, "report-name", false);
-
-			// Badge
-			WriteBadge(sb, objectType, 0, outcome, reason, scenarioReasonStats, false);
-
-			WritePageTitle(sb, name);
-
-			WriteReason(sb, "report", reason);
-			
-			WriteDuration(sb, endTime, startTime, "report");
-
-            WriteTagClose("h1", sb, 2);
-            WriteTagClose("div", sb, 1);
-		}
-		internal void WritePageTitle(StringBuilder sb, string name){
-            WriteTag("span", sb, 3, "name", name.HtmlEncode(), false, true);
-		}
-        internal void WriteStatsTableStart(StringBuilder sb, int baseIndent, string id = null, Boolean collapsed = true) {
-			var style = "width: 100%; empty-cells: show;";
-			if(collapsed) {
-				style = $"{style} display: none;"; 
-			} else {
-				style = $"{style} display: block;"; 
+				".RemoveIndentation(4,true));
 			}
-            var collapse = (collapsed ? "collapse":"");
-            WriteTagOpen("table", sb, baseIndent, $"table table-condensed {collapse}", false, id, style);
-        }
+		}
+
+		internal void WriteLineItem(
+			StringBuilder sb, 
+			HtmlReportLineItem lineItem,
+			bool failuresOnly,
+			bool statsExpanded,
+			bool childrenExpanded) 
+		{
+			this.lineItemNumber++;
+			var statementAndExplanationLink = lineItem.Statement != null || lineItem.Explanation != null;
+			var inputLink = lineItem.Input != null;
+			var outputLink = lineItem.Output != null;
+
+			sb.AppendLine($@"
+				<li class=""lineitem {lineItem.TypeName.ToLower()} row align-items-center"" id=""{lineItem.TypeName.ToLower()}-{this.lineItemNumber}"">".RemoveIndentation(4,true));
+
+			WriteBadge(sb, lineItem);
+
+			if(String.IsNullOrEmpty(lineItem.Name)) {
+				lineItem.Name = "[Missing! (or Full Name Skipped)]";
+			}
+
+			sb.AppendLine($@"
+					<div class=""col"">".RemoveIndentation(4));
+			var name = lineItem.Name;
+			if(lineItem.TypeName == "area") {
+				name = name.Replace(config.RootNameSkip, "");
+			}
+			if(lineItem.FilePath != null) {
+				sb.AppendLine($@"
+						<a class=""{lineItem.TypeName} name pointer"" 
+							id=""area-{this.lineItemNumber}-name""
+							href=""{lineItem.FilePath}"">{name.HtmlEncode()}</a>".RemoveIndentation(4, true));
+			} else {
+				if(lineItem.ChildTypeName != null) {
+					sb.AppendLine($@"
+						<span class=""{lineItem.TypeName} name pointer"" 
+							id=""{lineItem.TypeName}-{this.lineItemNumber}-name""
+							onclick=""toggleVisibility('{lineItem.TypeName.ToLower()}-{this.lineItemNumber}-{lineItem.ChildTypeName.ToLower()}')""
+							href=""#{lineItem.TypeName.ToLower()}-{this.lineItemNumber}-{lineItem.ChildTypeName.ToLower()}"">{name.HtmlEncode()}</span>".RemoveIndentation(4, true));
+				} else {
+					sb.AppendLine($@"
+						<span class=""{lineItem.TypeName} name pointer"" 
+							id=""{lineItem.TypeName}-{this.lineItemNumber}-name"">{name.HtmlEncode()}</span>".RemoveIndentation(4, true));
+				}
+			}
+			if(lineItem.Assignments != null && lineItem.Assignments.Count > 0) {
+				sb.Append($@"
+						<span class=""{lineItem.TypeName} assignments"" 
+							id=""{lineItem.TypeName}-{this.lineItemNumber}-assignments"">[".RemoveIndentation(6, true));
+				lineItem.Assignments.ForEach(assignment => {
+						sb.Append($@"{(lineItem.Assignments.IndexOf(assignment)==0?"":", ")}{assignment.HtmlEncode()}");
+				});
+				sb.AppendLine($@"
+						]</span>".RemoveIndentation(6, true));
+			}
+			if(lineItem.Tags != null && lineItem.Tags.Count > 0) {
+				sb.Append($@"
+						<span class=""{lineItem.TypeName} tags"" 
+							id=""{lineItem.TypeName}-{this.lineItemNumber}-tags"">[".RemoveIndentation(6, true));
+				lineItem.Tags.ForEach(tag => {
+						sb.Append($@"{(lineItem.Tags.IndexOf(tag)==0?"":", ")}{tag.HtmlEncode()}");
+				});
+				sb.AppendLine($@"
+						]</span>".RemoveIndentation(6, true));
+			}
+			sb.AppendLine($@"
+					</div>".RemoveIndentation(4));
+
+			WriteDuration(sb, lineItem.TypeName.ToLower(), lineItem.EndTime, lineItem.StartTime);
+
+			sb.AppendLine($@"
+				</li>".RemoveIndentation(4));
+
+			if(lineItem.TypeName != "step") {
+				WriteStats(sb, lineItem.TypeName, lineItem.ReasonStats, statsExpanded);
+			}
+
+			WriteStatement(sb, lineItem);
+
+			WriteException(sb, lineItem, lineItem.Exception, false);
+
+			WriteInputOrOutput(sb, lineItem, true);
+			
+			WriteInputOrOutput(sb, lineItem, false);
+
+			if(lineItem.ChildTypeName != null) {
+				var expanded = (lineItem.Outcome == Outcome.Failed && failuresOnly) || childrenExpanded;
+				var display = expanded ? "block" : "none";
+				var childClassName = $"{lineItem.ChildTypeName.ToLower()} list-unstyled";
+				sb.AppendLine($@"
+					<li class=""row children"">
+						<div class=""col-12"">
+							<ol class=""{childClassName} container-fluid""
+								id=""{lineItem.TypeName.ToLower()}-{this.lineItemNumber}-{lineItem.ChildTypeName.ToLower()}""
+								style=""display: {display}"">".RemoveIndentation(4));
+				foreach(var item in lineItem.ChildItems) {
+					WriteLineItem(sb, item, failuresOnly, false, false);
+				}
+				sb.AppendLine($@"
+							</ol>
+						</div>
+					</li>".RemoveIndentation(4));
+				}
+		}
+		internal void WriteBadge(
+			StringBuilder sb, 
+			HtmlReportLineItem lineItem) 
+		{
+			var statementAndExplanationLink = lineItem.Statement != null || lineItem.Explanation != null;
+			var total = 0;
+			if(lineItem.ReasonStats.ContainsKey("Scenarios")) {
+				foreach(var reasonStat in lineItem.ReasonStats["Scenarios"].Values) {
+					total = total + reasonStat;
+				}
+			}
+			sb.AppendLine($@"
+				<div class=""col-2 badges"">".RemoveIndentation(4,true));
+
+			if(lineItem.TypeName == "testrun" || lineItem.TypeName == "area" || lineItem.TypeName == "feature" ) {
+				sb.AppendLine($@"
+					<div class=""{lineItem.TypeName} badge-distro""
+						id=""{lineItem.TypeName}-{this.lineItemNumber}-badge-distro""
+						title=""{lineItem.Reason} Count: Scenarios""
+						onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-stats')"">
+						<div class=""{lineItem.TypeName} badge badge-pill pointer total {lineItem.Reason}""
+							id=""{lineItem.TypeName}-{this.lineItemNumber}-badge"">{(lineItem.TypeName == "step" ? " " : total.ToString())}</div>".RemoveIndentation(4,true));
+				if(lineItem.TypeName != "scemario" && lineItem.TypeName != "step") {
+					sb.AppendLine($@"
+						<div class=""{lineItem.TypeName} distro pointer""
+							id=""{lineItem.TypeName}-{this.lineItemNumber}-distro"">".RemoveIndentation(4,true));
+
+					foreach(var sortedReason in this.sortedReasons) {
+						double stat = 0;
+						if(lineItem.ReasonStats.ContainsKey("Scenarios") && lineItem.ReasonStats["Scenarios"].ContainsKey(sortedReason.Reason)) {
+							stat = ((double)lineItem.ReasonStats["Scenarios"][sortedReason.Reason]/(double)total)*100;
+							sb.AppendLine($@"
+							<div style=""background-color: {sortedReason.BackgroundColor}; height: {stat}%; width: 100%;""></div>".RemoveIndentation(4,true));
+						}
+					}
+					sb.AppendLine($@"
+						</div>
+					</div>".RemoveIndentation(4,true));
+				}
+			} else {
+				if(lineItem.TypeName == "scenario" || lineItem.Exception == null) {
+					sb.AppendLine($@"
+						<div class=""{lineItem.TypeName} badge badge-pill pointer total {lineItem.Reason}""
+							id=""{lineItem.TypeName}-{this.lineItemNumber}-badge"">{(lineItem.TypeName == "step" ? " " : total.ToString())}</div>".RemoveIndentation(4,true));
+				} else {
+					sb.AppendLine($@"
+						<div class=""{lineItem.TypeName} badge badge-pill pointer error {lineItem.Reason}"" 
+							id=""{lineItem.TypeName}-{this.lineItemNumber}-badge"" 
+							onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-error')"">
+							<div class=""oi oi-bug"" aria-hidden=""true""></div>
+						</div>".RemoveIndentation(4,true));
+				}
+			}
+
+			if(statementAndExplanationLink) {
+				sb.AppendLine($@"
+					<div class=""{lineItem.TypeName}-statement-link badge pointer badge-secondary"" 
+						id=""{lineItem.TypeName}-{this.lineItemNumber}-statement-link"" 
+						onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-statement')"">
+						<div class=""oi oi-info"" aria-hidden=""true""></div>
+					</div>".RemoveIndentation(4,true));
+			}
+			if(lineItem.Input != null) {
+				sb.AppendLine($@"
+					<div class=""{lineItem.TypeName}-input-link badge pointer badge-secondary"" 
+						id=""{lineItem.TypeName}-{this.lineItemNumber}-input-link"" 
+						onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-input', true, 'iframe{this.lineItemNumber}')"">
+						<div class=""oi oi-account-login"" aria-hidden=""true""></div>
+					</div>".RemoveIndentation(4,true));
+			}
+			if(lineItem.Output != null) {
+				sb.AppendLine($@"
+					<div class=""{lineItem.TypeName}-output-link badge pointer badge-secondary"" 
+						id=""{lineItem.TypeName}-{this.lineItemNumber}-output-link"" 
+						onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-output', true, 'iframe{this.lineItemNumber}')"">
+						<div class=""oi oi-account-logout flip"" aria-hidden=""true""></div>
+					</div>".RemoveIndentation(4,true));
+			}
+			sb.AppendLine($@"
+				</div>".RemoveIndentation(4,true));
+		}
 
 		internal void WriteStats(
 			StringBuilder sb, 
 			string objectType, 
-			int position, 
-			int indentation, Dictionary<string, OutcomeStats> statistics, 
 			Dictionary<string, Dictionary<string, int>> reasonStats, 
-			bool collapsed = true) 
+			bool expanded = true) 
 		{
-			WriteStatsTableStart(sb, indentation, $"{objectType.ToLower()}-{position}-stats", collapsed);
-			//foreach(string statsKey in statistics.Keys) {
-			//	WriteStatsLine(sb, statistics[statsKey], 1, $"report-{statsKey.ToLower()}-stats", statsKey);
-			//}
-			WriteReasonStatsHeaderLine(sb, 1, $"report-header-reason-stats");
+			sb.AppendLine($@"
+				<li class=""row stats"">
+					<div class=""col-10 offset-1"">
+						<div class=""stats-graph-tables"" id=""{objectType.ToLower()}-{this.lineItemNumber}-stats"" style=""width: 100%; empty-cells: show; display: {(expanded ? "block" : "none" )};"">
+							<table class=""table table-condensed stats-table"">
+								<tr id=""{objectType.ToLower()}-header-reason-stats"">
+									<td class=""stats-label text-muted text-right"">&nbsp;</td>
+									<td class=""text-center"" >Total</td>".RemoveIndentation(4,true));
+			foreach(string key in this.sortedReasons.Select(x => x.Reason)) {
+				sb.AppendLine($@"
+									<td class=""text-center"">{key}</td>".RemoveIndentation(4,true));
+			}
 			foreach(string statsKey in reasonStats.Keys) {
 				WriteReasonStatsLine(sb, reasonStats[statsKey], 1, $"report-{statsKey.ToLower()}-reason-stats", statsKey);
 			}
-            WriteStatsTableClose(sb, indentation);
+			sb.AppendLine($@"
+							</table>".RemoveIndentation(4,true));
+			sb.AppendLine($@"
+							<table class=""table table-condensed bargraph-table"">
+								<tr id=""{objectType.ToLower()}-header-reason-stats"">
+									<td class=""stats-label text-muted text-right"" style=""width: 0%; padding-left: 0px !important;"">&nbsp;</td>".RemoveIndentation(4,true));
+				sb.AppendLine($@"
+									<td class=""outcome-bar-chart"" style=""width: 90%;"">&nbsp;</td>
+								</tr>".RemoveIndentation(4,true));
+			foreach(string statsKey in reasonStats.Keys) {
+				WriteReasonGraphLine(sb, reasonStats[statsKey], 1, $"report-{statsKey.ToLower()}-reason-stats", statsKey);
+			}
+			sb.AppendLine($@"
+							</table>".RemoveIndentation(4,true));
+			sb.AppendLine($@"
+						</div>
+					</div>
+				</li>".RemoveIndentation(4,true));
 		}
 
-        internal void WriteStatsLine(StringBuilder sb, OutcomeStats stats, int baseIndent, string id, string label) {
-            WriteTagOpen("tr", sb, baseIndent + 1, null, false, id);
-            WriteTag("td", sb, baseIndent + 2, "stats-label text-muted text-right", label, false, true, null, "width: 0%; padding-left: 0px !important;");
-            WriteTag("td", sb, baseIndent + 2, "passed success text-center", stats.Passed.ToString(), false, true, null, "width: 3.3333333333333%;");
-            WriteTag("td", sb, baseIndent + 2, "skipped warning text-center", stats.Skipped.ToString(), false, true, null, "width: 3.3333333333333%;");
-            WriteTag("td", sb, baseIndent + 2, "failed danger text-center", stats.Failed.ToString(), false, true, null, "width: 3.3333333333333%;");
-            WriteTagOpen("td", sb, baseIndent + 2, "outcome-bar-chart", false, null, "width: 90%;");
-            WriteTagOpen("table", sb, baseIndent, "table", false, null, "width: 100%; empty-cells: show; height: 14px;");
-            WriteTagOpen("tr", sb, baseIndent + 1, null, false);
-            
-            if(stats.Total == 0)
-            {
-                WriteTag("td", sb, baseIndent + 2, "empty-bar", null, false, true, null, "width: 100%;");
-            }
-            else
-            {
-                double passedPercent = stats.Total == 0 ? 0 : (((double)stats.Passed / (double)stats.Total) * 100);
-                var passedStyle = String.Format("width: {0}%", passedPercent);
-                WriteTag("td", sb, baseIndent + 2, "bar passed-bar bg-success text-center", null, false, true, null, passedStyle);
-                
-                double skippedPercent = stats.Total == 0 ? 0 : (((double)stats.Skipped / (double)stats.Total) * 100);
-                var skippedStyle = String.Format("width: {0}%", skippedPercent);
-                WriteTag("td", sb, baseIndent + 2, "bar skipped-bar bg-warning text-center", null, false, true, null, skippedStyle);
-                
-                double failedPercent = stats.Total == 0 ? 0 : (((double)stats.Failed / (double)stats.Total) * 100);
-                var failedStyle = String.Format("width: {0}%", failedPercent);
-                WriteTag("td", sb, baseIndent + 2, "bar failed-bar bg-danger text-center", null, false, true, null, failedStyle);
-            }
-
-            WriteTagClose("tr", sb, baseIndent + 1);
-            WriteTagClose("table", sb, baseIndent);
-            WriteTagClose("td", sb, baseIndent + 1);
-            WriteTagClose("tr", sb, baseIndent);
-        }
-
-        internal void WriteReasonStatsHeaderLine(StringBuilder sb, int baseIndent, string id) {
-            WriteTagOpen("tr", sb, baseIndent + 1, null, false, id);
-			WriteTag("td", sb, baseIndent + 2, "stats-label text-muted text-right", "&nbsp;", false, true, null, "width: 0%; padding-left: 0px !important;");
+		internal void WriteReasonStatsLine(StringBuilder sb, Dictionary<string, int> stats, int baseIndent, string id, string label) {
+			sb.AppendLine($@"
+					<tr id=""{id}"">
+						<td class=""stats-label text-muted text-right"" style=""width: 0%; padding-left: 0px !important;"">{label}</td>".RemoveIndentation(4,true));
+			var total = stats.Values.Sum();
+			var percentWidth = 100 / (this.sortedReasons.Count() + 1);
+			sb.AppendLine($@"
+						<td class=""text-center"" style=""width: {percentWidth}%;"">{total.ToString()}</td>".RemoveIndentation(4,true));
 			foreach(string key in this.sortedReasons.Select(x => x.Reason)) {
-				WriteTag("td", sb, baseIndent + 2, "text-center", key, false, true, null, "width: 3.3333333333333%;");
-			}
-            WriteTagOpen("td", sb, baseIndent + 2, "outcome-bar-chart", false, null, "width: 90%;");
-            WriteTagOpen("table", sb, baseIndent, "table", false, null, "width: 100%; empty-cells: show; height: 14px;");
-            WriteTagOpen("tr", sb, baseIndent + 1, null, false);
-			WriteTag("td", sb, baseIndent + 2, "empty-bar", null, false, true, null, "width: 100%;");
-            
-            WriteTagClose("tr", sb, baseIndent + 1);
-            WriteTagClose("table", sb, baseIndent);
-            WriteTagClose("td", sb, baseIndent + 1);
-            WriteTagClose("tr", sb, baseIndent);
-        }
-        internal void WriteReasonStatsLine(StringBuilder sb, Dictionary<string, int> stats, int baseIndent, string id, string label) {
-            WriteTagOpen("tr", sb, baseIndent + 1, null, false, id);
-			WriteTag("td", sb, baseIndent + 2, "stats-label text-muted text-right", label, false, true, null, "width: 0%; padding-left: 0px !important;");
-			var total = 0;
-			foreach(string key in this.sortedReasons.Select(x => x.Reason)) {
+				var stat = 0;
 				if(stats.ContainsKey(key)) {
-					WriteTag("td", sb, baseIndent + 2, "text-center", stats[key].ToString(), false, true, null, "width: 3.3333333333333%;");
-					total = total + stats[key];
-				} else {
-					WriteTag("td", sb, baseIndent + 2, "text-center", 0.ToString(), false, true, null, "width: 3.3333333333333%;");
+					stat = stats[key];
 				}
+				sb.AppendLine($@"
+						<td class=""text-center"" style=""width: {percentWidth}%;"">{stat.ToString()}</td>".RemoveIndentation(4,true));
 			}
-            WriteTagOpen("td", sb, baseIndent + 2, "outcome-bar-chart", false, null, "width: 90%;");
-            WriteTagOpen("table", sb, baseIndent, "table", false, null, "width: 100%; empty-cells: show; height: 14px;");
-            WriteTagOpen("tr", sb, baseIndent + 1, null, false);
-            if(total == 0)
-            {
-                WriteTag("td", sb, baseIndent + 2, "empty-bar", null, false, true, null, "width: 100%;");
-            }
-            else
-            {
+			sb.AppendLine($@"
+					</tr>".RemoveIndentation(4,true));
+		}
+		internal void WriteReasonGraphLine(StringBuilder sb, Dictionary<string, int> stats, int baseIndent, string id, string label) {
+			sb.AppendLine($@"
+					<tr id=""{id}"">
+						<td class=""stats-label text-muted text-right"" style=""width: 0%; padding-left: 0px !important;"">{label}</td>".RemoveIndentation(4,true));
+			var total = stats.Values.Sum();
+			sb.AppendLine($@"
+						<td class=""outcome-bar-chart"" style=""width: 100%;"">
+							<table class=""table"" style=""width: 100%; empty-cells: show; height: 14px;"">
+								<tr>".RemoveIndentation(4,true));
+			if(total == 0)
+			{
+				sb.AppendLine($@"
+									<td class=""empty-bar"" style=""width: 100%;""></td>".RemoveIndentation(4,true));
+			}
+			else
+			{
 				foreach(string key in this.sortedReasons.Select(x => x.Reason)) {
+					var style = "";
 					if(stats.ContainsKey(key)) {
 						var reasonConfig = this.sortedReasons.Where(x => x.Reason == key).FirstOrDefault();
 						var styleBackground = "";
@@ -394,202 +499,165 @@ namespace xBDD.Reporting.Html
 							styleBackground = reasonConfig.BackgroundColor;
 						}
 						double percent = stats[key] == 0 ? 0 : (((double)stats[key] / (double)total) * 100);
-						var style = $"width: {percent}%; background-color: {styleBackground};";
-						WriteTag("td", sb, baseIndent + 2, "bar text-center", null, false, true, null, style);
+						style = $"width: {percent}%; background-color: {styleBackground};";
 					} else {
-						var style = $"width: 0%;";
-						WriteTag("td", sb, baseIndent + 2, "bar text-center", null, false, true, null, style);
+						style = $"width: 0%;";
 					}
+					sb.AppendLine($@"
+									<td class=""bar text-center"" style=""{style}""></td>".RemoveIndentation(4,true));
 				}
 			}
-            
-            WriteTagClose("tr", sb, baseIndent + 1);
-            WriteTagClose("table", sb, baseIndent);
-            WriteTagClose("td", sb, baseIndent + 1);
-            WriteTagClose("tr", sb, baseIndent);
-        }
+			sb.AppendLine($@"
+								</tr>
+							</table>
+						</td>
+					</tr>".RemoveIndentation(4,true));
+		}
 
-        internal void WriteStatsTableClose(StringBuilder sb, int baseIndent) {
-            WriteTagClose("table", sb, baseIndent);
-        }
-
-        internal void WriteBadge(
-			StringBuilder sb, 
-			string objectType, 
-			int position, 
-			Outcome outcome,
-			string reason,
-			Dictionary<string, int> scenarioReasonStats,
-			bool toggleStats) 
-		{
-			var baseClass = objectType;
-			if(toggleStats == false)
-				baseClass = "report";
-
-            WriteTagOpen("span", sb, 0, $"{baseClass} badge-distro", true, $"{objectType}-{position}-badge-distro", null, " title=\"Scenarios\"", $"{objectType}-{position}-stats");
-
-			var total = 0;
-			foreach(var reasonStat in scenarioReasonStats.Values) {
-				total = total + reasonStat;
+		void WriteStatement(StringBuilder sb, HtmlReportLineItem lineItem) {
+			if(lineItem.Statement != null || lineItem.Explanation != null)
+			{
+				sb.AppendLine($@"
+					<li class=""row statement explanation"">
+						<div class=""col-10 offset-1"">
+							<div class=""{lineItem.TypeName}-statement"" 
+								id=""{lineItem.TypeName}-{this.lineItemNumber}-statement""
+								style=""display: none;"">".RemoveIndentation(4,true));
+				if(lineItem.Statement != null) {
+					sb.AppendLine($@"<pre class=""{lineItem.TypeName}-statement bg-light rounded""
+									id=""{lineItem.TypeName}-{this.lineItemNumber}-statement"">{lineItem.Statement}</pre>");
+				}
+				if(lineItem.Explanation != null) {
+					sb.AppendLine($@"<pre class=""{lineItem.TypeName}-explanation bg-light rounded""
+									id=""{lineItem.TypeName}-{this.lineItemNumber}-explanation"">{lineItem.Explanation}</pre>");
+				}
+				sb.AppendLine($@"
+							</div>
+						</div>
+					</li>".RemoveIndentation(4, true));
 			}
-            //Create Badge with distribution 
-            WriteTag("span", sb, 0, $"{baseClass} badge badge-pill pointer total {reason}",total.ToString(), true, true, $"{objectType}-{position}-badge", null, null, $"{objectType}-{position}-stats");
-            WriteTagOpen("span", sb, 0, $"{baseClass} distro pointer", true, $"{objectType}-{position}-distro");
-			foreach(var sortedReason in this.sortedReasons) {
-				double stat = 0;
-				if(scenarioReasonStats.ContainsKey(sortedReason.Reason)) {
-					stat = ((double)scenarioReasonStats[sortedReason.Reason]/(double)total)*100;
-	                WriteTag("div", sb, 0, "distro", null, true,  true, null, $"background-color: {sortedReason.BackgroundColor}; height: {stat}%; width: 100%;");
+		}
+		void WriteException(StringBuilder sb, HtmlReportLineItem lineItem, Exception exception, bool innerException = false) {
+			if (exception != null && lineItem.Outcome != Outcome.Skipped) {
+				if(!innerException)
+				{
+					sb.AppendLine($@"
+					<li class=""row exception"">
+						<div class=""col-10 offset-1"">
+							<div class=""error"" 
+								id=""{lineItem.TypeName}-{this.lineItemNumber}-error""
+								style=""display: none;"">".RemoveIndentation(4, true));
+				}
+					sb.AppendLine($@"
+								<dl class=""exception dl-horizontal border border-danger rounded"">
+									<dt>Error Type</dt><dd class=""error-type"">{exception.GetType().Name.HtmlEncode()}</dd>
+									<dt>Message</dt><dd class=""error-message bg-light""><pre><code>{exception.Message.HtmlEncode()}</code></pre></dd>
+									<dt>Stack</dt><dd class=""error-stack bg-light""><pre><code>{exception.StackTrace.AddIndentation(4).HtmlEncode()}</code></pre></dd>
+									".RemoveIndentation(4, true));
+				if(exception.InnerException != null)
+				{
+					sb.AppendLine($@"
+									<dt>Inner Exception</dt>
+									<dd class=""inner-exception"">".RemoveIndentation(4, true));
+					WriteException(sb, lineItem, exception.InnerException, true);
+					sb.AppendLine($@"
+									</dd>".RemoveIndentation(4, true));
+				}
+					sb.AppendLine($@"
+								</dl>".RemoveIndentation(4, true));
+				if(!innerException)
+				{
+					sb.AppendLine($@"
+							</div>
+						</div>
+					</li>".RemoveIndentation(4, true));
 				}
 			}
-            WriteTagClose("span", sb, 0);//distribution graph
-            WriteTagClose("span", sb, 0);//badge and distro graph
-        }
-
-        internal void WriteLineItemOpen(
-			StringBuilder sb, 
-			string typeName, 
-			int itemNumber, 
-			string name, 
-			string filePath,
-			Outcome outcome, 
-			string reason, 
-			DateTime startTime,
-			DateTime endTime,
-			int scenarioCount,
-			string childType, 
-			OutcomeStats childStats,
-			Dictionary<string, OutcomeStats> statistics,
-			Dictionary<string, Dictionary<string, int>> reasonStats,
-			bool failuresOnly) 
-		{
-            WriteTagOpen("li", sb, 2, typeName.ToLower(), false, $"{typeName.ToLower()}-" + itemNumber);
-
-			WriteLineItemTitleLine(sb, typeName, name, itemNumber, startTime, endTime, outcome, reason, reasonStats["Scenarios"], filePath, childType);
-
-			WriteStats(sb, typeName, itemNumber, 3, statistics, reasonStats);
-
-			WriteLineItemChildList(sb, typeName, itemNumber, outcome, failuresOnly, childType);
-        }
-
-		internal void WriteLineItemTitleLine(
-			StringBuilder sb, 
-			string typeName, 
-			string name, 
-			int itemNumber, 
-			DateTime startTime, 
-			DateTime endTime, 
-			Outcome outcome,
-			string reason, 
-			Dictionary<string, int> scenarioReasonStats, 
-			string filePath, 
-			string childType) 
-		{
-            WriteTagOpen("h2", sb, 3, "title", true);
-
-            WriteBadge(sb, typeName.ToLower(), itemNumber, outcome, reason, scenarioReasonStats, true);
-
-			WriteLineItemName(sb, name, filePath, itemNumber, typeName, childType);
-
-			WriteReason(sb, typeName.ToLower(), reason);
-            
-			WriteDuration(sb, endTime, startTime, typeName.ToLower());
-
-            WriteTagClose("h2", sb, 3);
 		}
-
-		internal void WriteLineItemChildList(
-			StringBuilder sb,
-			string typeName,
-			int itemNumber,
-			Outcome outcome,
-			bool failuresOnly,
-			string childType
-		) {
-            var expanded = outcome == Outcome.Failed && failuresOnly;
-            var display = expanded ? "block" : "none";
-            var childClassName = $"{childType.ToLower()} list-unstyled";
-            //var style = $"border-left: 2px solid lightGray; display: {display};";
-            var style = $"display: {display};";
-            WriteTagOpen("ol", sb, 3, childClassName, false, $"{typeName.ToLower()}-{itemNumber}-{childType.ToLower()}", style);
-		}
-
-		internal void WriteLineItemName(StringBuilder sb, string name, string filePath, int itemNumber, string typeName, string childType){
-            if(name.Length == 0) {
-                name = "[Missing! (or Full Name Skipped)]";
-            }
-			if(filePath != null) {
-				var titleAttributes = $" href=\"{filePath}\"";
-	            WriteTag("a", sb, 4, $"{typeName} name pointer", name.HtmlEncode(), false, true,  $"area-{itemNumber}-name", null, titleAttributes);
+		void WriteInputOrOutput(StringBuilder sb, HtmlReportLineItem lineItem, bool input) {
+			var text = "";
+			TextFormat format = new TextFormat();
+			if(input) {
+				text = lineItem.Input;
+				format = lineItem.InputFormat;
 			} else {
-	            WriteTag("span", sb, 4, $"{typeName} name pointer", name.HtmlEncode(), false, true,  $"area-{itemNumber}-name", null, null, $"{typeName.ToLower()}-{itemNumber}-{childType.ToLower()}");
+				text = lineItem.Output;
+				format = lineItem.OutputFormat;
+			}
+			if (!String.IsNullOrEmpty(text))
+			{
+				sb.AppendLine($@"
+					<li class=""row {(input ? "input" : "output" )}"">
+						<div class=""col-10 offset-1"">
+							<div class=""{(input ? "input" : "output" )}"" 
+								id=""{lineItem.TypeName}-{this.lineItemNumber}-{(input ? "input" : "output" )}""
+								style=""display: none;"">
+								<div class=""{(input ? "input" : "output" )} title"" 
+									id=""step-{this.lineItemNumber}-{(input ? "input" : "output" )}-title"">{(input ? "Input" : "Output" )}<div>".RemoveIndentation(4, true));
+				if(format == TextFormat.htmlpreview)
+				{
+					WriteInputOrOutputWithHtmlPreview(sb, lineItem, input);
+				}
+				else
+				{
+					var className = $"{(input ? "input" : "output" )} prettyprint linenums rounded";
+					if (format != TextFormat.code)
+						className = className + " lang-" + Enum.GetName(typeof(TextFormat), format);
+					sb.AppendLine($@"
+									<pre class=""{className}"" id=""{(input ? "input" : "output" )}-{this.lineItemNumber}"">{text.HtmlEncode().AddIndentation(4)}</pre>".RemoveIndentation(4, true));
+				}
+				sb.AppendLine($@"
+							</div>
+						</div>
+					</li>".RemoveIndentation(4, true));
 			}
 		}
-        internal void WriteLineItemClose(StringBuilder sb) {
-            WriteTagClose("ol", sb, 3);
-            WriteTagClose("li", sb, 2);
-        }
-        internal void WriteTag(string tag, StringBuilder sb, 
-            int indentation, string className, string text, 
-            bool inline, bool singleLine, string id = null, string style = null, string attributes = null, string toggleVisibility = null)
-        {
-            WriteTagOpen(tag, sb, indentation, className, singleLine, id, style, attributes, toggleVisibility);
-            sb.Append(text);
-            WriteTagClose(tag, sb, singleLine?0:indentation, inline);
-        }
-        internal void WriteTagOpen(string tag, StringBuilder sb, int indentation, 
-            string className, bool inline, string id = null, 
-            string style = "", string attributes = null, string toggleVisibility = null)
-        {
-            WriteIndentation(sb, indentation);
-            sb.Append("<");
-            sb.Append(tag);
-            if (className != null)
-            {
-                sb.Append(" class=\"");
-                sb.Append(className);
-                sb.Append("\"");
-            }
-            if (style != null && style != "")
-            {
-                sb.Append(" style=\"");
-                sb.Append(style);
-                sb.Append("\"");
-            }
-            
-            if (id != null)
-            {
-                sb.Append(" id=\"");
-                sb.Append(id);
-                sb.Append("\"");
-            }
-            if(attributes != null)
-                sb.Append(attributes);
-            if(toggleVisibility != null)
-                sb.Append($" onclick=\"toggleVisibility('{toggleVisibility}')\"");
-            if (inline)
-                sb.Append(">");
-            else
-                sb.AppendLine(">");
-        }
-        internal void WriteTagClose(string tag, StringBuilder sb, int indentation, bool inline = false)
-        {
-            WriteIndentation(sb, indentation);
-            sb.Append("</");
-            sb.Append(tag);
-			if(inline) {
-	            sb.Append(">");
-			} else {
-	            sb.AppendLine(">");
-			}
-        }
-        internal void WriteIndentation(StringBuilder sb, int indentation)
-        {
-            for (int i = 0; i < indentation; i++)
-            {
-                sb.Append("\t");
-            }
-        }
 
+		void WriteInputOrOutputWithHtmlPreview(StringBuilder sb, HtmlReportLineItem lineItem, bool input) {
+			var function = (input? "input": "output");
+			var previewCode = (input? lineItem.Input.HtmlEncode() : lineItem.Output.HtmlEncode());
+			var previewHtml = (input? lineItem.Input : lineItem.Output)
+				.Replace(System.Environment.NewLine, " \\" + System.Environment.NewLine)
+				.Replace(":", "\\:")
+				.Replace("/", "\\/")
+				.Replace("!", "\\!")
+				.Replace("\"", "\\\"");
+			var html = $@"
+				<div class=""{function} rounded"">
+					<div class=""nav nav-tabs"" role=""tablist"">
+						<a
+							id=""preview{this.lineItemNumber}-tab""
+							class=""nav-item nav-link active pointer"" 
+							onclick=""toggleVisibility('preview{this.lineItemNumber}', true, 'iframe{this.lineItemNumber}'); toggleVisibility('code{this.lineItemNumber}')"">Preview</a>
+						<a
+							id=""code{this.lineItemNumber}-tab""
+							class=""nav-item nav-link pointer"" 
+							onclick=""toggleVisibility('preview{this.lineItemNumber}', true, 'iframe{this.lineItemNumber}'); toggleVisibility('code{this.lineItemNumber}')"">Code</a>
+					</div>
+					<div class=""tab-content"">
+						<div role=""tabpanel"" 
+							class=""tab-pane active"" 
+							style=""display: block;""
+							id=""preview{this.lineItemNumber}"">
+							<iframe width=""100%"" id=""iframe{this.lineItemNumber}""></iframe>
+							<script type=""text/javascript"">
+								var iframe{this.lineItemNumber}doc = document.getElementById('iframe{this.lineItemNumber}').contentWindow.document;
+								iframe{this.lineItemNumber}doc.open();
+								var html{this.lineItemNumber} = ""{previewHtml.AddIndentation(4)}"";
+								iframe{this.lineItemNumber}doc.write(html{this.lineItemNumber});
+								resizeIframe(document.getElementById('iframe{this.lineItemNumber}'));
+								iframe{this.lineItemNumber}doc.close();
+							</script>
+						</div>
+						<div role=""tabpanel"" 
+							class=""tab-pane"" 
+							style=""display: none;""
+							id=""code{this.lineItemNumber}"">
+							<pre class=""{function} prettyprint linenums lang-html"">{previewCode.AddIndentation(4)}</pre>
+						</div>
+					</div>
+				</div>".RemoveIndentation(4, true);
+			sb.AppendLine(html);
+		}
 	}
 }

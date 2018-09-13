@@ -10,6 +10,6 @@ namespace xBDD.Reporting
 		public string ReportFolder { get; set; }
 		public string FileName { get; set; }
 		public bool FailuresOnly { get; set; }
-		public string AreaNameSkip { get; set; }
+		public string RootNameSkip { get; set; }
 	}
 }

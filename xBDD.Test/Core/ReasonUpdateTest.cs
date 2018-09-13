@@ -66,49 +66,49 @@ namespace xBDD.Test
             statsOverrides.Add("Testrun-scenarios", new Dictionary<string, int>() {
                 {"Building",2},{"Untested",3},{"Ready",3},{"Defining",1}});
 
-            statsOverrides.Add("Area01-features", new Dictionary<string, int>() {
+            statsOverrides.Add("Area 01-features", new Dictionary<string, int>() {
                 {"Untested",1},{"Ready",1},{"Defining",1}});
-            statsOverrides.Add("Area01-scenarios", new Dictionary<string, int>() {
+            statsOverrides.Add("Area 01-scenarios", new Dictionary<string, int>() {
                 {"Building",1},{"Untested",2},{"Ready",2},{"Defining",1}});
 
-            statsOverrides.Add("Area02-features", new Dictionary<string, int>() {
+            statsOverrides.Add("Area 02-features", new Dictionary<string, int>() {
                 {"Building",1},{"Untested",1},{"Ready",1}});
-            statsOverrides.Add("Area02-scenarios", new Dictionary<string, int>() {
+            statsOverrides.Add("Area 02-scenarios", new Dictionary<string, int>() {
                 {"Building",1},{"Untested",1},{"Ready",1}});
 
-            statsOverrides.Add("Feature0101-scenarios", new Dictionary<string, int>() {
+            statsOverrides.Add("Feature 0101-scenarios", new Dictionary<string, int>() {
                 {"Building",1},{"Untested",1}});
-            statsOverrides.Add("Feature0102-scenarios", new Dictionary<string, int>() {
+            statsOverrides.Add("Feature 0102-scenarios", new Dictionary<string, int>() {
                 {"Untested",1},{"Ready",1}});
-            statsOverrides.Add("Feature0103-scenarios", new Dictionary<string, int>() {
+            statsOverrides.Add("Feature 0103-scenarios", new Dictionary<string, int>() {
                 {"Ready",1},{"Defining",1}});
 
-            statsOverrides.Add("Feature0201-scenarios", new Dictionary<string, int>() {
+            statsOverrides.Add("Feature 0201-scenarios", new Dictionary<string, int>() {
                 {"Building",1}});
-            statsOverrides.Add("Feature0202-scenarios", new Dictionary<string, int>() {
+            statsOverrides.Add("Feature 0202-scenarios", new Dictionary<string, int>() {
                 {"Untested",1}});
-            statsOverrides.Add("Feature0203-scenarios", new Dictionary<string, int>() {
+            statsOverrides.Add("Feature 0203-scenarios", new Dictionary<string, int>() {
                 {"Ready",1}});
 
             var outcomeOverrides = new Dictionary<string, string>();
             outcomeOverrides.Add("Testrun", "Defining");
-            outcomeOverrides.Add("Area01", "Defining");
-            outcomeOverrides.Add("Area02", "Ready");
-            outcomeOverrides.Add("Feature0101", "Untested");
-            outcomeOverrides.Add("Feature0102", "Ready");
-            outcomeOverrides.Add("Feature0103", "Defining");
-            outcomeOverrides.Add("Scenario010101", "Building");
-            outcomeOverrides.Add("Scenario010102", "Untested");
-            outcomeOverrides.Add("Scenario010201", "Untested");
-            outcomeOverrides.Add("Scenario010202", "Ready");
-            outcomeOverrides.Add("Scenario010301", "Ready");
-            outcomeOverrides.Add("Scenario010302", "Defining");
-            outcomeOverrides.Add("Feature0201", "Building");
-            outcomeOverrides.Add("Feature0202", "Untested");
-            outcomeOverrides.Add("Feature0203", "Ready");
-            outcomeOverrides.Add("Scenario020101", "Building");
-            outcomeOverrides.Add("Scenario020201", "Untested");
-            outcomeOverrides.Add("Scenario020301", "Ready");
+            outcomeOverrides.Add("Area 01", "Defining");
+            outcomeOverrides.Add("Area 02", "Ready");
+            outcomeOverrides.Add("Feature 0101", "Untested");
+            outcomeOverrides.Add("Feature 0102", "Ready");
+            outcomeOverrides.Add("Feature 0103", "Defining");
+            outcomeOverrides.Add("Scenario 010101", "Building");
+            outcomeOverrides.Add("Scenario 010102", "Untested");
+            outcomeOverrides.Add("Scenario 010201", "Untested");
+            outcomeOverrides.Add("Scenario 010202", "Ready");
+            outcomeOverrides.Add("Scenario 010301", "Ready");
+            outcomeOverrides.Add("Scenario 010302", "Defining");
+            outcomeOverrides.Add("Feature 0201", "Building");
+            outcomeOverrides.Add("Feature 0202", "Untested");
+            outcomeOverrides.Add("Feature 0203", "Ready");
+            outcomeOverrides.Add("Scenario 020101", "Building");
+            outcomeOverrides.Add("Scenario 020201", "Untested");
+            outcomeOverrides.Add("Scenario 020301", "Ready");
 
             this.ValidateTestResuls(tr, statsOverrides, outcomeOverrides);
         }
