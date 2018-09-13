@@ -6,7 +6,7 @@
 
 <outline text="xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]">
 	<outline text="Generate A Report [Failed]">
-		<outline text="With Full Test Run">
+		<outline text="With Full Test Run [Failed]">
 			<outline text="Given you have the following json test run reports">
 				<outline text="./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json," />
 				<outline text="./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html," />
@@ -91,7 +91,7 @@
 				<outline text="{{.*}}/rl" />
 			</outline>
 		</outline>
-		<outline text="With A Missing Json File">
+		<outline text="With A Missing Json File [Failed]">
 			<outline text="Given you do not have a summary report file located at './MySample.TestSummary.WithAMissingJsonFile.html'.">
 				<outline text="./MySample.TestSummary.WithAMissingJsonFile.html" />
 			</outline>
@@ -378,7 +378,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Reports - HTML Test Run Report - Generating [Untested]">
+<outline text="xBDD - Features - Generating Reports - HTML Test Run Report - Generating [Defining]">
 	<outline text="Generate A Report [Untested]">
 		<outline text="With Full Test Run [Untested]">
 			<outline text="Given you have a test run project that creates all outcomes"/>
@@ -428,7 +428,7 @@
 			<outline text="Then the project will generate an Html test run report that has only the failed scenarios"/>
 		</outline>
 	</outline>
-	<outline text="View A Report [Untested]">
+	<outline text="View A Report [Defining]">
 		<outline text="From A File Server [Untested]">
 			<outline text="Given you have executed a test run project that creates all outcomes"/>
 			<outline text="Then you can view the html report by loading the following file into your browser">
@@ -671,8 +671,8 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Reports - HTML Test Run Report - Review Feature Information [Untested]">
-	<outline text="Review Feature Information [Untested]">
+<outline text="xBDD - Features - Generating Reports - HTML Test Run Report - Review Feature Information [Defining]">
+	<outline text="Review Feature Information [Defining]">
 		<outline text="With Name [Untested]">
 		</outline>
 		<outline text="With No Name [Untested]">
@@ -759,8 +759,8 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Reports - HTML Test Run Report - Review Scenario Information [Untested]">
-	<outline text="Review Scenario Information [Untested]">
+<outline text="xBDD - Features - Generating Reports - HTML Test Run Report - Review Scenario Information [Defining]">
+	<outline text="Review Scenario Information [Defining]">
 		<outline text="With Name [Untested]">
 		</outline>
 		<outline text="With No Name [Untested]">
@@ -799,7 +799,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Reports - HTML Test Run Report - Review Step Information [Untested]">
+<outline text="xBDD - Features - Generating Reports - HTML Test Run Report - Review Step Information [Defining]">
 	<outline text="Review Step Information [Untested]">
 		<outline text="With Name [Untested]">
 		</outline>
@@ -849,8 +849,8 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Reports - JSON Test Run Report [Untested]">
-	<outline text="Generate A Json Report With General Scenarios [Untested]">
+<outline text="xBDD - Features - Generating Reports - JSON Test Run Report [Defining]">
+	<outline text="Generate A Json Report With General Scenarios [Defining]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>
 		<outline text="With Empty Test Run [Untested]">
@@ -864,7 +864,7 @@
 		<outline text="With XBDD Test Run Filtering [Defining]">
 		</outline>
 	</outline>
-	<outline text="Generate A Json Report With Test Run Scenarios [Untested]">
+	<outline text="Generate A Json Report With Test Run Scenarios [Defining]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>
 		<outline text="With No Test Run Name [Untested]">
@@ -876,7 +876,7 @@
 		<outline text="With Areas [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Json Report With Area Scenarios [Untested]">
+	<outline text="Generate A Json Report With Area Scenarios [Defining]">
 		<outline text="With Full Area [Untested]">
 		</outline>
 		<outline text="With Area Name Clipping [Untested]">
@@ -890,7 +890,7 @@
 		<outline text="With Features [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Json Report With Feature Scenarios [Untested]">
+	<outline text="Generate A Json Report With Feature Scenarios [Defining]">
 		<outline text="With Full Feature [Untested]">
 		</outline>
 		<outline text="With Feature Name Empty [Untested]">
@@ -902,7 +902,7 @@
 		<outline text="With Scenarios [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Json Report With Scenario Scenarios [Untested]">
+	<outline text="Generate A Json Report With Scenario Scenarios [Defining]">
 		<outline text="With Full Scenario [Untested]">
 		</outline>
 		<outline text="With Scenario Name Empty [Untested]">
@@ -914,7 +914,7 @@
 		<outline text="With Steps [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Json Report With Step Scenarios [Untested]">
+	<outline text="Generate A Json Report With Step Scenarios [Defining]">
 		<outline text="With Full Step [Untested]">
 		</outline>
 		<outline text="With Step Name Empty [Untested]">
@@ -931,8 +931,8 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Reports - Outline Test Run Report [Untested]">
-	<outline text="Generate An Outline Report With General Scenarios [Untested]">
+<outline text="xBDD - Features - Generating Reports - Outline Test Run Report [Defining]">
+	<outline text="Generate An Outline Report With General Scenarios [Defining]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>
 		<outline text="With Empty Test Run [Untested]">
@@ -946,7 +946,7 @@
 		<outline text="With XBDD Test Run Filtering [Defining]">
 		</outline>
 	</outline>
-	<outline text="Generate An Outline Report With Test Run Scenarios [Untested]">
+	<outline text="Generate An Outline Report With Test Run Scenarios [Defining]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>
 		<outline text="With No Test Run Name [Untested]">
@@ -958,7 +958,7 @@
 		<outline text="With Areas [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate An Outline Report With Area Scenarios [Untested]">
+	<outline text="Generate An Outline Report With Area Scenarios [Defining]">
 		<outline text="With Full Area [Untested]">
 		</outline>
 		<outline text="With Area Name Clipping [Untested]">
@@ -972,7 +972,7 @@
 		<outline text="With Features [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate An Outline Report With Feature Scenarios [Untested]">
+	<outline text="Generate An Outline Report With Feature Scenarios [Defining]">
 		<outline text="With Full Feature [Untested]">
 		</outline>
 		<outline text="With Feature Name Empty [Untested]">
@@ -984,7 +984,7 @@
 		<outline text="With Scenarios [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate An Outline Report With Scenario Scenarios [Untested]">
+	<outline text="Generate An Outline Report With Scenario Scenarios [Defining]">
 		<outline text="With Full Scenario [Untested]">
 		</outline>
 		<outline text="With Scenario Name Empty [Untested]">
@@ -996,7 +996,7 @@
 		<outline text="With Steps [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate An Outline Report With Step Scenarios [Untested]">
+	<outline text="Generate An Outline Report With Step Scenarios [Defining]">
 		<outline text="With Full Step [Untested]">
 		</outline>
 		<outline text="With Step Name Empty [Untested]">
@@ -1013,8 +1013,8 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Reports - Text Test Run Report [Untested]">
-	<outline text="Generate A Text Report With General Scenarios [Untested]">
+<outline text="xBDD - Features - Generating Reports - Text Test Run Report [Defining]">
+	<outline text="Generate A Text Report With General Scenarios [Defining]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>
 		<outline text="With Empty Test Run [Untested]">
@@ -1028,7 +1028,7 @@
 		<outline text="With XBDD Test Run Filtering [Defining]">
 		</outline>
 	</outline>
-	<outline text="Generate A Text Report With Test Run Scenarios [Untested]">
+	<outline text="Generate A Text Report With Test Run Scenarios [Defining]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>
 		<outline text="With No Test Run Name [Untested]">
@@ -1040,7 +1040,7 @@
 		<outline text="With Areas [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Text Report With Area Scenarios [Untested]">
+	<outline text="Generate A Text Report With Area Scenarios [Defining]">
 		<outline text="With Full Area [Untested]">
 		</outline>
 		<outline text="With Area Name Clipping [Defining]">
@@ -1054,7 +1054,7 @@
 		<outline text="With Features [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Text Report With Feature Scenarios [Untested]">
+	<outline text="Generate A Text Report With Feature Scenarios [Defining]">
 		<outline text="With Full Feature [Untested]">
 		</outline>
 		<outline text="With Feature Name Empty [Untested]">
@@ -1066,7 +1066,7 @@
 		<outline text="With Scenarios [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Text Report With Scenario Scenarios [Untested]">
+	<outline text="Generate A Text Report With Scenario Scenarios [Defining]">
 		<outline text="With Full Scenario [Untested]">
 		</outline>
 		<outline text="With Scenario Name Empty [Untested]">
@@ -1078,7 +1078,7 @@
 		<outline text="With Steps [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Text Report With Step Scenarios [Untested]">
+	<outline text="Generate A Text Report With Step Scenarios [Defining]">
 		<outline text="With Full Step [Untested]">
 		</outline>
 		<outline text="With Step Name Empty [Untested]">
@@ -1095,8 +1095,8 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Reports - Text Outline Test Run Report [Untested]">
-	<outline text="Generate A Text Outline Report With General Scenarios [Untested]">
+<outline text="xBDD - Features - Generating Reports - Text Outline Test Run Report [Defining]">
+	<outline text="Generate A Text Outline Report With General Scenarios [Defining]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>
 		<outline text="With Empty Test Run [Untested]">
@@ -1110,7 +1110,7 @@
 		<outline text="With XBDD Test Run Filtering [Defining]">
 		</outline>
 	</outline>
-	<outline text="Generate A Text Outline Report With Test Run Scenarios [Untested]">
+	<outline text="Generate A Text Outline Report With Test Run Scenarios [Defining]">
 		<outline text="With Full Test Run [Untested]">
 		</outline>
 		<outline text="With No Test Run Name [Untested]">
@@ -1122,7 +1122,7 @@
 		<outline text="With Areas [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Text Outline Report With Area Scenarios [Untested]">
+	<outline text="Generate A Text Outline Report With Area Scenarios [Defining]">
 		<outline text="With Full Area [Untested]">
 		</outline>
 		<outline text="With Area Name Clipping [Untested]">
@@ -1136,7 +1136,7 @@
 		<outline text="With Features [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Text Outline Report With Feature Scenarios [Untested]">
+	<outline text="Generate A Text Outline Report With Feature Scenarios [Defining]">
 		<outline text="With Full Feature [Untested]">
 		</outline>
 		<outline text="With Feature Name Empty [Untested]">
@@ -1148,7 +1148,7 @@
 		<outline text="With Scenarios [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Text Outline Report With Scenario Scenarios [Untested]">
+	<outline text="Generate A Text Outline Report With Scenario Scenarios [Defining]">
 		<outline text="With Full Scenario [Untested]">
 		</outline>
 		<outline text="With Scenario Name Empty [Untested]">
@@ -1160,7 +1160,7 @@
 		<outline text="With Steps [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Text Outline Report With Step Scenarios [Untested]">
+	<outline text="Generate A Text Outline Report With Step Scenarios [Defining]">
 		<outline text="With Full Step [Untested]">
 		</outline>
 		<outline text="With Step Name Empty [Untested]">

@@ -62,7 +62,11 @@ namespace MySample.Features.TestRun6Failed.Area1Passing
 						That explains or represnts the input 
 						to the step. This text can be formatted to any code language
 						suppored by google pretty print. You can also use raw html
-						like in the output.".RemoveIndentation(6, true), TextFormat.text)
+						like in the output.".RemoveIndentation(6, true), TextFormat.text, 
+					@"
+						# Step Explanation
+						You can also provide an explanation for a step in your code.
+						This will also take markdown.".RemoveIndentation(6, true))
 				.When("Step 2 Passing",
 					(s) => { 
 						// Enter your code here.

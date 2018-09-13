@@ -234,7 +234,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				}
 			And you will find the project execute tests with the 'dotnet test' command [Passed]
 				dotnet test
-			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Failed]
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Exception Thrown]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
 				Error Type: DirectoryNotFoundException
 				   Message: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\test-results\MyGeneratedSample.Features.Results.html'.
@@ -245,20 +245,20 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				               at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks)
 				               at System.IO.File.InternalReadAllText(String path, Encoding encoding)
 				               at System.IO.File.ReadAllText(String path)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass7_0.<WillFind>b__0(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features.Common\Developer.cs:line 144
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass7_0.<WillFind>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 144
 				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Skipped - Previous Error]
+			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
-			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'. [Skipped - Previous Error]
+			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'. [Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
-			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'. [Skipped - Previous Error]
+			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'. [Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
-			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'. [Skipped - Previous Error]
+			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'. [Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
 		In An Initialized XBDD [Failed]
 			Given you have an empty directory [Passed]
@@ -308,7 +308,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
 			And you will find the project execute tests with the 'dotnet test' command [Passed]
 				dotnet test
-			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Failed]
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Exception Thrown]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
 				Error Type: DirectoryNotFoundException
 				   Message: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\test-results\MyGeneratedSample.Features.Results.html'.
@@ -319,20 +319,20 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				               at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks)
 				               at System.IO.File.InternalReadAllText(String path, Encoding encoding)
 				               at System.IO.File.ReadAllText(String path)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass7_0.<WillFind>b__0(Step s) in C:\Users\stearm01\source\xBDD\xBDD.Features.Common\Developer.cs:line 144
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass7_0.<WillFind>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 144
 				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Skipped - Previous Error]
+			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
-			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'. [Skipped - Previous Error]
+			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'. [Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
-			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'. [Skipped - Previous Error]
+			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'. [Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
-			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'. [Skipped - Previous Error]
+			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'. [Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
 		With A Test Run Name [Passed]
 			Given you have an empty directory

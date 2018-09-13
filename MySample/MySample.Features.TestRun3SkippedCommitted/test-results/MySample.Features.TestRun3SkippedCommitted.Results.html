@@ -3,9 +3,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>My Sample - Test Run 3 Skipped Committed</title>
 		<link rel="stylesheet" 
+			href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+			integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<!--
+		<link rel="stylesheet" 
 			href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" 
 			integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=\" 
 			crossorigin="anonymous" />
+		-->
 		<link rel="stylesheet" 
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
 			integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -20,15 +25,15 @@
 
 						ol.testruns { margin: 1rem 0rem 1rem 0rem; }
 						ol.areas { margin: 1rem 0rem 1rem 0rem; }
-						ol.features { margin: 1rem 0rem 1rem 0rem; }
-						ol.scenarios { margin: 1rem 0rem 1rem 0rem; }
-						ol.steps { margin: 1rem 0rem 1rem 0rem;}
+						ol.features { margin: 0rem 0rem 1rem 0rem; }
+						ol.scenarios { margin: 0rem 0rem 1rem 0rem; }
+						ol.steps { margin: 0rem 0rem 1rem 0rem;}
 
 						li.testrun { margin: 1rem 0rem 0rem 0rem; padding: 1rem 0rem 0rem 0rem; }
-						li.area { margin: 1rem 0rem 0rem 0rem; border-top: rgb(68,114,198) solid 1px; padding: 1rem 0rem 0rem 0rem; }
-						li.feature { margin: .75rem 0rem 0rem 0rem; }
-						li.scenario { margin: .5rem 0rem 0rem 0rem; }
-						li.step { margin: .25rem 0rem 0rem 0rem; }
+						li.area { margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }
+						li.feature { margin: 0rem 0rem 0rem 0rem; }
+						li.scenario { margin: 0rem 0rem 0rem 0rem; }
+						li.step { margin: 0rem 0rem 0rem 0rem; }
 
 						div.badge-distro { display: inline-block; vertical-align: middle; }
 						div.testrun.badge-distro { width: 6rem; height: 2rem; }
@@ -37,8 +42,10 @@
 						div.scenario.badge-distro { width: 6rem; height: 1.5rem; }
 						div.step.badge-distro { width: 6rem; height: 1rem; }
 
+						div.badges { flex: 0 0 11rem; }
 						div.badge { background-color: #80808029; border: 1px white solid; width: 1.5rem; height: 1.5rem; vertical-align: middle; }
 						div.badge:hover { background-color: #4343af }
+						div.badge.label { width: 100%; height: 100%; vertical-align: middle; }
 						div.testrun.badge { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }
 						div.area.badge { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }
 						div.feature.badge { width: 4rem; margin-left: .25rem; height: 1.75rem; position: absolute; font-size: 1rem;  }
@@ -55,7 +62,7 @@
 						div.feature-statement-link.badge { position: inherit; width: 1.5rem; height: 1.5rem; vertical-align: top; }
 						a.step-input-link { font-size: 1rem; color: gray !important; vertical-align: text-top; font-weight: 100; }
 						a.step-output-link { font-size: 1rem; color: gray !important; vertical-align: text-top; font-weight: 100; }
-						a.step-error-link { font-size: 1rem; color: gray !important; vertical-align: text-top; font-weight: 100; }
+						a.step-exception-link { font-size: 1rem; color: gray !important; vertical-align: text-top; font-weight: 100; }
 
 						span.name { vertical-align: top; }
 						span.testrun.name { font-size: 2rem; font-weight: 400; margin-left: .75rem; }
@@ -64,46 +71,59 @@
 						span.scenario.name { font-size: 1.25rem; font-weight: 400; vertical-align: middle; font-style: italic; color: rgb(68,114,198) }
 						span.step.name { font-size: 1rem;  font-weight: 400; }
 
-						span.assignments { vertical-align: sub; color: Gray; font-size: .75rem; }
-						span.tags { vertical-align: sub; color: Gray; font-size: .75rem; }
+						span.assignments { float: right; color: Gray; font-size: 1rem; }
+						span.tags { float: right; margin-right: .5rem; color: Gray; font-size: 1rem; }
 
-						div.reason-duration { font-size: 1rem; color: gray; vertical-align: text-top; white-space: nowrap; }
+						div.reason-duration { flex: 0 0 6rem; font-size: 1rem; color: gray; vertical-align: text-top; white-space: nowrap; }
 						span.step.reason-duration { font-size: 1rem; color: gray; font-weight: 100; }
 
 						span.step.duration { font-size: 1rem; color: gray; font-weight: 100; }
 
 						/* Stats */
 
+						.stats-graph-tables { border-top: 0.5rem; }
 						.table { margin: 2px !important; }
 						.table th, .table td { border-top: none !important; line-height: 1 !important; padding: 0px 10px !important; }
 						td.graph td { padding: 0px !important; }
 						.table td.bar { padding: 0px !important; }
-						li.stats { margin-top: .5rem; }
+						div.distro-corner-tr { position: absolute; margin-left: 5.35rem; width: 10px; height: 10px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAMAAAHQVe0RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURQAAAP///////////////////////0jPbQQAAAAGdFJOUwC81uLs9S3UunwAAAAJcEhZcwAAEk0AABJNAfOXxKcAAABZSURBVBhXlY7bDsAgCEOdSv//k22RLZjx4jFKabjYwCP0miuyrQ215fxl8LJZQVQlIvmALzCwLUkJMnJlxEuOYcc2TLeDSaOhR/bR0Z6QicK6o5xZbv//E1gwYwFZkRA8AQAAAABJRU5ErkJggg==") no-repeat top right; }
+						div.distro-corner-br { position: absolute; margin-left: 5.35rem; width: 10px; height: 10px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAMAAAHQVe0RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURQAAAP///////////////////////0jPbQQAAAAGdFJOUwC81uLs9S3UunwAAAAJcEhZcwAAEk0AABJNAfOXxKcAAABZSURBVBhXlY7bDsAgCEOdSv//k22RLZjx4jFKabjYwCP0miuyrQ215fxl8LJZQVQlIvmALzCwLUkJMnJlxEuOYcc2TLeDSaOhR/bR0Z6QicK6o5xZbv//E1gwYwFZkRA8AQAAAABJRU5ErkJggg==") no-repeat bottom right; }
+						div.testrun.distro-corner-tr { margin-top: .05rem; }
+						div.testrun.distro-corner-br { margin-top: 1.32rem; }
+						div.area.distro-corner-tr { margin-top: .05rem; }
+						div.area.distro-corner-br { margin-top: 1.32rem; }
+						div.feature.distro-corner-tr { margin-top: .06rem; }
+						div.feature.distro-corner-br { margin-top: 1.1rem; }
 
 						div#report-dates { margin: 0rem 0rem .5rem 5rem; }
 
+						/* Statements and Explanation */
+						div.statement { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
+						div.explanation { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
+
 						/* Exceptions */
 
-						dl.exception { margin: 1rem 3rem; padding: 1rem; }
+						div.exception { margin: 1rem 0rem; border: #dc3545 solid 1px; padding: 1rem; }
 						dl.exception dt { margin-bottom: .25rem; }
-						dl.error-type, dl.error-message, dl.error-stack { padding: .5rem; }
-						dl.error-type pre, dl.error-message pre, dl.error-stack pre { padding: .5rem; }
+						dl.exception-type, dl.exception-message, dl.exception-stack { padding: .5rem; }
+						dl.exception-type pre, dl.exception-message pre, dl.exception-stack pre { padding: .5rem; }
 
 						/* Input, and Output */
 
+						div.output { margin: 1rem 0rem; }
 						iframe { border: 1px solid gray; resize: both; overflow: auto; }
 						pre { white-space: pre !important; }
-						pre.input { margin: 1rem auto; width: 95%; }
-						pre.output { margin: 1rem auto; width: 95%; }
+						pre.input { margin: 1rem 0rem; }
+						pre.output { margin: 1rem 0rem; }
 						pre.prettyprint {  background-color: #eee; }
-						.linenums li { list-style-type: decimal !iinputortant;}
-						.badge.Removing { background-color: rgb(124,124,124); color: White;}
-						.badge.Passed { background-color: rgb(112,173,71); color: White;}
-						.badge.Untested { background-color: rgb(237,125,49); color: White;}
-						.badge.Committed { background-color: rgb(46,117,182); color: White;}
-						.badge.Ready { background-color: rgb(157,195,230); color: White;}
-						.badge.Defining { background-color: rgb(222,235,247); color: Black;}
-						.badge.Failed { background-color: rgb(192,0,0); color: White;}
+						.linenums li { list-style-type: decimal !important; }
+						.reason-Removing { background-color: rgb(124,124,124) !important; color: White !important;}
+						.reason-Passed { background-color: rgb(112,173,71) !important; color: White !important;}
+						.reason-Untested { background-color: rgb(237,125,49) !important; color: White !important;}
+						.reason-Committed { background-color: rgb(46,117,182) !important; color: White !important;}
+						.reason-Ready { background-color: rgb(157,195,230) !important; color: White !important;}
+						.reason-Defining { background-color: rgb(222,235,247) !important; color: Black !important;}
+						.reason-Failed { background-color: rgb(192,0,0) !important; color: White !important;}
 					</style>
 				</header>
 <body>
@@ -133,13 +153,17 @@
 		id="testrun-1-badge-distro"
 		title="Committed Count: Scenarios"
 		onclick="toggleVisibility('testrun-1-stats')">
-		<div class="testrun badge badge-pill pointer total Committed"
+		<div class="testrun badge badge-pill pointer total reason-Committed"
 			id="testrun-1-badge">10</div>
+		<div class="testrun distro-corner-tr">
+		</div>
+		<div class="testrun distro-corner-br">
+		</div>
 		<div class="testrun distro pointer"
 			id="testrun-1-distro">
-			<div style="background-color: rgb(112,173,71); height: 60%; width: 100%;"></div>
-			<div style="background-color: rgb(237,125,49); height: 30%; width: 100%;"></div>
-			<div style="background-color: rgb(46,117,182); height: 10%; width: 100%;"></div>
+			<div class="reason-Passed" style="height: 60%; width: 100%;"></div>
+			<div class="reason-Untested" style="height: 30%; width: 100%;"></div>
+			<div class="reason-Committed" style="height: 10%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
@@ -152,7 +176,7 @@
 
 	</div>
 <div class="col-2 testrun reason-duration text-right">
-	<span class="testrun duration">[290 ms]</span>
+	<span class="testrun duration">[294 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -162,13 +186,13 @@
 				<tr id="testrun-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 	<tr id="report-areas-reason-stats">
 		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
 		<td class="text-center" style="width: 12%;">3</td>
@@ -213,13 +237,9 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 33.3333333333333%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 33.3333333333333%; background-color: rgb(237,125,49);"></td>
-					<td class="bar text-center" style="width: 33.3333333333333%; background-color: rgb(46,117,182);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 33.3333333333333%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 33.3333333333333%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 33.3333333333333%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -229,13 +249,9 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 50%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 33.3333333333333%; background-color: rgb(237,125,49);"></td>
-					<td class="bar text-center" style="width: 16.6666666666667%; background-color: rgb(46,117,182);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 50%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 33.3333333333333%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 16.6666666666667%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -245,13 +261,9 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 60%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 30%; background-color: rgb(237,125,49);"></td>
-					<td class="bar text-center" style="width: 10%; background-color: rgb(46,117,182);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 60%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 30%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 10%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -272,11 +284,15 @@
 		id="area-2-badge-distro"
 		title="Passed Count: Scenarios"
 		onclick="toggleVisibility('area-2-stats')">
-		<div class="area badge badge-pill pointer total Passed"
+		<div class="area badge badge-pill pointer total reason-Passed"
 			id="area-2-badge">1</div>
+		<div class="area distro-corner-tr">
+		</div>
+		<div class="area distro-corner-br">
+		</div>
 		<div class="area distro pointer"
 			id="area-2-distro">
-			<div style="background-color: rgb(112,173,71); height: 100%; width: 100%;"></div>
+			<div class="reason-Passed" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
@@ -299,13 +315,13 @@
 				<tr id="area-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 	<tr id="report-features-reason-stats">
 		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
 		<td class="text-center" style="width: 12%;">1</td>
@@ -339,13 +355,7 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 100%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 100%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -355,13 +365,7 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 100%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 100%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -382,11 +386,15 @@
 		id="feature-3-badge-distro"
 		title="Passed Count: Scenarios"
 		onclick="toggleVisibility('feature-3-stats')">
-		<div class="feature badge badge-pill pointer total Passed"
+		<div class="feature badge badge-pill pointer total reason-Passed"
 			id="feature-3-badge">1</div>
+		<div class="feature distro-corner-tr">
+		</div>
+		<div class="feature distro-corner-br">
+		</div>
 		<div class="feature distro pointer"
 			id="feature-3-distro">
-			<div style="background-color: rgb(112,173,71); height: 100%; width: 100%;"></div>
+			<div class="reason-Passed" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
@@ -409,13 +417,13 @@
 				<tr id="feature-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 	<tr id="report-scenarios-reason-stats">
 		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
 		<td class="text-center" style="width: 12%;">1</td>
@@ -438,13 +446,7 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 100%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 100%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -461,8 +463,8 @@
 				style="display: none">
 <li class="lineitem scenario row align-items-center" id="scenario-4">
 <div class="col-2 badges">
-		<div class="scenario badge badge-pill pointer total Passed"
-			id="scenario-4-badge">0</div>
+		<div class="scenario badge badge-pill pointer total reason-Passed"
+			id="scenario-4-badge">3</div>
 </div>
 
 	<div class="col">
@@ -483,13 +485,13 @@
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 			</table>
 			<table class="table table-condensed bargraph-table">
 				<tr id="scenario-header-reason-stats">
@@ -508,18 +510,13 @@
 				style="display: none">
 <li class="lineitem step row align-items-center" id="step-5">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-5-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-5-input-link" 
-		onclick="toggleVisibility('step-5-input', true, 'iframe5')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-5-name">Step 1 Passing</span>
+			id="step-5-name"><strong>Given</strong>  Step 1 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -528,18 +525,13 @@
 </li>
 <li class="lineitem step row align-items-center" id="step-6">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-6-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-6-input-link" 
-		onclick="toggleVisibility('step-6-input', true, 'iframe6')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-6-name">Step 2 Passing</span>
+			id="step-6-name"><strong>When</strong>  Step 2 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -548,18 +540,13 @@
 </li>
 <li class="lineitem step row align-items-center" id="step-7">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-7-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-7-input-link" 
-		onclick="toggleVisibility('step-7-input', true, 'iframe7')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-7-name">Step 3 Passing</span>
+			id="step-7-name"><strong>Then</strong>  Step 3 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -584,12 +571,16 @@
 		id="area-8-badge-distro"
 		title="Untested Count: Scenarios"
 		onclick="toggleVisibility('area-8-stats')">
-		<div class="area badge badge-pill pointer total Untested"
+		<div class="area badge badge-pill pointer total reason-Untested"
 			id="area-8-badge">3</div>
+		<div class="area distro-corner-tr">
+		</div>
+		<div class="area distro-corner-br">
+		</div>
 		<div class="area distro pointer"
 			id="area-8-distro">
-			<div style="background-color: rgb(112,173,71); height: 66.6666666666667%; width: 100%;"></div>
-			<div style="background-color: rgb(237,125,49); height: 33.3333333333333%; width: 100%;"></div>
+			<div class="reason-Passed" style="height: 66.6666666666667%; width: 100%;"></div>
+			<div class="reason-Untested" style="height: 33.3333333333333%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
@@ -602,7 +593,7 @@
 
 	</div>
 <div class="col-2 area reason-duration text-right">
-	<span class="area duration">[4 ms]</span>
+	<span class="area duration">[3 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -612,13 +603,13 @@
 				<tr id="area-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 	<tr id="report-features-reason-stats">
 		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
 		<td class="text-center" style="width: 12%;">2</td>
@@ -652,13 +643,8 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 50%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 50%; background-color: rgb(237,125,49);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 50%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 50%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -668,13 +654,8 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 66.6666666666667%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 33.3333333333333%; background-color: rgb(237,125,49);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 66.6666666666667%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 33.3333333333333%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -695,11 +676,15 @@
 		id="feature-9-badge-distro"
 		title="Passed Count: Scenarios"
 		onclick="toggleVisibility('feature-9-stats')">
-		<div class="feature badge badge-pill pointer total Passed"
+		<div class="feature badge badge-pill pointer total reason-Passed"
 			id="feature-9-badge">1</div>
+		<div class="feature distro-corner-tr">
+		</div>
+		<div class="feature distro-corner-br">
+		</div>
 		<div class="feature distro pointer"
 			id="feature-9-distro">
-			<div style="background-color: rgb(112,173,71); height: 100%; width: 100%;"></div>
+			<div class="reason-Passed" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
@@ -722,13 +707,13 @@
 				<tr id="feature-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 	<tr id="report-scenarios-reason-stats">
 		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
 		<td class="text-center" style="width: 12%;">1</td>
@@ -751,13 +736,7 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 100%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 100%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -774,8 +753,8 @@
 				style="display: none">
 <li class="lineitem scenario row align-items-center" id="scenario-10">
 <div class="col-2 badges">
-		<div class="scenario badge badge-pill pointer total Passed"
-			id="scenario-10-badge">0</div>
+		<div class="scenario badge badge-pill pointer total reason-Passed"
+			id="scenario-10-badge">3</div>
 </div>
 
 	<div class="col">
@@ -796,13 +775,13 @@
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 			</table>
 			<table class="table table-condensed bargraph-table">
 				<tr id="scenario-header-reason-stats">
@@ -821,18 +800,13 @@
 				style="display: none">
 <li class="lineitem step row align-items-center" id="step-11">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-11-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-11-input-link" 
-		onclick="toggleVisibility('step-11-input', true, 'iframe11')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-11-name">Step 1 Passing</span>
+			id="step-11-name"><strong>Given</strong>  Step 1 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -841,18 +815,13 @@
 </li>
 <li class="lineitem step row align-items-center" id="step-12">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-12-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-12-input-link" 
-		onclick="toggleVisibility('step-12-input', true, 'iframe12')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-12-name">Step 2 Passing</span>
+			id="step-12-name"><strong>When</strong>  Step 2 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -861,18 +830,13 @@
 </li>
 <li class="lineitem step row align-items-center" id="step-13">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-13-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-13-input-link" 
-		onclick="toggleVisibility('step-13-input', true, 'iframe13')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-13-name">Step 3 Passing</span>
+			id="step-13-name"><strong>Then</strong>  Step 3 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -893,12 +857,16 @@
 		id="feature-14-badge-distro"
 		title="Untested Count: Scenarios"
 		onclick="toggleVisibility('feature-14-stats')">
-		<div class="feature badge badge-pill pointer total Untested"
+		<div class="feature badge badge-pill pointer total reason-Untested"
 			id="feature-14-badge">2</div>
+		<div class="feature distro-corner-tr">
+		</div>
+		<div class="feature distro-corner-br">
+		</div>
 		<div class="feature distro pointer"
 			id="feature-14-distro">
-			<div style="background-color: rgb(112,173,71); height: 50%; width: 100%;"></div>
-			<div style="background-color: rgb(237,125,49); height: 50%; width: 100%;"></div>
+			<div class="reason-Passed" style="height: 50%; width: 100%;"></div>
+			<div class="reason-Untested" style="height: 50%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
@@ -921,13 +889,13 @@
 				<tr id="feature-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 	<tr id="report-scenarios-reason-stats">
 		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
 		<td class="text-center" style="width: 12%;">2</td>
@@ -950,13 +918,8 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 50%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 50%; background-color: rgb(237,125,49);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 50%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 50%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -973,8 +936,8 @@
 				style="display: none">
 <li class="lineitem scenario row align-items-center" id="scenario-15">
 <div class="col-2 badges">
-		<div class="scenario badge badge-pill pointer total Passed"
-			id="scenario-15-badge">0</div>
+		<div class="scenario badge badge-pill pointer total reason-Passed"
+			id="scenario-15-badge">3</div>
 </div>
 
 	<div class="col">
@@ -995,13 +958,13 @@
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 			</table>
 			<table class="table table-condensed bargraph-table">
 				<tr id="scenario-header-reason-stats">
@@ -1020,18 +983,13 @@
 				style="display: none">
 <li class="lineitem step row align-items-center" id="step-16">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-16-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-16-input-link" 
-		onclick="toggleVisibility('step-16-input', true, 'iframe16')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-16-name">Step 1 Passing</span>
+			id="step-16-name"><strong>Given</strong>  Step 1 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -1040,18 +998,13 @@
 </li>
 <li class="lineitem step row align-items-center" id="step-17">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-17-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-17-input-link" 
-		onclick="toggleVisibility('step-17-input', true, 'iframe17')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-17-name">Step 2 Passing</span>
+			id="step-17-name"><strong>When</strong>  Step 2 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -1060,18 +1013,13 @@
 </li>
 <li class="lineitem step row align-items-center" id="step-18">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-18-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-18-input-link" 
-		onclick="toggleVisibility('step-18-input', true, 'iframe18')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-18-name">Step 3 Passing</span>
+			id="step-18-name"><strong>Then</strong>  Step 3 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -1084,7 +1032,7 @@
 	</li>
 <li class="lineitem scenario row align-items-center" id="scenario-19">
 <div class="col-2 badges">
-		<div class="scenario badge badge-pill pointer total Untested"
+		<div class="scenario badge badge-pill pointer total reason-Untested"
 			id="scenario-19-badge">0</div>
 </div>
 
@@ -1106,13 +1054,13 @@
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 			</table>
 			<table class="table table-condensed bargraph-table">
 				<tr id="scenario-header-reason-stats">
@@ -1147,13 +1095,17 @@
 		id="area-20-badge-distro"
 		title="Committed Count: Scenarios"
 		onclick="toggleVisibility('area-20-stats')">
-		<div class="area badge badge-pill pointer total Committed"
+		<div class="area badge badge-pill pointer total reason-Committed"
 			id="area-20-badge">6</div>
+		<div class="area distro-corner-tr">
+		</div>
+		<div class="area distro-corner-br">
+		</div>
 		<div class="area distro pointer"
 			id="area-20-distro">
-			<div style="background-color: rgb(112,173,71); height: 50%; width: 100%;"></div>
-			<div style="background-color: rgb(237,125,49); height: 33.3333333333333%; width: 100%;"></div>
-			<div style="background-color: rgb(46,117,182); height: 16.6666666666667%; width: 100%;"></div>
+			<div class="reason-Passed" style="height: 50%; width: 100%;"></div>
+			<div class="reason-Untested" style="height: 33.3333333333333%; width: 100%;"></div>
+			<div class="reason-Committed" style="height: 16.6666666666667%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
@@ -1166,7 +1118,7 @@
 
 	</div>
 <div class="col-2 area reason-duration text-right">
-	<span class="area duration">[138 ms]</span>
+	<span class="area duration">[139 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -1176,13 +1128,13 @@
 				<tr id="area-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 	<tr id="report-features-reason-stats">
 		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
 		<td class="text-center" style="width: 12%;">3</td>
@@ -1216,13 +1168,9 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 33.3333333333333%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 33.3333333333333%; background-color: rgb(237,125,49);"></td>
-					<td class="bar text-center" style="width: 33.3333333333333%; background-color: rgb(46,117,182);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 33.3333333333333%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 33.3333333333333%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 33.3333333333333%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -1232,13 +1180,9 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 50%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 33.3333333333333%; background-color: rgb(237,125,49);"></td>
-					<td class="bar text-center" style="width: 16.6666666666667%; background-color: rgb(46,117,182);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 50%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 33.3333333333333%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 16.6666666666667%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -1259,11 +1203,15 @@
 		id="feature-21-badge-distro"
 		title="Passed Count: Scenarios"
 		onclick="toggleVisibility('feature-21-stats')">
-		<div class="feature badge badge-pill pointer total Passed"
+		<div class="feature badge badge-pill pointer total reason-Passed"
 			id="feature-21-badge">1</div>
+		<div class="feature distro-corner-tr">
+		</div>
+		<div class="feature distro-corner-br">
+		</div>
 		<div class="feature distro pointer"
 			id="feature-21-distro">
-			<div style="background-color: rgb(112,173,71); height: 100%; width: 100%;"></div>
+			<div class="reason-Passed" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
@@ -1286,13 +1234,13 @@
 				<tr id="feature-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 	<tr id="report-scenarios-reason-stats">
 		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
 		<td class="text-center" style="width: 12%;">1</td>
@@ -1315,13 +1263,7 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 100%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 100%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -1338,8 +1280,8 @@
 				style="display: none">
 <li class="lineitem scenario row align-items-center" id="scenario-22">
 <div class="col-2 badges">
-		<div class="scenario badge badge-pill pointer total Passed"
-			id="scenario-22-badge">0</div>
+		<div class="scenario badge badge-pill pointer total reason-Passed"
+			id="scenario-22-badge">3</div>
 </div>
 
 	<div class="col">
@@ -1360,13 +1302,13 @@
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 			</table>
 			<table class="table table-condensed bargraph-table">
 				<tr id="scenario-header-reason-stats">
@@ -1385,38 +1327,28 @@
 				style="display: none">
 <li class="lineitem step row align-items-center" id="step-23">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-23-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-23-input-link" 
-		onclick="toggleVisibility('step-23-input', true, 'iframe23')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-23-name">Step 1 Passing</span>
+			id="step-23-name"><strong>Given</strong>  Step 1 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
-	<span class="step duration">[1 ms]</span>
+	<span class="step duration">[2 ms]</span>
 </div>
 </li>
 <li class="lineitem step row align-items-center" id="step-24">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-24-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-24-input-link" 
-		onclick="toggleVisibility('step-24-input', true, 'iframe24')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-24-name">Step 2 Passing</span>
+			id="step-24-name"><strong>When</strong>  Step 2 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -1425,18 +1357,13 @@
 </li>
 <li class="lineitem step row align-items-center" id="step-25">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-25-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-25-input-link" 
-		onclick="toggleVisibility('step-25-input', true, 'iframe25')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-25-name">Step 3 Passing</span>
+			id="step-25-name"><strong>Then</strong>  Step 3 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -1457,12 +1384,16 @@
 		id="feature-26-badge-distro"
 		title="Untested Count: Scenarios"
 		onclick="toggleVisibility('feature-26-stats')">
-		<div class="feature badge badge-pill pointer total Untested"
+		<div class="feature badge badge-pill pointer total reason-Untested"
 			id="feature-26-badge">2</div>
+		<div class="feature distro-corner-tr">
+		</div>
+		<div class="feature distro-corner-br">
+		</div>
 		<div class="feature distro pointer"
 			id="feature-26-distro">
-			<div style="background-color: rgb(112,173,71); height: 50%; width: 100%;"></div>
-			<div style="background-color: rgb(237,125,49); height: 50%; width: 100%;"></div>
+			<div class="reason-Passed" style="height: 50%; width: 100%;"></div>
+			<div class="reason-Untested" style="height: 50%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
@@ -1475,7 +1406,7 @@
 
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[4 ms]</span>
+	<span class="feature duration">[5 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -1485,13 +1416,13 @@
 				<tr id="feature-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 	<tr id="report-scenarios-reason-stats">
 		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
 		<td class="text-center" style="width: 12%;">2</td>
@@ -1514,13 +1445,8 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 50%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 50%; background-color: rgb(237,125,49);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 50%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 50%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -1537,8 +1463,8 @@
 				style="display: none">
 <li class="lineitem scenario row align-items-center" id="scenario-27">
 <div class="col-2 badges">
-		<div class="scenario badge badge-pill pointer total Passed"
-			id="scenario-27-badge">0</div>
+		<div class="scenario badge badge-pill pointer total reason-Passed"
+			id="scenario-27-badge">3</div>
 </div>
 
 	<div class="col">
@@ -1559,13 +1485,13 @@
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 			</table>
 			<table class="table table-condensed bargraph-table">
 				<tr id="scenario-header-reason-stats">
@@ -1584,18 +1510,13 @@
 				style="display: none">
 <li class="lineitem step row align-items-center" id="step-28">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-28-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-28-input-link" 
-		onclick="toggleVisibility('step-28-input', true, 'iframe28')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-28-name">Step 1 Passing</span>
+			id="step-28-name"><strong>Given</strong>  Step 1 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -1604,18 +1525,13 @@
 </li>
 <li class="lineitem step row align-items-center" id="step-29">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-29-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-29-input-link" 
-		onclick="toggleVisibility('step-29-input', true, 'iframe29')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-29-name">Step 2 Passing</span>
+			id="step-29-name"><strong>When</strong>  Step 2 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -1624,18 +1540,13 @@
 </li>
 <li class="lineitem step row align-items-center" id="step-30">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-30-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-30-input-link" 
-		onclick="toggleVisibility('step-30-input', true, 'iframe30')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-30-name">Step 3 Passing</span>
+			id="step-30-name"><strong>Then</strong>  Step 3 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -1648,7 +1559,7 @@
 	</li>
 <li class="lineitem scenario row align-items-center" id="scenario-31">
 <div class="col-2 badges">
-		<div class="scenario badge badge-pill pointer total Untested"
+		<div class="scenario badge badge-pill pointer total reason-Untested"
 			id="scenario-31-badge">0</div>
 </div>
 
@@ -1660,7 +1571,7 @@
 
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[3 ms]</span>
+	<span class="scenario duration">[4 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -1670,13 +1581,13 @@
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 			</table>
 			<table class="table table-condensed bargraph-table">
 				<tr id="scenario-header-reason-stats">
@@ -1707,13 +1618,17 @@
 		id="feature-32-badge-distro"
 		title="Committed Count: Scenarios"
 		onclick="toggleVisibility('feature-32-stats')">
-		<div class="feature badge badge-pill pointer total Committed"
+		<div class="feature badge badge-pill pointer total reason-Committed"
 			id="feature-32-badge">3</div>
+		<div class="feature distro-corner-tr">
+		</div>
+		<div class="feature distro-corner-br">
+		</div>
 		<div class="feature distro pointer"
 			id="feature-32-distro">
-			<div style="background-color: rgb(112,173,71); height: 33.3333333333333%; width: 100%;"></div>
-			<div style="background-color: rgb(237,125,49); height: 33.3333333333333%; width: 100%;"></div>
-			<div style="background-color: rgb(46,117,182); height: 33.3333333333333%; width: 100%;"></div>
+			<div class="reason-Passed" style="height: 33.3333333333333%; width: 100%;"></div>
+			<div class="reason-Untested" style="height: 33.3333333333333%; width: 100%;"></div>
+			<div class="reason-Committed" style="height: 33.3333333333333%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
@@ -1726,7 +1641,7 @@
 
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[9 ms]</span>
+	<span class="feature duration">[7 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -1736,13 +1651,13 @@
 				<tr id="feature-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 	<tr id="report-scenarios-reason-stats">
 		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
 		<td class="text-center" style="width: 12%;">3</td>
@@ -1765,13 +1680,9 @@
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 33.3333333333333%; background-color: rgb(112,173,71);"></td>
-					<td class="bar text-center" style="width: 33.3333333333333%; background-color: rgb(237,125,49);"></td>
-					<td class="bar text-center" style="width: 33.3333333333333%; background-color: rgb(46,117,182);"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
-					<td class="bar text-center" style="width: 0%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 33.3333333333333%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 33.3333333333333%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 33.3333333333333%;"></td>
 				</tr>
 			</table>
 		</td>
@@ -1788,8 +1699,8 @@
 				style="display: none">
 <li class="lineitem scenario row align-items-center" id="scenario-33">
 <div class="col-2 badges">
-		<div class="scenario badge badge-pill pointer total Passed"
-			id="scenario-33-badge">0</div>
+		<div class="scenario badge badge-pill pointer total reason-Passed"
+			id="scenario-33-badge">3</div>
 </div>
 
 	<div class="col">
@@ -1800,7 +1711,7 @@
 
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[3 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -1810,13 +1721,13 @@
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 			</table>
 			<table class="table table-condensed bargraph-table">
 				<tr id="scenario-header-reason-stats">
@@ -1835,38 +1746,28 @@
 				style="display: none">
 <li class="lineitem step row align-items-center" id="step-34">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-34-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-34-input-link" 
-		onclick="toggleVisibility('step-34-input', true, 'iframe34')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-34-name">Step 1 Passing</span>
+			id="step-34-name"><strong>Given</strong>  Step 1 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
-	<span class="step duration">[3 ms]</span>
+	<span class="step duration">[0 ms]</span>
 </div>
 </li>
 <li class="lineitem step row align-items-center" id="step-35">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-35-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-35-input-link" 
-		onclick="toggleVisibility('step-35-input', true, 'iframe35')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-35-name">Step 2 Passing</span>
+			id="step-35-name"><strong>When</strong>  Step 2 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -1875,18 +1776,13 @@
 </li>
 <li class="lineitem step row align-items-center" id="step-36">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Passed"
+		<div class="step badge badge-pill pointer total reason-Passed"
 			id="step-36-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-36-input-link" 
-		onclick="toggleVisibility('step-36-input', true, 'iframe36')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-36-name">Step 3 Passing</span>
+			id="step-36-name"><strong>Then</strong>  Step 3 Passing</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -1899,7 +1795,7 @@
 	</li>
 <li class="lineitem scenario row align-items-center" id="scenario-37">
 <div class="col-2 badges">
-		<div class="scenario badge badge-pill pointer total Untested"
+		<div class="scenario badge badge-pill pointer total reason-Untested"
 			id="scenario-37-badge">0</div>
 </div>
 
@@ -1921,13 +1817,13 @@
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 			</table>
 			<table class="table table-condensed bargraph-table">
 				<tr id="scenario-header-reason-stats">
@@ -1950,8 +1846,8 @@
 	</li>
 <li class="lineitem scenario row align-items-center" id="scenario-38">
 <div class="col-2 badges">
-		<div class="scenario badge badge-pill pointer total Committed"
-			id="scenario-38-badge">0</div>
+		<div class="scenario badge badge-pill pointer total reason-Committed"
+			id="scenario-38-badge">3</div>
 </div>
 
 	<div class="col">
@@ -1972,13 +1868,13 @@
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
-					<td class="text-center">Removing</td>
-					<td class="text-center">Passed</td>
-					<td class="text-center">Untested</td>
-					<td class="text-center">Committed</td>
-					<td class="text-center">Ready</td>
-					<td class="text-center">Defining</td>
-					<td class="text-center">Failed</td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
 			</table>
 			<table class="table table-condensed bargraph-table">
 				<tr id="scenario-header-reason-stats">
@@ -1997,18 +1893,13 @@
 				style="display: none">
 <li class="lineitem step row align-items-center" id="step-39">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Scenario Skipped"
+		<div class="step badge badge-pill pointer total reason-ScenarioSkipped"
 			id="step-39-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-39-input-link" 
-		onclick="toggleVisibility('step-39-input', true, 'iframe39')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-39-name">Step 1 Skipped</span>
+			id="step-39-name"><strong>Given</strong>  Step 1 Skipped</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -2017,18 +1908,13 @@
 </li>
 <li class="lineitem step row align-items-center" id="step-40">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Scenario Skipped"
+		<div class="step badge badge-pill pointer total reason-ScenarioSkipped"
 			id="step-40-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-40-input-link" 
-		onclick="toggleVisibility('step-40-input', true, 'iframe40')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-40-name">Step 2 Skipped</span>
+			id="step-40-name"><strong>When</strong>  Step 2 Skipped</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">
@@ -2037,18 +1923,13 @@
 </li>
 <li class="lineitem step row align-items-center" id="step-41">
 <div class="col-2 badges">
-		<div class="step badge badge-pill pointer total Scenario Skipped"
+		<div class="step badge badge-pill pointer total reason-ScenarioSkipped"
 			id="step-41-badge"> </div>
-	<div class="step-input-link badge pointer badge-secondary" 
-		id="step-41-input-link" 
-		onclick="toggleVisibility('step-41-input', true, 'iframe41')">
-		<div class="oi oi-account-login" aria-hidden="true"></div>
-	</div>
 </div>
 
 	<div class="col">
 		<span class="step name pointer" 
-			id="step-41-name">Step 3 Skipped</span>
+			id="step-41-name"><strong>Then</strong>  Step 3 Skipped</span>
 
 	</div>
 <div class="col-2 step reason-duration text-right">

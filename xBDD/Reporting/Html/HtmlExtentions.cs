@@ -28,7 +28,7 @@ namespace xBDD
 			li.ChildTypeName = "areas";
 			li.EndTime = testRunGroup.EndTime;
 			li.StartTime = testRunGroup.StartTime;
-			li.Name = testRunGroup.Name;
+			li.Name = testRunGroup.Name.HtmlEncode();
 			li.Outcome = testRunGroup.Outcome;
 			li.Reason = testRunGroup.Reason;
 			Dictionary<string, Dictionary<string,int>> testRunReasonStatistics = new Dictionary<string, Dictionary<string, int>>();
@@ -51,7 +51,7 @@ namespace xBDD
 			li.ChildTypeName = "areas";
 			li.EndTime = testRun.EndTime;
 			li.StartTime = testRun.StartTime;
-			li.Name = testRun.Name;
+			li.Name = testRun.Name.HtmlEncode();
 			li.Outcome = testRun.Outcome;
 			li.Reason = testRun.Reason;
 			li.FilePath = testRun.FilePath;
@@ -76,7 +76,7 @@ namespace xBDD
 			li.ChildTypeName = "features";
 			li.EndTime = area.EndTime;
 			li.StartTime = area.StartTime;
-			li.Name = area.Name;
+			li.Name = area.Name.HtmlEncode();
 			li.Outcome = area.Outcome;
 			li.Reason = area.Reason;
 			Dictionary<string, Dictionary<string,int>> reasonStats = new Dictionary<string, Dictionary<string, int>>();
@@ -97,7 +97,7 @@ namespace xBDD
 			li.ChildTypeName = "scenarios";
 			li.EndTime = feature.EndTime;
 			li.StartTime = feature.StartTime;
-			li.Name = feature.Name;
+			li.Name = feature.Name.HtmlEncode();
 			li.Outcome = feature.Outcome;
 			li.Reason = feature.Reason;
 			li.Assignments = feature.Assignments.ToList();
@@ -113,9 +113,9 @@ namespace xBDD
 			if(feature.Actor != null || feature.Capability != null || feature.Value != null) {
 				var nl = System.Environment.NewLine;
 				li.Statement = $@"
-					As A {(feature.Actor != null ? feature.Actor : "[Missing Name!]")}
-					You can {(feature.Value != null ? feature.Value : "[Missing Value!]")}
-					By {(feature.Capability != null ? feature.Capability : "[Missing Capability!]")}".RemoveIndentation(5, true);
+					<strong>As a</strong> {(feature.Actor != null ? feature.Actor : "[Missing Name!]")}<br/>
+					<strong>You can</strong> {(feature.Value != null ? feature.Value : "[Missing Value!]")}<br/>
+					<strong>By</strong> {(feature.Capability != null ? feature.Capability : "[Missing Capability!]")}".RemoveIndentation(5, true);
 			}
 			li.Explanation = feature.Explanation;
 			return li;
@@ -127,7 +127,7 @@ namespace xBDD
 			li.ChildTypeName = "scenarios";
 			li.EndTime = scenario.EndTime;
 			li.StartTime = scenario.StartTime;
-			li.Name = scenario.Name;
+			li.Name = scenario.Name.HtmlEncode();
 			li.Outcome = scenario.Outcome;
 			li.Reason = scenario.Reason;
 			li.Assignments = scenario.Assignments.ToList();
@@ -148,7 +148,22 @@ namespace xBDD
 			li.ChildTypeName = null;
 			li.EndTime = step.EndTime;
 			li.StartTime = step.StartTime;
-			li.Name = step.Name;
+			var action = "";
+			switch(step.ActionType) {
+				case ActionType.Given:
+					action = "<strong>Given</strong> ";
+				break;
+				case ActionType.When:
+					action = "<strong>When</strong> ";
+				break;
+				case ActionType.Then:
+					action = "<strong>Then</strong> ";
+				break;
+				case ActionType.And:
+					action = "<strong>And</strong> ";
+				break;
+			}
+			li.Name = $"{action} {step.Name.HtmlEncode()}";
 			li.Outcome = step.Outcome;
 			li.Reason = step.Reason;
 			Dictionary<string, Dictionary<string,int>> reasonStats = new Dictionary<string, Dictionary<string, int>>();
@@ -161,6 +176,10 @@ namespace xBDD
 			li.OutputFormat = step.OutputFormat;
 			li.Exception = step.Exception;
 			return li;
+		}
+
+		internal static string EncodeCSSClassName(this string name) {
+			return name.Replace(" ", "");
 		}
     }
 }

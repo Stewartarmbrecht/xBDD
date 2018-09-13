@@ -1,12 +1,18 @@
 {
-	"xBDD": {
-		"TestRunName": "xBDD - Running Scenarios",
-		"Browser": {
-			"Watch": "false"
-		},
-		"HtmlReport": {
-			"RemoveFromAreaNameStart": "xBDD - Features - Running Scenarios - ",
-			"FailuresOnly": "false"
-		}
-	}
+	"TestRunReport": {
+		"ReportName": "xBDD - Running Scenarios",
+		"ReportFolder": "/../../../test-results/",
+		"FileName": "xBDD.Features.RunningScenarios.Results",
+		"FailuresOnly": "false",
+		"RootNameSkip": "xBDD - Features - Running Scenarios - "
+	},
+	"SortedReasonConfigurations": [
+		{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
+		{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
+		{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(112,48,160)"},
+		{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
+		{"Reason": "Ready","BackgroundColor": "rgb(157,195,230)","FontColor": "rgb(46,117,182)"},
+		{"Reason": "Defining","BackgroundColor": "rgb(222,235,247)","FontColor": "rgb(46,117,182)"},
+		{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
+	]
 }

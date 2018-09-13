@@ -25,15 +25,42 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "test-features",
+            "label": "test-automatinguitesting",
             "group": "test",
             "command": "pwsh",
             "type": "process",
             "options": {
-                "cwd": "${workspaceFolder}"
+				"cwd": "${workspaceFolder}",
+				"env": {
+                    "xBDD:HtmlReport:FailuresOnly": "false"
+                }
             },
             "args": [
-                "${workspaceFolder}/scripts/test-features.ps1"
+				"${workspaceFolder}/scripts/test.ps1",
+                "xBDD.Features.AutomatingUITesting",
+                "false",
+                "false",
+                "false",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test-automatinguitesting-fo",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+                    "xBDD:HtmlReport:FailuresOnly": "false"
+                }
+            },
+            "args": [
+				"${workspaceFolder}/scripts/test.ps1",
+                "xBDD.Features.automatinguitesting",
+                "true",
+                "false",
+                "true",
             ],
             "problemMatcher": "$msCompile"
         },
@@ -118,80 +145,6 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "test-long",
-            "group": "test",
-            "command": "pwsh",
-            "type": "process",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "args": [
-                "${workspaceFolder}/scripts/test-long.ps1"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "test-short",
-            "group": "test",
-            "command": "pwsh",
-            "type": "process",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "args": [
-                "${workspaceFolder}/scripts/test-short.ps1"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "test-watch",
-            "group": "test",
-            "command": "pwsh",
-            "type": "process",
-            "options": {
-                "cwd": "${workspaceFolder}",
-                "env": {
-                    "xBDD:Browser:Watch": "true"
-                }
-            },
-            "args": [
-                "${workspaceFolder}/scripts/test.ps1"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "test-failures-only",
-            "group": "test",
-            "command": "pwsh",
-            "type": "process",
-            "options": {
-                "cwd": "${workspaceFolder}",
-                "env": {
-                    "XBDD_FAILURES_ONLY": "true"
-                }
-            },
-            "args": [
-                "${workspaceFolder}/scripts/test-all.ps1"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "test-my-sample",
-            "group": "test",
-            "command": "pwsh",
-            "type": "process",
-            "options": {
-                "cwd": "${workspaceFolder}",
-                "env": {
-                    "XBDD_FAILURES_ONLY": "true"
-                }
-            },
-            "args": [
-                "${workspaceFolder}/scripts/test-my-sample.ps1"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
             "label": "publish",
             "command": "pwsh",
             "type": "process",
@@ -240,186 +193,6 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "code-automatinguitesting",
-            "command": "pwsh",
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/scripts/code-generate.ps1",
-                "Automating UI Testing",
-                "xBDD",
-                "true"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/scripts/"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "code-importingscenarios",
-            "command": "pwsh",
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/scripts/code-generate.ps1",
-                "Importing Scenarios",
-                "xBDD",
-                "true"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/scripts/"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "code-definingfeatures",
-            "command": "pwsh",
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/scripts/code-generate.ps1",
-                "Defining Features",
-                "xBDD",
-                "true"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/scripts/"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "code-generatingcode",
-            "command": "pwsh",
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/scripts/code-generate.ps1",
-                "Generating Code",
-                "xBDD",
-                "true"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/scripts/"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "code-generatingreports",
-            "command": "pwsh",
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/scripts/code-generate.ps1",
-                "Generating Reports",
-                "xBDD",
-                "true"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/scripts/"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "code-streamliningapitesting",
-            "command": "pwsh",
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/scripts/code-generate.ps1",
-                "Streamlining API Testing",
-                "xBDD",
-                "true"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/scripts/"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "code-mysample-testrun1passing",
-            "command": "pwsh",
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/scripts/code-generate.ps1",
-                "Test Run 1 Passing",
-                "My Sample",
-                "true"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/scripts/"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "code-mysample-testrun2SkippedUntested",
-            "command": "pwsh",
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/scripts/code-generate.ps1",
-                "Test Run 2 Skipped Untested",
-                "My Sample",
-                "false"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/scripts/"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "code-mysample-testrun3SkippedBuilding",
-            "command": "pwsh",
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/scripts/code-generate.ps1",
-                "Test Run 3 Skipped Building",
-                "My Sample",
-                "false"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/scripts/"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "code-mysample-testrun4SkippedReady",
-            "command": "pwsh",
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/scripts/code-generate.ps1",
-                "Test Run 4 Skipped Ready",
-                "My Sample",
-                "false"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/scripts/"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "code-mysample-testrun5SkippedDefining",
-            "command": "pwsh",
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/scripts/code-generate.ps1",
-                "Test Run 5 Skipped Defining",
-                "My Sample",
-                "false"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/scripts/"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "code-mysample-testrun6Failed",
-            "command": "pwsh",
-            "type": "process",
-            "args": [
-                "${workspaceFolder}/scripts/code-generate.ps1",
-                "Test Run 6 Failed",
-                "My Sample",
-                "true"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/scripts/"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
             "label": "mysample-test",
             "command": "pwsh",
             "type": "process",
@@ -429,6 +202,35 @@
             "options": {
                 "cwd": "${workspaceFolder}/MySample/"
             },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "legacy-test-features",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "${workspaceFolder}/scripts/legacy/test-features.ps1"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "legacy-test-my-sample",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "XBDD_FAILURES_ONLY": "true"
+                }
+            },
+            "args": [
+                "${workspaceFolder}/scripts/legacy/test-my-sample.ps1"
+            ],
             "problemMatcher": "$msCompile"
         }
     ]

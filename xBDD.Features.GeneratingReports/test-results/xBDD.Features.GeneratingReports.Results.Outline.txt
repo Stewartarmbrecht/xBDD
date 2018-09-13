@@ -2,8 +2,8 @@ xBDD - Generating Reports
 
 xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 	Generate A Report [Failed]
-		With Full Test Run
-			Given you have the following json test run reports
+		With Full Test Run [Failed]
+			Given you have the following json test run reports [Passed]
 				./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json,
 				./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html,
 				./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json,
@@ -16,9 +16,9 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 				./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.html,
 				./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json,
 				./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.html
-			When you run the command:
+			When you run the command: [Passed]
 				dotnet xbdd solution summarize --output MySample.TestSummary.WithFullTestRun.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.html ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.html ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.html ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.html ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.html
-			Then you will see output matching the following template:
+			Then you will see output matching the following template: [Exception Thrown]
 				Output: MySample.TestSummary.WithFullTestRun.html
 				Name: My Sample - Features
 				TestRunNameClip: My Sample - Features - 
@@ -29,19 +29,19 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 				Json Report: ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json
 				Json Report: ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json
 				Json Report: ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json
-			And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'.
+			And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'. [Previous Error]
 				C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html
 		With No Json Files [Failed]
-			Given you do not have a summary report file located at './MySample.TestSummary.WithNoJsonFiles.html'.
+			Given you do not have a summary report file located at './MySample.TestSummary.WithNoJsonFiles.html'. [Passed]
 				./MySample.TestSummary.WithNoJsonFiles.html
-			When you run the command:
+			When you run the command: [Passed]
 				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithNoJsonFiles.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining
-			Then you will see output matching the following template:
+			Then you will see output matching the following template: [Exception Thrown]
 				Output: ./MySample.TestSummary.WithNoJsonFiles.html
 				Name: My Sample - Features
 				TestRunNameClip: My Sample - Features - 
 				Reasons: Untested, Committed, Ready, Defining
-			And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithNoJsonFiles.html' that matches the template: [Failed]
+			And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithNoJsonFiles.html' that matches the template: [Previous Error]
 				{{.*}}/rl
 					<title>My Sample - Features</title>
 				{{.*}}/rl
@@ -52,17 +52,17 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 						</h1>
 				{{.*}}/rl
 		With A Single Json File [Failed]
-			Given you do not have a summary report file located at './MySample.TestSummary.WithASingleJsonFile.html'.
+			Given you do not have a summary report file located at './MySample.TestSummary.WithASingleJsonFile.html'. [Passed]
 				./MySample.TestSummary.WithASingleJsonFile.html
-			When you run the command:
+			When you run the command: [Passed]
 				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithASingleJsonFile.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html
-			Then you will see output matching the following template:
+			Then you will see output matching the following template: [Exception Thrown]
 				Output: ./MySample.TestSummary.WithASingleJsonFile.html
 				Name: My Sample - Features
 				TestRunNameClip: My Sample - Features - 
 				Reasons: Untested, Committed, Ready, Defining
 				Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
-			And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template: [Failed]
+			And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template: [Previous Error]
 				{{.*}}/rl
 					<title>My Sample - Features</title>
 				{{.*}}/rl
@@ -72,19 +72,19 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 							<span class="report duration"> [0 ms]</span>
 						</h1>
 				{{.*}}/rl
-		With A Missing Json File
-			Given you do not have a summary report file located at './MySample.TestSummary.WithAMissingJsonFile.html'.
+		With A Missing Json File [Failed]
+			Given you do not have a summary report file located at './MySample.TestSummary.WithAMissingJsonFile.html'. [Passed]
 				./MySample.TestSummary.WithAMissingJsonFile.html
-			When you run the command:
+			When you run the command: [Passed]
 				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithAMissingJsonFile.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./Missing.json ./Missing.html
-			Then you will see output matching the following template:
+			Then you will see output matching the following template: [Exception Thrown]
 				Output: ./MySample.TestSummary.WithAMissingJsonFile.html
 				Name: My Sample - Features
 				TestRunNameClip: My Sample - Features - 
 				Reasons: Untested, Committed, Ready, Defining
 				Json Report: ./Missing.json
 				Error: Could not find file 'C:\Users\stearm01\source\xBDD\MySample\Missing.json'.
-			And you will not find the html report located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'.
+			And you will not find the html report located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'. [Previous Error]
 				C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html
 xBDD - Features - Generating Reports - HTML Summary Report - Review Test Summary Information [Committed]
 	Review Test Summary Name [Committed]
@@ -220,7 +220,7 @@ xBDD - Features - Generating Reports - HTML Summary Report - Review Test Run Inf
 		Expanding Features [Committed]
 		Collapsing Features [Committed]
 		Without Features [Committed]
-xBDD - Features - Generating Reports - HTML Test Run Report - Generating [Untested]
+xBDD - Features - Generating Reports - HTML Test Run Report - Generating [Defining]
 	Generate A Report [Untested]
 		With Full Test Run [Untested]
 			Given you have a test run project that creates all outcomes
@@ -256,7 +256,7 @@ xBDD - Features - Generating Reports - HTML Test Run Report - Generating [Untest
 				$Emv:xBDD:HtmlReport:FailuresOnly = "true"
 				dotnet test
 			Then the project will generate an Html test run report that has only the failed scenarios
-	View A Report [Untested]
+	View A Report [Defining]
 		From A File Server [Untested]
 			Given you have executed a test run project that creates all outcomes
 			Then you can view the html report by loading the following file into your browser
@@ -378,8 +378,8 @@ xBDD - Features - Generating Reports - HTML Test Run Report - Review Area Inform
 		Expanding Features [Untested]
 		Collapsing Features [Untested]
 		Without Features [Untested]
-xBDD - Features - Generating Reports - HTML Test Run Report - Review Feature Information [Untested]
-	Review Feature Information [Untested]
+xBDD - Features - Generating Reports - HTML Test Run Report - Review Feature Information [Defining]
+	Review Feature Information [Defining]
 		With Name [Untested]
 		With No Name [Untested]
 		With Single Assignments [Defining]
@@ -422,8 +422,8 @@ xBDD - Features - Generating Reports - HTML Test Run Report - Review Feature Inf
 		Expanding Scenarios [Untested]
 		Collapsing Scenarios [Untested]
 		With No Scenarios [Untested]
-xBDD - Features - Generating Reports - HTML Test Run Report - Review Scenario Information [Untested]
-	Review Scenario Information [Untested]
+xBDD - Features - Generating Reports - HTML Test Run Report - Review Scenario Information [Defining]
+	Review Scenario Information [Defining]
 		With Name [Untested]
 		With No Name [Untested]
 		With Single Assignments [Defining]
@@ -442,7 +442,7 @@ xBDD - Features - Generating Reports - HTML Test Run Report - Review Scenario In
 		Expanding Steps [Untested]
 		Collapsing Steps [Untested]
 		With No Steps [Untested]
-xBDD - Features - Generating Reports - HTML Test Run Report - Review Step Information [Untested]
+xBDD - Features - Generating Reports - HTML Test Run Report - Review Step Information [Defining]
 	Review Step Information [Untested]
 		With Name [Untested]
 		With No Name [Untested]
@@ -467,40 +467,40 @@ xBDD - Features - Generating Reports - HTML Test Run Report - Review Step Inform
 		Expanding Explanation [Defining]
 		Collapsing Explanation [Defining]
 		Without Explanation [Defining]
-xBDD - Features - Generating Reports - JSON Test Run Report [Untested]
-	Generate A Json Report With General Scenarios [Untested]
+xBDD - Features - Generating Reports - JSON Test Run Report [Defining]
+	Generate A Json Report With General Scenarios [Defining]
 		With Full Test Run [Untested]
 		With Empty Test Run [Untested]
 		With No Scenarios [Untested]
 		With No Tests In The Project [Untested]
 		With Test Filtering [Untested]
 		With XBDD Test Run Filtering [Defining]
-	Generate A Json Report With Test Run Scenarios [Untested]
+	Generate A Json Report With Test Run Scenarios [Defining]
 		With Full Test Run [Untested]
 		With No Test Run Name [Untested]
 		With Test Run Explanation Empty [Defining]
 		With No Areas [Untested]
 		With Areas [Untested]
-	Generate A Json Report With Area Scenarios [Untested]
+	Generate A Json Report With Area Scenarios [Defining]
 		With Full Area [Untested]
 		With Area Name Clipping [Untested]
 		With Area Name Empty [Untested]
 		With Area Explanation Empty [Defining]
 		With No Features [Untested]
 		With Features [Untested]
-	Generate A Json Report With Feature Scenarios [Untested]
+	Generate A Json Report With Feature Scenarios [Defining]
 		With Full Feature [Untested]
 		With Feature Name Empty [Untested]
 		With Feature Explanation Empty [Defining]
 		With No Scenarios [Untested]
 		With Scenarios [Untested]
-	Generate A Json Report With Scenario Scenarios [Untested]
+	Generate A Json Report With Scenario Scenarios [Defining]
 		With Full Scenario [Untested]
 		With Scenario Name Empty [Untested]
 		With Scenario Explanation Empty [Defining]
 		With No Steps [Untested]
 		With Steps [Untested]
-	Generate A Json Report With Step Scenarios [Untested]
+	Generate A Json Report With Step Scenarios [Defining]
 		With Full Step [Untested]
 		With Step Name Empty [Untested]
 		With Step Explanation Empty [Defining]
@@ -508,40 +508,40 @@ xBDD - Features - Generating Reports - JSON Test Run Report [Untested]
 		With Step Output Empty [Untested]
 		With Step Exception [Untested]
 		With Step Inner Exception [Untested]
-xBDD - Features - Generating Reports - Outline Test Run Report [Untested]
-	Generate An Outline Report With General Scenarios [Untested]
+xBDD - Features - Generating Reports - Outline Test Run Report [Defining]
+	Generate An Outline Report With General Scenarios [Defining]
 		With Full Test Run [Untested]
 		With Empty Test Run [Untested]
 		With No Scenarios [Untested]
 		With No Tests In The Project [Untested]
 		With Test Filtering [Untested]
 		With XBDD Test Run Filtering [Defining]
-	Generate An Outline Report With Test Run Scenarios [Untested]
+	Generate An Outline Report With Test Run Scenarios [Defining]
 		With Full Test Run [Untested]
 		With No Test Run Name [Untested]
 		With Test Run Explanation Empty [Defining]
 		With No Areas [Untested]
 		With Areas [Untested]
-	Generate An Outline Report With Area Scenarios [Untested]
+	Generate An Outline Report With Area Scenarios [Defining]
 		With Full Area [Untested]
 		With Area Name Clipping [Untested]
 		With Area Name Empty [Untested]
 		With Area Explanation Empty [Defining]
 		With No Features [Untested]
 		With Features [Untested]
-	Generate An Outline Report With Feature Scenarios [Untested]
+	Generate An Outline Report With Feature Scenarios [Defining]
 		With Full Feature [Untested]
 		With Feature Name Empty [Untested]
 		With Feature Explanation Empty [Defining]
 		With No Scenarios [Untested]
 		With Scenarios [Untested]
-	Generate An Outline Report With Scenario Scenarios [Untested]
+	Generate An Outline Report With Scenario Scenarios [Defining]
 		With Full Scenario [Untested]
 		With Scenario Name Empty [Untested]
 		With Scenario Explanation Empty [Defining]
 		With No Steps [Untested]
 		With Steps [Untested]
-	Generate An Outline Report With Step Scenarios [Untested]
+	Generate An Outline Report With Step Scenarios [Defining]
 		With Full Step [Untested]
 		With Step Name Empty [Untested]
 		With Step Explanation Empty [Defining]
@@ -549,40 +549,40 @@ xBDD - Features - Generating Reports - Outline Test Run Report [Untested]
 		With Step Output Empty [Untested]
 		With Step Exception [Untested]
 		With Step Inner Exception [Untested]
-xBDD - Features - Generating Reports - Text Test Run Report [Untested]
-	Generate A Text Report With General Scenarios [Untested]
+xBDD - Features - Generating Reports - Text Test Run Report [Defining]
+	Generate A Text Report With General Scenarios [Defining]
 		With Full Test Run [Untested]
 		With Empty Test Run [Untested]
 		With No Scenarios [Untested]
 		With No Tests In The Project [Untested]
 		With Test Filtering [Untested]
 		With XBDD Test Run Filtering [Defining]
-	Generate A Text Report With Test Run Scenarios [Untested]
+	Generate A Text Report With Test Run Scenarios [Defining]
 		With Full Test Run [Untested]
 		With No Test Run Name [Untested]
 		With Test Run Explanation Empty [Defining]
 		With No Areas [Untested]
 		With Areas [Untested]
-	Generate A Text Report With Area Scenarios [Untested]
+	Generate A Text Report With Area Scenarios [Defining]
 		With Full Area [Untested]
 		With Area Name Clipping [Defining]
 		With Area Name Empty [Untested]
 		With Area Explanation Empty [Defining]
 		With No Features [Untested]
 		With Features [Untested]
-	Generate A Text Report With Feature Scenarios [Untested]
+	Generate A Text Report With Feature Scenarios [Defining]
 		With Full Feature [Untested]
 		With Feature Name Empty [Untested]
 		With Feature Explanation Empty [Defining]
 		With No Scenarios [Untested]
 		With Scenarios [Untested]
-	Generate A Text Report With Scenario Scenarios [Untested]
+	Generate A Text Report With Scenario Scenarios [Defining]
 		With Full Scenario [Untested]
 		With Scenario Name Empty [Untested]
 		With Scenario Explanation Empty [Defining]
 		With No Steps [Untested]
 		With Steps [Untested]
-	Generate A Text Report With Step Scenarios [Untested]
+	Generate A Text Report With Step Scenarios [Defining]
 		With Full Step [Untested]
 		With Step Name Empty [Untested]
 		With Step Explanation Empty [Defining]
@@ -590,40 +590,40 @@ xBDD - Features - Generating Reports - Text Test Run Report [Untested]
 		With Step Output Empty [Untested]
 		With Step Exception [Untested]
 		With Step Inner Exception [Untested]
-xBDD - Features - Generating Reports - Text Outline Test Run Report [Untested]
-	Generate A Text Outline Report With General Scenarios [Untested]
+xBDD - Features - Generating Reports - Text Outline Test Run Report [Defining]
+	Generate A Text Outline Report With General Scenarios [Defining]
 		With Full Test Run [Untested]
 		With Empty Test Run [Untested]
 		With No Scenarios [Untested]
 		With No Tests In The Project [Untested]
 		With Test Filtering [Untested]
 		With XBDD Test Run Filtering [Defining]
-	Generate A Text Outline Report With Test Run Scenarios [Untested]
+	Generate A Text Outline Report With Test Run Scenarios [Defining]
 		With Full Test Run [Untested]
 		With No Test Run Name [Untested]
 		With Test Run Explanation Empty [Defining]
 		With No Areas [Untested]
 		With Areas [Untested]
-	Generate A Text Outline Report With Area Scenarios [Untested]
+	Generate A Text Outline Report With Area Scenarios [Defining]
 		With Full Area [Untested]
 		With Area Name Clipping [Untested]
 		With Area Name Empty [Untested]
 		With Area Explanation Empty [Defining]
 		With No Features [Untested]
 		With Features [Untested]
-	Generate A Text Outline Report With Feature Scenarios [Untested]
+	Generate A Text Outline Report With Feature Scenarios [Defining]
 		With Full Feature [Untested]
 		With Feature Name Empty [Untested]
 		With Feature Explanation Empty [Defining]
 		With No Scenarios [Untested]
 		With Scenarios [Untested]
-	Generate A Text Outline Report With Scenario Scenarios [Untested]
+	Generate A Text Outline Report With Scenario Scenarios [Defining]
 		With Full Scenario [Untested]
 		With Scenario Name Empty [Untested]
 		With Scenario Explanation Empty [Defining]
 		With No Steps [Untested]
 		With Steps [Untested]
-	Generate A Text Outline Report With Step Scenarios [Untested]
+	Generate A Text Outline Report With Step Scenarios [Defining]
 		With Full Step [Untested]
 		With Step Name Empty [Untested]
 		With Step Explanation Empty [Defining]
