@@ -50,7 +50,7 @@ initial version of this platform is released.
 
 ### Sample
 
-* [My Sample Product](https://rawgit.com/Stewartarmbrecht/xBDD/master/MySample/test-results/MySample.TestSummary.Github.html) - A sample set of projects that cover all outcomes at all levels.
+* [My Sample Product](https://rawgit.com/Stewartarmbrecht/xBDD/master/MySample/test-results/MySample.TestSummary.GitHub.html) - A sample set of projects that cover all outcomes at all levels.
 
 ### SUMMARY
 
