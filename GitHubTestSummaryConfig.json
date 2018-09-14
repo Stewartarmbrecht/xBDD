@@ -1,7 +1,7 @@
 {
 	"TestRunGroupReport": {
 		"ReportName": "xBDD - Features",
-		"FileName": "./test-results/xBDD.Features.Summary.Github.html",
+		"FileName": "./test-results/xBDD.Features.Summary.GitHub.html",
 		"RootNameSkip": "xBDD - ",
 		"TestRunConfigurations": [
 			{
