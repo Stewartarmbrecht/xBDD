@@ -160,9 +160,10 @@ namespace xBDD.Reporting.Html
 
 							div#report-dates {{ margin: 0rem 0rem .5rem 5rem; }}
 
-							/* Statements and Explanation */
-							div.statement {{ margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }}
-							div.explanation {{ margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }}
+							/* Statement */
+
+							div.statement-title {{ margin-bottom: 1rem; }}
+							div.statement-content {{ margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }}
 
 							/* Step Details */
 
@@ -180,18 +181,30 @@ namespace xBDD.Reporting.Html
 							dl.exception-type, dl.exception-message, dl.exception-stack {{ padding: .5rem; }}
 							dl.exception-type pre, dl.exception-message pre, dl.exception-stack pre {{ padding: .5rem; }}
 
-							/* Input, and Output */
+							/* Input, Output, Explanation */
 
 							div.input {{ margin-bottom: 1rem; }}
 							div.output {{ margin-bottom: 1rem; }}
-							div.input.title {{ margin-bottom: 1rem; }}
-							div.output.title {{ margin-bottom: 1rem; }}
-							iframe {{ border: 1px solid gray; resize: both; overflow: auto; }}
+							div.explanation {{ margin-bottom: 1rem; }}
+
+							div.input-title {{ margin-bottom: 1rem; }}
+							div.output-title {{ margin-bottom: 1rem; }}
+							div.explanation-title {{ margin-bottom: 1rem; }}
+
+							div.input.markdown {{ border: 1px solid gray; padding: 1rem; }}
+							div.output.markdown {{ border: 1px solid gray; padding: 1rem; }}
+							div.explanation.markdown {{ border: 1px solid gray; padding: 1rem; }}
+
 							pre {{ white-space: pre !important; }}
 							pre.input {{ margin-bottom: 1rem; }}
 							pre.output {{ margin-bottom: 1rem; }}
+							pre.explanation {{ margin-bottom: 1rem; }}
+
+							iframe {{ border: 1px solid gray; resize: both; overflow: auto; }}
 							pre.prettyprint {{  background-color: #eee; }}
-							.linenums li {{ list-style-type: decimal !important; }}".RemoveIndentation(4,true));
+							.linenums li {{ list-style-type: decimal !important; }}
+							
+							".RemoveIndentation(4,true));
 			this.sortedReasons.ForEach(reason => {
 				sb.AppendLine($@"
 							.reason-{reason.Reason.EncodeCSSClassName()} {{ background-color: {reason.BackgroundColor} !important; color: {reason.FontColor} !important;}}".RemoveIndentation(4,true));
@@ -203,12 +216,15 @@ namespace xBDD.Reporting.Html
 		{
 			sb.AppendLine(@"					
 						<script>
-							function toggleVisibility(elementId, resize, iFrameId) {{
+							function toggleVisibility(elementId, iframeIdInput, iframeIdOutput) {{
 								var x = document.getElementById(elementId);
 								if (x.style.display === ""none"") {{
 									x.style.display = ""block"";
-									if(resize) {
-										resizeIframe(document.getElementById(iFrameId));
+									if(iframeIdInput) {
+										resizeIframe(document.getElementById(iframeIdInput));
+									}
+									if(iframeIdOutput) {
+										resizeIframe(document.getElementById(iframeIdOutput));
 									}
 								}} else {{
 									x.style.display = ""none"";
@@ -252,6 +268,10 @@ namespace xBDD.Reporting.Html
 			var statementAndExplanationLink = lineItem.Statement != null || lineItem.Explanation != null;
 			var inputLink = lineItem.Input != null;
 			var outputLink = lineItem.Output != null;
+			var explanationLink = lineItem.Explanation != null;
+			var inputHtmlPreviewLink = (inputLink && lineItem.InputFormat == TextFormat.htmlpreview ? $"'iframe{lineItemNumber}input'" : "null" );
+			var outputHtmlPreviewLink = (outputLink && lineItem.OutputFormat == TextFormat.htmlpreview ? $"'iframe{lineItemNumber}output'" : "null" );
+			var explanationHtmlPreviewLink = (explanationLink && lineItem.ExplanationFormat == TextFormat.htmlpreview ? $"'iframe{lineItemNumber}explanation'" : "null" );
 
 			var lineItemType = lineItem.TypeName.ToLower();
 			if(header)
@@ -282,7 +302,7 @@ namespace xBDD.Reporting.Html
 				sb.AppendLine($@"
 						<span class=""{lineItemType} name pointer"" 
 							id=""{lineItemType}-{this.lineItemNumber}-name""
-							onclick=""toggleVisibility('{lineItemType}-{this.lineItemNumber}-{lineItem.ChildTypeName.ToLower()}')""
+							onclick=""toggleVisibility('{lineItemType}-{this.lineItemNumber}-{lineItem.ChildTypeName.ToLower()}', {inputHtmlPreviewLink}, {outputHtmlPreviewLink})""
 							href=""{lineItemType}-{this.lineItemNumber}-{lineItem.ChildTypeName.ToLower()}"">{name}</span>".RemoveIndentation(4, true));
 			}
 			if(lineItem.Assignments != null && lineItem.Assignments.Count > 0) {
@@ -309,7 +329,7 @@ namespace xBDD.Reporting.Html
 				sb.AppendLine($@"
 						<div class=""{lineItem.TypeName}-statement-link badge pointer badge-secondary"" 
 							id=""{lineItem.TypeName}-{this.lineItemNumber}-statement-link"" 
-							onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-statement-explanation')"">
+							onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-statement'); toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-explanation', {explanationHtmlPreviewLink})"">
 							<i class=""fas fa-info""></i>
 						</div>".RemoveIndentation(4,true));
 			}
@@ -348,9 +368,9 @@ namespace xBDD.Reporting.Html
 
 					WriteException(sb, lineItem, lineItem.Exception, false);
 
-					WriteInputOrOutput(sb, lineItem, true);
+					WriteLineItemContent(sb, lineItem, "input");
 					
-					WriteInputOrOutput(sb, lineItem, false);
+					WriteLineItemContent(sb, lineItem, "output");
 				}
 				sb.AppendLine($@"
 							</ol>
@@ -424,7 +444,8 @@ namespace xBDD.Reporting.Html
 		{
 			sb.AppendLine($@"
 				<li class=""row stats"">
-					<div class=""col-11 offset-1"">
+					<div class=""col-2 badges""></div>
+					<div class=""col-11"">
 						<div class=""stats-graph-tables"" id=""{objectType.ToLower()}-{this.lineItemNumber}-stats"" style=""width: 100%; empty-cells: show; display: {(expanded ? "block" : "none" )};"">
 							<table class=""table table-condensed stats-table"">
 								<tr id=""{objectType.ToLower()}-header-reason-stats"">
@@ -514,27 +535,38 @@ namespace xBDD.Reporting.Html
 			if(lineItem.Statement != null || lineItem.Explanation != null)
 			{
 				sb.AppendLine($@"
-					<li class=""row statement-explanation"">
+					<li class=""row statement"">
 						<div class=""col-2 badges""></div>
 						<div class=""col-11"">
-							<div class=""{lineItemType} statement-explanation"" 
-								id=""{lineItemType}-{this.lineItemNumber}-statement-explanation""
+							<div class=""{lineItemType} statement"" 
+								id=""{lineItemType}-{this.lineItemNumber}-statement""
 								style=""display: none;"">".RemoveIndentation(4,true));
 				if(lineItem.Statement != null) {
-					sb.AppendLine($@"<div class=""{lineItemType} statement rounded""
-									id=""{lineItemType}-{this.lineItemNumber}-statement"">{lineItem.Statement}</div>");
-				}
-				if(lineItem.Explanation != null) {
-					sb.AppendLine($@"<div class=""{lineItemType} explanation rounded""
-									id=""{lineItemType}-{this.lineItemNumber}-explanation"">{Markdown.ToHtml(lineItem.Explanation)}</div>");
+					sb.AppendLine($@"
+									<div class=""statement-title"">Statement</div>
+									<div class=""{lineItemType} statement-content rounded""
+										id=""{lineItemType}-{this.lineItemNumber}-statement"">{lineItem.Statement.AddIndentation(4)}</div>".RemoveIndentation(4,true));
 				}
 				sb.AppendLine($@"
 							</div>
 						</div>
 					</li>".RemoveIndentation(4, true));
+				if(lineItem.Explanation != null) {
+					WriteLineItemContent(sb, lineItem, "explanation");
+					// sb.AppendLine($@"
+					// 				<div class=""explanation-title"">Explanation</div>
+					// 				<div class=""{lineItemType} explanation rounded""
+					// 				id=""{lineItemType}-{this.lineItemNumber}-explanation"">{Markdown.ToHtml(lineItem.Explanation).AddIndentation(4)}</div>".RemoveIndentation(4,true));
+				}
 			}
 		}
 		void WriteStepDetails(StringBuilder sb, HtmlReportLineItem lineItem) {
+			var inputLink = lineItem.Input != null;
+			var outputLink = lineItem.Output != null;
+			var explanationLink = lineItem.Explanation != null;
+			var inputHtmlPreviewLink = (inputLink && lineItem.InputFormat == TextFormat.htmlpreview ? $"'iframe{lineItemNumber}input'" : "null" );
+			var outputHtmlPreviewLink = (outputLink && lineItem.OutputFormat == TextFormat.htmlpreview ? $"'iframe{lineItemNumber}output'" : "null" );
+			var explanationHtmlPreviewLink = (explanationLink && lineItem.ExplanationFormat == TextFormat.htmlpreview ? $"'iframe{lineItemNumber}explanation'" : "null" );
 			sb.AppendLine($@"
 					<li class=""row"">
 						<div class=""col-2 badges""></div>
@@ -552,7 +584,7 @@ namespace xBDD.Reporting.Html
 				sb.AppendLine($@"
 								<div class=""{lineItem.TypeName}-input-link badge pointer button"" 
 									id=""{lineItem.TypeName}-{this.lineItemNumber}-input-link"" 
-									onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-input', true, 'iframe{this.lineItemNumber}')"">
+									onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-input', {inputHtmlPreviewLink})"">
 									<i class=""fas fa-sign-in-alt""></i>&nbsp;<span>Input</span>
 								</div>".RemoveIndentation(4,true));
 			}
@@ -560,7 +592,7 @@ namespace xBDD.Reporting.Html
 				sb.AppendLine($@"
 								<div class=""{lineItem.TypeName}-output-link badge pointer button"" 
 									id=""{lineItem.TypeName}-{this.lineItemNumber}-output-link"" 
-									onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-output', true, 'iframe{this.lineItemNumber}')"">
+									onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-output', {outputHtmlPreviewLink})"">
 									<i class=""fas fa-sign-out-alt""></i>&nbsp;<span>Output</span>
 								</div>".RemoveIndentation(4,true));
 			}
@@ -568,7 +600,7 @@ namespace xBDD.Reporting.Html
 				sb.AppendLine($@"
 								<div class=""{lineItem.TypeName}-statement-link badge pointer badge-secondary"" 
 									id=""{lineItem.TypeName}-{this.lineItemNumber}-statement-link"" 
-									onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-statement-explanation')"">
+									onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-statement'); toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-explanation', {explanationHtmlPreviewLink})"">
 									<i class=""fas fa-info""></i>&nbsp;<span>Explanation</span>
 								</div>".RemoveIndentation(4,true));
 			}
@@ -623,40 +655,58 @@ namespace xBDD.Reporting.Html
 				}
 			}
 		}
-		void WriteInputOrOutput(StringBuilder sb, HtmlReportLineItem lineItem, bool input) {
+		void WriteLineItemContent(StringBuilder sb, HtmlReportLineItem lineItem, string contentType) {
 			var lineItemType = lineItem.TypeName.ToLower();
 
 			var text = "";
 			TextFormat format = new TextFormat();
-			if(input) {
-				text = lineItem.Input;
-				format = lineItem.InputFormat;
-			} else {
-				text = lineItem.Output;
-				format = lineItem.OutputFormat;
+			var title = "";
+			var display = "block";
+			switch(contentType) {
+				case "input":
+					text = lineItem.Input;
+					format = lineItem.InputFormat;
+					title = "Input";
+				break;
+				case "output":
+					text = lineItem.Output;
+					format = lineItem.OutputFormat;
+					title = "Output";
+				break;
+				case "explanation":
+					text = lineItem.Explanation;
+					format = lineItem.ExplanationFormat;
+					title = "Explanation";
+					display = "none";
+				break;
 			}
 			if (!String.IsNullOrEmpty(text))
 			{
 				sb.AppendLine($@"
-					<li class=""row {(input ? "input" : "output" )}"">
+					<li class=""row {contentType}"">
 						<div class=""col-2 badges""></div>
 						<div class=""col-11"">
-							<div class=""{(input ? "input" : "output" )}"" 
-								id=""{lineItemType}-{this.lineItemNumber}-{(input ? "input" : "output" )}""
-								style=""display: block;"">
-								<div class=""{(input ? "input" : "output" )} title"" 
-									id=""step-{this.lineItemNumber}-{(input ? "input" : "output" )}-title"">{(input ? "Input" : "Output" )}</div>".RemoveIndentation(4, true));
-				if(format == TextFormat.htmlpreview)
-				{
-					WriteInputOrOutputWithHtmlPreview(sb, lineItem, input);
+							<div class=""{contentType}"" 
+								id=""{lineItemType}-{this.lineItemNumber}-{contentType}""
+								style=""display: {display};"">
+								<div class=""{contentType}-title"" 
+									id=""step-{this.lineItemNumber}-{contentType}-title"">{title}</div>".RemoveIndentation(4, true));
+				if(format == TextFormat.htmlpreview) {
+					WriteInputOrOutputWithHtmlPreview(sb, lineItem, contentType);
 				}
-				else
-				{
-					var className = $"{(input ? "input" : "output" )} prettyprint linenums rounded";
+				else if(format == TextFormat.markdown) {
+					text = Markdig.Markdown.ToHtml(text, new MarkdownPipelineBuilder().UseAdvancedExtensions().Build());
+					sb.AppendLine($@"
+									<div class=""{contentType} markdown"" id=""{contentType}-{this.lineItemNumber}"">{text.AddIndentation(4)}</div>".RemoveIndentation(4, true));
+				}
+				else {
+					var className = $"{contentType} prettyprint linenums rounded";
 					if (format != TextFormat.code)
 						className = className + " lang-" + Enum.GetName(typeof(TextFormat), format);
+					if(format == TextFormat.markdown)
+						text = Markdig.Markdown.ToHtml(text);
 					sb.AppendLine($@"
-									<pre class=""{className}"" id=""{(input ? "input" : "output" )}-{this.lineItemNumber}"">{text.HtmlEncode().AddIndentation(4)}</pre>".RemoveIndentation(4, true));
+									<pre class=""{className}"" id=""{contentType}-{this.lineItemNumber}"">{text.HtmlEncode().AddIndentation(4)}</pre>".RemoveIndentation(4, true));
 				}
 				sb.AppendLine($@"
 							</div>
@@ -664,47 +714,61 @@ namespace xBDD.Reporting.Html
 					</li>".RemoveIndentation(4, true));
 			}
 		}
-		void WriteInputOrOutputWithHtmlPreview(StringBuilder sb, HtmlReportLineItem lineItem, bool input) {
-			var function = (input? "input": "output");
-			var previewCode = (input? lineItem.Input.HtmlEncode() : lineItem.Output.HtmlEncode());
-			var previewHtml = (input? lineItem.Input : lineItem.Output)
+		void WriteInputOrOutputWithHtmlPreview(StringBuilder sb, HtmlReportLineItem lineItem, string contentType) {
+			string previewCode = null;
+			string previewHtml = null;
+			switch(contentType) {
+				case "input":
+					previewCode = lineItem.Input.HtmlEncode();
+					previewHtml = lineItem.Input;
+				break;
+				case "output":
+					previewCode = lineItem.Output.HtmlEncode();
+					previewHtml = lineItem.Output;
+				break;
+				case "explanation":
+					previewCode = lineItem.Explanation.HtmlEncode();
+					previewHtml = lineItem.Explanation;
+				break;
+			}
+			previewHtml = previewHtml
 				.Replace(System.Environment.NewLine, " \\" + System.Environment.NewLine)
 				.Replace(":", "\\:")
 				.Replace("/", "\\/")
 				.Replace("!", "\\!")
 				.Replace("\"", "\\\"");
 			var html = $@"
-				<div class=""{function} rounded"">
-					<div class=""nav nav-tabs"" role=""tablist"">
+				<div class=""{contentType} rounded"">
+					<div class=""nav nav-tabs"" role=""tablist"" style=""display: {(contentType=="explanation"?"none":"flex")};"">
 						<a
 							id=""preview{this.lineItemNumber}-tab""
 							class=""nav-item nav-link active pointer"" 
-							onclick=""toggleVisibility('preview{this.lineItemNumber}', true, 'iframe{this.lineItemNumber}'); toggleVisibility('code{this.lineItemNumber}')"">Preview</a>
+							onclick=""toggleVisibility('preview{this.lineItemNumber}{contentType}', true, 'iframe{this.lineItemNumber}{contentType}'); toggleVisibility('code{this.lineItemNumber}{contentType}')"">Preview</a>
 						<a
 							id=""code{this.lineItemNumber}-tab""
 							class=""nav-item nav-link pointer"" 
-							onclick=""toggleVisibility('preview{this.lineItemNumber}', true, 'iframe{this.lineItemNumber}'); toggleVisibility('code{this.lineItemNumber}')"">Code</a>
+							onclick=""toggleVisibility('preview{this.lineItemNumber}{contentType}', true, 'iframe{this.lineItemNumber}{contentType}'); toggleVisibility('code{this.lineItemNumber}{contentType}')"">Code</a>
 					</div>
 					<div class=""tab-content"">
 						<div role=""tabpanel"" 
 							class=""tab-pane active"" 
 							style=""display: block;""
-							id=""preview{this.lineItemNumber}"">
-							<iframe width=""100%"" id=""iframe{this.lineItemNumber}""></iframe>
+							id=""preview{this.lineItemNumber}{contentType}"">
+							<iframe width=""100%"" id=""iframe{this.lineItemNumber}{contentType}""></iframe>
 							<script type=""text/javascript"">
-								var iframe{this.lineItemNumber}doc = document.getElementById('iframe{this.lineItemNumber}').contentWindow.document;
-								iframe{this.lineItemNumber}doc.open();
-								var html{this.lineItemNumber} = ""{previewHtml.AddIndentation(4)}"";
-								iframe{this.lineItemNumber}doc.write(html{this.lineItemNumber});
-								resizeIframe(document.getElementById('iframe{this.lineItemNumber}'));
-								iframe{this.lineItemNumber}doc.close();
+								var iframe{this.lineItemNumber}{contentType}doc = document.getElementById('iframe{this.lineItemNumber}{contentType}').contentWindow.document;
+								iframe{this.lineItemNumber}{contentType}doc.open();
+								var html{this.lineItemNumber}{contentType} = ""{previewHtml.AddIndentation(4)}"";
+								iframe{this.lineItemNumber}{contentType}doc.write(html{this.lineItemNumber}{contentType});
+								resizeIframe(document.getElementById('iframe{this.lineItemNumber}{contentType}'));
+								iframe{this.lineItemNumber}{contentType}doc.close();
 							</script>
 						</div>
 						<div role=""tabpanel"" 
 							class=""tab-pane"" 
 							style=""display: none;""
-							id=""code{this.lineItemNumber}"">
-							<pre class=""{function} prettyprint linenums lang-html"">{previewCode.AddIndentation(4)}</pre>
+							id=""code{this.lineItemNumber}{contentType}"">
+							<pre class=""{contentType} prettyprint linenums lang-html"">{previewCode.AddIndentation(4)}</pre>
 						</div>
 					</div>
 				</div>".RemoveIndentation(4, true);

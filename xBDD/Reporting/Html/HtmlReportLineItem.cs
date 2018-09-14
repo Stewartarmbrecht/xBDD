@@ -18,6 +18,7 @@ namespace xBDD.Reporting.Html {
 		internal OutcomeStats ChildStats { get; set; }
 		internal string Statement { get; set; }
 		internal string Explanation { get; set; }
+		internal TextFormat	ExplanationFormat { get; set; }
 		internal string Input { get; set; }
 		internal TextFormat InputFormat { get; set; }
 		internal string Output { get; set; }

@@ -121,9 +121,10 @@
 
 			div#report-dates { margin: 0rem 0rem .5rem 5rem; }
 
-			/* Statements and Explanation */
-			div.statement { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
-			div.explanation { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
+			/* Statement */
+
+			div.statement-title { margin-bottom: 1rem; }
+			div.statement-content { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
 
 			/* Step Details */
 
@@ -141,18 +142,30 @@
 			dl.exception-type, dl.exception-message, dl.exception-stack { padding: .5rem; }
 			dl.exception-type pre, dl.exception-message pre, dl.exception-stack pre { padding: .5rem; }
 
-			/* Input, and Output */
+			/* Input, Output, Explanation */
 
 			div.input { margin-bottom: 1rem; }
 			div.output { margin-bottom: 1rem; }
-			div.input.title { margin-bottom: 1rem; }
-			div.output.title { margin-bottom: 1rem; }
-			iframe { border: 1px solid gray; resize: both; overflow: auto; }
+			div.explanation { margin-bottom: 1rem; }
+
+			div.input-title { margin-bottom: 1rem; }
+			div.output-title { margin-bottom: 1rem; }
+			div.explanation-title { margin-bottom: 1rem; }
+
+			div.input.markdown { border: 1px solid gray; padding: 1rem; }
+			div.output.markdown { border: 1px solid gray; padding: 1rem; }
+			div.explanation.markdown { border: 1px solid gray; padding: 1rem; }
+
 			pre { white-space: pre !important; }
 			pre.input { margin-bottom: 1rem; }
 			pre.output { margin-bottom: 1rem; }
+			pre.explanation { margin-bottom: 1rem; }
+
+			iframe { border: 1px solid gray; resize: both; overflow: auto; }
 			pre.prettyprint {  background-color: #eee; }
 			.linenums li { list-style-type: decimal !important; }
+			
+			
 			.reason-Removing { background-color: rgb(124,124,124) !important; color: White !important;}
 			.reason-Passed { background-color: rgb(112,173,71) !important; color: White !important;}
 			.reason-Untested { background-color: rgb(195,155,225) !important; color: rgb(15, 1, 26) !important;}
@@ -208,7 +221,7 @@
 		<div class="header name">
 		<span class="header name pointer" 
 			id="header-1-name"
-			onclick="toggleVisibility('header-1-areas')"
+			onclick="toggleVisibility('header-1-areas', null, null)"
 			href="header-1-areas">xBDD - Running Scenarios</span>
 
 		</div>
@@ -218,7 +231,8 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="header-1-stats" style="width: 100%; empty-cells: show; display: block;">
 			<table class="table table-condensed stats-table">
 				<tr id="header-header-reason-stats">
@@ -335,7 +349,7 @@
 		<div class="area name">
 		<span class="area name pointer" 
 			id="area-2-name"
-			onclick="toggleVisibility('area-2-features')"
+			onclick="toggleVisibility('area-2-features', null, null)"
 			href="area-2-features">Initial Setup</span>
 
 		</div>
@@ -345,7 +359,8 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="area-2-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="area-header-reason-stats">
@@ -441,17 +456,18 @@
 		<div class="feature name">
 		<span class="feature name pointer" 
 			id="feature-3-name"
-			onclick="toggleVisibility('feature-3-scenarios')"
+			onclick="toggleVisibility('feature-3-scenarios', null, null)"
 			href="feature-3-scenarios">Running MS Test Project Scenarios</span>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[161 ms]</span>
+	<span class="feature duration">[288 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="feature-3-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
@@ -512,7 +528,7 @@
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-4-name"
-			onclick="toggleVisibility('scenario-4-scenarios')"
+			onclick="toggleVisibility('scenario-4-scenarios', null, null)"
 			href="scenario-4-scenarios">Running All Scenarios</span>
 
 		</div>
@@ -522,7 +538,8 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-4-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -565,17 +582,18 @@
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-5-name"
-			onclick="toggleVisibility('scenario-5-scenarios')"
+			onclick="toggleVisibility('scenario-5-scenarios', null, null)"
 			href="scenario-5-scenarios">Running Scenarios Filtered By MS Test Test Cateogry</span>
 
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[0 ms]</span>
+	<span class="scenario duration">[3 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-5-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -618,7 +636,7 @@
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-6-name"
-			onclick="toggleVisibility('scenario-6-scenarios')"
+			onclick="toggleVisibility('scenario-6-scenarios', null, null)"
 			href="scenario-6-scenarios">Running Scenarios Filtered By Area Name</span>
 
 		</div>
@@ -628,7 +646,8 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-6-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -671,7 +690,7 @@
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-7-name"
-			onclick="toggleVisibility('scenario-7-scenarios')"
+			onclick="toggleVisibility('scenario-7-scenarios', null, null)"
 			href="scenario-7-scenarios">Running Scenarios Filtered By Feature Name</span>
 
 		</div>
@@ -681,7 +700,8 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-7-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -724,17 +744,18 @@
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-8-name"
-			onclick="toggleVisibility('scenario-8-scenarios')"
+			onclick="toggleVisibility('scenario-8-scenarios', null, null)"
 			href="scenario-8-scenarios">Running Scenarios Filtered By Scenario Name</span>
 
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[0 ms]</span>
+	<span class="scenario duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-8-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -777,17 +798,18 @@
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-9-name"
-			onclick="toggleVisibility('scenario-9-scenarios')"
+			onclick="toggleVisibility('scenario-9-scenarios', null, null)"
 			href="scenario-9-scenarios">Running Scenarios Filtered By Assignment</span>
 
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[0 ms]</span>
+	<span class="scenario duration">[5 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-9-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -830,17 +852,18 @@
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-10-name"
-			onclick="toggleVisibility('scenario-10-scenarios')"
+			onclick="toggleVisibility('scenario-10-scenarios', null, null)"
 			href="scenario-10-scenarios">Running Scenarios Filtered By Tag</span>
 
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[0 ms]</span>
+	<span class="scenario duration">[4 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-10-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -883,17 +906,18 @@
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-11-name"
-			onclick="toggleVisibility('scenario-11-scenarios')"
+			onclick="toggleVisibility('scenario-11-scenarios', null, null)"
 			href="scenario-11-scenarios">Running Scenarios Filtered By Reason</span>
 
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[0 ms]</span>
+	<span class="scenario duration">[7 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-11-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -936,7 +960,7 @@
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-12-name"
-			onclick="toggleVisibility('scenario-12-scenarios')"
+			onclick="toggleVisibility('scenario-12-scenarios', null, null)"
 			href="scenario-12-scenarios">Running A Single Scenario</span>
 
 		</div>
@@ -946,7 +970,8 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-12-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -989,17 +1014,18 @@
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-13-name"
-			onclick="toggleVisibility('scenario-13-scenarios')"
+			onclick="toggleVisibility('scenario-13-scenarios', null, null)"
 			href="scenario-13-scenarios">Debugging A Single Scenario</span>
 
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[0 ms]</span>
+	<span class="scenario duration">[8 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-13-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -1042,17 +1068,18 @@
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-14-name"
-			onclick="toggleVisibility('scenario-14-scenarios')"
+			onclick="toggleVisibility('scenario-14-scenarios', null, null)"
 			href="scenario-14-scenarios">Documenting Scenarios And Skipping Scenario Execution When Running Tests</span>
 
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[0 ms]</span>
+	<span class="scenario duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-14-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -1099,12 +1126,15 @@
 	</li>
 					
 						<script>
-							function toggleVisibility(elementId, resize, iFrameId) {{
+							function toggleVisibility(elementId, iframeIdInput, iframeIdOutput) {{
 								var x = document.getElementById(elementId);
 								if (x.style.display === "none") {{
 									x.style.display = "block";
-									if(resize) {
-										resizeIframe(document.getElementById(iFrameId));
+									if(iframeIdInput) {
+										resizeIframe(document.getElementById(iframeIdInput));
+									}
+									if(iframeIdOutput) {
+										resizeIframe(document.getElementById(iframeIdOutput));
 									}
 								}} else {{
 									x.style.display = "none";

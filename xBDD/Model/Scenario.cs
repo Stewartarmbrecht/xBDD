@@ -84,6 +84,14 @@ namespace xBDD.Model
         public string Explanation { get; internal set; }
 
         /// <summary>
+        /// The format for the explanation.
+        /// This is used to set the Prettify option in the browser if the text is a programming language.
+        /// </summary>
+        /// <value><see cref="TextFormat"/></value>
+		[DataMember(EmitDefaultValue=false)]
+        public TextFormat ExplanationFormat { get; set; }
+
+        /// <summary>
         /// The start time for executing the scenario.
         /// </summary>
         /// <value><see cref="DateTime"/></value>

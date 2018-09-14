@@ -48,6 +48,14 @@ namespace xBDD.Model
         public string Input { get; set; }
 
         /// <summary>
+        /// The format for the input.
+        /// This is used to set the Prettify option in the browser if the text is a programming language.
+        /// </summary>
+        /// <value><see cref="TextFormat"/></value>
+		[DataMember(EmitDefaultValue=false)]
+        public TextFormat InputFormat { get; set; }
+
+        /// <summary>
         /// Multiline string markdown displayed below the step to provide an explanation of the step.
         /// </summary>
         /// <value><see cref="string"/></value>
@@ -55,12 +63,12 @@ namespace xBDD.Model
         public string Explanation { get; set; }
 
         /// <summary>
-        /// The format for the multiline parameter.
+        /// The format for the explanation.
         /// This is used to set the Prettify option in the browser if the text is a programming language.
         /// </summary>
         /// <value><see cref="TextFormat"/></value>
 		[DataMember(EmitDefaultValue=false)]
-        public TextFormat InputFormat { get; set; }
+        public TextFormat ExplanationFormat { get; set; }
 
         /// <summary>
         /// The action to execute if the step is a synchronous action.

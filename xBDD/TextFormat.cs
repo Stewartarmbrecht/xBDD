@@ -6,6 +6,8 @@
     /// </summary>
     public enum TextFormat
     {
+        ///<Summary>Not set will default to text.</Summary>
+		none,
         ///<Summary>Regular text.</Summary>
         text,
         ///<Summary>Generic code.</Summary>
@@ -46,6 +48,8 @@
         js,
         ///<Summary>C, C++, et al</Summary>
         m,
+        ///<Summary>Markdown text that should be converted and displayed as html.</Summary>
+		markdown,
         ///<Summary>mxml</Summary>
         mxml,
         ///<Summary>Pascal</Summary>

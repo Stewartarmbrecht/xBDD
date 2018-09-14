@@ -181,6 +181,10 @@ namespace xBDD.Core
 			if(codeDetails != null)
 				scenarioExplanation = codeDetails.GetScenarioExplanation();
 
+			TextFormat scenarioExplanationFormat = TextFormat.text;
+			if(codeDetails != null)
+				scenarioExplanationFormat = codeDetails.GetScenarioExplanationFormat();
+
 			string[] scenarioAssignments = null;
 			if(codeDetails != null)
 				scenarioAssignments = codeDetails.GetScenarioAssignments();
@@ -196,6 +200,7 @@ namespace xBDD.Core
 				feature, 
 				methodName, 
 				scenarioExplanation, 
+				scenarioExplanationFormat,
 				scenarioAssignments, 
 				scenarioTags, 
 				sortOrder);

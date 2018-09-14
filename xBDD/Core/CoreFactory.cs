@@ -85,6 +85,7 @@ namespace xBDD.Core
 			Feature feature, 
 			string methodName, 
 			string explanation, 
+			TextFormat explanationFormat,
 			string[] assignments, 
 			string[] tags, 
 			int sortOrder)
@@ -94,6 +95,7 @@ namespace xBDD.Core
                 Name = name,
                 MethodName = methodName,
 				Explanation = explanation,
+				ExplanationFormat = explanationFormat,
 				Assignments = assignments,
 				Tags = tags,
                 Sort = sortOrder,
@@ -104,27 +106,29 @@ namespace xBDD.Core
             return scenario;
         }
 
-        internal Step CreateStep(string stepName, Action<Step> action, string multilineParameter, TextFormat multilineParameterFormat, string explanation)
+        internal Step CreateStep(string stepName, Action<Step> action, string input, TextFormat intputFormat, string explanation, TextFormat explanationFormat)
         {
             return new Step()
             {
                 Name = stepName,
                 Action = action,
-                Input = multilineParameter,
-                InputFormat = multilineParameterFormat,
-				Explanation = explanation
+                Input = input,
+                InputFormat = intputFormat,
+				Explanation = explanation,
+				ExplanationFormat = explanationFormat
             };
         }
 
-        internal Step CreateStep(string stepName, Func<Step, Task> action, string multilineParameter, TextFormat multilineParameterFormat, string explanation)
+        internal Step CreateStep(string stepName, Func<Step, Task> action, string input, TextFormat inputFormat, string explanation, TextFormat explanationFormat)
         {
             return new Step()
             {
                 Name = stepName,
                 ActionAsync = action,
-                Input = multilineParameter,
-                InputFormat = multilineParameterFormat,
-				Explanation = explanation
+                Input = input,
+                InputFormat = inputFormat,
+				Explanation = explanation,
+				ExplanationFormat = explanationFormat
             };
         }
 
@@ -143,11 +147,12 @@ namespace xBDD.Core
 			Feature feature, 
 			string methodName, 
 			string explanation, 
+			TextFormat explanationFormat,
 			string[] assignments,
 			string[] tags,
 			int sortOrder)
         {
-            return new ScenarioBuilder(scenarioName, feature, this, methodName, explanation, assignments, tags, sortOrder);
+            return new ScenarioBuilder(scenarioName, feature, this, methodName, explanation, explanationFormat, assignments, tags, sortOrder);
         }
 
         internal AreaCache CreateAreaCache()

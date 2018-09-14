@@ -21,7 +21,9 @@ namespace xBDD.Utility
         string youCanAttribute;
         string byAttribute;
 		string scenarioExplanation;
+		TextFormat scenarioExplanationFormat;
 		string featureExplanation;
+		TextFormat featureExplanationFormat;
 		string[] scenarioAssignments;
 		string[] scenarioTags;
 		string[] featureAssignments;
@@ -44,8 +46,10 @@ namespace xBDD.Utility
         /// <param name="asAAttribute">The value of the As A attribute on the feature.</param>
         /// <param name="youCanAttribute">The value of the You Can attribute on the feature.</param>
         /// <param name="byAttribute">The value of the By attribute on the feature.</param>
-        /// <param name="scenarioExplanation">Markdown that provides an explanation for the features area.</param>
-        /// <param name="featureExplanation">Markdown that provides an explanation for the feature.</param>
+        /// <param name="scenarioExplanation">Explanation for the scenario. Can be text, html, markdown, or any language supported by Google's prettyprint.</param>
+        /// <param name="scenarioExplanationFormat">The format of the scenario explanation.</param>
+        /// <param name="featureExplanation">Explanation for the feature. Can be text, html, markdown, or any language supported by Google's prettyprint.</param>
+        /// <param name="featureExplanationFormat">The format of the explanation.</param>
         /// <param name="scenarioAssignments">One ore more owners of the scenario.</param>
         /// <param name="scenarioTags">One or more tags for a scenario.</param>
         /// <param name="featureAssignments">One ore more assignments for the feature.</param>
@@ -58,11 +62,14 @@ namespace xBDD.Utility
 			string youCanAttribute, 
 			string byAttribute,
 			string scenarioExplanation,
+			TextFormat scenarioExplanationFormat,
 			string featureExplanation,
+			TextFormat featureExplanationFormat,
 			string[] scenarioAssignments,
 			string[] scenarioTags,
 			string[] featureAssignments,
-			string[] featureTags) {
+			string[] featureTags) 
+		{
             this.namespaceName = namespaceName;
             this.className = className;
             this.methodName = methodName;
@@ -70,7 +77,9 @@ namespace xBDD.Utility
             this.youCanAttribute = youCanAttribute;
             this.byAttribute = byAttribute;
 			this.scenarioExplanation = scenarioExplanation;
+			this.scenarioExplanationFormat = scenarioExplanationFormat;
 			this.featureExplanation = featureExplanation;
+			this.featureExplanationFormat = featureExplanationFormat;
 			this.scenarioAssignments = scenarioAssignments;
 			this.scenarioTags = scenarioTags;
 			this.featureAssignments = featureAssignments;
@@ -181,6 +190,27 @@ namespace xBDD.Utility
             return text;
         }
 
+        internal TextFormat GetFeatureExplanationFormat()
+        {
+            TextFormat text = TextFormat.none;
+            if(this.featureExplanationFormat != TextFormat.none) {
+                text = this.featureExplanationFormat;
+            } else if(methodBase != null){
+                var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<ExplanationAttribute>();
+                if(attr != null)
+                    text = attr.GetExplanationFormat();
+				if(text == TextFormat.none) {
+	                var gattr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<Generated_ExplanationAttribute>();
+					if(gattr != null)
+						text = gattr.GetExplanationFormat();
+				}
+            }
+			if(text == TextFormat.none) {
+				text = TextFormat.markdown;
+			}
+            return text;
+        }
+
         internal string GetScenarioExplanation()
         {
             string text = null;
@@ -198,6 +228,28 @@ namespace xBDD.Utility
             }
             return text;
         }
+
+        internal TextFormat GetScenarioExplanationFormat()
+        {
+            TextFormat text = TextFormat.none;
+            if(this.scenarioExplanationFormat != TextFormat.none) {
+                text = this.scenarioExplanationFormat;
+            } else if(methodBase != null){
+                var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<ExplanationAttribute>();
+                if(attr != null)
+                    text = attr.GetExplanationFormat();
+				if(text == TextFormat.none) {
+	                var gattr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<Generated_ExplanationAttribute>();
+					if(gattr != null)
+						text = gattr.GetExplanationFormat();
+				}
+            }
+			if(text == TextFormat.none) {
+				text = TextFormat.markdown;
+			}
+            return text;
+        }
+
 
         internal string[] GetScenarioAssignments()
         {

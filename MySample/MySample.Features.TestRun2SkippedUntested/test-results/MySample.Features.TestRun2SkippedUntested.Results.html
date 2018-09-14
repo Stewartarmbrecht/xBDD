@@ -121,9 +121,10 @@
 
 			div#report-dates { margin: 0rem 0rem .5rem 5rem; }
 
-			/* Statements and Explanation */
-			div.statement { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
-			div.explanation { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
+			/* Statement */
+
+			div.statement-title { margin-bottom: 1rem; }
+			div.statement-content { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
 
 			/* Step Details */
 
@@ -141,18 +142,30 @@
 			dl.exception-type, dl.exception-message, dl.exception-stack { padding: .5rem; }
 			dl.exception-type pre, dl.exception-message pre, dl.exception-stack pre { padding: .5rem; }
 
-			/* Input, and Output */
+			/* Input, Output, Explanation */
 
 			div.input { margin-bottom: 1rem; }
 			div.output { margin-bottom: 1rem; }
-			div.input.title { margin-bottom: 1rem; }
-			div.output.title { margin-bottom: 1rem; }
-			iframe { border: 1px solid gray; resize: both; overflow: auto; }
+			div.explanation { margin-bottom: 1rem; }
+
+			div.input-title { margin-bottom: 1rem; }
+			div.output-title { margin-bottom: 1rem; }
+			div.explanation-title { margin-bottom: 1rem; }
+
+			div.input.markdown { border: 1px solid gray; padding: 1rem; }
+			div.output.markdown { border: 1px solid gray; padding: 1rem; }
+			div.explanation.markdown { border: 1px solid gray; padding: 1rem; }
+
 			pre { white-space: pre !important; }
 			pre.input { margin-bottom: 1rem; }
 			pre.output { margin-bottom: 1rem; }
+			pre.explanation { margin-bottom: 1rem; }
+
+			iframe { border: 1px solid gray; resize: both; overflow: auto; }
 			pre.prettyprint {  background-color: #eee; }
 			.linenums li { list-style-type: decimal !important; }
+			
+			
 			.reason-Removing { background-color: rgb(124,124,124) !important; color: White !important;}
 			.reason-Passed { background-color: rgb(112,173,71) !important; color: White !important;}
 			.reason-Untested { background-color: rgb(195,155,225) !important; color: rgb(15, 1, 26) !important;}
@@ -208,17 +221,18 @@
 		<div class="header name">
 		<span class="header name pointer" 
 			id="header-1-name"
-			onclick="toggleVisibility('header-1-areas')"
+			onclick="toggleVisibility('header-1-areas', null, null)"
 			href="header-1-areas">My Sample - Test Run 2 Skipped Untested</span>
 
 		</div>
 	</div>
 <div class="col-2 header reason-duration text-right">
-	<span class="header duration">[67 ms]</span>
+	<span class="header duration">[84 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="header-1-stats" style="width: 100%; empty-cells: show; display: block;">
 			<table class="table table-condensed stats-table">
 				<tr id="header-header-reason-stats">
@@ -336,7 +350,7 @@
 		<div class="area name">
 		<span class="area name pointer" 
 			id="area-2-name"
-			onclick="toggleVisibility('area-2-features')"
+			onclick="toggleVisibility('area-2-features', null, null)"
 			href="area-2-features">Area 1 Passing</span>
 
 		</div>
@@ -346,7 +360,8 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="area-2-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="area-header-reason-stats">
@@ -440,8 +455,17 @@
 		<div class="feature name">
 		<span class="feature name pointer" 
 			id="feature-3-name"
-			onclick="toggleVisibility('feature-3-scenarios')"
+			onclick="toggleVisibility('feature-3-scenarios', null, null)"
 			href="feature-3-scenarios">Feature 1 Passing</span>
+<span class="feature assignments" 
+	id="feature-3-assignments">[FeatureAssignment1, FeatureAssignment2]</span>
+<span class="feature tags" 
+	id="feature-3-tags">[FeatureTag1, FeatureTag2]</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-3-statement-link" 
+			onclick="toggleVisibility('feature-3-statement'); toggleVisibility('feature-3-explanation', 'iframe3explanation')">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
@@ -450,7 +474,8 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="feature-3-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
@@ -494,6 +519,81 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-3-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-3-statement"><strong>As a</strong> User<br/>
+<strong>You can</strong> derive some value<br/>
+<strong>By</strong> doing something</div>
+			</div>
+		</div>
+	</li>
+	<li class="row explanation">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="explanation" 
+				id="feature-3-explanation"
+				style="display: none;">
+				<div class="explanation-title" 
+					id="step-3-explanation-title">Explanation</div>
+<div class="explanation rounded">
+	<div class="nav nav-tabs" role="tablist" style="display: none;">
+		<a
+			id="preview3-tab"
+			class="nav-item nav-link active pointer" 
+			onclick="toggleVisibility('preview3explanation', true, 'iframe3explanation'); toggleVisibility('code3explanation')">Preview</a>
+		<a
+			id="code3-tab"
+			class="nav-item nav-link pointer" 
+			onclick="toggleVisibility('preview3explanation', true, 'iframe3explanation'); toggleVisibility('code3explanation')">Code</a>
+	</div>
+	<div class="tab-content">
+		<div role="tabpanel" 
+			class="tab-pane active" 
+			style="display: block;"
+			id="preview3explanation">
+			<iframe width="100%" id="iframe3explanation"></iframe>
+			<script type="text/javascript">
+				var iframe3explanationdoc = document.getElementById('iframe3explanation').contentWindow.document;
+				iframe3explanationdoc.open();
+				var html3explanation = "<html> \
+	<body> \
+		<h1>Feature Html Explanation<\/h1> \
+		<p> \
+			You can also use raw html to explain a scenario that will \
+			be rendered in an iframe. \
+		<\/p> \
+	<\/body> \
+<\/html>";
+				iframe3explanationdoc.write(html3explanation);
+				resizeIframe(document.getElementById('iframe3explanation'));
+				iframe3explanationdoc.close();
+			</script>
+		</div>
+		<div role="tabpanel" 
+			class="tab-pane" 
+			style="display: none;"
+			id="code3explanation">
+			<pre class="explanation prettyprint linenums lang-html">&lt;html&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Feature Html Explanation&lt;/h1&gt;
+		&lt;p&gt;
+			You can also use raw html to explain a scenario that will
+			be rendered in an iframe.
+		&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -503,15 +603,24 @@
 <li class="lineitem scenario row align-items-center" id="scenario-4">
 <div class="col-2 badges">
 		<div class="scenario badge badge-pill pointer total reason-Passed"
-			id="scenario-4-badge">3</div>
+			id="scenario-4-badge">4</div>
 </div>
 
 	<div class="col">
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-4-name"
-			onclick="toggleVisibility('scenario-4-scenarios')"
+			onclick="toggleVisibility('scenario-4-scenarios', null, null)"
 			href="scenario-4-scenarios">Scenario 1 Passing</span>
+<span class="scenario assignments" 
+	id="scenario-4-assignments">[ScenarioAssignment1, ScenarioAssignment2]</span>
+<span class="scenario tags" 
+	id="scenario-4-tags">[ScenarioTag1, ScenarioTag2]</span>
+		<div class="scenario-statement-link badge pointer badge-secondary" 
+			id="scenario-4-statement-link" 
+			onclick="toggleVisibility('scenario-4-statement'); toggleVisibility('scenario-4-explanation', 'iframe4explanation')">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
@@ -520,7 +629,8 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-4-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -543,6 +653,76 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="scenario statement" 
+				id="scenario-4-statement"
+				style="display: none;">
+			</div>
+		</div>
+	</li>
+	<li class="row explanation">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="explanation" 
+				id="scenario-4-explanation"
+				style="display: none;">
+				<div class="explanation-title" 
+					id="step-4-explanation-title">Explanation</div>
+<div class="explanation rounded">
+	<div class="nav nav-tabs" role="tablist" style="display: none;">
+		<a
+			id="preview4-tab"
+			class="nav-item nav-link active pointer" 
+			onclick="toggleVisibility('preview4explanation', true, 'iframe4explanation'); toggleVisibility('code4explanation')">Preview</a>
+		<a
+			id="code4-tab"
+			class="nav-item nav-link pointer" 
+			onclick="toggleVisibility('preview4explanation', true, 'iframe4explanation'); toggleVisibility('code4explanation')">Code</a>
+	</div>
+	<div class="tab-content">
+		<div role="tabpanel" 
+			class="tab-pane active" 
+			style="display: block;"
+			id="preview4explanation">
+			<iframe width="100%" id="iframe4explanation"></iframe>
+			<script type="text/javascript">
+				var iframe4explanationdoc = document.getElementById('iframe4explanation').contentWindow.document;
+				iframe4explanationdoc.open();
+				var html4explanation = "<html> \
+	<body> \
+		<h1>Scenario Html Explanation<\/h1> \
+		<p> \
+			You can also use raw html to explain a scenario that will \
+			be rendered in an iframe. \
+		<\/p> \
+	<\/body> \
+<\/html>";
+				iframe4explanationdoc.write(html4explanation);
+				resizeIframe(document.getElementById('iframe4explanation'));
+				iframe4explanationdoc.close();
+			</script>
+		</div>
+		<div role="tabpanel" 
+			class="tab-pane" 
+			style="display: none;"
+			id="code4explanation">
+			<pre class="explanation prettyprint linenums lang-html">&lt;html&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Scenario Html Explanation&lt;/h1&gt;
+		&lt;p&gt;
+			You can also use raw html to explain a scenario that will
+			be rendered in an iframe.
+		&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -559,8 +739,8 @@
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-5-name"
-			onclick="toggleVisibility('step-5-details')"
-			href="step-5-details"><strong>Given</strong>  Step 1 Passing</span>
+			onclick="toggleVisibility('step-5-details', null, null)"
+			href="step-5-details"><strong>Given</strong>  Step 1 Passing With Explanation And Input</span>
 
 		</div>
 	</div>
@@ -575,6 +755,62 @@
 				id="step-5-details"
 				style="display: none">
 
+	<li class="row">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="step-details">
+				<div class="step-input-link badge pointer button" 
+					id="step-5-input-link" 
+					onclick="toggleVisibility('step-5-input', null)">
+					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
+				</div>
+				<div class="step-statement-link badge pointer badge-secondary" 
+					id="step-5-statement-link" 
+					onclick="toggleVisibility('step-5-statement'); toggleVisibility('step-5-explanation', null)">
+					<i class="fas fa-info"></i>&nbsp;<span>Explanation</span>
+				</div>
+
+			</div>
+		</div>
+	</li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="step statement" 
+				id="step-5-statement"
+				style="display: none;">
+			</div>
+		</div>
+	</li>
+	<li class="row explanation">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="explanation" 
+				id="step-5-explanation"
+				style="display: none;">
+				<div class="explanation-title" 
+					id="step-5-explanation-title">Explanation</div>
+					<div class="explanation markdown" id="explanation-5"><h1 id="step-1-explanation">Step 1 Explanation</h1>
+<p>This is my step 1 explanation.</p>
+</div>
+			</div>
+		</div>
+	</li>
+	<li class="row input">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="input" 
+				id="step-5-input"
+				style="display: block;">
+				<div class="input-title" 
+					id="step-5-input-title">Input</div>
+					<pre class="input prettyprint linenums rounded lang-text" id="input-5">Here 
+is some multiline
+input</pre>
+			</div>
+		</div>
+	</li>
+
 			</ol>
 		</div>
 	</li>
@@ -588,8 +824,8 @@
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-6-name"
-			onclick="toggleVisibility('step-6-details')"
-			href="step-6-details"><strong>When</strong>  Step 2 Passing</span>
+			onclick="toggleVisibility('step-6-details', null, null)"
+			href="step-6-details"><strong>When</strong>  Step 2 Passing With Output</span>
 
 		</div>
 	</div>
@@ -604,6 +840,32 @@
 				id="step-6-details"
 				style="display: none">
 
+	<li class="row">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="step-details">
+				<div class="step-output-link badge pointer button" 
+					id="step-6-output-link" 
+					onclick="toggleVisibility('step-6-output', null)">
+					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
+				</div>
+
+			</div>
+		</div>
+	</li>
+	<li class="row output">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="output" 
+				id="step-6-output"
+				style="display: block;">
+				<div class="output-title" 
+					id="step-6-output-title">Output</div>
+					<pre class="output prettyprint linenums rounded lang-text" id="output-6">Here is some output text that is a single line.</pre>
+			</div>
+		</div>
+	</li>
+
 			</ol>
 		</div>
 	</li>
@@ -617,8 +879,8 @@
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-7-name"
-			onclick="toggleVisibility('step-7-details')"
-			href="step-7-details"><strong>Then</strong>  Step 3 Passing</span>
+			onclick="toggleVisibility('step-7-details', 'iframe7input', 'iframe7output')"
+			href="step-7-details"><strong>Then</strong>  Step 3 Passing With Html Preview Output</span>
 
 		</div>
 	</div>
@@ -633,7 +895,412 @@
 				id="step-7-details"
 				style="display: none">
 
+	<li class="row">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="step-details">
+				<div class="step-input-link badge pointer button" 
+					id="step-7-input-link" 
+					onclick="toggleVisibility('step-7-input', 'iframe7input')">
+					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
+				</div>
+				<div class="step-output-link badge pointer button" 
+					id="step-7-output-link" 
+					onclick="toggleVisibility('step-7-output', 'iframe7output')">
+					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
+				</div>
+				<div class="step-statement-link badge pointer badge-secondary" 
+					id="step-7-statement-link" 
+					onclick="toggleVisibility('step-7-statement'); toggleVisibility('step-7-explanation', 'iframe7explanation')">
+					<i class="fas fa-info"></i>&nbsp;<span>Explanation</span>
+				</div>
+
+			</div>
+		</div>
+	</li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="step statement" 
+				id="step-7-statement"
+				style="display: none;">
+			</div>
+		</div>
+	</li>
+	<li class="row explanation">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="explanation" 
+				id="step-7-explanation"
+				style="display: none;">
+				<div class="explanation-title" 
+					id="step-7-explanation-title">Explanation</div>
+<div class="explanation rounded">
+	<div class="nav nav-tabs" role="tablist" style="display: none;">
+		<a
+			id="preview7-tab"
+			class="nav-item nav-link active pointer" 
+			onclick="toggleVisibility('preview7explanation', true, 'iframe7explanation'); toggleVisibility('code7explanation')">Preview</a>
+		<a
+			id="code7-tab"
+			class="nav-item nav-link pointer" 
+			onclick="toggleVisibility('preview7explanation', true, 'iframe7explanation'); toggleVisibility('code7explanation')">Code</a>
+	</div>
+	<div class="tab-content">
+		<div role="tabpanel" 
+			class="tab-pane active" 
+			style="display: block;"
+			id="preview7explanation">
+			<iframe width="100%" id="iframe7explanation"></iframe>
+			<script type="text/javascript">
+				var iframe7explanationdoc = document.getElementById('iframe7explanation').contentWindow.document;
+				iframe7explanationdoc.open();
+				var html7explanation = "<html> \
+	<body> \
+		<h1>Step Html Explanation<\/h1> \
+		<p> \
+			You can also use raw html for the explanation. \
+		<\/p> \
+		<h2>Use Cases\:<\/h2> \
+		<ol> \
+			<li>Rendering the HTML page at a given state. So that you can interact with it in the results.<\/li> \
+			<li>Rendering a table of the results if you need to.<\/li> \
+			<li>Rendering a part of the web page.<\/li> \
+			<li>Including a link to a point in the application.<\/li> \
+		<\/ol> \
+	<\/body> \
+<\/html>";
+				iframe7explanationdoc.write(html7explanation);
+				resizeIframe(document.getElementById('iframe7explanation'));
+				iframe7explanationdoc.close();
+			</script>
+		</div>
+		<div role="tabpanel" 
+			class="tab-pane" 
+			style="display: none;"
+			id="code7explanation">
+			<pre class="explanation prettyprint linenums lang-html">&lt;html&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Step Html Explanation&lt;/h1&gt;
+		&lt;p&gt;
+			You can also use raw html for the explanation.
+		&lt;/p&gt;
+		&lt;h2&gt;Use Cases:&lt;/h2&gt;
+		&lt;ol&gt;
+			&lt;li&gt;Rendering the HTML page at a given state. So that you can interact with it in the results.&lt;/li&gt;
+			&lt;li&gt;Rendering a table of the results if you need to.&lt;/li&gt;
+			&lt;li&gt;Rendering a part of the web page.&lt;/li&gt;
+			&lt;li&gt;Including a link to a point in the application.&lt;/li&gt;
+		&lt;/ol&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+	</li>
+	<li class="row input">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="input" 
+				id="step-7-input"
+				style="display: block;">
+				<div class="input-title" 
+					id="step-7-input-title">Input</div>
+<div class="input rounded">
+	<div class="nav nav-tabs" role="tablist" style="display: flex;">
+		<a
+			id="preview7-tab"
+			class="nav-item nav-link active pointer" 
+			onclick="toggleVisibility('preview7input', true, 'iframe7input'); toggleVisibility('code7input')">Preview</a>
+		<a
+			id="code7-tab"
+			class="nav-item nav-link pointer" 
+			onclick="toggleVisibility('preview7input', true, 'iframe7input'); toggleVisibility('code7input')">Code</a>
+	</div>
+	<div class="tab-content">
+		<div role="tabpanel" 
+			class="tab-pane active" 
+			style="display: block;"
+			id="preview7input">
+			<iframe width="100%" id="iframe7input"></iframe>
+			<script type="text/javascript">
+				var iframe7inputdoc = document.getElementById('iframe7input').contentWindow.document;
+				iframe7inputdoc.open();
+				var html7input = "<html> \
+	<body> \
+		<h1>Step Html Input<\/h1> \
+		<p> \
+			You can also output raw html that will \
+			be rendered in an iframe. \
+		<\/p> \
+		<h2>Use Cases\:<\/h2> \
+		<ol> \
+			<li>Rendering the HTML page at a given state. So that you can interact with it in the results.<\/li> \
+			<li>Rendering a table of the results if you need to.<\/li> \
+			<li>Rendering a part of the web page.<\/li> \
+			<li>Including a link to a point in the application.<\/li> \
+		<\/ol> \
+	<\/body> \
+<\/html>";
+				iframe7inputdoc.write(html7input);
+				resizeIframe(document.getElementById('iframe7input'));
+				iframe7inputdoc.close();
+			</script>
+		</div>
+		<div role="tabpanel" 
+			class="tab-pane" 
+			style="display: none;"
+			id="code7input">
+			<pre class="input prettyprint linenums lang-html">&lt;html&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Step Html Input&lt;/h1&gt;
+		&lt;p&gt;
+			You can also output raw html that will
+			be rendered in an iframe.
+		&lt;/p&gt;
+		&lt;h2&gt;Use Cases:&lt;/h2&gt;
+		&lt;ol&gt;
+			&lt;li&gt;Rendering the HTML page at a given state. So that you can interact with it in the results.&lt;/li&gt;
+			&lt;li&gt;Rendering a table of the results if you need to.&lt;/li&gt;
+			&lt;li&gt;Rendering a part of the web page.&lt;/li&gt;
+			&lt;li&gt;Including a link to a point in the application.&lt;/li&gt;
+		&lt;/ol&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+	</li>
+	<li class="row output">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="output" 
+				id="step-7-output"
+				style="display: block;">
+				<div class="output-title" 
+					id="step-7-output-title">Output</div>
+<div class="output rounded">
+	<div class="nav nav-tabs" role="tablist" style="display: flex;">
+		<a
+			id="preview7-tab"
+			class="nav-item nav-link active pointer" 
+			onclick="toggleVisibility('preview7output', true, 'iframe7output'); toggleVisibility('code7output')">Preview</a>
+		<a
+			id="code7-tab"
+			class="nav-item nav-link pointer" 
+			onclick="toggleVisibility('preview7output', true, 'iframe7output'); toggleVisibility('code7output')">Code</a>
+	</div>
+	<div class="tab-content">
+		<div role="tabpanel" 
+			class="tab-pane active" 
+			style="display: block;"
+			id="preview7output">
+			<iframe width="100%" id="iframe7output"></iframe>
+			<script type="text/javascript">
+				var iframe7outputdoc = document.getElementById('iframe7output').contentWindow.document;
+				iframe7outputdoc.open();
+				var html7output = "<html> \
+	<body> \
+		<h1>Step Html Output<\/h1> \
+		<p> \
+			You can also output raw html that will \
+			be rendered in an iframe. \
+		<\/p> \
+		<h2>Use Cases\:<\/h2> \
+		<ol> \
+			<li>Rendering the HTML page at a given state. So that you can interact with it in the results.<\/li> \
+			<li>Rendering a table of the results if you need to.<\/li> \
+			<li>Rendering a part of the web page.<\/li> \
+			<li>Including a link to a point in the application.<\/li> \
+		<\/ol> \
+	<\/body> \
+<\/html>";
+				iframe7outputdoc.write(html7output);
+				resizeIframe(document.getElementById('iframe7output'));
+				iframe7outputdoc.close();
+			</script>
+		</div>
+		<div role="tabpanel" 
+			class="tab-pane" 
+			style="display: none;"
+			id="code7output">
+			<pre class="output prettyprint linenums lang-html">&lt;html&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Step Html Output&lt;/h1&gt;
+		&lt;p&gt;
+			You can also output raw html that will
+			be rendered in an iframe.
+		&lt;/p&gt;
+		&lt;h2&gt;Use Cases:&lt;/h2&gt;
+		&lt;ol&gt;
+			&lt;li&gt;Rendering the HTML page at a given state. So that you can interact with it in the results.&lt;/li&gt;
+			&lt;li&gt;Rendering a table of the results if you need to.&lt;/li&gt;
+			&lt;li&gt;Rendering a part of the web page.&lt;/li&gt;
+			&lt;li&gt;Including a link to a point in the application.&lt;/li&gt;
+		&lt;/ol&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+	</li>
+
 			</ol>
+		</div>
+	</li>
+<li class="lineitem step row align-items-center" id="step-8">
+<div class="col-2 badges">
+		<div class="step badge badge-pill pointer total reason-Passed"
+			id="step-8-badge"> </div>
+</div>
+
+	<div class="col">
+		<div class="step name">
+		<span class="step name pointer" 
+			id="step-8-name"
+			onclick="toggleVisibility('step-8-details', null, null)"
+			href="step-8-details"><strong>And</strong>  Step 4 Passing With Markdow for Input, Output and Explanation</span>
+
+		</div>
+	</div>
+<div class="col-2 step reason-duration text-right">
+	<span class="step duration">[0 ms]</span>
+</div>
+</li>
+
+	<li class="row children">
+		<div class="col-12">
+			<ol class="details list-unstyled container-fluid"
+				id="step-8-details"
+				style="display: none">
+
+	<li class="row">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="step-details">
+				<div class="step-input-link badge pointer button" 
+					id="step-8-input-link" 
+					onclick="toggleVisibility('step-8-input', null)">
+					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
+				</div>
+				<div class="step-output-link badge pointer button" 
+					id="step-8-output-link" 
+					onclick="toggleVisibility('step-8-output', null)">
+					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
+				</div>
+				<div class="step-statement-link badge pointer badge-secondary" 
+					id="step-8-statement-link" 
+					onclick="toggleVisibility('step-8-statement'); toggleVisibility('step-8-explanation', null)">
+					<i class="fas fa-info"></i>&nbsp;<span>Explanation</span>
+				</div>
+
+			</div>
+		</div>
+	</li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="step statement" 
+				id="step-8-statement"
+				style="display: none;">
+			</div>
+		</div>
+	</li>
+	<li class="row explanation">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="explanation" 
+				id="step-8-explanation"
+				style="display: none;">
+				<div class="explanation-title" 
+					id="step-8-explanation-title">Explanation</div>
+					<div class="explanation markdown" id="explanation-8"><h3 id="step-explanation">Step Explanation</h3>
+<p>You can also provide an explanation for a step in your code.
+This will also take markdown.</p>
+</div>
+			</div>
+		</div>
+	</li>
+	<li class="row input">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="input" 
+				id="step-8-input"
+				style="display: block;">
+				<div class="input-title" 
+					id="step-8-input-title">Input</div>
+					<div class="input markdown" id="input-8"><h3 id="input-with-markdown">Input With Markdown</h3>
+<p>You can use markdown to draft up your input.
+Here is an html table.  You could generate this in your code.</p>
+<p>xBDD input and output are about communication that you generate from code.
+It's not intended serve as actual input.</p>
+<table>
+<thead>
+<tr>
+<th>Col 1</th>
+<th>Col 2</th>
+<th>Col 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This</td>
+<td>is a</td>
+<td>table</td>
+</tr>
+<tr>
+<td>You can</td>
+<td>add rows</td>
+<td>via code</td>
+</tr>
+</tbody>
+</table>
+</div>
+			</div>
+		</div>
+	</li>
+	<li class="row output">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="output" 
+				id="step-8-output"
+				style="display: block;">
+				<div class="output-title" 
+					id="step-8-output-title">Output</div>
+					<div class="output markdown" id="output-8"><h3 id="output-with-markdown">Output With Markdown</h3>
+<p>You can use markdown to draft up your input.
+Here is an html table.  You could generate this in your code.</p>
+<p>xBDD input and output are about communication that you generate from code.
+It's not intended serve as actual input.</p>
+<table>
+<thead>
+<tr>
+<th>Col 1</th>
+<th>Col 2</th>
+<th>Col 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This</td>
+<td>is a</td>
+<td>table</td>
+</tr>
+<tr>
+<td>You can</td>
+<td>add rows</td>
+<td>via code</td>
+</tr>
+</tbody>
+</table>
+</div>
+			</div>
 		</div>
 	</li>
 
@@ -648,20 +1315,24 @@
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-8">
+
+			</ol>
+		</div>
+	</li>
+<li class="lineitem area row align-items-center" id="area-9">
 <div class="col-2 badges">
 	<div class="area badge-distro"
-		id="area-8-badge-distro"
+		id="area-9-badge-distro"
 		title="Untested Count: Scenarios"
-		onclick="toggleVisibility('area-8-stats')">
+		onclick="toggleVisibility('area-9-stats')">
 		<div class="area badge badge-pill pointer total reason-Untested"
-			id="area-8-badge">3</div>
+			id="area-9-badge">3</div>
 		<div class="area distro-corner-tr">
 		</div>
 		<div class="area distro-corner-br">
 		</div>
 		<div class="area distro pointer"
-			id="area-8-distro">
+			id="area-9-distro">
 			<div class="reason-Untested" style="height: 33.3333333333333%; width: 100%;"></div>
 			<div class="reason-Passed" style="height: 66.6666666666667%; width: 100%;"></div>
 		</div>
@@ -671,19 +1342,20 @@
 	<div class="col">
 		<div class="area name">
 		<span class="area name pointer" 
-			id="area-8-name"
-			onclick="toggleVisibility('area-8-features')"
-			href="area-8-features">Area 2 Skipped Untested</span>
+			id="area-9-name"
+			onclick="toggleVisibility('area-9-features', null, null)"
+			href="area-9-features">Area 2 Skipped Untested</span>
 
 		</div>
 	</div>
 <div class="col-2 area reason-duration text-right">
-	<span class="area duration">[28 ms]</span>
+	<span class="area duration">[27 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
-		<div class="stats-graph-tables" id="area-8-stats" style="width: 100%; empty-cells: show; display: none;">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
+		<div class="stats-graph-tables" id="area-9-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="area-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
@@ -753,22 +1425,22 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-8-features"
+				id="area-9-features"
 				style="display: none">
-<li class="lineitem feature row align-items-center" id="feature-9">
+<li class="lineitem feature row align-items-center" id="feature-10">
 <div class="col-2 badges">
 	<div class="feature badge-distro"
-		id="feature-9-badge-distro"
+		id="feature-10-badge-distro"
 		title="Passed Count: Scenarios"
-		onclick="toggleVisibility('feature-9-stats')">
+		onclick="toggleVisibility('feature-10-stats')">
 		<div class="feature badge badge-pill pointer total reason-Passed"
-			id="feature-9-badge">1</div>
+			id="feature-10-badge">1</div>
 		<div class="feature distro-corner-tr">
 		</div>
 		<div class="feature distro-corner-br">
 		</div>
 		<div class="feature distro pointer"
-			id="feature-9-distro">
+			id="feature-10-distro">
 			<div class="reason-Passed" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
@@ -777,9 +1449,9 @@
 	<div class="col">
 		<div class="feature name">
 		<span class="feature name pointer" 
-			id="feature-9-name"
-			onclick="toggleVisibility('feature-9-scenarios')"
-			href="feature-9-scenarios">Feature 1 Passing</span>
+			id="feature-10-name"
+			onclick="toggleVisibility('feature-10-scenarios', null, null)"
+			href="feature-10-scenarios">Feature 1 Passing</span>
 
 		</div>
 	</div>
@@ -788,8 +1460,9 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
-		<div class="stats-graph-tables" id="feature-9-stats" style="width: 100%; empty-cells: show; display: none;">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
+		<div class="stats-graph-tables" id="feature-10-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
@@ -836,30 +1509,31 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="scenarios list-unstyled container-fluid"
-				id="feature-9-scenarios"
+				id="feature-10-scenarios"
 				style="display: none">
-<li class="lineitem scenario row align-items-center" id="scenario-10">
+<li class="lineitem scenario row align-items-center" id="scenario-11">
 <div class="col-2 badges">
 		<div class="scenario badge badge-pill pointer total reason-Passed"
-			id="scenario-10-badge">3</div>
+			id="scenario-11-badge">3</div>
 </div>
 
 	<div class="col">
 		<div class="scenario name">
 		<span class="scenario name pointer" 
-			id="scenario-10-name"
-			onclick="toggleVisibility('scenario-10-scenarios')"
-			href="scenario-10-scenarios">Scenario 1 Passing</span>
+			id="scenario-11-name"
+			onclick="toggleVisibility('scenario-11-scenarios', null, null)"
+			href="scenario-11-scenarios">Scenario 1 Passing</span>
 
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[10 ms]</span>
+	<span class="scenario duration">[6 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
-		<div class="stats-graph-tables" id="scenario-10-stats" style="width: 100%; empty-cells: show; display: none;">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
+		<div class="stats-graph-tables" id="scenario-11-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
@@ -885,37 +1559,8 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="scenarios list-unstyled container-fluid"
-				id="scenario-10-scenarios"
+				id="scenario-11-scenarios"
 				style="display: none">
-<li class="lineitem step row align-items-center" id="step-11">
-<div class="col-2 badges">
-		<div class="step badge badge-pill pointer total reason-Passed"
-			id="step-11-badge"> </div>
-</div>
-
-	<div class="col">
-		<div class="step name">
-		<span class="step name pointer" 
-			id="step-11-name"
-			onclick="toggleVisibility('step-11-details')"
-			href="step-11-details"><strong>Given</strong>  Step 1 Passing</span>
-
-		</div>
-	</div>
-<div class="col-2 step reason-duration text-right">
-	<span class="step duration">[5 ms]</span>
-</div>
-</li>
-
-	<li class="row children">
-		<div class="col-12">
-			<ol class="details list-unstyled container-fluid"
-				id="step-11-details"
-				style="display: none">
-
-			</ol>
-		</div>
-	</li>
 <li class="lineitem step row align-items-center" id="step-12">
 <div class="col-2 badges">
 		<div class="step badge badge-pill pointer total reason-Passed"
@@ -926,8 +1571,8 @@
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-12-name"
-			onclick="toggleVisibility('step-12-details')"
-			href="step-12-details"><strong>When</strong>  Step 2 Passing</span>
+			onclick="toggleVisibility('step-12-details', null, null)"
+			href="step-12-details"><strong>Given</strong>  Step 1 Passing</span>
 
 		</div>
 	</div>
@@ -955,8 +1600,8 @@
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-13-name"
-			onclick="toggleVisibility('step-13-details')"
-			href="step-13-details"><strong>Then</strong>  Step 3 Passing</span>
+			onclick="toggleVisibility('step-13-details', null, null)"
+			href="step-13-details"><strong>When</strong>  Step 2 Passing</span>
 
 		</div>
 	</div>
@@ -974,6 +1619,31 @@
 			</ol>
 		</div>
 	</li>
+<li class="lineitem step row align-items-center" id="step-14">
+<div class="col-2 badges">
+		<div class="step badge badge-pill pointer total reason-Passed"
+			id="step-14-badge"> </div>
+</div>
+
+	<div class="col">
+		<div class="step name">
+		<span class="step name pointer" 
+			id="step-14-name"
+			onclick="toggleVisibility('step-14-details', null, null)"
+			href="step-14-details"><strong>Then</strong>  Step 3 Passing</span>
+
+		</div>
+	</div>
+<div class="col-2 step reason-duration text-right">
+	<span class="step duration">[0 ms]</span>
+</div>
+</li>
+
+	<li class="row children">
+		<div class="col-12">
+			<ol class="details list-unstyled container-fluid"
+				id="step-14-details"
+				style="display: none">
 
 			</ol>
 		</div>
@@ -982,20 +1652,24 @@
 			</ol>
 		</div>
 	</li>
-<li class="lineitem feature row align-items-center" id="feature-14">
+
+			</ol>
+		</div>
+	</li>
+<li class="lineitem feature row align-items-center" id="feature-15">
 <div class="col-2 badges">
 	<div class="feature badge-distro"
-		id="feature-14-badge-distro"
+		id="feature-15-badge-distro"
 		title="Untested Count: Scenarios"
-		onclick="toggleVisibility('feature-14-stats')">
+		onclick="toggleVisibility('feature-15-stats')">
 		<div class="feature badge badge-pill pointer total reason-Untested"
-			id="feature-14-badge">2</div>
+			id="feature-15-badge">2</div>
 		<div class="feature distro-corner-tr">
 		</div>
 		<div class="feature distro-corner-br">
 		</div>
 		<div class="feature distro pointer"
-			id="feature-14-distro">
+			id="feature-15-distro">
 			<div class="reason-Untested" style="height: 50%; width: 100%;"></div>
 			<div class="reason-Passed" style="height: 50%; width: 100%;"></div>
 		</div>
@@ -1005,9 +1679,9 @@
 	<div class="col">
 		<div class="feature name">
 		<span class="feature name pointer" 
-			id="feature-14-name"
-			onclick="toggleVisibility('feature-14-scenarios')"
-			href="feature-14-scenarios">Feature 2 Skipped Untested</span>
+			id="feature-15-name"
+			onclick="toggleVisibility('feature-15-scenarios', null, null)"
+			href="feature-15-scenarios">Feature 2 Skipped Untested</span>
 
 		</div>
 	</div>
@@ -1016,8 +1690,9 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
-		<div class="stats-graph-tables" id="feature-14-stats" style="width: 100%; empty-cells: show; display: none;">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
+		<div class="stats-graph-tables" id="feature-15-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
@@ -1065,20 +1740,20 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="scenarios list-unstyled container-fluid"
-				id="feature-14-scenarios"
+				id="feature-15-scenarios"
 				style="display: none">
-<li class="lineitem scenario row align-items-center" id="scenario-15">
+<li class="lineitem scenario row align-items-center" id="scenario-16">
 <div class="col-2 badges">
 		<div class="scenario badge badge-pill pointer total reason-Passed"
-			id="scenario-15-badge">3</div>
+			id="scenario-16-badge">3</div>
 </div>
 
 	<div class="col">
 		<div class="scenario name">
 		<span class="scenario name pointer" 
-			id="scenario-15-name"
-			onclick="toggleVisibility('scenario-15-scenarios')"
-			href="scenario-15-scenarios">Scenario 1 Passing</span>
+			id="scenario-16-name"
+			onclick="toggleVisibility('scenario-16-scenarios', null, null)"
+			href="scenario-16-scenarios">Scenario 1 Passing</span>
 
 		</div>
 	</div>
@@ -1087,8 +1762,9 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
-		<div class="stats-graph-tables" id="scenario-15-stats" style="width: 100%; empty-cells: show; display: none;">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
+		<div class="stats-graph-tables" id="scenario-16-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
@@ -1114,37 +1790,8 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="scenarios list-unstyled container-fluid"
-				id="scenario-15-scenarios"
+				id="scenario-16-scenarios"
 				style="display: none">
-<li class="lineitem step row align-items-center" id="step-16">
-<div class="col-2 badges">
-		<div class="step badge badge-pill pointer total reason-Passed"
-			id="step-16-badge"> </div>
-</div>
-
-	<div class="col">
-		<div class="step name">
-		<span class="step name pointer" 
-			id="step-16-name"
-			onclick="toggleVisibility('step-16-details')"
-			href="step-16-details"><strong>Given</strong>  Step 1 Passing</span>
-
-		</div>
-	</div>
-<div class="col-2 step reason-duration text-right">
-	<span class="step duration">[0 ms]</span>
-</div>
-</li>
-
-	<li class="row children">
-		<div class="col-12">
-			<ol class="details list-unstyled container-fluid"
-				id="step-16-details"
-				style="display: none">
-
-			</ol>
-		</div>
-	</li>
 <li class="lineitem step row align-items-center" id="step-17">
 <div class="col-2 badges">
 		<div class="step badge badge-pill pointer total reason-Passed"
@@ -1155,8 +1802,8 @@
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-17-name"
-			onclick="toggleVisibility('step-17-details')"
-			href="step-17-details"><strong>When</strong>  Step 2 Passing</span>
+			onclick="toggleVisibility('step-17-details', null, null)"
+			href="step-17-details"><strong>Given</strong>  Step 1 Passing</span>
 
 		</div>
 	</div>
@@ -1184,8 +1831,8 @@
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-18-name"
-			onclick="toggleVisibility('step-18-details')"
-			href="step-18-details"><strong>Then</strong>  Step 3 Passing</span>
+			onclick="toggleVisibility('step-18-details', null, null)"
+			href="step-18-details"><strong>When</strong>  Step 2 Passing</span>
 
 		</div>
 	</div>
@@ -1203,22 +1850,51 @@
 			</ol>
 		</div>
 	</li>
+<li class="lineitem step row align-items-center" id="step-19">
+<div class="col-2 badges">
+		<div class="step badge badge-pill pointer total reason-Passed"
+			id="step-19-badge"> </div>
+</div>
+
+	<div class="col">
+		<div class="step name">
+		<span class="step name pointer" 
+			id="step-19-name"
+			onclick="toggleVisibility('step-19-details', null, null)"
+			href="step-19-details"><strong>Then</strong>  Step 3 Passing</span>
+
+		</div>
+	</div>
+<div class="col-2 step reason-duration text-right">
+	<span class="step duration">[0 ms]</span>
+</div>
+</li>
+
+	<li class="row children">
+		<div class="col-12">
+			<ol class="details list-unstyled container-fluid"
+				id="step-19-details"
+				style="display: none">
 
 			</ol>
 		</div>
 	</li>
-<li class="lineitem scenario row align-items-center" id="scenario-19">
+
+			</ol>
+		</div>
+	</li>
+<li class="lineitem scenario row align-items-center" id="scenario-20">
 <div class="col-2 badges">
 		<div class="scenario badge badge-pill pointer total reason-Untested"
-			id="scenario-19-badge">0</div>
+			id="scenario-20-badge">0</div>
 </div>
 
 	<div class="col">
 		<div class="scenario name">
 		<span class="scenario name pointer" 
-			id="scenario-19-name"
-			onclick="toggleVisibility('scenario-19-scenarios')"
-			href="scenario-19-scenarios">Scenario 2 Skipped Untested</span>
+			id="scenario-20-name"
+			onclick="toggleVisibility('scenario-20-scenarios', null, null)"
+			href="scenario-20-scenarios">Scenario 2 Skipped Untested</span>
 
 		</div>
 	</div>
@@ -1227,8 +1903,9 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
-		<div class="stats-graph-tables" id="scenario-19-stats" style="width: 100%; empty-cells: show; display: none;">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
+		<div class="stats-graph-tables" id="scenario-20-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
@@ -1254,7 +1931,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="scenarios list-unstyled container-fluid"
-				id="scenario-19-scenarios"
+				id="scenario-20-scenarios"
 				style="display: none">
 
 			</ol>
@@ -1274,12 +1951,15 @@
 	</li>
 					
 						<script>
-							function toggleVisibility(elementId, resize, iFrameId) {{
+							function toggleVisibility(elementId, iframeIdInput, iframeIdOutput) {{
 								var x = document.getElementById(elementId);
 								if (x.style.display === "none") {{
 									x.style.display = "block";
-									if(resize) {
-										resizeIframe(document.getElementById(iFrameId));
+									if(iframeIdInput) {
+										resizeIframe(document.getElementById(iframeIdInput));
+									}
+									if(iframeIdOutput) {
+										resizeIframe(document.getElementById(iframeIdOutput));
 									}
 								}} else {{
 									x.style.display = "none";

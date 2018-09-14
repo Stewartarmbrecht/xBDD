@@ -28,6 +28,7 @@ namespace xBDD.Core
 					feature.Value = codeDetails.GetFeatureActorValue();
 					feature.FullClassName = codeDetails.GetFullClassName();
 					feature.Explanation = codeDetails.GetFeatureExplanation();
+					feature.ExplanationFormat = codeDetails.GetFeatureExplanationFormat();
 					feature.Assignments = codeDetails.GetFeatureAssignments();
 					feature.Tags = codeDetails.GetFeatureTags();
 				}

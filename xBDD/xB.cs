@@ -49,16 +49,18 @@
         /// <param name="input">The multiline parameter to display below the step.</param>
         /// <param name="inputFormat">The format to use when displaying the multiline paramter.</param>
         /// <param name="explanation">A explanation of what the step does if needed.true  Html reporting tools will respect markdown syntax.<see cref="TextFormat"/></param>
+        /// <param name="explanationFormat">Format to use when displaying the explanation text. <see cref="TextFormat"/></param>
         /// <returns>New step that can be added to a scenario.</returns>
         public static Step CreateStep(
             string stepName, 
             Action<Step> action = null, 
             string input = "",
             TextFormat inputFormat = TextFormat.text,
-			string explanation = null)
+			string explanation = null,
+			TextFormat explanationFormat = TextFormat.text)
         {
             action = action ?? ((s) => { });
-            return factory.CreateStep(stepName, action, input, inputFormat, explanation);
+            return factory.CreateStep(stepName, action, input, inputFormat, explanation, explanationFormat);
         }
 
         /// <summary>
@@ -69,16 +71,18 @@
         /// <param name="input">The multiline parameter to display below the step.</param>
         /// <param name="inputFormat">The format to use when displaying the multiline paramter.</param>
         /// <param name="explanation">A explanation of what the step does if needed.true  Html reporting tools will respect markdown syntax.<see cref="TextFormat"/></param>
+        /// <param name="explanationFormat">Format to use when displaying the explanation text. <see cref="TextFormat"/></param>
         /// <returns>New async step that can be added to a scenario.</returns>
         public static Step CreateAsyncStep(
             string stepName, 
             Func<Step, Task> action = null,
             string input = "",
             TextFormat inputFormat = TextFormat.text,
-			string explanation = null)
+			string explanation = null,
+			TextFormat explanationFormat = TextFormat.text)
         {
             action = action ?? ((s) => { return Task.Run(() => { }); });
-            return factory.CreateStep(stepName, action, input, inputFormat, explanation);
+            return factory.CreateStep(stepName, action, input, inputFormat, explanation, explanationFormat);
         }
 
         /// <summary>

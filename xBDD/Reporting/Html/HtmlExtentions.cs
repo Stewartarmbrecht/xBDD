@@ -119,6 +119,7 @@ namespace xBDD
 					<strong>By</strong> {(feature.Capability != null ? feature.Capability : "[Missing Capability!]")}".RemoveIndentation(5, true);
 			}
 			li.Explanation = feature.Explanation;
+			li.ExplanationFormat = feature.ExplanationFormat;
 			return li;
 		}
 		internal static HtmlReportLineItem GetHtmlReportLineItem(this xBDD.Model.Scenario scenario) {
@@ -140,6 +141,7 @@ namespace xBDD
 				li.ChildItems.Add(step.GetHtmlReportLineItem());
 			}
 			li.Explanation = scenario.Explanation;
+			li.ExplanationFormat = scenario.ExplanationFormat;
 			return li;
 		}
 		internal static HtmlReportLineItem GetHtmlReportLineItem(this xBDD.Model.Step step) {
@@ -173,6 +175,7 @@ namespace xBDD
 			li.ChildTypeName = "details";
 			li.ChildItems = new List<HtmlReportLineItem>();
 			li.Explanation = step.Explanation;
+			li.ExplanationFormat = step.ExplanationFormat;
 			li.Input = step.Input;
 			li.InputFormat = step.InputFormat;
 			li.Output = step.Output;

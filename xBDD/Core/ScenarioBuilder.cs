@@ -29,13 +29,14 @@ namespace xBDD.Core
 			CoreFactory factory, 
 			string methodName, 
 			string explanation, 
+			TextFormat explanationFormat,
 			string[] assignments,
 			string[] tags,
 			int sortOrder)
         {
             this.factory = factory;
             outcomeAggregator = factory.UtilityFactory.CreateOutcomeAggregator();
-            scenario = factory.CreateScenario(scenarioName, feature, methodName, explanation, assignments, tags, sortOrder);
+            scenario = factory.CreateScenario(scenarioName, feature, methodName, explanation, explanationFormat, assignments, tags, sortOrder);
             runner = factory.CreateScenarioRunner(scenario);
         }
 
@@ -112,18 +113,20 @@ namespace xBDD.Core
         /// </summary>
         /// <param name="stepName">The displayed text for the step.</param>
         /// <param name="action">The synchronous action to excute for the step.</param>
-        /// <param name="multilineParameter">Optional paramter to add multi-line text under the step name.</param>
-        /// <param name="multilineParameterFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
+        /// <param name="input">Optional paramter to add multi-line text under the step name.</param>
+        /// <param name="inputFormat">Format to use when displaying the input text. <see cref="TextFormat"/></param>
         /// <param name="explanation">A explanation of what the step does if needed.true  Html reporting tools will respect markdown syntax.<see cref="TextFormat"/></param>
+        /// <param name="explanationFormat">Format to use when displaying the explanation text. <see cref="TextFormat"/></param>
         /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder Given(
             string stepName, 
             Action<Step> action = null, 
-            string multilineParameter = "",
-            TextFormat multilineParameterFormat = TextFormat.text,
-			string explanation = null)
+            string input = "",
+            TextFormat inputFormat = TextFormat.text,
+			string explanation = null,
+			TextFormat explanationFormat = TextFormat.markdown)
         {
-            var step = factory.CreateStep(stepName, action, multilineParameter, multilineParameterFormat, explanation);
+            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation, explanationFormat);
             return Given(step);
         }
 
@@ -136,15 +139,17 @@ namespace xBDD.Core
         /// <param name="input">Optional paramter to add multi-line text under the step name.</param>
         /// <param name="inputFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
         /// <param name="explanation">A explanation of what the step does if needed.true  Html reporting tools will respect markdown syntax.<see cref="TextFormat"/></param>
+        /// <param name="explanationFormat">Format to use when displaying the explanation text. <see cref="TextFormat"/></param>
         /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder GivenAsync(
             string stepName, 
             Func<Step, Task> action = null, 
             string input = "",
             TextFormat inputFormat = TextFormat.text,
-			string explanation = null)
+			string explanation = null,
+			TextFormat explanationFormat = TextFormat.markdown)
         {
-            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation);
+            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation, explanationFormat);
             return Given(step);
         }
 
@@ -157,15 +162,17 @@ namespace xBDD.Core
         /// <param name="input">Optional paramter to add multi-line text under the step name.</param>
         /// <param name="inputFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
         /// <param name="explanation">A explanation of what the step does if needed.true  Html reporting tools will respect markdown syntax.<see cref="TextFormat"/></param>
+        /// <param name="explanationFormat">Format to use when displaying the explanation text. <see cref="TextFormat"/></param>
         /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder When(
             string stepName, 
             Action<Step> action = null, 
             string input = "",
             TextFormat inputFormat = TextFormat.text,
-			string explanation = null)
+			string explanation = null,
+			TextFormat explanationFormat = TextFormat.markdown)
         {
-            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation);
+            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation, explanationFormat);
             return When(step);
         }
 
@@ -178,15 +185,17 @@ namespace xBDD.Core
         /// <param name="input">Optional paramter to add multi-line text under the step name.</param>
         /// <param name="inputFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
         /// <param name="explanation">A explanation of what the step does if needed.true  Html reporting tools will respect markdown syntax.<see cref="TextFormat"/></param>
+        /// <param name="explanationFormat">Format to use when displaying the explanation text. <see cref="TextFormat"/></param>
         /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder WhenAsync(
             string stepName, 
             Func<Step, Task> action = null, 
             string input = "",
             TextFormat inputFormat = TextFormat.text,
-			string explanation = null)
+			string explanation = null,
+			TextFormat explanationFormat = TextFormat.markdown)
         {
-            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation);
+            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation, explanationFormat);
             return When(step);
         }
 
@@ -199,15 +208,17 @@ namespace xBDD.Core
         /// <param name="input">Optional paramter to add multi-line text under the step name.</param>
         /// <param name="inputFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
         /// <param name="explanation">A explanation of what the step does if needed.true  Html reporting tools will respect markdown syntax.<see cref="TextFormat"/></param>
+        /// <param name="explanationFormat">Format to use when displaying the explanation text. <see cref="TextFormat"/></param>
         /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder Then(
             string stepName, 
             Action<Step> action = null, 
             string input = "",
             TextFormat inputFormat = TextFormat.text,
-			string explanation = null)
+			string explanation = null,
+			TextFormat explanationFormat = TextFormat.markdown)
         {
-            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation);
+            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation, explanationFormat);
             return Then(step);
         }
 
@@ -220,15 +231,17 @@ namespace xBDD.Core
         /// <param name="input">Optional paramter to add multi-line text under the step name.</param>
         /// <param name="inputFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
         /// <param name="explanation">A explanation of what the step does if needed.true  Html reporting tools will respect markdown syntax.<see cref="TextFormat"/></param>
+        /// <param name="explanationFormat">Format to use when displaying the explanation text. <see cref="TextFormat"/></param>
         /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder ThenAsync(
             string stepName, 
             Func<Step, Task> action = null, 
             string input = "",
             TextFormat inputFormat = TextFormat.text,
-			string explanation = null)
+			string explanation = null,
+			TextFormat explanationFormat = TextFormat.markdown)
         {
-            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation);
+            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation, explanationFormat);
             return Then(step);
         }
 
@@ -241,19 +254,21 @@ namespace xBDD.Core
         /// <param name="input">Optional paramter to add multi-line text under the step name.</param>
         /// <param name="inputFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
         /// <param name="explanation">A explanation of what the step does if needed.true  Html reporting tools will respect markdown syntax.<see cref="TextFormat"/></param>
+        /// <param name="explanationFormat">Format to use when displaying the explanation text. <see cref="TextFormat"/></param>
         /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder And(
             string stepName, 
             Action<Step> action = null, 
             string input = "",
             TextFormat inputFormat = TextFormat.text,
-			string explanation = null)
+			string explanation = null,
+			TextFormat explanationFormat = TextFormat.markdown)
         {
             if(action.Method.IsDefined(typeof(AsyncStateMachineAttribute),false))
             {
                 throw new AsyncStepInSyncScenarioException(stepName);
             }
-            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation);
+            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation, explanationFormat);
             return And(step);
         }
 
@@ -266,15 +281,17 @@ namespace xBDD.Core
         /// <param name="input">Optional paramter to add multi-line text under the step name.</param>
         /// <param name="inputFormat">Format to use when displaying the multiline text.null <see cref="TextFormat"/></param>
         /// <param name="explanation">A explanation of what the step does if needed.true  Html reporting tools will respect markdown syntax.<see cref="TextFormat"/></param>
+        /// <param name="explanationFormat">Format to use when displaying the explanation text. <see cref="TextFormat"/></param>
         /// <returns>The scenario builder for a fluent form.</returns>
         public ScenarioBuilder AndAsync(
             string stepName, 
             Func<Step, Task> action = null, 
             string input = "",
             TextFormat inputFormat = TextFormat.text,
-			string explanation = null)
+			string explanation = null,
+			TextFormat explanationFormat = TextFormat.markdown)
         {
-            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation);
+            var step = factory.CreateStep(stepName, action, input, inputFormat, explanation, explanationFormat);
             return And(step);
         }
 
@@ -327,6 +344,5 @@ namespace xBDD.Core
             await runner.Skip(reason);
             testFrameworkSkipAction(reason);
         }
-
     }
 }

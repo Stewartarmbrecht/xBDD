@@ -540,7 +540,9 @@ namespace xBDD.Importing.Text
 			string youCanStatement, 
 			string byStatement, 
 			string scenarioExplanation, 
-			string featureExplanation) 
+			TextFormat scenarioExplanationFormat,
+			string featureExplanation,
+			TextFormat featureExplanationFormat) 
 		{
 			this.scenarioCount++;
 			var namespaceName = $"{this.rootNamespace}.{areaName.ConvertAreaNameToNamespace()}";
@@ -558,8 +560,10 @@ namespace xBDD.Importing.Text
 				asAStatement, 
 				youCanStatement, 
 				byStatement,
-				scenarioExplanation.ToString(),
-				featureExplanation.ToString(),
+				scenarioExplanation,
+				scenarioExplanationFormat,
+				featureExplanation,
+				featureExplanationFormat,
 				scenarioAssignments,
 				scenarioTags,
 				featureAssignments,
@@ -647,8 +651,10 @@ namespace xBDD.Importing.Text
 									asAStatement, 
 									youCanStatement, 
 									byStatement, 
-									scenarioExplanation.ToString(), 
-									featureExplanation.ToString());
+									scenarioExplanation.ToString(),
+									TextFormat.markdown, 
+									featureExplanation.ToString(),
+									TextFormat.markdown);
 								scenarioName = null;
 								scenarioExplanation.Clear();
 								featureExplanation.Clear();
@@ -703,8 +709,10 @@ namespace xBDD.Importing.Text
 									asAStatement, 
 									youCanStatement, 
 									byStatement, 
-									scenarioExplanation.ToString(), 
-									featureExplanation.ToString());
+									scenarioExplanation.ToString(),
+									TextFormat.markdown, 
+									featureExplanation.ToString(),
+									TextFormat.markdown);
 								scenarioName = null;
 								scenarioExplanation.Clear();
 								featureExplanation.Clear();
@@ -728,8 +736,10 @@ namespace xBDD.Importing.Text
 									asAStatement, 
 									youCanStatement, 
 									byStatement, 
-									scenarioExplanation.ToString(), 
-									featureExplanation.ToString());
+									scenarioExplanation.ToString(),
+									TextFormat.markdown, 
+									featureExplanation.ToString(),
+									TextFormat.markdown);
 								scenarioName = null;
 								scenarioExplanation.Clear();
 								featureExplanation.Clear();
@@ -749,8 +759,10 @@ namespace xBDD.Importing.Text
 									asAStatement, 
 									youCanStatement, 
 									byStatement, 
-									scenarioExplanation.ToString(), 
-									featureExplanation.ToString());
+									scenarioExplanation.ToString(),
+									TextFormat.markdown, 
+									featureExplanation.ToString(),
+									TextFormat.markdown);
 								scenarioName = null;
 								scenarioExplanation.Clear();
 								featureExplanation.Clear();
@@ -792,8 +804,10 @@ namespace xBDD.Importing.Text
 					asAStatement, 
 					youCanStatement, 
 					byStatement, 
-					scenarioExplanation.ToString(), 
-					featureExplanation.ToString());
+					scenarioExplanation.ToString(),
+					TextFormat.markdown, 
+					featureExplanation.ToString(),
+					TextFormat.markdown);
 				scenarioName = null;
 				scenarioExplanation.Clear();
 				featureExplanation.Clear();
