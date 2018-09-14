@@ -54,7 +54,7 @@ initial version of this platform is released.
 
 ### SUMMARY
 
-* [xBDD Features Summary](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.Summary.GitHub.html) - Features for generating reports.
+* [xBDD Features Summary](https://rawgit.com/Stewartarmbrecht/xBDD/master/test-results/xBDD.Features.Summary.GitHub.html) - Provides a top level view of the progress in developing each capability of xBDD using xBDD.  This list shows summaries of each test run and can drill down in to a test summary report for each project/capability of xBDD.
 
 ### Active Focus
 
