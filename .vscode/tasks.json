@@ -145,6 +145,126 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "test-definingfeatures",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+                    "xBDD:HtmlReport:FailuresOnly": "false"
+                }
+            },
+            "args": [
+				"${workspaceFolder}/scripts/test.ps1",
+                "xBDD.Features.DefiningFeatures",
+                "false",
+                "false",
+                "false",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test-definingfeatures-fo",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+                    "xBDD:HtmlReport:FailuresOnly": "false"
+                }
+            },
+            "args": [
+				"${workspaceFolder}/scripts/test.ps1",
+                "xBDD.Features.DefiningFeatures",
+                "true",
+                "false",
+                "true",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test-runningscenarios",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+                    "xBDD:HtmlReport:FailuresOnly": "false"
+                }
+            },
+            "args": [
+				"${workspaceFolder}/scripts/test.ps1",
+                "xBDD.Features.RunningScenarios",
+                "false",
+                "false",
+                "false",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test-runningscenarios-fo",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+                    "xBDD:HtmlReport:FailuresOnly": "false"
+                }
+            },
+            "args": [
+				"${workspaceFolder}/scripts/test.ps1",
+                "xBDD.Features.RunningScenarios",
+                "true",
+                "false",
+                "true",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test-streamliningapitesting",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+                    "xBDD:HtmlReport:FailuresOnly": "false"
+                }
+            },
+            "args": [
+				"${workspaceFolder}/scripts/test.ps1",
+                "xBDD.Features.StreamliningAPITesting",
+                "false",
+                "false",
+                "false",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test-streamliningapitesting-fo",
+            "group": "test",
+            "command": "pwsh",
+            "type": "process",
+            "options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+                    "xBDD:HtmlReport:FailuresOnly": "false"
+                }
+            },
+            "args": [
+				"${workspaceFolder}/scripts/test.ps1",
+                "xBDD.Features.StreamliningAPITesting",
+                "true",
+                "false",
+                "true",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "publish",
             "command": "pwsh",
             "type": "process",

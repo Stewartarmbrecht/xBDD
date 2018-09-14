@@ -25,18 +25,19 @@ namespace xBDD
 			var li = new HtmlReportLineItem();
 			li.ChildItems = new List<HtmlReportLineItem>();
 			li.ChildStats = testRunGroup.AreaStats;
-			li.ChildTypeName = "areas";
+			li.ChildTypeName = "testruns";
 			li.EndTime = testRunGroup.EndTime;
 			li.StartTime = testRunGroup.StartTime;
 			li.Name = testRunGroup.Name.HtmlEncode();
 			li.Outcome = testRunGroup.Outcome;
 			li.Reason = testRunGroup.Reason;
 			Dictionary<string, Dictionary<string,int>> testRunReasonStatistics = new Dictionary<string, Dictionary<string, int>>();
+			testRunReasonStatistics.Add("Test Runs", testRunGroup.AreaReasonStats);
 			testRunReasonStatistics.Add("Areas", testRunGroup.AreaReasonStats);
 			testRunReasonStatistics.Add("Features", testRunGroup.FeatureReasonStats);
 			testRunReasonStatistics.Add("Scenarios", testRunGroup.ScenarioReasonStats);
 			li.ReasonStats = testRunReasonStatistics;
-			li.TypeName = "testrun";
+			li.TypeName = "testrungroup";
 			if(includeChildren) {
 				foreach(var testRun in testRunGroup.TestRuns) {
 					li.ChildItems.Add(testRun.GetHtmlReportLineItem(false));
@@ -169,6 +170,8 @@ namespace xBDD
 			Dictionary<string, Dictionary<string,int>> reasonStats = new Dictionary<string, Dictionary<string, int>>();
 			li.ReasonStats = reasonStats;
 			li.TypeName = "step";
+			li.ChildTypeName = "details";
+			li.ChildItems = new List<HtmlReportLineItem>();
 			li.Explanation = step.Explanation;
 			li.Input = step.Input;
 			li.InputFormat = step.InputFormat;

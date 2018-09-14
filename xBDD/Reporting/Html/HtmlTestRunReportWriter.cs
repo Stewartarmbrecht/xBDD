@@ -33,21 +33,15 @@ namespace xBDD.Reporting.Html
 
             StringBuilder sb = new StringBuilder();
             
-			hW.WriteHeader(sb);
-			hW.WriteBodyStart(sb);
-            hW.WriteNavBarStart(sb, this.config.FailuresOnly);
-            WriteNavBarOptions(sb);
-            hW.WriteNavBarEnd(sb);
-			hW.WriteLineItem(sb, testRun.GetHtmlReportLineItem(true), config.FailuresOnly, true, true);
-			hW.WriteBodyEnd(sb);
-            hW.WriteHtmlEnd(sb);
+			hW.WriteHeader(sb, this.config.FailuresOnly, this.GetNavBarOptions());
+			hW.WriteLineItem(sb, testRun.GetHtmlReportLineItem(true), config.FailuresOnly, true, true, true);
+            hW.WriteFooter(sb);
             return sb.ToString();
         }
-        private void WriteNavBarOptions(StringBuilder sb) {
-            var html = $@"
+        private string GetNavBarOptions() {
+            return $@"
 	                            <a class=""nav-item nav-link active"" href=""javascript: $('ol.features').collapse('show');"" id=""expand-all-areas-button"">Expand All Areas <span class=""sr-only"">(current)</span></a>".RemoveIndentation(4, true);
 
-            sb.Append(html);
         }
     }
 }

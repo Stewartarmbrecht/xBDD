@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>xBDD - Features</title>
+		<link rel="stylesheet" 
+			href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+			integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" 
+			crossorigin="anonymous">
+		<!--
+		<link rel="stylesheet" 
+			href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" 
+			integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=\" 
+			crossorigin="anonymous" />
+		-->
+		<link rel="stylesheet" 
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+			integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+			crossorigin="anonymous">
+		<style>
+
+			/* General */
+
+			.container-fluid { padding: 0rem; margin: 0rem; }
+			.flip {-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH";}
+
+			.pointer { cursor: pointer }
+
+			/* Child Lists */
+
+			ol.testruns { margin: 1rem 0rem 1rem 0rem; }
+			ol.areas { margin: 1rem 0rem 1rem 0rem; }
+			ol.features { margin: 0rem 0rem 1rem 0rem; }
+			ol.scenarios { margin: 0rem 0rem 1rem 0rem; }
+			ol.steps { margin: 0rem 0rem 1rem 0rem;}
+
+			/* Line Item Rows */
+
+			li.header { margin: 1rem 0rem 0rem 0rem; padding: 1rem 0rem 0rem 0rem; }
+			li.testrun { margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }
+			li.area { margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }
+			li.feature { margin: 0rem 0rem 0rem 0rem; }
+			li.scenario { margin: 0rem 0rem 0rem 0rem; }
+			li.step { margin: 0rem 0rem 0rem 0rem; }
+
+			/* Badge Distros */
+
+			div.badge-distro { display: inline-block; vertical-align: middle; }
+			div.badge-distro.header { width: 6rem; height: 2rem; }
+			div.badge-distro.testrun { width: 6rem; height: 2rem; }
+			div.badge-distro.area { width: 6rem; height: 2rem; }
+			div.badge-distro.feature { width: 6rem; height: 2rem; }
+			div.badge-distro.scenario { width: 6rem; height: 1.5rem; }
+			div.badge-distro.step { width: 6rem; height: 1rem; }
+
+			/* Badges */
+
+			div.badges { flex: 0 0 3rem; }
+			div.badge { background-color: #80808029; border: 1px white solid; width: 1.5rem; height: 1.5rem; vertical-align: middle; }
+			div.badge:hover { background-color: #4343af }
+			div.badge.label { width: 100%; height: 100%; vertical-align: middle; }
+			div.header.badge { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }
+			div.badge.testrun { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }
+			div.badge.area { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }
+			div.badge.feature { width: 3rem; margin-left: 1.5rem; height: 1.75rem; position: absolute; font-size: 1rem;  }
+			div.badge.scenario { width: 2rem; margin-left: 4rem; position: inherit; }
+			div.badge.step { width: 1rem; margin-left: 5rem; position: inherit; height: 1rem; }
+			div.badge.step.label { width: 6rem; display: inline-block }
+			div.badge.step.reason-PreviousError { background-color: gray; }
+			div.badge.step.reason-ScenarioSkipped { background-color: gray; }
+
+			span.step.reason { font-size: 1rem; color: gray; font-weight: 100; }
+
+			div.distro { display: inline-block; border: 1px solid white; }
+			div.distro.header { width: 3rem; height: 2rem; margin-left: 3rem; }
+			div.distro.testrun { width: 3rem; height: 2rem; margin-left: 3rem; }
+			div.distro.area { width: 3rem; height: 2rem; margin-left: 3rem; }
+			div.distro.feature { width: 3rem; height: 1.75rem; margin-left: 3rem; }
+
+			div.badge.feature-statement-link { position: inherit; width: 1.5rem; height: 1.5rem; vertical-align: top; }
+
+			div.name.feature { margin-left: 1rem; }
+			div.name.scenario { margin-left: 2rem;  }
+			div.name.step { margin-left: 3rem; }
+
+			span.name { vertical-align: top; }
+			span.name.header { font-size: 2rem; font-weight: 400; margin-left: .75rem; }
+			span.name.testrun { font-size: 2rem; font-weight: 400; margin-left: .75rem; }
+			a.name.testrun { font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }
+			span.name.area { font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }
+			span.name.feature { font-size: 1.25rem; font-weight: 400; color: rgb(68,114,198); }
+			span.name.scenario { font-size: 1.125rem; font-weight: 400; vertical-align: middle; font-style: italic; color: rgb(68,114,198); }
+			span.name.step { font-size: 1rem;  font-weight: 400; }
+
+			span.assignments { float: right; color: Gray; font-size: 1rem; }
+			span.tags { float: right; margin-right: .5rem; color: Gray; font-size: 1rem; }
+
+			div.reason-duration { flex: 0 0 6rem; font-size: 1rem; color: gray; vertical-align: text-top; white-space: nowrap; }
+			span.reason-duration.step { font-size: 1rem; color: gray; font-weight: 100; }
+
+			span.duration.step { font-size: 1rem; color: gray; font-weight: 100; }
+
+			/* Stats */
+
+			.stats-graph-tables { border-top: 0.5rem; }
+			.table { margin: 2px !important; }
+			.table th, .table td { border-top: none !important; line-height: 1 !important; padding: 0px 10px !important; }
+			td.graph td { padding: 0px !important; }
+			.table td.bar { padding: 0px !important; }
+			div.distro-corner-tr { position: absolute; margin-left: 5.35rem; width: 10px; height: 10px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAMAAAHQVe0RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURQAAAP///////////////////////0jPbQQAAAAGdFJOUwC81uLs9S3UunwAAAAJcEhZcwAAEk0AABJNAfOXxKcAAABZSURBVBhXlY7bDsAgCEOdSv//k22RLZjx4jFKabjYwCP0miuyrQ215fxl8LJZQVQlIvmALzCwLUkJMnJlxEuOYcc2TLeDSaOhR/bR0Z6QicK6o5xZbv//E1gwYwFZkRA8AQAAAABJRU5ErkJggg==") no-repeat top right; }
+			div.distro-corner-br { position: absolute; margin-left: 5.35rem; width: 10px; height: 10px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAMAAAHQVe0RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURQAAAP///////////////////////0jPbQQAAAAGdFJOUwC81uLs9S3UunwAAAAJcEhZcwAAEk0AABJNAfOXxKcAAABZSURBVBhXlY7bDsAgCEOdSv//k22RLZjx4jFKabjYwCP0miuyrQ215fxl8LJZQVQlIvmALzCwLUkJMnJlxEuOYcc2TLeDSaOhR/bR0Z6QicK6o5xZbv//E1gwYwFZkRA8AQAAAABJRU5ErkJggg==") no-repeat bottom right; }
+			div.distro-corner-tr.header { margin-top: .05rem; }
+			div.distro-corner-br.header { margin-top: 1.32rem; }
+			div.distro-corner-tr.testrun { margin-top: .05rem; }
+			div.distro-corner-br.testrun { margin-top: 1.32rem; }
+			div.distro-corner-tr.area { margin-top: .05rem; }
+			div.distro-corner-br.area { margin-top: 1.32rem; }
+			div.distro-corner-tr.feature { margin-top: .06rem; }
+			div.distro-corner-br.feature { margin-top: 1.1rem; }
+
+			div#report-dates { margin: 0rem 0rem .5rem 5rem; }
+
+			/* Statements and Explanation */
+			div.statement { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
+			div.explanation { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
+
+			/* Step Details */
+
+			div.step-details { margin: .5rem 0rem; }
+			div.step-exception-link.button { width: 6rem !important; }
+			div.step-output-link.button { width: 6rem; background-color: gray; color: white; }
+			div.step-input-link.button { width: 6rem; background-color: gray; color: white; }
+			div.step-statement-link { width: 6rem; background-color: gray; color: white; }
+
+			/* Exceptions */
+
+			div.exception { margin-bottom: 1rem; }
+			div.exception-details { margin: 1rem 0rem; border: #dc3545 solid 1px; padding: 1rem; }
+			dl.exception dt { margin-bottom: .25rem; }
+			dl.exception-type, dl.exception-message, dl.exception-stack { padding: .5rem; }
+			dl.exception-type pre, dl.exception-message pre, dl.exception-stack pre { padding: .5rem; }
+
+			/* Input, and Output */
+
+			div.input { margin-bottom: 1rem; }
+			div.output { margin-bottom: 1rem; }
+			div.input.title { margin-bottom: 1rem; }
+			div.output.title { margin-bottom: 1rem; }
+			iframe { border: 1px solid gray; resize: both; overflow: auto; }
+			pre { white-space: pre !important; }
+			pre.input { margin-bottom: 1rem; }
+			pre.output { margin-bottom: 1rem; }
+			pre.prettyprint {  background-color: #eee; }
+			.linenums li { list-style-type: decimal !important; }
+			.reason-Removing { background-color: rgb(124,124,124) !important; color: White !important;}
+			.reason-Passed { background-color: rgb(112,173,71) !important; color: White !important;}
+			.reason-Untested { background-color: rgb(195,155,225) !important; color: rgb(15, 1, 26) !important;}
+			.reason-Committed { background-color: rgb(46,117,182) !important; color: White !important;}
+			.reason-Ready { background-color: rgb(101, 167, 227) !important; color: rgb(2, 20, 36) !important;}
+			.reason-Defining { background-color: rgb(146, 194, 238) !important; color: rgb(7, 36, 63) !important;}
+			.reason-Failed { background-color: rgb(192,0,0) !important; color: White !important;}
+		</style>
+	</header>
+	<body>
+		<script language="javascript" type="text/javascript">
+			function resizeIframe(obj) { 
+				obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; 
+			}
+		</script>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">xBDD Test Results</a>
+		<button id="menu-button" 
+			class="navbar-toggler" 
+			type="button" 
+			data-toggle="collapse" 
+			data-target="#navbarNavAltMarkup" 
+			aria-controls="navbarNavAltMarkup" 
+			aria-expanded="false" 
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+			</div>
+		</div>
+	</nav><li class="lineitem header row align-items-center" id="header-1">
+<div class="col-2 badges">
+	<div class="header badge-distro"
+		id="header-1-badge-distro"
+		title="Failed Count: Scenarios"
+		onclick="toggleVisibility('header-1-stats')">
+		<div class="header badge badge-pill pointer total reason-Failed"
+			id="header-1-badge">732</div>
+		<div class="header distro-corner-tr">
+		</div>
+		<div class="header distro-corner-br">
+		</div>
+		<div class="header distro pointer"
+			id="header-1-distro">
+			<div class="reason-Failed" style="height: 0.819672131147541%; width: 100%;"></div>
+			<div class="reason-Defining" style="height: 18.9890710382514%; width: 100%;"></div>
+			<div class="reason-Committed" style="height: 15.0273224043716%; width: 100%;"></div>
+			<div class="reason-Untested" style="height: 54.7814207650273%; width: 100%;"></div>
+			<div class="reason-Passed" style="height: 10.2459016393443%; width: 100%;"></div>
+			<div class="reason-Removing" style="height: 0.136612021857924%; width: 100%;"></div>
+		</div>
+	</div>
+</div>
+
+	<div class="col">
+		<div class="header name">
+		<span class="header name pointer" 
+			id="header-1-name"
+			onclick="toggleVisibility('header-1-testruns')"
+			href="header-1-testruns">xBDD - Features</span>
+
+		</div>
+	</div>
+<div class="col-2 header reason-duration text-right">
+	<span class="header duration">[14,470 ms]</span>
+</div>
+</li>
+<li class="row stats">
+	<div class="col-11 offset-1">
+		<div class="stats-graph-tables" id="header-1-stats" style="width: 100%; empty-cells: show; display: block;">
+			<table class="table table-condensed stats-table">
+				<tr id="header-header-reason-stats">
+					<td class="stats-label text-muted text-right">&nbsp;</td>
+					<td class="text-center" >Total</td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+	<tr id="report-test runs-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Test Runs</td>
+		<td class="text-center" style="width: 12%;">39</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">23</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">11</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="text-center" style="width: 12%;">39</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">23</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">11</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="text-center" style="width: 12%;">177</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">83</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">20</td>
+		<td class="text-center" style="width: 12%;">69</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">1</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="text-center" style="width: 12%;">732</td>
+		<td class="text-center" style="width: 12%;">6</td>
+		<td class="text-center" style="width: 12%;">139</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">110</td>
+		<td class="text-center" style="width: 12%;">401</td>
+		<td class="text-center" style="width: 12%;">75</td>
+		<td class="text-center" style="width: 12%;">1</td>
+	</tr>
+			</table>
+			<table class="table table-condensed bargraph-table">
+				<tr id="header-header-reason-stats">
+					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
+					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
+				</tr>
+	<tr id="report-test runs-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Test Runs</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Failed" style="width: 5.12820512820513%;"></td>
+					<td class="bar text-center reason-Defining" style="width: 58.974358974359%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 5.12820512820513%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 28.2051282051282%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 2.56410256410256%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Failed" style="width: 5.12820512820513%;"></td>
+					<td class="bar text-center reason-Defining" style="width: 58.974358974359%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 5.12820512820513%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 28.2051282051282%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 2.56410256410256%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Failed" style="width: 1.12994350282486%;"></td>
+					<td class="bar text-center reason-Defining" style="width: 46.8926553672316%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 11.2994350282486%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 38.9830508474576%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 1.12994350282486%;"></td>
+					<td class="bar text-center reason-Removing" style="width: 0.564971751412429%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Failed" style="width: 0.819672131147541%;"></td>
+					<td class="bar text-center reason-Defining" style="width: 18.9890710382514%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 15.0273224043716%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 54.7814207650273%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 10.2459016393443%;"></td>
+					<td class="bar text-center reason-Removing" style="width: 0.136612021857924%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+			</table>
+		</div>
+	</div>
+</li>
+
+	<li class="row children">
+		<div class="col-12">
+			<ol class="testruns list-unstyled container-fluid"
+				id="header-1-testruns"
+				style="display: block">
+<li class="lineitem testrun row align-items-center" id="testrun-2">
+<div class="col-2 badges">
+	<div class="testrun badge-distro"
+		id="testrun-2-badge-distro"
+		title="Failed Count: Scenarios"
+		onclick="toggleVisibility('testrun-2-stats')">
+		<div class="testrun badge badge-pill pointer total reason-Failed"
+			id="testrun-2-badge">79</div>
+		<div class="testrun distro-corner-tr">
+		</div>
+		<div class="testrun distro-corner-br">
+		</div>
+		<div class="testrun distro pointer"
+			id="testrun-2-distro">
+			<div class="reason-Failed" style="height: 2.53164556962025%; width: 100%;"></div>
+			<div class="reason-Defining" style="height: 2.53164556962025%; width: 100%;"></div>
+			<div class="reason-Passed" style="height: 94.9367088607595%; width: 100%;"></div>
+		</div>
+	</div>
+</div>
+
+	<div class="col">
+		<div class="testrun name">
+		<a class="testrun name pointer" 
+			id="testrun-2-name"
+			href="./../xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.html">Generating Code</a>
+
+		</div>
+	</div>
+<div class="col-2 testrun reason-duration text-right">
+	<span class="testrun duration">[10,358 ms]</span>
+</div>
+</li>
+<li class="row stats">
+	<div class="col-11 offset-1">
+		<div class="stats-graph-tables" id="testrun-2-stats" style="width: 100%; empty-cells: show; display: none;">
+			<table class="table table-condensed stats-table">
+				<tr id="testrun-header-reason-stats">
+					<td class="stats-label text-muted text-right">&nbsp;</td>
+					<td class="text-center" >Total</td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="text-center" style="width: 12%;">3</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="text-center" style="width: 12%;">4</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="text-center" style="width: 12%;">79</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">75</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+			</table>
+			<table class="table table-condensed bargraph-table">
+				<tr id="testrun-header-reason-stats">
+					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
+					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
+				</tr>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Failed" style="width: 33.3333333333333%;"></td>
+					<td class="bar text-center reason-Defining" style="width: 33.3333333333333%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 33.3333333333333%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Failed" style="width: 25%;"></td>
+					<td class="bar text-center reason-Defining" style="width: 25%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 50%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Failed" style="width: 2.53164556962025%;"></td>
+					<td class="bar text-center reason-Defining" style="width: 2.53164556962025%;"></td>
+					<td class="bar text-center reason-Passed" style="width: 94.9367088607595%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+			</table>
+		</div>
+	</div>
+</li>
+
+	<li class="row children">
+		<div class="col-12">
+			<ol class="areas list-unstyled container-fluid"
+				id="testrun-2-areas"
+				style="display: none">
+
+			</ol>
+		</div>
+	</li>
+<li class="lineitem testrun row align-items-center" id="testrun-3">
+<div class="col-2 badges">
+	<div class="testrun badge-distro"
+		id="testrun-3-badge-distro"
+		title="Defining Count: Scenarios"
+		onclick="toggleVisibility('testrun-3-stats')">
+		<div class="testrun badge badge-pill pointer total reason-Defining"
+			id="testrun-3-badge">81</div>
+		<div class="testrun distro-corner-tr">
+		</div>
+		<div class="testrun distro-corner-br">
+		</div>
+		<div class="testrun distro pointer"
+			id="testrun-3-distro">
+			<div class="reason-Defining" style="height: 39.5061728395062%; width: 100%;"></div>
+			<div class="reason-Untested" style="height: 60.4938271604938%; width: 100%;"></div>
+		</div>
+	</div>
+</div>
+
+	<div class="col">
+		<div class="testrun name">
+		<a class="testrun name pointer" 
+			id="testrun-3-name"
+			href="./../xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.html">Defining Features</a>
+
+		</div>
+	</div>
+<div class="col-2 testrun reason-duration text-right">
+	<span class="testrun duration">[0 ms]</span>
+</div>
+</li>
+<li class="row stats">
+	<div class="col-11 offset-1">
+		<div class="stats-graph-tables" id="testrun-3-stats" style="width: 100%; empty-cells: show; display: none;">
+			<table class="table table-condensed stats-table">
+				<tr id="testrun-header-reason-stats">
+					<td class="stats-label text-muted text-right">&nbsp;</td>
+					<td class="text-center" >Total</td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="text-center" style="width: 12%;">11</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">6</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">5</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="text-center" style="width: 12%;">31</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">15</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">16</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="text-center" style="width: 12%;">81</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">32</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">49</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+			</table>
+			<table class="table table-condensed bargraph-table">
+				<tr id="testrun-header-reason-stats">
+					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
+					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
+				</tr>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Defining" style="width: 54.5454545454545%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 45.4545454545455%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Defining" style="width: 48.3870967741936%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 51.6129032258064%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Defining" style="width: 39.5061728395062%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 60.4938271604938%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+			</table>
+		</div>
+	</div>
+</li>
+
+	<li class="row children">
+		<div class="col-12">
+			<ol class="areas list-unstyled container-fluid"
+				id="testrun-3-areas"
+				style="display: none">
+
+			</ol>
+		</div>
+	</li>
+<li class="lineitem testrun row align-items-center" id="testrun-4">
+<div class="col-2 badges">
+	<div class="testrun badge-distro"
+		id="testrun-4-badge-distro"
+		title="Defining Count: Scenarios"
+		onclick="toggleVisibility('testrun-4-stats')">
+		<div class="testrun badge badge-pill pointer total reason-Defining"
+			id="testrun-4-badge">120</div>
+		<div class="testrun distro-corner-tr">
+		</div>
+		<div class="testrun distro-corner-br">
+		</div>
+		<div class="testrun distro pointer"
+			id="testrun-4-distro">
+			<div class="reason-Defining" style="height: 35.8333333333333%; width: 100%;"></div>
+			<div class="reason-Untested" style="height: 63.3333333333333%; width: 100%;"></div>
+			<div class="reason-Removing" style="height: 0.833333333333333%; width: 100%;"></div>
+		</div>
+	</div>
+</div>
+
+	<div class="col">
+		<div class="testrun name">
+		<a class="testrun name pointer" 
+			id="testrun-4-name"
+			href="./../xBDD.Features.AutomatingUITesting/test-results/xBDD.Features.AutomatingUITesting.Results.html">Automating UI Testing</a>
+
+		</div>
+	</div>
+<div class="col-2 testrun reason-duration text-right">
+	<span class="testrun duration">[0 ms]</span>
+</div>
+</li>
+<li class="row stats">
+	<div class="col-11 offset-1">
+		<div class="stats-graph-tables" id="testrun-4-stats" style="width: 100%; empty-cells: show; display: none;">
+			<table class="table table-condensed stats-table">
+				<tr id="testrun-header-reason-stats">
+					<td class="stats-label text-muted text-right">&nbsp;</td>
+					<td class="text-center" >Total</td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="text-center" style="width: 12%;">9</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">5</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">4</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="text-center" style="width: 12%;">42</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">21</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">20</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">1</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="text-center" style="width: 12%;">120</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">43</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">76</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">1</td>
+	</tr>
+			</table>
+			<table class="table table-condensed bargraph-table">
+				<tr id="testrun-header-reason-stats">
+					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
+					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
+				</tr>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Defining" style="width: 55.5555555555556%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 44.4444444444444%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Defining" style="width: 50%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 47.6190476190476%;"></td>
+					<td class="bar text-center reason-Removing" style="width: 2.38095238095238%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Defining" style="width: 35.8333333333333%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 63.3333333333333%;"></td>
+					<td class="bar text-center reason-Removing" style="width: 0.833333333333333%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+			</table>
+		</div>
+	</div>
+</li>
+
+	<li class="row children">
+		<div class="col-12">
+			<ol class="areas list-unstyled container-fluid"
+				id="testrun-4-areas"
+				style="display: none">
+
+			</ol>
+		</div>
+	</li>
+<li class="lineitem testrun row align-items-center" id="testrun-5">
+<div class="col-2 badges">
+	<div class="testrun badge-distro"
+		id="testrun-5-badge-distro"
+		title="Defining Count: Scenarios"
+		onclick="toggleVisibility('testrun-5-stats')">
+		<div class="testrun badge badge-pill pointer total reason-Defining"
+			id="testrun-5-badge">18</div>
+		<div class="testrun distro-corner-tr">
+		</div>
+		<div class="testrun distro-corner-br">
+		</div>
+		<div class="testrun distro pointer"
+			id="testrun-5-distro">
+			<div class="reason-Defining" style="height: 100%; width: 100%;"></div>
+		</div>
+	</div>
+</div>
+
+	<div class="col">
+		<div class="testrun name">
+		<a class="testrun name pointer" 
+			id="testrun-5-name"
+			href="./../xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.html">Streamlining API Testing</a>
+
+		</div>
+	</div>
+<div class="col-2 testrun reason-duration text-right">
+	<span class="testrun duration">[0 ms]</span>
+</div>
+</li>
+<li class="row stats">
+	<div class="col-11 offset-1">
+		<div class="stats-graph-tables" id="testrun-5-stats" style="width: 100%; empty-cells: show; display: none;">
+			<table class="table table-condensed stats-table">
+				<tr id="testrun-header-reason-stats">
+					<td class="stats-label text-muted text-right">&nbsp;</td>
+					<td class="text-center" >Total</td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="text-center" style="width: 12%;">16</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">16</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="text-center" style="width: 12%;">18</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">18</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+			</table>
+			<table class="table table-condensed bargraph-table">
+				<tr id="testrun-header-reason-stats">
+					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
+					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
+				</tr>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Defining" style="width: 100%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Defining" style="width: 100%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Defining" style="width: 100%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+			</table>
+		</div>
+	</div>
+</li>
+
+	<li class="row children">
+		<div class="col-12">
+			<ol class="areas list-unstyled container-fluid"
+				id="testrun-5-areas"
+				style="display: none">
+
+			</ol>
+		</div>
+	</li>
+<li class="lineitem testrun row align-items-center" id="testrun-6">
+<div class="col-2 badges">
+	<div class="testrun badge-distro"
+		id="testrun-6-badge-distro"
+		title="Defining Count: Scenarios"
+		onclick="toggleVisibility('testrun-6-stats')">
+		<div class="testrun badge badge-pill pointer total reason-Defining"
+			id="testrun-6-badge">11</div>
+		<div class="testrun distro-corner-tr">
+		</div>
+		<div class="testrun distro-corner-br">
+		</div>
+		<div class="testrun distro pointer"
+			id="testrun-6-distro">
+			<div class="reason-Defining" style="height: 36.3636363636364%; width: 100%;"></div>
+			<div class="reason-Untested" style="height: 63.6363636363636%; width: 100%;"></div>
+		</div>
+	</div>
+</div>
+
+	<div class="col">
+		<div class="testrun name">
+		<a class="testrun name pointer" 
+			id="testrun-6-name"
+			href="./../xBDD.Features.RunningScenarios/test-results/xBDD.Features.RunningScenarios.Results.html">Running Scenarios</a>
+
+		</div>
+	</div>
+<div class="col-2 testrun reason-duration text-right">
+	<span class="testrun duration">[0 ms]</span>
+</div>
+</li>
+<li class="row stats">
+	<div class="col-11 offset-1">
+		<div class="stats-graph-tables" id="testrun-6-stats" style="width: 100%; empty-cells: show; display: none;">
+			<table class="table table-condensed stats-table">
+				<tr id="testrun-header-reason-stats">
+					<td class="stats-label text-muted text-right">&nbsp;</td>
+					<td class="text-center" >Total</td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="text-center" style="width: 12%;">11</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">4</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">7</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+			</table>
+			<table class="table table-condensed bargraph-table">
+				<tr id="testrun-header-reason-stats">
+					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
+					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
+				</tr>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Defining" style="width: 100%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Defining" style="width: 100%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Defining" style="width: 36.3636363636364%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 63.6363636363636%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+			</table>
+		</div>
+	</div>
+</li>
+
+	<li class="row children">
+		<div class="col-12">
+			<ol class="areas list-unstyled container-fluid"
+				id="testrun-6-areas"
+				style="display: none">
+
+			</ol>
+		</div>
+	</li>
+<li class="lineitem testrun row align-items-center" id="testrun-7">
+<div class="col-2 badges">
+	<div class="testrun badge-distro"
+		id="testrun-7-badge-distro"
+		title="Failed Count: Scenarios"
+		onclick="toggleVisibility('testrun-7-stats')">
+		<div class="testrun badge badge-pill pointer total reason-Failed"
+			id="testrun-7-badge">423</div>
+		<div class="testrun distro-corner-tr">
+		</div>
+		<div class="testrun distro-corner-br">
+		</div>
+		<div class="testrun distro pointer"
+			id="testrun-7-distro">
+			<div class="reason-Failed" style="height: 0.945626477541371%; width: 100%;"></div>
+			<div class="reason-Defining" style="height: 9.45626477541371%; width: 100%;"></div>
+			<div class="reason-Committed" style="height: 26.0047281323877%; width: 100%;"></div>
+			<div class="reason-Untested" style="height: 63.5933806146572%; width: 100%;"></div>
+		</div>
+	</div>
+</div>
+
+	<div class="col">
+		<div class="testrun name">
+		<a class="testrun name pointer" 
+			id="testrun-7-name"
+			href="./../xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.html">Generating Reports</a>
+
+		</div>
+	</div>
+<div class="col-2 testrun reason-duration text-right">
+	<span class="testrun duration">[2,365 ms]</span>
+</div>
+</li>
+<li class="row stats">
+	<div class="col-11 offset-1">
+		<div class="stats-graph-tables" id="testrun-7-stats" style="width: 100%; empty-cells: show; display: none;">
+			<table class="table table-condensed stats-table">
+				<tr id="testrun-header-reason-stats">
+					<td class="stats-label text-muted text-right">&nbsp;</td>
+					<td class="text-center" >Total</td>
+					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
+					<td class="text-center"><div class="badge label reason-Defining">Defining</div></td>
+					<td class="text-center"><div class="badge label reason-Ready">Ready</div></td>
+					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
+					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
+					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
+					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="text-center" style="width: 12%;">13</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">8</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">2</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="text-center" style="width: 12%;">83</td>
+		<td class="text-center" style="width: 12%;">1</td>
+		<td class="text-center" style="width: 12%;">29</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">20</td>
+		<td class="text-center" style="width: 12%;">33</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="text-center" style="width: 12%;">423</td>
+		<td class="text-center" style="width: 12%;">4</td>
+		<td class="text-center" style="width: 12%;">40</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">110</td>
+		<td class="text-center" style="width: 12%;">269</td>
+		<td class="text-center" style="width: 12%;">0</td>
+		<td class="text-center" style="width: 12%;">0</td>
+	</tr>
+			</table>
+			<table class="table table-condensed bargraph-table">
+				<tr id="testrun-header-reason-stats">
+					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
+					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
+				</tr>
+	<tr id="report-areas-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Failed" style="width: 7.69230769230769%;"></td>
+					<td class="bar text-center reason-Defining" style="width: 61.5384615384615%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 15.3846153846154%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 15.3846153846154%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-features-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Features</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Failed" style="width: 1.20481927710843%;"></td>
+					<td class="bar text-center reason-Defining" style="width: 34.9397590361446%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 24.0963855421687%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 39.7590361445783%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr id="report-scenarios-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Scenarios</td>
+		<td class="outcome-bar-chart" style="width: 100%;">
+			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
+				<tr>
+					<td class="bar text-center reason-Failed" style="width: 0.945626477541371%;"></td>
+					<td class="bar text-center reason-Defining" style="width: 9.45626477541371%;"></td>
+					<td class="bar text-center reason-Committed" style="width: 26.0047281323877%;"></td>
+					<td class="bar text-center reason-Untested" style="width: 63.5933806146572%;"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+			</table>
+		</div>
+	</div>
+</li>
+
+	<li class="row children">
+		<div class="col-12">
+			<ol class="areas list-unstyled container-fluid"
+				id="testrun-7-areas"
+				style="display: none">
+
+			</ol>
+		</div>
+	</li>
+
+			</ol>
+		</div>
+	</li>
+					
+						<script>
+							function toggleVisibility(elementId, resize, iFrameId) {{
+								var x = document.getElementById(elementId);
+								if (x.style.display === "none") {{
+									x.style.display = "block";
+									if(resize) {
+										resizeIframe(document.getElementById(iFrameId));
+									}
+								}} else {{
+									x.style.display = "none";
+								}}
+							}}
+						</script>
+						<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+					</body>
+				</html>

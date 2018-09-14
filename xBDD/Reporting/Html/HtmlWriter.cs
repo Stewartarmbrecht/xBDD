@@ -21,26 +21,19 @@ namespace xBDD.Reporting.Html
 			this.sortedReasons = sortedReasons;
 			this.config = config;
 		}
-		internal void WriteHtmlStart(StringBuilder sb)
-		{
-			sb.AppendLine(@"
-				<!DOCTYPE html>
-					<html>".RemoveIndentation(4, true));
-		}
-		internal void WriteHtmlEnd(StringBuilder sb)
-		{
-			sb.Append("</html>");
-		}
-		internal void WriteHeader(StringBuilder sb)
+		internal void WriteHeader(StringBuilder sb, bool failuresOnly, string navBarOptions)
 		{
 			sb.AppendLine($@"
+				<!DOCTYPE html>
+				<html>
 					<head>
 						<meta charset=""utf-8"" />
 						<meta name=""viewport"" content=""width=device-width, initial-scale=1"" />
 						<title>{config.ReportName.HtmlEncode()}</title>
 						<link rel=""stylesheet"" 
 							href=""https://use.fontawesome.com/releases/v5.3.1/css/all.css"" 
-							integrity=""sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"" crossorigin=""anonymous"">
+							integrity=""sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"" 
+							crossorigin=""anonymous"">
 						<!--
 						<link rel=""stylesheet"" 
 							href=""https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"" 
@@ -49,151 +42,184 @@ namespace xBDD.Reporting.Html
 						-->
 						<link rel=""stylesheet"" 
 							href=""https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"" 
-							integrity=""sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"" crossorigin=""anonymous"">
-								   <style>
+							integrity=""sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"" 
+							crossorigin=""anonymous"">".RemoveIndentation(4,true));
+			WriteStyles(sb);
+			sb.AppendLine($@"
+					</header>
+					<body>
+						<script language=""javascript"" type=""text/javascript"">
+							function resizeIframe(obj) {{ 
+								obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; 
+							}}
+						</script>".RemoveIndentation(4,true));
+			WriteNavBar(sb, failuresOnly, navBarOptions);
+		}
+		internal void WriteStyles(StringBuilder sb) {
+			sb.AppendLine($@"
+						<style>
 
-										/* General */
+							/* General */
 
-										.container-fluid {{ padding: 0rem; margin: 0rem; }}
-										.flip {{-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: ""FlipH"";}}
+							.container-fluid {{ padding: 0rem; margin: 0rem; }}
+							.flip {{-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: ""FlipH"";}}
 
-										.pointer {{ cursor: pointer }}
+							.pointer {{ cursor: pointer }}
 
-										ol.testruns {{ margin: 1rem 0rem 1rem 0rem; }}
-										ol.areas {{ margin: 1rem 0rem 1rem 0rem; }}
-										ol.features {{ margin: 0rem 0rem 1rem 0rem; }}
-										ol.scenarios {{ margin: 0rem 0rem 1rem 0rem; }}
-										ol.steps {{ margin: 0rem 0rem 1rem 0rem;}}
+							/* Child Lists */
 
-										li.testrun {{ margin: 1rem 0rem 0rem 0rem; padding: 1rem 0rem 0rem 0rem; }}
-										li.area {{ margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }}
-										li.feature {{ margin: 0rem 0rem 0rem 0rem; }}
-										li.scenario {{ margin: 0rem 0rem 0rem 0rem; }}
-										li.step {{ margin: 0rem 0rem 0rem 0rem; }}
+							ol.testruns {{ margin: 1rem 0rem 1rem 0rem; }}
+							ol.areas {{ margin: 1rem 0rem 1rem 0rem; }}
+							ol.features {{ margin: 0rem 0rem 1rem 0rem; }}
+							ol.scenarios {{ margin: 0rem 0rem 1rem 0rem; }}
+							ol.steps {{ margin: 0rem 0rem 1rem 0rem;}}
 
-										div.badge-distro {{ display: inline-block; vertical-align: middle; }}
-										div.testrun.badge-distro {{ width: 6rem; height: 2rem; }}
-										div.area.badge-distro {{ width: 6rem; height: 2rem; }}
-										div.feature.badge-distro {{ width: 6rem; height: 2rem; }}
-										div.scenario.badge-distro {{ width: 6rem; height: 1.5rem; }}
-										div.step.badge-distro {{ width: 6rem; height: 1rem; }}
+							/* Line Item Rows */
 
-										div.badges {{ flex: 0 0 11rem; }}
-										div.badge {{ background-color: #80808029; border: 1px white solid; width: 1.5rem; height: 1.5rem; vertical-align: middle; }}
-										div.badge:hover {{ background-color: #4343af }}
-										div.badge.label {{ width: 100%; height: 100%; vertical-align: middle; }}
-										div.testrun.badge {{ width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }}
-										div.area.badge {{ width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }}
-										div.feature.badge {{ width: 4rem; margin-left: .25rem; height: 1.75rem; position: absolute; font-size: 1rem;  }}
-										div.scenario.badge {{ width: 3rem; margin-left: .75rem; position: inherit; }}
-										div.step.badge {{ width: 2rem; margin-left: 1.25rem; position: inherit; }}
+							li.header {{ margin: 1rem 0rem 0rem 0rem; padding: 1rem 0rem 0rem 0rem; }}
+							li.testrun {{ margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }}
+							li.area {{ margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }}
+							li.feature {{ margin: 0rem 0rem 0rem 0rem; }}
+							li.scenario {{ margin: 0rem 0rem 0rem 0rem; }}
+							li.step {{ margin: 0rem 0rem 0rem 0rem; }}
 
-										span.step.reason {{ font-size: 1rem; color: gray; font-weight: 100; }}
+							/* Badge Distros */
 
-										div.distro {{ display: inline-block; border: 1px solid white; }}
-										div.testrun.distro {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
-										div.area.distro {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
-										div.feature.distro {{ width: 3rem; height: 1.75rem; margin-left: 3rem; }}
+							div.badge-distro {{ display: inline-block; vertical-align: middle; }}
+							div.badge-distro.header {{ width: 6rem; height: 2rem; }}
+							div.badge-distro.testrun {{ width: 6rem; height: 2rem; }}
+							div.badge-distro.area {{ width: 6rem; height: 2rem; }}
+							div.badge-distro.feature {{ width: 6rem; height: 2rem; }}
+							div.badge-distro.scenario {{ width: 6rem; height: 1.5rem; }}
+							div.badge-distro.step {{ width: 6rem; height: 1rem; }}
 
-										div.feature-statement-link.badge {{ position: inherit; width: 1.5rem; height: 1.5rem; vertical-align: top; }}
-										a.step-input-link {{ font-size: 1rem; color: gray !important; vertical-align: text-top; font-weight: 100; }}
-										a.step-output-link {{ font-size: 1rem; color: gray !important; vertical-align: text-top; font-weight: 100; }}
-										a.step-exception-link {{ font-size: 1rem; color: gray !important; vertical-align: text-top; font-weight: 100; }}
+							/* Badges */
 
-										span.name {{ vertical-align: top; }}
-										span.testrun.name {{ font-size: 2rem; font-weight: 400; margin-left: .75rem; }}
-										span.area.name {{ font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }}
-										span.feature.name {{ font-size: 1.25rem; font-weight: 400; color: rgb(68,114,198); }}
-										span.scenario.name {{ font-size: 1.25rem; font-weight: 400; vertical-align: middle; font-style: italic; color: rgb(68,114,198) }}
-										span.step.name {{ font-size: 1rem;  font-weight: 400; }}
+							div.badges {{ flex: 0 0 3rem; }}
+							div.badge {{ background-color: #80808029; border: 1px white solid; width: 1.5rem; height: 1.5rem; vertical-align: middle; }}
+							div.badge:hover {{ background-color: #4343af }}
+							div.badge.label {{ width: 100%; height: 100%; vertical-align: middle; }}
+							div.header.badge {{ width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }}
+							div.badge.testrun {{ width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }}
+							div.badge.area {{ width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }}
+							div.badge.feature {{ width: 3rem; margin-left: 1.5rem; height: 1.75rem; position: absolute; font-size: 1rem;  }}
+							div.badge.scenario {{ width: 2rem; margin-left: 4rem; position: inherit; }}
+							div.badge.step {{ width: 1rem; margin-left: 5rem; position: inherit; height: 1rem; }}
+							div.badge.step.label {{ width: 6rem; display: inline-block }}
+							div.badge.step.reason-PreviousError {{ background-color: gray; }}
+							div.badge.step.reason-ScenarioSkipped {{ background-color: gray; }}
 
-										span.assignments {{ float: right; color: Gray; font-size: 1rem; }}
-										span.tags {{ float: right; margin-right: .5rem; color: Gray; font-size: 1rem; }}
+							span.step.reason {{ font-size: 1rem; color: gray; font-weight: 100; }}
 
-										div.reason-duration {{ flex: 0 0 6rem; font-size: 1rem; color: gray; vertical-align: text-top; white-space: nowrap; }}
-										span.step.reason-duration {{ font-size: 1rem; color: gray; font-weight: 100; }}
+							div.distro {{ display: inline-block; border: 1px solid white; }}
+							div.distro.header {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
+							div.distro.testrun {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
+							div.distro.area {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
+							div.distro.feature {{ width: 3rem; height: 1.75rem; margin-left: 3rem; }}
 
-										span.step.duration {{ font-size: 1rem; color: gray; font-weight: 100; }}
+							div.badge.feature-statement-link {{ position: inherit; width: 1.5rem; height: 1.5rem; vertical-align: top; }}
 
-										/* Stats */
+							div.name.feature {{ margin-left: 1rem; }}
+							div.name.scenario {{ margin-left: 2rem;  }}
+							div.name.step {{ margin-left: 3rem; }}
 
-										.stats-graph-tables {{ border-top: 0.5rem; }}
-										.table {{ margin: 2px !important; }}
-										.table th, .table td {{ border-top: none !important; line-height: 1 !important; padding: 0px 10px !important; }}
-										td.graph td {{ padding: 0px !important; }}
-										.table td.bar {{ padding: 0px !important; }}
-										div.distro-corner-tr {{ position: absolute; margin-left: 5.35rem; width: 10px; height: 10px; background: url(""data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAMAAAHQVe0RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURQAAAP///////////////////////0jPbQQAAAAGdFJOUwC81uLs9S3UunwAAAAJcEhZcwAAEk0AABJNAfOXxKcAAABZSURBVBhXlY7bDsAgCEOdSv//k22RLZjx4jFKabjYwCP0miuyrQ215fxl8LJZQVQlIvmALzCwLUkJMnJlxEuOYcc2TLeDSaOhR/bR0Z6QicK6o5xZbv//E1gwYwFZkRA8AQAAAABJRU5ErkJggg=="") no-repeat top right; }}
-										div.distro-corner-br {{ position: absolute; margin-left: 5.35rem; width: 10px; height: 10px; background: url(""data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAMAAAHQVe0RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURQAAAP///////////////////////0jPbQQAAAAGdFJOUwC81uLs9S3UunwAAAAJcEhZcwAAEk0AABJNAfOXxKcAAABZSURBVBhXlY7bDsAgCEOdSv//k22RLZjx4jFKabjYwCP0miuyrQ215fxl8LJZQVQlIvmALzCwLUkJMnJlxEuOYcc2TLeDSaOhR/bR0Z6QicK6o5xZbv//E1gwYwFZkRA8AQAAAABJRU5ErkJggg=="") no-repeat bottom right; }}
-										div.testrun.distro-corner-tr {{ margin-top: .05rem; }}
-										div.testrun.distro-corner-br {{ margin-top: 1.32rem; }}
-										div.area.distro-corner-tr {{ margin-top: .05rem; }}
-										div.area.distro-corner-br {{ margin-top: 1.32rem; }}
-										div.feature.distro-corner-tr {{ margin-top: .06rem; }}
-										div.feature.distro-corner-br {{ margin-top: 1.1rem; }}
-			
-										div#report-dates {{ margin: 0rem 0rem .5rem 5rem; }}
+							span.name {{ vertical-align: top; }}
+							span.name.header {{ font-size: 2rem; font-weight: 400; margin-left: .75rem; }}
+							span.name.testrun {{ font-size: 2rem; font-weight: 400; margin-left: .75rem; }}
+							a.name.testrun {{ font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }}
+							span.name.area {{ font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }}
+							span.name.feature {{ font-size: 1.25rem; font-weight: 400; color: rgb(68,114,198); }}
+							span.name.scenario {{ font-size: 1.125rem; font-weight: 400; vertical-align: middle; font-style: italic; color: rgb(68,114,198); }}
+							span.name.step {{ font-size: 1rem;  font-weight: 400; }}
 
-										/* Statements and Explanation */
-										div.statement {{ margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }}
-										div.explanation {{ margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }}
+							span.assignments {{ float: right; color: Gray; font-size: 1rem; }}
+							span.tags {{ float: right; margin-right: .5rem; color: Gray; font-size: 1rem; }}
 
-										/* Exceptions */
+							div.reason-duration {{ flex: 0 0 6rem; font-size: 1rem; color: gray; vertical-align: text-top; white-space: nowrap; }}
+							span.reason-duration.step {{ font-size: 1rem; color: gray; font-weight: 100; }}
 
-										div.exception {{ margin: 1rem 0rem; border: #dc3545 solid 1px; padding: 1rem; }}
-										dl.exception dt {{ margin-bottom: .25rem; }}
-										dl.exception-type, dl.exception-message, dl.exception-stack {{ padding: .5rem; }}
-										dl.exception-type pre, dl.exception-message pre, dl.exception-stack pre {{ padding: .5rem; }}
+							span.duration.step {{ font-size: 1rem; color: gray; font-weight: 100; }}
 
-										/* Input, and Output */
+							/* Stats */
 
-										div.output {{ margin: 1rem 0rem; }}
-										iframe {{ border: 1px solid gray; resize: both; overflow: auto; }}
-										pre {{ white-space: pre !important; }}
-										pre.input {{ margin: 1rem 0rem; }}
-										pre.output {{ margin: 1rem 0rem; }}
-										pre.prettyprint {{  background-color: #eee; }}
-										.linenums li {{ list-style-type: decimal !important; }}".RemoveIndentation(4,true));
+							.stats-graph-tables {{ border-top: 0.5rem; }}
+							.table {{ margin: 2px !important; }}
+							.table th, .table td {{ border-top: none !important; line-height: 1 !important; padding: 0px 10px !important; }}
+							td.graph td {{ padding: 0px !important; }}
+							.table td.bar {{ padding: 0px !important; }}
+							div.distro-corner-tr {{ position: absolute; margin-left: 5.35rem; width: 10px; height: 10px; background: url(""data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAMAAAHQVe0RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURQAAAP///////////////////////0jPbQQAAAAGdFJOUwC81uLs9S3UunwAAAAJcEhZcwAAEk0AABJNAfOXxKcAAABZSURBVBhXlY7bDsAgCEOdSv//k22RLZjx4jFKabjYwCP0miuyrQ215fxl8LJZQVQlIvmALzCwLUkJMnJlxEuOYcc2TLeDSaOhR/bR0Z6QicK6o5xZbv//E1gwYwFZkRA8AQAAAABJRU5ErkJggg=="") no-repeat top right; }}
+							div.distro-corner-br {{ position: absolute; margin-left: 5.35rem; width: 10px; height: 10px; background: url(""data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAMAAAHQVe0RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURQAAAP///////////////////////0jPbQQAAAAGdFJOUwC81uLs9S3UunwAAAAJcEhZcwAAEk0AABJNAfOXxKcAAABZSURBVBhXlY7bDsAgCEOdSv//k22RLZjx4jFKabjYwCP0miuyrQ215fxl8LJZQVQlIvmALzCwLUkJMnJlxEuOYcc2TLeDSaOhR/bR0Z6QicK6o5xZbv//E1gwYwFZkRA8AQAAAABJRU5ErkJggg=="") no-repeat bottom right; }}
+							div.distro-corner-tr.header {{ margin-top: .05rem; }}
+							div.distro-corner-br.header {{ margin-top: 1.32rem; }}
+							div.distro-corner-tr.testrun {{ margin-top: .05rem; }}
+							div.distro-corner-br.testrun {{ margin-top: 1.32rem; }}
+							div.distro-corner-tr.area {{ margin-top: .05rem; }}
+							div.distro-corner-br.area {{ margin-top: 1.32rem; }}
+							div.distro-corner-tr.feature {{ margin-top: .06rem; }}
+							div.distro-corner-br.feature {{ margin-top: 1.1rem; }}
+
+							div#report-dates {{ margin: 0rem 0rem .5rem 5rem; }}
+
+							/* Statements and Explanation */
+							div.statement {{ margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }}
+							div.explanation {{ margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }}
+
+							/* Step Details */
+
+							div.step-details {{ margin: .5rem 0rem; }}
+							div.step-exception-link.button {{ width: 6rem !important; }}
+							div.step-output-link.button {{ width: 6rem; background-color: gray; color: white; }}
+							div.step-input-link.button {{ width: 6rem; background-color: gray; color: white; }}
+							div.step-statement-link {{ width: 6rem; background-color: gray; color: white; }}
+
+							/* Exceptions */
+
+							div.exception {{ margin-bottom: 1rem; }}
+							div.exception-details {{ margin: 1rem 0rem; border: #dc3545 solid 1px; padding: 1rem; }}
+							dl.exception dt {{ margin-bottom: .25rem; }}
+							dl.exception-type, dl.exception-message, dl.exception-stack {{ padding: .5rem; }}
+							dl.exception-type pre, dl.exception-message pre, dl.exception-stack pre {{ padding: .5rem; }}
+
+							/* Input, and Output */
+
+							div.input {{ margin-bottom: 1rem; }}
+							div.output {{ margin-bottom: 1rem; }}
+							div.input.title {{ margin-bottom: 1rem; }}
+							div.output.title {{ margin-bottom: 1rem; }}
+							iframe {{ border: 1px solid gray; resize: both; overflow: auto; }}
+							pre {{ white-space: pre !important; }}
+							pre.input {{ margin-bottom: 1rem; }}
+							pre.output {{ margin-bottom: 1rem; }}
+							pre.prettyprint {{  background-color: #eee; }}
+							.linenums li {{ list-style-type: decimal !important; }}".RemoveIndentation(4,true));
 			this.sortedReasons.ForEach(reason => {
 				sb.AppendLine($@"
-										.reason-{reason.Reason.EncodeCSSClassName()} {{ background-color: {reason.BackgroundColor} !important; color: {reason.FontColor} !important;}}".RemoveIndentation(4,true));
+							.reason-{reason.Reason.EncodeCSSClassName()} {{ background-color: {reason.BackgroundColor} !important; color: {reason.FontColor} !important;}}".RemoveIndentation(4,true));
 			});
 			sb.AppendLine(@"
-									</style>
-								</header>".RemoveIndentation(4,true));
+						</style>".RemoveIndentation(4,true));
 		}
-
-		internal void WriteBodyStart(StringBuilder sb)
+		internal void WriteFooter(StringBuilder sb)
 		{
-			sb.AppendLine($@"
-				<body>
-					<script language=""javascript"" type=""text/javascript"">
-						function resizeIframe(obj) {{ 
-							obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; 
-						}}
-					</script>".RemoveIndentation(4,true));
-		}
-
-		internal void WriteBodyEnd(StringBuilder sb)
-		{
-			sb.AppendLine(@"
-					<script>
-						function toggleVisibility(elementId, resize, iFrameId) {{
-							var x = document.getElementById(elementId);
-							if (x.style.display === ""none"") {{
-								x.style.display = ""block"";
-								if(resize) {
-									resizeIframe(document.getElementById(iFrameId));
-								}
-							}} else {{
-								x.style.display = ""none"";
+			sb.AppendLine(@"					
+						<script>
+							function toggleVisibility(elementId, resize, iFrameId) {{
+								var x = document.getElementById(elementId);
+								if (x.style.display === ""none"") {{
+									x.style.display = ""block"";
+									if(resize) {
+										resizeIframe(document.getElementById(iFrameId));
+									}
+								}} else {{
+									x.style.display = ""none"";
+								}}
 							}}
-						}}
-					</script>
-					<script src=""https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js""></script>
-				</body>".RemoveIndentation(4, true));
+						</script>
+						<script src=""https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js""></script>
+					</body>
+				</html>");
 		}
-
-		internal void WriteNavBarStart(StringBuilder sb, bool failuresOnly)
+		void WriteNavBar(StringBuilder sb, bool failuresOnly, string navbarOptions)
 		{
 			var failuresOnlyText = "";
 			if(failuresOnly) {
@@ -214,90 +240,55 @@ namespace xBDD.Reporting.Html
 						</button>
 						<div class=""collapse navbar-collapse"" id=""navbarNavAltMarkup"">
 							<div class=""navbar-nav"">".RemoveIndentation(4, true));
-		}
-
-		internal void WriteNavBarEnd(StringBuilder sb)
-		{
+			sb.AppendLine(navbarOptions);
 			sb.Append($@"
 							</div>
 						</div>
 					</nav>".RemoveIndentation(4, true));
 		}
-		internal void WriteDuration(
-			StringBuilder sb, 
-			string objectType, 
-			DateTime endTime, 
-			DateTime startTime, 
-			string reasonReplacement = null
-		) {
-			var duration = endTime - startTime;
-			var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
-			formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
-			sb.Append($@"
-				<div class=""col-2 {objectType} reason-duration text-right"">
-					<span class=""{objectType} duration"">[{formattedDuration} ms]</span>
-				</div>".RemoveIndentation(4, true));
-		}
-
-		internal void WriteStartTime(StringBuilder sb, DateTime startTime) {
-			if(startTime != DateTime.MinValue) {
-				sb.AppendLine($@"
-						<div id=""report-dates"" style=""margin-top: 0px !important;"">
-							<div id=""report-start-date"" title=""Start Time"">{startTime.ToString("yyyy-MM-dd hh:mm tt \"GMT\"zzz")}</div>
-						</div>
-				".RemoveIndentation(4,true));
-			}
-		}
-
-		internal void WriteLineItem(
-			StringBuilder sb, 
-			HtmlReportLineItem lineItem,
-			bool failuresOnly,
-			bool statsExpanded,
-			bool childrenExpanded) 
+		internal void WriteLineItem(StringBuilder sb, HtmlReportLineItem lineItem, bool failuresOnly, bool statsExpanded, bool childrenExpanded, bool header) 
 		{
 			this.lineItemNumber++;
 			var statementAndExplanationLink = lineItem.Statement != null || lineItem.Explanation != null;
 			var inputLink = lineItem.Input != null;
 			var outputLink = lineItem.Output != null;
 
-			sb.AppendLine($@"
-				<li class=""lineitem {lineItem.TypeName.ToLower()} row align-items-center"" id=""{lineItem.TypeName.ToLower()}-{this.lineItemNumber}"">".RemoveIndentation(4,true));
+			var lineItemType = lineItem.TypeName.ToLower();
+			if(header)
+				lineItemType = "header";
 
-			WriteBadge(sb, lineItem);
+			sb.AppendLine($@"
+				<li class=""lineitem {lineItemType} row align-items-center"" id=""{lineItemType}-{this.lineItemNumber}"">".RemoveIndentation(4,true));
+
+			WriteBadge(sb, lineItem, header);
 
 			if(String.IsNullOrEmpty(lineItem.Name)) {
 				lineItem.Name = "[Missing! (or Full Name Skipped)]";
 			}
 
 			sb.AppendLine($@"
-					<div class=""col"">".RemoveIndentation(4));
+					<div class=""col"">
+						<div class=""{lineItemType} name"">".RemoveIndentation(4));
 			var name = lineItem.Name;
-			if(lineItem.TypeName == "area") {
+			if(lineItemType == "area" || lineItemType == "testrun") {
 				name = name.Replace(config.RootNameSkip, "");
 			}
 			if(lineItem.FilePath != null) {
 				sb.AppendLine($@"
-						<a class=""{lineItem.TypeName} name pointer"" 
-							id=""area-{this.lineItemNumber}-name""
+						<a class=""{lineItemType} name pointer"" 
+							id=""{lineItemType}-{this.lineItemNumber}-name""
 							href=""{lineItem.FilePath}"">{name}</a>".RemoveIndentation(4, true));
 			} else {
-				if(lineItem.ChildTypeName != null) {
-					sb.AppendLine($@"
-						<span class=""{lineItem.TypeName} name pointer"" 
-							id=""{lineItem.TypeName}-{this.lineItemNumber}-name""
-							onclick=""toggleVisibility('{lineItem.TypeName.ToLower()}-{this.lineItemNumber}-{lineItem.ChildTypeName.ToLower()}')""
-							href=""#{lineItem.TypeName.ToLower()}-{this.lineItemNumber}-{lineItem.ChildTypeName.ToLower()}"">{name}</span>".RemoveIndentation(4, true));
-				} else {
-					sb.AppendLine($@"
-						<span class=""{lineItem.TypeName} name pointer"" 
-							id=""{lineItem.TypeName}-{this.lineItemNumber}-name"">{name}</span>".RemoveIndentation(4, true));
-				}
+				sb.AppendLine($@"
+						<span class=""{lineItemType} name pointer"" 
+							id=""{lineItemType}-{this.lineItemNumber}-name""
+							onclick=""toggleVisibility('{lineItemType}-{this.lineItemNumber}-{lineItem.ChildTypeName.ToLower()}')""
+							href=""{lineItemType}-{this.lineItemNumber}-{lineItem.ChildTypeName.ToLower()}"">{name}</span>".RemoveIndentation(4, true));
 			}
 			if(lineItem.Assignments != null && lineItem.Assignments.Count > 0) {
 				sb.Append($@"
-						<span class=""{lineItem.TypeName} assignments"" 
-							id=""{lineItem.TypeName}-{this.lineItemNumber}-assignments"">[".RemoveIndentation(6, true));
+						<span class=""{lineItemType} assignments"" 
+							id=""{lineItemType}-{this.lineItemNumber}-assignments"">[".RemoveIndentation(6, true));
 				lineItem.Assignments.ForEach(assignment => {
 						sb.Append($@"{(lineItem.Assignments.IndexOf(assignment)==0?"":", ")}{assignment.HtmlEncode()}");
 				});
@@ -306,33 +297,36 @@ namespace xBDD.Reporting.Html
 			}
 			if(lineItem.Tags != null && lineItem.Tags.Count > 0) {
 				sb.Append($@"
-						<span class=""{lineItem.TypeName} tags"" 
-							id=""{lineItem.TypeName}-{this.lineItemNumber}-tags"">[".RemoveIndentation(6, true));
+						<span class=""{lineItemType} tags"" 
+							id=""{lineItemType}-{this.lineItemNumber}-tags"">[".RemoveIndentation(6, true));
 				lineItem.Tags.ForEach(tag => {
 						sb.Append($@"{(lineItem.Tags.IndexOf(tag)==0?"":", ")}{tag.HtmlEncode()}");
 				});
 				sb.AppendLine($@"
 						]</span>".RemoveIndentation(6, true));
 			}
+			if(lineItemType != "step" && (!string.IsNullOrEmpty(lineItem.Explanation)||!string.IsNullOrEmpty(lineItem.Statement))) {
+				sb.AppendLine($@"
+						<div class=""{lineItem.TypeName}-statement-link badge pointer badge-secondary"" 
+							id=""{lineItem.TypeName}-{this.lineItemNumber}-statement-link"" 
+							onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-statement-explanation')"">
+							<i class=""fas fa-info""></i>
+						</div>".RemoveIndentation(4,true));
+			}
 			sb.AppendLine($@"
+						</div>
 					</div>".RemoveIndentation(4));
 
-			WriteDuration(sb, lineItem.TypeName.ToLower(), lineItem.EndTime, lineItem.StartTime);
+			WriteDuration(sb, lineItemType, lineItem.EndTime, lineItem.StartTime);
 
 			sb.AppendLine($@"
 				</li>".RemoveIndentation(4));
 
-			if(lineItem.TypeName != "step") {
-				WriteStats(sb, lineItem.TypeName, lineItem.ReasonStats, statsExpanded);
+			if(lineItemType != "step") {
+				WriteStats(sb, lineItemType, lineItem.ReasonStats, statsExpanded);
+
+				WriteStatement(sb, lineItem);
 			}
-
-			WriteStatement(sb, lineItem);
-
-			WriteException(sb, lineItem, lineItem.Exception, false);
-
-			WriteInputOrOutput(sb, lineItem, true);
-			
-			WriteInputOrOutput(sb, lineItem, false);
 
 			if(lineItem.ChildTypeName != null) {
 				var expanded = (lineItem.Outcome == Outcome.Failed && failuresOnly) || childrenExpanded;
@@ -342,10 +336,21 @@ namespace xBDD.Reporting.Html
 					<li class=""row children"">
 						<div class=""col-12"">
 							<ol class=""{childClassName} container-fluid""
-								id=""{lineItem.TypeName.ToLower()}-{this.lineItemNumber}-{lineItem.ChildTypeName.ToLower()}""
+								id=""{lineItemType}-{this.lineItemNumber}-{lineItem.ChildTypeName.ToLower()}""
 								style=""display: {display}"">".RemoveIndentation(4));
 				foreach(var item in lineItem.ChildItems) {
-					WriteLineItem(sb, item, failuresOnly, false, false);
+					WriteLineItem(sb, item, failuresOnly, false, false, false);
+				}
+				if(lineItem.Exception != null || !string.IsNullOrEmpty(lineItem.Input) || !string.IsNullOrEmpty(lineItem.Output)) {
+					WriteStepDetails(sb, lineItem);
+					
+					WriteStatement(sb, lineItem);
+
+					WriteException(sb, lineItem, lineItem.Exception, false);
+
+					WriteInputOrOutput(sb, lineItem, true);
+					
+					WriteInputOrOutput(sb, lineItem, false);
 				}
 				sb.AppendLine($@"
 							</ol>
@@ -353,10 +358,12 @@ namespace xBDD.Reporting.Html
 					</li>".RemoveIndentation(4));
 				}
 		}
-		internal void WriteBadge(
-			StringBuilder sb, 
-			HtmlReportLineItem lineItem) 
+		void WriteBadge(StringBuilder sb, HtmlReportLineItem lineItem, bool header) 
 		{
+			var lineItemType = lineItem.TypeName.ToLower();
+			if(header)
+				lineItemType = "header";
+
 			var statementAndExplanationLink = lineItem.Statement != null || lineItem.Explanation != null;
 			var total = 0;
 			if(lineItem.ReasonStats.ContainsKey("Scenarios")) {
@@ -367,24 +374,24 @@ namespace xBDD.Reporting.Html
 			sb.AppendLine($@"
 				<div class=""col-2 badges"">".RemoveIndentation(4,true));
 
-			if(lineItem.TypeName == "testrun" || lineItem.TypeName == "area" || lineItem.TypeName == "feature" ) {
+			if(lineItemType == "testrun" || lineItemType == "area" || lineItemType == "feature" || lineItemType == "header") {
 				sb.AppendLine($@"
-					<div class=""{lineItem.TypeName} badge-distro""
-						id=""{lineItem.TypeName}-{this.lineItemNumber}-badge-distro""
+					<div class=""{lineItemType} badge-distro""
+						id=""{lineItemType}-{this.lineItemNumber}-badge-distro""
 						title=""{lineItem.Reason} Count: Scenarios""
-						onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-stats')"">
-						<div class=""{lineItem.TypeName} badge badge-pill pointer total reason-{lineItem.Reason.EncodeCSSClassName()}""
-							id=""{lineItem.TypeName}-{this.lineItemNumber}-badge"">{(lineItem.TypeName == "step" ? " " : total.ToString())}</div>".RemoveIndentation(4,true));
-				if(lineItem.TypeName != "scemario" && lineItem.TypeName != "step") {
+						onclick=""toggleVisibility('{lineItemType}-{this.lineItemNumber}-stats')"">
+						<div class=""{lineItemType} badge badge-pill pointer total reason-{lineItem.Reason.EncodeCSSClassName()}""
+							id=""{lineItemType}-{this.lineItemNumber}-badge"">{(lineItemType == "step" ? " " : total.ToString())}</div>".RemoveIndentation(4,true));
+				if(lineItemType != "scemario" && lineItemType != "step") {
 					sb.AppendLine($@"
-						<div class=""{lineItem.TypeName} distro-corner-tr"">
+						<div class=""{lineItemType} distro-corner-tr"">
 						</div>
-						<div class=""{lineItem.TypeName} distro-corner-br"">
+						<div class=""{lineItemType} distro-corner-br"">
 						</div>
-						<div class=""{lineItem.TypeName} distro pointer""
-							id=""{lineItem.TypeName}-{this.lineItemNumber}-distro"">".RemoveIndentation(4,true));
+						<div class=""{lineItemType} distro pointer""
+							id=""{lineItemType}-{this.lineItemNumber}-distro"">".RemoveIndentation(4,true));
 
-					foreach(var sortedReason in this.sortedReasons) {
+					foreach(var sortedReason in this.sortedReasons.Select(x => x).Reverse()) {
 						double stat = 0;
 						if(lineItem.ReasonStats.ContainsKey("Scenarios") && lineItem.ReasonStats["Scenarios"].ContainsKey(sortedReason.Reason)) {
 							stat = ((double)lineItem.ReasonStats["Scenarios"][sortedReason.Reason]/(double)total)*100;
@@ -397,64 +404,33 @@ namespace xBDD.Reporting.Html
 					</div>".RemoveIndentation(4,true));
 				}
 			} else {
-				if(lineItem.TypeName == "scenario" || lineItem.Exception == null) {
+				if(lineItemType == "scenario" || lineItem.Exception == null) {
 					var childTotal = lineItem.ChildItems.Count;
 					sb.AppendLine($@"
-						<div class=""{lineItem.TypeName} badge badge-pill pointer total reason-{lineItem.Reason.EncodeCSSClassName()}""
-							id=""{lineItem.TypeName}-{this.lineItemNumber}-badge"">{(lineItem.TypeName == "step" ? " " : childTotal.ToString())}</div>".RemoveIndentation(4,true));
+						<div class=""{lineItemType} badge badge-pill pointer total reason-{lineItem.Reason.EncodeCSSClassName()}""
+							id=""{lineItemType}-{this.lineItemNumber}-badge"">{(lineItemType == "step" ? " " : childTotal.ToString())}</div>".RemoveIndentation(4,true));
 				} else {
 					sb.AppendLine($@"
-						<div class=""{lineItem.TypeName} badge badge-pill pointer exception-link reason-{lineItem.Reason.EncodeCSSClassName()}"" 
-							id=""{lineItem.TypeName}-{this.lineItemNumber}-exception-link"" 
-							onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-exception')"">
-							<i class=""fas fa-bug""></i>
-						</div>".RemoveIndentation(4,true));
+						<div class=""{lineItemType} badge badge-pill pointer exception-link reason-{lineItem.Reason.EncodeCSSClassName()}"" 
+							id=""{lineItemType}-{this.lineItemNumber}-exception-link"" 
+							onclick=""toggleVisibility('{lineItemType}-{this.lineItemNumber}-exception')"">&nbsp;</div>".RemoveIndentation(4,true));
 				}
 			}
 
-			if(statementAndExplanationLink) {
-				sb.AppendLine($@"
-					<div class=""{lineItem.TypeName}-statement-link badge pointer badge-secondary"" 
-						id=""{lineItem.TypeName}-{this.lineItemNumber}-statement-link"" 
-						onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-statement-explanation')"">
-						<i class=""fas fa-info""></i>
-					</div>".RemoveIndentation(4,true));
-			}
-			if(!string.IsNullOrEmpty(lineItem.Input)) {
-				sb.AppendLine($@"
-					<div class=""{lineItem.TypeName}-input-link badge pointer badge-secondary"" 
-						id=""{lineItem.TypeName}-{this.lineItemNumber}-input-link"" 
-						onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-input', true, 'iframe{this.lineItemNumber}')"">
-						<i class=""fas fa-sign-in-alt""></i>
-					</div>".RemoveIndentation(4,true));
-			}
-			if(!string.IsNullOrEmpty(lineItem.Output)) {
-				sb.AppendLine($@"
-					<div class=""{lineItem.TypeName}-output-link badge pointer badge-secondary"" 
-						id=""{lineItem.TypeName}-{this.lineItemNumber}-output-link"" 
-						onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-output', true, 'iframe{this.lineItemNumber}')"">
-						<i class=""fas fa-sign-out-alt""></i>
-					</div>".RemoveIndentation(4,true));
-			}
 			sb.AppendLine($@"
 				</div>".RemoveIndentation(4,true));
 		}
-
-		internal void WriteStats(
-			StringBuilder sb, 
-			string objectType, 
-			Dictionary<string, Dictionary<string, int>> reasonStats, 
-			bool expanded = true) 
+		void WriteStats(StringBuilder sb, string objectType, Dictionary<string, Dictionary<string, int>> reasonStats, bool expanded = true) 
 		{
 			sb.AppendLine($@"
 				<li class=""row stats"">
-					<div class=""col-10 offset-1"">
+					<div class=""col-11 offset-1"">
 						<div class=""stats-graph-tables"" id=""{objectType.ToLower()}-{this.lineItemNumber}-stats"" style=""width: 100%; empty-cells: show; display: {(expanded ? "block" : "none" )};"">
 							<table class=""table table-condensed stats-table"">
 								<tr id=""{objectType.ToLower()}-header-reason-stats"">
 									<td class=""stats-label text-muted text-right"">&nbsp;</td>
 									<td class=""text-center"" >Total</td>".RemoveIndentation(4,true));
-			foreach(string key in this.sortedReasons.Select(x => x.Reason)) {
+			foreach(string key in this.sortedReasons.Select(x => x.Reason).Reverse()) {
 				sb.AppendLine($@"
 									<td class=""text-center""><div class=""badge label reason-{key.EncodeCSSClassName()}"">{key}</div></td>".RemoveIndentation(4,true));
 			}
@@ -480,8 +456,7 @@ namespace xBDD.Reporting.Html
 					</div>
 				</li>".RemoveIndentation(4,true));
 		}
-
-		internal void WriteReasonStatsLine(StringBuilder sb, Dictionary<string, int> stats, int baseIndent, string id, string label) {
+		void WriteReasonStatsLine(StringBuilder sb, Dictionary<string, int> stats, int baseIndent, string id, string label) {
 			sb.AppendLine($@"
 					<tr id=""{id}"">
 						<td class=""stats-label text-muted text-right"" style=""width: 0%; padding-left: 0px !important;"">{label}</td>".RemoveIndentation(4,true));
@@ -489,7 +464,7 @@ namespace xBDD.Reporting.Html
 			var percentWidth = 100 / (this.sortedReasons.Count() + 1);
 			sb.AppendLine($@"
 						<td class=""text-center"" style=""width: {percentWidth}%;"">{total.ToString()}</td>".RemoveIndentation(4,true));
-			foreach(string key in this.sortedReasons.Select(x => x.Reason)) {
+			foreach(string key in this.sortedReasons.Select(x => x.Reason).Reverse()) {
 				var stat = 0;
 				if(stats.ContainsKey(key)) {
 					stat = stats[key];
@@ -500,7 +475,7 @@ namespace xBDD.Reporting.Html
 			sb.AppendLine($@"
 					</tr>".RemoveIndentation(4,true));
 		}
-		internal void WriteReasonGraphLine(StringBuilder sb, Dictionary<string, int> stats, int baseIndent, string id, string label) {
+		void WriteReasonGraphLine(StringBuilder sb, Dictionary<string, int> stats, int baseIndent, string id, string label) {
 			sb.AppendLine($@"
 					<tr id=""{id}"">
 						<td class=""stats-label text-muted text-right"" style=""width: 0%; padding-left: 0px !important;"">{label}</td>".RemoveIndentation(4,true));
@@ -516,7 +491,7 @@ namespace xBDD.Reporting.Html
 			}
 			else
 			{
-				foreach(string key in this.sortedReasons.Select(x => x.Reason)) {
+				foreach(string key in this.sortedReasons.Select(x => x.Reason).Reverse()) {
 					var style = "";
 					if(stats.ContainsKey(key)) {
 						var reasonConfig = this.sortedReasons.Where(x => x.Reason == key).FirstOrDefault();
@@ -533,23 +508,25 @@ namespace xBDD.Reporting.Html
 						</td>
 					</tr>".RemoveIndentation(4,true));
 		}
-
 		void WriteStatement(StringBuilder sb, HtmlReportLineItem lineItem) {
+			var lineItemType = lineItem.TypeName.ToLower();
+
 			if(lineItem.Statement != null || lineItem.Explanation != null)
 			{
 				sb.AppendLine($@"
 					<li class=""row statement-explanation"">
-						<div class=""col-9 offset-2"">
-							<div class=""{lineItem.TypeName} statement-explanation"" 
-								id=""{lineItem.TypeName}-{this.lineItemNumber}-statement-explanation""
+						<div class=""col-2 badges""></div>
+						<div class=""col-11"">
+							<div class=""{lineItemType} statement-explanation"" 
+								id=""{lineItemType}-{this.lineItemNumber}-statement-explanation""
 								style=""display: none;"">".RemoveIndentation(4,true));
 				if(lineItem.Statement != null) {
-					sb.AppendLine($@"<div class=""{lineItem.TypeName} statement rounded""
-									id=""{lineItem.TypeName}-{this.lineItemNumber}-statement"">{lineItem.Statement}</div>");
+					sb.AppendLine($@"<div class=""{lineItemType} statement rounded""
+									id=""{lineItemType}-{this.lineItemNumber}-statement"">{lineItem.Statement}</div>");
 				}
 				if(lineItem.Explanation != null) {
-					sb.AppendLine($@"<div class=""{lineItem.TypeName} explanation rounded""
-									id=""{lineItem.TypeName}-{this.lineItemNumber}-explanation"">{Markdown.ToHtml(lineItem.Explanation)}</div>");
+					sb.AppendLine($@"<div class=""{lineItemType} explanation rounded""
+									id=""{lineItemType}-{this.lineItemNumber}-explanation"">{Markdown.ToHtml(lineItem.Explanation)}</div>");
 				}
 				sb.AppendLine($@"
 							</div>
@@ -557,37 +534,89 @@ namespace xBDD.Reporting.Html
 					</li>".RemoveIndentation(4, true));
 			}
 		}
+		void WriteStepDetails(StringBuilder sb, HtmlReportLineItem lineItem) {
+			sb.AppendLine($@"
+					<li class=""row"">
+						<div class=""col-2 badges""></div>
+						<div class=""col-11"">
+							<div class=""step-details"">".RemoveIndentation(4));
+			if(lineItem.Exception != null) {
+				sb.AppendLine($@"
+								<div class=""{lineItem.TypeName}-exception-link reason-Failed badge pointer button"" 
+									id=""{lineItem.TypeName}-{this.lineItemNumber}-exception-link"" 
+									onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-exception')"">
+									<i class=""fas fa-bug""></i>&nbsp;<span>Exception</span>
+								</div>".RemoveIndentation(4,true));
+			}
+			if(!string.IsNullOrEmpty(lineItem.Input)) {
+				sb.AppendLine($@"
+								<div class=""{lineItem.TypeName}-input-link badge pointer button"" 
+									id=""{lineItem.TypeName}-{this.lineItemNumber}-input-link"" 
+									onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-input', true, 'iframe{this.lineItemNumber}')"">
+									<i class=""fas fa-sign-in-alt""></i>&nbsp;<span>Input</span>
+								</div>".RemoveIndentation(4,true));
+			}
+			if(!string.IsNullOrEmpty(lineItem.Output)) {
+				sb.AppendLine($@"
+								<div class=""{lineItem.TypeName}-output-link badge pointer button"" 
+									id=""{lineItem.TypeName}-{this.lineItemNumber}-output-link"" 
+									onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-output', true, 'iframe{this.lineItemNumber}')"">
+									<i class=""fas fa-sign-out-alt""></i>&nbsp;<span>Output</span>
+								</div>".RemoveIndentation(4,true));
+			}
+			if(!string.IsNullOrEmpty(lineItem.Explanation)||!string.IsNullOrEmpty(lineItem.Statement)) {
+				sb.AppendLine($@"
+								<div class=""{lineItem.TypeName}-statement-link badge pointer badge-secondary"" 
+									id=""{lineItem.TypeName}-{this.lineItemNumber}-statement-link"" 
+									onclick=""toggleVisibility('{lineItem.TypeName}-{this.lineItemNumber}-statement-explanation')"">
+									<i class=""fas fa-info""></i>&nbsp;<span>Explanation</span>
+								</div>".RemoveIndentation(4,true));
+			}
+			sb.AppendLine($@"
+							</div>
+						</div>
+					</li>".RemoveIndentation(4));
+
+		}
 		void WriteException(StringBuilder sb, HtmlReportLineItem lineItem, Exception exception, bool innerException = false) {
+			var lineItemType = lineItem.TypeName.ToLower();
+
 			if (exception != null && lineItem.Outcome != Outcome.Skipped) {
 				if(!innerException)
 				{
 					sb.AppendLine($@"
 					<li class=""row exception"">
-						<div class=""col-9 offset-2"">
-							<div class=""exception"" 
-								id=""{lineItem.TypeName}-{this.lineItemNumber}-exception""
-								style=""display: none;"">".RemoveIndentation(4, true));
+						<div class=""col-2 badges""></div>
+						<div class=""col-11"">
+							<div class=""exception""
+								id=""{lineItemType}-{this.lineItemNumber}-exception""
+								style=""display: block;"">
+								<div class=""exception-title"" 
+									id=""step-{this.lineItemNumber}-exception-title"">Exception<div>
+									<div class=""exception-details rounded"">
+								".RemoveIndentation(4, true));
 				}
 					sb.AppendLine($@"
-								<dl class=""exception dl-horizontal rounded"">
-									<dt>Error Type</dt><dd class=""exception-type"">{exception.GetType().Name.HtmlEncode()}</dd>
-									<dt>Message</dt><dd class=""exception-message bg-light""><pre><code>{exception.Message.HtmlEncode()}</code></pre></dd>
-									<dt>Stack</dt><dd class=""exception-stack bg-light""><pre><code>{exception.StackTrace.AddIndentation(4).HtmlEncode()}</code></pre></dd>
-									".RemoveIndentation(4, true));
+										<dl class=""exception dl-horizontal rounded"">
+											<dt>Error Type</dt><dd class=""exception-type"">{exception.GetType().Name.HtmlEncode()}</dd>
+											<dt>Message</dt><dd class=""exception-message bg-light""><pre><code>{exception.Message.AddIndentation(4).HtmlEncode()}</code></pre></dd>
+											<dt>Stack</dt><dd class=""exception-stack bg-light""><pre><code>{exception.StackTrace.AddIndentation(4).HtmlEncode()}</code></pre></dd>
+											".RemoveIndentation(4, true));
 				if(exception.InnerException != null)
 				{
 					sb.AppendLine($@"
-									<dt>Inner Exception</dt>
-									<dd class=""inner-exception"">".RemoveIndentation(4, true));
+										<dt>Inner Exception</dt>
+										<dd class=""inner-exception"">".RemoveIndentation(4, true));
 					WriteException(sb, lineItem, exception.InnerException, true);
 					sb.AppendLine($@"
-									</dd>".RemoveIndentation(4, true));
+										</dd>".RemoveIndentation(4, true));
 				}
 					sb.AppendLine($@"
-								</dl>".RemoveIndentation(4, true));
+									</dl>".RemoveIndentation(4, true));
 				if(!innerException)
 				{
 					sb.AppendLine($@"
+								</div>
 							</div>
 						</div>
 					</li>".RemoveIndentation(4, true));
@@ -595,6 +624,8 @@ namespace xBDD.Reporting.Html
 			}
 		}
 		void WriteInputOrOutput(StringBuilder sb, HtmlReportLineItem lineItem, bool input) {
+			var lineItemType = lineItem.TypeName.ToLower();
+
 			var text = "";
 			TextFormat format = new TextFormat();
 			if(input) {
@@ -608,12 +639,13 @@ namespace xBDD.Reporting.Html
 			{
 				sb.AppendLine($@"
 					<li class=""row {(input ? "input" : "output" )}"">
-						<div class=""col-9 offset-2"">
+						<div class=""col-2 badges""></div>
+						<div class=""col-11"">
 							<div class=""{(input ? "input" : "output" )}"" 
-								id=""{lineItem.TypeName}-{this.lineItemNumber}-{(input ? "input" : "output" )}""
-								style=""display: none;"">
+								id=""{lineItemType}-{this.lineItemNumber}-{(input ? "input" : "output" )}""
+								style=""display: block;"">
 								<div class=""{(input ? "input" : "output" )} title"" 
-									id=""step-{this.lineItemNumber}-{(input ? "input" : "output" )}-title"">{(input ? "Input" : "Output" )}<div>".RemoveIndentation(4, true));
+									id=""step-{this.lineItemNumber}-{(input ? "input" : "output" )}-title"">{(input ? "Input" : "Output" )}</div>".RemoveIndentation(4, true));
 				if(format == TextFormat.htmlpreview)
 				{
 					WriteInputOrOutputWithHtmlPreview(sb, lineItem, input);
@@ -632,7 +664,6 @@ namespace xBDD.Reporting.Html
 					</li>".RemoveIndentation(4, true));
 			}
 		}
-
 		void WriteInputOrOutputWithHtmlPreview(StringBuilder sb, HtmlReportLineItem lineItem, bool input) {
 			var function = (input? "input": "output");
 			var previewCode = (input? lineItem.Input.HtmlEncode() : lineItem.Output.HtmlEncode());
@@ -678,6 +709,24 @@ namespace xBDD.Reporting.Html
 					</div>
 				</div>".RemoveIndentation(4, true);
 			sb.AppendLine(html);
+		}
+		void WriteDuration(StringBuilder sb, string objectType, DateTime endTime, DateTime startTime, string reasonReplacement = null) {
+			var duration = endTime - startTime;
+			var formattedDuration = duration.TotalMilliseconds.ToString("N", System.Globalization.CultureInfo.InvariantCulture);
+			formattedDuration = formattedDuration.Substring(0, formattedDuration.Length-3);
+			sb.Append($@"
+				<div class=""col-2 {objectType} reason-duration text-right"">
+					<span class=""{objectType} duration"">[{formattedDuration} ms]</span>
+				</div>".RemoveIndentation(4, true));
+		}
+		void WriteStartTime(StringBuilder sb, DateTime startTime) {
+			if(startTime != DateTime.MinValue) {
+				sb.AppendLine($@"
+						<div id=""report-dates"" style=""margin-top: 0px !important;"">
+							<div id=""report-start-date"" title=""Start Time"">{startTime.ToString("yyyy-MM-dd hh:mm tt \"GMT\"zzz")}</div>
+						</div>
+				".RemoveIndentation(4,true));
+			}
 		}
 	}
 }

@@ -1,0 +1,42 @@
+{
+	"TestRunGroupReport": {
+		"ReportName": "My Sample - Test Summary",
+		"FileName": "./test-results/MySample.TestSummary.GitHub.html",
+		"RootNameSkip": "My Sample - ",
+		"TestRunConfigurations": [
+			{
+				"JsonFilePath": "./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json",
+				"TestRunUrl": "https://rawgit.com/Stewartarmbrecht/xBDD/master/MySample/MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html"
+			},
+			{
+				"JsonFilePath": "./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json",
+				"TestRunUrl": "https://rawgit.com/Stewartarmbrecht/xBDD/master/MySample/MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.html"
+			},
+			{
+				"JsonFilePath": "./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json",
+				"TestRunUrl": "https://rawgit.com/Stewartarmbrecht/xBDD/master/MySample/MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.html"
+			},
+			{
+				"JsonFilePath": "./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json",
+				"TestRunUrl": "https://rawgit.com/Stewartarmbrecht/xBDD/master/MySample/MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.html"
+			},
+			{
+				"JsonFilePath": "./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json",
+				"TestRunUrl": "https://rawgit.com/Stewartarmbrecht/xBDD/master/MySample/MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.html"
+			},
+			{
+				"JsonFilePath": "./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json",
+				"TestRunUrl": "https://rawgit.com/Stewartarmbrecht/xBDD/master/MySample/MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.html"
+			}
+		]
+	},
+	"SortedReasonConfigurations": [
+		{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
+		{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
+		{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(15, 1, 26)"},
+		{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
+		{"Reason": "Ready","BackgroundColor": "rgb(101, 167, 227)","FontColor": "rgb(2, 20, 36)"},
+		{"Reason": "Defining","BackgroundColor": "rgb(146, 194, 238)","FontColor": "rgb(7, 36, 63)"},
+		{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
+	]
+}

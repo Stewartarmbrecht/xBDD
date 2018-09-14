@@ -188,6 +188,9 @@ namespace xBDD.Tools
 							console.WriteLine($"Json Report: {jsonReport}");
 							var testRunJson = System.IO.File.ReadAllText(jsonReport);
 							var testRun = jsonImporter.ImportJson(testRunJson);
+							testRun.CalculateStartAndEndTimes();
+							testRun.UpdateParentReasonsAndStats(config.SortedReasonConfigurations.Select(x=>x.Reason).ToList());
+							testRun.UpdateStats();
 							testRun.FilePath = htmlReport;
 							testRunGroup.TestRuns.Add(testRun);
 						}
@@ -195,7 +198,10 @@ namespace xBDD.Tools
 						testRunGroup.CalculatProperties(config.SortedReasonConfigurations.Select(x => x.Reason).ToList());
 
 						var html = testRunGroup.WriteToHtmlSummaryReport(config.TestRunGroupReport, config.SortedReasonConfigurations);
-						System.IO.File.WriteAllText(config.TestRunGroupReport.FileName, html);
+						System.IO.FileInfo file = new System.IO.FileInfo(config.TestRunGroupReport.FileName);
+						file.Directory.Create();
+
+						System.IO.File.WriteAllText(file.FullName, html);
 						return 0;
 					} catch (Exception ex) {
 						console.Error.WriteLine($"Error: {ex.Message}");

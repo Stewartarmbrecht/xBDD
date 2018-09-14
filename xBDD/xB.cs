@@ -156,7 +156,7 @@
 
             System.IO.Directory.CreateDirectory($"{directory}{config.TestRunReport.ReportFolder}");
 
-            xB.CurrentRun.TestRun.CalculatProperties(config.SortedReasonConfigurations.Select(x => x.Reason).ToList(), sortedFeatureNames);
+            xB.CurrentRun.TestRun.CalculateProperties(config.SortedReasonConfigurations.Select(x => x.Reason).ToList(), sortedFeatureNames);
 
             var htmlPath = $"{directory}{config.TestRunReport.ReportFolder}/{config.TestRunReport.FileName}.html";
             writeOutput("Writing Html Report to " + htmlPath);

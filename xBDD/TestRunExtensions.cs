@@ -217,6 +217,17 @@
         /// A parent that has both reasons will assume the reason with the highest precedent.</param>
         public static void UpdateParentReasonsAndStats(this xBDD.Model.TestRun testRun, List<string> sortedReasons)
         {
+			testRun.AreaReasonStats.Clear();
+			testRun.FeatureReasonStats.Clear();
+			testRun.ScenarioReasonStats.Clear();
+			testRun.Areas.ForEach(area => {
+				area.FeatureReasonStats.Clear();
+				area.ScenarioReasonStats.Clear();
+				area.Features.ForEach(feature => {
+					feature.ScenarioReasonStats.Clear();
+				});
+			});
+
             if(!sortedReasons.Contains("Failed"))
                 sortedReasons.Add("Failed");
 
@@ -232,10 +243,7 @@
 						case "Scenario Skipped":
 							// do nothing because reason would be set when the scenario was skipped.
 						break;
-						case "No Action":
-							scenario.Reason = "Failed";
-						break;
-						case "Exception Thrown":
+						case "Failed":
 							scenario.Reason = "Failed";
 						break;
 					}
@@ -443,7 +451,7 @@
         /// <param name="sortedFeatureFullNames">The list of feature full name sorted in the order they should appear.
         /// <param name="testRun">The test run group to update parent reasons and stats for.</param> 
         /// A parent that has both reasons will assume the reason with the highest precedent.</param>
-        public static void CalculatProperties(this xBDD.Model.TestRun testRun, List<string> sortedReasons, List<string> sortedFeatureFullNames)
+        public static void CalculateProperties(this xBDD.Model.TestRun testRun, List<string> sortedReasons, List<string> sortedFeatureFullNames)
         {
 			testRun.CalculateStartAndEndTimes();
 			testRun.UpdateParentReasonsAndStats(sortedReasons);

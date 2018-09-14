@@ -200,7 +200,7 @@ My Sample - Features - Test Run 6 Failed - Area 6 Failed [Failed]
 		Scenario 5 Skipped Defining [Defining]
 		Scenario 6 Failed [Failed]
 			Given Step 1 Passed [Passed]
-			When Step 2 Failed [Exception Thrown]
+			When Step 2 Failed [Failed]
 				Error Type: Exception
 				   Message: Exception of type 'System.Exception' was thrown.
 				     Stack:    at MySample.Features.TestRun6Failed.Area6Failed.Feature6Failed.<>c.<Scenario6Failed>b__5_1(Step s) in C:\Users\stearm01\source\xBDD\MySample\MySample.Features.TestRun6Failed\Features\Area6Failed\Feature6Failed.cs:line 94

@@ -9,10 +9,10 @@
 	"SortedReasonConfigurations": [
 		{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
 		{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
-		{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(112,48,160)"},
+		{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(15, 1, 26)"},
 		{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
-		{"Reason": "Ready","BackgroundColor": "rgb(157,195,230)","FontColor": "rgb(46,117,182)"},
-		{"Reason": "Defining","BackgroundColor": "rgb(222,235,247)","FontColor": "rgb(46,117,182)"},
+		{"Reason": "Ready","BackgroundColor": "rgb(101, 167, 227)","FontColor": "rgb(2, 20, 36)"},
+		{"Reason": "Defining","BackgroundColor": "rgb(146, 194, 238)","FontColor": "rgb(7, 36, 63)"},
 		{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
 	]
 }

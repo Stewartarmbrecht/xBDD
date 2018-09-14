@@ -86,6 +86,10 @@
         /// A parent that has both reasons will assume the reason with the highest precedent.</param>
         private static void UpdateParentReasonsAndStats(this xBDD.Model.TestRunGroup testRunGroup, List<string> sortedReasons)
         {
+			testRunGroup.TestRunReasonStats.Clear();
+			testRunGroup.AreaReasonStats.Clear();
+			testRunGroup.FeatureReasonStats.Clear();
+			testRunGroup.ScenarioReasonStats.Clear();
 
 			testRunGroup.TestRuns.ForEach(testRun => {
 				testRun.UpdateParentReasonsAndStats(sortedReasons);
@@ -99,6 +103,7 @@
                 .Distinct()
                 .Where(reason => !sortedReasons.Contains(reason) && reason != null)
                 .OrderBy(reason => reason)
+				.Distinct()
                 .ToList();
 
             sortedReasons.InsertRange(0,additionalReasons);
@@ -121,9 +126,11 @@
         }
 
 		private static void AddChildReasonStats(this Dictionary<string, int> reasonStats,  Dictionary<string, int> childReasonStats) {
-			foreach(string parentReason in reasonStats.Keys) {
-				if(childReasonStats.Keys.Contains(parentReason)) {
-					reasonStats[parentReason] = reasonStats[parentReason] + childReasonStats[parentReason];
+			foreach(string childReason in childReasonStats.Keys) {
+				if(reasonStats.Keys.Contains(childReason)) {
+					reasonStats[childReason] = reasonStats[childReason] + childReasonStats[childReason];
+				} else {
+					reasonStats.Add(childReason, childReasonStats[childReason]);
 				}
 			}
 		}

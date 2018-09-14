@@ -31,16 +31,12 @@ namespace xBDD.Reporting.Html
         public string WriteToHtmlSummaryReport(
 			TestRunGroup testRunGroup) 
 		{
-            testRunGroup.CalculatProperties(sortedReasonConfigurations.Select(x => x.Reason).ToList());
+            //testRunGroup.CalculatProperties(sortedReasonConfigurations.Select(x => x.Reason).ToList());
             StringBuilder sb = new StringBuilder();
             
-			hW.WriteHeader(sb);
-			hW.WriteBodyStart(sb);
-            hW.WriteNavBarStart(sb, false);
-            hW.WriteNavBarEnd(sb);
-			hW.WriteLineItem(sb, testRunGroup.GetHtmlReportLineItem(true), false, true, true);
-			hW.WriteBodyEnd(sb);
-            hW.WriteHtmlEnd(sb);
+			hW.WriteHeader(sb,false, null);
+			hW.WriteLineItem(sb, testRunGroup.GetHtmlReportLineItem(true), false, true, true, true);
+            hW.WriteFooter(sb);
             return sb.ToString();
         }
     }

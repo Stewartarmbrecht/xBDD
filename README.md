@@ -48,6 +48,10 @@ initial version of this platform is released.
 
 *__Note:__ Area, Feature, and Scenario names will expand when clicked.*
 
+### Sample
+
+* [My Sample Product](https://rawgit.com/Stewartarmbrecht/xBDD/master/MySample/test-results/MySample.TestSummary.GitHub.html) - A sample set of projects that cover all outcomes at all levels.
+
 ### SUMMARY
 
 * [xBDD Features Summary](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.Summary.GitHub.html) - Features for generating reports.
@@ -67,14 +71,6 @@ initial version of this platform is released.
 * [Streamlining API Testing](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.html) - Features for testing an API.
 
 * [Running Scenarios](https://rawgit.com/Stewartarmbrecht/xBDD/master/xBDD.Features.RunningScenarios/test-results/xBDD.Features.RunningScenarios.Results.html) - Features for running filtered sets of scenarios.
-
-### Sample
-
-* [MySample.Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/Legacy/MySample.Features/test-results/MySample.Features.Results.All.FullSorted.html) - Set of tests defined in a sample project used for testing xBDD.
-
-### Old Tests (to be replaced)
-
-* [Legacy Features](https://rawgit.com/Stewartarmbrecht/xBDD/master/Legacy/xBDD.Features/test-results/xBDD.Features.Results.html) - Old set of tests to be replaced by the following projects.  WARNING MULTIPLE FAILING TESTS WITH CAPTURED OUTPUT IS CAUSING EXTEMELY SLOW RESPONSE TIMES IN THE BROWSER.
 
 ## Getting Started
 

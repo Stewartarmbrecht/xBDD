@@ -66,7 +66,7 @@ namespace xBDD.Core
                                 step.EndTime = step.StartTime;
                                 step.Outcome = Outcome.Failed;
                                 step.Exception = ex;
-                                step.Reason = "No Action";
+                                step.Reason = "Failed";
                                 statsCascader.CascadeStepStats(step, false);
                                 throw ex; 
                             }

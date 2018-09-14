@@ -1,0 +1,42 @@
+{
+	"TestRunGroupReport": {
+		"ReportName": "xBDD - Features",
+		"FileName": "./test-results/xBDD.Features.Summary.html",
+		"RootNameSkip": "xBDD - ",
+		"TestRunConfigurations": [
+			{
+				"JsonFilePath": "./xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.json",
+				"TestRunUrl": "./../xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.html"
+			},
+			{
+				"JsonFilePath": "./xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.json",
+				"TestRunUrl": "./../xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.html"
+			},
+			{
+				"JsonFilePath": "./xBDD.Features.AutomatingUITesting/test-results/xBDD.Features.AutomatingUITesting.Results.json",
+				"TestRunUrl": "./../xBDD.Features.AutomatingUITesting/test-results/xBDD.Features.AutomatingUITesting.Results.html"
+			},
+			{
+				"JsonFilePath": "./xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.json",
+				"TestRunUrl": "./../xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.html"
+			},
+			{
+				"JsonFilePath": "./xBDD.Features.RunningScenarios/test-results/xBDD.Features.RunningScenarios.Results.json",
+				"TestRunUrl": "./../xBDD.Features.RunningScenarios/test-results/xBDD.Features.RunningScenarios.Results.html"
+			},
+			{
+				"JsonFilePath": "./xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.json",
+				"TestRunUrl": "./../xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.html"
+			}
+		]
+	},
+	"SortedReasonConfigurations": [
+		{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
+		{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
+		{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(15, 1, 26)"},
+		{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
+		{"Reason": "Ready","BackgroundColor": "rgb(101, 167, 227)","FontColor": "rgb(2, 20, 36)"},
+		{"Reason": "Defining","BackgroundColor": "rgb(146, 194, 238)","FontColor": "rgb(7, 36, 63)"},
+		{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
+	]
+}

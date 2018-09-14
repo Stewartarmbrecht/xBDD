@@ -4,122 +4,33 @@
    // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
    "version": "0.2.0",
    "configurations": [
-        {
-            "name": "My Sample Test Run 1 Passing Generate Project Code",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
-			"args": ["project","generate","MSTest"],
-            "cwd": "${workspaceFolder}/MySample.Features.TestRun1Passing/",
-            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
-            "console": "internalConsole",
-            "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart"
-        },
-        {
-            "name": "My Generated Sample Generate Project Code",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
-			"args": ["project","generate","MSTest"],
-            "cwd": "${workspaceFolder}/MyGeneratedSample.Features/",
-            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
-            "console": "internalConsole",
-            "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart"
-        },
-        {
-            "name": "xBDD Features Generating Code Generate Project Code",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
-			"args": ["project","generate","MSTest"],
-            "cwd": "${workspaceFolder}/xBDD.Features.GeneratingCode/",
-            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
-            "console": "internalConsole",
-            "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart"
-        },
-        {
-            "name": "My Sample Test Run 1 Passing",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
-            "args": ["convert",
-                "--source","./FeatureOutline.txt", 
-                "--source-format","Text",
-                "--text-indentation","\t",
-                "--default-outcome", "Passed",
-                "--destination","./", 
-                "--destination-format","Code", 
-                "--root-namespace","MySample.Features.TestRun1Passing",
-                "--features-only","False",
-                "--area-name-skip", "My Sample - Features - Test Run 1 Passing - ",
-                "--testrun-name", "My Sample - Test Run 1 Passing"
-            ],
-            "cwd": "${workspaceFolder}/MySample.Features.TestRun1Passing/",
-            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
-            "console": "internalConsole",
-            "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart"
-        },
-        {
-            "name": "My Sample Test Run 2 Skipped Untested",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
-            "args": ["convert",
-                "--source","./FeatureOutline.txt", 
-                "--source-format","Text",
-                "--text-indentation","\t",
-                "--default-outcome", "Passed",
-                "--destination","./", 
-                "--destination-format","Code", 
-                "--root-namespace","MySample.Features.TestRun2SkippedUntested",
-                "--features-only","False",
-                "--area-name-skip", "My Sample - Features - Test Run 2 Skipped Untested - ",
-                "--testrun-name", "My Sample - Test Run 2 Skipped Untested"
-            ],
-            "cwd": "${workspaceFolder}/MySample.Features.TestRun2SkippedUntested/",
-            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
-            "console": "internalConsole",
-            "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart"
-        },
-        {
-            "name": "My Sample Test Run 6 Failed",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
-            "args": ["convert",
-                "--source","./FeatureOutline.txt", 
-                "--source-format","Text",
-                "--text-indentation","\t",
-                "--default-outcome", "Passed",
-                "--destination","./", 
-                "--destination-format","Code", 
-                "--root-namespace","MySample.Features.TestRun6Failed",
-                "--features-only","False",
-                "--area-name-skip", "My Sample - Features - Test Run 6 Failed - ",
-                "--testrun-name", "My Sample Test Run 6 Failed"
-            ],
-            "cwd": "${workspaceFolder}/MySample.Features.TestRun6Failed/",
-            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
-            "console": "internalConsole",
-            "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart"
-        }
+		{
+			"name": "mysample-testsummary",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			// If you have changed target frameworks, make sure to update the program path.
+			"program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
+			"args": ["solution","summarize","--config-file", "xBDDConfig.json"],
+			"cwd": "${workspaceFolder}/MySample/",
+			// For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+			"console": "internalConsole",
+			"stopAtEntry": false,
+			"internalConsoleOptions": "openOnSessionStart"
+		},
+		{
+			"name": "xbdd-testsummary",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			// If you have changed target frameworks, make sure to update the program path.
+			"program": "${workspaceFolder}/xBDD.Tools/bin/Debug/netcoreapp2.1/dotnet-xbdd.dll",
+			"args": ["solution","summarize","--config-file", "LocalTestSummaryConfig.json"],
+			"cwd": "${workspaceFolder}/",
+			// For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+			"console": "internalConsole",
+			"stopAtEntry": false,
+			"internalConsoleOptions": "openOnSessionStart"
+		}
     ,]
 }

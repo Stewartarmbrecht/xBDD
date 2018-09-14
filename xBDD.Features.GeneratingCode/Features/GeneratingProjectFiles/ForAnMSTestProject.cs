@@ -153,8 +153,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 
 
 		[TestMethod]
-		[Explanation(@"
-			This is the default scenario expected for generating MS Project files.",3)]
+		[Explanation(@"This is the default scenario expected for generating MS Project files.",0)]
 		[Assignments("Stewart","John")]
 		[Tags("Something","SomethingElse")]
 		public async Task InAnEmptyDirectory() {

@@ -234,7 +234,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				}
 			And you will find the project execute tests with the 'dotnet test' command [Passed]
 				dotnet test
-			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Exception Thrown]
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Failed]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
 			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
@@ -292,7 +292,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
 			And you will find the project execute tests with the 'dotnet test' command [Passed]
 				dotnet test
-			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Exception Thrown]
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Failed]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
 			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json

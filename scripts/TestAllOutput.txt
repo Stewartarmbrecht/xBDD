@@ -1,0 +1,3680 @@
+Microsoft (R) Build Engine version 15.7.179.6572 for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restoring packages for C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj...
+  Restoring packages for C:\Users\stearm01\source\xBDD\xBDD.Tools\xBDD.Tools.csproj...
+  Generating MSBuild file C:\Users\stearm01\source\xBDD\xBDD.Tools\obj\xBDD.Tools.csproj.nuget.g.props.
+  Generating MSBuild file C:\Users\stearm01\source\xBDD\xBDD\obj\xBDD.csproj.nuget.g.props.
+  Restore completed in 1.44 sec for C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj.
+  Restore completed in 1.44 sec for C:\Users\stearm01\source\xBDD\xBDD.Tools\xBDD.Tools.csproj.
+TestRunExtensions.cs(454,1): warning CS1570: XML comment has badly formed XML -- 'Expected an end tag for element 'param'.' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\Html\HtmlWriter.cs(20,10): warning CS1591: Missing XML comment for publicly visible type or member 'HtmlWriter.HtmlWriter(List<ReportReasonConfiguration>, ITestRunReportConfiguration)' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ITestRunReportConfiguration.cs(3,19): warning CS1591: Missing XML comment for publicly visible type or member 'ITestRunReportConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ITestRunReportConfiguration.cs(5,10): warning CS1591: Missing XML comment for publicly visible type or member 'ITestRunReportConfiguration.ReportName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ITestRunReportConfiguration.cs(6,10): warning CS1591: Missing XML comment for publicly visible type or member 'ITestRunReportConfiguration.RootNameSkip' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ReportReasonConfiguration.cs(3,15): warning CS1591: Missing XML comment for publicly visible type or member 'ReportReasonConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ReportReasonConfiguration.cs(5,17): warning CS1591: Missing XML comment for publicly visible type or member 'ReportReasonConfiguration.Reason' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ReportReasonConfiguration.cs(6,17): warning CS1591: Missing XML comment for publicly visible type or member 'ReportReasonConfiguration.BackgroundColor' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ReportReasonConfiguration.cs(7,17): warning CS1591: Missing XML comment for publicly visible type or member 'ReportReasonConfiguration.FontColor' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(5,15): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(7,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration.ReportName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(8,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration.FileName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(9,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration.RootNameSkip' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(10,55): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration.TestRunConfigurations' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportTestRunConfiguration.cs(3,15): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportTestRunConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportTestRunConfiguration.cs(5,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportTestRunConfiguration.JsonFilePath' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportTestRunConfiguration.cs(6,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportTestRunConfiguration.TestRunUrl' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(7,15): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(9,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.ReportName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(10,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.ReportFolder' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(11,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.FileName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(12,15): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.FailuresOnly' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(13,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.RootNameSkip' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunExtensions.cs(162,36): warning CS1573: Parameter 'sortedReasons' has no matching param tag in the XML comment for 'TestRunExtensions.WriteToHtmlTestRunReport(TestRun, TestRunReportConfiguration, List<ReportReasonConfiguration>)' (but other parameters do) [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunExtensions.cs(462,49): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunExtensions.GetSortedReasons(TestRun, xBDDConfiguration)' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunGroupExtensions.cs(30,26): warning CS1572: XML comment has a param tag for 'testRunNameClip', but there is no parameter by that name [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunGroupExtensions.cs(33,36): warning CS1573: Parameter 'config' has no matching param tag in the XML comment for 'TestRunGroupExtensions.WriteToHtmlSummaryReport(TestRunGroup, TestRunGroupReportConfiguration, List<ReportReasonConfiguration>)' (but other parameters do) [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunGroupExtensions.cs(34,36): warning CS1573: Parameter 'sortedReasonConfigurations' has no matching param tag in the XML comment for 'TestRunGroupExtensions.WriteToHtmlSummaryReport(TestRunGroup, TestRunGroupReportConfiguration, List<ReportReasonConfiguration>)' (but other parameters do) [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunGroupExtensions.cs(162,28): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupExtensions.AddStats(OutcomeStats, OutcomeStats)' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(6,15): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(8,42): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.SortedReasonConfigurations' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(9,23): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.SortedFeatureNames' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(10,37): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.TestRunReport' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(11,42): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.TestRunGroupReport' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(13,42): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.StepReasonConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+  xBDD -> C:\Users\stearm01\source\xBDD\xBDD\bin\Release\netstandard2.0\xBDD.dll
+  Successfully created package 'C:\Users\stearm01\source\xBDD\xBDD\bin\Release\xBDD.0.0.8-alpha.nupkg'.
+  xBDD.Tools -> C:\Users\stearm01\source\xBDD\xBDD.Tools\bin\Release\netcoreapp2.1\dotnet-xbdd.dll
+  xBDD.Tools -> C:\Users\stearm01\source\xBDD\xBDD.Tools\bin\Release\netcoreapp2.1\publish\
+  Successfully created package 'C:\Users\stearm01\source\xBDD\xBDD.Tools\bin\Release\dotnet-xbdd.0.0.8-alpha.nupkg'.
+
+Build succeeded.
+
+TestRunExtensions.cs(454,1): warning CS1570: XML comment has badly formed XML -- 'Expected an end tag for element 'param'.' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\Html\HtmlWriter.cs(20,10): warning CS1591: Missing XML comment for publicly visible type or member 'HtmlWriter.HtmlWriter(List<ReportReasonConfiguration>, ITestRunReportConfiguration)' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ITestRunReportConfiguration.cs(3,19): warning CS1591: Missing XML comment for publicly visible type or member 'ITestRunReportConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ITestRunReportConfiguration.cs(5,10): warning CS1591: Missing XML comment for publicly visible type or member 'ITestRunReportConfiguration.ReportName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ITestRunReportConfiguration.cs(6,10): warning CS1591: Missing XML comment for publicly visible type or member 'ITestRunReportConfiguration.RootNameSkip' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ReportReasonConfiguration.cs(3,15): warning CS1591: Missing XML comment for publicly visible type or member 'ReportReasonConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ReportReasonConfiguration.cs(5,17): warning CS1591: Missing XML comment for publicly visible type or member 'ReportReasonConfiguration.Reason' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ReportReasonConfiguration.cs(6,17): warning CS1591: Missing XML comment for publicly visible type or member 'ReportReasonConfiguration.BackgroundColor' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ReportReasonConfiguration.cs(7,17): warning CS1591: Missing XML comment for publicly visible type or member 'ReportReasonConfiguration.FontColor' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(5,15): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(7,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration.ReportName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(8,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration.FileName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(9,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration.RootNameSkip' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(10,55): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration.TestRunConfigurations' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportTestRunConfiguration.cs(3,15): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportTestRunConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportTestRunConfiguration.cs(5,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportTestRunConfiguration.JsonFilePath' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportTestRunConfiguration.cs(6,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportTestRunConfiguration.TestRunUrl' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(7,15): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(9,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.ReportName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(10,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.ReportFolder' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(11,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.FileName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(12,15): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.FailuresOnly' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(13,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.RootNameSkip' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunExtensions.cs(162,36): warning CS1573: Parameter 'sortedReasons' has no matching param tag in the XML comment for 'TestRunExtensions.WriteToHtmlTestRunReport(TestRun, TestRunReportConfiguration, List<ReportReasonConfiguration>)' (but other parameters do) [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunExtensions.cs(462,49): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunExtensions.GetSortedReasons(TestRun, xBDDConfiguration)' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunGroupExtensions.cs(30,26): warning CS1572: XML comment has a param tag for 'testRunNameClip', but there is no parameter by that name [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunGroupExtensions.cs(33,36): warning CS1573: Parameter 'config' has no matching param tag in the XML comment for 'TestRunGroupExtensions.WriteToHtmlSummaryReport(TestRunGroup, TestRunGroupReportConfiguration, List<ReportReasonConfiguration>)' (but other parameters do) [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunGroupExtensions.cs(34,36): warning CS1573: Parameter 'sortedReasonConfigurations' has no matching param tag in the XML comment for 'TestRunGroupExtensions.WriteToHtmlSummaryReport(TestRunGroup, TestRunGroupReportConfiguration, List<ReportReasonConfiguration>)' (but other parameters do) [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunGroupExtensions.cs(162,28): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupExtensions.AddStats(OutcomeStats, OutcomeStats)' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(6,15): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(8,42): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.SortedReasonConfigurations' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(9,23): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.SortedFeatureNames' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(10,37): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.TestRunReport' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(11,42): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.TestRunGroupReport' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(13,42): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.StepReasonConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+    35 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:06.97
+Tool 'dotnet-xbdd' (version '0.0.8-alpha') was successfully uninstalled.
+You can invoke the tool using the following command: dotnet-xbdd
+Tool 'dotnet-xbdd' (version '0.0.8-alpha') was successfully installed.
+Build started, please wait...
+Build started, please wait...
+Build started, please wait...
+Build started, please wait...
+Build started, please wait...
+Build started, please wait...
+Build started, please wait...
+Build started, please wait...
+Build started, please wait...
+Build started, please wait...
+TestRunExtensions.cs(454,1): warning CS1570: XML comment has badly formed XML -- 'Expected an end tag for element 'param'.' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\Html\HtmlWriter.cs(20,10): warning CS1591: Missing XML comment for publicly visible type or member 'HtmlWriter.HtmlWriter(List<ReportReasonConfiguration>, ITestRunReportConfiguration)' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ITestRunReportConfiguration.cs(3,19): warning CS1591: Missing XML comment for publicly visible type or member 'ITestRunReportConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ITestRunReportConfiguration.cs(5,10): warning CS1591: Missing XML comment for publicly visible type or member 'ITestRunReportConfiguration.ReportName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ITestRunReportConfiguration.cs(6,10): warning CS1591: Missing XML comment for publicly visible type or member 'ITestRunReportConfiguration.RootNameSkip' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ReportReasonConfiguration.cs(3,15): warning CS1591: Missing XML comment for publicly visible type or member 'ReportReasonConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ReportReasonConfiguration.cs(5,17): warning CS1591: Missing XML comment for publicly visible type or member 'ReportReasonConfiguration.Reason' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ReportReasonConfiguration.cs(6,17): warning CS1591: Missing XML comment for publicly visible type or member 'ReportReasonConfiguration.BackgroundColor' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\ReportReasonConfiguration.cs(7,17): warning CS1591: Missing XML comment for publicly visible type or member 'ReportReasonConfiguration.FontColor' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(5,15): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(7,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration.ReportName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(8,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration.FileName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(9,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration.RootNameSkip' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportConfiguration.cs(10,55): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportConfiguration.TestRunConfigurations' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportTestRunConfiguration.cs(3,15): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportTestRunConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportTestRunConfiguration.cs(5,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportTestRunConfiguration.JsonFilePath' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunGroupReportTestRunConfiguration.cs(6,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupReportTestRunConfiguration.TestRunUrl' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(7,15): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(9,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.ReportName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(10,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.ReportFolder' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(11,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.FileName' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(12,15): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.FailuresOnly' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Reporting\TestRunReportConfiguration.cs(13,17): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunReportConfiguration.RootNameSkip' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunExtensions.cs(162,36): warning CS1573: Parameter 'sortedReasons' has no matching param tag in the XML comment for 'TestRunExtensions.WriteToHtmlTestRunReport(TestRun, TestRunReportConfiguration, List<ReportReasonConfiguration>)' (but other parameters do) [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunExtensions.cs(462,49): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunExtensions.GetSortedReasons(TestRun, xBDDConfiguration)' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunGroupExtensions.cs(30,26): warning CS1572: XML comment has a param tag for 'testRunNameClip', but there is no parameter by that name [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunGroupExtensions.cs(33,36): warning CS1573: Parameter 'config' has no matching param tag in the XML comment for 'TestRunGroupExtensions.WriteToHtmlSummaryReport(TestRunGroup, TestRunGroupReportConfiguration, List<ReportReasonConfiguration>)' (but other parameters do) [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunGroupExtensions.cs(34,36): warning CS1573: Parameter 'sortedReasonConfigurations' has no matching param tag in the XML comment for 'TestRunGroupExtensions.WriteToHtmlSummaryReport(TestRunGroup, TestRunGroupReportConfiguration, List<ReportReasonConfiguration>)' (but other parameters do) [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+TestRunGroupExtensions.cs(162,28): warning CS1591: Missing XML comment for publicly visible type or member 'TestRunGroupExtensions.AddStats(OutcomeStats, OutcomeStats)' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(6,15): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(8,42): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.SortedReasonConfigurations' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(9,23): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.SortedFeatureNames' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(10,37): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.TestRunReport' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(11,42): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.TestRunGroupReport' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+xBDDConfiguration.cs(13,42): warning CS1591: Missing XML comment for publicly visible type or member 'xBDDConfiguration.StepReasonConfiguration' [C:\Users\stearm01\source\xBDD\xBDD\xBDD.csproj]
+Build completed.
+
+Test run for C:\Users\stearm01\source\xBDD\xBDD\bin\Debug\netstandard2.0\xBDD.dll(.NETStandard,Version=v2.0)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+
+Build completed.
+
+Test run for C:\Users\stearm01\source\xBDD\xbdd.features.common\bin\Debug\netstandard2.0\xBDD.Features.Common.dll(.NETStandard,Version=v2.0)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+Build completed.
+
+Test run for C:\Users\stearm01\source\xBDD\xBDD.Features.RunningScenarios\bin\Debug\netcoreapp2.1\xBDD.Features.RunningScenarios.dll(.NETCoreApp,Version=v2.1)
+Build completed.
+
+Test run for C:\Users\stearm01\source\xBDD\xBDD.Features.DefiningFeatures\bin\Debug\netcoreapp2.1\xBDD.Features.DefiningFeatures.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+
+Starting test execution, please wait...
+Build completed.
+
+Test run for C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\xBDD.Features.GeneratingCode.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+Skipped  RunningAllScenarios
+Skipped  RunningScenariosFilteredByMSTestTestCateogry
+Skipped  RunningScenariosFilteredByAreaName
+Skipped  RunningScenariosFilteredByFeatureName
+Skipped  RunningScenariosFilteredByScenarioName
+Skipped  RunningScenariosFilteredByAssignment
+Skipped  RunningScenariosFilteredByTag
+Skipped  RunningScenariosFilteredByReason
+Skipped  RunningASingleScenario
+Skipped  ToDefining
+Skipped  ToReady
+Skipped  ToBuilding
+Skipped  ToDefining
+Skipped  ToReady
+Skipped  ToCommitted
+Skipped  DebuggingASingleScenario
+Skipped  DocumentingScenariosAndSkippingScenarioExecutionWhenRunningTests
+Skipped  ToUntested
+
+Total tests: 11. Passed: 0. Failed: 0. Skipped: 11.
+Test Run Successful.
+Test execution time: 2.4826 Seconds
+Skipped  ToFailing
+Skipped  ToBlocked
+Skipped  ToFixing
+Skipped  ToBuilt
+Skipped  ToDeployed
+Skipped  ToExecuting
+Skipped  ToDeprecated
+Skipped  SettingASingleOwner
+Skipped  SettingMultipleOwners
+Skipped  SettingASingleOwner
+Skipped  SettingMultipleOwners
+Skipped  ViaAnAttribute
+Skipped  ThatIsUnique
+Skipped  ThatIsNotUnique
+Skipped  ThatIsAnEmptyString
+Skipped  AddingASynchronousStep
+Skipped  AddingAnAsynchronousStep
+Skipped  AddingAReusableStep
+Skipped  WhenCreatingTheStep
+Skipped  WhenExecutingTheStep
+Skipped  WhenExecutingAStep
+Skipped  ObjectRefereneces
+Skipped  LiteralValues
+Skipped  WithSteps
+Skipped  WithoutSteps
+Skipped  UsingAVSCodeSnippet
+Skipped  WhenCreatingAScenario
+Skipped  WhenCreatingAFeature
+Skipped  SettingTheSortOnAllScenarios
+Skipped  SettingTheSortOnNoneOfTheScenarios
+Skipped  SettingTheSortOnSomeOfTheScenarios
+Skipped  WithScenarios
+Skipped  WithoutScenarios
+Skipped  WithAVSCodeSnippet
+Skipped  UsingABaseClass
+Skipped  WhenAddingAScenario
+Skipped  ViaAnAttribute
+Skipped  UsingStandardAttributes
+Skipped  UsingASingleAttribute
+Skipped  ViaCode
+Skipped  ViaAnEnvironmentVariable
+Skipped  WhenCreatingAScenario
+Skipped  ForASingleFeatureViaAttribute
+Skipped  ForANamespace
+Skipped  InCode
+Skipped  ViaAnAttribute
+Skipped  ViaCode
+Skipped  ViaAnAssemblyAttribute
+Skipped  InCode
+Skipped  ViaAnAttribute
+Skipped  ViaCode
+Skipped  ViaAnAssemblyAttribute
+Skipped  ViaAnAttributeWithInlineText
+Skipped  ViaAnAttributeWithAFileReference
+Skipped  UsingPlainText
+Skipped  UsingMarkdown
+Skipped  ViaAnAttributeWithInlineText
+Skipped  ViaAnAttributeWithAFileReference
+Skipped  UsingPlainText
+Skipped  UsingMarkdown
+Skipped  UsingPlainText
+Skipped  UsingMarkdown
+Skipped  StraightTexts
+Skipped  LeveragingMarkdown
+Skipped  AddingReferenecesToOtherFeatures
+Skipped  AddingReferenecesToOtherScenarios
+Skipped  ViaAnAttributeWithInlineText
+Skipped  ViaAnAttributeWithAFileReference
+Skipped  UsingPlainText
+Skipped  UsingMarkdown
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+
+Total tests: 81. Passed: 0. Failed: 0. Skipped: 81.
+Test Run Successful.
+Test execution time: 2.8894 Seconds
+Build completed.
+
+Test run for C:\Users\stearm01\source\xBDD\xBDD.Features.AutomatingUITesting\bin\Debug\netcoreapp2.1\xBDD.Features.AutomatingUITesting.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+Build completed.
+
+Test run for C:\Users\stearm01\source\xBDD\xBDD.Test\bin\Debug\netcoreapp2.1\xBDD.Test.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+Skipped  WithNoProjects
+Skipped  WithAnExistingProjectThatHasModifiedProjectFiles
+Skipped  WithSuccess
+Skipped  WithCustomStepName
+Skipped  WithSpecificWaitTime
+Skipped  WithPageCapturedAsOutput
+Skipped  WithElementScreenshotCapturedAsOutput
+Skipped  WithFailure
+Skipped  WithSuccess
+Skipped  WithCustomStepName
+Skipped  WithSpecificWaitTime
+Skipped  WithPageCapturedAsOutput
+Skipped  WithElementScreenshotCapturedAsOutput
+Skipped  WithFailure
+Skipped  WithSuccess
+Skipped  WithCustomStepName
+Skipped  WithSpecificWaitTime
+Skipped  WithPageCapturedAsOutput
+Skipped  WithElementScreenshotCapturedAsOutput
+Skipped  WithFailure
+Skipped  WithSuccess
+Skipped  WithCustomStepName
+Skipped  WithSpecificWaitTime
+Skipped  WithPageCapturedAsOutput
+Skipped  WithElementScreenshotCapturedAsOutput
+Skipped  WithFailure
+Skipped  WithSuccess
+Skipped  WithCustomStepName
+Skipped  WithSpecificWaitTime
+Skipped  WithPageCapturedAsOutput
+Skipped  WithFailure
+Skipped  WithSuccess
+Skipped  WithCustomStepName
+Skipped  WithSpecificWaitTime
+Skipped  WithPageCapturedAsOutput
+Skipped  WithElementScreenshotCapturedAsOutput
+Skipped  WithFailure
+Skipped  Successful
+Skipped  Unsuccessful
+Skipped  Successful
+Skipped  Unsuccessful
+Skipped  ToUseNewBrowserSessionsForEachScenario
+Skipped  ToUseTheSameBrowserSessionForAllScenarios
+Skipped  WithSpecificSizeSettingOnTheBrowserWindow
+Skipped  ToAValidURL
+Skipped  ToAnInvalidURL
+Skipped  WhenNoInternetConnection
+Skipped  ToAValidFile
+Skipped  ToANonHtmlTextFile
+Skipped  ToABinaryFile
+Skipped  ToAMissingFile
+Skipped  WhenVisible
+Skipped  WhenDoesNotExist
+Skipped  WhenNotVisible
+Skipped  WhenNotAValidInput
+Skipped  ToAValidInput
+Skipped  ToAnInvalidInput
+Skipped  ToAValidInput
+Skipped  ToAnInvalidInput
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  WhenVisible
+Skipped  WhenDoesNotExist
+Skipped  WhenNotVisible
+Skipped  MakeImpossible
+Skipped  WithSuccess
+Skipped  WithSpecificWaitTime
+Skipped  WithFailedCondition
+Skipped  WhenVisible
+Skipped  WhenDoesNotExist
+Skipped  WhenNotVisible
+Skipped  WithSuccess
+Skipped  WithSpecificWaitTime
+Skipped  WithFailedCondition
+Skipped  WithSuccess
+Skipped  WithFailure
+Skipped  WithSuccess
+Skipped  WithFailure
+Skipped  WithSuccess
+Skipped  WithFailure
+Skipped  WhenVisible
+Skipped  WhenDoesNotExist
+Skipped  WhenNotVisible
+Skipped  WithSuccess
+Skipped  WithSpecificWaitTime
+Skipped  WithFailedCondition
+Skipped  WithSuccess
+Skipped  WithFailure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+Skipped  Successful
+Skipped  Failure
+
+Total tests: 120. Passed: 0. Failed: 0. Skipped: 120.
+Test Run Successful.
+Test execution time: 3.6285 Seconds
+Failed   AllPassing
+Error Message:
+ Assert.AreEqual failed. Expected:<Passed>. Actual:<(null)>. 
+Stack Trace:
+   at xBDD.Test.ReasonUpdateTest.ValidateTestResuls(TestRun tr, Dictionary`2 statsOverrides, Dictionary`2 reasonOverrides) in C:\Users\stearm01\source\xBDD\xBDD.Test\Core\ReasonUpdateTest.cs:line 140
+   at xBDD.Test.ReasonUpdateTest.AllPassing() in C:\Users\stearm01\source\xBDD\xBDD.Test\Core\ReasonUpdateTest.cs:line 31
+
+Standard Output Messages:
+ 
+
+Debug Trace:
+Scenario 010101
+     Given Step01010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010102
+     Given Step01010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010103
+     Given Step01010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010201
+     Given Step01020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010202
+     Given Step01020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010203
+     Given Step01020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010301
+     Given Step01030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010302
+     Given Step01030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010303
+     Given Step01030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020101
+     Given Step02010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020102
+     Given Step02010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020103
+     Given Step02010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020201
+     Given Step02020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020202
+     Given Step02020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020203
+     Given Step02020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020301
+     Given Step02030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020302
+     Given Step02030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020303
+     Given Step02030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030101
+     Given Step03010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030102
+     Given Step03010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030103
+     Given Step03010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030201
+     Given Step03020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030202
+     Given Step03020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030203
+     Given Step03020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030301
+     Given Step03030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030302
+     Given Step03030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030303
+     Given Step03030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030303
+         This 
+         is 
+         multiline 
+         text.
+
+
+Failed   OneFailingFirstStepTest
+Error Message:
+ Assert.IsTrue failed. 
+Stack Trace:
+   at xBDD.Test.ReasonUpdateTest.ValidateStats(Dictionary`2 stats, Dictionary`2 statsExpect) in C:\Users\stearm01\source\xBDD\xBDD.Test\Core\ReasonUpdateTest.cs:line 215
+   at xBDD.Test.ReasonUpdateTest.ValidateTestResuls(TestRun tr, Dictionary`2 statsOverrides, Dictionary`2 reasonOverrides) in C:\Users\stearm01\source\xBDD\xBDD.Test\Core\ReasonUpdateTest.cs:line 146
+   at xBDD.Test.ReasonUpdateTest.OneFailingFirstStepTest() in C:\Users\stearm01\source\xBDD\xBDD.Test\Core\ReasonUpdateTest.cs:line 113
+
+Standard Output Messages:
+ 
+
+Debug Trace:
+Scenario 010103
+     Given Step01010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010203
+     Given Step01020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010303
+     Given Step01030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020102
+     Given Step02010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020103
+     Given Step02010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020202
+     Given Step02020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020203
+     Given Step02020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020302
+     Given Step02030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020303
+     Given Step02030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030101
+     Given Step03010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030102
+     Given Step03010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030103
+     Given Step03010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030201
+     Given Step03020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030202
+     Given Step03020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030203
+     Given Step03020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030301
+     Given Step03030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030302
+     Given Step03030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030303
+     Given Step03030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030303
+         This 
+         is 
+         multiline 
+         text.
+
+
+Failed   AllPassing
+Error Message:
+ Assert.AreEqual failed. Expected:<Skipped>. Actual:<Passed>. 
+Stack Trace:
+   at xBDD.Test.StatsCascaderTest.ValidateTestResuls(TestRun tr, Dictionary`2 statsOverrides, Dictionary`2 outcomeOverrides) in C:\Users\stearm01\source\xBDD\xBDD.Test\Core\StatsCascaderTest.cs:line 82
+   at xBDD.Test.StatsCascaderTest.AllPassing() in C:\Users\stearm01\source\xBDD\xBDD.Test\Core\StatsCascaderTest.cs:line 26
+
+Standard Output Messages:
+ 
+
+Debug Trace:
+Scenario 010101
+     Given Step01010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010102
+     Given Step01010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010103
+     Given Step01010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010201
+     Given Step01020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010202
+     Given Step01020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010203
+     Given Step01020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010301
+     Given Step01030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010302
+     Given Step01030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010303
+     Given Step01030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020101
+     Given Step02010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020102
+     Given Step02010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020103
+     Given Step02010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020201
+     Given Step02020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020202
+     Given Step02020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020203
+     Given Step02020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020301
+     Given Step02030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020302
+     Given Step02030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020303
+     Given Step02030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030101
+     Given Step03010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030102
+     Given Step03010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030103
+     Given Step03010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030201
+     Given Step03020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030202
+     Given Step03020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030203
+     Given Step03020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030301
+     Given Step03030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030302
+     Given Step03030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030303
+     Given Step03030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030303
+         This 
+         is 
+         multiline 
+         text.
+
+
+Failed   OneFailingFirstStepTest
+Error Message:
+ Assert.AreEqual failed. Expected:<Skipped>. Actual:<Failed>. 
+Stack Trace:
+   at xBDD.Test.StatsCascaderTest.ValidateTestResuls(TestRun tr, Dictionary`2 statsOverrides, Dictionary`2 outcomeOverrides) in C:\Users\stearm01\source\xBDD\xBDD.Test\Core\StatsCascaderTest.cs:line 82
+   at xBDD.Test.StatsCascaderTest.OneFailingFirstStepTest() in C:\Users\stearm01\source\xBDD\xBDD.Test\Core\StatsCascaderTest.cs:line 59
+
+Standard Output Messages:
+ 
+
+Debug Trace:
+Scenario 010101
+     Given Step01010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010102
+     Given Step01010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010103
+     Given Step01010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010201
+     Given Step01020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010202
+     Given Step01020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010203
+     Given Step01020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010301
+     Given Step01030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010302
+     Given Step01030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010303
+     Given Step01030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020101
+     Given Step02010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020102
+     Given Step02010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020103
+     Given Step02010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020201
+     Given Step02020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020202
+     Given Step02020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020203
+     Given Step02020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020301
+     Given Step02030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020302
+     Given Step02030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020303
+     Given Step02030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030101
+     Given Step03010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030102
+     Given Step03010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030103
+     Given Step03010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030201
+     Given Step03020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030202
+     Given Step03020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030203
+     Given Step03020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030301
+     Given Step03030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030302
+     Given Step03030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030303
+     Given Step03030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030303
+         This 
+         is 
+         multiline 
+         text.
+
+
+Failed   AllPassing
+Error Message:
+ Test method xBDD.Test.TextImporterTest.AllPassing threw exception: 
+xBDD.TextImportException: An area is defined with invalid characters in the name.
+Line 3: 'Area 01 [Defining]'
+Explanation: An area name must start with a letter and can only contain
+             letters, numbers, spaces, underscores, and ' - '.
+             The ' - ' string is converted to '.' to define the features 
+             namespace in the test project.
+Stack Trace:
+    at xBDD.Importing.Text.TextImporter.GetLineContent(String line, LineType lineType, Int32 lineNumber) in C:\Users\stearm01\source\xBDD\xBDD\Importing\Text\TextImporter.cs:line 396
+   at xBDD.Importing.Text.TextImporter.ProcessLines(String[] lines) in C:\Users\stearm01\source\xBDD\xBDD\Importing\Text\TextImporter.cs:line 638
+   at xBDD.Importing.Text.TextImporter.ImportText(String text, String indentationKey, String rootNamespace, String defaultOutcome, String defaultReason) in C:\Users\stearm01\source\xBDD\xBDD\Importing\Text\TextImporter.cs:line 519
+   at xBDD.Test.TextImporterTest.AllPassing() in C:\Users\stearm01\source\xBDD\xBDD.Test\Importing\TextImporterTest.cs:line 24
+
+Standard Output Messages:
+ 
+
+Debug Trace:
+Scenario 010101
+     Given Step01010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010102
+     Given Step01010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010103
+     Given Step01010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010201
+     Given Step01020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010202
+     Given Step01020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010203
+     Given Step01020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010301
+     Given Step01030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010302
+     Given Step01030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 010303
+     Given Step01030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step01030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step01030303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020101
+     Given Step02010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020102
+     Given Step02010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020103
+     Given Step02010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020201
+     Given Step02020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020202
+     Given Step02020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020203
+     Given Step02020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020301
+     Given Step02030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020302
+     Given Step02030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 020303
+     Given Step02030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step02030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step02030303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030101
+     Given Step03010101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030102
+     Given Step03010201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030103
+     Given Step03010301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03010302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03010303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030201
+     Given Step03020101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030202
+     Given Step03020201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030203
+     Given Step03020301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03020302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03020303
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030301
+     Given Step03030101
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030102
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030103
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030302
+     Given Step03030201
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030202
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030203
+         This 
+         is 
+         multiline 
+         text.
+ Scenario 030303
+     Given Step03030301
+         This 
+         is 
+         multiline 
+         text.
+     When Step03030302
+         This 
+         is 
+         multiline 
+         text.
+     Then Step03030303
+         This 
+         is 
+         multiline 
+         text.
+
+
+
+Total tests: 9. Passed: 4. Failed: 5. Skipped: 0.
+Test execution time: 3.1903 Seconds
+Build completed.
+
+Test run for C:\Users\stearm01\source\xBDD\xBDD.Features.StreamliningAPITesting\bin\Debug\netcoreapp2.1\xBDD.Features.StreamliningAPITesting.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  WithAJSONResponse
+Skipped  WithAnXMLResponse
+Skipped  WithATextResponse
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+Skipped  Placeholder
+
+Total tests: 18. Passed: 0. Failed: 0. Skipped: 18.
+Test Run Successful.
+Test execution time: 1.9742 Seconds
+Failed   InAnEmptyDirectory
+Error Message:
+ Test method xBDD.Features.GeneratingCode.GeneratingProjectFiles.ForAnMSTestProject.InAnEmptyDirectory threw exception: 
+xBDD.StepException: The step 'you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.' threw a 'DirectoryNotFoundException' exception with a message: 'Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\test-results\MyGeneratedSample.Features.Results.html'.'. See the inner exception for details. ---> System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\test-results\MyGeneratedSample.Features.Results.html'.
+Stack Trace:
+    at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at xBDD.Features.Common.Developer.<>c__DisplayClass7_0.<WillFind>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 144
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 48
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 25
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 73
+   at xBDD.Core.ScenarioBuilder.Run() in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 312
+   at xBDD.Features.GeneratingCode.GeneratingProjectFiles.ForAnMSTestProject.InAnEmptyDirectory() in C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\Features\GeneratingProjectFiles\ForAnMSTestProject.cs:line 160
+
+Standard Output Messages:
+ In An Empty Directory
+     Given you have an empty directory
+     When you run the command:
+         dotnet xbdd project generate MSTest
+     Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template:
+         <Project Sdk="Microsoft.NET.Sdk">
+ 
+         	<PropertyGroup>
+         		<TargetFramework>netcoreapp2.1</TargetFramework>
+         		<IsPackable>false</IsPackable>
+         	</PropertyGroup>
+ 
+         	<ItemGroup>
+         		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+         		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
+         		<PackageReference Include="Microsoft.Net.Test.Sdk" Version="15.8.0" />
+         		<PackageReference Include="MSTEst.TestAdapter" Version="1.3.2" />
+         		<PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />
+         		<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />
+         		<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />
+         		<PackageReference Include="xBDD" Version="0.0.8-alpha" />
+         	</ItemGroup>
+ 
+         	<ItemGroup>
+         		<None Update="xBDDConfig.json" CopyToOutputDirectory="PreserveNewest" />
+         	</ItemGroup>
+ 
+         </Project>
+     And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template:
+         <Project Sdk="Microsoft.NET.Sdk">
+ 
+         	<PropertyGroup>
+         		<TargetFramework>netcoreapp2.1</TargetFramework>
+         		<IsPackable>false</IsPackable>
+         	</PropertyGroup>
+ 
+         	<ItemGroup>
+         		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+         		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
+         		<PackageReference Include="Microsoft.Net.Test.Sdk" Version="15.8.0" />
+         		<PackageReference Include="MSTEst.TestAdapter" Version="1.3.2" />
+         		<PackageReference Include="MSTEst.TestFramework" Version="1.3.2" />
+         		<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.41.0" />
+         		<PackageReference Include="Selenium.WebDriver" Version="3.14.0" />
+         		<PackageReference Include="xBDD" Version="0.0.8-alpha" />
+         	</ItemGroup>
+ 
+         	<ItemGroup>
+         		<None Update="xBDDConfig.json" CopyToOutputDirectory="PreserveNewest" />
+         	</ItemGroup>
+ 
+         </Project>
+     And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
+         {
+         	"xBDD": {
+         		"TestRunName": "My Generated Sample - Features",
+         		"Browser": {
+         			"Watch": "false"
+         		},
+         		"HtmlReport": {
+         			"RemoveFromAreaNameStart": "My Generated Sample - Features - ",
+         			"FailuresOnly": "false"
+         		}
+         	}
+         }
+     And you will find a file at './MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs' that matches the template:
+         namespace MyGeneratedSample.Features
+         {
+         	using xBDD;
+         	using Microsoft.VisualStudio.TestTools.UnitTesting;
+         	using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
+ 
+ 
+         	public partial class xBDDFeatureBase: IFeature, IOutputWriter
+         	{
+         		public IOutputWriter OutputWriter { get { return this; } }
+ 
+         		public void WriteLine(string text) {
+         			text = text.Replace("{", "{{").Replace("}","}}");
+         			Logger.LogMessage(text);
+         		}
+         	}
+         }
+     And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template:
+         MyImportedArea1
+         	MyImportedFeature
+         		MyImportedScenario #R-Ready
+         			Given you have the xbdd tools installed
+         			And you have an xBDDFeatureImport.txt file defined in the root of the project
+         			When you execute 'dotnet xbdd project generate MSTest'
+         			Then a new feature will be defined in the project with two partial class files
+         			And you can finish the import by moving the scenarios from the feature.xbdd.cs file to the feature.cs file
+         			And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature
+     And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template:
+         namespace MyGeneratedSample.Features
+         {
+         	using Microsoft.VisualStudio.TestTools.UnitTesting;
+         	using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
+         	using xBDD;
+ 
+         	[TestClass]
+         	public class TestSetupAndBreakdown
+         	{
+ 
+         		[AssemblyInitialize]
+         		public static void TestRunStart(TestContext context)
+         		{
+         			xB.Initialize();
+         		}
+         		[AssemblyCleanup()]
+         		public static void TestRunComplete()
+         		{
+         			xB.Complete("MyGeneratedSample.Features", new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+         		}
+         	}
+         }
+     And you will find a file at './MyGeneratedSample.Features/xBDDSorting.cs' that matches the template:
+         namespace MyGeneratedSample.Features
+         {
+         	using System;
+         	using System.Collections.Generic;
+         	using xBDD;
+ 
+         	public partial class xBDDSorting: ISorting
+         	{
+         		public List<string> GetSortedFeatureNames() {
+         			return new List<string>() {
+         				typeof(MyGeneratedSample.Features.MyArea.MyFeature).FullName,
+         			};
+         		}
+         		public List<string> GetSortedReasons() {
+         			return new List<string>() {
+         				"Removing",
+         				"Untested",
+         				"Committed",
+         				"Ready",
+         				"Defining",
+         			};
+         		}
+         	}
+         }
+     And you will find a file at './MyGeneratedSample.Features/xBDDSorting.xbdd.cs' that matches the template:
+         namespace MyGeneratedSample.Features
+         {
+         	using System;
+         	using System.Collections.Generic;
+         	using xBDD;
+ 
+         	public partial class xBDDSorting: ISorting
+         	{
+         		public List<string> GetGeneratedSortedFeatureNames() {
+         			return new List<string>() {
+         				typeof(MyGeneratedSample.Features.MyArea.MyFeature).FullName,
+         			};
+         		}
+         		public List<string> GetGeneratedReasons() {
+         			return new List<string>() {
+         				"Removing",
+         				"Untested",
+         				"Committed",
+         				"Ready",
+         				"Defining",
+         			};
+         		}
+         	}
+         }
+     And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template:
+         namespace MyGeneratedSample.Features.MyArea
+         {
+         	using Microsoft.VisualStudio.TestTools.UnitTesting;
+         	using System;
+         	using System.Threading.Tasks;
+         	using xBDD;
+         	using xBDD.Utility;
+ 
+         	[TestClass]
+         	[AsA("sample user")]
+         	[YouCan("have my feature value")]
+         	[By("execute my feature")]
+         	[Explanation(@"
+         		# My Explanation
+         		This is a
+         		multiline explanation of the feature.
+         		**And it uses markdown!**")]
+         	public partial class MyFeature: xBDDFeatureBase
+         	{
+ 
+         		[TestMethod]
+         		[Explanation("This is an explanation of the scenario.")]
+         		public async Task MyScenario()
+         		{
+         			await xB.CurrentRun.AddScenario(this, 1)
+         				.Given("my step 1", (s) => { 
+ 
+         					//Add code to perform action.
+ 
+         				})
+         				.When("my step 2 with multiline input", (s) => { 
+ 
+         					//Add code to perform action.
+ 
+         					}, @"
+         						Here 
+         						is 
+         						my 
+         						Input!".RemoveIndentation(6, true), TextFormat.text
+         				)
+         				.And("my step 3 with an explanation", (s) => { 
+ 
+         					//Add code to perform action.
+ 
+         					}, null, TextFormat.text, @"
+         						# Step 3 Explanation 
+         						This is a multiline explanation of 
+         						Step 3.  It uses markdown.  It will
+         						be printed out along with the step name in the
+         						html report."
+         				)
+         				.Then("my step 3 with output", (s) => { 
+ 
+         					//Add code to perform action.
+ 
+         					s.Output = "Here is my output.";
+         					s.OutputFormat = TextFormat.text;
+ 
+         				})
+         				.Run();
+         		}
+         	}
+         }
+     And you will find the project execute tests with the 'dotnet test' command
+         dotnet test
+     And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
+         ./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
+     And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'.
+         ./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
+     And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'.
+         ./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
+     And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'.
+         ./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
+     And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.
+         ./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
+
+
+Failed   InAnInitializedXBDD
+Error Message:
+ Test method xBDD.Features.GeneratingCode.GeneratingProjectFiles.ForAnMSTestProject.InAnInitializedXBDD threw exception: 
+xBDD.StepException: The step 'you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.' threw a 'DirectoryNotFoundException' exception with a message: 'Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\test-results\MyGeneratedSample.Features.Results.html'.'. See the inner exception for details. ---> System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\test-results\MyGeneratedSample.Features.Results.html'.
+Stack Trace:
+    at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at xBDD.Features.Common.Developer.<>c__DisplayClass7_0.<WillFind>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 144
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 48
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 25
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 73
+   at xBDD.Core.ScenarioBuilder.Run() in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 312
+   at xBDD.Features.GeneratingCode.GeneratingProjectFiles.ForAnMSTestProject.InAnInitializedXBDD() in C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\Features\GeneratingProjectFiles\ForAnMSTestProject.cs:line 250
+
+Standard Output Messages:
+ In An Initialized XBDD
+     Given you have an empty directory
+     When you run the command:
+         dotnet xbdd project generate MSTest
+     And you modify all the standard project files
+         MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+         MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+         MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+         MyGeneratedSample.Features/xBddSorting.cs,
+         MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+         MyGeneratedSample.Features/xBddConfig.json,
+         MyGeneratedSample.Features/xBddFeatureImport.txt,
+         MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+         MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
+     When you run the command:
+         dotnet xbdd project generate MSTest
+     Then you will find the files ending in xbdd.[ext] or xbdd are overwritten
+         MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+         MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+         MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+         MyGeneratedSample.Features/xBddSorting.cs,
+         MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+         MyGeneratedSample.Features/xBddConfig.json,
+         MyGeneratedSample.Features/xBddFeatureImport.txt,
+         MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+         MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
+     And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten
+         MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+         MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+         MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+         MyGeneratedSample.Features/xBddSorting.cs,
+         MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+         MyGeneratedSample.Features/xBddConfig.json,
+         MyGeneratedSample.Features/xBddFeatureImport.txt,
+         MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+         MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
+     And you will find the sample feature file is not modified because the xbdd backlog file already exists
+         MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+         MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+         MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+         MyGeneratedSample.Features/xBddSorting.cs,
+         MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+         MyGeneratedSample.Features/xBddConfig.json,
+         MyGeneratedSample.Features/xBddFeatureImport.txt,
+         MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+         MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
+     And you will find the project execute tests with the 'dotnet test' command
+         dotnet test
+     And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
+         ./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
+     And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'.
+         ./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
+     And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'.
+         ./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
+     And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'.
+         ./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
+     And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.
+         ./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
+
+
+
+Total tests: 79. Passed: 75. Failed: 2. Skipped: 2.
+Test execution time: 19.7237 Seconds
+Build completed.
+
+Test run for C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1\xBDD.Features.GeneratingReports.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+Build completed.
+
+Test run for C:\Users\stearm01\source\xBDD\xBDD.Tools\bin\Debug\netcoreapp2.1\dotnet-xbdd.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 15.7.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+
+Skipped  WithFullArea
+Skipped  WithAreaNameClipping
+Skipped  WithAreaNameEmpty
+Skipped  WithAreaExplanationEmpty
+Skipped  WithNoFeatures
+Skipped  WithFeatures
+Skipped  WithFullFeature
+Skipped  WithFeatureNameEmpty
+Skipped  WithFeatureExplanationEmpty
+Skipped  WithNoScenarios
+Skipped  WithScenarios
+Skipped  WithFullTestRun
+Skipped  WithEmptyTestRun
+Skipped  WithNoScenarios
+Skipped  WithNoTestsInTheProject
+Skipped  WithTestFiltering
+Skipped  WithXBDDTestRunFiltering
+Skipped  WithFullScenario
+Skipped  WithScenarioNameEmpty
+Skipped  WithScenarioExplanationEmpty
+Skipped  WithNoSteps
+Skipped  WithSteps
+Skipped  WithFullStep
+Skipped  WithStepNameEmpty
+Skipped  WithStepExplanationEmpty
+Skipped  WithStepInputEmpty
+Skipped  WithStepOutputEmpty
+Skipped  WithStepException
+Skipped  WithStepInnerException
+Skipped  WithFullTestRun
+Skipped  WithNoTestRunName
+Skipped  WithTestRunExplanationEmpty
+Skipped  WithNoAreas
+Skipped  WithAreas
+Skipped  WithFullArea
+Skipped  WithAreaNameClipping
+Skipped  WithAreaNameEmpty
+Skipped  WithAreaExplanationEmpty
+Skipped  WithNoFeatures
+Skipped  WithFeatures
+Skipped  WithFullFeature
+Skipped  WithFeatureNameEmpty
+Skipped  WithFeatureExplanationEmpty
+Skipped  WithNoScenarios
+Skipped  WithScenarios
+Skipped  WithFullTestRun
+Skipped  WithEmptyTestRun
+Skipped  WithNoScenarios
+Skipped  WithNoTestsInTheProject
+Skipped  WithTestFiltering
+Skipped  WithXBDDTestRunFiltering
+Skipped  WithFullScenario
+Skipped  WithScenarioNameEmpty
+Skipped  WithScenarioExplanationEmpty
+Skipped  WithNoSteps
+Skipped  WithSteps
+Skipped  WithFullStep
+Skipped  WithStepNameEmpty
+Skipped  WithStepExplanationEmpty
+Skipped  WithStepInputEmpty
+Skipped  WithStepOutputEmpty
+Skipped  WithStepException
+Skipped  WithStepInnerException
+Skipped  WithFullTestRun
+Skipped  WithNoTestRunName
+Skipped  WithTestRunExplanationEmpty
+Skipped  WithNoAreas
+Skipped  WithAreas
+Skipped  WithFullArea
+Skipped  WithAreaNameClipping
+Skipped  WithAreaNameEmpty
+Skipped  WithAreaExplanationEmpty
+Skipped  WithNoFeatures
+Skipped  WithFeatures
+Skipped  WithFullFeature
+Skipped  WithFeatureNameEmpty
+Skipped  WithFeatureExplanationEmpty
+Skipped  WithNoScenarios
+Skipped  WithScenarios
+Skipped  WithFullTestRun
+Skipped  WithEmptyTestRun
+Skipped  WithNoScenarios
+Skipped  WithNoTestsInTheProject
+Skipped  WithTestFiltering
+Skipped  WithXBDDTestRunFiltering
+Skipped  WithFullScenario
+Skipped  WithScenarioNameEmpty
+Skipped  WithScenarioExplanationEmpty
+Skipped  WithNoSteps
+Skipped  WithSteps
+Skipped  WithFullStep
+Skipped  WithStepNameEmpty
+Skipped  WithStepExplanationEmpty
+Skipped  WithStepInputEmpty
+Skipped  WithStepOutputEmpty
+Skipped  WithStepException
+Skipped  WithStepInnerException
+Skipped  WithFullTestRun
+Skipped  WithNoTestRunName
+Skipped  WithTestRunExplanationEmpty
+Skipped  WithNoAreas
+Skipped  WithAreas
+Skipped  WithFullArea
+Skipped  WithAreaNameClipping
+Skipped  WithAreaNameEmpty
+Skipped  WithAreaExplanationEmpty
+Skipped  WithNoFeatures
+Skipped  WithFeatures
+Skipped  WithFullFeature
+Skipped  WithFeatureNameEmpty
+Skipped  WithFeatureExplanationEmpty
+Skipped  WithNoScenarios
+Skipped  WithScenarios
+Skipped  WithFullTestRun
+Skipped  WithEmptyTestRun
+Skipped  WithNoScenarios
+Skipped  WithNoTestsInTheProject
+Skipped  WithTestFiltering
+Skipped  WithXBDDTestRunFiltering
+Skipped  WithFullScenario
+Skipped  WithScenarioNameEmpty
+Skipped  WithScenarioExplanationEmpty
+Skipped  WithNoSteps
+Skipped  WithSteps
+Skipped  WithFullStep
+Skipped  WithStepNameEmpty
+Skipped  WithStepExplanationEmpty
+Skipped  WithStepInputEmpty
+Skipped  WithStepOutputEmpty
+Skipped  WithStepException
+Skipped  WithStepInnerException
+Skipped  WithFullTestRun
+Skipped  WithNoTestRunName
+Skipped  WithTestRunExplanationEmpty
+Skipped  WithNoAreas
+Skipped  WithAreas
+Skipped  ExpandingAreas
+Skipped  CollapsingAreas
+Skipped  WithNoAreas
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoAreas
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoAreas
+Skipped  ExpandingTheExplanatio
+Skipped  CollapsingTheExplanation
+Skipped  WithNoExplanation
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoFeatures
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoFeatures
+Skipped  WithName
+Skipped  WithNoName
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoScenarios
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoScenarios
+Skipped  WithPassingStatus
+Skipped  WithSomeSkippedStatus
+Skipped  WithSomeFailingStatus
+Skipped  ExpandingException
+Skipped  CollapsingException
+Skipped  WithInnerException
+Skipped  WithNoException
+Skipped  ExpandingExplanation
+Skipped  CollapsingExplanation
+Skipped  WithoutExplanation
+Skipped  WithName
+Skipped  WithNoName
+Skipped  ExpandingInput
+Skipped  CollapsingInput
+Skipped  WithoutInput
+Skipped  ExpandingOutput
+Skipped  CollapsingOutput
+Skipped  WithoutOutput
+Skipped  WithPassingStatus
+Skipped  WithSomeSkippedStatus
+Skipped  WithSomeFailingStatus
+Skipped  ExpandingExplanation
+Skipped  CollapsingExplanation
+Skipped  WithNoExplanation
+Skipped  WithName
+Skipped  WithNoName
+Skipped  WithSingleAssignments
+Skipped  WithMultipleAssignments
+Skipped  WithSingleTag
+Skipped  WithMultipleTags
+Skipped  WithPassingStatus
+Skipped  WithSomeSkippedStatus
+Skipped  WithSomeFailingStatus
+Skipped  ExpandingSteps
+Skipped  CollapsingSteps
+Skipped  WithNoSteps
+Skipped  ExpandingExplanation
+Skipped  CollapsingExplanation
+Skipped  WithNoExplanation
+Skipped  WithName
+Skipped  WithNoName
+Skipped  WithSingleAssignments
+Skipped  WithMultipleAssignments
+Skipped  WithSingleTag
+Skipped  WithMultipleTags
+Skipped  ExpandingScenarios
+Skipped  CollapsingScenarios
+Skipped  WithNoScenarios
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoScenarios
+Skipped  Expanding
+Skipped  Collapsing
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoScenarios
+Skipped  ExpandingFeatureStatement
+Skipped  CollapsingFeatureStatement
+Skipped  WithFullStatement
+Skipped  WithMissingParts
+Skipped  WithoutStatement
+Skipped  WithPassingStatus
+Skipped  WithSomeSkippedStatus
+Skipped  WithSomeFailingStatus
+Skipped  ExpandingExplanation
+Skipped  CollapsingExplanation
+Skipped  WithoutExplanation
+Skipped  ExpandingFeatures
+Skipped  CollapsingFeatures
+Skipped  WithoutFeatures
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoFeatures
+Skipped  Expanding
+Skipped  Collapsing
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoFeatures
+Skipped  WithName
+Skipped  WithNoName
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoScenarios
+Skipped  Expanding
+Skipped  Collapsing
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoScenarios
+Skipped  WithPassingStatus
+Skipped  WithSomeSkippedStatus
+Skipped  WithSomeFailingStatus
+Skipped  WithFailures
+Skipped  WithNoScenarios
+Skipped  WithNoFailures
+Skipped  WithFullTestRun
+Skipped  WithNoScenarios
+Skipped  WithNoTestsInTheProject
+Skipped  FromAFileServer
+Skipped  FromAWebServer
+Skipped  ExpandingAreas
+Skipped  CollapsingAreas
+Skipped  WithNoAreas
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoAreas
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoAreas
+Skipped  ExpandingTheExplanation
+Skipped  CollapsingTheExplanation
+Skipped  WithNoExplanation
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoFeatures
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Starting ChromeDriver 2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e) on port 53814
+Only local connections are allowed.
+Skipped  WithNoFeatures
+Skipped  WithName
+Skipped  WithNoName
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoScenarios
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoScenarios
+Skipped  WithPassingStatus
+Skipped  WithSomeSkippedStatus
+Skipped  WithSomeFailingStatus
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoAreas
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoAreas
+Skipped  ExpandingExplanation
+Skipped  CollapsingExplanation
+Skipped  WithoutExplanation
+Skipped  ExpandingFeatures
+Skipped  CollapsingFeatures
+Skipped  WithoutFeatures
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoFeatures
+Skipped  Expanding
+Skipped  Collapsing
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoFeatures
+Skipped  WithName
+Skipped  WithNoName
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoScenarios
+Skipped  Expanding
+Skipped  Collapsing
+Skipped  WithAllPassing
+Skipped  WithSomeSkipped
+Skipped  WithSomeFailing
+Skipped  WithSomeSkippedAndSomeFailing
+Skipped  WithAllSkipped
+Skipped  WithAllFailing
+Skipped  WithNoScenarios
+Skipped  WithPassingStatus
+Skipped  WithSomeSkippedStatus
+Skipped  WithSomeFailingStatus
+Failed   WithFullTestRun
+Error Message:
+ Test method xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating.GenerateAReport.WithFullTestRun threw exception: 
+xBDD.StepException: The step 'you will see output matching the following template:' threw a 'TemplateValidationException' exception with a message: 'Line 1 did not match template line 1 (Value/Template)
+	Error: Value cannot be null.
+	Output: MySample.TestSummary.WithFullTestRun.html
+Line 2 did not match template line 2 (Value/Template)
+	Parameter name: path
+	Name: My Sample - Features
+Line 3 did not match template line 3 (Value/Template)
+	
+	TestRunNameClip: My Sample - Features - 
+Extra template line at line number 4 (Template)
+	Reasons: Untested, Committed, Ready, Defining
+Extra template line at line number 5 (Template)
+	Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
+Extra template line at line number 6 (Template)
+	Json Report: ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json
+Extra template line at line number 7 (Template)
+	Json Report: ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json
+Extra template line at line number 8 (Template)
+	Json Report: ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json
+Extra template line at line number 9 (Template)
+	Json Report: ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json
+Extra template line at line number 10 (Template)
+	Json Report: ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json
+Extra template line at line number 11 (Template)
+	
+'. See the inner exception for details. ---> TemplateValidator.TemplateValidationException: Line 1 did not match template line 1 (Value/Template)
+	Error: Value cannot be null.
+	Output: MySample.TestSummary.WithFullTestRun.html
+Line 2 did not match template line 2 (Value/Template)
+	Parameter name: path
+	Name: My Sample - Features
+Line 3 did not match template line 3 (Value/Template)
+	
+	TestRunNameClip: My Sample - Features - 
+Extra template line at line number 4 (Template)
+	Reasons: Untested, Committed, Ready, Defining
+Extra template line at line number 5 (Template)
+	Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
+Extra template line at line number 6 (Template)
+	Json Report: ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json
+Extra template line at line number 7 (Template)
+	Json Report: ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json
+Extra template line at line number 8 (Template)
+	Json Report: ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json
+Extra template line at line number 9 (Template)
+	Json Report: ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json
+Extra template line at line number 10 (Template)
+	Json Report: ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json
+Extra template line at line number 11 (Template)
+	
+
+Stack Trace:
+    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
+   at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 127
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 48
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 25
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 73
+   at xBDD.Core.ScenarioBuilder.Run() in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 312
+   at xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating.GenerateAReport.WithFullTestRun() in C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\Features\HTMLSummaryReport\Generating\GenerateAReport.cs:line 51
+
+Standard Output Messages:
+ With Full Test Run
+     Given you have the following json test run reports
+         ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json,
+         ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html,
+         ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json,
+         ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.html,
+         ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json,
+         ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.html,
+         ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json,
+         ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.html,
+         ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json,
+         ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.html,
+         ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json,
+         ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.html
+     When you run the command:
+         dotnet xbdd solution summarize --output MySample.TestSummary.WithFullTestRun.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.html ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.html ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.html ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.html ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.html
+     Then you will see output matching the following template:
+         Output: MySample.TestSummary.WithFullTestRun.html
+         Name: My Sample - Features
+         TestRunNameClip: My Sample - Features - 
+         Reasons: Untested, Committed, Ready, Defining
+         Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
+         Json Report: ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json
+         Json Report: ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json
+         Json Report: ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json
+         Json Report: ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json
+         Json Report: ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json
+     And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'.
+         C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html
+
+
+Failed   WithNoJsonFiles
+Error Message:
+ Test method xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating.GenerateAReport.WithNoJsonFiles threw exception: 
+xBDD.StepException: The step 'you will see output matching the following template:' threw a 'TemplateValidationException' exception with a message: 'Line 1 did not match template line 1 (Value/Template)
+	Error: Value cannot be null.
+	Output: ./MySample.TestSummary.WithNoJsonFiles.html
+Line 2 did not match template line 2 (Value/Template)
+	Parameter name: path
+	Name: My Sample - Features
+Line 3 did not match template line 3 (Value/Template)
+	
+	TestRunNameClip: My Sample - Features - 
+Extra template line at line number 4 (Template)
+	Reasons: Untested, Committed, Ready, Defining
+Extra template line at line number 5 (Template)
+	
+'. See the inner exception for details. ---> TemplateValidator.TemplateValidationException: Line 1 did not match template line 1 (Value/Template)
+	Error: Value cannot be null.
+	Output: ./MySample.TestSummary.WithNoJsonFiles.html
+Line 2 did not match template line 2 (Value/Template)
+	Parameter name: path
+	Name: My Sample - Features
+Line 3 did not match template line 3 (Value/Template)
+	
+	TestRunNameClip: My Sample - Features - 
+Extra template line at line number 4 (Template)
+	Reasons: Untested, Committed, Ready, Defining
+Extra template line at line number 5 (Template)
+	
+
+Stack Trace:
+    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
+   at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 127
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 48
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 25
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 73
+   at xBDD.Core.ScenarioBuilder.Run() in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 312
+   at xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating.GenerateAReport.WithNoJsonFiles() in C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\Features\HTMLSummaryReport\Generating\GenerateAReport.cs:line 88
+
+Standard Output Messages:
+ With No Json Files
+     Given you do not have a summary report file located at './MySample.TestSummary.WithNoJsonFiles.html'.
+         ./MySample.TestSummary.WithNoJsonFiles.html
+     When you run the command:
+         dotnet xbdd solution summarize --output ./MySample.TestSummary.WithNoJsonFiles.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining
+     Then you will see output matching the following template:
+         Output: ./MySample.TestSummary.WithNoJsonFiles.html
+         Name: My Sample - Features
+         TestRunNameClip: My Sample - Features - 
+         Reasons: Untested, Committed, Ready, Defining
+     And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithNoJsonFiles.html' that matches the template:
+         {{.*}}/rl
+         	<title>My Sample - Features</title>
+         {{.*}}/rl
+         		<h1 class="report-name">
+         			<span class="report badge pointer badge-pill total badge-secondary" title="Test Runs">0</span>
+         			<span class="name">My Sample - Features</span>
+         			<span class="report duration"> [0 ms]</span>
+         		</h1>
+         {{.*}}/rl
+
+
+Failed   WithASingleJsonFile
+Error Message:
+ Test method xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating.GenerateAReport.WithASingleJsonFile threw exception: 
+xBDD.StepException: The step 'you will see output matching the following template:' threw a 'TemplateValidationException' exception with a message: 'Line 1 did not match template line 1 (Value/Template)
+	Error: Value cannot be null.
+	Output: ./MySample.TestSummary.WithASingleJsonFile.html
+Line 2 did not match template line 2 (Value/Template)
+	Parameter name: path
+	Name: My Sample - Features
+Line 3 did not match template line 3 (Value/Template)
+	
+	TestRunNameClip: My Sample - Features - 
+Extra template line at line number 4 (Template)
+	Reasons: Untested, Committed, Ready, Defining
+Extra template line at line number 5 (Template)
+	Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
+Extra template line at line number 6 (Template)
+	
+'. See the inner exception for details. ---> TemplateValidator.TemplateValidationException: Line 1 did not match template line 1 (Value/Template)
+	Error: Value cannot be null.
+	Output: ./MySample.TestSummary.WithASingleJsonFile.html
+Line 2 did not match template line 2 (Value/Template)
+	Parameter name: path
+	Name: My Sample - Features
+Line 3 did not match template line 3 (Value/Template)
+	
+	TestRunNameClip: My Sample - Features - 
+Extra template line at line number 4 (Template)
+	Reasons: Untested, Committed, Ready, Defining
+Extra template line at line number 5 (Template)
+	Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
+Extra template line at line number 6 (Template)
+	
+
+Stack Trace:
+    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
+   at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 127
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 48
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 25
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 73
+   at xBDD.Core.ScenarioBuilder.Run() in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 312
+   at xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating.GenerateAReport.WithASingleJsonFile() in C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\Features\HTMLSummaryReport\Generating\GenerateAReport.cs:line 112
+
+Standard Output Messages:
+ With A Single Json File
+     Given you do not have a summary report file located at './MySample.TestSummary.WithASingleJsonFile.html'.
+         ./MySample.TestSummary.WithASingleJsonFile.html
+     When you run the command:
+         dotnet xbdd solution summarize --output ./MySample.TestSummary.WithASingleJsonFile.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html
+     Then you will see output matching the following template:
+         Output: ./MySample.TestSummary.WithASingleJsonFile.html
+         Name: My Sample - Features
+         TestRunNameClip: My Sample - Features - 
+         Reasons: Untested, Committed, Ready, Defining
+         Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
+     And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template:
+         {{.*}}/rl
+         	<title>My Sample - Features</title>
+         {{.*}}/rl
+         		<h1 class="report-name">
+         			<span class="report badge pointer badge-pill total badge-warning" title="Test Runs">1</span>
+         			<span class="name">My Sample - Features</span>
+         			<span class="report duration"> [0 ms]</span>
+         		</h1>
+         {{.*}}/rl
+
+
+Failed   WithAMissingJsonFile
+Error Message:
+ Test method xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating.GenerateAReport.WithAMissingJsonFile threw exception: 
+xBDD.StepException: The step 'you will see output matching the following template:' threw a 'TemplateValidationException' exception with a message: 'Line 1 did not match template line 1 (Value/Template)
+	Error: Value cannot be null.
+	Output: ./MySample.TestSummary.WithAMissingJsonFile.html
+Line 2 did not match template line 2 (Value/Template)
+	Parameter name: path
+	Name: My Sample - Features
+Line 3 did not match template line 3 (Value/Template)
+	
+	TestRunNameClip: My Sample - Features - 
+Extra template line at line number 4 (Template)
+	Reasons: Untested, Committed, Ready, Defining
+Extra template line at line number 5 (Template)
+	Json Report: ./Missing.json
+Extra template line at line number 6 (Template)
+	Error: Could not find file 'C:\Users\stearm01\source\xBDD\MySample\Missing.json'.
+Extra template line at line number 7 (Template)
+	
+'. See the inner exception for details. ---> TemplateValidator.TemplateValidationException: Line 1 did not match template line 1 (Value/Template)
+	Error: Value cannot be null.
+	Output: ./MySample.TestSummary.WithAMissingJsonFile.html
+Line 2 did not match template line 2 (Value/Template)
+	Parameter name: path
+	Name: My Sample - Features
+Line 3 did not match template line 3 (Value/Template)
+	
+	TestRunNameClip: My Sample - Features - 
+Extra template line at line number 4 (Template)
+	Reasons: Untested, Committed, Ready, Defining
+Extra template line at line number 5 (Template)
+	Json Report: ./Missing.json
+Extra template line at line number 6 (Template)
+	Error: Could not find file 'C:\Users\stearm01\source\xBDD\MySample\Missing.json'.
+Extra template line at line number 7 (Template)
+	
+
+Stack Trace:
+    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
+   at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 127
+   at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+--- End of inner exception stack trace ---
+    at xBDD.Core.StepExceptionHandler.ProcessException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 48
+   at xBDD.Core.StepExceptionHandler.HandleException(StepExecutor stepExecutor, Step step, Exception ex) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExceptionHandler.cs:line 25
+   at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 35
+   at xBDD.Core.ScenarioRunner.RunAsync(Boolean passWhenNoAction) in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioRunner.cs:line 73
+   at xBDD.Core.ScenarioBuilder.Run() in C:\Users\stearm01\source\xBDD\xBDD\Core\ScenarioBuilder.cs:line 312
+   at xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating.GenerateAReport.WithAMissingJsonFile() in C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\Features\HTMLSummaryReport\Generating\GenerateAReport.cs:line 135
+
+Standard Output Messages:
+ With A Missing Json File
+     Given you do not have a summary report file located at './MySample.TestSummary.WithAMissingJsonFile.html'.
+         ./MySample.TestSummary.WithAMissingJsonFile.html
+     When you run the command:
+         dotnet xbdd solution summarize --output ./MySample.TestSummary.WithAMissingJsonFile.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./Missing.json ./Missing.html
+     Then you will see output matching the following template:
+         Output: ./MySample.TestSummary.WithAMissingJsonFile.html
+         Name: My Sample - Features
+         TestRunNameClip: My Sample - Features - 
+         Reasons: Untested, Committed, Ready, Defining
+         Json Report: ./Missing.json
+         Error: Could not find file 'C:\Users\stearm01\source\xBDD\MySample\Missing.json'.
+     And you will not find the html report located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'.
+         C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html
+
+
+
+Total tests: 423. Passed: 0. Failed: 4. Skipped: 419.
+Test execution time: 6.9634 Seconds
+Output: ./test-results/xBDD.Features.Summary.html
+Name: xBDD - Features
+TestRunNameClip: xBDD - 
+Reasons: Removing,Passed,Untested,Committed,Ready,Defining,Failed
+Json Report: ./xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.json
+Json Report: ./xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.json
+Json Report: ./xBDD.Features.AutomatingUITesting/test-results/xBDD.Features.AutomatingUITesting.Results.json
+Json Report: ./xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.json
+Json Report: ./xBDD.Features.RunningScenarios/test-results/xBDD.Features.RunningScenarios.Results.json
+Json Report: ./xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.json
+Output: ./test-results/xBDD.Features.Summary.Github.html
+Name: xBDD - Features
+TestRunNameClip: xBDD - 
+Reasons: Removing,Passed,Untested,Committed,Ready,Defining,Failed
+Json Report: ./xBDD.Features.GeneratingCode/test-results/xBDD.Features.GeneratingCode.Results.json
+Json Report: ./xBDD.Features.DefiningFeatures/test-results/xBDD.Features.DefiningFeatures.Results.json
+Json Report: ./xBDD.Features.AutomatingUITesting/test-results/xBDD.Features.AutomatingUITesting.Results.json
+Json Report: ./xBDD.Features.StreamliningAPITesting/test-results/xBDD.Features.StreamliningAPITesting.Results.json
+Json Report: ./xBDD.Features.RunningScenarios/test-results/xBDD.Features.RunningScenarios.Results.json
+Json Report: ./xBDD.Features.GeneratingReports/test-results/xBDD.Features.GeneratingReports.Results.json

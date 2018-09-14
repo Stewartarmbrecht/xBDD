@@ -18,7 +18,7 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 				./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.html
 			When you run the command: [Passed]
 				dotnet xbdd solution summarize --output MySample.TestSummary.WithFullTestRun.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.json ./MySample.Features.TestRun2SkippedUntested/test-results/MySample.Features.TestRun2SkippedUntested.Results.html ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.json ./MySample.Features.TestRun3SkippedCommitted/test-results/MySample.Features.TestRun3SkippedCommitted.Results.html ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.html ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.html ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.html
-			Then you will see output matching the following template: [Exception Thrown]
+			Then you will see output matching the following template: [Failed]
 				Output: MySample.TestSummary.WithFullTestRun.html
 				Name: My Sample - Features
 				TestRunNameClip: My Sample - Features - 
@@ -36,7 +36,7 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 				./MySample.TestSummary.WithNoJsonFiles.html
 			When you run the command: [Passed]
 				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithNoJsonFiles.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining
-			Then you will see output matching the following template: [Exception Thrown]
+			Then you will see output matching the following template: [Failed]
 				Output: ./MySample.TestSummary.WithNoJsonFiles.html
 				Name: My Sample - Features
 				TestRunNameClip: My Sample - Features - 
@@ -56,7 +56,7 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 				./MySample.TestSummary.WithASingleJsonFile.html
 			When you run the command: [Passed]
 				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithASingleJsonFile.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html
-			Then you will see output matching the following template: [Exception Thrown]
+			Then you will see output matching the following template: [Failed]
 				Output: ./MySample.TestSummary.WithASingleJsonFile.html
 				Name: My Sample - Features
 				TestRunNameClip: My Sample - Features - 
@@ -77,7 +77,7 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 				./MySample.TestSummary.WithAMissingJsonFile.html
 			When you run the command: [Passed]
 				dotnet xbdd solution summarize --output ./MySample.TestSummary.WithAMissingJsonFile.html --name My Sample - Features --testrun-name-clip My Sample - Features -  --reason-order Untested, Committed, Ready, Defining ./Missing.json ./Missing.html
-			Then you will see output matching the following template: [Exception Thrown]
+			Then you will see output matching the following template: [Failed]
 				Output: ./MySample.TestSummary.WithAMissingJsonFile.html
 				Name: My Sample - Features
 				TestRunNameClip: My Sample - Features - 
