@@ -6,7 +6,7 @@ namespace xBDD
 	/// This attribute should be added to the test class for a feature.
 	/// </summary>
 	[System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple = false)]
-	public class Generated_ByAttribute : System.Attribute
+	public class Generated_YouCanAttribute : System.Attribute
 	{
 		string capabilityStatement;
 		
@@ -16,7 +16,7 @@ namespace xBDD
 		/// <param name="capabilityStatement">
 		/// Single statement that captures the capability that a feature provides.
 		/// </param>
-		public Generated_ByAttribute(string capabilityStatement)
+		public Generated_YouCanAttribute(string capabilityStatement)
 		{
 			this.capabilityStatement = capabilityStatement;
 		}

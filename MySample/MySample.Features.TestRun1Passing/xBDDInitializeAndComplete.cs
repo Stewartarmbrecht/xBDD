@@ -18,7 +18,7 @@ namespace MySample.Features.TestRun1Passing
 		public static void TestRunComplete()
 		{
 			var features = new List<string>() {
-				typeof(MySample.Features.TestRun1Passing.Area1PassingWithAllFeaturesExercised.Feature1Passing).FullName,
+				typeof(MySample.Features.TestRun1Passing.Capability1PassingWithAllFeaturesExercised.Feature1Passing).FullName,
 			};
 			xB.Complete("xBDDConfig.json", features, (message) => { Logger.LogMessage(message); });
 		}

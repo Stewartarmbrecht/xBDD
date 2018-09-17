@@ -87,7 +87,7 @@
         private static void UpdateParentReasonsAndStats(this xBDD.Model.TestRunGroup testRunGroup, List<string> sortedReasons)
         {
 			testRunGroup.TestRunReasonStats.Clear();
-			testRunGroup.AreaReasonStats.Clear();
+			testRunGroup.CapabilityReasonStats.Clear();
 			testRunGroup.FeatureReasonStats.Clear();
 			testRunGroup.ScenarioReasonStats.Clear();
 
@@ -117,7 +117,7 @@
                         } else {
                             testRunGroup.TestRunReasonStats.Add(reason, 1);
                         }
-						testRunGroup.AreaReasonStats.AddChildReasonStats(testRun.AreaReasonStats);
+						testRunGroup.CapabilityReasonStats.AddChildReasonStats(testRun.CapabilityReasonStats);
 						testRunGroup.FeatureReasonStats.AddChildReasonStats(testRun.FeatureReasonStats);
 						testRunGroup.ScenarioReasonStats.AddChildReasonStats(testRun.ScenarioReasonStats);
 						testRunGroup.Reason = reason;
@@ -186,7 +186,7 @@
 			testRunGroup.StepStats.ClearStats();
 			testRunGroup.ScenarioStats.ClearStats();
 			testRunGroup.FeatureStats.ClearStats();
-			testRunGroup.AreaStats.ClearStats();
+			testRunGroup.CapabilityStats.ClearStats();
 			testRunGroup.TestRunStats.ClearStats();
 
             outcomes.ForEach(outcome => {
@@ -195,7 +195,7 @@
                     .ToList().ForEach(testRun => {
                         testRunGroup.Outcome = outcome;
                        	testRunGroup.TestRunStats.UpdateOutcomeStats(outcome);
-						testRunGroup.AreaStats.AddStats(testRun.AreaStats);
+						testRunGroup.CapabilityStats.AddStats(testRun.CapabilityStats);
 						testRunGroup.FeatureStats.AddStats(testRun.FeatureStats);
 						testRunGroup.ScenarioStats.AddStats(testRun.ScenarioStats);
 						testRunGroup.StepStats.AddStats(testRun.StepStats);

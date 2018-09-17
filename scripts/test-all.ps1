@@ -6,6 +6,6 @@ Set-Location "../"
 
 dotnet test
 
-dotnet xbdd solution summarize --config-file .\LocalTestSummaryConfig.json
+dotnet xbdd solution summarize --config-file ./LocalTestSummaryConfig.json
 
-dotnet xbdd solution summarize --config-file .\GithubTestSummaryConfig.json
+dotnet xbdd solution summarize --config-file ./GithubTestSummaryConfig.json

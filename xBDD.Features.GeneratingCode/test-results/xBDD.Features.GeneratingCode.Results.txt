@@ -62,7 +62,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 							"Watch": "false"
 						},
 						"HtmlReport": {
-							"RemoveFromAreaNameStart": "My Generated Sample - Features - ",
+							"RemoveFromCapabilityNameStart": "My Generated Sample - Features - ",
 							"FailuresOnly": "false"
 						}
 					}
@@ -86,7 +86,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 					}
 				}
 			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template: [Passed]
-				MyImportedArea1
+				MyImportedCapability1
 					MyImportedFeature
 						MyImportedScenario #R-Ready
 							Given you have the xbdd tools installed
@@ -129,7 +129,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 					{
 						public List<string> GetSortedFeatureNames() {
 							return new List<string>() {
-								typeof(MyGeneratedSample.Features.MyArea.MyFeature).FullName,
+								typeof(MyGeneratedSample.Features.MyCapability.MyFeature).FullName,
 							};
 						}
 						public List<string> GetSortedReasons() {
@@ -154,7 +154,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 					{
 						public List<string> GetGeneratedSortedFeatureNames() {
 							return new List<string>() {
-								typeof(MyGeneratedSample.Features.MyArea.MyFeature).FullName,
+								typeof(MyGeneratedSample.Features.MyCapability.MyFeature).FullName,
 							};
 						}
 						public List<string> GetGeneratedReasons() {
@@ -168,8 +168,8 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template: [Passed]
-				namespace MyGeneratedSample.Features.MyArea
+			And you will find a file at './MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs' that matches the template: [Failed]
+				namespace MyGeneratedSample.Features.MyCapability
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -179,8 +179,8 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				
 					[TestClass]
 					[AsA("sample user")]
-					[YouCan("have my feature value")]
-					[By("execute my feature")]
+					[YouCan("execute my feature")]
+					[SoThat("you have my feature value")]
 					[Explanation(@"
 						# My Explanation
 						This is a
@@ -232,26 +232,23 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find the project execute tests with the 'dotnet test' command [Passed]
-				dotnet test
-			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Failed]
-				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
-				Error Type: DirectoryNotFoundException
-				   Message: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\test-results\MyGeneratedSample.Features.Results.html'.
-				     Stack:    at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-				               at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
-				               at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-				               at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
-				               at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks)
-				               at System.IO.File.InternalReadAllText(String path, Encoding encoding)
-				               at System.IO.File.ReadAllText(String path)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass7_0.<WillFind>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 144
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				Error Type: TemplateValidationException
+				   Message: Line 12 did not match template line 12 (Value/Template)
+		[SoThat("have my feature value")]
+		[SoThat("you have my feature value")]
+
+				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass4_0.<WillFindAMatchingFile>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 104
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
+			And you will find the project execute tests with the 'dotnet test' command [Previous Error]
+				dotnet test
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Previous Error]
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
 			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
 			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'. [Previous Error]
@@ -273,7 +270,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				MyGeneratedSample.Features/xBddConfig.json,
 				MyGeneratedSample.Features/xBddFeatureImport.txt,
 				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
+				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
 			When you run the command: [Passed]
 				dotnet xbdd project generate MSTest
 			Then you will find the files ending in xbdd.[ext] or xbdd are overwritten [Passed]
@@ -285,7 +282,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				MyGeneratedSample.Features/xBddConfig.json,
 				MyGeneratedSample.Features/xBddFeatureImport.txt,
 				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
+				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
 			And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten [Passed]
 				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
 				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
@@ -295,7 +292,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				MyGeneratedSample.Features/xBddConfig.json,
 				MyGeneratedSample.Features/xBddFeatureImport.txt,
 				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
+				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
 			And you will find the sample feature file is not modified because the xbdd backlog file already exists [Passed]
 				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
 				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
@@ -305,27 +302,26 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				MyGeneratedSample.Features/xBddConfig.json,
 				MyGeneratedSample.Features/xBddFeatureImport.txt,
 				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-				MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
+				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
 			And you will find the project execute tests with the 'dotnet test' command [Passed]
 				dotnet test
 			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Failed]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
 				Error Type: DirectoryNotFoundException
-				   Message: Could not find a part of the path 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingCode\bin\Debug\netcoreapp2.1\MyGeneratedSample.Features\test-results\MyGeneratedSample.Features.Results.html'.
-				     Stack:    at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
-				               at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+				   Message: Could not find a part of the path '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingCode/bin/Debug/netcoreapp2.1/MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
+				     Stack:    at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+				               at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
 				               at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
 				               at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
-				               at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks)
 				               at System.IO.File.InternalReadAllText(String path, Encoding encoding)
 				               at System.IO.File.ReadAllText(String path)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass7_0.<WillFind>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 144
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass7_0.<WillFind>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 144
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Previous Error]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
 			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'. [Previous Error]
@@ -346,15 +342,15 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 							"Watch": "false"
 						},
 						"HtmlReport": {
-							"RemoveFromAreaNameStart": "My Generated Sample - Features - ",
+							"RemoveFromCapabilityNameStart": "My Generated Sample - Features - ",
 							"FailuresOnly": "false"
 						}
 					}
 				}
-		With Area Name Clipping [Passed]
+		With Capability Name Clipping [Passed]
 			Given you have an empty directory
 			When you run the command:
-				dotnet xbdd project generate MSTest --remove-from-area-name Modified
+				dotnet xbdd project generate MSTest --remove-from-capability-name Modified
 			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
 				{
 					"xBDD": {
@@ -363,17 +359,17 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 							"Watch": "false"
 						},
 						"HtmlReport": {
-							"RemoveFromAreaNameStart": "Modified",
+							"RemoveFromCapabilityNameStart": "Modified",
 							"FailuresOnly": "false"
 						}
 					}
 				}
-xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Passed]
+xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Failed]
 	With An Invalid Outline [Passed]
-		With Invalid Characters In Area Name [Passed]
+		With Invalid Characters In Capability Name [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My $%^& Sub Area 1
+				My Capability 1 - My $%^& Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -381,8 +377,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1 #R-Committed @Stewart #T-LoveIT
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -405,16 +401,16 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				dotnet xbdd project generate MSTest
 			Then you will see output matching the following template:
 				{{.*}}/rl
-				Error: An area is defined with invalid characters in the name.
-				Line 1: 'My Area 1 - My $%^& Sub Area 1'
-				Explanation: An area name must start with a letter and can only contain
+				Error: An capability is defined with invalid characters in the name.
+				Line 1: 'My Capability 1 - My $%^& Sub Capability 1'
+				Explanation: An capability name must start with a letter and can only contain
 				             letters, numbers, spaces, underscores, and ' - '.
 				             The ' - ' string is converted to '.' to define the features 
 				             namespace in the test project.
 		With Invalid Characters In Feature Name [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -422,8 +418,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My $%^& Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -453,7 +449,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Invalid Characters In Scenario Name [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -461,8 +457,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1 #R-Committed @Stewart #T-LoveIT
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -492,7 +488,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Empty Feature Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -500,8 +496,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -528,7 +524,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Empty Scenario Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -536,8 +532,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -564,7 +560,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Empty Step Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -572,8 +568,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -600,7 +596,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Step Input Header On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -608,8 +604,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -633,7 +629,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Step Explanation Header On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -641,8 +637,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -664,7 +660,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Scenario Explanation Header On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -672,8 +668,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -691,7 +687,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Feature Explanation On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -699,8 +695,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -715,7 +711,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Feature Explanation Header On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -723,8 +719,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 			When you run the command:
 				dotnet xbdd project generate MSTest
@@ -737,7 +733,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Feature Statement On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -745,8 +741,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 			When you run the command:
 				dotnet xbdd project generate MSTest
 			Then you will see output matching the following template:
@@ -758,7 +754,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Feature Statement Header On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -776,7 +772,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Feature On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -790,10 +786,10 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 6: ''
 				Explanation: A feature line can only be followed by an indented scenario name, indented
 				             'Explanation' header or indented 'Statement' header.
-		With Area Explanation On Last Line [Passed]
+		With Capability Explanation On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -801,34 +797,34 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				dotnet xbdd project generate MSTest
 			Then you will see output matching the following template:
 				{{.*}}/rl
-				Error: An invalid line of type 'No Line' is following an area explanation line.
+				Error: An invalid line of type 'No Line' is following an capability explanation line.
 				Line 4: ''
-				Explanation: An area explanation line can only be followed by another explanation line 
+				Explanation: An capability explanation line can only be followed by another explanation line 
 				             or an outdented (2x) feature line.
-		With Area Explanation Header On Last Line [Passed]
+		With Capability Explanation Header On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 			When you run the command:
 				dotnet xbdd project generate MSTest
 			Then you will see output matching the following template:
 				{{.*}}/rl
-				Error: An invalid line of type 'No Line' is following an area explanation header line.
+				Error: An invalid line of type 'No Line' is following an capability explanation header line.
 				Line 2: ''
-				Explanation: An area explanation header line can only be followed by an indented 
+				Explanation: An capability explanation header line can only be followed by an indented 
 				             explanation line.
-		With Area On Last Line [Passed]
+		With Capability On Last Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
 			Then you will see output matching the following template:
 				{{.*}}/rl
-				Error: An invalid line of type 'No Line' is following an area line.
+				Error: An invalid line of type 'No Line' is following an capability line.
 				Line 1: ''
-				Explanation: An area line can only be followed by an indented 'Explanation' header or 
+				Explanation: An capability line can only be followed by an indented 'Explanation' header or 
 				             indented Feature line.
 		With No Lines [Passed]
 			Given you have an empty directory
@@ -841,7 +837,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Invalid Line After Step Input Header [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -849,8 +845,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -877,7 +873,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Invalid Line After Step Explanation Header [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -885,8 +881,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -914,7 +910,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Invalid Line After Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -922,8 +918,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -945,11 +941,11 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 20: '				Invalid Line'
 				Explanation: A step line can only be followed by another step line or an indented 
 				             'Explanation' or 'Input' header line, or outdented scenario, feature, or 
-				             area.
+				             capability.
 		With Invalid Step Line After Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -957,8 +953,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -983,7 +979,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Invalid Line After Scenario Explanation Header [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -991,8 +987,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -1013,7 +1009,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Invalid Line After Scenario [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -1021,8 +1017,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -1044,7 +1040,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Invalid Indented Step Line After Scenario [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -1052,8 +1048,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -1070,19 +1066,19 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 16: '				Given step 1'
 				Explanation: A scenario line can only be followed by another scenario line, an indented
 				             'Explanation' header or indented step line, or an outdented feature or 
-				             area line.
+				             capability line.
 		With Invalid Line After Feature Explanation Header [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 						My Scenario 1
 			When you run the command:
@@ -1096,7 +1092,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Invalid Line After Feature Statement Header [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -1114,7 +1110,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Invalid Line After Feature [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -1129,57 +1125,57 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 6: '	My Feature 2'
 				Explanation: A feature line can only be followed by an indented scenario name, indented
 				             'Explanation' header or indented 'Statement' header.
-		With Invalid Line After Area Explanation Header [Passed]
+		With Invalid Line After Capability Explanation Header [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 					My Feature 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
 			Then you will see output matching the following template:
 				{{.*}}/rl
-				Error: An invalid line of type 'Feature' is following an area explanation header line.
+				Error: An invalid line of type 'Feature' is following an capability explanation header line.
 				Line 3: '	My Feature 1'
-				Explanation: An area explanation header line can only be followed by an indented 
+				Explanation: An capability explanation header line can only be followed by an indented 
 				             explanation line.
-		With Invalid Line After Area [Passed]
+		With Invalid Line After Capability [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
-				My Area 1 - My Sub Area 2
+				My Capability 1 - My Sub Capability 1
+				My Capability 1 - My Sub Capability 2
 			When you run the command:
 				dotnet xbdd project generate MSTest
 			Then you will see output matching the following template:
 				{{.*}}/rl
-				Error: An invalid line of type 'Area' is following an area line.
-				Line 2: 'My Area 1 - My Sub Area 2'
-				Explanation: An area line can only be followed by an indented 'Explanation' header or 
+				Error: An invalid line of type 'Capability' is following an capability line.
+				Line 2: 'My Capability 1 - My Sub Capability 2'
+				Explanation: An capability line can only be followed by an indented 'Explanation' header or 
 				             indented Feature line.
-		With Invalid Indented Line After Area [Passed]
+		With Invalid Indented Line After Capability [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 						Invalid Line
 			When you run the command:
 				dotnet xbdd project generate MSTest
 			Then you will see output matching the following template:
 				{{.*}}/rl
-				Error: An invalid line of type 'Scenario' is following an area line.
+				Error: An invalid line of type 'Scenario' is following an capability line.
 				Line 2: '		Invalid Line'
-				Explanation: An area line can only be followed by an indented 'Explanation' header or 
+				Explanation: An capability line can only be followed by an indented 'Explanation' header or 
 				             indented Feature line.
-	For An MS Test Project [Passed]
+	For An MS Test Project [Failed]
 		With An Empty Scenario [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1203,14 +1199,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Given Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1238,14 +1234,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Given Step With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given "My" Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1273,15 +1269,15 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A When Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
 							When Step 2
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1313,7 +1309,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Then Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
@@ -1321,8 +1317,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 							Then Step 3
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1358,7 +1354,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With An And Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
@@ -1367,8 +1363,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 							And Step 4
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1408,7 +1404,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Code Step [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
@@ -1418,8 +1414,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 							.And(this.IsSomeCode())
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1460,7 +1456,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Step Input [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
@@ -1469,8 +1465,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 									My Multiline Input
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1502,7 +1498,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Step Input With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
@@ -1511,8 +1507,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 									"My" Multiline Input
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1544,7 +1540,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Step Input Single Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
@@ -1552,8 +1548,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 									Here Is My Single Line Input
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1583,7 +1579,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Step Input Single Line With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
@@ -1591,8 +1587,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 									Here Is "My" Single Line Input
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1622,7 +1618,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Step Explanation [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
@@ -1631,8 +1627,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 									My Multiline Explanation
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1665,7 +1661,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Step Explanation With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
@@ -1674,8 +1670,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 									"My" Multiline Explanation
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1708,7 +1704,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Step Explanation Single Line [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
@@ -1716,8 +1712,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 									Here Is My Singleline Explanation
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1748,7 +1744,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Step Explanation Single Line With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
@@ -1756,8 +1752,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 									Here Is "My" Singleline Explanation
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1788,14 +1784,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Step With Trailing Spaces [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1           
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1823,7 +1819,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Scenario Explanation [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Explanation
@@ -1833,8 +1829,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1866,7 +1862,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Scenario Explanation With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Explanation
@@ -1876,8 +1872,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1909,14 +1905,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Scenario With Trailing Spaces [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1          
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1944,14 +1940,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Scenario Reason Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1 #R-MyReason
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -1979,14 +1975,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Duplicate Scenario Reason Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1 #R-MyReason1 #R-MyReason2
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2014,14 +2010,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Scenario Owner Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1 @MyOwner1 @MyOwner2
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2050,14 +2046,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Scenario General Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1 #T-MyTag1 #T-MyTag2
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2086,7 +2082,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With An Existing Feature [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 							Given Step 1
@@ -2094,8 +2090,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				dotnet xbdd project generate MSTest
 			And you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2120,8 +2116,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.xbdd.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			And you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.xbdd.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2149,7 +2145,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Feature Explanation [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						Explanation
 							Here is my 
@@ -2159,8 +2155,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2192,7 +2188,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Feature Explanation With Quotes [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						Explanation
 							Here is "my" 
@@ -2202,8 +2198,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2232,10 +2228,10 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Feature Statement [Passed]
-			Given you have an empty directory
-			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+		With A Feature Statement [Failed]
+			Given you have an empty directory [Passed]
+			And add a scenario outline file with the following content: [Passed]
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						Explanation
 							Here is my 
@@ -2243,14 +2239,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 							explanation
 						Statement
 							As a user
-							You can derive some value
-							By performing some action with the product
+							So that you derive some value
+							You can performing some action with the product
 						My Scenario 1
 							Given Step 1
-			When you run the command:
+			When you run the command: [Passed]
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template: [Failed]
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2260,7 +2256,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					[TestClass]
 					[AsA("user")]
-					[YouCan("derive some value")]
+					[SoThat("you can derive some value")]
 					[By("performing some action with the product")]
 					[Explanation(@"
 						Here is my 
@@ -2282,17 +2278,33 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
+				Error Type: TemplateValidationException
+				   Message: Line 11 did not match template line 11 (Value/Template)
+		[YouCan(" can performing some action with the product")]
+		[SoThat("you can derive some value")]
+Line 12 did not match template line 12 (Value/Template)
+		[SoThat("you derive some value")]
+		[By("performing some action with the product")]
+
+				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass4_0.<WillFindAMatchingFile>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 104
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 		With A Feature With Trailing Spaces [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1     
 						My Scenario 1
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2317,17 +2329,17 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With An Area With Trailing Spaces [Passed]
+		With A Capability With Trailing Spaces [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1     
+				My Capability 1 - My Sub Capability 1     
 					My Feature 1
 						My Scenario 1
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2355,14 +2367,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Ignored Feature Reason Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1 #R-IgnoredReasonTag
 						My Scenario 1
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2390,14 +2402,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Feature General Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1 #T-MyFeatureTag #T-MyFeatureTag2
 						My Scenario 1
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2426,14 +2438,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Feature Owner Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1 @MyFeatureOwner1 @MyFeatureOwner2
 						My Scenario 1
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2459,17 +2471,17 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Ignored Area Tags [Passed]
+		With Ignored Capability Tags [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1 #R-Ignored #T-Ignored @Ignored
+				My Capability 1 - My Sub Capability 1 #R-Ignored #T-Ignored @Ignored
 					My Feature 1
 						My Scenario 1
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2497,14 +2509,14 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With A Workflowy Text Export [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				- My Area 1 - My Sub Area 1
+				- My Capability 1 - My Sub Capability 1
 				  - My Feature 1
 				    - My Scenario 1
 				      - Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2529,20 +2541,20 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Duplicate Area And Feature [Passed]
+		With Duplicate Capability And Feature [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 2
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2574,23 +2586,23 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Duplicate Area And Feature Nonconsecutive [Passed]
+		With Duplicate Capability And Feature Nonconsecutive [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
-				My Area 2 - My Sub Area 1
+				My Capability 2 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 2
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2622,20 +2634,20 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With Duplicate Area [Passed]
+		With Duplicate Capability [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 0
 						My Scenario 1
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 2
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2663,7 +2675,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Duplicate Feature [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 					My Feature 1
@@ -2671,8 +2683,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2707,7 +2719,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Duplicate Feature Nonconsecutive [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 					My Feature 2
@@ -2717,8 +2729,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2753,15 +2765,15 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Duplicate Scenario [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 						My Scenario 1
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2796,7 +2808,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 		With Duplicate Scenario Nonconsecutive [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						My Scenario 1
 						My Scenario 2
@@ -2804,8 +2816,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 							Given Step 1
 			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:
-				namespace MyGeneratedSample.Features.MyArea1.MySubArea1
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
+				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -2848,22 +2860,22 @@ xBDD - Features - Generating Code - Generating Solution Files - Using An Xbdd Fe
 		With A Valid Solution Definition [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
-				Project: MyGeneratedSample.Features.Area1
-					My Area A - My Sub Area B
+				Project: MyGeneratedSample.Features.Capability1
+					My Capability A - My Sub Capability B
 						My Feature C
 							My Scenario D 
-				Project: MyGeneratedSample.Features.Area2
-					My Area E - My Sub Area F
+				Project: MyGeneratedSample.Features.Capability2
+					My Capability E - My Sub Capability F
 						My Feature G
 							My Scenario H
 			When you run the command:
 				dotnet xbdd solution generate MSTest
-			Then you will find a file at './MyGeneratedSample/MyGeneratedSample.Features.Area1/xBddFeatureImport.txt' that matches the template:
-				My Area A - My Sub Area B
+			Then you will find a file at './MyGeneratedSample/MyGeneratedSample.Features.Capability1/xBddFeatureImport.txt' that matches the template:
+				My Capability A - My Sub Capability B
 					My Feature C
 						My Scenario D 
-			And you will find a file at './MyGeneratedSample/MyGeneratedSample.Features.Area2/xBddFeatureImport.txt' that matches the template:
-				My Area E - My Sub Area F
+			And you will find a file at './MyGeneratedSample/MyGeneratedSample.Features.Capability2/xBddFeatureImport.txt' that matches the template:
+				My Capability E - My Sub Capability F
 					My Feature G
 						My Scenario H
 		With No Projects [Defining]

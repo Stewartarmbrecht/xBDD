@@ -28,26 +28,26 @@ namespace xBDD.Core
             UpdateMultipleStats(Outcome.NotRun, step.Outcome,
 				step.Scenario.StepStats,
                 step.Scenario.Feature.StepStats,
-                step.Scenario.Feature.Area.StepStats,
-                step.Scenario.Feature.Area.TestRun.StepStats);
+                step.Scenario.Feature.Capability.StepStats,
+                step.Scenario.Feature.Capability.TestRun.StepStats);
             CascadeScenarioOutcome(step, scenarioSkipped);
 			CascadeFeatureOutcome(step);
-			CascadeAreaOutcome(step);
-            step.Scenario.Feature.Area.TestRun.Outcome = outcomeAggregator.GetNewParentOutcome(
-				step.Scenario.Feature.Area.TestRun.Outcome, 
-				step.Scenario.Feature.Area.Outcome);
+			CascadeCapabilityOutcome(step);
+            step.Scenario.Feature.Capability.TestRun.Outcome = outcomeAggregator.GetNewParentOutcome(
+				step.Scenario.Feature.Capability.TestRun.Outcome, 
+				step.Scenario.Feature.Capability.Outcome);
         }
         private void CascadeNotRunScenarioOutcome(Scenario scenario)
         {
             UpdateMultipleStats(Outcome.NotRun, scenario.Outcome,
                 scenario.Feature.ScenarioStats,
-                scenario.Feature.Area.ScenarioStats,
-                scenario.Feature.Area.TestRun.ScenarioStats);
+                scenario.Feature.Capability.ScenarioStats,
+                scenario.Feature.Capability.TestRun.ScenarioStats);
 			CascadeFeatureOutcome(scenario);
-			CascadeAreaOutcome(scenario);
-            scenario.Feature.Area.TestRun.Outcome = outcomeAggregator.GetNewParentOutcome(
-				scenario.Feature.Area.TestRun.Outcome, 
-				scenario.Feature.Area.Outcome);
+			CascadeCapabilityOutcome(scenario);
+            scenario.Feature.Capability.TestRun.Outcome = outcomeAggregator.GetNewParentOutcome(
+				scenario.Feature.Capability.TestRun.Outcome, 
+				scenario.Feature.Capability.Outcome);
         }
         private void CascadeScenarioOutcome(Step step, bool scenarioSkipped)
         {
@@ -59,8 +59,8 @@ namespace xBDD.Core
             UpdateMultipleStats(scenarioOutcome, 
 				step.Scenario.Outcome,
                 step.Scenario.Feature.ScenarioStats,
-                step.Scenario.Feature.Area.ScenarioStats,
-                step.Scenario.Feature.Area.TestRun.ScenarioStats);
+                step.Scenario.Feature.Capability.ScenarioStats,
+                step.Scenario.Feature.Capability.TestRun.ScenarioStats);
         }
         private void CascadeFeatureOutcome(Step step)
         {
@@ -69,8 +69,8 @@ namespace xBDD.Core
 				step.Scenario.Feature.Outcome, 
 				step.Scenario.Outcome);
             UpdateMultipleStats(featureOutcome, step.Scenario.Feature.Outcome,
-                step.Scenario.Feature.Area.FeatureStats,
-                step.Scenario.Feature.Area.TestRun.FeatureStats);
+                step.Scenario.Feature.Capability.FeatureStats,
+                step.Scenario.Feature.Capability.TestRun.FeatureStats);
         }
         private void CascadeFeatureOutcome(Scenario scenario)
         {
@@ -79,26 +79,26 @@ namespace xBDD.Core
 				scenario.Feature.Outcome, 
 				scenario.Outcome);
             UpdateMultipleStats(featureOutcome, scenario.Feature.Outcome,
-                scenario.Feature.Area.FeatureStats,
-                scenario.Feature.Area.TestRun.FeatureStats);
+                scenario.Feature.Capability.FeatureStats,
+                scenario.Feature.Capability.TestRun.FeatureStats);
         }
-        private void CascadeAreaOutcome(Step step)
+        private void CascadeCapabilityOutcome(Step step)
         {
-            var areaOutcome = step.Scenario.Feature.Area.Outcome;
-            step.Scenario.Feature.Area.Outcome = outcomeAggregator.GetNewParentOutcome(
-				step.Scenario.Feature.Area.Outcome, 
+            var capabilityOutcome = step.Scenario.Feature.Capability.Outcome;
+            step.Scenario.Feature.Capability.Outcome = outcomeAggregator.GetNewParentOutcome(
+				step.Scenario.Feature.Capability.Outcome, 
 				step.Scenario.Feature.Outcome);
-            UpdateMultipleStats(areaOutcome, step.Scenario.Feature.Area.Outcome,
-                step.Scenario.Feature.Area.TestRun.AreaStats);
+            UpdateMultipleStats(capabilityOutcome, step.Scenario.Feature.Capability.Outcome,
+                step.Scenario.Feature.Capability.TestRun.CapabilityStats);
         }
 
-        private void CascadeAreaOutcome(Scenario scenario)
+        private void CascadeCapabilityOutcome(Scenario scenario)
         {
-            var areaOutcome = scenario.Feature.Area.Outcome;
-            scenario.Feature.Area.Outcome = outcomeAggregator.GetNewParentOutcome(
-				scenario.Feature.Area.Outcome, scenario.Feature.Outcome);
-            UpdateMultipleStats(areaOutcome, scenario.Feature.Area.Outcome,
-                scenario.Feature.Area.TestRun.AreaStats);
+            var capabilityOutcome = scenario.Feature.Capability.Outcome;
+            scenario.Feature.Capability.Outcome = outcomeAggregator.GetNewParentOutcome(
+				scenario.Feature.Capability.Outcome, scenario.Feature.Outcome);
+            UpdateMultipleStats(capabilityOutcome, scenario.Feature.Capability.Outcome,
+                scenario.Feature.Capability.TestRun.CapabilityStats);
         }
 
         private void UpdateMultipleStats(Outcome previousOutcome, Outcome newOutcome, params OutcomeStats[] stats)
@@ -166,19 +166,19 @@ namespace xBDD.Core
             	step.Scenario.StartTime = step.StartTime;
 			if(step.Scenario.Feature.StartTime.Equals(DateTime.MinValue) || step.Scenario.Feature.StartTime > step.StartTime)
             	step.Scenario.Feature.StartTime = step.StartTime;
-			if(step.Scenario.Feature.Area.StartTime.Equals(DateTime.MinValue) || step.Scenario.Feature.Area.StartTime > step.StartTime)
-            	step.Scenario.Feature.Area.StartTime = step.StartTime;
-			if(step.Scenario.Feature.Area.TestRun.StartTime.Equals(DateTime.MinValue) || step.Scenario.Feature.Area.TestRun.StartTime > step.StartTime)
-            	step.Scenario.Feature.Area.TestRun.StartTime =  step.StartTime;
+			if(step.Scenario.Feature.Capability.StartTime.Equals(DateTime.MinValue) || step.Scenario.Feature.Capability.StartTime > step.StartTime)
+            	step.Scenario.Feature.Capability.StartTime = step.StartTime;
+			if(step.Scenario.Feature.Capability.TestRun.StartTime.Equals(DateTime.MinValue) || step.Scenario.Feature.Capability.TestRun.StartTime > step.StartTime)
+            	step.Scenario.Feature.Capability.TestRun.StartTime =  step.StartTime;
         }
         private void CascadeStartTime(Scenario scenario)
         {
 			if(scenario.Feature.StartTime.Equals(DateTime.MinValue) || scenario.Feature.StartTime > scenario.StartTime)
             	scenario.Feature.StartTime = scenario.StartTime;
-			if(scenario.Feature.Area.StartTime.Equals(DateTime.MinValue) || scenario.Feature.Area.StartTime > scenario.StartTime)
-            	scenario.Feature.Area.StartTime = scenario.StartTime;
-			if(scenario.Feature.Area.TestRun.StartTime.Equals(DateTime.MinValue) || scenario.Feature.Area.TestRun.StartTime > scenario.StartTime)
-            	scenario.Feature.Area.TestRun.StartTime =  scenario.StartTime;
+			if(scenario.Feature.Capability.StartTime.Equals(DateTime.MinValue) || scenario.Feature.Capability.StartTime > scenario.StartTime)
+            	scenario.Feature.Capability.StartTime = scenario.StartTime;
+			if(scenario.Feature.Capability.TestRun.StartTime.Equals(DateTime.MinValue) || scenario.Feature.Capability.TestRun.StartTime > scenario.StartTime)
+            	scenario.Feature.Capability.TestRun.StartTime =  scenario.StartTime;
         }
         private void CascadeStepEndTime(Step step)
         {
@@ -186,19 +186,19 @@ namespace xBDD.Core
             	step.Scenario.EndTime =  step.EndTime;
 			if(step.Scenario.Feature.EndTime > DateTime.MinValue)
             	step.Scenario.Feature.EndTime =  step.EndTime;
-			if(step.Scenario.Feature.Area.EndTime > DateTime.MinValue)
-            	step.Scenario.Feature.Area.EndTime = step.EndTime;
-			if(step.Scenario.Feature.Area.TestRun.EndTime > DateTime.MinValue)
-            	step.Scenario.Feature.Area.TestRun.EndTime = step.EndTime;
+			if(step.Scenario.Feature.Capability.EndTime > DateTime.MinValue)
+            	step.Scenario.Feature.Capability.EndTime = step.EndTime;
+			if(step.Scenario.Feature.Capability.TestRun.EndTime > DateTime.MinValue)
+            	step.Scenario.Feature.Capability.TestRun.EndTime = step.EndTime;
         }
         private void CascadeEndTime(Scenario scenario)
         {
 			if(scenario.Feature.EndTime > DateTime.MinValue)
             	scenario.Feature.EndTime =  scenario.EndTime;
-			if(scenario.Feature.Area.EndTime > DateTime.MinValue)
-            	scenario.Feature.Area.EndTime = scenario.EndTime;
-			if(scenario.Feature.Area.TestRun.EndTime > DateTime.MinValue)
-            	scenario.Feature.Area.TestRun.EndTime = scenario.EndTime;
+			if(scenario.Feature.Capability.EndTime > DateTime.MinValue)
+            	scenario.Feature.Capability.EndTime = scenario.EndTime;
+			if(scenario.Feature.Capability.TestRun.EndTime > DateTime.MinValue)
+            	scenario.Feature.Capability.TestRun.EndTime = scenario.EndTime;
         }
 	}
 }

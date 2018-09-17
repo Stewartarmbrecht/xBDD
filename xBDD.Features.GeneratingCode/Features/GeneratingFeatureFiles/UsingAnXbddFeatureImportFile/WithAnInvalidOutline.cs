@@ -10,8 +10,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 
 	[TestClass]
 	[AsA("Developer")]
-	[YouCan("quickly troubleshoot an invalid feature import outline")]
-	[By("reviewing the detailed error messages in the xBDD tools output")]
+	[SoThat("quickly troubleshoot an invalid feature import outline")]
+	[YouCan("reviewing the detailed error messages in the xBDD tools output")]
 	public partial class WithAnInvalidOutline: xBDDFeatureBase
 	{
 
@@ -33,9 +33,9 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 		}
 
 		[TestMethod]
-		public async Task WithInvalidCharactersInAreaName() {
+		public async Task WithInvalidCharactersInCapabilityName() {
 			var outline = $@"
-				My Area 1 - My $%^& Sub Area 1
+				My Capability 1 - My $%^& Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -43,8 +43,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1 #R-Committed @Stewart #T-LoveIT
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -66,9 +66,9 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 
 			var outputTemplate = $@"
 				{{{{.*}}}}/rl
-				Error: An area is defined with invalid characters in the name.
-				Line 1: 'My Area 1 - My $%^& Sub Area 1'
-				Explanation: An area name must start with a letter and can only contain
+				Error: An capability is defined with invalid characters in the name.
+				Line 1: 'My Capability 1 - My $%^& Sub Capability 1'
+				Explanation: An capability name must start with a letter and can only contain
 				             letters, numbers, spaces, underscores, and ' - '.
 				             The ' - ' string is converted to '.' to define the features 
 				             namespace in the test project.
@@ -80,7 +80,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 		[TestMethod]
 		public async Task WithInvalidCharactersInFeatureName() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -88,8 +88,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My $%^& Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -123,7 +123,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithInvalidCharactersInScenarioName() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -131,8 +131,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1 #R-Committed @Stewart #T-LoveIT
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -166,7 +166,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithEmptyFeatureLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -174,8 +174,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -206,7 +206,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithEmptyScenarioLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -214,8 +214,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -246,7 +246,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithEmptyStepLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -254,8 +254,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -286,7 +286,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithStepInputHeaderOnLastLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -294,8 +294,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -323,7 +323,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithStepExplanationHeaderOnLastLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -331,8 +331,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -358,7 +358,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithScenarioExplanationHeaderOnLastLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -366,8 +366,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -389,7 +389,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithFeatureExplanationOnLastLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -397,8 +397,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation".RemoveIndentation(4, true);
@@ -417,7 +417,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithFeatureExplanationHeaderOnLastLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -425,8 +425,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation".RemoveIndentation(4, true);
 
 			var outputTemplate = $@"
@@ -443,7 +443,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithFeatureStatementOnLastLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -451,8 +451,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something".RemoveIndentation(4, true);
+							So that you get some value
+							You can do something".RemoveIndentation(4, true);
 
 			var outputTemplate = $@"
 				{{{{.*}}}}/rl
@@ -468,7 +468,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithFeatureStatementHeaderOnLastLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -490,7 +490,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithFeatureOnLastLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -509,18 +509,18 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 		}
 
  		[TestMethod]
-		public async Task WithAreaExplanationOnLastLine() {
+		public async Task WithCapabilityExplanationOnLastLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation".RemoveIndentation(4, true);
 
 			var outputTemplate = $@"
 				{{{{.*}}}}/rl
-				Error: An invalid line of type 'No Line' is following an area explanation line.
+				Error: An invalid line of type 'No Line' is following an capability explanation line.
 				Line 4: ''
-				Explanation: An area explanation line can only be followed by another explanation line 
+				Explanation: An capability explanation line can only be followed by another explanation line 
 				             or an outdented (2x) feature line.
 				".RemoveIndentation(4, true);
 			
@@ -528,16 +528,16 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 		}
 
  		[TestMethod]
-		public async Task WithAreaExplanationHeaderOnLastLine() {
+		public async Task WithCapabilityExplanationHeaderOnLastLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation".RemoveIndentation(4, true);
 
 			var outputTemplate = $@"
 				{{{{.*}}}}/rl
-				Error: An invalid line of type 'No Line' is following an area explanation header line.
+				Error: An invalid line of type 'No Line' is following an capability explanation header line.
 				Line 2: ''
-				Explanation: An area explanation header line can only be followed by an indented 
+				Explanation: An capability explanation header line can only be followed by an indented 
 				             explanation line.
 				".RemoveIndentation(4, true);
 			
@@ -545,15 +545,15 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 		}
 
  		[TestMethod]
-		public async Task WithAreaOnLastLine() {
+		public async Task WithCapabilityOnLastLine() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1".RemoveIndentation(4, true);
+				My Capability 1 - My Sub Capability 1".RemoveIndentation(4, true);
 
 			var outputTemplate = $@"
 				{{{{.*}}}}/rl
-				Error: An invalid line of type 'No Line' is following an area line.
+				Error: An invalid line of type 'No Line' is following an capability line.
 				Line 1: ''
-				Explanation: An area line can only be followed by an indented 'Explanation' header or 
+				Explanation: An capability line can only be followed by an indented 'Explanation' header or 
 				             indented Feature line.
 				".RemoveIndentation(4, true);
 			
@@ -575,7 +575,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 		[TestMethod]
 		public async Task WithInvalidLineAfterStepInputHeader() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -583,8 +583,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -614,7 +614,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 		[TestMethod]
 		public async Task WithInvalidLineAfterStepExplanationHeader() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -622,8 +622,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -654,7 +654,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithInvalidLineAfterStep() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -662,8 +662,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -684,7 +684,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 				Line 20: '				Invalid Line'
 				Explanation: A step line can only be followed by another step line or an indented 
 				             'Explanation' or 'Input' header line, or outdented scenario, feature, or 
-				             area.
+				             capability.
 				".RemoveIndentation(4, true);
 			
 			await this.ExecuteStep(21, outline, outputTemplate);
@@ -692,7 +692,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithInvalidStepLineAfterStep() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -700,8 +700,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -729,7 +729,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithInvalidLineAfterScenarioExplanationHeader() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -737,8 +737,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -762,7 +762,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithInvalidLineAfterScenario() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -770,8 +770,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -796,7 +796,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithInvalidIndentedStepLineAfterScenario() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -804,8 +804,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 							Here is my 
 							feature explanation
@@ -821,7 +821,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 				Line 16: '				Given step 1'
 				Explanation: A scenario line can only be followed by another scenario line, an indented
 				             'Explanation' header or indented step line, or an outdented feature or 
-				             area line.
+				             capability line.
 				".RemoveIndentation(4, true);
 			
 			await this.ExecuteStep(25, outline, outputTemplate);
@@ -829,15 +829,15 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithInvalidLineAfterFeatureExplanationHeader() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
 					My Feature 1
 						Statement
 							As a user
-							You can get some value
-							By doing something
+							So that you get some value
+							You can do something
 						Explanation
 						My Scenario 1".RemoveIndentation(4, true);
 
@@ -854,7 +854,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithInvalidLineAfterFeatureStatementHeader() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -875,7 +875,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
  		[TestMethod]
 		public async Task WithInvalidLineAfterFeature() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 						Here is 
 						my explanation
@@ -894,49 +894,49 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 			await this.ExecuteStep(28, outline, outputTemplate);
 		}
  		[TestMethod]
-		public async Task WithInvalidLineAfterAreaExplanationHeader() {
+		public async Task WithInvalidLineAfterCapabilityExplanationHeader() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 					Explanation
 					My Feature 1".RemoveIndentation(4, true);
 
 			var outputTemplate = $@"
 				{{{{.*}}}}/rl
-				Error: An invalid line of type 'Feature' is following an area explanation header line.
+				Error: An invalid line of type 'Feature' is following an capability explanation header line.
 				Line 3: '	My Feature 1'
-				Explanation: An area explanation header line can only be followed by an indented 
+				Explanation: An capability explanation header line can only be followed by an indented 
 				             explanation line.
 				".RemoveIndentation(4, true);
 			
 			await this.ExecuteStep(29, outline, outputTemplate);
 		}
  		[TestMethod]
-		public async Task WithInvalidLineAfterArea() {
+		public async Task WithInvalidLineAfterCapability() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
-				My Area 1 - My Sub Area 2".RemoveIndentation(4, true);
+				My Capability 1 - My Sub Capability 1
+				My Capability 1 - My Sub Capability 2".RemoveIndentation(4, true);
 
 			var outputTemplate = $@"
 				{{{{.*}}}}/rl
-				Error: An invalid line of type 'Area' is following an area line.
-				Line 2: 'My Area 1 - My Sub Area 2'
-				Explanation: An area line can only be followed by an indented 'Explanation' header or 
+				Error: An invalid line of type 'Capability' is following an capability line.
+				Line 2: 'My Capability 1 - My Sub Capability 2'
+				Explanation: An capability line can only be followed by an indented 'Explanation' header or 
 				             indented Feature line.
 				".RemoveIndentation(4, true);
 			
 			await this.ExecuteStep(30, outline, outputTemplate);
 		}
  		[TestMethod]
-		public async Task WithInvalidIndentedLineAfterArea() {
+		public async Task WithInvalidIndentedLineAfterCapability() {
 			var outline = $@"
-				My Area 1 - My Sub Area 1
+				My Capability 1 - My Sub Capability 1
 						Invalid Line".RemoveIndentation(4, true);
 
 			var outputTemplate = $@"
 				{{{{.*}}}}/rl
-				Error: An invalid line of type 'Scenario' is following an area line.
+				Error: An invalid line of type 'Scenario' is following an capability line.
 				Line 2: '		Invalid Line'
-				Explanation: An area line can only be followed by an indented 'Explanation' header or 
+				Explanation: An capability line can only be followed by an indented 'Explanation' header or 
 				             indented Feature line.
 				".RemoveIndentation(4, true);
 			

@@ -1,6 +1,6 @@
 My Sample - Test Run 6 Failed
 
-My Sample - Features - Test Run 6 Failed - Area 1 Passing [Passed]
+My Sample - Features - Test Run 6 Failed - Capability 1 Passing [Passed]
 	Feature 1 Passing [Passed]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
@@ -12,7 +12,7 @@ My Sample - Features - Test Run 6 Failed - Area 1 Passing [Passed]
 				like in the output.
 			When Step 2 Passing
 			Then Step 3 Passing
-My Sample - Features - Test Run 6 Failed - Area 2 Skipped Untested [Untested]
+My Sample - Features - Test Run 6 Failed - Capability 2 Skipped Untested [Untested]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
@@ -23,7 +23,7 @@ My Sample - Features - Test Run 6 Failed - Area 2 Skipped Untested [Untested]
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested [Untested]
-My Sample - Features - Test Run 6 Failed - Area 3 Skipped Committed [Committed]
+My Sample - Features - Test Run 6 Failed - Capability 3 Skipped Committed [Committed]
 	Feature 1 Passing [Passed]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
@@ -45,7 +45,7 @@ My Sample - Features - Test Run 6 Failed - Area 3 Skipped Committed [Committed]
 			Given Step 1 Skipped
 			When Step 2 Skipped
 			Then Step 3 Skipped
-My Sample - Features - Test Run 6 Failed - Area 4 Skipped Ready [Ready]
+My Sample - Features - Test Run 6 Failed - Capability 4 Skipped Ready [Ready]
 	Feature 1 Passing [Passed]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
@@ -81,7 +81,7 @@ My Sample - Features - Test Run 6 Failed - Area 4 Skipped Ready [Ready]
 			Given Step 1 Skipped
 			When Step 2 Skipped
 			Then Step 3 Skipped
-My Sample - Features - Test Run 6 Failed - Area 5 Skipped Defining [Defining]
+My Sample - Features - Test Run 6 Failed - Capability 5 Skipped Defining [Defining]
 	Feature 1 Passing [Passed]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
@@ -132,7 +132,7 @@ My Sample - Features - Test Run 6 Failed - Area 5 Skipped Defining [Defining]
 			When Step 2 Skipped
 			Then Step 3 Skipped
 		Scenario 5 Skipped Defining [Defining]
-My Sample - Features - Test Run 6 Failed - Area 6 Failed [Failed]
+My Sample - Features - Test Run 6 Failed - Capability 6 Failed [Failed]
 	Feature 1 Passing [Passed]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
@@ -203,11 +203,11 @@ My Sample - Features - Test Run 6 Failed - Area 6 Failed [Failed]
 			When Step 2 Failed [Failed]
 				Error Type: Exception
 				   Message: Exception of type 'System.Exception' was thrown.
-				     Stack:    at MySample.Features.TestRun6Failed.Area6Failed.Feature6Failed.<>c.<Scenario6Failed>b__5_1(Step s) in C:\Users\stearm01\source\xBDD\MySample\MySample.Features.TestRun6Failed\Features\Area6Failed\Feature6Failed.cs:line 94
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				     Stack:    at MySample.Features.TestRun6Failed.Capability6Failed.Feature6Failed.<>c.<Scenario6Failed>b__5_1(Step s) in /Users/stewartarmbrecht/Source/xBDD/MySample/MySample.Features.TestRun6Failed/Features/Capability6Failed/Feature6Failed.cs:line 94
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 			Then Step 3 Skipped [Previous Error]

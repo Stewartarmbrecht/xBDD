@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<outline text="My Sample - Features - Test Run 6 Failed - Area 1 Passing [Passed]">
+<outline text="My Sample - Features - Test Run 6 Failed - Capability 1 Passing [Passed]">
 	<outline text="Feature 1 Passing [Passed]">
 		<outline text="Scenario 1 Passing [Passed]">
 			<outline text="Given Step 1 Passing">
@@ -19,7 +19,7 @@
 			<outline text="Then Step 3 Passing"/>
 		</outline>
 </outline>
-<outline text="My Sample - Features - Test Run 6 Failed - Area 2 Skipped Untested [Untested]">
+<outline text="My Sample - Features - Test Run 6 Failed - Capability 2 Skipped Untested [Untested]">
 		<outline text="Scenario 1 Passing [Passed]">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
@@ -36,7 +36,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="My Sample - Features - Test Run 6 Failed - Area 3 Skipped Committed [Committed]">
+<outline text="My Sample - Features - Test Run 6 Failed - Capability 3 Skipped Committed [Committed]">
 	<outline text="Feature 1 Passing [Passed]">
 		<outline text="Scenario 1 Passing [Passed]">
 			<outline text="Given Step 1 Passing"/>
@@ -68,7 +68,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="My Sample - Features - Test Run 6 Failed - Area 4 Skipped Ready [Ready]">
+<outline text="My Sample - Features - Test Run 6 Failed - Capability 4 Skipped Ready [Ready]">
 	<outline text="Feature 1 Passing [Passed]">
 		<outline text="Scenario 1 Passing [Passed]">
 			<outline text="Given Step 1 Passing"/>
@@ -119,7 +119,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="My Sample - Features - Test Run 6 Failed - Area 5 Skipped Defining [Defining]">
+<outline text="My Sample - Features - Test Run 6 Failed - Capability 5 Skipped Defining [Defining]">
 	<outline text="Feature 1 Passing [Passed]">
 		<outline text="Scenario 1 Passing [Passed]">
 			<outline text="Given Step 1 Passing"/>
@@ -191,7 +191,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="My Sample - Features - Test Run 6 Failed - Area 6 Failed [Failed]">
+<outline text="My Sample - Features - Test Run 6 Failed - Capability 6 Failed [Failed]">
 	<outline text="Feature 1 Passing [Passed]">
 		<outline text="Scenario 1 Passing [Passed]">
 			<outline text="Given Step 1 Passing"/>

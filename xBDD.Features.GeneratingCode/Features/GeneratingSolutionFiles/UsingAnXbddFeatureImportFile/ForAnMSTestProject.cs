@@ -9,8 +9,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles.UsingAnXbddFeatur
 	using xBDD.Features.Common;
 
 	[AsA("Developer")]
-	[YouCan("generate a new MS Test solution or new feature files for multiple projects from a single outline")]
-	[By("executing the 'dotnet xbdd solution generate MSTest' command in a director that has a valid solution outline")]
+	[SoThat("generate a new MS Test solution or new feature files for multiple projects from a single outline")]
+	[YouCan("executing the 'dotnet xbdd solution generate MSTest' command in a director that has a valid solution outline")]
 	[TestClass]
 	public partial class ForAnMSTestProject: xBDDFeatureBase
 	{
@@ -47,17 +47,17 @@ namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles.UsingAnXbddFeatur
 		public async Task WithAValidSolutionDefinition()
 		{
 			var outline = $@"
-				Project: MyGeneratedSample.Features.Area1
-					My Area A - My Sub Area B
+				Project: MyGeneratedSample.Features.Capability1
+					My Capability A - My Sub Capability B
 						My Feature C
 							My Scenario D 
-				Project: MyGeneratedSample.Features.Area2
-					My Area E - My Sub Area F
+				Project: MyGeneratedSample.Features.Capability2
+					My Capability E - My Sub Capability F
 						My Feature G
 							My Scenario H".RemoveIndentation(4, true);
 
-			var featureOutlineFilePath1 = $"{directory}/MyGeneratedSample.Features.Area1/xBddFeatureImport.txt";
-			var featureOutlineFilePath2 = $"{directory}/MyGeneratedSample.Features.Area2/xBddFeatureImport.txt";
+			var featureOutlineFilePath1 = $"{directory}/MyGeneratedSample.Features.Capability1/xBddFeatureImport.txt";
+			var featureOutlineFilePath2 = $"{directory}/MyGeneratedSample.Features.Capability2/xBddFeatureImport.txt";
 			
 			await this.ExecuteScenario(100, outline, featureOutlineFilePath1, featureOutlineFilePath2);
 		}

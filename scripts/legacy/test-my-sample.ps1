@@ -10,9 +10,9 @@ Set-Location $PSScriptRoot
 
 ./test-my-sample-passingfailuresonly.ps1
 
-./test-my-sample-noareanameremoval.ps1
+./test-my-sample-nocapabilitynameremoval.ps1
 
-./test-my-sample-fullareanameremoval.ps1
+./test-my-sample-fullcapabilitynameremoval.ps1
 
 ./test-my-sample-skipped.ps1
 

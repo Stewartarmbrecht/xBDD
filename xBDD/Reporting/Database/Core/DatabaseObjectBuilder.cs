@@ -24,8 +24,8 @@ namespace xBDD.Reporting.Database.Core
 
         private void BuildScenarios(xb.TestRun testRun, TestRun testRunDb)
         {
-            var scenarios = from area in testRun.Areas
-                            from feature in area.Features
+            var scenarios = from capability in testRun.Capabilities
+                            from feature in capability.Features
                             from scenario in feature.Scenarios
                             select scenario; 
             foreach(xb.Scenario scenario in scenarios)

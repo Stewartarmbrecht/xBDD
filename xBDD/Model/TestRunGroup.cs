@@ -58,7 +58,7 @@ namespace xBDD.Model
         /// <summary>
         /// The test runs covered by the test run group.
         /// </summary>
-        /// <value>List of areas <see cref="List{Area}" /></value>
+        /// <value>List of capabilities <see cref="List{Capability}" /></value>
         [DataMember]
 		public List<TestRun> TestRuns { get; set; }
 
@@ -81,10 +81,10 @@ namespace xBDD.Model
 		public OutcomeStats FeatureStats { get; set; }
 
         /// <summary>
-        /// Statistics about the areas executed in the test run group.
+        /// Statistics about the capabilities executed in the test run group.
         /// </summary>
         /// <value></value>
-		public OutcomeStats AreaStats { get; set; }
+		public OutcomeStats CapabilityStats { get; set; }
 
         /// <summary>
         /// Statistics about the test runs executed in the test run group.
@@ -105,10 +105,10 @@ namespace xBDD.Model
 		public Dictionary<string, int> FeatureReasonStats { get; internal set; }
 
 		/// <summary>
-		/// Stores the count of areas for each reason.
+		/// Stores the count of capabilities for each reason.
 		/// </summary>
-		/// <value>Dictionary of reasons and area counts.</value>
-		public Dictionary<string, int> AreaReasonStats { get; internal set; }
+		/// <value>Dictionary of reasons and capability counts.</value>
+		public Dictionary<string, int> CapabilityReasonStats { get; internal set; }
 		/// <summary>
 		/// Stores the count of test runs for each reason.
 		/// </summary>

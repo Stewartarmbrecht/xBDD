@@ -176,7 +176,7 @@ Copyright (c) Microsoft Corporation.  All rights reserved.
 Starting test execution, please wait...
 Skipped  RunningAllScenarios
 Skipped  RunningScenariosFilteredByMSTestTestCateogry
-Skipped  RunningScenariosFilteredByAreaName
+Skipped  RunningScenariosFilteredByCapabilityName
 Skipped  RunningScenariosFilteredByFeatureName
 Skipped  RunningScenariosFilteredByScenarioName
 Skipped  RunningScenariosFilteredByAssignment
@@ -2054,9 +2054,9 @@ Scenario 010101
 Failed   AllPassing
 Error Message:
  Test method xBDD.Test.TextImporterTest.AllPassing threw exception: 
-xBDD.TextImportException: An area is defined with invalid characters in the name.
-Line 3: 'Area 01 [Defining]'
-Explanation: An area name must start with a letter and can only contain
+xBDD.TextImportException: An capability is defined with invalid characters in the name.
+Line 3: 'Capability 01 [Defining]'
+Explanation: An capability name must start with a letter and can only contain
              letters, numbers, spaces, underscores, and ' - '.
              The ' - ' string is converted to '.' to define the features 
              namespace in the test project.
@@ -2624,7 +2624,7 @@ Standard Output Messages:
          			"Watch": "false"
          		},
          		"HtmlReport": {
-         			"RemoveFromAreaNameStart": "My Generated Sample - Features - ",
+         			"RemoveFromCapabilityNameStart": "My Generated Sample - Features - ",
          			"FailuresOnly": "false"
          		}
          	}
@@ -2648,7 +2648,7 @@ Standard Output Messages:
          	}
          }
      And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template:
-         MyImportedArea1
+         MyImportedCapability1
          	MyImportedFeature
          		MyImportedScenario #R-Ready
          			Given you have the xbdd tools installed
@@ -2691,7 +2691,7 @@ Standard Output Messages:
          	{
          		public List<string> GetSortedFeatureNames() {
          			return new List<string>() {
-         				typeof(MyGeneratedSample.Features.MyArea.MyFeature).FullName,
+         				typeof(MyGeneratedSample.Features.MyCapability.MyFeature).FullName,
          			};
          		}
          		public List<string> GetSortedReasons() {
@@ -2716,7 +2716,7 @@ Standard Output Messages:
          	{
          		public List<string> GetGeneratedSortedFeatureNames() {
          			return new List<string>() {
-         				typeof(MyGeneratedSample.Features.MyArea.MyFeature).FullName,
+         				typeof(MyGeneratedSample.Features.MyCapability.MyFeature).FullName,
          			};
          		}
          		public List<string> GetGeneratedReasons() {
@@ -2730,8 +2730,8 @@ Standard Output Messages:
          		}
          	}
          }
-     And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template:
-         namespace MyGeneratedSample.Features.MyArea
+     And you will find a file at './MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs' that matches the template:
+         namespace MyGeneratedSample.Features.MyCapability
          {
          	using Microsoft.VisualStudio.TestTools.UnitTesting;
          	using System;
@@ -2741,7 +2741,7 @@ Standard Output Messages:
  
          	[TestClass]
          	[AsA("sample user")]
-         	[YouCan("have my feature value")]
+         	[SoThat("you have my feature value")]
          	[By("execute my feature")]
          	[Explanation(@"
          		# My Explanation
@@ -2849,7 +2849,7 @@ Standard Output Messages:
          MyGeneratedSample.Features/xBddConfig.json,
          MyGeneratedSample.Features/xBddFeatureImport.txt,
          MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-         MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
+         MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
      When you run the command:
          dotnet xbdd project generate MSTest
      Then you will find the files ending in xbdd.[ext] or xbdd are overwritten
@@ -2861,7 +2861,7 @@ Standard Output Messages:
          MyGeneratedSample.Features/xBddConfig.json,
          MyGeneratedSample.Features/xBddFeatureImport.txt,
          MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-         MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
+         MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
      And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten
          MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
          MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
@@ -2871,7 +2871,7 @@ Standard Output Messages:
          MyGeneratedSample.Features/xBddConfig.json,
          MyGeneratedSample.Features/xBddFeatureImport.txt,
          MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-         MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
+         MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
      And you will find the sample feature file is not modified because the xbdd backlog file already exists
          MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
          MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
@@ -2881,7 +2881,7 @@ Standard Output Messages:
          MyGeneratedSample.Features/xBddConfig.json,
          MyGeneratedSample.Features/xBddFeatureImport.txt,
          MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-         MyGeneratedSample.Features/Features/MyArea/MyFeature.cs
+         MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
      And you will find the project execute tests with the 'dotnet test' command
          dotnet test
      And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
@@ -2914,10 +2914,10 @@ Copyright (c) Microsoft Corporation.  All rights reserved.
 
 Starting test execution, please wait...
 
-Skipped  WithFullArea
-Skipped  WithAreaNameClipping
-Skipped  WithAreaNameEmpty
-Skipped  WithAreaExplanationEmpty
+Skipped  WithFullCapability
+Skipped  WithCapabilityNameClipping
+Skipped  WithCapabilityNameEmpty
+Skipped  WithCapabilityExplanationEmpty
 Skipped  WithNoFeatures
 Skipped  WithFeatures
 Skipped  WithFullFeature
@@ -2946,12 +2946,12 @@ Skipped  WithStepInnerException
 Skipped  WithFullTestRun
 Skipped  WithNoTestRunName
 Skipped  WithTestRunExplanationEmpty
-Skipped  WithNoAreas
-Skipped  WithAreas
-Skipped  WithFullArea
-Skipped  WithAreaNameClipping
-Skipped  WithAreaNameEmpty
-Skipped  WithAreaExplanationEmpty
+Skipped  WithNoCapabilities
+Skipped  WithCapabilities
+Skipped  WithFullCapability
+Skipped  WithCapabilityNameClipping
+Skipped  WithCapabilityNameEmpty
+Skipped  WithCapabilityExplanationEmpty
 Skipped  WithNoFeatures
 Skipped  WithFeatures
 Skipped  WithFullFeature
@@ -2980,12 +2980,12 @@ Skipped  WithStepInnerException
 Skipped  WithFullTestRun
 Skipped  WithNoTestRunName
 Skipped  WithTestRunExplanationEmpty
-Skipped  WithNoAreas
-Skipped  WithAreas
-Skipped  WithFullArea
-Skipped  WithAreaNameClipping
-Skipped  WithAreaNameEmpty
-Skipped  WithAreaExplanationEmpty
+Skipped  WithNoCapabilities
+Skipped  WithCapabilities
+Skipped  WithFullCapability
+Skipped  WithCapabilityNameClipping
+Skipped  WithCapabilityNameEmpty
+Skipped  WithCapabilityExplanationEmpty
 Skipped  WithNoFeatures
 Skipped  WithFeatures
 Skipped  WithFullFeature
@@ -3014,12 +3014,12 @@ Skipped  WithStepInnerException
 Skipped  WithFullTestRun
 Skipped  WithNoTestRunName
 Skipped  WithTestRunExplanationEmpty
-Skipped  WithNoAreas
-Skipped  WithAreas
-Skipped  WithFullArea
-Skipped  WithAreaNameClipping
-Skipped  WithAreaNameEmpty
-Skipped  WithAreaExplanationEmpty
+Skipped  WithNoCapabilities
+Skipped  WithCapabilities
+Skipped  WithFullCapability
+Skipped  WithCapabilityNameClipping
+Skipped  WithCapabilityNameEmpty
+Skipped  WithCapabilityExplanationEmpty
 Skipped  WithNoFeatures
 Skipped  WithFeatures
 Skipped  WithFullFeature
@@ -3048,25 +3048,25 @@ Skipped  WithStepInnerException
 Skipped  WithFullTestRun
 Skipped  WithNoTestRunName
 Skipped  WithTestRunExplanationEmpty
-Skipped  WithNoAreas
-Skipped  WithAreas
-Skipped  ExpandingAreas
-Skipped  CollapsingAreas
-Skipped  WithNoAreas
+Skipped  WithNoCapabilities
+Skipped  WithCapabilities
+Skipped  ExpandingCapabilities
+Skipped  CollapsingCapabilities
+Skipped  WithNoCapabilities
 Skipped  WithAllPassing
 Skipped  WithSomeSkipped
 Skipped  WithSomeFailing
 Skipped  WithSomeSkippedAndSomeFailing
 Skipped  WithAllSkipped
 Skipped  WithAllFailing
-Skipped  WithNoAreas
+Skipped  WithNoCapabilities
 Skipped  WithAllPassing
 Skipped  WithSomeSkipped
 Skipped  WithSomeFailing
 Skipped  WithSomeSkippedAndSomeFailing
 Skipped  WithAllSkipped
 Skipped  WithAllFailing
-Skipped  WithNoAreas
+Skipped  WithNoCapabilities
 Skipped  ExpandingTheExplanatio
 Skipped  CollapsingTheExplanation
 Skipped  WithNoExplanation
@@ -3223,23 +3223,23 @@ Skipped  WithNoScenarios
 Skipped  WithNoTestsInTheProject
 Skipped  FromAFileServer
 Skipped  FromAWebServer
-Skipped  ExpandingAreas
-Skipped  CollapsingAreas
-Skipped  WithNoAreas
+Skipped  ExpandingCapabilities
+Skipped  CollapsingCapabilities
+Skipped  WithNoCapabilities
 Skipped  WithAllPassing
 Skipped  WithSomeSkipped
 Skipped  WithSomeFailing
 Skipped  WithSomeSkippedAndSomeFailing
 Skipped  WithAllSkipped
 Skipped  WithAllFailing
-Skipped  WithNoAreas
+Skipped  WithNoCapabilities
 Skipped  WithAllPassing
 Skipped  WithSomeSkipped
 Skipped  WithSomeFailing
 Skipped  WithSomeSkippedAndSomeFailing
 Skipped  WithAllSkipped
 Skipped  WithAllFailing
-Skipped  WithNoAreas
+Skipped  WithNoCapabilities
 Skipped  ExpandingTheExplanation
 Skipped  CollapsingTheExplanation
 Skipped  WithNoExplanation
@@ -3284,14 +3284,14 @@ Skipped  WithSomeFailing
 Skipped  WithSomeSkippedAndSomeFailing
 Skipped  WithAllSkipped
 Skipped  WithAllFailing
-Skipped  WithNoAreas
+Skipped  WithNoCapabilities
 Skipped  WithAllPassing
 Skipped  WithSomeSkipped
 Skipped  WithSomeFailing
 Skipped  WithSomeSkippedAndSomeFailing
 Skipped  WithAllSkipped
 Skipped  WithAllFailing
-Skipped  WithNoAreas
+Skipped  WithNoCapabilities
 Skipped  ExpandingExplanation
 Skipped  CollapsingExplanation
 Skipped  WithoutExplanation

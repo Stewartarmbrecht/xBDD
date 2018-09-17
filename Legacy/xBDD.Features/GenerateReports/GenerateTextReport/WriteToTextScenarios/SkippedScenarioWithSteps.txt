@@ -1,8 +1,0 @@
-﻿My Test Run
-
-My.Area.Path
-	My Feature
-		My Scenario [Deferred]
-			Given my starting condition
-			When my action
-			Then my ending condition

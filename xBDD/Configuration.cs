@@ -80,11 +80,11 @@ namespace xBDD
                 return value;
             }
         }
-        internal static string RemoveFromAreaNameStart
+        internal static string RemoveFromCapabilityNameStart
         {
             get 
             {
-                return config["xBDD:HtmlReport:RemoveFromAreaNameStart"];
+                return config["xBDD:HtmlReport:RemoveFromCapabilityNameStart"];
             }
         }
     }

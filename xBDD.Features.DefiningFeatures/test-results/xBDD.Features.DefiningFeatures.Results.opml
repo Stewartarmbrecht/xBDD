@@ -78,8 +78,8 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Defining Features - Defining Areas [Untested]">
-	<outline text="Overriding An Area Name [Untested]">
+<outline text="xBDD - Features - Defining Features - Defining Capabilities [Untested]">
+	<outline text="Overriding A Capability Name [Untested]">
 		<outline text="When Creating A Scenario [Untested]">
 		</outline>
 		<outline text="For A Single Feature Via Attribute [Untested]">
@@ -157,7 +157,7 @@
 		<outline text="Placeholder [Defining]">
 		</outline>
 	</outline>
-	<outline text="Setting A Area Estimates Using A Placeholder Feature [Defining]">
+	<outline text="Setting A Capability Estimates Using A Placeholder Feature [Defining]">
 		<outline text="Placeholder [Defining]">
 		</outline>
 	</outline>
@@ -175,7 +175,7 @@
 		<outline text="Via An Attribute [Untested]">
 		</outline>
 	</outline>
-	<outline text="Adding Tags To An Area [Defining]">
+	<outline text="Adding Tags To A Capability [Defining]">
 		<outline text="Via Code [Defining]">
 		</outline>
 		<outline text="Via An Assembly Attribute [Defining]">
@@ -215,7 +215,7 @@
 		<outline text="Using Markdown [Untested]">
 		</outline>
 	</outline>
-	<outline text="Adding An Explanation To An Area [Defining]">
+	<outline text="Adding An Explanation To A Capability [Defining]">
 		<outline text="Via An Attribute With Inline Text [Defining]">
 		</outline>
 		<outline text="Via An Attribute With A File Reference [Defining]">

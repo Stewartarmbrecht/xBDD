@@ -1,10 +1,10 @@
-Area 1 Passing
+Capability 1 Passing
 	Feature 1 Passing
 		Scenario 1 Passing
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
-Area 2 Skipped Untested
+Capability 2 Skipped Untested
 	Feature 1 Passing
 		Scenario 1 Passing
 			Given Step 1 Passing
@@ -16,7 +16,7 @@ Area 2 Skipped Untested
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested #R-Untested
-Area 3 Skipped Committed
+Capability 3 Skipped Committed
 	Feature 1 Passing
 		Scenario 1 Passing
 			Given Step 1 Passing

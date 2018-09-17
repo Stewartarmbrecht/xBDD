@@ -27,7 +27,7 @@
 //                {
 //                    Id = table.Column(type: "int", nullable: false)
 //                        .Annotation("SqlServer:ValueGenerationStrategy", "IdentityColumn"),
-//                    AreaPath = table.Column(type: "nvarchar(max)", nullable: true),
+//                    CapabilityPath = table.Column(type: "nvarchar(max)", nullable: true),
 //                    EndTime = table.Column(type: "datetime2", nullable: false),
 //                    FeatureName = table.Column(type: "nvarchar(max)", nullable: true),
 //                    Name = table.Column(type: "nvarchar(max)", nullable: true),

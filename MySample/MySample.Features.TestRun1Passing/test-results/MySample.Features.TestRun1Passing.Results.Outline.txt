@@ -1,6 +1,6 @@
 My Sample - Test Run 1 Passing
 
-My Sample - Features - Test Run 1 Passing - Area 1 Passing With All Features Exercised [Passed]
+My Sample - Features - Test Run 1 Passing - Capability 1 Passing With All Features Exercised [Passed]
 	Feature 1 Passing [Passed]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing With Explanation And Input

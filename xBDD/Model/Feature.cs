@@ -17,10 +17,10 @@ namespace xBDD.Model
 		}
 
 		/// <summary>
-		/// The area the feature is a part of.
+		/// The capability the feature is a part of.
 		/// </summary>
-		/// <value><see cref="Area"/></value>
-		public Area Area { get; internal set; }
+		/// <value><see cref="Capability"/></value>
+		public Capability Capability { get; internal set; }
 
 		/// <summary>
 		/// Name of the feature.
@@ -50,7 +50,7 @@ namespace xBDD.Model
 		/// </summary>
 		/// <value><see cref="String"/></value>
 		[DataMember(EmitDefaultValue=false)]
-		public string Actor { get; set; }
+		public string AsA { get; set; }
 
 		/// <summary>
 		/// The statment that covers what the user can do.
@@ -58,7 +58,7 @@ namespace xBDD.Model
 		/// </summary>
 		/// <value><see cref="String"/></value>
 		[DataMember(EmitDefaultValue=false)]
-		public string Capability { get; set; }
+		public string YouCan { get; set; }
 
 		/// <summary>
 		/// The statement that explains why the user wants the feature.
@@ -66,7 +66,7 @@ namespace xBDD.Model
 		/// </summary>
 		/// <value><see cref="String"/></value>
 		[DataMember(EmitDefaultValue=false)]
-		public string Value { get; set; }
+		public string SoThat { get; set; }
 
 		/// <summary>
 		/// Markdown formtted explanation of the feature.

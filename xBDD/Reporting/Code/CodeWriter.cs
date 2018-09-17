@@ -22,11 +22,11 @@
 		/// <param name="testRun">The test run to use to build feature classes and scenario methods.</param>
 		/// <param name="rootNamespace">The root namspace to use.</param>
 		/// <param name="directory">The root directory to write the files to.</param>
-		/// <param name="removeFromAreaNameStart">The value for this xBDD config setting.</param>
+		/// <param name="removeFromCapabilityNameStart">The value for this xBDD config setting.</param>
 		/// <returns>Nothing, the files are written to disk.</returns>
-		public void WriteToCode(TestRun testRun, string rootNamespace, string directory, string removeFromAreaNameStart)
+		public void WriteToCode(TestRun testRun, string rootNamespace, string directory, string removeFromCapabilityNameStart)
 		{
-			this.WriteCode(testRun, rootNamespace, directory, removeFromAreaNameStart, true);
+			this.WriteCode(testRun, rootNamespace, directory, removeFromCapabilityNameStart, true);
 		}
 
 		/// <summary>
@@ -48,12 +48,12 @@
 		/// <param name="directory">The directory to write the files in.</param>
 		/// <param name="rootNamespace">The root namspace to use.</param>
 		/// <param name="testRunName">The default test run name to set in the xBDDConfig.json file if one is created.</param>
-		/// <param name="removeFromAreaNameStart">The value for this config setting.</param>
+		/// <param name="removeFromCapabilityNameStart">The value for this config setting.</param>
 		public void WriteProjectFiles(
 			string directory, 
 			string rootNamespace, 
 			string testRunName,
-			string removeFromAreaNameStart) 
+			string removeFromCapabilityNameStart) 
 		{
 			var featureImportPath = $"{directory}/xBDDFeatureImport.txt";
 			if(System.IO.File.Exists(featureImportPath)) {
@@ -61,33 +61,33 @@
 				var text = System.IO.File.ReadAllText(featureImportPath);
 				TestRun testRun = textImporter.ImportWorkflowyText(text, rootNamespace);
 				testRun.Name = testRunName;
-				this.WriteToCode(testRun, rootNamespace, directory, removeFromAreaNameStart);
+				this.WriteToCode(testRun, rootNamespace, directory, removeFromCapabilityNameStart);
 
 			} else {
 				var writeSample = true;
 				if(System.IO.Directory.Exists($"{directory}/Features")) {
 					writeSample = false;
 				}
-				this.WriteProjectFiles(directory, rootNamespace, testRunName, removeFromAreaNameStart, writeSample, null, null);
+				this.WriteProjectFiles(directory, rootNamespace, testRunName, removeFromCapabilityNameStart, writeSample, null, null);
 			}
 		}
 		private void WriteProjectFiles(
 			string directory, 
 			string rootNamespace, 
 			string testRunName,
-			string removeFromAreaNameStart, 
+			string removeFromCapabilityNameStart, 
 			bool writeSample, 
 			List<string> sortedFeatureNames, 
 			List<string> sortedReasons)
 		{
 			this.WriteProjectFile(directory, rootNamespace);
 			this.WriteXbddFeatureImportTxt(directory,rootNamespace);
-			this.WriteXbddConfigJson(testRunName, directory, removeFromAreaNameStart);
+			this.WriteXbddConfigJson(testRunName, directory, removeFromCapabilityNameStart);
 			this.WriteXbddInitializeAndCompleteClass(directory, rootNamespace);
 			this.WriteXbddFeatureBaseClass(directory, rootNamespace);
 			if(sortedFeatureNames == null) {
 				sortedFeatureNames = new List<string>() {
-					$"{rootNamespace}.MyArea.MyFeature"
+					$"{rootNamespace}.MyCapability.MyFeature"
 				};
 			}
 			if(sortedReasons == null) {
@@ -109,7 +109,7 @@
 			TestRun testRun, 
 			string rootNamespace, 
 			string directory, 
-			string removeFromAreaNameStart, 
+			string removeFromCapabilityNameStart, 
 			bool writeProjectFiles)
 		{
 			System.IO.Directory.CreateDirectory(directory);
@@ -117,7 +117,7 @@
 			Scenario lastScenario = null;
 			List<string> sortedFeatureNames = new List<string>();
 			List<string> reasons = new List<string>();
-			var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
+			var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Capability.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
 			if(testRun.Sorted)
 				sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
 			foreach(var scenario in sortedScenarios)
@@ -136,7 +136,7 @@
 				this.WriteFeatureClass(directory, rootNamespace, lastScenario.Feature.FullClassName, sb);
 			}
 			if(writeProjectFiles) {
-				this.WriteProjectFiles(directory, rootNamespace, testRun.Name, removeFromAreaNameStart, false, sortedFeatureNames, reasons);
+				this.WriteProjectFiles(directory, rootNamespace, testRun.Name, removeFromCapabilityNameStart, false, sortedFeatureNames, reasons);
 			}
 		}
 
@@ -158,10 +158,10 @@
 			}
 		}
 
-		private void WriteXbddConfigJson(string testRunName, string directory, string removeFromAreaNameStart)
+		private void WriteXbddConfigJson(string testRunName, string directory, string removeFromCapabilityNameStart)
 		{
 			if(!System.IO.File.Exists($"{directory}/xBDDConfig.json")) {
-				var content = this.GetXbddConfigJson(testRunName, removeFromAreaNameStart);
+				var content = this.GetXbddConfigJson(testRunName, removeFromCapabilityNameStart);
 				System.IO.File.WriteAllText($"{directory}/xBDDConfig.json",content);
 			}
 		}
@@ -182,9 +182,9 @@
 
 		private void WriteSampleFeature(string directory, string rootNamespace)
 		{
-			System.IO.Directory.CreateDirectory("Features/MyArea");
+			System.IO.Directory.CreateDirectory("Features/MyCapability");
 			var content = GetSampleFeature(rootNamespace);
-			System.IO.File.WriteAllText($"{directory}/Features/MyArea/MyFeature.cs",content);
+			System.IO.File.WriteAllText($"{directory}/Features/MyCapability/MyFeature.cs",content);
 		}
 		private string GetFeatureFolder(string directory, string rootNamespace, string featureFullClassName){
 			return $"{directory}/Features/{featureFullClassName.Replace(rootNamespace,"").Substring(0, featureFullClassName.Replace(rootNamespace,"").LastIndexOf(".")).Replace(".","/")}/";
@@ -349,7 +349,7 @@
 
 		private string GetXbddFeatureImportFile() {
 			return $@"
-				MyImportedArea1
+				MyImportedCapability1
 					MyImportedFeature
 						MyImportedScenario #R-Ready
 							Given you have the xbdd tools installed
@@ -360,7 +360,7 @@
 							And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature".RemoveIndentation(4, true);
 		}
 
-		private string GetXbddConfigJson(string testRunName, string removeFromAreaNameStart) {
+		private string GetXbddConfigJson(string testRunName, string removeFromCapabilityNameStart) {
 			return $@"
 				{{
 					""xBDD"": {{
@@ -369,7 +369,7 @@
 							""Watch"": ""false""
 						}},
 						""HtmlReport"": {{
-							""RemoveFromAreaNameStart"": ""{removeFromAreaNameStart}"",
+							""RemoveFromCapabilityNameStart"": ""{removeFromCapabilityNameStart}"",
 							""FailuresOnly"": ""false""
 						}}
 					}}
@@ -425,7 +425,7 @@
 
 		private string GetSampleFeature(string rootNamespace) {
 			return $@"
-				namespace {rootNamespace}.MyArea
+				namespace {rootNamespace}.MyCapability
 				{{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
 					using System;
@@ -435,8 +435,8 @@
 
 					[TestClass]
 					[AsA(""sample user"")]
-					[YouCan(""have my feature value"")]
-					[By(""execute my feature"")]
+					[YouCan(""execute my feature"")]
+					[SoThat(""have my feature value"")]
 					[Explanation(@""
 						# My Explanation
 						This is a
@@ -575,18 +575,18 @@
 							{feature.Explanation.Replace("\"", "\"\"").AddIndentation(7)}"",2)]".RemoveIndentation(5);
 			}
 			var asAStatement = "";
-			if(!String.IsNullOrEmpty(feature.Actor)) {
-				asAStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}AsA(\"{feature.Actor.Replace("\"", "\\\"")}\")]";
+			if(!String.IsNullOrEmpty(feature.AsA)) {
+				asAStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}AsA(\"{feature.AsA.Replace("\"", "\\\"")}\")]";
+			}
+
+			var soThatStatement = "";
+			if(!String.IsNullOrEmpty(feature.SoThat)) {
+				soThatStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}SoThat(\"{feature.SoThat.Replace("\"", "\\\"")}\")]";
 			}
 
 			var youCanStatement = "";
-			if(!String.IsNullOrEmpty(feature.Value)) {
-				youCanStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}YouCan(\"{feature.Value.Replace("\"", "\\\"")}\")]";
-			}
-
-			var byStatement = "";
-			if(!String.IsNullOrEmpty(feature.Value)) {
-				byStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}By(\"{feature.Capability.Replace("\"", "\\\"")}\")]";
+			if(!String.IsNullOrEmpty(feature.SoThat)) {
+				youCanStatement = $"{System.Environment.NewLine}	[{(generated ? "Generated_" : "")}YouCan(\"{feature.YouCan.Replace("\"", "\\\"")}\")]";
 			}
 
 			var assignments = "";
@@ -609,7 +609,7 @@
 					using xBDD;
 					using xBDD.Utility;
 
-					{(generated ? "" : "[TestClass]")}{asAStatement.AddIndentation(4)}{youCanStatement.AddIndentation(4)}{byStatement.AddIndentation(4)}{explanation.AddIndentation(4)}{assignments.AddIndentation(4)}{tags.AddIndentation(4)}
+					{(generated ? "" : "[TestClass]")}{asAStatement.AddIndentation(4)}{youCanStatement.AddIndentation(4)}{soThatStatement.AddIndentation(4)}{explanation.AddIndentation(4)}{assignments.AddIndentation(4)}{tags.AddIndentation(4)}
 					public partial class {featureClassName}: xBDDFeatureBase
 					{{".RemoveIndentation(4, true);
 		}

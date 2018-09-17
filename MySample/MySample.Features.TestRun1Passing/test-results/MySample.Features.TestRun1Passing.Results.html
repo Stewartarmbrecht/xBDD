@@ -30,7 +30,7 @@
 			/* Child Lists */
 
 			ol.testruns { margin: 1rem 0rem 1rem 0rem; }
-			ol.areas { margin: 1rem 0rem 1rem 0rem; }
+			ol.capabilities { margin: 1rem 0rem 1rem 0rem; }
 			ol.features { margin: 0rem 0rem 1rem 0rem; }
 			ol.scenarios { margin: 0rem 0rem 1rem 0rem; }
 			ol.steps { margin: 0rem 0rem 1rem 0rem;}
@@ -39,7 +39,7 @@
 
 			li.header { margin: 1rem 0rem 0rem 0rem; padding: 1rem 0rem 0rem 0rem; }
 			li.testrun { margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }
-			li.area { margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }
+			li.capability { margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }
 			li.feature { margin: 0rem 0rem 0rem 0rem; }
 			li.scenario { margin: 0rem 0rem 0rem 0rem; }
 			li.step { margin: 0rem 0rem 0rem 0rem; }
@@ -49,7 +49,7 @@
 			div.badge-distro { display: inline-block; vertical-align: middle; }
 			div.badge-distro.header { width: 6rem; height: 2rem; }
 			div.badge-distro.testrun { width: 6rem; height: 2rem; }
-			div.badge-distro.area { width: 6rem; height: 2rem; }
+			div.badge-distro.capability { width: 6rem; height: 2rem; }
 			div.badge-distro.feature { width: 6rem; height: 2rem; }
 			div.badge-distro.scenario { width: 6rem; height: 1.5rem; }
 			div.badge-distro.step { width: 6rem; height: 1rem; }
@@ -62,7 +62,7 @@
 			div.badge.label { width: 100%; height: 100%; vertical-align: middle; }
 			div.header.badge { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }
 			div.badge.testrun { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }
-			div.badge.area { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }
+			div.badge.capability { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }
 			div.badge.feature { width: 3rem; margin-left: 1.5rem; height: 1.75rem; position: absolute; font-size: 1rem;  }
 			div.badge.scenario { width: 2rem; margin-left: 4rem; position: inherit; }
 			div.badge.step { width: 1rem; margin-left: 5rem; position: inherit; height: 1rem; }
@@ -75,7 +75,7 @@
 			div.distro { display: inline-block; border: 1px solid white; }
 			div.distro.header { width: 3rem; height: 2rem; margin-left: 3rem; }
 			div.distro.testrun { width: 3rem; height: 2rem; margin-left: 3rem; }
-			div.distro.area { width: 3rem; height: 2rem; margin-left: 3rem; }
+			div.distro.capability { width: 3rem; height: 2rem; margin-left: 3rem; }
 			div.distro.feature { width: 3rem; height: 1.75rem; margin-left: 3rem; }
 
 			div.badge.feature-statement-link { position: inherit; width: 1.5rem; height: 1.5rem; vertical-align: top; }
@@ -88,7 +88,7 @@
 			span.name.header { font-size: 2rem; font-weight: 400; margin-left: .75rem; }
 			span.name.testrun { font-size: 2rem; font-weight: 400; margin-left: .75rem; }
 			a.name.testrun { font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }
-			span.name.area { font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }
+			span.name.capability { font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }
 			span.name.feature { font-size: 1.25rem; font-weight: 400; color: rgb(68,114,198); }
 			span.name.scenario { font-size: 1.125rem; font-weight: 400; vertical-align: middle; font-style: italic; color: rgb(68,114,198); }
 			span.name.step { font-size: 1rem;  font-weight: 400; }
@@ -114,8 +114,8 @@
 			div.distro-corner-br.header { margin-top: 1.32rem; }
 			div.distro-corner-tr.testrun { margin-top: .05rem; }
 			div.distro-corner-br.testrun { margin-top: 1.32rem; }
-			div.distro-corner-tr.area { margin-top: .05rem; }
-			div.distro-corner-br.area { margin-top: 1.32rem; }
+			div.distro-corner-tr.capability { margin-top: .05rem; }
+			div.distro-corner-br.capability { margin-top: 1.32rem; }
 			div.distro-corner-tr.feature { margin-top: .06rem; }
 			div.distro-corner-br.feature { margin-top: 1.1rem; }
 
@@ -194,7 +194,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">                         <a class="nav-item nav-link active" href="javascript: $('ol.features').collapse('show');" id="expand-all-areas-button">Expand All Areas <span class="sr-only">(current)</span></a>
+			<div class="navbar-nav">                         <a class="nav-item nav-link active" href="javascript: $('ol.features').collapse('show');" id="expand-all-capabilities-button">Expand All Capabilities <span class="sr-only">(current)</span></a>
 			</div>
 		</div>
 	</nav><li class="lineitem header row align-items-center" id="header-1">
@@ -220,8 +220,8 @@
 		<div class="header name">
 		<span class="header name pointer" 
 			id="header-1-name"
-			onclick="toggleVisibility('header-1-areas', null, null)"
-			href="header-1-areas">My Sample - Test Run 1 Passing</span>
+			onclick="toggleVisibility('header-1-capabilities', null, null)"
+			href="header-1-capabilities">My Sample - Test Run 1 Passing</span>
 
 		</div>
 	</div>
@@ -244,8 +244,8 @@
 					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
 					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
 					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
-	<tr id="report-areas-reason-stats">
-		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+	<tr id="report-capabilities-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Capabilities</td>
 		<td class="text-center" style="width: 12%;">1</td>
 		<td class="text-center" style="width: 12%;">0</td>
 		<td class="text-center" style="width: 12%;">0</td>
@@ -283,8 +283,8 @@
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
-	<tr id="report-areas-reason-stats">
-		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+	<tr id="report-capabilities-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Capabilities</td>
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
@@ -320,47 +320,47 @@
 
 	<li class="row children">
 		<div class="col-12">
-			<ol class="areas list-unstyled container-fluid"
-				id="header-1-areas"
+			<ol class="capabilities list-unstyled container-fluid"
+				id="header-1-capabilities"
 				style="display: block">
-<li class="lineitem area row align-items-center" id="area-2">
+<li class="lineitem capability row align-items-center" id="capability-2">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-2-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-2-badge-distro"
 		title="Passed Count: Scenarios"
-		onclick="toggleVisibility('area-2-stats')">
-		<div class="area badge badge-pill pointer total reason-Passed"
-			id="area-2-badge">1</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-2-stats')">
+		<div class="capability badge badge-pill pointer total reason-Passed"
+			id="capability-2-badge">1</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-2-distro">
+		<div class="capability distro pointer"
+			id="capability-2-distro">
 			<div class="reason-Passed" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-2-name"
-			onclick="toggleVisibility('area-2-features', null, null)"
-			href="area-2-features">Area 1 Passing With All Features Exercised</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-2-name"
+			onclick="toggleVisibility('capability-2-features', null, null)"
+			href="capability-2-features">Capability 1 Passing With All Features Exercised</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[0 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
 	<div class="col-2 badges"></div>
 	<div class="col-11">
-		<div class="stats-graph-tables" id="area-2-stats" style="width: 100%; empty-cells: show; display: none;">
+		<div class="stats-graph-tables" id="capability-2-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -394,7 +394,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -426,7 +426,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-2-features"
+				id="capability-2-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-3">
 <div class="col-2 badges">
@@ -524,8 +524,8 @@
 					<div class="statement-title">Statement</div>
 					<div class="feature statement-content rounded"
 						id="feature-3-statement"><strong>As a</strong> User<br/>
-<strong>You can</strong> derive some value<br/>
-<strong>By</strong> doing something</div>
+<strong>You can </strong> doing something
+<strong>So that </strong> you can derive some value<br/></div>
 			</div>
 		</div>
 	</li>
@@ -538,8 +538,7 @@
 				<div class="explanation-title" 
 					id="step-3-explanation-title">Explanation</div>
 					<div class="explanation markdown" id="explanation-3"><h1 id="feature-1-explanation">Feature 1 Explanation</h1>
-<p>This is my feature 1 explanation.</p>
-</div>
+<p>This is my feature 1 explanation.</p></div>
 			</div>
 		</div>
 	</li>
@@ -574,7 +573,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[5 ms]</span>
+	<span class="scenario duration">[8 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -620,8 +619,7 @@
 				<div class="explanation-title" 
 					id="step-4-explanation-title">Explanation</div>
 					<div class="explanation markdown" id="explanation-4"><h1 id="scenario-1-explanation">Scenario 1 Explanation</h1>
-<p>This is my scenario 1 explanation.</p>
-</div>
+<p>This is my scenario 1 explanation.</p></div>
 			</div>
 		</div>
 	</li>
@@ -647,7 +645,7 @@
 		</div>
 	</div>
 <div class="col-2 step reason-duration text-right">
-	<span class="step duration">[0 ms]</span>
+	<span class="step duration">[1 ms]</span>
 </div>
 </li>
 
@@ -693,8 +691,7 @@
 				<div class="explanation-title" 
 					id="step-5-explanation-title">Explanation</div>
 					<div class="explanation markdown" id="explanation-5"><h1 id="step-1-explanation">Step 1 Explanation</h1>
-<p>This is my step 1 explanation.</p>
-</div>
+<p>This is my step 1 explanation.</p></div>
 			</div>
 		</div>
 	</li>
@@ -1124,8 +1121,7 @@ input</pre>
 					id="step-8-explanation-title">Explanation</div>
 					<div class="explanation markdown" id="explanation-8"><h3 id="step-explanation">Step Explanation</h3>
 <p>You can also provide an explanation for a step in your code.
-This will also take markdown.</p>
-</div>
+This will also take markdown.</p></div>
 			</div>
 		</div>
 	</li>
@@ -1162,8 +1158,7 @@ It's not intended serve as actual input.</p>
 <td>via code</td>
 </tr>
 </tbody>
-</table>
-</div>
+</table></div>
 			</div>
 		</div>
 	</li>
@@ -1200,8 +1195,7 @@ It's not intended serve as actual input.</p>
 <td>via code</td>
 </tr>
 </tbody>
-</table>
-</div>
+</table></div>
 			</div>
 		</div>
 	</li>

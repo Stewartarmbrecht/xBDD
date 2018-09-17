@@ -30,7 +30,7 @@
 			/* Child Lists */
 
 			ol.testruns { margin: 1rem 0rem 1rem 0rem; }
-			ol.areas { margin: 1rem 0rem 1rem 0rem; }
+			ol.capabilities { margin: 1rem 0rem 1rem 0rem; }
 			ol.features { margin: 0rem 0rem 1rem 0rem; }
 			ol.scenarios { margin: 0rem 0rem 1rem 0rem; }
 			ol.steps { margin: 0rem 0rem 1rem 0rem;}
@@ -39,7 +39,7 @@
 
 			li.header { margin: 1rem 0rem 0rem 0rem; padding: 1rem 0rem 0rem 0rem; }
 			li.testrun { margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }
-			li.area { margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }
+			li.capability { margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }
 			li.feature { margin: 0rem 0rem 0rem 0rem; }
 			li.scenario { margin: 0rem 0rem 0rem 0rem; }
 			li.step { margin: 0rem 0rem 0rem 0rem; }
@@ -49,7 +49,7 @@
 			div.badge-distro { display: inline-block; vertical-align: middle; }
 			div.badge-distro.header { width: 6rem; height: 2rem; }
 			div.badge-distro.testrun { width: 6rem; height: 2rem; }
-			div.badge-distro.area { width: 6rem; height: 2rem; }
+			div.badge-distro.capability { width: 6rem; height: 2rem; }
 			div.badge-distro.feature { width: 6rem; height: 2rem; }
 			div.badge-distro.scenario { width: 6rem; height: 1.5rem; }
 			div.badge-distro.step { width: 6rem; height: 1rem; }
@@ -62,7 +62,7 @@
 			div.badge.label { width: 100%; height: 100%; vertical-align: middle; }
 			div.header.badge { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }
 			div.badge.testrun { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }
-			div.badge.area { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }
+			div.badge.capability { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }
 			div.badge.feature { width: 3rem; margin-left: 1.5rem; height: 1.75rem; position: absolute; font-size: 1rem;  }
 			div.badge.scenario { width: 2rem; margin-left: 4rem; position: inherit; }
 			div.badge.step { width: 1rem; margin-left: 5rem; position: inherit; height: 1rem; }
@@ -75,7 +75,7 @@
 			div.distro { display: inline-block; border: 1px solid white; }
 			div.distro.header { width: 3rem; height: 2rem; margin-left: 3rem; }
 			div.distro.testrun { width: 3rem; height: 2rem; margin-left: 3rem; }
-			div.distro.area { width: 3rem; height: 2rem; margin-left: 3rem; }
+			div.distro.capability { width: 3rem; height: 2rem; margin-left: 3rem; }
 			div.distro.feature { width: 3rem; height: 1.75rem; margin-left: 3rem; }
 
 			div.badge.feature-statement-link { position: inherit; width: 1.5rem; height: 1.5rem; vertical-align: top; }
@@ -88,7 +88,7 @@
 			span.name.header { font-size: 2rem; font-weight: 400; margin-left: .75rem; }
 			span.name.testrun { font-size: 2rem; font-weight: 400; margin-left: .75rem; }
 			a.name.testrun { font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }
-			span.name.area { font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }
+			span.name.capability { font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }
 			span.name.feature { font-size: 1.25rem; font-weight: 400; color: rgb(68,114,198); }
 			span.name.scenario { font-size: 1.125rem; font-weight: 400; vertical-align: middle; font-style: italic; color: rgb(68,114,198); }
 			span.name.step { font-size: 1rem;  font-weight: 400; }
@@ -114,8 +114,8 @@
 			div.distro-corner-br.header { margin-top: 1.32rem; }
 			div.distro-corner-tr.testrun { margin-top: .05rem; }
 			div.distro-corner-br.testrun { margin-top: 1.32rem; }
-			div.distro-corner-tr.area { margin-top: .05rem; }
-			div.distro-corner-br.area { margin-top: 1.32rem; }
+			div.distro-corner-tr.capability { margin-top: .05rem; }
+			div.distro-corner-br.capability { margin-top: 1.32rem; }
 			div.distro-corner-tr.feature { margin-top: .06rem; }
 			div.distro-corner-br.feature { margin-top: 1.1rem; }
 
@@ -194,7 +194,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">                         <a class="nav-item nav-link active" href="javascript: $('ol.features').collapse('show');" id="expand-all-areas-button">Expand All Areas <span class="sr-only">(current)</span></a>
+			<div class="navbar-nav">                         <a class="nav-item nav-link active" href="javascript: $('ol.features').collapse('show');" id="expand-all-capabilities-button">Expand All Capabilities <span class="sr-only">(current)</span></a>
 			</div>
 		</div>
 	</nav><li class="lineitem header row align-items-center" id="header-1">
@@ -221,13 +221,13 @@
 		<div class="header name">
 		<span class="header name pointer" 
 			id="header-1-name"
-			onclick="toggleVisibility('header-1-areas', null, null)"
-			href="header-1-areas">xBDD - Defining Features</span>
+			onclick="toggleVisibility('header-1-capabilities', null, null)"
+			href="header-1-capabilities">xBDD - Defining Features</span>
 
 		</div>
 	</div>
 <div class="col-2 header reason-duration text-right">
-	<span class="header duration">[921 ms]</span>
+	<span class="header duration">[405 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -245,8 +245,8 @@
 					<td class="text-center"><div class="badge label reason-Untested">Untested</div></td>
 					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
 					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
-	<tr id="report-areas-reason-stats">
-		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+	<tr id="report-capabilities-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Capabilities</td>
 		<td class="text-center" style="width: 12%;">11</td>
 		<td class="text-center" style="width: 12%;">0</td>
 		<td class="text-center" style="width: 12%;">6</td>
@@ -284,8 +284,8 @@
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
-	<tr id="report-areas-reason-stats">
-		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+	<tr id="report-capabilities-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Capabilities</td>
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
@@ -324,47 +324,47 @@
 
 	<li class="row children">
 		<div class="col-12">
-			<ol class="areas list-unstyled container-fluid"
-				id="header-1-areas"
+			<ol class="capabilities list-unstyled container-fluid"
+				id="header-1-capabilities"
 				style="display: block">
-<li class="lineitem area row align-items-center" id="area-2">
+<li class="lineitem capability row align-items-center" id="capability-2">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-2-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-2-badge-distro"
 		title="Untested Count: Scenarios"
-		onclick="toggleVisibility('area-2-stats')">
-		<div class="area badge badge-pill pointer total reason-Untested"
-			id="area-2-badge">8</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-2-stats')">
+		<div class="capability badge badge-pill pointer total reason-Untested"
+			id="capability-2-badge">8</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-2-distro">
+		<div class="capability distro pointer"
+			id="capability-2-distro">
 			<div class="reason-Untested" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-2-name"
-			onclick="toggleVisibility('area-2-features', null, null)"
-			href="area-2-features">Defining Steps</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-2-name"
+			onclick="toggleVisibility('capability-2-features', null, null)"
+			href="capability-2-features">Defining Steps</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[41 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[15 ms]</span>
 </div>
 </li>
 <li class="row stats">
 	<div class="col-2 badges"></div>
 	<div class="col-11">
-		<div class="stats-graph-tables" id="area-2-stats" style="width: 100%; empty-cells: show; display: none;">
+		<div class="stats-graph-tables" id="capability-2-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -398,7 +398,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -430,7 +430,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-2-features"
+				id="capability-2-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-3">
 <div class="col-2 badges">
@@ -457,11 +457,16 @@
 			id="feature-3-name"
 			onclick="toggleVisibility('feature-3-scenarios', null, null)"
 			href="feature-3-scenarios">Adding Steps To A Scenario</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-3-statement-link" 
+			onclick="toggleVisibility('feature-3-statement'); toggleVisibility('feature-3-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[10 ms]</span>
+	<span class="feature duration">[4 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -510,6 +515,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-3-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-3-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -532,7 +551,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[2 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -586,7 +605,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[1 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -640,7 +659,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[1 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -707,11 +726,16 @@
 			id="feature-7-name"
 			onclick="toggleVisibility('feature-7-scenarios', null, null)"
 			href="feature-7-scenarios">Setting An Input For A Step</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-7-statement-link" 
+			onclick="toggleVisibility('feature-7-statement'); toggleVisibility('feature-7-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[4 ms]</span>
+	<span class="feature duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -760,6 +784,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-7-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-7-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -782,7 +820,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[1 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -836,7 +874,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[2 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -903,11 +941,16 @@
 			id="feature-10-name"
 			onclick="toggleVisibility('feature-10-scenarios', null, null)"
 			href="feature-10-scenarios">Sharing Values Between Steps</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-10-statement-link" 
+			onclick="toggleVisibility('feature-10-statement'); toggleVisibility('feature-10-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[13 ms]</span>
+	<span class="feature duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -956,6 +999,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-10-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-10-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -1032,7 +1089,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[5 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -1099,6 +1156,11 @@
 			id="feature-13-name"
 			onclick="toggleVisibility('feature-13-scenarios', null, null)"
 			href="feature-13-scenarios">Setting The Output For A Step</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-13-statement-link" 
+			onclick="toggleVisibility('feature-13-statement'); toggleVisibility('feature-13-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
@@ -1152,6 +1214,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-13-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-13-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -1220,20 +1296,20 @@
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-15">
+<li class="lineitem capability row align-items-center" id="capability-15">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-15-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-15-badge-distro"
 		title="Defining Count: Scenarios"
-		onclick="toggleVisibility('area-15-stats')">
-		<div class="area badge badge-pill pointer total reason-Defining"
-			id="area-15-badge">8</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-15-stats')">
+		<div class="capability badge badge-pill pointer total reason-Defining"
+			id="capability-15-badge">8</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-15-distro">
+		<div class="capability distro pointer"
+			id="capability-15-distro">
 			<div class="reason-Defining" style="height: 12.5%; width: 100%;"></div>
 			<div class="reason-Untested" style="height: 87.5%; width: 100%;"></div>
 		</div>
@@ -1241,24 +1317,24 @@
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-15-name"
-			onclick="toggleVisibility('area-15-features', null, null)"
-			href="area-15-features">Defining Scenarios</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-15-name"
+			onclick="toggleVisibility('capability-15-features', null, null)"
+			href="capability-15-features">Defining Scenarios</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[45 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[9 ms]</span>
 </div>
 </li>
 <li class="row stats">
 	<div class="col-2 badges"></div>
 	<div class="col-11">
-		<div class="stats-graph-tables" id="area-15-stats" style="width: 100%; empty-cells: show; display: none;">
+		<div class="stats-graph-tables" id="capability-15-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -1292,7 +1368,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -1326,7 +1402,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-15-features"
+				id="capability-15-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-16">
 <div class="col-2 badges">
@@ -1354,11 +1430,16 @@
 			id="feature-16-name"
 			onclick="toggleVisibility('feature-16-scenarios', null, null)"
 			href="feature-16-scenarios">Adding Scenarios</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-16-statement-link" 
+			onclick="toggleVisibility('feature-16-statement'); toggleVisibility('feature-16-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[9 ms]</span>
+	<span class="feature duration">[3 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -1408,6 +1489,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-16-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-16-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -1538,7 +1633,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[5 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -1605,11 +1700,16 @@
 			id="feature-20-name"
 			onclick="toggleVisibility('feature-20-scenarios', null, null)"
 			href="feature-20-scenarios">Setting An Output Writer For A Scenario</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-20-statement-link" 
+			onclick="toggleVisibility('feature-20-statement'); toggleVisibility('feature-20-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[6 ms]</span>
+	<span class="feature duration">[1 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -1658,6 +1758,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-20-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-20-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -1801,11 +1915,16 @@
 			id="feature-23-name"
 			onclick="toggleVisibility('feature-23-scenarios', null, null)"
 			href="feature-23-scenarios">Setting The Default Reporting Sort For A Scenario</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-23-statement-link" 
+			onclick="toggleVisibility('feature-23-statement'); toggleVisibility('feature-23-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[31 ms]</span>
+	<span class="feature duration">[4 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -1854,6 +1973,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-23-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-23-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -1876,7 +2009,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[6 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -1930,7 +2063,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[4 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -1984,7 +2117,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[2 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -2030,44 +2163,44 @@
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-27">
+<li class="lineitem capability row align-items-center" id="capability-27">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-27-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-27-badge-distro"
 		title="Untested Count: Scenarios"
-		onclick="toggleVisibility('area-27-stats')">
-		<div class="area badge badge-pill pointer total reason-Untested"
-			id="area-27-badge">8</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-27-stats')">
+		<div class="capability badge badge-pill pointer total reason-Untested"
+			id="capability-27-badge">8</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-27-distro">
+		<div class="capability distro pointer"
+			id="capability-27-distro">
 			<div class="reason-Untested" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-27-name"
-			onclick="toggleVisibility('area-27-features', null, null)"
-			href="area-27-features">Defining Features</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-27-name"
+			onclick="toggleVisibility('capability-27-features', null, null)"
+			href="capability-27-features">Defining Features</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[43 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[11 ms]</span>
 </div>
 </li>
 <li class="row stats">
 	<div class="col-2 badges"></div>
 	<div class="col-11">
-		<div class="stats-graph-tables" id="area-27-stats" style="width: 100%; empty-cells: show; display: none;">
+		<div class="stats-graph-tables" id="capability-27-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -2101,7 +2234,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -2133,7 +2266,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-27-features"
+				id="capability-27-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-28">
 <div class="col-2 badges">
@@ -2160,11 +2293,16 @@
 			id="feature-28-name"
 			onclick="toggleVisibility('feature-28-scenarios', null, null)"
 			href="feature-28-scenarios">Adding Features</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-28-statement-link" 
+			onclick="toggleVisibility('feature-28-statement'); toggleVisibility('feature-28-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[30 ms]</span>
+	<span class="feature duration">[5 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -2213,6 +2351,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-28-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-28-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -2235,7 +2387,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[5 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -2289,7 +2441,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[11 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -2343,7 +2495,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[1 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -2397,7 +2549,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[1 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -2464,11 +2616,16 @@
 			id="feature-33-name"
 			onclick="toggleVisibility('feature-33-scenarios', null, null)"
 			href="feature-33-scenarios">Setting The Feature Statement</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-33-statement-link" 
+			onclick="toggleVisibility('feature-33-statement'); toggleVisibility('feature-33-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[5 ms]</span>
+	<span class="feature duration">[3 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -2517,6 +2674,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-33-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-33-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -2593,7 +2764,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[3 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -2660,11 +2831,16 @@
 			id="feature-36-name"
 			onclick="toggleVisibility('feature-36-scenarios', null, null)"
 			href="feature-36-scenarios">Overriding A Feature Name</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-36-statement-link" 
+			onclick="toggleVisibility('feature-36-statement'); toggleVisibility('feature-36-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[6 ms]</span>
+	<span class="feature duration">[1 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -2713,6 +2889,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-36-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-36-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -2789,7 +2979,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[1 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -2835,44 +3025,44 @@
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-39">
+<li class="lineitem capability row align-items-center" id="capability-39">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-39-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-39-badge-distro"
 		title="Untested Count: Scenarios"
-		onclick="toggleVisibility('area-39-stats')">
-		<div class="area badge badge-pill pointer total reason-Untested"
-			id="area-39-badge">3</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-39-stats')">
+		<div class="capability badge badge-pill pointer total reason-Untested"
+			id="capability-39-badge">3</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-39-distro">
+		<div class="capability distro pointer"
+			id="capability-39-distro">
 			<div class="reason-Untested" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-39-name"
-			onclick="toggleVisibility('area-39-features', null, null)"
-			href="area-39-features">Defining Areas</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-39-name"
+			onclick="toggleVisibility('capability-39-features', null, null)"
+			href="capability-39-features">Defining Capabilities</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[0 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
 	<div class="col-2 badges"></div>
 	<div class="col-11">
-		<div class="stats-graph-tables" id="area-39-stats" style="width: 100%; empty-cells: show; display: none;">
+		<div class="stats-graph-tables" id="capability-39-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -2906,7 +3096,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -2938,7 +3128,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-39-features"
+				id="capability-39-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-40">
 <div class="col-2 badges">
@@ -2964,12 +3154,17 @@
 		<span class="feature name pointer" 
 			id="feature-40-name"
 			onclick="toggleVisibility('feature-40-scenarios', null, null)"
-			href="feature-40-scenarios">Overriding An Area Name</span>
+			href="feature-40-scenarios">Overriding A Capability Name</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-40-statement-link" 
+			onclick="toggleVisibility('feature-40-statement'); toggleVisibility('feature-40-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[5 ms]</span>
+	<span class="feature duration">[4 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -3018,6 +3213,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-40-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-40-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -3194,44 +3403,44 @@
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-44">
+<li class="lineitem capability row align-items-center" id="capability-44">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-44-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-44-badge-distro"
 		title="Untested Count: Scenarios"
-		onclick="toggleVisibility('area-44-stats')">
-		<div class="area badge badge-pill pointer total reason-Untested"
-			id="area-44-badge">2</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-44-stats')">
+		<div class="capability badge badge-pill pointer total reason-Untested"
+			id="capability-44-badge">2</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-44-distro">
+		<div class="capability distro pointer"
+			id="capability-44-distro">
 			<div class="reason-Untested" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-44-name"
-			onclick="toggleVisibility('area-44-features', null, null)"
-			href="area-44-features">Defining A Test Run</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-44-name"
+			onclick="toggleVisibility('capability-44-features', null, null)"
+			href="capability-44-features">Defining A Test Run</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[0 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
 	<div class="col-2 badges"></div>
 	<div class="col-11">
-		<div class="stats-graph-tables" id="area-44-stats" style="width: 100%; empty-cells: show; display: none;">
+		<div class="stats-graph-tables" id="capability-44-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -3265,7 +3474,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -3297,7 +3506,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-44-features"
+				id="capability-44-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-45">
 <div class="col-2 badges">
@@ -3324,11 +3533,16 @@
 			id="feature-45-name"
 			onclick="toggleVisibility('feature-45-scenarios', null, null)"
 			href="feature-45-scenarios">Setting The Test Run Name</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-45-statement-link" 
+			onclick="toggleVisibility('feature-45-statement'); toggleVisibility('feature-45-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[13 ms]</span>
+	<span class="feature duration">[3 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -3377,6 +3591,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-45-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-45-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -3399,7 +3627,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[5 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -3453,7 +3681,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[1 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -3499,44 +3727,44 @@
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-48">
+<li class="lineitem capability row align-items-center" id="capability-48">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-48-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-48-badge-distro"
 		title="Defining Count: Scenarios"
-		onclick="toggleVisibility('area-48-stats')">
-		<div class="area badge badge-pill pointer total reason-Defining"
-			id="area-48-badge">4</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-48-stats')">
+		<div class="capability badge badge-pill pointer total reason-Defining"
+			id="capability-48-badge">4</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-48-distro">
+		<div class="capability distro pointer"
+			id="capability-48-distro">
 			<div class="reason-Defining" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-48-name"
-			onclick="toggleVisibility('area-48-features', null, null)"
-			href="area-48-features">Setting Ids</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-48-name"
+			onclick="toggleVisibility('capability-48-features', null, null)"
+			href="capability-48-features">Setting Ids</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[8 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
 	<div class="col-2 badges"></div>
 	<div class="col-11">
-		<div class="stats-graph-tables" id="area-48-stats" style="width: 100%; empty-cells: show; display: none;">
+		<div class="stats-graph-tables" id="capability-48-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -3570,7 +3798,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -3602,7 +3830,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-48-features"
+				id="capability-48-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-49">
 <div class="col-2 badges">
@@ -3629,11 +3857,16 @@
 			id="feature-49-name"
 			onclick="toggleVisibility('feature-49-scenarios', null, null)"
 			href="feature-49-scenarios">Setting An ID For A Scenario</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-49-statement-link" 
+			onclick="toggleVisibility('feature-49-statement'); toggleVisibility('feature-49-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[8 ms]</span>
+	<span class="feature duration">[3 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -3682,6 +3915,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-49-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-49-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -3812,7 +4059,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[1 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -3879,6 +4126,11 @@
 			id="feature-53-name"
 			onclick="toggleVisibility('feature-53-scenarios', null, null)"
 			href="feature-53-scenarios">Setting An ID For A Feature</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-53-statement-link" 
+			onclick="toggleVisibility('feature-53-statement'); toggleVisibility('feature-53-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
@@ -3932,6 +4184,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-53-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-53-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -4000,20 +4266,20 @@
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-55">
+<li class="lineitem capability row align-items-center" id="capability-55">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-55-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-55-badge-distro"
 		title="Defining Count: Scenarios"
-		onclick="toggleVisibility('area-55-stats')">
-		<div class="area badge badge-pill pointer total reason-Defining"
-			id="area-55-badge">14</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-55-stats')">
+		<div class="capability badge badge-pill pointer total reason-Defining"
+			id="capability-55-badge">14</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-55-distro">
+		<div class="capability distro pointer"
+			id="capability-55-distro">
 			<div class="reason-Defining" style="height: 57.1428571428571%; width: 100%;"></div>
 			<div class="reason-Untested" style="height: 42.8571428571429%; width: 100%;"></div>
 		</div>
@@ -4021,24 +4287,24 @@
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-55-name"
-			onclick="toggleVisibility('area-55-features', null, null)"
-			href="area-55-features">Setting Status</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-55-name"
+			onclick="toggleVisibility('capability-55-features', null, null)"
+			href="capability-55-features">Setting Status</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[161 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[69 ms]</span>
 </div>
 </li>
 <li class="row stats">
 	<div class="col-2 badges"></div>
 	<div class="col-11">
-		<div class="stats-graph-tables" id="area-55-stats" style="width: 100%; empty-cells: show; display: none;">
+		<div class="stats-graph-tables" id="capability-55-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -4072,7 +4338,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -4105,7 +4371,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-55-features"
+				id="capability-55-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-56">
 <div class="col-2 badges">
@@ -4133,11 +4399,16 @@
 			id="feature-56-name"
 			onclick="toggleVisibility('feature-56-scenarios', null, null)"
 			href="feature-56-scenarios">Setting The Status Of A Scenario</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-56-statement-link" 
+			onclick="toggleVisibility('feature-56-statement'); toggleVisibility('feature-56-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[280 ms]</span>
+	<span class="feature duration">[110 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4187,6 +4458,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-56-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-56-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -4209,7 +4494,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[13 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4263,7 +4548,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[4 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4317,7 +4602,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[3 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4371,7 +4656,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[8 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4425,7 +4710,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[1 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4479,7 +4764,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[3 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4587,7 +4872,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[19 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4641,7 +4926,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[11 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4695,7 +4980,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[8 ms]</span>
+	<span class="scenario duration">[6 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4749,7 +5034,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[8 ms]</span>
+	<span class="scenario duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4816,11 +5101,16 @@
 			id="feature-68-name"
 			onclick="toggleVisibility('feature-68-scenarios', null, null)"
 			href="feature-68-scenarios">Setting The Status Of A Feature</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-68-statement-link" 
+			onclick="toggleVisibility('feature-68-statement'); toggleVisibility('feature-68-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[151 ms]</span>
+	<span class="feature duration">[67 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4869,6 +5159,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-68-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-68-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -4891,7 +5195,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[7 ms]</span>
+	<span class="scenario duration">[6 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4945,7 +5249,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[8 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -4999,7 +5303,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[6 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -5045,44 +5349,44 @@
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-72">
+<li class="lineitem capability row align-items-center" id="capability-72">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-72-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-72-badge-distro"
 		title="Defining Count: Scenarios"
-		onclick="toggleVisibility('area-72-stats')">
-		<div class="area badge badge-pill pointer total reason-Defining"
-			id="area-72-badge">4</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-72-stats')">
+		<div class="capability badge badge-pill pointer total reason-Defining"
+			id="capability-72-badge">4</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-72-distro">
+		<div class="capability distro pointer"
+			id="capability-72-distro">
 			<div class="reason-Defining" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-72-name"
-			onclick="toggleVisibility('area-72-features', null, null)"
-			href="area-72-features">Adding Estimates</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-72-name"
+			onclick="toggleVisibility('capability-72-features', null, null)"
+			href="capability-72-features">Adding Estimates</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[16 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[5 ms]</span>
 </div>
 </li>
 <li class="row stats">
 	<div class="col-2 badges"></div>
 	<div class="col-11">
-		<div class="stats-graph-tables" id="area-72-stats" style="width: 100%; empty-cells: show; display: none;">
+		<div class="stats-graph-tables" id="capability-72-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -5116,7 +5420,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -5148,7 +5452,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-72-features"
+				id="capability-72-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-73">
 <div class="col-2 badges">
@@ -5175,6 +5479,11 @@
 			id="feature-73-name"
 			onclick="toggleVisibility('feature-73-scenarios', null, null)"
 			href="feature-73-scenarios">Setting A Feature Scenario Estimate</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-73-statement-link" 
+			onclick="toggleVisibility('feature-73-statement'); toggleVisibility('feature-73-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
@@ -5228,6 +5537,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-73-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-73-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -5250,7 +5573,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[2 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -5317,6 +5640,11 @@
 			id="feature-75-name"
 			onclick="toggleVisibility('feature-75-scenarios', null, null)"
 			href="feature-75-scenarios">Setting A Feature Value Estimate</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-75-statement-link" 
+			onclick="toggleVisibility('feature-75-statement'); toggleVisibility('feature-75-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
@@ -5370,6 +5698,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-75-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-75-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -5459,6 +5801,11 @@
 			id="feature-77-name"
 			onclick="toggleVisibility('feature-77-scenarios', null, null)"
 			href="feature-77-scenarios">Setting A Feature Level Of Effort Estimate</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-77-statement-link" 
+			onclick="toggleVisibility('feature-77-statement'); toggleVisibility('feature-77-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
@@ -5512,6 +5859,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-77-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-77-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -5600,7 +5961,12 @@
 		<span class="feature name pointer" 
 			id="feature-79-name"
 			onclick="toggleVisibility('feature-79-scenarios', null, null)"
-			href="feature-79-scenarios">Setting A Area Estimates Using A Placeholder Feature</span>
+			href="feature-79-scenarios">Setting A Capability Estimates Using A Placeholder Feature</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-79-statement-link" 
+			onclick="toggleVisibility('feature-79-statement'); toggleVisibility('feature-79-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
@@ -5654,6 +6020,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-79-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-79-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -5722,20 +6102,20 @@
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-81">
+<li class="lineitem capability row align-items-center" id="capability-81">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-81-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-81-badge-distro"
 		title="Defining Count: Scenarios"
-		onclick="toggleVisibility('area-81-stats')">
-		<div class="area badge badge-pill pointer total reason-Defining"
-			id="area-81-badge">8</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-81-stats')">
+		<div class="capability badge badge-pill pointer total reason-Defining"
+			id="capability-81-badge">8</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-81-distro">
+		<div class="capability distro pointer"
+			id="capability-81-distro">
 			<div class="reason-Defining" style="height: 50%; width: 100%;"></div>
 			<div class="reason-Untested" style="height: 50%; width: 100%;"></div>
 		</div>
@@ -5743,24 +6123,24 @@
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-81-name"
-			onclick="toggleVisibility('area-81-features', null, null)"
-			href="area-81-features">Adding Tags</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-81-name"
+			onclick="toggleVisibility('capability-81-features', null, null)"
+			href="capability-81-features">Adding Tags</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[37 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[38 ms]</span>
 </div>
 </li>
 <li class="row stats">
 	<div class="col-2 badges"></div>
 	<div class="col-11">
-		<div class="stats-graph-tables" id="area-81-stats" style="width: 100%; empty-cells: show; display: none;">
+		<div class="stats-graph-tables" id="capability-81-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -5794,7 +6174,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -5828,7 +6208,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-81-features"
+				id="capability-81-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-82">
 <div class="col-2 badges">
@@ -5855,11 +6235,16 @@
 			id="feature-82-name"
 			onclick="toggleVisibility('feature-82-scenarios', null, null)"
 			href="feature-82-scenarios">Adding Tags To A Scenario</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-82-statement-link" 
+			onclick="toggleVisibility('feature-82-statement'); toggleVisibility('feature-82-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[5 ms]</span>
+	<span class="feature duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -5908,6 +6293,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-82-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-82-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -5930,7 +6329,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[1 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -6051,11 +6450,16 @@
 			id="feature-85-name"
 			onclick="toggleVisibility('feature-85-scenarios', null, null)"
 			href="feature-85-scenarios">Adding Tags To A Feature</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-85-statement-link" 
+			onclick="toggleVisibility('feature-85-statement'); toggleVisibility('feature-85-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[2 ms]</span>
+	<span class="feature duration">[12 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -6104,6 +6508,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-85-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-85-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -6180,7 +6598,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[0 ms]</span>
+	<span class="scenario duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -6246,12 +6664,17 @@
 		<span class="feature name pointer" 
 			id="feature-88-name"
 			onclick="toggleVisibility('feature-88-scenarios', null, null)"
-			href="feature-88-scenarios">Adding Tags To An Area</span>
+			href="feature-88-scenarios">Adding Tags To A Capability</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-88-statement-link" 
+			onclick="toggleVisibility('feature-88-statement'); toggleVisibility('feature-88-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[6 ms]</span>
+	<span class="feature duration">[3 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -6300,6 +6723,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-88-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-88-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -6376,7 +6813,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[4 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -6443,11 +6880,16 @@
 			id="feature-91-name"
 			onclick="toggleVisibility('feature-91-scenarios', null, null)"
 			href="feature-91-scenarios">Adding Tags To A Test Run</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-91-statement-link" 
+			onclick="toggleVisibility('feature-91-statement'); toggleVisibility('feature-91-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[2 ms]</span>
+	<span class="feature duration">[12 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -6496,6 +6938,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-91-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-91-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -6518,7 +6974,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[0 ms]</span>
+	<span class="scenario duration">[5 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -6618,20 +7074,20 @@
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-94">
+<li class="lineitem capability row align-items-center" id="capability-94">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-94-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-94-badge-distro"
 		title="Defining Count: Scenarios"
-		onclick="toggleVisibility('area-94-stats')">
-		<div class="area badge badge-pill pointer total reason-Defining"
-			id="area-94-badge">18</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-94-stats')">
+		<div class="capability badge badge-pill pointer total reason-Defining"
+			id="capability-94-badge">18</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-94-distro">
+		<div class="capability distro pointer"
+			id="capability-94-distro">
 			<div class="reason-Defining" style="height: 61.1111111111111%; width: 100%;"></div>
 			<div class="reason-Untested" style="height: 38.8888888888889%; width: 100%;"></div>
 		</div>
@@ -6639,24 +7095,24 @@
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-94-name"
-			onclick="toggleVisibility('area-94-features', null, null)"
-			href="area-94-features">Adding Explanations</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-94-name"
+			onclick="toggleVisibility('capability-94-features', null, null)"
+			href="capability-94-features">Adding Explanations</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[55 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[64 ms]</span>
 </div>
 </li>
 <li class="row stats">
 	<div class="col-2 badges"></div>
 	<div class="col-11">
-		<div class="stats-graph-tables" id="area-94-stats" style="width: 100%; empty-cells: show; display: none;">
+		<div class="stats-graph-tables" id="capability-94-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -6690,7 +7146,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -6724,7 +7180,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-94-features"
+				id="capability-94-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-95">
 <div class="col-2 badges">
@@ -6752,11 +7208,16 @@
 			id="feature-95-name"
 			onclick="toggleVisibility('feature-95-scenarios', null, null)"
 			href="feature-95-scenarios">Adding An Explanation To A Step</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-95-statement-link" 
+			onclick="toggleVisibility('feature-95-statement'); toggleVisibility('feature-95-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[9 ms]</span>
+	<span class="feature duration">[13 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -6806,6 +7267,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-95-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-95-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -7057,11 +7532,16 @@
 			id="feature-100-name"
 			onclick="toggleVisibility('feature-100-scenarios', null, null)"
 			href="feature-100-scenarios">Adding An Explanation To A Scenario</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-100-statement-link" 
+			onclick="toggleVisibility('feature-100-statement'); toggleVisibility('feature-100-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[2 ms]</span>
+	<span class="feature duration">[1 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -7110,6 +7590,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-100-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-100-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -7254,11 +7748,16 @@
 			id="feature-103-name"
 			onclick="toggleVisibility('feature-103-scenarios', null, null)"
 			href="feature-103-scenarios">Adding An Explanation To A Feature</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-103-statement-link" 
+			onclick="toggleVisibility('feature-103-statement'); toggleVisibility('feature-103-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[10 ms]</span>
+	<span class="feature duration">[19 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -7308,6 +7807,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-103-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-103-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -7330,7 +7843,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[0 ms]</span>
+	<span class="scenario duration">[1 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -7384,7 +7897,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[0 ms]</span>
+	<span class="scenario duration">[1 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -7492,7 +8005,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[2 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -7558,12 +8071,17 @@
 		<span class="feature name pointer" 
 			id="feature-108-name"
 			onclick="toggleVisibility('feature-108-scenarios', null, null)"
-			href="feature-108-scenarios">Adding An Explanation To An Area</span>
+			href="feature-108-scenarios">Adding An Explanation To A Capability</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-108-statement-link" 
+			onclick="toggleVisibility('feature-108-statement'); toggleVisibility('feature-108-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[10 ms]</span>
+	<span class="feature duration">[14 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -7612,6 +8130,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-108-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-108-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -7742,7 +8274,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[0 ms]</span>
+	<span class="scenario duration">[1 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -7863,11 +8395,16 @@
 			id="feature-113-name"
 			onclick="toggleVisibility('feature-113-scenarios', null, null)"
 			href="feature-113-scenarios">Adding An Explanation To A Test Run</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-113-statement-link" 
+			onclick="toggleVisibility('feature-113-statement'); toggleVisibility('feature-113-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[18 ms]</span>
+	<span class="feature duration">[13 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -7916,6 +8453,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-113-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-113-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -7938,7 +8489,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[2 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -7992,7 +8543,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[5 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -8046,7 +8597,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[2 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -8146,44 +8697,44 @@
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-118">
+<li class="lineitem capability row align-items-center" id="capability-118">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-118-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-118-badge-distro"
 		title="Untested Count: Scenarios"
-		onclick="toggleVisibility('area-118-stats')">
-		<div class="area badge badge-pill pointer total reason-Untested"
-			id="area-118-badge">4</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-118-stats')">
+		<div class="capability badge badge-pill pointer total reason-Untested"
+			id="capability-118-badge">4</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-118-distro">
+		<div class="capability distro pointer"
+			id="capability-118-distro">
 			<div class="reason-Untested" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-118-name"
-			onclick="toggleVisibility('area-118-features', null, null)"
-			href="area-118-features">Setting Ownership</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-118-name"
+			onclick="toggleVisibility('capability-118-features', null, null)"
+			href="capability-118-features">Setting Ownership</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[47 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[3 ms]</span>
 </div>
 </li>
 <li class="row stats">
 	<div class="col-2 badges"></div>
 	<div class="col-11">
-		<div class="stats-graph-tables" id="area-118-stats" style="width: 100%; empty-cells: show; display: none;">
+		<div class="stats-graph-tables" id="capability-118-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -8217,7 +8768,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -8249,7 +8800,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-118-features"
+				id="capability-118-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-119">
 <div class="col-2 badges">
@@ -8276,11 +8827,16 @@
 			id="feature-119-name"
 			onclick="toggleVisibility('feature-119-scenarios', null, null)"
 			href="feature-119-scenarios">Setting An Owner For A Scenario</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-119-statement-link" 
+			onclick="toggleVisibility('feature-119-statement'); toggleVisibility('feature-119-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[12 ms]</span>
+	<span class="feature duration">[1 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -8329,6 +8885,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-119-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-119-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -8351,7 +8921,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[1 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -8405,7 +8975,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[3 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -8472,11 +9042,16 @@
 			id="feature-122-name"
 			onclick="toggleVisibility('feature-122-scenarios', null, null)"
 			href="feature-122-scenarios">Setting An Owner For A Feature</span>
+		<div class="feature-statement-link badge pointer badge-secondary" 
+			id="feature-122-statement-link" 
+			onclick="toggleVisibility('feature-122-statement'); toggleVisibility('feature-122-explanation', null)">
+			<i class="fas fa-info"></i>
+		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[10 ms]</span>
+	<span class="feature duration">[1 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -8525,6 +9100,20 @@
 		</div>
 	</div>
 </li>
+	<li class="row statement">
+		<div class="col-2 badges"></div>
+		<div class="col-11">
+			<div class="feature statement" 
+				id="feature-122-statement"
+				style="display: none;">
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-122-statement"><strong>As a</strong> [Missing Name!]<br/>
+<strong>You can </strong> [Missing Capability!]
+<strong>So that </strong> [Missing Value!]<br/></div>
+			</div>
+		</div>
+	</li>
 
 	<li class="row children">
 		<div class="col-12">
@@ -8547,7 +9136,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[4 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">
@@ -8601,7 +9190,7 @@
 		</div>
 	</div>
 <div class="col-2 scenario reason-duration text-right">
-	<span class="scenario duration">[4 ms]</span>
+	<span class="scenario duration">[0 ms]</span>
 </div>
 </li>
 <li class="row stats">

@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<outline text="Area 01 [Passed]">
+<outline text="Capability 01 [Passed]">
 	<outline text="Feature 0101 [Passed]">
 		<outline text="Scenario 010101 [Passed]">
 			<outline text="Given Step01010101">
@@ -72,7 +72,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Area 02 [Passed]">
+<outline text="Capability 02 [Passed]">
 	<outline text="Feature 0201 [Passed]">
 		<outline text="Scenario 020101 [Passed]">
 			<outline text="Given Step02010101">
@@ -140,7 +140,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Area 03 [Passed]">
+<outline text="Capability 03 [Passed]">
 	<outline text="Feature 0301 [Passed]">
 		<outline text="Scenario 030101 [Passed]">
 			<outline text="Given Step03010101">
@@ -208,7 +208,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Area 01 [Passed]">
+<outline text="Capability 01 [Passed]">
 	<outline text="Feature 0101 [Passed]">
 		<outline text="Scenario 010102 [Passed]">
 			<outline text="Given Step01010201">
@@ -276,7 +276,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Area 02 [Passed]">
+<outline text="Capability 02 [Passed]">
 	<outline text="Feature 0201 [Passed]">
 		<outline text="Scenario 020102 [Passed]">
 			<outline text="Given Step02010201">
@@ -344,7 +344,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Area 03 [Passed]">
+<outline text="Capability 03 [Passed]">
 	<outline text="Feature 0301 [Passed]">
 		<outline text="Scenario 030102 [Passed]">
 			<outline text="Given Step03010201">
@@ -412,7 +412,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Area 01 [Passed]">
+<outline text="Capability 01 [Passed]">
 	<outline text="Feature 0101 [Passed]">
 		<outline text="Scenario 010103 [Passed]">
 			<outline text="Given Step01010301">
@@ -480,7 +480,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Area 02 [Passed]">
+<outline text="Capability 02 [Passed]">
 	<outline text="Feature 0201 [Passed]">
 		<outline text="Scenario 020103 [Passed]">
 			<outline text="Given Step02010301">
@@ -548,7 +548,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="Area 03 [Passed]">
+<outline text="Capability 03 [Passed]">
 	<outline text="Feature 0301 [Passed]">
 		<outline text="Scenario 030103 [Passed]">
 			<outline text="Given Step03010301">

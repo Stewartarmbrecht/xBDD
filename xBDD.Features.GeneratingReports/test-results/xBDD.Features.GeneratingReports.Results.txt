@@ -57,15 +57,15 @@ Extra template line at line number 11 (Template)
 	
 
 				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 127
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 127
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-			And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'. [Previous Error]
-				C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
+			And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'. [Previous Error]
+				/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html
 		With No Json Files [Failed]
 			Given you do not have a summary report file located at './MySample.TestSummary.WithNoJsonFiles.html'. [Passed]
 				./MySample.TestSummary.WithNoJsonFiles.html
@@ -92,14 +92,14 @@ Extra template line at line number 5 (Template)
 	
 
 				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 127
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 127
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-			And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithNoJsonFiles.html' that matches the template: [Previous Error]
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
+			And you will find a file at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithNoJsonFiles.html' that matches the template: [Previous Error]
 				{{.*}}/rl
 					<title>My Sample - Features</title>
 				{{.*}}/rl
@@ -138,14 +138,14 @@ Extra template line at line number 6 (Template)
 	
 
 				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 127
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 127
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-			And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template: [Previous Error]
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
+			And you will find a file at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template: [Previous Error]
 				{{.*}}/rl
 					<title>My Sample - Features</title>
 				{{.*}}/rl
@@ -187,15 +187,15 @@ Extra template line at line number 7 (Template)
 	
 
 				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in C:\Users\stearm01\source\xBDD\xbdd.features.common\Developer.cs:line 127
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass5_0.<WillSeeOutput>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 127
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
 				            --- End of stack trace from previous location where exception was thrown ---
 				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
 				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in C:\Users\stearm01\source\xBDD\xBDD\Core\StepExecutor.cs:line 25
-			And you will not find the html report located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'. [Previous Error]
-				C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
+			And you will not find the html report located at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'. [Previous Error]
+				/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html
 xBDD - Features - Generating Reports - HTML Summary Report - Review Test Summary Information [Committed]
 	Review Test Summary Name [Committed]
 		With Name [Committed]
@@ -217,15 +217,15 @@ xBDD - Features - Generating Reports - HTML Summary Report - Review Test Summary
 		With Some Skipped And Some Failing [Committed]
 		With All Skipped [Committed]
 		With All Failing [Committed]
-		With No Areas [Committed]
-	Review Test Summary Area Status Distribution [Committed]
+		With No Capabilities [Committed]
+	Review Test Summary Capability Status Distribution [Committed]
 		With All Passing [Committed]
 		With Some Skipped [Committed]
 		With Some Failing [Committed]
 		With Some Skipped And Some Failing [Committed]
 		With All Skipped [Committed]
 		With All Failing [Committed]
-		With No Areas [Committed]
+		With No Capabilities [Committed]
 	Review Test Summary Feature Status Distribution [Committed]
 		With All Passing [Committed]
 		With Some Skipped [Committed]
@@ -249,15 +249,15 @@ xBDD - Features - Generating Reports - HTML Summary Report - Review Test Summary
 		With Some Skipped And Some Failing [Committed]
 		With All Skipped [Committed]
 		With All Failing [Committed]
-		With No Areas [Committed]
-	Review Test Summary Area Status Statistics [Committed]
+		With No Capabilities [Committed]
+	Review Test Summary Capability Status Statistics [Committed]
 		With All Passing [Committed]
 		With Some Skipped [Committed]
 		With Some Failing [Committed]
 		With Some Skipped And Some Failing [Committed]
 		With All Skipped [Committed]
 		With All Failing [Committed]
-		With No Areas [Committed]
+		With No Capabilities [Committed]
 	Review Test Summary Feature Status Statistics [Committed]
 		With All Passing [Committed]
 		With Some Skipped [Committed]
@@ -274,10 +274,10 @@ xBDD - Features - Generating Reports - HTML Summary Report - Review Test Summary
 		With All Skipped [Committed]
 		With All Failing [Committed]
 		With No Scenarios [Committed]
-	Review Test Summary Areas [Committed]
-		Expanding Areas [Committed]
-		Collapsing Areas [Committed]
-		With No Areas [Committed]
+	Review Test Summary Capabilities [Committed]
+		Expanding Capabilities [Committed]
+		Collapsing Capabilities [Committed]
+		With No Capabilities [Committed]
 xBDD - Features - Generating Reports - HTML Summary Report - Review Test Run Information [Committed]
 	Review Test Run Name [Committed]
 		With Name [Committed]
@@ -384,14 +384,14 @@ xBDD - Features - Generating Reports - HTML Test Run Report - Review Test Run In
 		With Passing Status [Untested]
 		With Some Skipped Status [Untested]
 		With Some Failing Status [Untested]
-	Review Test Run Area Status Distribution [Untested]
+	Review Test Run Capability Status Distribution [Untested]
 		With All Passing [Untested]
 		With Some Skipped [Untested]
 		With Some Failing [Untested]
 		With Some Skipped And Some Failing [Untested]
 		With All Skipped [Untested]
 		With All Failing [Untested]
-		With No Areas [Untested]
+		With No Capabilities [Untested]
 	Review Test Run Feature Status Distribution [Untested]
 		With All Passing [Untested]
 		With Some Skipped [Untested]
@@ -408,14 +408,14 @@ xBDD - Features - Generating Reports - HTML Test Run Report - Review Test Run In
 		With All Skipped [Untested]
 		With All Failing [Untested]
 		With No Scenarios [Untested]
-	Review Test Run Area Status Statistics [Untested]
+	Review Test Run Capability Status Statistics [Untested]
 		With All Passing [Untested]
 		With Some Skipped [Untested]
 		With Some Failing [Untested]
 		With Some Skipped And Some Failing [Untested]
 		With All Skipped [Untested]
 		With All Failing [Untested]
-		With No Areas [Untested]
+		With No Capabilities [Untested]
 	Review Test Run Feature Status Statistics [Untested]
 		With All Passing [Untested]
 		With Some Skipped [Untested]
@@ -432,19 +432,19 @@ xBDD - Features - Generating Reports - HTML Test Run Report - Review Test Run In
 		With All Skipped [Untested]
 		With All Failing [Untested]
 		With No Scenarios [Untested]
-	Review Test Run Areas [Untested]
-		Expanding Areas [Untested]
-		Collapsing Areas [Untested]
-		With No Areas [Untested]
-xBDD - Features - Generating Reports - HTML Test Run Report - Review Area Information [Untested]
-	Review Area Name [Untested]
+	Review Test Run Capabilities [Untested]
+		Expanding Capabilities [Untested]
+		Collapsing Capabilities [Untested]
+		With No Capabilities [Untested]
+xBDD - Features - Generating Reports - HTML Test Run Report - Review Capability Information [Untested]
+	Review Capability Name [Untested]
 		With Name [Untested]
 		With No Name [Untested]
-	Review Area Status [Untested]
+	Review Capability Status [Untested]
 		With Passing Status [Untested]
 		With Some Skipped Status [Untested]
 		With Some Failing Status [Untested]
-	Review Area Feature Status Distribution [Untested]
+	Review Capability Feature Status Distribution [Untested]
 		With All Passing [Untested]
 		With Some Skipped [Untested]
 		With Some Failing [Untested]
@@ -452,7 +452,7 @@ xBDD - Features - Generating Reports - HTML Test Run Report - Review Area Inform
 		With All Skipped [Untested]
 		With All Failing [Untested]
 		With No Features [Untested]
-	Review Area Scenario Status Distribution [Untested]
+	Review Capability Scenario Status Distribution [Untested]
 		With All Passing [Untested]
 		With Some Skipped [Untested]
 		With Some Failing [Untested]
@@ -460,7 +460,7 @@ xBDD - Features - Generating Reports - HTML Test Run Report - Review Area Inform
 		With All Skipped [Untested]
 		With All Failing [Untested]
 		With No Scenarios [Untested]
-	Review Area Feature Status Statistics [Untested]
+	Review Capability Feature Status Statistics [Untested]
 		Expanding [Untested]
 		Collapsing [Untested]
 		With All Passing [Untested]
@@ -470,7 +470,7 @@ xBDD - Features - Generating Reports - HTML Test Run Report - Review Area Inform
 		With All Skipped [Untested]
 		With All Failing [Untested]
 		With No Features [Untested]
-	Review Area Scenario Status Statistics [Untested]
+	Review Capability Scenario Status Statistics [Untested]
 		Expanding [Untested]
 		Collapsing [Untested]
 		With All Passing [Untested]
@@ -480,11 +480,11 @@ xBDD - Features - Generating Reports - HTML Test Run Report - Review Area Inform
 		With All Skipped [Untested]
 		With All Failing [Untested]
 		With No Scenarios [Untested]
-	Review Area Explanation [Untested]
+	Review Capability Explanation [Untested]
 		Expanding Explanation [Untested]
 		Collapsing Explanation [Untested]
 		Without Explanation [Untested]
-	Review Area Features [Untested]
+	Review Capability Features [Untested]
 		Expanding Features [Untested]
 		Collapsing Features [Untested]
 		Without Features [Untested]
@@ -589,13 +589,13 @@ xBDD - Features - Generating Reports - JSON Test Run Report [Defining]
 		With Full Test Run [Untested]
 		With No Test Run Name [Untested]
 		With Test Run Explanation Empty [Defining]
-		With No Areas [Untested]
-		With Areas [Untested]
-	Generate A Json Report With Area Scenarios [Defining]
-		With Full Area [Untested]
-		With Area Name Clipping [Untested]
-		With Area Name Empty [Untested]
-		With Area Explanation Empty [Defining]
+		With No Capabilities [Untested]
+		With Capabilities [Untested]
+	Generate A Json Report With Capability Scenarios [Defining]
+		With Full Capability [Untested]
+		With Capability Name Clipping [Untested]
+		With Capability Name Empty [Untested]
+		With Capability Explanation Empty [Defining]
 		With No Features [Untested]
 		With Features [Untested]
 	Generate A Json Report With Feature Scenarios [Defining]
@@ -630,13 +630,13 @@ xBDD - Features - Generating Reports - Outline Test Run Report [Defining]
 		With Full Test Run [Untested]
 		With No Test Run Name [Untested]
 		With Test Run Explanation Empty [Defining]
-		With No Areas [Untested]
-		With Areas [Untested]
-	Generate An Outline Report With Area Scenarios [Defining]
-		With Full Area [Untested]
-		With Area Name Clipping [Untested]
-		With Area Name Empty [Untested]
-		With Area Explanation Empty [Defining]
+		With No Capabilities [Untested]
+		With Capabilities [Untested]
+	Generate An Outline Report With Capability Scenarios [Defining]
+		With Full Capability [Untested]
+		With Capability Name Clipping [Untested]
+		With Capability Name Empty [Untested]
+		With Capability Explanation Empty [Defining]
 		With No Features [Untested]
 		With Features [Untested]
 	Generate An Outline Report With Feature Scenarios [Defining]
@@ -671,13 +671,13 @@ xBDD - Features - Generating Reports - Text Test Run Report [Defining]
 		With Full Test Run [Untested]
 		With No Test Run Name [Untested]
 		With Test Run Explanation Empty [Defining]
-		With No Areas [Untested]
-		With Areas [Untested]
-	Generate A Text Report With Area Scenarios [Defining]
-		With Full Area [Untested]
-		With Area Name Clipping [Defining]
-		With Area Name Empty [Untested]
-		With Area Explanation Empty [Defining]
+		With No Capabilities [Untested]
+		With Capabilities [Untested]
+	Generate A Text Report With Capability Scenarios [Defining]
+		With Full Capability [Untested]
+		With Capability Name Clipping [Defining]
+		With Capability Name Empty [Untested]
+		With Capability Explanation Empty [Defining]
 		With No Features [Untested]
 		With Features [Untested]
 	Generate A Text Report With Feature Scenarios [Defining]
@@ -712,13 +712,13 @@ xBDD - Features - Generating Reports - Text Outline Test Run Report [Defining]
 		With Full Test Run [Untested]
 		With No Test Run Name [Untested]
 		With Test Run Explanation Empty [Defining]
-		With No Areas [Untested]
-		With Areas [Untested]
-	Generate A Text Outline Report With Area Scenarios [Defining]
-		With Full Area [Untested]
-		With Area Name Clipping [Untested]
-		With Area Name Empty [Untested]
-		With Area Explanation Empty [Defining]
+		With No Capabilities [Untested]
+		With Capabilities [Untested]
+	Generate A Text Outline Report With Capability Scenarios [Defining]
+		With Full Capability [Untested]
+		With Capability Name Clipping [Untested]
+		With Capability Name Empty [Untested]
+		With Capability Explanation Empty [Defining]
 		With No Features [Untested]
 		With Features [Untested]
 	Generate A Text Outline Report With Feature Scenarios [Defining]

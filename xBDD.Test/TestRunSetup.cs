@@ -13,22 +13,24 @@ namespace xBDD.Test
             List<string> failingStepIds = null, 
             Dictionary<string, string> skippedScenarioIdsAndReasons = null)
         {
-            for(int areaCount = 1; areaCount <= 3; areaCount++)
+            for(int capabilityCount = 1; capabilityCount <= 3; capabilityCount++)
             {
                 for(int featureCount = 1; featureCount <= 3; featureCount++)
                 {
                     for(int scenarioCount = 1; scenarioCount <= 3; scenarioCount++)
                     {
-                        var scenarioId = $"{areaCount.ToString().PadLeft(2,'0')}{featureCount.ToString().PadLeft(2,'0')}{scenarioCount.ToString().PadLeft(2,'0')}";
+                        var scenarioId = $"{capabilityCount.ToString().PadLeft(2,'0')}{featureCount.ToString().PadLeft(2,'0')}{scenarioCount.ToString().PadLeft(2,'0')}";
                         var codeDetails = new CodeDetails(
-                            $"Area{areaCount.ToString().PadLeft(2,'0')}",
-                            $"Feature{areaCount.ToString().PadLeft(2,'0')}{featureCount.ToString().PadLeft(2,'0')}",
+                            $"Capability{capabilityCount.ToString().PadLeft(2,'0')}",
+                            $"Feature{capabilityCount.ToString().PadLeft(2,'0')}{featureCount.ToString().PadLeft(2,'0')}",
                             $"Scenario{scenarioId}",
                             $"As a user",
-                            $"You can get some value",
-                            $"By performing some action",
+                            $"So that you get some value",
+                            $"You can perform some action",
 							null,
+                            TextFormat.text,
 							null,
+                            TextFormat.text,
 							null,
 							null,
 							null,
@@ -41,7 +43,7 @@ namespace xBDD.Test
                         }
                         for(int stepCount = 1; stepCount <= 3; stepCount++)
                         {
-                            var stepId = $"{areaCount.ToString().PadLeft(2,'0')}{featureCount.ToString().PadLeft(2,'0')}{scenarioCount.ToString().PadLeft(2,'0')}{stepCount.ToString().PadLeft(2,'0')}";
+                            var stepId = $"{capabilityCount.ToString().PadLeft(2,'0')}{featureCount.ToString().PadLeft(2,'0')}{scenarioCount.ToString().PadLeft(2,'0')}{stepCount.ToString().PadLeft(2,'0')}";
                             var fail = false;
                             if(failingStepIds != null) {
                                 fail = failingStepIds.Contains(stepId);

@@ -16,11 +16,11 @@ namespace xBDD.Utility
             return input.First().ToString().ToUpper() + input.Substring(1);
         }
         /// <summary>
-        /// Converts a namespace to an area name by replacing "." with " - ".
+        /// Converts a namespace to an capability name by replacing "." with " - ".
         /// </summary>
         /// <param name="text">The namespace value.</param>
-        /// <returns>A matching Area name.</returns>
-        public static string ConvertNamespaceToAreaName(this string text)
+        /// <returns>A matching Capability name.</returns>
+        public static string ConvertNamespaceToCapabilityName(this string text)
         {
             return text.AddSpacesToSentence().Replace(".", " - ");
         }
@@ -133,11 +133,11 @@ namespace xBDD.Utility
 		}
 
         /// <summary>
-        /// Converts an area name to a namespace to replacing " - " with ".".
+        /// Converts an capability name to a namespace to replacing " - " with ".".
         /// </summary>
-        /// <param name="text">The area name value.</param>
+        /// <param name="text">The capability name value.</param>
         /// <returns>A matching namespace.</returns>
-        internal static string ConvertAreaNameToNamespace(this string text)
+        internal static string ConvertCapabilityNameToNamespace(this string text)
         {
 			var hashTagIndex = text.IndexOf('#');
 			var atTagIndex = text.IndexOf('@');

@@ -1,7 +1,7 @@
 ﻿SELECT 
 	tr.Id as TestRunId, 
 	s.Id AS ScenarioId, 
-	s.AreaPath, 
+	s.CapabilityPath, 
 	s.FeatureName, 
 	s.Name as ScenarioName, 
 	s.Outcome as ScenarioOutcome,

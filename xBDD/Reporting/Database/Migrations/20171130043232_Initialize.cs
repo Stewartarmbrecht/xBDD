@@ -28,7 +28,7 @@ namespace xBDD.Reporting.Database.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AreaPath = table.Column<string>(nullable: true),
+                    CapabilityPath = table.Column<string>(nullable: true),
                     EndTime = table.Column<DateTime>(nullable: false),
                     FeatureName = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),

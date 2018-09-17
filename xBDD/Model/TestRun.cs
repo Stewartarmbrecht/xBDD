@@ -19,8 +19,8 @@ namespace xBDD.Model
         {
             get
             {
-                return  (from area in this.Areas
-                        from feature in area.Features
+                return  (from capability in this.Capabilities
+                        from feature in capability.Features
                         from scenario in feature.Scenarios
                         select scenario).ToList(); 
     
@@ -32,7 +32,7 @@ namespace xBDD.Model
         /// </summary>
         public TestRun()
         {
-            Areas = new List<Area>();
+            Capabilities = new List<Capability>();
         }
 
         /// <summary>
@@ -83,11 +83,11 @@ namespace xBDD.Model
         /// <value>Date and time</value>
         public TimeSpan Time { get; set; }
         /// <summary>
-        /// The areas covered by the test run.
+        /// The capabilities covered by the test run.
         /// </summary>
-        /// <value>List of areas <see cref="List{Area}" /></value>
+        /// <value>List of capabilities <see cref="List{Capability}" /></value>
         [DataMember]
-		public List<Area> Areas { get; set; }
+		public List<Capability> Capabilities { get; set; }
 
         /// <summary>
         /// Statistics about the steps executed in the test run.
@@ -111,7 +111,7 @@ namespace xBDD.Model
         /// Statistics about the features executed in the test run.
         /// </summary>
         /// <value></value>
-		public OutcomeStats AreaStats { get; set; }
+		public OutcomeStats CapabilityStats { get; set; }
 
 		/// <summary>
 		/// Stores the count of scenarios for each reason.
@@ -126,9 +126,9 @@ namespace xBDD.Model
 		public Dictionary<string, int> FeatureReasonStats { get; internal set; }
 
 		/// <summary>
-		/// Stores the count of areas for each reason.
+		/// Stores the count of capabilities for each reason.
 		/// </summary>
-		/// <value>Dictionary of reasons and area counts.</value>
-		public Dictionary<string, int> AreaReasonStats { get; internal set; }
+		/// <value>Dictionary of reasons and capability counts.</value>
+		public Dictionary<string, int> CapabilityReasonStats { get; internal set; }
     }
 }

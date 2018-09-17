@@ -1,6 +1,6 @@
 xBDD - Generating Code
 
-Area 01 [Passed]
+Capability 01 [Passed]
 	Feature 0101 [Passed]
 		Scenario 010101 [Passed]
 			Given Step01010101
@@ -52,7 +52,7 @@ Area 01 [Passed]
 				is 
 				multiline 
 				text.
-Area 02 [Passed]
+Capability 02 [Passed]
 	Feature 0201 [Passed]
 		Scenario 020101 [Passed]
 			Given Step02010101
@@ -104,7 +104,7 @@ Area 02 [Passed]
 				is 
 				multiline 
 				text.
-Area 03 [Passed]
+Capability 03 [Passed]
 	Feature 0301 [Passed]
 		Scenario 030101 [Passed]
 			Given Step03010101
@@ -156,7 +156,7 @@ Area 03 [Passed]
 				is 
 				multiline 
 				text.
-Area 01 [Passed]
+Capability 01 [Passed]
 	Feature 0101 [Passed]
 		Scenario 010102 [Passed]
 			Given Step01010201
@@ -208,7 +208,7 @@ Area 01 [Passed]
 				is 
 				multiline 
 				text.
-Area 02 [Passed]
+Capability 02 [Passed]
 	Feature 0201 [Passed]
 		Scenario 020102 [Passed]
 			Given Step02010201
@@ -260,7 +260,7 @@ Area 02 [Passed]
 				is 
 				multiline 
 				text.
-Area 03 [Passed]
+Capability 03 [Passed]
 	Feature 0301 [Passed]
 		Scenario 030102 [Passed]
 			Given Step03010201
@@ -312,7 +312,7 @@ Area 03 [Passed]
 				is 
 				multiline 
 				text.
-Area 01 [Passed]
+Capability 01 [Passed]
 	Feature 0101 [Passed]
 		Scenario 010103 [Passed]
 			Given Step01010301
@@ -364,7 +364,7 @@ Area 01 [Passed]
 				is 
 				multiline 
 				text.
-Area 02 [Passed]
+Capability 02 [Passed]
 	Feature 0201 [Passed]
 		Scenario 020103 [Passed]
 			Given Step02010301
@@ -416,7 +416,7 @@ Area 02 [Passed]
 				is 
 				multiline 
 				text.
-Area 03 [Passed]
+Capability 03 [Passed]
 	Feature 0301 [Passed]
 		Scenario 030103 [Passed]
 			Given Step03010301

@@ -1,6 +1,6 @@
 My Sample - Test Run 2 Skipped Untested
 
-My Sample - Features - Test Run 2 Skipped Untested - Area 1 Passing [Passed]
+My Sample - Features - Test Run 2 Skipped Untested - Capability 1 Passing [Passed]
 	Feature 1 Passing [Passed]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing With Explanation And Input
@@ -40,7 +40,7 @@ My Sample - Features - Test Run 2 Skipped Untested - Area 1 Passing [Passed]
 				| You can | add rows | via code |
 				
 				
-My Sample - Features - Test Run 2 Skipped Untested - Area 2 Skipped Untested [Untested]
+My Sample - Features - Test Run 2 Skipped Untested - Capability 2 Skipped Untested [Untested]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing

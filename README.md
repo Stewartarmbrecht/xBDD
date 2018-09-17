@@ -46,7 +46,7 @@ and scenarios) is a long ways from accomplishing this.  However, you can see thi
 keep in mind that some are disorganized, will be rewritten, and will likely look very different once the 
 initial version of this platform is released.
 
-*__Note:__ Area, Feature, and Scenario names will expand when clicked.*
+*__Note:__ Capability, Feature, and Scenario names will expand when clicked.*
 
 ### Sample
 

@@ -30,7 +30,7 @@
 			/* Child Lists */
 
 			ol.testruns { margin: 1rem 0rem 1rem 0rem; }
-			ol.areas { margin: 1rem 0rem 1rem 0rem; }
+			ol.capabilities { margin: 1rem 0rem 1rem 0rem; }
 			ol.features { margin: 0rem 0rem 1rem 0rem; }
 			ol.scenarios { margin: 0rem 0rem 1rem 0rem; }
 			ol.steps { margin: 0rem 0rem 1rem 0rem;}
@@ -39,7 +39,7 @@
 
 			li.header { margin: 1rem 0rem 0rem 0rem; padding: 1rem 0rem 0rem 0rem; }
 			li.testrun { margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }
-			li.area { margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }
+			li.capability { margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }
 			li.feature { margin: 0rem 0rem 0rem 0rem; }
 			li.scenario { margin: 0rem 0rem 0rem 0rem; }
 			li.step { margin: 0rem 0rem 0rem 0rem; }
@@ -49,7 +49,7 @@
 			div.badge-distro { display: inline-block; vertical-align: middle; }
 			div.badge-distro.header { width: 6rem; height: 2rem; }
 			div.badge-distro.testrun { width: 6rem; height: 2rem; }
-			div.badge-distro.area { width: 6rem; height: 2rem; }
+			div.badge-distro.capability { width: 6rem; height: 2rem; }
 			div.badge-distro.feature { width: 6rem; height: 2rem; }
 			div.badge-distro.scenario { width: 6rem; height: 1.5rem; }
 			div.badge-distro.step { width: 6rem; height: 1rem; }
@@ -62,7 +62,7 @@
 			div.badge.label { width: 100%; height: 100%; vertical-align: middle; }
 			div.header.badge { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }
 			div.badge.testrun { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }
-			div.badge.area { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }
+			div.badge.capability { width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }
 			div.badge.feature { width: 3rem; margin-left: 1.5rem; height: 1.75rem; position: absolute; font-size: 1rem;  }
 			div.badge.scenario { width: 2rem; margin-left: 4rem; position: inherit; }
 			div.badge.step { width: 1rem; margin-left: 5rem; position: inherit; height: 1rem; }
@@ -75,7 +75,7 @@
 			div.distro { display: inline-block; border: 1px solid white; }
 			div.distro.header { width: 3rem; height: 2rem; margin-left: 3rem; }
 			div.distro.testrun { width: 3rem; height: 2rem; margin-left: 3rem; }
-			div.distro.area { width: 3rem; height: 2rem; margin-left: 3rem; }
+			div.distro.capability { width: 3rem; height: 2rem; margin-left: 3rem; }
 			div.distro.feature { width: 3rem; height: 1.75rem; margin-left: 3rem; }
 
 			div.badge.feature-statement-link { position: inherit; width: 1.5rem; height: 1.5rem; vertical-align: top; }
@@ -88,7 +88,7 @@
 			span.name.header { font-size: 2rem; font-weight: 400; margin-left: .75rem; }
 			span.name.testrun { font-size: 2rem; font-weight: 400; margin-left: .75rem; }
 			a.name.testrun { font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }
-			span.name.area { font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }
+			span.name.capability { font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }
 			span.name.feature { font-size: 1.25rem; font-weight: 400; color: rgb(68,114,198); }
 			span.name.scenario { font-size: 1.125rem; font-weight: 400; vertical-align: middle; font-style: italic; color: rgb(68,114,198); }
 			span.name.step { font-size: 1rem;  font-weight: 400; }
@@ -114,16 +114,17 @@
 			div.distro-corner-br.header { margin-top: 1.32rem; }
 			div.distro-corner-tr.testrun { margin-top: .05rem; }
 			div.distro-corner-br.testrun { margin-top: 1.32rem; }
-			div.distro-corner-tr.area { margin-top: .05rem; }
-			div.distro-corner-br.area { margin-top: 1.32rem; }
+			div.distro-corner-tr.capability { margin-top: .05rem; }
+			div.distro-corner-br.capability { margin-top: 1.32rem; }
 			div.distro-corner-tr.feature { margin-top: .06rem; }
 			div.distro-corner-br.feature { margin-top: 1.1rem; }
 
 			div#report-dates { margin: 0rem 0rem .5rem 5rem; }
 
-			/* Statements and Explanation */
-			div.statement { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
-			div.explanation { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
+			/* Statement */
+
+			div.statement-title { margin-bottom: 1rem; }
+			div.statement-content { margin: 1rem 0rem; border: lightgray solid 1px; padding: 1rem; }
 
 			/* Step Details */
 
@@ -141,18 +142,30 @@
 			dl.exception-type, dl.exception-message, dl.exception-stack { padding: .5rem; }
 			dl.exception-type pre, dl.exception-message pre, dl.exception-stack pre { padding: .5rem; }
 
-			/* Input, and Output */
+			/* Input, Output, Explanation */
 
 			div.input { margin-bottom: 1rem; }
 			div.output { margin-bottom: 1rem; }
-			div.input.title { margin-bottom: 1rem; }
-			div.output.title { margin-bottom: 1rem; }
-			iframe { border: 1px solid gray; resize: both; overflow: auto; }
+			div.explanation { margin-bottom: 1rem; }
+
+			div.input-title { margin-bottom: 1rem; }
+			div.output-title { margin-bottom: 1rem; }
+			div.explanation-title { margin-bottom: 1rem; }
+
+			div.input.markdown { border: 1px solid gray; padding: 1rem; }
+			div.output.markdown { border: 1px solid gray; padding: 1rem; }
+			div.explanation.markdown { border: 1px solid gray; padding: 1rem; }
+
 			pre { white-space: pre !important; }
 			pre.input { margin-bottom: 1rem; }
 			pre.output { margin-bottom: 1rem; }
+			pre.explanation { margin-bottom: 1rem; }
+
+			iframe { border: 1px solid gray; resize: both; overflow: auto; }
 			pre.prettyprint {  background-color: #eee; }
 			.linenums li { list-style-type: decimal !important; }
+			
+			
 			.reason-Removing { background-color: rgb(124,124,124) !important; color: White !important;}
 			.reason-Passed { background-color: rgb(112,173,71) !important; color: White !important;}
 			.reason-Committed { background-color: rgb(46,117,182) !important; color: White !important;}
@@ -180,7 +193,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">                         <a class="nav-item nav-link active" href="javascript: $('ol.features').collapse('show');" id="expand-all-areas-button">Expand All Areas <span class="sr-only">(current)</span></a>
+			<div class="navbar-nav">                         <a class="nav-item nav-link active" href="javascript: $('ol.features').collapse('show');" id="expand-all-capabilities-button">Expand All Capabilities <span class="sr-only">(current)</span></a>
 			</div>
 		</div>
 	</nav><li class="lineitem header row align-items-center" id="header-1">
@@ -206,17 +219,18 @@
 		<div class="header name">
 		<span class="header name pointer" 
 			id="header-1-name"
-			onclick="toggleVisibility('header-1-areas')"
-			href="header-1-areas">xBDD - Generating Code</span>
+			onclick="toggleVisibility('header-1-capabilities', null, null)"
+			href="header-1-capabilities">xBDD - Generating Code</span>
 
 		</div>
 	</div>
 <div class="col-2 header reason-duration text-right">
-	<span class="header duration">[27 ms]</span>
+	<span class="header duration">[22 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="header-1-stats" style="width: 100%; empty-cells: show; display: block;">
 			<table class="table table-condensed stats-table">
 				<tr id="header-header-reason-stats">
@@ -228,8 +242,8 @@
 					<td class="text-center"><div class="badge label reason-Committed">Committed</div></td>
 					<td class="text-center"><div class="badge label reason-Passed">Passed</div></td>
 					<td class="text-center"><div class="badge label reason-Removing">Removing</div></td>
-	<tr id="report-areas-reason-stats">
-		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+	<tr id="report-capabilities-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Capabilities</td>
 		<td class="text-center" style="width: 14%;">3</td>
 		<td class="text-center" style="width: 14%;">0</td>
 		<td class="text-center" style="width: 14%;">0</td>
@@ -264,8 +278,8 @@
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
-	<tr id="report-areas-reason-stats">
-		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Areas</td>
+	<tr id="report-capabilities-reason-stats">
+		<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">Capabilities</td>
 		<td class="outcome-bar-chart" style="width: 100%;">
 			<table class="table" style="width: 100%; empty-cells: show; height: 14px;">
 				<tr>
@@ -301,46 +315,47 @@
 
 	<li class="row children">
 		<div class="col-12">
-			<ol class="areas list-unstyled container-fluid"
-				id="header-1-areas"
+			<ol class="capabilities list-unstyled container-fluid"
+				id="header-1-capabilities"
 				style="display: block">
-<li class="lineitem area row align-items-center" id="area-2">
+<li class="lineitem capability row align-items-center" id="capability-2">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-2-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-2-badge-distro"
 		title="Passed Count: Scenarios"
-		onclick="toggleVisibility('area-2-stats')">
-		<div class="area badge badge-pill pointer total reason-Passed"
-			id="area-2-badge">9</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-2-stats')">
+		<div class="capability badge badge-pill pointer total reason-Passed"
+			id="capability-2-badge">9</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-2-distro">
+		<div class="capability distro pointer"
+			id="capability-2-distro">
 			<div class="reason-Passed" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-2-name"
-			onclick="toggleVisibility('area-2-features')"
-			href="area-2-features">Area 01</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-2-name"
+			onclick="toggleVisibility('capability-2-features', null, null)"
+			href="capability-2-features">Capability 01</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[8 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[8 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
-		<div class="stats-graph-tables" id="area-2-stats" style="width: 100%; empty-cells: show; display: none;">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
+		<div class="stats-graph-tables" id="capability-2-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -371,7 +386,7 @@
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -403,7 +418,7 @@
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-2-features"
+				id="capability-2-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-3">
 <div class="col-2 badges">
@@ -428,11 +443,11 @@
 		<div class="feature name">
 		<span class="feature name pointer" 
 			id="feature-3-name"
-			onclick="toggleVisibility('feature-3-scenarios')"
+			onclick="toggleVisibility('feature-3-scenarios', null, null)"
 			href="feature-3-scenarios">Feature 0101</span>
 		<div class="feature-statement-link badge pointer badge-secondary" 
 			id="feature-3-statement-link" 
-			onclick="toggleVisibility('feature-3-statement-explanation')">
+			onclick="toggleVisibility('feature-3-statement'); toggleVisibility('feature-3-explanation', null)">
 			<i class="fas fa-info"></i>
 		</div>
 
@@ -443,7 +458,8 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="feature-3-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
@@ -485,16 +501,17 @@
 		</div>
 	</div>
 </li>
-	<li class="row statement-explanation">
+	<li class="row statement">
 		<div class="col-2 badges"></div>
 		<div class="col-11">
-			<div class="feature statement-explanation" 
-				id="feature-3-statement-explanation"
+			<div class="feature statement" 
+				id="feature-3-statement"
 				style="display: none;">
-<div class="feature statement rounded"
-									id="feature-3-statement"><strong>As a</strong> As a user<br/>
-<strong>You can</strong> You can get some value<br/>
-<strong>By</strong> By performing some action</div>
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-3-statement"><strong>As a</strong> As a user<br/>
+<strong>You can </strong> You can perform some action
+<strong>So that </strong> So that you get some value<br/></div>
 			</div>
 		</div>
 	</li>
@@ -514,7 +531,7 @@
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-4-name"
-			onclick="toggleVisibility('scenario-4-scenarios')"
+			onclick="toggleVisibility('scenario-4-scenarios', null, null)"
 			href="scenario-4-scenarios">Scenario 010101</span>
 
 		</div>
@@ -524,7 +541,8 @@
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-4-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -562,7 +580,7 @@
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-5-name"
-			onclick="toggleVisibility('step-5-details')"
+			onclick="toggleVisibility('step-5-details', null, null)"
 			href="step-5-details"><strong>Given</strong>  Step01010101</span>
 
 		</div>
@@ -584,12 +602,12 @@
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-5-input-link" 
-					onclick="toggleVisibility('step-5-input', true, 'iframe5')">
+					onclick="toggleVisibility('step-5-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-5-output-link" 
-					onclick="toggleVisibility('step-5-output', true, 'iframe5')">
+					onclick="toggleVisibility('step-5-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -602,7 +620,7 @@
 			<div class="input" 
 				id="step-5-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-5-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-5">This 
 is 
@@ -617,7 +635,7 @@ text.</pre>
 			<div class="output" 
 				id="step-5-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-5-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-5">This
 is
@@ -640,7 +658,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-6-name"
-			onclick="toggleVisibility('step-6-details')"
+			onclick="toggleVisibility('step-6-details', null, null)"
 			href="step-6-details"><strong>When</strong>  Step01010102</span>
 
 		</div>
@@ -662,12 +680,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-6-input-link" 
-					onclick="toggleVisibility('step-6-input', true, 'iframe6')">
+					onclick="toggleVisibility('step-6-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-6-output-link" 
-					onclick="toggleVisibility('step-6-output', true, 'iframe6')">
+					onclick="toggleVisibility('step-6-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -680,7 +698,7 @@ output</pre>
 			<div class="input" 
 				id="step-6-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-6-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-6">This 
 is 
@@ -695,7 +713,7 @@ text.</pre>
 			<div class="output" 
 				id="step-6-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-6-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-6">This
 is
@@ -718,7 +736,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-7-name"
-			onclick="toggleVisibility('step-7-details')"
+			onclick="toggleVisibility('step-7-details', null, null)"
 			href="step-7-details"><strong>Then</strong>  Step01010103</span>
 
 		</div>
@@ -740,12 +758,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-7-input-link" 
-					onclick="toggleVisibility('step-7-input', true, 'iframe7')">
+					onclick="toggleVisibility('step-7-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-7-output-link" 
-					onclick="toggleVisibility('step-7-output', true, 'iframe7')">
+					onclick="toggleVisibility('step-7-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -758,7 +776,7 @@ output</pre>
 			<div class="input" 
 				id="step-7-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-7-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-7">This 
 is 
@@ -773,7 +791,7 @@ text.</pre>
 			<div class="output" 
 				id="step-7-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-7-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-7">This
 is
@@ -800,7 +818,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-8-name"
-			onclick="toggleVisibility('scenario-8-scenarios')"
+			onclick="toggleVisibility('scenario-8-scenarios', null, null)"
 			href="scenario-8-scenarios">Scenario 010102</span>
 
 		</div>
@@ -810,7 +828,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-8-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -848,7 +867,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-9-name"
-			onclick="toggleVisibility('step-9-details')"
+			onclick="toggleVisibility('step-9-details', null, null)"
 			href="step-9-details"><strong>Given</strong>  Step01010201</span>
 
 		</div>
@@ -870,12 +889,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-9-input-link" 
-					onclick="toggleVisibility('step-9-input', true, 'iframe9')">
+					onclick="toggleVisibility('step-9-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-9-output-link" 
-					onclick="toggleVisibility('step-9-output', true, 'iframe9')">
+					onclick="toggleVisibility('step-9-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -888,7 +907,7 @@ output</pre>
 			<div class="input" 
 				id="step-9-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-9-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-9">This 
 is 
@@ -903,7 +922,7 @@ text.</pre>
 			<div class="output" 
 				id="step-9-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-9-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-9">This
 is
@@ -926,7 +945,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-10-name"
-			onclick="toggleVisibility('step-10-details')"
+			onclick="toggleVisibility('step-10-details', null, null)"
 			href="step-10-details"><strong>When</strong>  Step01010202</span>
 
 		</div>
@@ -948,12 +967,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-10-input-link" 
-					onclick="toggleVisibility('step-10-input', true, 'iframe10')">
+					onclick="toggleVisibility('step-10-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-10-output-link" 
-					onclick="toggleVisibility('step-10-output', true, 'iframe10')">
+					onclick="toggleVisibility('step-10-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -966,7 +985,7 @@ output</pre>
 			<div class="input" 
 				id="step-10-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-10-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-10">This 
 is 
@@ -981,7 +1000,7 @@ text.</pre>
 			<div class="output" 
 				id="step-10-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-10-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-10">This
 is
@@ -1004,7 +1023,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-11-name"
-			onclick="toggleVisibility('step-11-details')"
+			onclick="toggleVisibility('step-11-details', null, null)"
 			href="step-11-details"><strong>Then</strong>  Step01010203</span>
 
 		</div>
@@ -1026,12 +1045,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-11-input-link" 
-					onclick="toggleVisibility('step-11-input', true, 'iframe11')">
+					onclick="toggleVisibility('step-11-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-11-output-link" 
-					onclick="toggleVisibility('step-11-output', true, 'iframe11')">
+					onclick="toggleVisibility('step-11-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -1044,7 +1063,7 @@ output</pre>
 			<div class="input" 
 				id="step-11-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-11-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-11">This 
 is 
@@ -1059,7 +1078,7 @@ text.</pre>
 			<div class="output" 
 				id="step-11-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-11-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-11">This
 is
@@ -1086,7 +1105,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-12-name"
-			onclick="toggleVisibility('scenario-12-scenarios')"
+			onclick="toggleVisibility('scenario-12-scenarios', null, null)"
 			href="scenario-12-scenarios">Scenario 010103</span>
 
 		</div>
@@ -1096,7 +1115,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-12-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -1134,7 +1154,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-13-name"
-			onclick="toggleVisibility('step-13-details')"
+			onclick="toggleVisibility('step-13-details', null, null)"
 			href="step-13-details"><strong>Given</strong>  Step01010301</span>
 
 		</div>
@@ -1156,12 +1176,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-13-input-link" 
-					onclick="toggleVisibility('step-13-input', true, 'iframe13')">
+					onclick="toggleVisibility('step-13-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-13-output-link" 
-					onclick="toggleVisibility('step-13-output', true, 'iframe13')">
+					onclick="toggleVisibility('step-13-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -1174,7 +1194,7 @@ output</pre>
 			<div class="input" 
 				id="step-13-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-13-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-13">This 
 is 
@@ -1189,7 +1209,7 @@ text.</pre>
 			<div class="output" 
 				id="step-13-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-13-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-13">This
 is
@@ -1212,7 +1232,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-14-name"
-			onclick="toggleVisibility('step-14-details')"
+			onclick="toggleVisibility('step-14-details', null, null)"
 			href="step-14-details"><strong>When</strong>  Step01010302</span>
 
 		</div>
@@ -1234,12 +1254,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-14-input-link" 
-					onclick="toggleVisibility('step-14-input', true, 'iframe14')">
+					onclick="toggleVisibility('step-14-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-14-output-link" 
-					onclick="toggleVisibility('step-14-output', true, 'iframe14')">
+					onclick="toggleVisibility('step-14-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -1252,7 +1272,7 @@ output</pre>
 			<div class="input" 
 				id="step-14-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-14-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-14">This 
 is 
@@ -1267,7 +1287,7 @@ text.</pre>
 			<div class="output" 
 				id="step-14-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-14-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-14">This
 is
@@ -1290,7 +1310,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-15-name"
-			onclick="toggleVisibility('step-15-details')"
+			onclick="toggleVisibility('step-15-details', null, null)"
 			href="step-15-details"><strong>Then</strong>  Step01010303</span>
 
 		</div>
@@ -1312,12 +1332,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-15-input-link" 
-					onclick="toggleVisibility('step-15-input', true, 'iframe15')">
+					onclick="toggleVisibility('step-15-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-15-output-link" 
-					onclick="toggleVisibility('step-15-output', true, 'iframe15')">
+					onclick="toggleVisibility('step-15-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -1330,7 +1350,7 @@ output</pre>
 			<div class="input" 
 				id="step-15-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-15-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-15">This 
 is 
@@ -1345,7 +1365,7 @@ text.</pre>
 			<div class="output" 
 				id="step-15-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-15-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-15">This
 is
@@ -1389,22 +1409,23 @@ output</pre>
 		<div class="feature name">
 		<span class="feature name pointer" 
 			id="feature-16-name"
-			onclick="toggleVisibility('feature-16-scenarios')"
+			onclick="toggleVisibility('feature-16-scenarios', null, null)"
 			href="feature-16-scenarios">Feature 0102</span>
 		<div class="feature-statement-link badge pointer badge-secondary" 
 			id="feature-16-statement-link" 
-			onclick="toggleVisibility('feature-16-statement-explanation')">
+			onclick="toggleVisibility('feature-16-statement'); toggleVisibility('feature-16-explanation', null)">
 			<i class="fas fa-info"></i>
 		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[3 ms]</span>
+	<span class="feature duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="feature-16-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
@@ -1446,16 +1467,17 @@ output</pre>
 		</div>
 	</div>
 </li>
-	<li class="row statement-explanation">
+	<li class="row statement">
 		<div class="col-2 badges"></div>
 		<div class="col-11">
-			<div class="feature statement-explanation" 
-				id="feature-16-statement-explanation"
+			<div class="feature statement" 
+				id="feature-16-statement"
 				style="display: none;">
-<div class="feature statement rounded"
-									id="feature-16-statement"><strong>As a</strong> As a user<br/>
-<strong>You can</strong> You can get some value<br/>
-<strong>By</strong> By performing some action</div>
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-16-statement"><strong>As a</strong> As a user<br/>
+<strong>You can </strong> You can perform some action
+<strong>So that </strong> So that you get some value<br/></div>
 			</div>
 		</div>
 	</li>
@@ -1475,7 +1497,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-17-name"
-			onclick="toggleVisibility('scenario-17-scenarios')"
+			onclick="toggleVisibility('scenario-17-scenarios', null, null)"
 			href="scenario-17-scenarios">Scenario 010201</span>
 
 		</div>
@@ -1485,7 +1507,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-17-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -1523,7 +1546,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-18-name"
-			onclick="toggleVisibility('step-18-details')"
+			onclick="toggleVisibility('step-18-details', null, null)"
 			href="step-18-details"><strong>Given</strong>  Step01020101</span>
 
 		</div>
@@ -1545,12 +1568,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-18-input-link" 
-					onclick="toggleVisibility('step-18-input', true, 'iframe18')">
+					onclick="toggleVisibility('step-18-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-18-output-link" 
-					onclick="toggleVisibility('step-18-output', true, 'iframe18')">
+					onclick="toggleVisibility('step-18-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -1563,7 +1586,7 @@ output</pre>
 			<div class="input" 
 				id="step-18-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-18-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-18">This 
 is 
@@ -1578,7 +1601,7 @@ text.</pre>
 			<div class="output" 
 				id="step-18-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-18-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-18">This
 is
@@ -1601,7 +1624,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-19-name"
-			onclick="toggleVisibility('step-19-details')"
+			onclick="toggleVisibility('step-19-details', null, null)"
 			href="step-19-details"><strong>When</strong>  Step01020102</span>
 
 		</div>
@@ -1623,12 +1646,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-19-input-link" 
-					onclick="toggleVisibility('step-19-input', true, 'iframe19')">
+					onclick="toggleVisibility('step-19-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-19-output-link" 
-					onclick="toggleVisibility('step-19-output', true, 'iframe19')">
+					onclick="toggleVisibility('step-19-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -1641,7 +1664,7 @@ output</pre>
 			<div class="input" 
 				id="step-19-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-19-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-19">This 
 is 
@@ -1656,7 +1679,7 @@ text.</pre>
 			<div class="output" 
 				id="step-19-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-19-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-19">This
 is
@@ -1679,7 +1702,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-20-name"
-			onclick="toggleVisibility('step-20-details')"
+			onclick="toggleVisibility('step-20-details', null, null)"
 			href="step-20-details"><strong>Then</strong>  Step01020103</span>
 
 		</div>
@@ -1701,12 +1724,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-20-input-link" 
-					onclick="toggleVisibility('step-20-input', true, 'iframe20')">
+					onclick="toggleVisibility('step-20-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-20-output-link" 
-					onclick="toggleVisibility('step-20-output', true, 'iframe20')">
+					onclick="toggleVisibility('step-20-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -1719,7 +1742,7 @@ output</pre>
 			<div class="input" 
 				id="step-20-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-20-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-20">This 
 is 
@@ -1734,7 +1757,7 @@ text.</pre>
 			<div class="output" 
 				id="step-20-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-20-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-20">This
 is
@@ -1761,7 +1784,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-21-name"
-			onclick="toggleVisibility('scenario-21-scenarios')"
+			onclick="toggleVisibility('scenario-21-scenarios', null, null)"
 			href="scenario-21-scenarios">Scenario 010202</span>
 
 		</div>
@@ -1771,7 +1794,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-21-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -1809,7 +1833,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-22-name"
-			onclick="toggleVisibility('step-22-details')"
+			onclick="toggleVisibility('step-22-details', null, null)"
 			href="step-22-details"><strong>Given</strong>  Step01020201</span>
 
 		</div>
@@ -1831,12 +1855,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-22-input-link" 
-					onclick="toggleVisibility('step-22-input', true, 'iframe22')">
+					onclick="toggleVisibility('step-22-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-22-output-link" 
-					onclick="toggleVisibility('step-22-output', true, 'iframe22')">
+					onclick="toggleVisibility('step-22-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -1849,7 +1873,7 @@ output</pre>
 			<div class="input" 
 				id="step-22-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-22-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-22">This 
 is 
@@ -1864,7 +1888,7 @@ text.</pre>
 			<div class="output" 
 				id="step-22-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-22-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-22">This
 is
@@ -1887,7 +1911,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-23-name"
-			onclick="toggleVisibility('step-23-details')"
+			onclick="toggleVisibility('step-23-details', null, null)"
 			href="step-23-details"><strong>When</strong>  Step01020202</span>
 
 		</div>
@@ -1909,12 +1933,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-23-input-link" 
-					onclick="toggleVisibility('step-23-input', true, 'iframe23')">
+					onclick="toggleVisibility('step-23-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-23-output-link" 
-					onclick="toggleVisibility('step-23-output', true, 'iframe23')">
+					onclick="toggleVisibility('step-23-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -1927,7 +1951,7 @@ output</pre>
 			<div class="input" 
 				id="step-23-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-23-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-23">This 
 is 
@@ -1942,7 +1966,7 @@ text.</pre>
 			<div class="output" 
 				id="step-23-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-23-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-23">This
 is
@@ -1965,7 +1989,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-24-name"
-			onclick="toggleVisibility('step-24-details')"
+			onclick="toggleVisibility('step-24-details', null, null)"
 			href="step-24-details"><strong>Then</strong>  Step01020203</span>
 
 		</div>
@@ -1987,12 +2011,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-24-input-link" 
-					onclick="toggleVisibility('step-24-input', true, 'iframe24')">
+					onclick="toggleVisibility('step-24-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-24-output-link" 
-					onclick="toggleVisibility('step-24-output', true, 'iframe24')">
+					onclick="toggleVisibility('step-24-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -2005,7 +2029,7 @@ output</pre>
 			<div class="input" 
 				id="step-24-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-24-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-24">This 
 is 
@@ -2020,7 +2044,7 @@ text.</pre>
 			<div class="output" 
 				id="step-24-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-24-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-24">This
 is
@@ -2047,7 +2071,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-25-name"
-			onclick="toggleVisibility('scenario-25-scenarios')"
+			onclick="toggleVisibility('scenario-25-scenarios', null, null)"
 			href="scenario-25-scenarios">Scenario 010203</span>
 
 		</div>
@@ -2057,7 +2081,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-25-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -2095,7 +2120,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-26-name"
-			onclick="toggleVisibility('step-26-details')"
+			onclick="toggleVisibility('step-26-details', null, null)"
 			href="step-26-details"><strong>Given</strong>  Step01020301</span>
 
 		</div>
@@ -2117,12 +2142,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-26-input-link" 
-					onclick="toggleVisibility('step-26-input', true, 'iframe26')">
+					onclick="toggleVisibility('step-26-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-26-output-link" 
-					onclick="toggleVisibility('step-26-output', true, 'iframe26')">
+					onclick="toggleVisibility('step-26-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -2135,7 +2160,7 @@ output</pre>
 			<div class="input" 
 				id="step-26-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-26-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-26">This 
 is 
@@ -2150,7 +2175,7 @@ text.</pre>
 			<div class="output" 
 				id="step-26-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-26-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-26">This
 is
@@ -2173,7 +2198,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-27-name"
-			onclick="toggleVisibility('step-27-details')"
+			onclick="toggleVisibility('step-27-details', null, null)"
 			href="step-27-details"><strong>When</strong>  Step01020302</span>
 
 		</div>
@@ -2195,12 +2220,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-27-input-link" 
-					onclick="toggleVisibility('step-27-input', true, 'iframe27')">
+					onclick="toggleVisibility('step-27-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-27-output-link" 
-					onclick="toggleVisibility('step-27-output', true, 'iframe27')">
+					onclick="toggleVisibility('step-27-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -2213,7 +2238,7 @@ output</pre>
 			<div class="input" 
 				id="step-27-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-27-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-27">This 
 is 
@@ -2228,7 +2253,7 @@ text.</pre>
 			<div class="output" 
 				id="step-27-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-27-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-27">This
 is
@@ -2251,7 +2276,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-28-name"
-			onclick="toggleVisibility('step-28-details')"
+			onclick="toggleVisibility('step-28-details', null, null)"
 			href="step-28-details"><strong>Then</strong>  Step01020303</span>
 
 		</div>
@@ -2273,12 +2298,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-28-input-link" 
-					onclick="toggleVisibility('step-28-input', true, 'iframe28')">
+					onclick="toggleVisibility('step-28-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-28-output-link" 
-					onclick="toggleVisibility('step-28-output', true, 'iframe28')">
+					onclick="toggleVisibility('step-28-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -2291,7 +2316,7 @@ output</pre>
 			<div class="input" 
 				id="step-28-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-28-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-28">This 
 is 
@@ -2306,7 +2331,7 @@ text.</pre>
 			<div class="output" 
 				id="step-28-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-28-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-28">This
 is
@@ -2350,22 +2375,23 @@ output</pre>
 		<div class="feature name">
 		<span class="feature name pointer" 
 			id="feature-29-name"
-			onclick="toggleVisibility('feature-29-scenarios')"
+			onclick="toggleVisibility('feature-29-scenarios', null, null)"
 			href="feature-29-scenarios">Feature 0103</span>
 		<div class="feature-statement-link badge pointer badge-secondary" 
 			id="feature-29-statement-link" 
-			onclick="toggleVisibility('feature-29-statement-explanation')">
+			onclick="toggleVisibility('feature-29-statement'); toggleVisibility('feature-29-explanation', null)">
 			<i class="fas fa-info"></i>
 		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[3 ms]</span>
+	<span class="feature duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="feature-29-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
@@ -2407,16 +2433,17 @@ output</pre>
 		</div>
 	</div>
 </li>
-	<li class="row statement-explanation">
+	<li class="row statement">
 		<div class="col-2 badges"></div>
 		<div class="col-11">
-			<div class="feature statement-explanation" 
-				id="feature-29-statement-explanation"
+			<div class="feature statement" 
+				id="feature-29-statement"
 				style="display: none;">
-<div class="feature statement rounded"
-									id="feature-29-statement"><strong>As a</strong> As a user<br/>
-<strong>You can</strong> You can get some value<br/>
-<strong>By</strong> By performing some action</div>
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-29-statement"><strong>As a</strong> As a user<br/>
+<strong>You can </strong> You can perform some action
+<strong>So that </strong> So that you get some value<br/></div>
 			</div>
 		</div>
 	</li>
@@ -2436,7 +2463,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-30-name"
-			onclick="toggleVisibility('scenario-30-scenarios')"
+			onclick="toggleVisibility('scenario-30-scenarios', null, null)"
 			href="scenario-30-scenarios">Scenario 010301</span>
 
 		</div>
@@ -2446,7 +2473,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-30-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -2484,7 +2512,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-31-name"
-			onclick="toggleVisibility('step-31-details')"
+			onclick="toggleVisibility('step-31-details', null, null)"
 			href="step-31-details"><strong>Given</strong>  Step01030101</span>
 
 		</div>
@@ -2506,12 +2534,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-31-input-link" 
-					onclick="toggleVisibility('step-31-input', true, 'iframe31')">
+					onclick="toggleVisibility('step-31-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-31-output-link" 
-					onclick="toggleVisibility('step-31-output', true, 'iframe31')">
+					onclick="toggleVisibility('step-31-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -2524,7 +2552,7 @@ output</pre>
 			<div class="input" 
 				id="step-31-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-31-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-31">This 
 is 
@@ -2539,7 +2567,7 @@ text.</pre>
 			<div class="output" 
 				id="step-31-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-31-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-31">This
 is
@@ -2562,7 +2590,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-32-name"
-			onclick="toggleVisibility('step-32-details')"
+			onclick="toggleVisibility('step-32-details', null, null)"
 			href="step-32-details"><strong>When</strong>  Step01030102</span>
 
 		</div>
@@ -2584,12 +2612,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-32-input-link" 
-					onclick="toggleVisibility('step-32-input', true, 'iframe32')">
+					onclick="toggleVisibility('step-32-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-32-output-link" 
-					onclick="toggleVisibility('step-32-output', true, 'iframe32')">
+					onclick="toggleVisibility('step-32-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -2602,7 +2630,7 @@ output</pre>
 			<div class="input" 
 				id="step-32-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-32-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-32">This 
 is 
@@ -2617,7 +2645,7 @@ text.</pre>
 			<div class="output" 
 				id="step-32-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-32-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-32">This
 is
@@ -2640,7 +2668,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-33-name"
-			onclick="toggleVisibility('step-33-details')"
+			onclick="toggleVisibility('step-33-details', null, null)"
 			href="step-33-details"><strong>Then</strong>  Step01030103</span>
 
 		</div>
@@ -2662,12 +2690,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-33-input-link" 
-					onclick="toggleVisibility('step-33-input', true, 'iframe33')">
+					onclick="toggleVisibility('step-33-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-33-output-link" 
-					onclick="toggleVisibility('step-33-output', true, 'iframe33')">
+					onclick="toggleVisibility('step-33-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -2680,7 +2708,7 @@ output</pre>
 			<div class="input" 
 				id="step-33-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-33-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-33">This 
 is 
@@ -2695,7 +2723,7 @@ text.</pre>
 			<div class="output" 
 				id="step-33-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-33-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-33">This
 is
@@ -2722,7 +2750,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-34-name"
-			onclick="toggleVisibility('scenario-34-scenarios')"
+			onclick="toggleVisibility('scenario-34-scenarios', null, null)"
 			href="scenario-34-scenarios">Scenario 010302</span>
 
 		</div>
@@ -2732,7 +2760,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-34-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -2770,7 +2799,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-35-name"
-			onclick="toggleVisibility('step-35-details')"
+			onclick="toggleVisibility('step-35-details', null, null)"
 			href="step-35-details"><strong>Given</strong>  Step01030201</span>
 
 		</div>
@@ -2792,12 +2821,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-35-input-link" 
-					onclick="toggleVisibility('step-35-input', true, 'iframe35')">
+					onclick="toggleVisibility('step-35-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-35-output-link" 
-					onclick="toggleVisibility('step-35-output', true, 'iframe35')">
+					onclick="toggleVisibility('step-35-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -2810,7 +2839,7 @@ output</pre>
 			<div class="input" 
 				id="step-35-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-35-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-35">This 
 is 
@@ -2825,7 +2854,7 @@ text.</pre>
 			<div class="output" 
 				id="step-35-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-35-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-35">This
 is
@@ -2848,7 +2877,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-36-name"
-			onclick="toggleVisibility('step-36-details')"
+			onclick="toggleVisibility('step-36-details', null, null)"
 			href="step-36-details"><strong>When</strong>  Step01030202</span>
 
 		</div>
@@ -2870,12 +2899,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-36-input-link" 
-					onclick="toggleVisibility('step-36-input', true, 'iframe36')">
+					onclick="toggleVisibility('step-36-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-36-output-link" 
-					onclick="toggleVisibility('step-36-output', true, 'iframe36')">
+					onclick="toggleVisibility('step-36-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -2888,7 +2917,7 @@ output</pre>
 			<div class="input" 
 				id="step-36-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-36-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-36">This 
 is 
@@ -2903,7 +2932,7 @@ text.</pre>
 			<div class="output" 
 				id="step-36-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-36-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-36">This
 is
@@ -2926,7 +2955,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-37-name"
-			onclick="toggleVisibility('step-37-details')"
+			onclick="toggleVisibility('step-37-details', null, null)"
 			href="step-37-details"><strong>Then</strong>  Step01030203</span>
 
 		</div>
@@ -2948,12 +2977,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-37-input-link" 
-					onclick="toggleVisibility('step-37-input', true, 'iframe37')">
+					onclick="toggleVisibility('step-37-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-37-output-link" 
-					onclick="toggleVisibility('step-37-output', true, 'iframe37')">
+					onclick="toggleVisibility('step-37-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -2966,7 +2995,7 @@ output</pre>
 			<div class="input" 
 				id="step-37-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-37-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-37">This 
 is 
@@ -2981,7 +3010,7 @@ text.</pre>
 			<div class="output" 
 				id="step-37-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-37-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-37">This
 is
@@ -3008,7 +3037,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-38-name"
-			onclick="toggleVisibility('scenario-38-scenarios')"
+			onclick="toggleVisibility('scenario-38-scenarios', null, null)"
 			href="scenario-38-scenarios">Scenario 010303</span>
 
 		</div>
@@ -3018,7 +3047,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-38-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -3056,7 +3086,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-39-name"
-			onclick="toggleVisibility('step-39-details')"
+			onclick="toggleVisibility('step-39-details', null, null)"
 			href="step-39-details"><strong>Given</strong>  Step01030301</span>
 
 		</div>
@@ -3078,12 +3108,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-39-input-link" 
-					onclick="toggleVisibility('step-39-input', true, 'iframe39')">
+					onclick="toggleVisibility('step-39-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-39-output-link" 
-					onclick="toggleVisibility('step-39-output', true, 'iframe39')">
+					onclick="toggleVisibility('step-39-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -3096,7 +3126,7 @@ output</pre>
 			<div class="input" 
 				id="step-39-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-39-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-39">This 
 is 
@@ -3111,7 +3141,7 @@ text.</pre>
 			<div class="output" 
 				id="step-39-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-39-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-39">This
 is
@@ -3134,7 +3164,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-40-name"
-			onclick="toggleVisibility('step-40-details')"
+			onclick="toggleVisibility('step-40-details', null, null)"
 			href="step-40-details"><strong>When</strong>  Step01030302</span>
 
 		</div>
@@ -3156,12 +3186,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-40-input-link" 
-					onclick="toggleVisibility('step-40-input', true, 'iframe40')">
+					onclick="toggleVisibility('step-40-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-40-output-link" 
-					onclick="toggleVisibility('step-40-output', true, 'iframe40')">
+					onclick="toggleVisibility('step-40-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -3174,7 +3204,7 @@ output</pre>
 			<div class="input" 
 				id="step-40-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-40-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-40">This 
 is 
@@ -3189,7 +3219,7 @@ text.</pre>
 			<div class="output" 
 				id="step-40-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-40-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-40">This
 is
@@ -3212,7 +3242,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-41-name"
-			onclick="toggleVisibility('step-41-details')"
+			onclick="toggleVisibility('step-41-details', null, null)"
 			href="step-41-details"><strong>Then</strong>  Step01030303</span>
 
 		</div>
@@ -3234,12 +3264,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-41-input-link" 
-					onclick="toggleVisibility('step-41-input', true, 'iframe41')">
+					onclick="toggleVisibility('step-41-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-41-output-link" 
-					onclick="toggleVisibility('step-41-output', true, 'iframe41')">
+					onclick="toggleVisibility('step-41-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -3252,7 +3282,7 @@ output</pre>
 			<div class="input" 
 				id="step-41-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-41-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-41">This 
 is 
@@ -3267,7 +3297,7 @@ text.</pre>
 			<div class="output" 
 				id="step-41-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-41-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-41">This
 is
@@ -3292,43 +3322,44 @@ output</pre>
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-42">
+<li class="lineitem capability row align-items-center" id="capability-42">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-42-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-42-badge-distro"
 		title="Passed Count: Scenarios"
-		onclick="toggleVisibility('area-42-stats')">
-		<div class="area badge badge-pill pointer total reason-Passed"
-			id="area-42-badge">9</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-42-stats')">
+		<div class="capability badge badge-pill pointer total reason-Passed"
+			id="capability-42-badge">9</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-42-distro">
+		<div class="capability distro pointer"
+			id="capability-42-distro">
 			<div class="reason-Passed" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-42-name"
-			onclick="toggleVisibility('area-42-features')"
-			href="area-42-features">Area 02</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-42-name"
+			onclick="toggleVisibility('capability-42-features', null, null)"
+			href="capability-42-features">Capability 02</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[8 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[6 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
-		<div class="stats-graph-tables" id="area-42-stats" style="width: 100%; empty-cells: show; display: none;">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
+		<div class="stats-graph-tables" id="capability-42-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -3359,7 +3390,7 @@ output</pre>
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -3391,7 +3422,7 @@ output</pre>
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-42-features"
+				id="capability-42-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-43">
 <div class="col-2 badges">
@@ -3416,22 +3447,23 @@ output</pre>
 		<div class="feature name">
 		<span class="feature name pointer" 
 			id="feature-43-name"
-			onclick="toggleVisibility('feature-43-scenarios')"
+			onclick="toggleVisibility('feature-43-scenarios', null, null)"
 			href="feature-43-scenarios">Feature 0201</span>
 		<div class="feature-statement-link badge pointer badge-secondary" 
 			id="feature-43-statement-link" 
-			onclick="toggleVisibility('feature-43-statement-explanation')">
+			onclick="toggleVisibility('feature-43-statement'); toggleVisibility('feature-43-explanation', null)">
 			<i class="fas fa-info"></i>
 		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[3 ms]</span>
+	<span class="feature duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="feature-43-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
@@ -3473,16 +3505,17 @@ output</pre>
 		</div>
 	</div>
 </li>
-	<li class="row statement-explanation">
+	<li class="row statement">
 		<div class="col-2 badges"></div>
 		<div class="col-11">
-			<div class="feature statement-explanation" 
-				id="feature-43-statement-explanation"
+			<div class="feature statement" 
+				id="feature-43-statement"
 				style="display: none;">
-<div class="feature statement rounded"
-									id="feature-43-statement"><strong>As a</strong> As a user<br/>
-<strong>You can</strong> You can get some value<br/>
-<strong>By</strong> By performing some action</div>
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-43-statement"><strong>As a</strong> As a user<br/>
+<strong>You can </strong> You can perform some action
+<strong>So that </strong> So that you get some value<br/></div>
 			</div>
 		</div>
 	</li>
@@ -3502,7 +3535,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-44-name"
-			onclick="toggleVisibility('scenario-44-scenarios')"
+			onclick="toggleVisibility('scenario-44-scenarios', null, null)"
 			href="scenario-44-scenarios">Scenario 020101</span>
 
 		</div>
@@ -3512,7 +3545,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-44-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -3550,7 +3584,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-45-name"
-			onclick="toggleVisibility('step-45-details')"
+			onclick="toggleVisibility('step-45-details', null, null)"
 			href="step-45-details"><strong>Given</strong>  Step02010101</span>
 
 		</div>
@@ -3572,12 +3606,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-45-input-link" 
-					onclick="toggleVisibility('step-45-input', true, 'iframe45')">
+					onclick="toggleVisibility('step-45-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-45-output-link" 
-					onclick="toggleVisibility('step-45-output', true, 'iframe45')">
+					onclick="toggleVisibility('step-45-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -3590,7 +3624,7 @@ output</pre>
 			<div class="input" 
 				id="step-45-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-45-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-45">This 
 is 
@@ -3605,7 +3639,7 @@ text.</pre>
 			<div class="output" 
 				id="step-45-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-45-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-45">This
 is
@@ -3628,7 +3662,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-46-name"
-			onclick="toggleVisibility('step-46-details')"
+			onclick="toggleVisibility('step-46-details', null, null)"
 			href="step-46-details"><strong>When</strong>  Step02010102</span>
 
 		</div>
@@ -3650,12 +3684,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-46-input-link" 
-					onclick="toggleVisibility('step-46-input', true, 'iframe46')">
+					onclick="toggleVisibility('step-46-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-46-output-link" 
-					onclick="toggleVisibility('step-46-output', true, 'iframe46')">
+					onclick="toggleVisibility('step-46-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -3668,7 +3702,7 @@ output</pre>
 			<div class="input" 
 				id="step-46-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-46-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-46">This 
 is 
@@ -3683,7 +3717,7 @@ text.</pre>
 			<div class="output" 
 				id="step-46-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-46-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-46">This
 is
@@ -3706,7 +3740,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-47-name"
-			onclick="toggleVisibility('step-47-details')"
+			onclick="toggleVisibility('step-47-details', null, null)"
 			href="step-47-details"><strong>Then</strong>  Step02010103</span>
 
 		</div>
@@ -3728,12 +3762,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-47-input-link" 
-					onclick="toggleVisibility('step-47-input', true, 'iframe47')">
+					onclick="toggleVisibility('step-47-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-47-output-link" 
-					onclick="toggleVisibility('step-47-output', true, 'iframe47')">
+					onclick="toggleVisibility('step-47-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -3746,7 +3780,7 @@ output</pre>
 			<div class="input" 
 				id="step-47-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-47-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-47">This 
 is 
@@ -3761,7 +3795,7 @@ text.</pre>
 			<div class="output" 
 				id="step-47-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-47-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-47">This
 is
@@ -3788,7 +3822,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-48-name"
-			onclick="toggleVisibility('scenario-48-scenarios')"
+			onclick="toggleVisibility('scenario-48-scenarios', null, null)"
 			href="scenario-48-scenarios">Scenario 020102</span>
 
 		</div>
@@ -3798,7 +3832,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-48-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -3836,7 +3871,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-49-name"
-			onclick="toggleVisibility('step-49-details')"
+			onclick="toggleVisibility('step-49-details', null, null)"
 			href="step-49-details"><strong>Given</strong>  Step02010201</span>
 
 		</div>
@@ -3858,12 +3893,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-49-input-link" 
-					onclick="toggleVisibility('step-49-input', true, 'iframe49')">
+					onclick="toggleVisibility('step-49-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-49-output-link" 
-					onclick="toggleVisibility('step-49-output', true, 'iframe49')">
+					onclick="toggleVisibility('step-49-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -3876,7 +3911,7 @@ output</pre>
 			<div class="input" 
 				id="step-49-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-49-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-49">This 
 is 
@@ -3891,7 +3926,7 @@ text.</pre>
 			<div class="output" 
 				id="step-49-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-49-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-49">This
 is
@@ -3914,7 +3949,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-50-name"
-			onclick="toggleVisibility('step-50-details')"
+			onclick="toggleVisibility('step-50-details', null, null)"
 			href="step-50-details"><strong>When</strong>  Step02010202</span>
 
 		</div>
@@ -3936,12 +3971,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-50-input-link" 
-					onclick="toggleVisibility('step-50-input', true, 'iframe50')">
+					onclick="toggleVisibility('step-50-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-50-output-link" 
-					onclick="toggleVisibility('step-50-output', true, 'iframe50')">
+					onclick="toggleVisibility('step-50-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -3954,7 +3989,7 @@ output</pre>
 			<div class="input" 
 				id="step-50-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-50-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-50">This 
 is 
@@ -3969,7 +4004,7 @@ text.</pre>
 			<div class="output" 
 				id="step-50-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-50-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-50">This
 is
@@ -3992,7 +4027,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-51-name"
-			onclick="toggleVisibility('step-51-details')"
+			onclick="toggleVisibility('step-51-details', null, null)"
 			href="step-51-details"><strong>Then</strong>  Step02010203</span>
 
 		</div>
@@ -4014,12 +4049,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-51-input-link" 
-					onclick="toggleVisibility('step-51-input', true, 'iframe51')">
+					onclick="toggleVisibility('step-51-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-51-output-link" 
-					onclick="toggleVisibility('step-51-output', true, 'iframe51')">
+					onclick="toggleVisibility('step-51-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -4032,7 +4067,7 @@ output</pre>
 			<div class="input" 
 				id="step-51-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-51-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-51">This 
 is 
@@ -4047,7 +4082,7 @@ text.</pre>
 			<div class="output" 
 				id="step-51-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-51-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-51">This
 is
@@ -4074,7 +4109,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-52-name"
-			onclick="toggleVisibility('scenario-52-scenarios')"
+			onclick="toggleVisibility('scenario-52-scenarios', null, null)"
 			href="scenario-52-scenarios">Scenario 020103</span>
 
 		</div>
@@ -4084,7 +4119,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-52-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -4122,7 +4158,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-53-name"
-			onclick="toggleVisibility('step-53-details')"
+			onclick="toggleVisibility('step-53-details', null, null)"
 			href="step-53-details"><strong>Given</strong>  Step02010301</span>
 
 		</div>
@@ -4144,12 +4180,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-53-input-link" 
-					onclick="toggleVisibility('step-53-input', true, 'iframe53')">
+					onclick="toggleVisibility('step-53-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-53-output-link" 
-					onclick="toggleVisibility('step-53-output', true, 'iframe53')">
+					onclick="toggleVisibility('step-53-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -4162,7 +4198,7 @@ output</pre>
 			<div class="input" 
 				id="step-53-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-53-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-53">This 
 is 
@@ -4177,7 +4213,7 @@ text.</pre>
 			<div class="output" 
 				id="step-53-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-53-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-53">This
 is
@@ -4200,7 +4236,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-54-name"
-			onclick="toggleVisibility('step-54-details')"
+			onclick="toggleVisibility('step-54-details', null, null)"
 			href="step-54-details"><strong>When</strong>  Step02010302</span>
 
 		</div>
@@ -4222,12 +4258,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-54-input-link" 
-					onclick="toggleVisibility('step-54-input', true, 'iframe54')">
+					onclick="toggleVisibility('step-54-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-54-output-link" 
-					onclick="toggleVisibility('step-54-output', true, 'iframe54')">
+					onclick="toggleVisibility('step-54-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -4240,7 +4276,7 @@ output</pre>
 			<div class="input" 
 				id="step-54-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-54-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-54">This 
 is 
@@ -4255,7 +4291,7 @@ text.</pre>
 			<div class="output" 
 				id="step-54-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-54-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-54">This
 is
@@ -4278,7 +4314,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-55-name"
-			onclick="toggleVisibility('step-55-details')"
+			onclick="toggleVisibility('step-55-details', null, null)"
 			href="step-55-details"><strong>Then</strong>  Step02010303</span>
 
 		</div>
@@ -4300,12 +4336,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-55-input-link" 
-					onclick="toggleVisibility('step-55-input', true, 'iframe55')">
+					onclick="toggleVisibility('step-55-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-55-output-link" 
-					onclick="toggleVisibility('step-55-output', true, 'iframe55')">
+					onclick="toggleVisibility('step-55-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -4318,7 +4354,7 @@ output</pre>
 			<div class="input" 
 				id="step-55-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-55-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-55">This 
 is 
@@ -4333,7 +4369,7 @@ text.</pre>
 			<div class="output" 
 				id="step-55-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-55-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-55">This
 is
@@ -4377,11 +4413,11 @@ output</pre>
 		<div class="feature name">
 		<span class="feature name pointer" 
 			id="feature-56-name"
-			onclick="toggleVisibility('feature-56-scenarios')"
+			onclick="toggleVisibility('feature-56-scenarios', null, null)"
 			href="feature-56-scenarios">Feature 0202</span>
 		<div class="feature-statement-link badge pointer badge-secondary" 
 			id="feature-56-statement-link" 
-			onclick="toggleVisibility('feature-56-statement-explanation')">
+			onclick="toggleVisibility('feature-56-statement'); toggleVisibility('feature-56-explanation', null)">
 			<i class="fas fa-info"></i>
 		</div>
 
@@ -4392,7 +4428,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="feature-56-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
@@ -4434,16 +4471,17 @@ output</pre>
 		</div>
 	</div>
 </li>
-	<li class="row statement-explanation">
+	<li class="row statement">
 		<div class="col-2 badges"></div>
 		<div class="col-11">
-			<div class="feature statement-explanation" 
-				id="feature-56-statement-explanation"
+			<div class="feature statement" 
+				id="feature-56-statement"
 				style="display: none;">
-<div class="feature statement rounded"
-									id="feature-56-statement"><strong>As a</strong> As a user<br/>
-<strong>You can</strong> You can get some value<br/>
-<strong>By</strong> By performing some action</div>
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-56-statement"><strong>As a</strong> As a user<br/>
+<strong>You can </strong> You can perform some action
+<strong>So that </strong> So that you get some value<br/></div>
 			</div>
 		</div>
 	</li>
@@ -4463,7 +4501,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-57-name"
-			onclick="toggleVisibility('scenario-57-scenarios')"
+			onclick="toggleVisibility('scenario-57-scenarios', null, null)"
 			href="scenario-57-scenarios">Scenario 020201</span>
 
 		</div>
@@ -4473,7 +4511,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-57-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -4511,7 +4550,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-58-name"
-			onclick="toggleVisibility('step-58-details')"
+			onclick="toggleVisibility('step-58-details', null, null)"
 			href="step-58-details"><strong>Given</strong>  Step02020101</span>
 
 		</div>
@@ -4533,12 +4572,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-58-input-link" 
-					onclick="toggleVisibility('step-58-input', true, 'iframe58')">
+					onclick="toggleVisibility('step-58-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-58-output-link" 
-					onclick="toggleVisibility('step-58-output', true, 'iframe58')">
+					onclick="toggleVisibility('step-58-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -4551,7 +4590,7 @@ output</pre>
 			<div class="input" 
 				id="step-58-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-58-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-58">This 
 is 
@@ -4566,7 +4605,7 @@ text.</pre>
 			<div class="output" 
 				id="step-58-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-58-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-58">This
 is
@@ -4589,7 +4628,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-59-name"
-			onclick="toggleVisibility('step-59-details')"
+			onclick="toggleVisibility('step-59-details', null, null)"
 			href="step-59-details"><strong>When</strong>  Step02020102</span>
 
 		</div>
@@ -4611,12 +4650,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-59-input-link" 
-					onclick="toggleVisibility('step-59-input', true, 'iframe59')">
+					onclick="toggleVisibility('step-59-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-59-output-link" 
-					onclick="toggleVisibility('step-59-output', true, 'iframe59')">
+					onclick="toggleVisibility('step-59-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -4629,7 +4668,7 @@ output</pre>
 			<div class="input" 
 				id="step-59-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-59-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-59">This 
 is 
@@ -4644,7 +4683,7 @@ text.</pre>
 			<div class="output" 
 				id="step-59-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-59-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-59">This
 is
@@ -4667,7 +4706,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-60-name"
-			onclick="toggleVisibility('step-60-details')"
+			onclick="toggleVisibility('step-60-details', null, null)"
 			href="step-60-details"><strong>Then</strong>  Step02020103</span>
 
 		</div>
@@ -4689,12 +4728,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-60-input-link" 
-					onclick="toggleVisibility('step-60-input', true, 'iframe60')">
+					onclick="toggleVisibility('step-60-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-60-output-link" 
-					onclick="toggleVisibility('step-60-output', true, 'iframe60')">
+					onclick="toggleVisibility('step-60-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -4707,7 +4746,7 @@ output</pre>
 			<div class="input" 
 				id="step-60-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-60-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-60">This 
 is 
@@ -4722,7 +4761,7 @@ text.</pre>
 			<div class="output" 
 				id="step-60-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-60-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-60">This
 is
@@ -4749,7 +4788,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-61-name"
-			onclick="toggleVisibility('scenario-61-scenarios')"
+			onclick="toggleVisibility('scenario-61-scenarios', null, null)"
 			href="scenario-61-scenarios">Scenario 020202</span>
 
 		</div>
@@ -4759,7 +4798,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-61-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -4797,7 +4837,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-62-name"
-			onclick="toggleVisibility('step-62-details')"
+			onclick="toggleVisibility('step-62-details', null, null)"
 			href="step-62-details"><strong>Given</strong>  Step02020201</span>
 
 		</div>
@@ -4819,12 +4859,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-62-input-link" 
-					onclick="toggleVisibility('step-62-input', true, 'iframe62')">
+					onclick="toggleVisibility('step-62-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-62-output-link" 
-					onclick="toggleVisibility('step-62-output', true, 'iframe62')">
+					onclick="toggleVisibility('step-62-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -4837,7 +4877,7 @@ output</pre>
 			<div class="input" 
 				id="step-62-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-62-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-62">This 
 is 
@@ -4852,7 +4892,7 @@ text.</pre>
 			<div class="output" 
 				id="step-62-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-62-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-62">This
 is
@@ -4875,7 +4915,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-63-name"
-			onclick="toggleVisibility('step-63-details')"
+			onclick="toggleVisibility('step-63-details', null, null)"
 			href="step-63-details"><strong>When</strong>  Step02020202</span>
 
 		</div>
@@ -4897,12 +4937,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-63-input-link" 
-					onclick="toggleVisibility('step-63-input', true, 'iframe63')">
+					onclick="toggleVisibility('step-63-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-63-output-link" 
-					onclick="toggleVisibility('step-63-output', true, 'iframe63')">
+					onclick="toggleVisibility('step-63-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -4915,7 +4955,7 @@ output</pre>
 			<div class="input" 
 				id="step-63-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-63-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-63">This 
 is 
@@ -4930,7 +4970,7 @@ text.</pre>
 			<div class="output" 
 				id="step-63-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-63-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-63">This
 is
@@ -4953,7 +4993,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-64-name"
-			onclick="toggleVisibility('step-64-details')"
+			onclick="toggleVisibility('step-64-details', null, null)"
 			href="step-64-details"><strong>Then</strong>  Step02020203</span>
 
 		</div>
@@ -4975,12 +5015,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-64-input-link" 
-					onclick="toggleVisibility('step-64-input', true, 'iframe64')">
+					onclick="toggleVisibility('step-64-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-64-output-link" 
-					onclick="toggleVisibility('step-64-output', true, 'iframe64')">
+					onclick="toggleVisibility('step-64-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -4993,7 +5033,7 @@ output</pre>
 			<div class="input" 
 				id="step-64-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-64-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-64">This 
 is 
@@ -5008,7 +5048,7 @@ text.</pre>
 			<div class="output" 
 				id="step-64-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-64-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-64">This
 is
@@ -5035,7 +5075,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-65-name"
-			onclick="toggleVisibility('scenario-65-scenarios')"
+			onclick="toggleVisibility('scenario-65-scenarios', null, null)"
 			href="scenario-65-scenarios">Scenario 020203</span>
 
 		</div>
@@ -5045,7 +5085,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-65-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -5083,7 +5124,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-66-name"
-			onclick="toggleVisibility('step-66-details')"
+			onclick="toggleVisibility('step-66-details', null, null)"
 			href="step-66-details"><strong>Given</strong>  Step02020301</span>
 
 		</div>
@@ -5105,12 +5146,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-66-input-link" 
-					onclick="toggleVisibility('step-66-input', true, 'iframe66')">
+					onclick="toggleVisibility('step-66-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-66-output-link" 
-					onclick="toggleVisibility('step-66-output', true, 'iframe66')">
+					onclick="toggleVisibility('step-66-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -5123,7 +5164,7 @@ output</pre>
 			<div class="input" 
 				id="step-66-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-66-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-66">This 
 is 
@@ -5138,7 +5179,7 @@ text.</pre>
 			<div class="output" 
 				id="step-66-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-66-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-66">This
 is
@@ -5161,7 +5202,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-67-name"
-			onclick="toggleVisibility('step-67-details')"
+			onclick="toggleVisibility('step-67-details', null, null)"
 			href="step-67-details"><strong>When</strong>  Step02020302</span>
 
 		</div>
@@ -5183,12 +5224,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-67-input-link" 
-					onclick="toggleVisibility('step-67-input', true, 'iframe67')">
+					onclick="toggleVisibility('step-67-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-67-output-link" 
-					onclick="toggleVisibility('step-67-output', true, 'iframe67')">
+					onclick="toggleVisibility('step-67-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -5201,7 +5242,7 @@ output</pre>
 			<div class="input" 
 				id="step-67-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-67-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-67">This 
 is 
@@ -5216,7 +5257,7 @@ text.</pre>
 			<div class="output" 
 				id="step-67-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-67-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-67">This
 is
@@ -5239,7 +5280,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-68-name"
-			onclick="toggleVisibility('step-68-details')"
+			onclick="toggleVisibility('step-68-details', null, null)"
 			href="step-68-details"><strong>Then</strong>  Step02020303</span>
 
 		</div>
@@ -5261,12 +5302,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-68-input-link" 
-					onclick="toggleVisibility('step-68-input', true, 'iframe68')">
+					onclick="toggleVisibility('step-68-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-68-output-link" 
-					onclick="toggleVisibility('step-68-output', true, 'iframe68')">
+					onclick="toggleVisibility('step-68-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -5279,7 +5320,7 @@ output</pre>
 			<div class="input" 
 				id="step-68-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-68-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-68">This 
 is 
@@ -5294,7 +5335,7 @@ text.</pre>
 			<div class="output" 
 				id="step-68-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-68-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-68">This
 is
@@ -5338,11 +5379,11 @@ output</pre>
 		<div class="feature name">
 		<span class="feature name pointer" 
 			id="feature-69-name"
-			onclick="toggleVisibility('feature-69-scenarios')"
+			onclick="toggleVisibility('feature-69-scenarios', null, null)"
 			href="feature-69-scenarios">Feature 0203</span>
 		<div class="feature-statement-link badge pointer badge-secondary" 
 			id="feature-69-statement-link" 
-			onclick="toggleVisibility('feature-69-statement-explanation')">
+			onclick="toggleVisibility('feature-69-statement'); toggleVisibility('feature-69-explanation', null)">
 			<i class="fas fa-info"></i>
 		</div>
 
@@ -5353,7 +5394,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="feature-69-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
@@ -5395,16 +5437,17 @@ output</pre>
 		</div>
 	</div>
 </li>
-	<li class="row statement-explanation">
+	<li class="row statement">
 		<div class="col-2 badges"></div>
 		<div class="col-11">
-			<div class="feature statement-explanation" 
-				id="feature-69-statement-explanation"
+			<div class="feature statement" 
+				id="feature-69-statement"
 				style="display: none;">
-<div class="feature statement rounded"
-									id="feature-69-statement"><strong>As a</strong> As a user<br/>
-<strong>You can</strong> You can get some value<br/>
-<strong>By</strong> By performing some action</div>
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-69-statement"><strong>As a</strong> As a user<br/>
+<strong>You can </strong> You can perform some action
+<strong>So that </strong> So that you get some value<br/></div>
 			</div>
 		</div>
 	</li>
@@ -5424,7 +5467,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-70-name"
-			onclick="toggleVisibility('scenario-70-scenarios')"
+			onclick="toggleVisibility('scenario-70-scenarios', null, null)"
 			href="scenario-70-scenarios">Scenario 020301</span>
 
 		</div>
@@ -5434,7 +5477,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-70-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -5472,7 +5516,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-71-name"
-			onclick="toggleVisibility('step-71-details')"
+			onclick="toggleVisibility('step-71-details', null, null)"
 			href="step-71-details"><strong>Given</strong>  Step02030101</span>
 
 		</div>
@@ -5494,12 +5538,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-71-input-link" 
-					onclick="toggleVisibility('step-71-input', true, 'iframe71')">
+					onclick="toggleVisibility('step-71-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-71-output-link" 
-					onclick="toggleVisibility('step-71-output', true, 'iframe71')">
+					onclick="toggleVisibility('step-71-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -5512,7 +5556,7 @@ output</pre>
 			<div class="input" 
 				id="step-71-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-71-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-71">This 
 is 
@@ -5527,7 +5571,7 @@ text.</pre>
 			<div class="output" 
 				id="step-71-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-71-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-71">This
 is
@@ -5550,7 +5594,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-72-name"
-			onclick="toggleVisibility('step-72-details')"
+			onclick="toggleVisibility('step-72-details', null, null)"
 			href="step-72-details"><strong>When</strong>  Step02030102</span>
 
 		</div>
@@ -5572,12 +5616,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-72-input-link" 
-					onclick="toggleVisibility('step-72-input', true, 'iframe72')">
+					onclick="toggleVisibility('step-72-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-72-output-link" 
-					onclick="toggleVisibility('step-72-output', true, 'iframe72')">
+					onclick="toggleVisibility('step-72-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -5590,7 +5634,7 @@ output</pre>
 			<div class="input" 
 				id="step-72-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-72-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-72">This 
 is 
@@ -5605,7 +5649,7 @@ text.</pre>
 			<div class="output" 
 				id="step-72-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-72-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-72">This
 is
@@ -5628,7 +5672,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-73-name"
-			onclick="toggleVisibility('step-73-details')"
+			onclick="toggleVisibility('step-73-details', null, null)"
 			href="step-73-details"><strong>Then</strong>  Step02030103</span>
 
 		</div>
@@ -5650,12 +5694,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-73-input-link" 
-					onclick="toggleVisibility('step-73-input', true, 'iframe73')">
+					onclick="toggleVisibility('step-73-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-73-output-link" 
-					onclick="toggleVisibility('step-73-output', true, 'iframe73')">
+					onclick="toggleVisibility('step-73-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -5668,7 +5712,7 @@ output</pre>
 			<div class="input" 
 				id="step-73-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-73-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-73">This 
 is 
@@ -5683,7 +5727,7 @@ text.</pre>
 			<div class="output" 
 				id="step-73-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-73-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-73">This
 is
@@ -5710,7 +5754,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-74-name"
-			onclick="toggleVisibility('scenario-74-scenarios')"
+			onclick="toggleVisibility('scenario-74-scenarios', null, null)"
 			href="scenario-74-scenarios">Scenario 020302</span>
 
 		</div>
@@ -5720,7 +5764,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-74-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -5758,7 +5803,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-75-name"
-			onclick="toggleVisibility('step-75-details')"
+			onclick="toggleVisibility('step-75-details', null, null)"
 			href="step-75-details"><strong>Given</strong>  Step02030201</span>
 
 		</div>
@@ -5780,12 +5825,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-75-input-link" 
-					onclick="toggleVisibility('step-75-input', true, 'iframe75')">
+					onclick="toggleVisibility('step-75-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-75-output-link" 
-					onclick="toggleVisibility('step-75-output', true, 'iframe75')">
+					onclick="toggleVisibility('step-75-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -5798,7 +5843,7 @@ output</pre>
 			<div class="input" 
 				id="step-75-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-75-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-75">This 
 is 
@@ -5813,7 +5858,7 @@ text.</pre>
 			<div class="output" 
 				id="step-75-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-75-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-75">This
 is
@@ -5836,7 +5881,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-76-name"
-			onclick="toggleVisibility('step-76-details')"
+			onclick="toggleVisibility('step-76-details', null, null)"
 			href="step-76-details"><strong>When</strong>  Step02030202</span>
 
 		</div>
@@ -5858,12 +5903,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-76-input-link" 
-					onclick="toggleVisibility('step-76-input', true, 'iframe76')">
+					onclick="toggleVisibility('step-76-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-76-output-link" 
-					onclick="toggleVisibility('step-76-output', true, 'iframe76')">
+					onclick="toggleVisibility('step-76-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -5876,7 +5921,7 @@ output</pre>
 			<div class="input" 
 				id="step-76-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-76-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-76">This 
 is 
@@ -5891,7 +5936,7 @@ text.</pre>
 			<div class="output" 
 				id="step-76-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-76-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-76">This
 is
@@ -5914,7 +5959,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-77-name"
-			onclick="toggleVisibility('step-77-details')"
+			onclick="toggleVisibility('step-77-details', null, null)"
 			href="step-77-details"><strong>Then</strong>  Step02030203</span>
 
 		</div>
@@ -5936,12 +5981,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-77-input-link" 
-					onclick="toggleVisibility('step-77-input', true, 'iframe77')">
+					onclick="toggleVisibility('step-77-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-77-output-link" 
-					onclick="toggleVisibility('step-77-output', true, 'iframe77')">
+					onclick="toggleVisibility('step-77-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -5954,7 +5999,7 @@ output</pre>
 			<div class="input" 
 				id="step-77-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-77-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-77">This 
 is 
@@ -5969,7 +6014,7 @@ text.</pre>
 			<div class="output" 
 				id="step-77-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-77-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-77">This
 is
@@ -5996,7 +6041,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-78-name"
-			onclick="toggleVisibility('scenario-78-scenarios')"
+			onclick="toggleVisibility('scenario-78-scenarios', null, null)"
 			href="scenario-78-scenarios">Scenario 020303</span>
 
 		</div>
@@ -6006,7 +6051,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-78-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -6044,7 +6090,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-79-name"
-			onclick="toggleVisibility('step-79-details')"
+			onclick="toggleVisibility('step-79-details', null, null)"
 			href="step-79-details"><strong>Given</strong>  Step02030301</span>
 
 		</div>
@@ -6066,12 +6112,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-79-input-link" 
-					onclick="toggleVisibility('step-79-input', true, 'iframe79')">
+					onclick="toggleVisibility('step-79-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-79-output-link" 
-					onclick="toggleVisibility('step-79-output', true, 'iframe79')">
+					onclick="toggleVisibility('step-79-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -6084,7 +6130,7 @@ output</pre>
 			<div class="input" 
 				id="step-79-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-79-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-79">This 
 is 
@@ -6099,7 +6145,7 @@ text.</pre>
 			<div class="output" 
 				id="step-79-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-79-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-79">This
 is
@@ -6122,7 +6168,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-80-name"
-			onclick="toggleVisibility('step-80-details')"
+			onclick="toggleVisibility('step-80-details', null, null)"
 			href="step-80-details"><strong>When</strong>  Step02030302</span>
 
 		</div>
@@ -6144,12 +6190,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-80-input-link" 
-					onclick="toggleVisibility('step-80-input', true, 'iframe80')">
+					onclick="toggleVisibility('step-80-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-80-output-link" 
-					onclick="toggleVisibility('step-80-output', true, 'iframe80')">
+					onclick="toggleVisibility('step-80-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -6162,7 +6208,7 @@ output</pre>
 			<div class="input" 
 				id="step-80-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-80-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-80">This 
 is 
@@ -6177,7 +6223,7 @@ text.</pre>
 			<div class="output" 
 				id="step-80-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-80-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-80">This
 is
@@ -6200,7 +6246,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-81-name"
-			onclick="toggleVisibility('step-81-details')"
+			onclick="toggleVisibility('step-81-details', null, null)"
 			href="step-81-details"><strong>Then</strong>  Step02030303</span>
 
 		</div>
@@ -6222,12 +6268,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-81-input-link" 
-					onclick="toggleVisibility('step-81-input', true, 'iframe81')">
+					onclick="toggleVisibility('step-81-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-81-output-link" 
-					onclick="toggleVisibility('step-81-output', true, 'iframe81')">
+					onclick="toggleVisibility('step-81-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -6240,7 +6286,7 @@ output</pre>
 			<div class="input" 
 				id="step-81-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-81-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-81">This 
 is 
@@ -6255,7 +6301,7 @@ text.</pre>
 			<div class="output" 
 				id="step-81-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-81-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-81">This
 is
@@ -6280,43 +6326,44 @@ output</pre>
 			</ol>
 		</div>
 	</li>
-<li class="lineitem area row align-items-center" id="area-82">
+<li class="lineitem capability row align-items-center" id="capability-82">
 <div class="col-2 badges">
-	<div class="area badge-distro"
-		id="area-82-badge-distro"
+	<div class="capability badge-distro"
+		id="capability-82-badge-distro"
 		title="Passed Count: Scenarios"
-		onclick="toggleVisibility('area-82-stats')">
-		<div class="area badge badge-pill pointer total reason-Passed"
-			id="area-82-badge">9</div>
-		<div class="area distro-corner-tr">
+		onclick="toggleVisibility('capability-82-stats')">
+		<div class="capability badge badge-pill pointer total reason-Passed"
+			id="capability-82-badge">9</div>
+		<div class="capability distro-corner-tr">
 		</div>
-		<div class="area distro-corner-br">
+		<div class="capability distro-corner-br">
 		</div>
-		<div class="area distro pointer"
-			id="area-82-distro">
+		<div class="capability distro pointer"
+			id="capability-82-distro">
 			<div class="reason-Passed" style="height: 100%; width: 100%;"></div>
 		</div>
 	</div>
 </div>
 
 	<div class="col">
-		<div class="area name">
-		<span class="area name pointer" 
-			id="area-82-name"
-			onclick="toggleVisibility('area-82-features')"
-			href="area-82-features">Area 03</span>
+		<div class="capability name">
+		<span class="capability name pointer" 
+			id="capability-82-name"
+			onclick="toggleVisibility('capability-82-features', null, null)"
+			href="capability-82-features">Capability 03</span>
 
 		</div>
 	</div>
-<div class="col-2 area reason-duration text-right">
-	<span class="area duration">[10 ms]</span>
+<div class="col-2 capability reason-duration text-right">
+	<span class="capability duration">[6 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
-		<div class="stats-graph-tables" id="area-82-stats" style="width: 100%; empty-cells: show; display: none;">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
+		<div class="stats-graph-tables" id="capability-82-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right">&nbsp;</td>
 					<td class="text-center" >Total</td>
 					<td class="text-center"><div class="badge label reason-Failed">Failed</div></td>
@@ -6347,7 +6394,7 @@ output</pre>
 	</tr>
 			</table>
 			<table class="table table-condensed bargraph-table">
-				<tr id="area-header-reason-stats">
+				<tr id="capability-header-reason-stats">
 					<td class="stats-label text-muted text-right" style="width: 0%; padding-left: 0px !important;">&nbsp;</td>
 					<td class="outcome-bar-chart" style="width: 90%;">&nbsp;</td>
 				</tr>
@@ -6379,7 +6426,7 @@ output</pre>
 	<li class="row children">
 		<div class="col-12">
 			<ol class="features list-unstyled container-fluid"
-				id="area-82-features"
+				id="capability-82-features"
 				style="display: none">
 <li class="lineitem feature row align-items-center" id="feature-83">
 <div class="col-2 badges">
@@ -6404,11 +6451,11 @@ output</pre>
 		<div class="feature name">
 		<span class="feature name pointer" 
 			id="feature-83-name"
-			onclick="toggleVisibility('feature-83-scenarios')"
+			onclick="toggleVisibility('feature-83-scenarios', null, null)"
 			href="feature-83-scenarios">Feature 0301</span>
 		<div class="feature-statement-link badge pointer badge-secondary" 
 			id="feature-83-statement-link" 
-			onclick="toggleVisibility('feature-83-statement-explanation')">
+			onclick="toggleVisibility('feature-83-statement'); toggleVisibility('feature-83-explanation', null)">
 			<i class="fas fa-info"></i>
 		</div>
 
@@ -6419,7 +6466,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="feature-83-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
@@ -6461,16 +6509,17 @@ output</pre>
 		</div>
 	</div>
 </li>
-	<li class="row statement-explanation">
+	<li class="row statement">
 		<div class="col-2 badges"></div>
 		<div class="col-11">
-			<div class="feature statement-explanation" 
-				id="feature-83-statement-explanation"
+			<div class="feature statement" 
+				id="feature-83-statement"
 				style="display: none;">
-<div class="feature statement rounded"
-									id="feature-83-statement"><strong>As a</strong> As a user<br/>
-<strong>You can</strong> You can get some value<br/>
-<strong>By</strong> By performing some action</div>
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-83-statement"><strong>As a</strong> As a user<br/>
+<strong>You can </strong> You can perform some action
+<strong>So that </strong> So that you get some value<br/></div>
 			</div>
 		</div>
 	</li>
@@ -6490,7 +6539,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-84-name"
-			onclick="toggleVisibility('scenario-84-scenarios')"
+			onclick="toggleVisibility('scenario-84-scenarios', null, null)"
 			href="scenario-84-scenarios">Scenario 030101</span>
 
 		</div>
@@ -6500,7 +6549,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-84-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -6538,7 +6588,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-85-name"
-			onclick="toggleVisibility('step-85-details')"
+			onclick="toggleVisibility('step-85-details', null, null)"
 			href="step-85-details"><strong>Given</strong>  Step03010101</span>
 
 		</div>
@@ -6560,12 +6610,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-85-input-link" 
-					onclick="toggleVisibility('step-85-input', true, 'iframe85')">
+					onclick="toggleVisibility('step-85-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-85-output-link" 
-					onclick="toggleVisibility('step-85-output', true, 'iframe85')">
+					onclick="toggleVisibility('step-85-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -6578,7 +6628,7 @@ output</pre>
 			<div class="input" 
 				id="step-85-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-85-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-85">This 
 is 
@@ -6593,7 +6643,7 @@ text.</pre>
 			<div class="output" 
 				id="step-85-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-85-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-85">This
 is
@@ -6616,7 +6666,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-86-name"
-			onclick="toggleVisibility('step-86-details')"
+			onclick="toggleVisibility('step-86-details', null, null)"
 			href="step-86-details"><strong>When</strong>  Step03010102</span>
 
 		</div>
@@ -6638,12 +6688,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-86-input-link" 
-					onclick="toggleVisibility('step-86-input', true, 'iframe86')">
+					onclick="toggleVisibility('step-86-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-86-output-link" 
-					onclick="toggleVisibility('step-86-output', true, 'iframe86')">
+					onclick="toggleVisibility('step-86-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -6656,7 +6706,7 @@ output</pre>
 			<div class="input" 
 				id="step-86-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-86-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-86">This 
 is 
@@ -6671,7 +6721,7 @@ text.</pre>
 			<div class="output" 
 				id="step-86-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-86-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-86">This
 is
@@ -6694,7 +6744,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-87-name"
-			onclick="toggleVisibility('step-87-details')"
+			onclick="toggleVisibility('step-87-details', null, null)"
 			href="step-87-details"><strong>Then</strong>  Step03010103</span>
 
 		</div>
@@ -6716,12 +6766,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-87-input-link" 
-					onclick="toggleVisibility('step-87-input', true, 'iframe87')">
+					onclick="toggleVisibility('step-87-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-87-output-link" 
-					onclick="toggleVisibility('step-87-output', true, 'iframe87')">
+					onclick="toggleVisibility('step-87-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -6734,7 +6784,7 @@ output</pre>
 			<div class="input" 
 				id="step-87-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-87-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-87">This 
 is 
@@ -6749,7 +6799,7 @@ text.</pre>
 			<div class="output" 
 				id="step-87-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-87-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-87">This
 is
@@ -6776,7 +6826,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-88-name"
-			onclick="toggleVisibility('scenario-88-scenarios')"
+			onclick="toggleVisibility('scenario-88-scenarios', null, null)"
 			href="scenario-88-scenarios">Scenario 030102</span>
 
 		</div>
@@ -6786,7 +6836,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-88-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -6824,7 +6875,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-89-name"
-			onclick="toggleVisibility('step-89-details')"
+			onclick="toggleVisibility('step-89-details', null, null)"
 			href="step-89-details"><strong>Given</strong>  Step03010201</span>
 
 		</div>
@@ -6846,12 +6897,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-89-input-link" 
-					onclick="toggleVisibility('step-89-input', true, 'iframe89')">
+					onclick="toggleVisibility('step-89-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-89-output-link" 
-					onclick="toggleVisibility('step-89-output', true, 'iframe89')">
+					onclick="toggleVisibility('step-89-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -6864,7 +6915,7 @@ output</pre>
 			<div class="input" 
 				id="step-89-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-89-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-89">This 
 is 
@@ -6879,7 +6930,7 @@ text.</pre>
 			<div class="output" 
 				id="step-89-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-89-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-89">This
 is
@@ -6902,7 +6953,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-90-name"
-			onclick="toggleVisibility('step-90-details')"
+			onclick="toggleVisibility('step-90-details', null, null)"
 			href="step-90-details"><strong>When</strong>  Step03010202</span>
 
 		</div>
@@ -6924,12 +6975,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-90-input-link" 
-					onclick="toggleVisibility('step-90-input', true, 'iframe90')">
+					onclick="toggleVisibility('step-90-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-90-output-link" 
-					onclick="toggleVisibility('step-90-output', true, 'iframe90')">
+					onclick="toggleVisibility('step-90-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -6942,7 +6993,7 @@ output</pre>
 			<div class="input" 
 				id="step-90-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-90-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-90">This 
 is 
@@ -6957,7 +7008,7 @@ text.</pre>
 			<div class="output" 
 				id="step-90-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-90-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-90">This
 is
@@ -6980,7 +7031,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-91-name"
-			onclick="toggleVisibility('step-91-details')"
+			onclick="toggleVisibility('step-91-details', null, null)"
 			href="step-91-details"><strong>Then</strong>  Step03010203</span>
 
 		</div>
@@ -7002,12 +7053,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-91-input-link" 
-					onclick="toggleVisibility('step-91-input', true, 'iframe91')">
+					onclick="toggleVisibility('step-91-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-91-output-link" 
-					onclick="toggleVisibility('step-91-output', true, 'iframe91')">
+					onclick="toggleVisibility('step-91-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -7020,7 +7071,7 @@ output</pre>
 			<div class="input" 
 				id="step-91-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-91-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-91">This 
 is 
@@ -7035,7 +7086,7 @@ text.</pre>
 			<div class="output" 
 				id="step-91-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-91-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-91">This
 is
@@ -7062,7 +7113,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-92-name"
-			onclick="toggleVisibility('scenario-92-scenarios')"
+			onclick="toggleVisibility('scenario-92-scenarios', null, null)"
 			href="scenario-92-scenarios">Scenario 030103</span>
 
 		</div>
@@ -7072,7 +7123,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-92-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -7110,7 +7162,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-93-name"
-			onclick="toggleVisibility('step-93-details')"
+			onclick="toggleVisibility('step-93-details', null, null)"
 			href="step-93-details"><strong>Given</strong>  Step03010301</span>
 
 		</div>
@@ -7132,12 +7184,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-93-input-link" 
-					onclick="toggleVisibility('step-93-input', true, 'iframe93')">
+					onclick="toggleVisibility('step-93-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-93-output-link" 
-					onclick="toggleVisibility('step-93-output', true, 'iframe93')">
+					onclick="toggleVisibility('step-93-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -7150,7 +7202,7 @@ output</pre>
 			<div class="input" 
 				id="step-93-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-93-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-93">This 
 is 
@@ -7165,7 +7217,7 @@ text.</pre>
 			<div class="output" 
 				id="step-93-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-93-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-93">This
 is
@@ -7188,7 +7240,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-94-name"
-			onclick="toggleVisibility('step-94-details')"
+			onclick="toggleVisibility('step-94-details', null, null)"
 			href="step-94-details"><strong>When</strong>  Step03010302</span>
 
 		</div>
@@ -7210,12 +7262,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-94-input-link" 
-					onclick="toggleVisibility('step-94-input', true, 'iframe94')">
+					onclick="toggleVisibility('step-94-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-94-output-link" 
-					onclick="toggleVisibility('step-94-output', true, 'iframe94')">
+					onclick="toggleVisibility('step-94-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -7228,7 +7280,7 @@ output</pre>
 			<div class="input" 
 				id="step-94-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-94-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-94">This 
 is 
@@ -7243,7 +7295,7 @@ text.</pre>
 			<div class="output" 
 				id="step-94-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-94-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-94">This
 is
@@ -7266,7 +7318,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-95-name"
-			onclick="toggleVisibility('step-95-details')"
+			onclick="toggleVisibility('step-95-details', null, null)"
 			href="step-95-details"><strong>Then</strong>  Step03010303</span>
 
 		</div>
@@ -7288,12 +7340,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-95-input-link" 
-					onclick="toggleVisibility('step-95-input', true, 'iframe95')">
+					onclick="toggleVisibility('step-95-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-95-output-link" 
-					onclick="toggleVisibility('step-95-output', true, 'iframe95')">
+					onclick="toggleVisibility('step-95-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -7306,7 +7358,7 @@ output</pre>
 			<div class="input" 
 				id="step-95-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-95-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-95">This 
 is 
@@ -7321,7 +7373,7 @@ text.</pre>
 			<div class="output" 
 				id="step-95-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-95-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-95">This
 is
@@ -7365,22 +7417,23 @@ output</pre>
 		<div class="feature name">
 		<span class="feature name pointer" 
 			id="feature-96-name"
-			onclick="toggleVisibility('feature-96-scenarios')"
+			onclick="toggleVisibility('feature-96-scenarios', null, null)"
 			href="feature-96-scenarios">Feature 0302</span>
 		<div class="feature-statement-link badge pointer badge-secondary" 
 			id="feature-96-statement-link" 
-			onclick="toggleVisibility('feature-96-statement-explanation')">
+			onclick="toggleVisibility('feature-96-statement'); toggleVisibility('feature-96-explanation', null)">
 			<i class="fas fa-info"></i>
 		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[3 ms]</span>
+	<span class="feature duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="feature-96-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
@@ -7422,16 +7475,17 @@ output</pre>
 		</div>
 	</div>
 </li>
-	<li class="row statement-explanation">
+	<li class="row statement">
 		<div class="col-2 badges"></div>
 		<div class="col-11">
-			<div class="feature statement-explanation" 
-				id="feature-96-statement-explanation"
+			<div class="feature statement" 
+				id="feature-96-statement"
 				style="display: none;">
-<div class="feature statement rounded"
-									id="feature-96-statement"><strong>As a</strong> As a user<br/>
-<strong>You can</strong> You can get some value<br/>
-<strong>By</strong> By performing some action</div>
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-96-statement"><strong>As a</strong> As a user<br/>
+<strong>You can </strong> You can perform some action
+<strong>So that </strong> So that you get some value<br/></div>
 			</div>
 		</div>
 	</li>
@@ -7451,7 +7505,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-97-name"
-			onclick="toggleVisibility('scenario-97-scenarios')"
+			onclick="toggleVisibility('scenario-97-scenarios', null, null)"
 			href="scenario-97-scenarios">Scenario 030201</span>
 
 		</div>
@@ -7461,7 +7515,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-97-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -7499,7 +7554,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-98-name"
-			onclick="toggleVisibility('step-98-details')"
+			onclick="toggleVisibility('step-98-details', null, null)"
 			href="step-98-details"><strong>Given</strong>  Step03020101</span>
 
 		</div>
@@ -7521,12 +7576,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-98-input-link" 
-					onclick="toggleVisibility('step-98-input', true, 'iframe98')">
+					onclick="toggleVisibility('step-98-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-98-output-link" 
-					onclick="toggleVisibility('step-98-output', true, 'iframe98')">
+					onclick="toggleVisibility('step-98-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -7539,7 +7594,7 @@ output</pre>
 			<div class="input" 
 				id="step-98-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-98-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-98">This 
 is 
@@ -7554,7 +7609,7 @@ text.</pre>
 			<div class="output" 
 				id="step-98-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-98-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-98">This
 is
@@ -7577,7 +7632,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-99-name"
-			onclick="toggleVisibility('step-99-details')"
+			onclick="toggleVisibility('step-99-details', null, null)"
 			href="step-99-details"><strong>When</strong>  Step03020102</span>
 
 		</div>
@@ -7599,12 +7654,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-99-input-link" 
-					onclick="toggleVisibility('step-99-input', true, 'iframe99')">
+					onclick="toggleVisibility('step-99-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-99-output-link" 
-					onclick="toggleVisibility('step-99-output', true, 'iframe99')">
+					onclick="toggleVisibility('step-99-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -7617,7 +7672,7 @@ output</pre>
 			<div class="input" 
 				id="step-99-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-99-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-99">This 
 is 
@@ -7632,7 +7687,7 @@ text.</pre>
 			<div class="output" 
 				id="step-99-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-99-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-99">This
 is
@@ -7655,7 +7710,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-100-name"
-			onclick="toggleVisibility('step-100-details')"
+			onclick="toggleVisibility('step-100-details', null, null)"
 			href="step-100-details"><strong>Then</strong>  Step03020103</span>
 
 		</div>
@@ -7677,12 +7732,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-100-input-link" 
-					onclick="toggleVisibility('step-100-input', true, 'iframe100')">
+					onclick="toggleVisibility('step-100-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-100-output-link" 
-					onclick="toggleVisibility('step-100-output', true, 'iframe100')">
+					onclick="toggleVisibility('step-100-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -7695,7 +7750,7 @@ output</pre>
 			<div class="input" 
 				id="step-100-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-100-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-100">This 
 is 
@@ -7710,7 +7765,7 @@ text.</pre>
 			<div class="output" 
 				id="step-100-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-100-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-100">This
 is
@@ -7737,7 +7792,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-101-name"
-			onclick="toggleVisibility('scenario-101-scenarios')"
+			onclick="toggleVisibility('scenario-101-scenarios', null, null)"
 			href="scenario-101-scenarios">Scenario 030202</span>
 
 		</div>
@@ -7747,7 +7802,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-101-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -7785,7 +7841,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-102-name"
-			onclick="toggleVisibility('step-102-details')"
+			onclick="toggleVisibility('step-102-details', null, null)"
 			href="step-102-details"><strong>Given</strong>  Step03020201</span>
 
 		</div>
@@ -7807,12 +7863,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-102-input-link" 
-					onclick="toggleVisibility('step-102-input', true, 'iframe102')">
+					onclick="toggleVisibility('step-102-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-102-output-link" 
-					onclick="toggleVisibility('step-102-output', true, 'iframe102')">
+					onclick="toggleVisibility('step-102-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -7825,7 +7881,7 @@ output</pre>
 			<div class="input" 
 				id="step-102-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-102-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-102">This 
 is 
@@ -7840,7 +7896,7 @@ text.</pre>
 			<div class="output" 
 				id="step-102-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-102-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-102">This
 is
@@ -7863,7 +7919,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-103-name"
-			onclick="toggleVisibility('step-103-details')"
+			onclick="toggleVisibility('step-103-details', null, null)"
 			href="step-103-details"><strong>When</strong>  Step03020202</span>
 
 		</div>
@@ -7885,12 +7941,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-103-input-link" 
-					onclick="toggleVisibility('step-103-input', true, 'iframe103')">
+					onclick="toggleVisibility('step-103-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-103-output-link" 
-					onclick="toggleVisibility('step-103-output', true, 'iframe103')">
+					onclick="toggleVisibility('step-103-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -7903,7 +7959,7 @@ output</pre>
 			<div class="input" 
 				id="step-103-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-103-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-103">This 
 is 
@@ -7918,7 +7974,7 @@ text.</pre>
 			<div class="output" 
 				id="step-103-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-103-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-103">This
 is
@@ -7941,7 +7997,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-104-name"
-			onclick="toggleVisibility('step-104-details')"
+			onclick="toggleVisibility('step-104-details', null, null)"
 			href="step-104-details"><strong>Then</strong>  Step03020203</span>
 
 		</div>
@@ -7963,12 +8019,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-104-input-link" 
-					onclick="toggleVisibility('step-104-input', true, 'iframe104')">
+					onclick="toggleVisibility('step-104-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-104-output-link" 
-					onclick="toggleVisibility('step-104-output', true, 'iframe104')">
+					onclick="toggleVisibility('step-104-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -7981,7 +8037,7 @@ output</pre>
 			<div class="input" 
 				id="step-104-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-104-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-104">This 
 is 
@@ -7996,7 +8052,7 @@ text.</pre>
 			<div class="output" 
 				id="step-104-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-104-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-104">This
 is
@@ -8023,7 +8079,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-105-name"
-			onclick="toggleVisibility('scenario-105-scenarios')"
+			onclick="toggleVisibility('scenario-105-scenarios', null, null)"
 			href="scenario-105-scenarios">Scenario 030203</span>
 
 		</div>
@@ -8033,7 +8089,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-105-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -8071,7 +8128,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-106-name"
-			onclick="toggleVisibility('step-106-details')"
+			onclick="toggleVisibility('step-106-details', null, null)"
 			href="step-106-details"><strong>Given</strong>  Step03020301</span>
 
 		</div>
@@ -8093,12 +8150,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-106-input-link" 
-					onclick="toggleVisibility('step-106-input', true, 'iframe106')">
+					onclick="toggleVisibility('step-106-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-106-output-link" 
-					onclick="toggleVisibility('step-106-output', true, 'iframe106')">
+					onclick="toggleVisibility('step-106-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -8111,7 +8168,7 @@ output</pre>
 			<div class="input" 
 				id="step-106-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-106-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-106">This 
 is 
@@ -8126,7 +8183,7 @@ text.</pre>
 			<div class="output" 
 				id="step-106-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-106-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-106">This
 is
@@ -8149,7 +8206,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-107-name"
-			onclick="toggleVisibility('step-107-details')"
+			onclick="toggleVisibility('step-107-details', null, null)"
 			href="step-107-details"><strong>When</strong>  Step03020302</span>
 
 		</div>
@@ -8171,12 +8228,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-107-input-link" 
-					onclick="toggleVisibility('step-107-input', true, 'iframe107')">
+					onclick="toggleVisibility('step-107-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-107-output-link" 
-					onclick="toggleVisibility('step-107-output', true, 'iframe107')">
+					onclick="toggleVisibility('step-107-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -8189,7 +8246,7 @@ output</pre>
 			<div class="input" 
 				id="step-107-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-107-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-107">This 
 is 
@@ -8204,7 +8261,7 @@ text.</pre>
 			<div class="output" 
 				id="step-107-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-107-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-107">This
 is
@@ -8227,7 +8284,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-108-name"
-			onclick="toggleVisibility('step-108-details')"
+			onclick="toggleVisibility('step-108-details', null, null)"
 			href="step-108-details"><strong>Then</strong>  Step03020303</span>
 
 		</div>
@@ -8249,12 +8306,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-108-input-link" 
-					onclick="toggleVisibility('step-108-input', true, 'iframe108')">
+					onclick="toggleVisibility('step-108-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-108-output-link" 
-					onclick="toggleVisibility('step-108-output', true, 'iframe108')">
+					onclick="toggleVisibility('step-108-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -8267,7 +8324,7 @@ output</pre>
 			<div class="input" 
 				id="step-108-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-108-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-108">This 
 is 
@@ -8282,7 +8339,7 @@ text.</pre>
 			<div class="output" 
 				id="step-108-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-108-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-108">This
 is
@@ -8326,22 +8383,23 @@ output</pre>
 		<div class="feature name">
 		<span class="feature name pointer" 
 			id="feature-109-name"
-			onclick="toggleVisibility('feature-109-scenarios')"
+			onclick="toggleVisibility('feature-109-scenarios', null, null)"
 			href="feature-109-scenarios">Feature 0303</span>
 		<div class="feature-statement-link badge pointer badge-secondary" 
 			id="feature-109-statement-link" 
-			onclick="toggleVisibility('feature-109-statement-explanation')">
+			onclick="toggleVisibility('feature-109-statement'); toggleVisibility('feature-109-explanation', null)">
 			<i class="fas fa-info"></i>
 		</div>
 
 		</div>
 	</div>
 <div class="col-2 feature reason-duration text-right">
-	<span class="feature duration">[5 ms]</span>
+	<span class="feature duration">[2 ms]</span>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="feature-109-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="feature-header-reason-stats">
@@ -8383,16 +8441,17 @@ output</pre>
 		</div>
 	</div>
 </li>
-	<li class="row statement-explanation">
+	<li class="row statement">
 		<div class="col-2 badges"></div>
 		<div class="col-11">
-			<div class="feature statement-explanation" 
-				id="feature-109-statement-explanation"
+			<div class="feature statement" 
+				id="feature-109-statement"
 				style="display: none;">
-<div class="feature statement rounded"
-									id="feature-109-statement"><strong>As a</strong> As a user<br/>
-<strong>You can</strong> You can get some value<br/>
-<strong>By</strong> By performing some action</div>
+					<div class="statement-title">Statement</div>
+					<div class="feature statement-content rounded"
+						id="feature-109-statement"><strong>As a</strong> As a user<br/>
+<strong>You can </strong> You can perform some action
+<strong>So that </strong> So that you get some value<br/></div>
 			</div>
 		</div>
 	</li>
@@ -8412,7 +8471,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-110-name"
-			onclick="toggleVisibility('scenario-110-scenarios')"
+			onclick="toggleVisibility('scenario-110-scenarios', null, null)"
 			href="scenario-110-scenarios">Scenario 030301</span>
 
 		</div>
@@ -8422,7 +8481,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-110-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -8460,7 +8520,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-111-name"
-			onclick="toggleVisibility('step-111-details')"
+			onclick="toggleVisibility('step-111-details', null, null)"
 			href="step-111-details"><strong>Given</strong>  Step03030101</span>
 
 		</div>
@@ -8482,12 +8542,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-111-input-link" 
-					onclick="toggleVisibility('step-111-input', true, 'iframe111')">
+					onclick="toggleVisibility('step-111-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-111-output-link" 
-					onclick="toggleVisibility('step-111-output', true, 'iframe111')">
+					onclick="toggleVisibility('step-111-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -8500,7 +8560,7 @@ output</pre>
 			<div class="input" 
 				id="step-111-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-111-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-111">This 
 is 
@@ -8515,7 +8575,7 @@ text.</pre>
 			<div class="output" 
 				id="step-111-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-111-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-111">This
 is
@@ -8538,7 +8598,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-112-name"
-			onclick="toggleVisibility('step-112-details')"
+			onclick="toggleVisibility('step-112-details', null, null)"
 			href="step-112-details"><strong>When</strong>  Step03030102</span>
 
 		</div>
@@ -8560,12 +8620,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-112-input-link" 
-					onclick="toggleVisibility('step-112-input', true, 'iframe112')">
+					onclick="toggleVisibility('step-112-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-112-output-link" 
-					onclick="toggleVisibility('step-112-output', true, 'iframe112')">
+					onclick="toggleVisibility('step-112-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -8578,7 +8638,7 @@ output</pre>
 			<div class="input" 
 				id="step-112-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-112-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-112">This 
 is 
@@ -8593,7 +8653,7 @@ text.</pre>
 			<div class="output" 
 				id="step-112-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-112-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-112">This
 is
@@ -8616,7 +8676,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-113-name"
-			onclick="toggleVisibility('step-113-details')"
+			onclick="toggleVisibility('step-113-details', null, null)"
 			href="step-113-details"><strong>Then</strong>  Step03030103</span>
 
 		</div>
@@ -8638,12 +8698,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-113-input-link" 
-					onclick="toggleVisibility('step-113-input', true, 'iframe113')">
+					onclick="toggleVisibility('step-113-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-113-output-link" 
-					onclick="toggleVisibility('step-113-output', true, 'iframe113')">
+					onclick="toggleVisibility('step-113-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -8656,7 +8716,7 @@ output</pre>
 			<div class="input" 
 				id="step-113-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-113-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-113">This 
 is 
@@ -8671,7 +8731,7 @@ text.</pre>
 			<div class="output" 
 				id="step-113-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-113-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-113">This
 is
@@ -8698,7 +8758,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-114-name"
-			onclick="toggleVisibility('scenario-114-scenarios')"
+			onclick="toggleVisibility('scenario-114-scenarios', null, null)"
 			href="scenario-114-scenarios">Scenario 030302</span>
 
 		</div>
@@ -8708,7 +8768,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-114-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -8746,7 +8807,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-115-name"
-			onclick="toggleVisibility('step-115-details')"
+			onclick="toggleVisibility('step-115-details', null, null)"
 			href="step-115-details"><strong>Given</strong>  Step03030201</span>
 
 		</div>
@@ -8768,12 +8829,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-115-input-link" 
-					onclick="toggleVisibility('step-115-input', true, 'iframe115')">
+					onclick="toggleVisibility('step-115-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-115-output-link" 
-					onclick="toggleVisibility('step-115-output', true, 'iframe115')">
+					onclick="toggleVisibility('step-115-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -8786,7 +8847,7 @@ output</pre>
 			<div class="input" 
 				id="step-115-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-115-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-115">This 
 is 
@@ -8801,7 +8862,7 @@ text.</pre>
 			<div class="output" 
 				id="step-115-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-115-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-115">This
 is
@@ -8824,7 +8885,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-116-name"
-			onclick="toggleVisibility('step-116-details')"
+			onclick="toggleVisibility('step-116-details', null, null)"
 			href="step-116-details"><strong>When</strong>  Step03030202</span>
 
 		</div>
@@ -8846,12 +8907,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-116-input-link" 
-					onclick="toggleVisibility('step-116-input', true, 'iframe116')">
+					onclick="toggleVisibility('step-116-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-116-output-link" 
-					onclick="toggleVisibility('step-116-output', true, 'iframe116')">
+					onclick="toggleVisibility('step-116-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -8864,7 +8925,7 @@ output</pre>
 			<div class="input" 
 				id="step-116-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-116-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-116">This 
 is 
@@ -8879,7 +8940,7 @@ text.</pre>
 			<div class="output" 
 				id="step-116-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-116-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-116">This
 is
@@ -8902,7 +8963,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-117-name"
-			onclick="toggleVisibility('step-117-details')"
+			onclick="toggleVisibility('step-117-details', null, null)"
 			href="step-117-details"><strong>Then</strong>  Step03030203</span>
 
 		</div>
@@ -8924,12 +8985,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-117-input-link" 
-					onclick="toggleVisibility('step-117-input', true, 'iframe117')">
+					onclick="toggleVisibility('step-117-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-117-output-link" 
-					onclick="toggleVisibility('step-117-output', true, 'iframe117')">
+					onclick="toggleVisibility('step-117-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -8942,7 +9003,7 @@ output</pre>
 			<div class="input" 
 				id="step-117-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-117-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-117">This 
 is 
@@ -8957,7 +9018,7 @@ text.</pre>
 			<div class="output" 
 				id="step-117-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-117-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-117">This
 is
@@ -8984,7 +9045,7 @@ output</pre>
 		<div class="scenario name">
 		<span class="scenario name pointer" 
 			id="scenario-118-name"
-			onclick="toggleVisibility('scenario-118-scenarios')"
+			onclick="toggleVisibility('scenario-118-scenarios', null, null)"
 			href="scenario-118-scenarios">Scenario 030303</span>
 
 		</div>
@@ -8994,7 +9055,8 @@ output</pre>
 </div>
 </li>
 <li class="row stats">
-	<div class="col-11 offset-1">
+	<div class="col-2 badges"></div>
+	<div class="col-11">
 		<div class="stats-graph-tables" id="scenario-118-stats" style="width: 100%; empty-cells: show; display: none;">
 			<table class="table table-condensed stats-table">
 				<tr id="scenario-header-reason-stats">
@@ -9032,7 +9094,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-119-name"
-			onclick="toggleVisibility('step-119-details')"
+			onclick="toggleVisibility('step-119-details', null, null)"
 			href="step-119-details"><strong>Given</strong>  Step03030301</span>
 
 		</div>
@@ -9054,12 +9116,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-119-input-link" 
-					onclick="toggleVisibility('step-119-input', true, 'iframe119')">
+					onclick="toggleVisibility('step-119-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-119-output-link" 
-					onclick="toggleVisibility('step-119-output', true, 'iframe119')">
+					onclick="toggleVisibility('step-119-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -9072,7 +9134,7 @@ output</pre>
 			<div class="input" 
 				id="step-119-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-119-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-119">This 
 is 
@@ -9087,7 +9149,7 @@ text.</pre>
 			<div class="output" 
 				id="step-119-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-119-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-119">This
 is
@@ -9110,7 +9172,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-120-name"
-			onclick="toggleVisibility('step-120-details')"
+			onclick="toggleVisibility('step-120-details', null, null)"
 			href="step-120-details"><strong>When</strong>  Step03030302</span>
 
 		</div>
@@ -9132,12 +9194,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-120-input-link" 
-					onclick="toggleVisibility('step-120-input', true, 'iframe120')">
+					onclick="toggleVisibility('step-120-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-120-output-link" 
-					onclick="toggleVisibility('step-120-output', true, 'iframe120')">
+					onclick="toggleVisibility('step-120-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -9150,7 +9212,7 @@ output</pre>
 			<div class="input" 
 				id="step-120-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-120-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-120">This 
 is 
@@ -9165,7 +9227,7 @@ text.</pre>
 			<div class="output" 
 				id="step-120-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-120-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-120">This
 is
@@ -9188,7 +9250,7 @@ output</pre>
 		<div class="step name">
 		<span class="step name pointer" 
 			id="step-121-name"
-			onclick="toggleVisibility('step-121-details')"
+			onclick="toggleVisibility('step-121-details', null, null)"
 			href="step-121-details"><strong>Then</strong>  Step03030303</span>
 
 		</div>
@@ -9210,12 +9272,12 @@ output</pre>
 			<div class="step-details">
 				<div class="step-input-link badge pointer button" 
 					id="step-121-input-link" 
-					onclick="toggleVisibility('step-121-input', true, 'iframe121')">
+					onclick="toggleVisibility('step-121-input', null)">
 					<i class="fas fa-sign-in-alt"></i>&nbsp;<span>Input</span>
 				</div>
 				<div class="step-output-link badge pointer button" 
 					id="step-121-output-link" 
-					onclick="toggleVisibility('step-121-output', true, 'iframe121')">
+					onclick="toggleVisibility('step-121-output', null)">
 					<i class="fas fa-sign-out-alt"></i>&nbsp;<span>Output</span>
 				</div>
 
@@ -9228,7 +9290,7 @@ output</pre>
 			<div class="input" 
 				id="step-121-input"
 				style="display: block;">
-				<div class="input title" 
+				<div class="input-title" 
 					id="step-121-input-title">Input</div>
 					<pre class="input prettyprint linenums rounded lang-text" id="input-121">This 
 is 
@@ -9243,7 +9305,7 @@ text.</pre>
 			<div class="output" 
 				id="step-121-output"
 				style="display: block;">
-				<div class="output title" 
+				<div class="output-title" 
 					id="step-121-output-title">Output</div>
 					<pre class="output prettyprint linenums rounded lang-sh" id="output-121">This
 is
@@ -9274,12 +9336,15 @@ output</pre>
 	</li>
 					
 						<script>
-							function toggleVisibility(elementId, resize, iFrameId) {{
+							function toggleVisibility(elementId, iframeIdInput, iframeIdOutput) {{
 								var x = document.getElementById(elementId);
 								if (x.style.display === "none") {{
 									x.style.display = "block";
-									if(resize) {
-										resizeIframe(document.getElementById(iFrameId));
+									if(iframeIdInput) {
+										resizeIframe(document.getElementById(iframeIdInput));
+									}
+									if(iframeIdOutput) {
+										resizeIframe(document.getElementById(iframeIdOutput));
 									}
 								}} else {{
 									x.style.display = "none";

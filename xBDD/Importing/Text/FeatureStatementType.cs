@@ -4,7 +4,7 @@ namespace xBDD.Importing.Text
     {
 		Unknown,
         AsA,
-        YouCan,
-        By
+        SoThat,
+        YouCan
     }
 }

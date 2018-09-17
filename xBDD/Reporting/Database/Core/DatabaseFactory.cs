@@ -7,7 +7,7 @@ namespace xBDD.Reporting.Database.Core
         {
             return new Scenario()
             {
-                AreaPath = scenario.Feature.Area.Name,
+                CapabilityPath = scenario.Feature.Capability.Name,
                 FeatureName = scenario.Feature.Name,
                 Name = scenario.Name,
                 Outcome = scenario.Outcome,

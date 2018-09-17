@@ -27,7 +27,7 @@ namespace xBDD.Reporting.Database.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AreaPath");
+                    b.Property<string>("CapabilityPath");
 
                     b.Property<DateTime>("EndTime");
 

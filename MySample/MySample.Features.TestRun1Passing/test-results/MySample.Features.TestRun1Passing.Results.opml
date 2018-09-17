@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<outline text="My Sample - Features - Test Run 1 Passing - Area 1 Passing With All Features Exercised [Passed]">
+<outline text="My Sample - Features - Test Run 1 Passing - Capability 1 Passing With All Features Exercised [Passed]">
 	<outline text="Feature 1 Passing [Passed]">
 		<outline text="Scenario 1 Passing [Passed]">
 			<outline text="Given Step 1 Passing With Explanation And Input">

@@ -28,31 +28,31 @@ namespace xBDD.Importing.Text
 				currentLineTypeName = "No Line";
 			}
 			switch(previousLineType) {
-				case LineType.Area:
-					if(currentLineType != LineType.AreaExplanationHeader 
+				case LineType.Capability:
+					if(currentLineType != LineType.CapabilityExplanationHeader 
 						&& currentLineType != LineType.Feature) {
-							throw new TextImportException($@"An invalid line of type '{currentLineTypeName}' is following an area line.
+							throw new TextImportException($@"An invalid line of type '{currentLineTypeName}' is following an capability line.
 								Line {lineNumber}: '{lineContent}'
-								Explanation: An area line can only be followed by an indented 'Explanation' header or 
+								Explanation: An capability line can only be followed by an indented 'Explanation' header or 
 								             indented Feature line.".RemoveIndentation(8));
 						}
 				break;
-				case LineType.AreaExplanationHeader:
-					if(currentLineType != LineType.AreaExplanation 
+				case LineType.CapabilityExplanationHeader:
+					if(currentLineType != LineType.CapabilityExplanation 
 						) {
-							throw new TextImportException($@"An invalid line of type '{currentLineTypeName}' is following an area explanation header line.
+							throw new TextImportException($@"An invalid line of type '{currentLineTypeName}' is following an capability explanation header line.
 								Line {lineNumber}: '{lineContent}'
-								Explanation: An area explanation header line can only be followed by an indented 
+								Explanation: An capability explanation header line can only be followed by an indented 
 								             explanation line.".RemoveIndentation(8));
 						}
 				break;
-				case LineType.AreaExplanation:
-					if(currentLineType != LineType.AreaExplanation
+				case LineType.CapabilityExplanation:
+					if(currentLineType != LineType.CapabilityExplanation
 						&& currentLineType != LineType.Feature 
 						) {
-							throw new TextImportException($@"An invalid line of type '{currentLineTypeName}' is following an area explanation line.
+							throw new TextImportException($@"An invalid line of type '{currentLineTypeName}' is following an capability explanation line.
 								Line {lineNumber}: '{lineContent}'
-								Explanation: An area explanation line can only be followed by another explanation line 
+								Explanation: An capability explanation line can only be followed by another explanation line 
 								             or an outdented (2x) feature line.".RemoveIndentation(8));
 						}
 				break;
@@ -111,14 +111,14 @@ namespace xBDD.Importing.Text
 						&& currentLineType != LineType.Step
 						&& currentLineType != LineType.Scenario
 						&& currentLineType != LineType.Feature
-						&& currentLineType != LineType.Area
+						&& currentLineType != LineType.Capability
 						&& currentLineType != LineType.LastLine
 						) {
 							throw new TextImportException($@"An invalid line of type '{currentLineTypeName}' is following a scenario line.
 								Line {lineNumber}: '{lineContent}'
 								Explanation: A scenario line can only be followed by another scenario line, an indented
 								             'Explanation' header or indented step line, or an outdented feature or 
-								             area line.".RemoveIndentation(8));
+								             capability line.".RemoveIndentation(8));
 						}
 				break;
 				case LineType.ScenarioExplanationHeader:
@@ -135,14 +135,14 @@ namespace xBDD.Importing.Text
 						&& currentLineType != LineType.Step 
 						&& currentLineType != LineType.Scenario 
 						&& currentLineType != LineType.Feature 
-						&& currentLineType != LineType.Area 
+						&& currentLineType != LineType.Capability 
 						&& currentLineType != LineType.LastLine
 						) {
 							throw new TextImportException($@"An invalid line of type '{currentLineTypeName}' is following an scenario explanation line.
 								Line {lineNumber}: '{lineContent}'
 								Explanation: A scenario explanation line can only be followed by another explanation 
 								             line, an outdeneted (1x) step line, an outdented (2x) scenario line, an 
-								             outdented (3x) feature line, or an outdented (4x) area line.".RemoveIndentation(8));
+								             outdented (3x) feature line, or an outdented (4x) capability line.".RemoveIndentation(8));
 						}
 				break;
 				case LineType.Step:
@@ -151,14 +151,14 @@ namespace xBDD.Importing.Text
 						&& currentLineType != LineType.Step
 						&& currentLineType != LineType.Scenario
 						&& currentLineType != LineType.Feature
-						&& currentLineType != LineType.Area
+						&& currentLineType != LineType.Capability
 						&& currentLineType != LineType.LastLine
 						) {
 							throw new TextImportException($@"An invalid line of type '{currentLineTypeName}' is following a step line.
 								Line {lineNumber}: '{lineContent}'
 								Explanation: A step line can only be followed by another step line or an indented 
 								             'Explanation' or 'Input' header line, or outdented scenario, feature, or 
-								             area.".RemoveIndentation(8));
+								             capability.".RemoveIndentation(8));
 						}
 				break;
 				case LineType.StepExplanationHeader:
@@ -176,14 +176,14 @@ namespace xBDD.Importing.Text
 						&& currentLineType != LineType.Step 
 						&& currentLineType != LineType.Scenario
 						&& currentLineType != LineType.Feature
-						&& currentLineType != LineType.Area
+						&& currentLineType != LineType.Capability
 						&& currentLineType != LineType.LastLine
 						) {
 							throw new TextImportException($@"An invalid line of type '{currentLineTypeName}' is following a step explanation line.
 								Line {lineNumber}: '{lineContent}'
 								Explanation: A step explanation line can only be followed by another step explanation 
 								             line or an outdented (1x) input header line, (2x) setp line, (3x) 
-								             scenario line (4x) feature line, or (5x) area line.".RemoveIndentation(8));
+								             scenario line (4x) feature line, or (5x) capability line.".RemoveIndentation(8));
 						}
 				break;
 				case LineType.StepInputHeader:
@@ -200,14 +200,14 @@ namespace xBDD.Importing.Text
 						&& currentLineType != LineType.Step 
 						&& currentLineType != LineType.Scenario
 						&& currentLineType != LineType.Feature
-						&& currentLineType != LineType.Area
+						&& currentLineType != LineType.Capability
 						&& currentLineType != LineType.LastLine
 						) {
 							throw new TextImportException($@"An invalid line of type '{currentLineTypeName}' is following a step input line.
 								Line {lineNumber}: '{lineContent}'
 								Explanation: A step input line can only be followed by another step input line or an 
 								             outdented (1x) explanation header line, (2x) setp line, (3x) scenario line
-								             (4x) feature line, or (5x) area line.".RemoveIndentation(8));
+								             (4x) feature line, or (5x) capability line.".RemoveIndentation(8));
 						}
 				break;
 			}
@@ -265,14 +265,14 @@ namespace xBDD.Importing.Text
 				lineType = LineType.FeatureStatement;
 			}
 
-			//Area Explanation Header
+			//Capability Explanation Header
 			else if(line.StartsWith($"{indentationKey}Explanation")) {
-				lineType = LineType.AreaExplanationHeader;
+				lineType = LineType.CapabilityExplanationHeader;
 			}
-			//Area Explanation
+			//Capability Explanation
 			else if(line.StartsWith($"{indentationKey}{indentationKey}")
-				&& (previousLineType == LineType.AreaExplanationHeader || previousLineType == LineType.AreaExplanation)) {
-					lineType = LineType.AreaExplanation;
+				&& (previousLineType == LineType.CapabilityExplanationHeader || previousLineType == LineType.CapabilityExplanation)) {
+					lineType = LineType.CapabilityExplanation;
 				}
 
 			//Step
@@ -294,9 +294,9 @@ namespace xBDD.Importing.Text
 				lineType = LineType.Feature;
 		   }
 
-			//Area
+			//Capability
 			else if(!line.StartsWith(indentationKey)) {
-				lineType = LineType.Area;
+				lineType = LineType.Capability;
 			}
 
 			if(String.IsNullOrEmpty(line)) {
@@ -331,10 +331,10 @@ namespace xBDD.Importing.Text
 			FeatureStatementType featureStatement = new FeatureStatementType();
 			if(featureStatementLine.ToLower().StartsWith("as a "))
 				featureStatement = FeatureStatementType.AsA;
+			else if(featureStatementLine.ToLower().StartsWith("so that "))
+				featureStatement = FeatureStatementType.SoThat;
 			else if(featureStatementLine.ToLower().StartsWith("you can "))
 				featureStatement = FeatureStatementType.YouCan;
-			else if(featureStatementLine.ToLower().StartsWith("by "))
-				featureStatement = FeatureStatementType.By;
 			return featureStatement;
 		}
 		private string GetStepName(string stepLine, StepType stepType) {
@@ -365,10 +365,10 @@ namespace xBDD.Importing.Text
 				case FeatureStatementType.AsA:
 					featureStatement = featureStatementLine.Substring(5, featureStatementLine.Length-5);
 				break;
-				case FeatureStatementType.YouCan:
+				case FeatureStatementType.SoThat:
 					featureStatement = featureStatementLine.Substring(8, featureStatementLine.Length-8);
 				break;
-				case FeatureStatementType.By:
+				case FeatureStatementType.YouCan:
 					featureStatement = featureStatementLine.Substring(3, featureStatementLine.Length-3);
 				break;
 			}
@@ -377,19 +377,19 @@ namespace xBDD.Importing.Text
 		private string GetLineContent(string line, LineType lineType, int lineNumber) {
 			string lineContent = null;
 			var length = $"{this.indentationKey}".Length;
-			var areaNameRegex = "^[a-zA-Z][a-zA-Z _0-9\\.]*$";
+			var capabilityNameRegex = "^[a-zA-Z][a-zA-Z _0-9\\.]*$";
 			var featureAndScenarioNameRegex = "^[a-zA-Z][a-zA-Z _0-9]*$";
 			switch (lineType)
 			{
-				case LineType.Area:
+				case LineType.Capability:
 					lineContent = line;
 					if(lineContent.Length == 0)
-						throw new TextImportException($"Line {lineNumber}: An area is defined with no name.");
-					var areaName = lineContent.ConvertAreaNameToNamespace();
-					if(!Regex.Match(areaName, areaNameRegex).Success)
-						throw new TextImportException($@"An area is defined with invalid characters in the name.
+						throw new TextImportException($"Line {lineNumber}: An capability is defined with no name.");
+					var capabilityName = lineContent.ConvertCapabilityNameToNamespace();
+					if(!Regex.Match(capabilityName, capabilityNameRegex).Success)
+						throw new TextImportException($@"An capability is defined with invalid characters in the name.
 							Line {lineNumber}: '{lineContent}'
-							Explanation: An area name must start with a letter and can only contain
+							Explanation: An capability name must start with a letter and can only contain
 							             letters, numbers, spaces, underscores, and ' - '.
 							             The ' - ' string is converted to '.' to define the features 
 							             namespace in the test project.".RemoveIndentation(7));
@@ -420,7 +420,7 @@ namespace xBDD.Importing.Text
 							Explanation: A scenario name must start with a letter and can only contain
 							             letters, numbers, spaces, and underscores.".RemoveIndentation(7));
 				break;
-				case LineType.AreaExplanation:
+				case LineType.CapabilityExplanation:
 					lineContent = line.Substring(length*2, line.Length-(length*2));
 				break;
 				case LineType.Step:
@@ -449,10 +449,10 @@ namespace xBDD.Importing.Text
 		/// Imports the Workflowy text formatted export and converts
 		/// it to a hydrated test run.  Make sure to delete the first 
 		/// 2 lines of the workflowy export so that the first line in your
-		/// saved file is an Area name.
+		/// saved file is an Capability name.
 		/// </summary>
 		/// <param name="text">Workflowy plan text eport to import.</param>
-		/// <param name="rootNamespace">The namspace to prepend to each area.</param>
+		/// <param name="rootNamespace">The namspace to prepend to each capability.</param>
 		/// <param name="defaultOutcome">The default outcome for a scenario.</param>
 		/// <param name="defaultReason">The default reason for an scenario.</param>
 		/// <returns>TestRun object hydrated from the text file outline.</returns>
@@ -486,7 +486,7 @@ namespace xBDD.Importing.Text
 		/// </summary>
 		/// <param name="text">The text report to import.</param>
 		/// <param name="indentationKey">The string used for indentation in the text file.</param>
-		/// <param name="rootNamespace">The namspace to prepend to each area.</param>
+		/// <param name="rootNamespace">The namspace to prepend to each capability.</param>
 		/// <param name="defaultOutcome">The default outcome for a scenario.</param>
 		/// <param name="defaultReason">The default reason for an scenario.</param>
 		/// <returns>TestRun object hydrated from the text file outline.</returns>
@@ -533,19 +533,19 @@ namespace xBDD.Importing.Text
 			return testRun;
 		}
 		private ScenarioBuilder AddScenario(
-			string areaName,
+			string capabilityName,
 			string featureName, 
 			string scenarioName, 
 			string asAStatement, 
+			string soThatStatement, 
 			string youCanStatement, 
-			string byStatement, 
 			string scenarioExplanation, 
 			TextFormat scenarioExplanationFormat,
 			string featureExplanation,
 			TextFormat featureExplanationFormat) 
 		{
 			this.scenarioCount++;
-			var namespaceName = $"{this.rootNamespace}.{areaName.ConvertAreaNameToNamespace()}";
+			var namespaceName = $"{this.rootNamespace}.{capabilityName.ConvertCapabilityNameToNamespace()}";
 			var className = featureName.ConvertFeatureNameToClassName();
 			var featureAssignments = featureName.ExtractAssignments();
 			var featureTags = featureName.ExtractTags();
@@ -558,8 +558,8 @@ namespace xBDD.Importing.Text
 				className, 
 				methodName, 
 				asAStatement, 
-				youCanStatement, 
-				byStatement,
+				soThatStatement, 
+				youCanStatement,
 				scenarioExplanation,
 				scenarioExplanationFormat,
 				featureExplanation,
@@ -610,24 +610,24 @@ namespace xBDD.Importing.Text
 		}
 
 		private void ProcessLines(string[] lines) {
-			string areaName = null;
+			string capabilityName = null;
 			string featureName = null;
 			string scenarioName = null;
 			string asAStatement = null;
+			string soThatStatement = null;
 			string youCanStatement = null;
-			string byStatement = null;
 			StringBuilder stepInput = new StringBuilder();
 			StringBuilder stepExplanation = new StringBuilder();
 			StringBuilder scenarioExplanation = new StringBuilder();
 			StringBuilder featureExplanation = new StringBuilder();
-			StringBuilder areaExplanation = new StringBuilder();
+			StringBuilder capabilityExplanation = new StringBuilder();
 			ScenarioBuilder scenarioBuilder = null;
 			Step currentStep = null;
 			StepType currentStepType = new StepType();
 			FeatureStatementType currentFeatureStatementType = new FeatureStatementType();
 			LineType previousLineType = new LineType();
 			LineType currentLineType = new LineType();
-			int areaFeatureCount = 0;
+			int capabilityFeatureCount = 0;
 			int featureScenarioCount = 0;
 			for(int x = 0; x < lines.Length; x++) //First 2 lines are test run name and blank.
 			{
@@ -642,15 +642,15 @@ namespace xBDD.Importing.Text
 					var currentLineContent = this.GetLineContent(currentLine,currentLineType, x+1);
 					switch (currentLineType)
 					{
-						case LineType.Area:
+						case LineType.Capability:
 							if(scenarioName != null) {
 								scenarioBuilder = this.AddScenario(
-									areaName, 
+									capabilityName, 
 									featureName, 
 									scenarioName, 
 									asAStatement, 
+									soThatStatement, 
 									youCanStatement, 
-									byStatement, 
 									scenarioExplanation.ToString(),
 									TextFormat.markdown, 
 									featureExplanation.ToString(),
@@ -663,14 +663,14 @@ namespace xBDD.Importing.Text
 								this.AddStep(scenarioBuilder, currentStepType, currentStep, stepInput, stepExplanation);
 								currentStep = null;
 							}
-							if(areaName != null && areaFeatureCount == 0) {
-								throw new TextImportException($"Line {x+1}: Area defined with no features.");
+							if(capabilityName != null && capabilityFeatureCount == 0) {
+								throw new TextImportException($"Line {x+1}: Capability defined with no features.");
 							}
-							areaFeatureCount = 0;
-							areaName = currentLineContent;
+							capabilityFeatureCount = 0;
+							capabilityName = currentLineContent;
 						break;
-						case LineType.AreaExplanation:
-							areaExplanation.AppendLine(currentLineContent);
+						case LineType.CapabilityExplanation:
+							capabilityExplanation.AppendLine(currentLineContent);
 						break;
 						case LineType.FeatureExplanation:
 							featureExplanation.AppendLine(currentLineContent);
@@ -688,27 +688,27 @@ namespace xBDD.Importing.Text
 								case FeatureStatementType.AsA:
 									asAStatement = this.GetFeatureStatement(currentLineContent, currentFeatureStatementType);
 								break;
+								case FeatureStatementType.SoThat:
+									soThatStatement = this.GetFeatureStatement(currentLineContent, currentFeatureStatementType);
+								break;
 								case FeatureStatementType.YouCan:
 									youCanStatement = this.GetFeatureStatement(currentLineContent, currentFeatureStatementType);
-								break;
-								case FeatureStatementType.By:
-									byStatement = this.GetFeatureStatement(currentLineContent, currentFeatureStatementType);
 								break;
 							}
 						break;
 						case LineType.Feature:
-							areaFeatureCount++;
+							capabilityFeatureCount++;
 							if(scenarioName != null) {
 								if(featureScenarioCount == 0) {
 									throw new TextImportException($"Line {x}: Feature defined with no scenarios.");
 								}
 								scenarioBuilder = this.AddScenario(
-									areaName, 
+									capabilityName, 
 									featureName, 
 									scenarioName, 
 									asAStatement, 
+									soThatStatement, 
 									youCanStatement, 
-									byStatement, 
 									scenarioExplanation.ToString(),
 									TextFormat.markdown, 
 									featureExplanation.ToString(),
@@ -724,18 +724,18 @@ namespace xBDD.Importing.Text
 							this.scenarioCount = 0;
 							featureScenarioCount = 0;
 							featureName = currentLineContent;
-							this.featureNames.Add($"{rootNamespace}.{areaName.ConvertAreaNameToNamespace()}.{featureName.ConvertFeatureNameToClassName()}");
+							this.featureNames.Add($"{rootNamespace}.{capabilityName.ConvertCapabilityNameToNamespace()}.{featureName.ConvertFeatureNameToClassName()}");
 						break;
 						case LineType.Scenario:
 							featureScenarioCount++;
 							if(scenarioName != null) {
 								scenarioBuilder = this.AddScenario(
-									areaName, 
+									capabilityName, 
 									featureName, 
 									scenarioName, 
 									asAStatement, 
+									soThatStatement, 
 									youCanStatement, 
-									byStatement, 
 									scenarioExplanation.ToString(),
 									TextFormat.markdown, 
 									featureExplanation.ToString(),
@@ -753,12 +753,12 @@ namespace xBDD.Importing.Text
 						case LineType.Step:
 							if(scenarioName != null) {
 								scenarioBuilder = this.AddScenario(
-									areaName, 
+									capabilityName, 
 									featureName, 
 									scenarioName, 
 									asAStatement, 
+									soThatStatement, 
 									youCanStatement, 
-									byStatement, 
 									scenarioExplanation.ToString(),
 									TextFormat.markdown, 
 									featureExplanation.ToString(),
@@ -798,12 +798,12 @@ namespace xBDD.Importing.Text
 			this.ValidateFollowingLine(LineType.LastLine, currentLineType, lines.Length, "");
 			if(scenarioName != null) {
 				scenarioBuilder = this.AddScenario(
-					areaName, 
+					capabilityName, 
 					featureName, 
 					scenarioName, 
 					asAStatement, 
+					soThatStatement, 
 					youCanStatement, 
-					byStatement, 
 					scenarioExplanation.ToString(),
 					TextFormat.markdown, 
 					featureExplanation.ToString(),

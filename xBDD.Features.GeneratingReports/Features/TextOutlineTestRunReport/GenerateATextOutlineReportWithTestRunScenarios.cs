@@ -32,14 +32,14 @@ namespace xBDD.Features.GeneratingReports.TextOutlineTestRunReport
 		}
 
 		[TestMethod]
-		public async Task WithNoAreas()
+		public async Task WithNoCapabilities()
 		{
 			await xB.AddScenario(this, 4000)
 				.Skip("Untested", Assert.Inconclusive);
 		}
 
 		[TestMethod]
-		public async Task WithAreas()
+		public async Task WithCapabilities()
 		{
 			await xB.AddScenario(this, 5000)
 				.Skip("Untested", Assert.Inconclusive);

@@ -1,33 +1,33 @@
-
 namespace xBDD
 {
 
 	/// <summary>
-	/// Defines the reason for a feature.
-	/// Should be set on the test class that executes the test methods which are the scenarios.
+	/// Captures the capability statement for a feature.
+	/// This attribute should be added to the test class for a feature.
 	/// </summary>
 	[System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple = false)]
 	public class YouCanAttribute : System.Attribute
 	{
-		string benefitStatement;
-			
+		string capabilityStatement;
+		
 		/// <summary>
-		/// Sets the reason for a feature.
+		/// Sets the capability statement for a feature.
 		/// </summary>
-		/// <param name="benefitStatement">The </param>
-		public YouCanAttribute(string benefitStatement)
+		/// <param name="capabilityStatement">
+		/// Single statement that captures the capability that a feature provides.
+		/// </param>
+		public YouCanAttribute(string capabilityStatement)
 		{
-			this.benefitStatement = benefitStatement;
+			this.capabilityStatement = capabilityStatement;
 		}
 	
 		/// <summary>
-		/// Returns the statement that captures the benefit
-		/// of the feature.
+		/// Gets the capability statement for a feature.
 		/// </summary>
-		/// <returns>Benefit statement.</returns>
-		public string GetBenefitStatement()
+		/// <returns>Capability statement.</returns>
+		public string GetCapabilityStatement()
 		{
-			return benefitStatement;
+			return capabilityStatement;
 		}
 	}
 }

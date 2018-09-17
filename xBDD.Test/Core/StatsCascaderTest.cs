@@ -33,14 +33,14 @@ namespace xBDD.Test
             var tr = await TestRunSetup.BuildTestRun(failingStepIds);
             var statsOverrides = new Dictionary<string, OutcomeStats>();
 
-            statsOverrides.Add("testrun-areas", new OutcomeStats() {Total = 3, Passed = 2, Skipped = 0, Failed = 1});
+            statsOverrides.Add("testrun-capabilities", new OutcomeStats() {Total = 3, Passed = 2, Skipped = 0, Failed = 1});
             statsOverrides.Add("testrun-features", new OutcomeStats() {Total = 9, Passed = 8, Skipped = 0, Failed = 1});
             statsOverrides.Add("testrun-scenarios", new OutcomeStats() {Total = 27, Passed = 26, Skipped = 0, Failed = 1});
             statsOverrides.Add("testrun-steps", new OutcomeStats() {Total = 81, Passed = 78, Skipped = 2, Failed = 1});
 
-            statsOverrides.Add("area 1-features", new OutcomeStats() {Total = 3, Passed = 2, Skipped = 0, Failed = 1});
-            statsOverrides.Add("area 1-scenarios", new OutcomeStats() {Total = 9, Passed = 8, Skipped = 0, Failed = 1});
-            statsOverrides.Add("area 1-steps", new OutcomeStats() {Total = 27, Passed = 24, Skipped = 2, Failed = 1});
+            statsOverrides.Add("capability 1-features", new OutcomeStats() {Total = 3, Passed = 2, Skipped = 0, Failed = 1});
+            statsOverrides.Add("capability 1-scenarios", new OutcomeStats() {Total = 9, Passed = 8, Skipped = 0, Failed = 1});
+            statsOverrides.Add("capability 1-steps", new OutcomeStats() {Total = 27, Passed = 24, Skipped = 2, Failed = 1});
 
             statsOverrides.Add("feature 1 1-scenarios", new OutcomeStats() {Total = 3, Passed = 2, Skipped = 0, Failed = 1});
             statsOverrides.Add("feature 1 1-steps", new OutcomeStats() {Total = 9, Passed = 6, Skipped = 2, Failed = 1});
@@ -49,7 +49,7 @@ namespace xBDD.Test
 
             var outcomeOverrides = new Dictionary<string, Outcome>();
             outcomeOverrides.Add("testrun", Outcome.Failed);
-            outcomeOverrides.Add("area 1", Outcome.Failed);
+            outcomeOverrides.Add("capability 1", Outcome.Failed);
             outcomeOverrides.Add("feature 1 1", Outcome.Failed);
             outcomeOverrides.Add("scenario 1 1 1", Outcome.Failed);
             outcomeOverrides.Add("step-1-1-1-1", Outcome.Failed);
@@ -81,11 +81,11 @@ namespace xBDD.Test
             }
             Assert.AreEqual(tr.Outcome, testRunOutcome);
             
-            var testRunAreaStats = this.CopyStats(defaultLevel1);
-            if(statsOverrides.ContainsKey("testrun-areas")) {
-                testRunAreaStats = statsOverrides["testrun-areas"];
+            var testRunCapabilityStats = this.CopyStats(defaultLevel1);
+            if(statsOverrides.ContainsKey("testrun-capabilities")) {
+                testRunCapabilityStats = statsOverrides["testrun-capabilities"];
             }
-            this.ValidateStats(tr.AreaStats, testRunAreaStats);
+            this.ValidateStats(tr.CapabilityStats, testRunCapabilityStats);
             
             var testRunFeatureStats = this.CopyStats(defaultLevel2);
             if(statsOverrides.ContainsKey("testrun-features")) {
@@ -105,38 +105,38 @@ namespace xBDD.Test
             }
             this.ValidateStats(tr.StepStats, testRunStepStats);
             
-            tr.Areas.ForEach(area => {
-                this.ValidateArea(area, statsOverrides, outcomeOverrides);
+            tr.Capabilities.ForEach(capability => {
+                this.ValidateCapability(capability, statsOverrides, outcomeOverrides);
             });
         }
 
-        public void ValidateArea(Area area, Dictionary<string, OutcomeStats> statsOverrides, Dictionary<string, Outcome> outcomeOverrides)
+        public void ValidateCapability(Capability capability, Dictionary<string, OutcomeStats> statsOverrides, Dictionary<string, Outcome> outcomeOverrides)
         {
-            var areaOutcome = Outcome.Passed;
-            if(outcomeOverrides.ContainsKey(area.Name)) {
-                areaOutcome = outcomeOverrides[area.Name];
+            var capabilityOutcome = Outcome.Passed;
+            if(outcomeOverrides.ContainsKey(capability.Name)) {
+                capabilityOutcome = outcomeOverrides[capability.Name];
             }
-            Assert.AreEqual(area.Outcome, areaOutcome);
+            Assert.AreEqual(capability.Outcome, capabilityOutcome);
 
-            var areaFeatureStats = this.CopyStats(defaultLevel1);
-            if(statsOverrides.ContainsKey($"{area.Name}-features")) {
-                areaFeatureStats = statsOverrides[$"{area.Name}-features"];
+            var capabilityFeatureStats = this.CopyStats(defaultLevel1);
+            if(statsOverrides.ContainsKey($"{capability.Name}-features")) {
+                capabilityFeatureStats = statsOverrides[$"{capability.Name}-features"];
             }
-            this.ValidateStats(area.FeatureStats, areaFeatureStats);
+            this.ValidateStats(capability.FeatureStats, capabilityFeatureStats);
             
-            var areaScenarioStats = this.CopyStats(defaultLevel2);
-            if(statsOverrides.ContainsKey($"{area.Name}-scenarios")) {
-                areaScenarioStats = statsOverrides[$"{area.Name}-scenarios"];
+            var capabilityScenarioStats = this.CopyStats(defaultLevel2);
+            if(statsOverrides.ContainsKey($"{capability.Name}-scenarios")) {
+                capabilityScenarioStats = statsOverrides[$"{capability.Name}-scenarios"];
             }
-            this.ValidateStats(area.ScenarioStats, areaScenarioStats);
+            this.ValidateStats(capability.ScenarioStats, capabilityScenarioStats);
             
-            var areaStepStats = this.CopyStats(defaultLevel3);
-            if(statsOverrides.ContainsKey($"{area.Name}-steps")) {
-                areaStepStats = statsOverrides[$"{area.Name}-steps"];
+            var capabilityStepStats = this.CopyStats(defaultLevel3);
+            if(statsOverrides.ContainsKey($"{capability.Name}-steps")) {
+                capabilityStepStats = statsOverrides[$"{capability.Name}-steps"];
             }
-            this.ValidateStats(area.StepStats, areaStepStats);
+            this.ValidateStats(capability.StepStats, capabilityStepStats);
             
-            area.Features.ForEach(feature => {
+            capability.Features.ForEach(feature => {
                 this.ValidateFeature(feature, statsOverrides, outcomeOverrides);
             });
         }

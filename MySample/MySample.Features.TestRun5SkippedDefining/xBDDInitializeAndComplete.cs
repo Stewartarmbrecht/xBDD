@@ -18,21 +18,21 @@ namespace MySample.Features.TestRun5SkippedDefining
 		public static void TestRunComplete()
 		{
 			var features = new List<string>() {
-				typeof(MySample.Features.TestRun5SkippedDefining.Area1Passing.Feature1Passing).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area2SkippedUntested.Feature1Passing).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area2SkippedUntested.Feature2SkippedUntested).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area3SkippedCommitted.Feature1Passing).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area3SkippedCommitted.Feature2SkippedUntested).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area3SkippedCommitted.Feature3SkippedCommitted).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area4SkippedReady.Feature1Passing).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area4SkippedReady.Feature2SkippedUntested).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area4SkippedReady.Feature3SkippedCommitted).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area4SkippedReady.Feature4SkippedReady).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area5SkippedDefining.Feature1Passing).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area5SkippedDefining.Feature2SkippedUntested).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area5SkippedDefining.Feature3SkippedCommitted).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area5SkippedDefining.Feature4SkippedReady).FullName,
-				typeof(MySample.Features.TestRun5SkippedDefining.Area5SkippedDefining.Feature5SkippedDefining).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability1Passing.Feature1Passing).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability2SkippedUntested.Feature1Passing).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability2SkippedUntested.Feature2SkippedUntested).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability3SkippedCommitted.Feature1Passing).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability3SkippedCommitted.Feature2SkippedUntested).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability3SkippedCommitted.Feature3SkippedCommitted).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability4SkippedReady.Feature1Passing).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability4SkippedReady.Feature2SkippedUntested).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability4SkippedReady.Feature3SkippedCommitted).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability4SkippedReady.Feature4SkippedReady).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability5SkippedDefining.Feature1Passing).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability5SkippedDefining.Feature2SkippedUntested).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability5SkippedDefining.Feature3SkippedCommitted).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability5SkippedDefining.Feature4SkippedReady).FullName,
+				typeof(MySample.Features.TestRun5SkippedDefining.Capability5SkippedDefining.Feature5SkippedDefining).FullName,
 			};
 			xB.Complete("xBDDConfig.json", features, (message) => { Logger.LogMessage(message); });
 		}

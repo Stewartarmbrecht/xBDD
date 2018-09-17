@@ -40,7 +40,7 @@ namespace xBDD.Reporting.Html
         }
         private string GetNavBarOptions() {
             return $@"
-	                            <a class=""nav-item nav-link active"" href=""javascript: $('ol.features').collapse('show');"" id=""expand-all-areas-button"">Expand All Areas <span class=""sr-only"">(current)</span></a>".RemoveIndentation(4, true);
+	                            <a class=""nav-item nav-link active"" href=""javascript: $('ol.features').collapse('show');"" id=""expand-all-capabilities-button"">Expand All Capabilities <span class=""sr-only"">(current)</span></a>".RemoveIndentation(4, true);
 
         }
     }

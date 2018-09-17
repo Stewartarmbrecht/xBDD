@@ -18,8 +18,8 @@ namespace xBDD.Utility
         string className;
         string methodName;
         string asAAttribute;
+        string soThatAttribute;
         string youCanAttribute;
-        string byAttribute;
 		string scenarioExplanation;
 		TextFormat scenarioExplanationFormat;
 		string featureExplanation;
@@ -44,8 +44,8 @@ namespace xBDD.Utility
         /// <param name="className">The class name for the feature.</param>
         /// <param name="methodName">The method name for the scenario that is called by the testing framework.</param>
         /// <param name="asAAttribute">The value of the As A attribute on the feature.</param>
+        /// <param name="soThatAttribute">The value of the So That attribute on the feature.</param>
         /// <param name="youCanAttribute">The value of the You Can attribute on the feature.</param>
-        /// <param name="byAttribute">The value of the By attribute on the feature.</param>
         /// <param name="scenarioExplanation">Explanation for the scenario. Can be text, html, markdown, or any language supported by Google's prettyprint.</param>
         /// <param name="scenarioExplanationFormat">The format of the scenario explanation.</param>
         /// <param name="featureExplanation">Explanation for the feature. Can be text, html, markdown, or any language supported by Google's prettyprint.</param>
@@ -59,8 +59,8 @@ namespace xBDD.Utility
 			string className, 
 			string methodName, 
 			string asAAttribute, 
-			string youCanAttribute, 
-			string byAttribute,
+			string soThatAttribute, 
+			string youCanAttribute,
 			string scenarioExplanation,
 			TextFormat scenarioExplanationFormat,
 			string featureExplanation,
@@ -74,8 +74,8 @@ namespace xBDD.Utility
             this.className = className;
             this.methodName = methodName;
             this.asAAttribute = asAAttribute;
+            this.soThatAttribute = soThatAttribute;
             this.youCanAttribute = youCanAttribute;
-            this.byAttribute = byAttribute;
 			this.scenarioExplanation = scenarioExplanation;
 			this.scenarioExplanationFormat = scenarioExplanationFormat;
 			this.featureExplanation = featureExplanation;
@@ -118,25 +118,7 @@ namespace xBDD.Utility
             return text;
         }
 
-        internal string GetFeatureActorAction()
-        {
-            string text = null;
-            if(this.byAttribute != null) {
-                text = this.byAttribute;
-            } else if(methodBase != null){
-                var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<ByAttribute>();
-                if(attr != null)
-                    text = attr.GetCapabilityStatement();
-				if(text == null) {
-	                var gattr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<Generated_ByAttribute>();
-					if(gattr != null)
-						text = gattr.GetCapabilityStatement();
-				}
-            }
-            return text;
-        }
-
-        internal string GetFeatureActorValue()
+        internal string GetFeatureYouCanStatement()
         {
             string text = null;
             if(this.youCanAttribute != null) {
@@ -144,17 +126,35 @@ namespace xBDD.Utility
             } else if(methodBase != null){
                 var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<YouCanAttribute>();
                 if(attr != null)
-                    text = attr.GetBenefitStatement();
+                    text = attr.GetCapabilityStatement();
 				if(text == null) {
 	                var gattr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<Generated_YouCanAttribute>();
 					if(gattr != null)
-						text = gattr.GetBenefitStatement();
+						text = gattr.GetCapabilityStatement();
 				}
             }
             return text;
         }
 
-        internal string GetFeatureActorName()
+        internal string GetFeatureSoThatStatement()
+        {
+            string text = null;
+            if(this.soThatAttribute != null) {
+                text = this.soThatAttribute;
+            } else if(methodBase != null){
+                var attr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<SoThatAttribute>();
+                if(attr != null)
+                    text = attr.GetBenefitStatement();
+				if(text == null) {
+	                var gattr = methodBase.DeclaringType.GetTypeInfo().GetCustomAttribute<Generated_SoThatAttribute>();
+					if(gattr != null)
+						text = gattr.GetSoThatStatement();
+				}
+            }
+            return text;
+        }
+
+        internal string GetFeatureAsAStatement()
         {
             string text = null;
             if(this.asAAttribute != null) {
@@ -336,9 +336,9 @@ namespace xBDD.Utility
         {
             string text = null;
             if(this.namespaceName != null) {
-                text = this.namespaceName.ConvertNamespaceToAreaName();            
+                text = this.namespaceName.ConvertNamespaceToCapabilityName();            
             } else if(methodBase != null){
-                text = methodBase.DeclaringType.Namespace.ConvertNamespaceToAreaName();
+                text = methodBase.DeclaringType.Namespace.ConvertNamespaceToCapabilityName();
             }
             return text;
         }

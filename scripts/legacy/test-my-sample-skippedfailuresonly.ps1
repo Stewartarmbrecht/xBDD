@@ -1,4 +1,4 @@
-$Env:xBDD:HtmlReport:RemoveFromAreaNameStart="My Sample - Features - "
+$Env:xBDD:HtmlReport:RemoveFromCapabilityNameStart="My Sample - Features - "
 $Env:xBDD:HtmlReport:FailuresOnly="true"
 $Env:xBDD:SortTestRun="true"
 $Env:xBDD:FullySortTestRun="false"
@@ -7,5 +7,5 @@ $Env:xBDD:JsonReport:FileName="MySample.Features.Results.SkippedFailuresOnly.jso
 $Env:xBDD:TextReport:FileName="MySample.Features.Results.SkippedFailuresOnly.txt"
 $Env:xBDD:OutlineReport:FileName="MySample.Features.Results.SkippedFailuresOnly.opml"
 
-dotnet test ./../MySample.Features/MySample.Features.csproj -v n --no-build --filter MyArea_2 `
+dotnet test ./../MySample.Features/MySample.Features.csproj -v n --no-build --filter MyCapability_2 `
 | Out-File -FilePath ./../MySample.Features/test-results/MySample.Features.Results.SkippedFailuresOnly.Output.txt

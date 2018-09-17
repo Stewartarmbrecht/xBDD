@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<outline text="My Sample - Features - Test Run 3 Skipped Committed - Area 1 Passing [Passed]">
+<outline text="My Sample - Features - Test Run 3 Skipped Committed - Capability 1 Passing [Passed]">
 	<outline text="Feature 1 Passing [Passed]">
 		<outline text="Scenario 1 Passing [Passed]">
 			<outline text="Given Step 1 Passing"/>
@@ -12,7 +12,7 @@
 			<outline text="Then Step 3 Passing"/>
 		</outline>
 </outline>
-<outline text="My Sample - Features - Test Run 3 Skipped Committed - Area 2 Skipped Untested [Untested]">
+<outline text="My Sample - Features - Test Run 3 Skipped Committed - Capability 2 Skipped Untested [Untested]">
 		<outline text="Scenario 1 Passing [Passed]">
 			<outline text="Given Step 1 Passing"/>
 			<outline text="When Step 2 Passing"/>
@@ -29,7 +29,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="My Sample - Features - Test Run 3 Skipped Committed - Area 3 Skipped Committed [Committed]">
+<outline text="My Sample - Features - Test Run 3 Skipped Committed - Capability 3 Skipped Committed [Committed]">
 	<outline text="Feature 1 Passing [Passed]">
 		<outline text="Scenario 1 Passing [Passed]">
 			<outline text="Given Step 1 Passing"/>

@@ -49,15 +49,15 @@ HTML Summary Report - Review Test Summary Information
 		With Some Skipped and Some Failing #R-Committed
 		With All Skipped #R-Committed
 		With All Failing #R-Committed
-		With No Areas #R-Committed
-	Review test summary area status distribution @Stewart
+		With No Capabilities #R-Committed
+	Review test summary capability status distribution @Stewart
 		With All Passing #R-Committed
 		With Some Skipped #R-Committed
 		With Some Failing #R-Committed
 		With Some Skipped and Some Failing #R-Committed
 		With All Skipped #R-Committed
 		With All Failing #R-Committed
-		With No Areas #R-Committed
+		With No Capabilities #R-Committed
 	Review test summary feature status distribution
 		With All Passing #R-Committed
 		With Some Skipped #R-Committed
@@ -81,15 +81,15 @@ HTML Summary Report - Review Test Summary Information
 		With Some Skipped and Some Failing #R-Committed
 		With All Skipped #R-Committed
 		With All Failing #R-Committed
-		With No Areas #R-Committed
-	Review test summary area status statistics
+		With No Capabilities #R-Committed
+	Review test summary capability status statistics
 		With All Passing #R-Committed
 		With Some Skipped #R-Committed
 		With Some Failing #R-Committed
 		With Some Skipped and Some Failing #R-Committed
 		With All Skipped #R-Committed
 		With All Failing #R-Committed
-		With No Areas #R-Committed
+		With No Capabilities #R-Committed
 	Review test summary feature status statistics
 		With All Passing #R-Committed
 		With Some Skipped #R-Committed
@@ -106,10 +106,10 @@ HTML Summary Report - Review Test Summary Information
 		With All Skipped #R-Committed
 		With All Failing #R-Committed
 		With No Scenarios #R-Committed
-	Review test summary areas
-		Expanding Areas #R-Committed
-		Collapsing Areas #R-Committed
-		With No Areas #R-Committed
+	Review test summary capabilities
+		Expanding Capabilities #R-Committed
+		Collapsing Capabilities #R-Committed
+		With No Capabilities #R-Committed
 HTML Summary Report - Review Test Run Information
 	Review test run name
 		With Name #R-Committed
@@ -227,14 +227,14 @@ HTML Test Run Report - Review Test Run Information
 		With Passing Status #R-Untested
 		With Some Skipped Status #R-Untested
 		With Some Failing Status #R-Untested
-	Review test run area status distribution @Stewart
+	Review test run capability status distribution @Stewart
 		With All Passing #R-Untested
 		With Some Skipped #R-Untested
 		With Some Failing #R-Untested
 		With Some Skipped and Some Failing #R-Untested
 		With All Skipped #R-Untested
 		With All Failing #R-Untested
-		With No Areas #R-Untested
+		With No Capabilities #R-Untested
 	Review test run feature status distribution
 		With All Passing #R-Untested
 		With Some Skipped #R-Untested
@@ -251,14 +251,14 @@ HTML Test Run Report - Review Test Run Information
 		With All Skipped #R-Untested
 		With All Failing #R-Untested
 		With No Scenarios #R-Untested
-	Review test run area status statistics
+	Review test run capability status statistics
 		With All Passing #R-Untested
 		With Some Skipped #R-Untested
 		With Some Failing #R-Untested
 		With Some Skipped and Some Failing #R-Untested
 		With All Skipped #R-Untested
 		With All Failing #R-Untested
-		With No Areas #R-Untested
+		With No Capabilities #R-Untested
 	Review test run feature status statistics
 		With All Passing #R-Untested
 		With Some Skipped #R-Untested
@@ -275,19 +275,19 @@ HTML Test Run Report - Review Test Run Information
 		With All Skipped #R-Untested
 		With All Failing #R-Untested
 		With No Scenarios #R-Untested
-	Review test run areas
-		Expanding Areas #R-Untested
-		Collapsing Areas #R-Untested
-		With No Areas #R-Untested
-HTML Test Run Report - Review Area Information
-	Review area name
+	Review test run capabilities
+		Expanding Capabilities #R-Untested
+		Collapsing Capabilities #R-Untested
+		With No Capabilities #R-Untested
+HTML Test Run Report - Review Capability Information
+	Review capability name
 		With Name #R-Untested
 		With No Name #R-Untested
-	Review area status
+	Review capability status
 		With Passing Status #R-Untested
 		With Some Skipped Status #R-Untested
 		With Some Failing Status #R-Untested
-	Review area feature status distribution
+	Review capability feature status distribution
 		With All Passing #R-Untested
 		With Some Skipped #R-Untested
 		With Some Failing #R-Untested
@@ -295,7 +295,7 @@ HTML Test Run Report - Review Area Information
 		With All Skipped #R-Untested
 		With All Failing #R-Untested
 		With No Features #R-Untested
-	Review area scenario status distribution
+	Review capability scenario status distribution
 		With All Passing #R-Untested
 		With Some Skipped #R-Untested
 		With Some Failing #R-Untested
@@ -303,7 +303,7 @@ HTML Test Run Report - Review Area Information
 		With All Skipped #R-Untested
 		With All Failing #R-Untested
 		With No Scenarios #R-Untested
-	Review area feature status statistics
+	Review capability feature status statistics
 		Expanding #R-Untested
 		Collapsing #R-Untested
 		With All Passing #R-Untested
@@ -313,7 +313,7 @@ HTML Test Run Report - Review Area Information
 		With All Skipped #R-Untested
 		With All Failing #R-Untested
 		With No Features #R-Untested
-	Review area scenario status statistics
+	Review capability scenario status statistics
 		Expanding #R-Untested
 		Collapsing #R-Untested
 		With All Passing #R-Untested
@@ -323,11 +323,11 @@ HTML Test Run Report - Review Area Information
 		With All Skipped #R-Untested
 		With All Failing #R-Untested
 		With No Scenarios #R-Untested
-	Review area explanation
+	Review capability explanation
 		Expanding explanation #R-Untested
 		Collapsing explanation #R-Untested
 		Without explanation #R-Untested
-	Review area features
+	Review capability features
 		Expanding features #R-Untested
 		Collapsing features #R-Untested
 		Without features #R-Untested
@@ -432,13 +432,13 @@ JSON Test Run Report
 		With Full Test Run #R-Untested #R-Untested
 		With No Test Run Name #R-Untested #R-Untested
 		With Test Run Explanation Empty #R-Defining
-		With No Areas #R-Untested #R-Untested
-		With Areas #R-Untested #R-Untested
-	Generate a Json Report with Area Scenarios
-		With Full Area #R-Untested
-		With Area Name Clipping #R-Untested
-		With Area Name Empty #R-Untested
-		With Area Explanation Empty #R-Defining
+		With No Capabilities #R-Untested #R-Untested
+		With Capabilities #R-Untested #R-Untested
+	Generate a Json Report with Capability Scenarios
+		With Full Capability #R-Untested
+		With Capability Name Clipping #R-Untested
+		With Capability Name Empty #R-Untested
+		With Capability Explanation Empty #R-Defining
 		With No Features #R-Untested
 		With Features #R-Untested
 	Generate a Json Report with Feature Scenarios
@@ -473,13 +473,13 @@ Outline Test Run Report
 		With Full Test Run #R-Untested
 		With No Test Run Name #R-Untested
 		With Test Run Explanation Empty #R-Defining
-		With No Areas #R-Untested
-		With Areas #R-Untested
-	Generate an Outline Report with Area Scenarios
-		With Full Area #R-Untested
-		With Area Name Clipping #R-Untested
-		With Area Name Empty #R-Untested
-		With Area Explanation Empty #R-Defining
+		With No Capabilities #R-Untested
+		With Capabilities #R-Untested
+	Generate an Outline Report with Capability Scenarios
+		With Full Capability #R-Untested
+		With Capability Name Clipping #R-Untested
+		With Capability Name Empty #R-Untested
+		With Capability Explanation Empty #R-Defining
 		With No Features #R-Untested
 		With Features #R-Untested
 	Generate an Outline Report with Feature Scenarios
@@ -514,13 +514,13 @@ Text Test Run Report
 		With Full Test Run #R-Untested
 		With No Test Run Name #R-Untested
 		With Test Run Explanation Empty #R-Defining
-		With No Areas #R-Untested
-		With Areas #R-Untested
-	Generate a Text Report with Area Scenarios
-		With Full Area #R-Untested
-		With Area Name Clipping
-		With Area Name Empty #R-Untested
-		With Area Explanation Empty #R-Defining
+		With No Capabilities #R-Untested
+		With Capabilities #R-Untested
+	Generate a Text Report with Capability Scenarios
+		With Full Capability #R-Untested
+		With Capability Name Clipping
+		With Capability Name Empty #R-Untested
+		With Capability Explanation Empty #R-Defining
 		With No Features #R-Untested
 		With Features #R-Untested
 	Generate a Text Report with Feature Scenarios
@@ -555,13 +555,13 @@ Text Outline Test Run Report
 		With Full Test Run #R-Untested
 		With No Test Run Name #R-Untested
 		With Test Run Explanation Empty #R-Defining
-		With No Areas #R-Untested
-		With Areas #R-Untested
-	Generate a Text Outline Report with Area Scenarios
-		With Full Area #R-Untested
-		With Area Name Clipping #R-Untested
-		With Area Name Empty #R-Untested
-		With Area Explanation Empty #R-Defining
+		With No Capabilities #R-Untested
+		With Capabilities #R-Untested
+	Generate a Text Outline Report with Capability Scenarios
+		With Full Capability #R-Untested
+		With Capability Name Clipping #R-Untested
+		With Capability Name Empty #R-Untested
+		With Capability Explanation Empty #R-Defining
 		With No Features #R-Untested
 		With Features #R-Untested
 	Generate a Text Outline Report with Feature Scenarios

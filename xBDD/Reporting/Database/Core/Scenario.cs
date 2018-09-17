@@ -11,7 +11,7 @@ namespace xBDD.Reporting.Database.Core
         internal virtual TestRun TestRun { get; set; }
         internal string Name { get; set; }
         internal string FeatureName { get; set; }
-        internal string AreaPath { get; set; }
+        internal string CapabilityPath { get; set; }
         internal Outcome Outcome { get; set; }
         internal string Reason { get; set; }
         internal DateTime StartTime { get; set; }

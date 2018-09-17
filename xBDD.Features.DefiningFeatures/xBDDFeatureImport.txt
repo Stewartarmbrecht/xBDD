@@ -35,8 +35,8 @@ Defining Features
 	Overriding a feature name
 		When adding a scenario #R-Untested
 		Via an attribute #R-Untested
-Defining Areas
-	Overriding an area name
+Defining Capabilities
+	Overriding an capability name
 		When creating a scenario #R-Untested
 		For a single feature via attribute #R-Untested
 		For a namespace #R-Untested
@@ -75,7 +75,7 @@ Adding Estimates
 		Placeholder #R-Defining
 	Setting a feature level of effort estimate
 		Placeholder #R-Defining
-	Setting a area estimates using a placeholder feature
+	Setting a capability estimates using a placeholder feature
 		Placeholder #R-Defining
 Adding Tags
 	Adding tags to a scenario
@@ -84,7 +84,7 @@ Adding Tags
 	Adding tags to a feature
 		In code #R-Untested
 		Via an attribute #R-Untested
-	Adding tags to an area
+	Adding tags to an capability
 		Via code #R-Defining
 		Via an assembly attribute #R-Defining
 	Adding tags to a test run
@@ -104,7 +104,7 @@ Adding Explanations
 		Via an attribute with a file reference #R-Defining
 		Using plain text #R-Untested
 		Using markdown #R-Untested
-	Adding an explanation to an area
+	Adding an explanation to an capability
 		Via an attribute with inline text #R-Defining
 		Via an attribute with a file reference #R-Defining
 		Using plain text #R-Defining

@@ -69,7 +69,7 @@ namespace xBDD.Reporting.Html
 							/* Child Lists */
 
 							ol.testruns {{ margin: 1rem 0rem 1rem 0rem; }}
-							ol.areas {{ margin: 1rem 0rem 1rem 0rem; }}
+							ol.capabilities {{ margin: 1rem 0rem 1rem 0rem; }}
 							ol.features {{ margin: 0rem 0rem 1rem 0rem; }}
 							ol.scenarios {{ margin: 0rem 0rem 1rem 0rem; }}
 							ol.steps {{ margin: 0rem 0rem 1rem 0rem;}}
@@ -78,7 +78,7 @@ namespace xBDD.Reporting.Html
 
 							li.header {{ margin: 1rem 0rem 0rem 0rem; padding: 1rem 0rem 0rem 0rem; }}
 							li.testrun {{ margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }}
-							li.area {{ margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }}
+							li.capability {{ margin: .75rem 0rem 0rem 0rem; border-top: rgb(183, 207, 248) solid 1px; padding: .75rem 0rem 0rem 0rem; }}
 							li.feature {{ margin: 0rem 0rem 0rem 0rem; }}
 							li.scenario {{ margin: 0rem 0rem 0rem 0rem; }}
 							li.step {{ margin: 0rem 0rem 0rem 0rem; }}
@@ -88,7 +88,7 @@ namespace xBDD.Reporting.Html
 							div.badge-distro {{ display: inline-block; vertical-align: middle; }}
 							div.badge-distro.header {{ width: 6rem; height: 2rem; }}
 							div.badge-distro.testrun {{ width: 6rem; height: 2rem; }}
-							div.badge-distro.area {{ width: 6rem; height: 2rem; }}
+							div.badge-distro.capability {{ width: 6rem; height: 2rem; }}
 							div.badge-distro.feature {{ width: 6rem; height: 2rem; }}
 							div.badge-distro.scenario {{ width: 6rem; height: 1.5rem; }}
 							div.badge-distro.step {{ width: 6rem; height: 1rem; }}
@@ -101,7 +101,7 @@ namespace xBDD.Reporting.Html
 							div.badge.label {{ width: 100%; height: 100%; vertical-align: middle; }}
 							div.header.badge {{ width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }}
 							div.badge.testrun {{ width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem; }}
-							div.badge.area {{ width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }}
+							div.badge.capability {{ width: 4.5rem; height: 2rem; position: absolute; font-size: 1.25rem;  }}
 							div.badge.feature {{ width: 3rem; margin-left: 1.5rem; height: 1.75rem; position: absolute; font-size: 1rem;  }}
 							div.badge.scenario {{ width: 2rem; margin-left: 4rem; position: inherit; }}
 							div.badge.step {{ width: 1rem; margin-left: 5rem; position: inherit; height: 1rem; }}
@@ -114,7 +114,7 @@ namespace xBDD.Reporting.Html
 							div.distro {{ display: inline-block; border: 1px solid white; }}
 							div.distro.header {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
 							div.distro.testrun {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
-							div.distro.area {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
+							div.distro.capability {{ width: 3rem; height: 2rem; margin-left: 3rem; }}
 							div.distro.feature {{ width: 3rem; height: 1.75rem; margin-left: 3rem; }}
 
 							div.badge.feature-statement-link {{ position: inherit; width: 1.5rem; height: 1.5rem; vertical-align: top; }}
@@ -127,7 +127,7 @@ namespace xBDD.Reporting.Html
 							span.name.header {{ font-size: 2rem; font-weight: 400; margin-left: .75rem; }}
 							span.name.testrun {{ font-size: 2rem; font-weight: 400; margin-left: .75rem; }}
 							a.name.testrun {{ font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }}
-							span.name.area {{ font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }}
+							span.name.capability {{ font-size: 1.5rem; font-weight: 400; color: rgb(68,114,198); }}
 							span.name.feature {{ font-size: 1.25rem; font-weight: 400; color: rgb(68,114,198); }}
 							span.name.scenario {{ font-size: 1.125rem; font-weight: 400; vertical-align: middle; font-style: italic; color: rgb(68,114,198); }}
 							span.name.step {{ font-size: 1rem;  font-weight: 400; }}
@@ -153,8 +153,8 @@ namespace xBDD.Reporting.Html
 							div.distro-corner-br.header {{ margin-top: 1.32rem; }}
 							div.distro-corner-tr.testrun {{ margin-top: .05rem; }}
 							div.distro-corner-br.testrun {{ margin-top: 1.32rem; }}
-							div.distro-corner-tr.area {{ margin-top: .05rem; }}
-							div.distro-corner-br.area {{ margin-top: 1.32rem; }}
+							div.distro-corner-tr.capability {{ margin-top: .05rem; }}
+							div.distro-corner-br.capability {{ margin-top: 1.32rem; }}
 							div.distro-corner-tr.feature {{ margin-top: .06rem; }}
 							div.distro-corner-br.feature {{ margin-top: 1.1rem; }}
 
@@ -290,7 +290,7 @@ namespace xBDD.Reporting.Html
 					<div class=""col"">
 						<div class=""{lineItemType} name"">".RemoveIndentation(4));
 			var name = lineItem.Name;
-			if(lineItemType == "area" || lineItemType == "testrun") {
+			if(lineItemType == "capability" || lineItemType == "testrun") {
 				name = name.Replace(config.RootNameSkip, "");
 			}
 			if(lineItem.FilePath != null) {
@@ -394,7 +394,7 @@ namespace xBDD.Reporting.Html
 			sb.AppendLine($@"
 				<div class=""col-2 badges"">".RemoveIndentation(4,true));
 
-			if(lineItemType == "testrun" || lineItemType == "area" || lineItemType == "feature" || lineItemType == "header") {
+			if(lineItemType == "testrun" || lineItemType == "capability" || lineItemType == "feature" || lineItemType == "header") {
 				sb.AppendLine($@"
 					<div class=""{lineItemType} badge-distro""
 						id=""{lineItemType}-{this.lineItemNumber}-badge-distro""

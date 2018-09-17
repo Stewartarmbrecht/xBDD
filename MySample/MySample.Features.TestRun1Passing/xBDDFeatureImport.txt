@@ -1,12 +1,12 @@
-Area 1 Passing With All Features Exercised
+Capability 1 Passing With All Features Exercised
 	Explanation
-		# Area 1 Explanation
-		This is my area 1 explanation.
+		# Capability 1 Explanation
+		This is my capability 1 explanation.
 	Feature 1 Passing @FeatureAssignment1 @FeatureAssignment2 #T-FeatureTag1 #T-FeatureTag2
 		Statement
 			As a User
-			You can derive some value
-			By doing something
+			So that you derive some value
+			You can doing something
 		Explanation
 			# Feature 1 Explanation
 			This is my feature 1 explanation.

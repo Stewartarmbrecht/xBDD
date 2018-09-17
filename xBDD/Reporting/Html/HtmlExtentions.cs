@@ -24,7 +24,7 @@ namespace xBDD
 		internal static HtmlReportLineItem GetHtmlReportLineItem(this xBDD.Model.TestRunGroup testRunGroup, bool includeChildren) {
 			var li = new HtmlReportLineItem();
 			li.ChildItems = new List<HtmlReportLineItem>();
-			li.ChildStats = testRunGroup.AreaStats;
+			li.ChildStats = testRunGroup.CapabilityStats;
 			li.ChildTypeName = "testruns";
 			li.EndTime = testRunGroup.EndTime;
 			li.StartTime = testRunGroup.StartTime;
@@ -32,8 +32,8 @@ namespace xBDD
 			li.Outcome = testRunGroup.Outcome;
 			li.Reason = testRunGroup.Reason;
 			Dictionary<string, Dictionary<string,int>> testRunReasonStatistics = new Dictionary<string, Dictionary<string, int>>();
-			testRunReasonStatistics.Add("Test Runs", testRunGroup.AreaReasonStats);
-			testRunReasonStatistics.Add("Areas", testRunGroup.AreaReasonStats);
+			testRunReasonStatistics.Add("Test Runs", testRunGroup.CapabilityReasonStats);
+			testRunReasonStatistics.Add("Capabilities", testRunGroup.CapabilityReasonStats);
 			testRunReasonStatistics.Add("Features", testRunGroup.FeatureReasonStats);
 			testRunReasonStatistics.Add("Scenarios", testRunGroup.ScenarioReasonStats);
 			li.ReasonStats = testRunReasonStatistics;
@@ -48,8 +48,8 @@ namespace xBDD
 		internal static HtmlReportLineItem GetHtmlReportLineItem(this xBDD.Model.TestRun testRun, bool includeChildren) {
 			var li = new HtmlReportLineItem();
 			li.ChildItems = new List<HtmlReportLineItem>();
-			li.ChildStats = testRun.AreaStats;
-			li.ChildTypeName = "areas";
+			li.ChildStats = testRun.CapabilityStats;
+			li.ChildTypeName = "capabilities";
 			li.EndTime = testRun.EndTime;
 			li.StartTime = testRun.StartTime;
 			li.Name = testRun.Name.HtmlEncode();
@@ -57,35 +57,35 @@ namespace xBDD
 			li.Reason = testRun.Reason;
 			li.FilePath = testRun.FilePath;
 			Dictionary<string, Dictionary<string,int>> testRunReasonStatistics = new Dictionary<string, Dictionary<string, int>>();
-			testRunReasonStatistics.Add("Areas", testRun.AreaReasonStats);
+			testRunReasonStatistics.Add("Capabilities", testRun.CapabilityReasonStats);
 			testRunReasonStatistics.Add("Features", testRun.FeatureReasonStats);
 			testRunReasonStatistics.Add("Scenarios", testRun.ScenarioReasonStats);
 			li.ReasonStats = testRunReasonStatistics;
 			li.TypeName = "testrun";
 			if(includeChildren) {
-				var areas = testRun.Areas.SelectMany(x => x.Features).OrderBy(x => x.Sort).Select(x => x.Area).Distinct().ToList();
-				foreach(var area in areas) {
-					li.ChildItems.Add(area.GetHtmlReportLineItem());
+				var capabilities = testRun.Capabilities.SelectMany(x => x.Features).OrderBy(x => x.Sort).Select(x => x.Capability).Distinct().ToList();
+				foreach(var capability in capabilities) {
+					li.ChildItems.Add(capability.GetHtmlReportLineItem());
 				}
 			}
 			return li;
 		}
-		internal static HtmlReportLineItem GetHtmlReportLineItem(this xBDD.Model.Area area) {
+		internal static HtmlReportLineItem GetHtmlReportLineItem(this xBDD.Model.Capability capability) {
 			var li = new HtmlReportLineItem();
 			li.ChildItems = new List<HtmlReportLineItem>();
-			li.ChildStats = area.FeatureStats;
+			li.ChildStats = capability.FeatureStats;
 			li.ChildTypeName = "features";
-			li.EndTime = area.EndTime;
-			li.StartTime = area.StartTime;
-			li.Name = area.Name.HtmlEncode();
-			li.Outcome = area.Outcome;
-			li.Reason = area.Reason;
+			li.EndTime = capability.EndTime;
+			li.StartTime = capability.StartTime;
+			li.Name = capability.Name.HtmlEncode();
+			li.Outcome = capability.Outcome;
+			li.Reason = capability.Reason;
 			Dictionary<string, Dictionary<string,int>> reasonStats = new Dictionary<string, Dictionary<string, int>>();
-			reasonStats.Add("Features", area.FeatureReasonStats);
-			reasonStats.Add("Scenarios", area.ScenarioReasonStats);
+			reasonStats.Add("Features", capability.FeatureReasonStats);
+			reasonStats.Add("Scenarios", capability.ScenarioReasonStats);
 			li.ReasonStats = reasonStats;
-			li.TypeName = "area";
-			var features = area.Features.OrderBy(feature => feature.Sort).ToList();
+			li.TypeName = "capability";
+			var features = capability.Features.OrderBy(feature => feature.Sort).ToList();
 			foreach(var feature in features) {
 				li.ChildItems.Add(feature.GetHtmlReportLineItem());
 			}
@@ -111,12 +111,12 @@ namespace xBDD
 			foreach(var scenario in scenarios) {
 				li.ChildItems.Add(scenario.GetHtmlReportLineItem());
 			}
-			if(feature.Actor != null || feature.Capability != null || feature.Value != null) {
+			if(feature.AsA != null || feature.Capability != null || feature.SoThat != null) {
 				var nl = System.Environment.NewLine;
 				li.Statement = $@"
-					<strong>As a</strong> {(feature.Actor != null ? feature.Actor : "[Missing Name!]")}<br/>
-					<strong>You can</strong> {(feature.Value != null ? feature.Value : "[Missing Value!]")}<br/>
-					<strong>By</strong> {(feature.Capability != null ? feature.Capability : "[Missing Capability!]")}".RemoveIndentation(5, true);
+					<strong>As a</strong> {(feature.AsA != null ? feature.AsA : "[Missing Name!]")}<br/>
+					<strong>You can </strong> {(feature.YouCan != null ? feature.YouCan : "[Missing Capability!]")}
+					<strong>So that </strong> {(feature.SoThat != null ? feature.SoThat : "[Missing Value!]")}<br/>".RemoveIndentation(5, true);
 			}
 			li.Explanation = feature.Explanation;
 			li.ExplanationFormat = feature.ExplanationFormat;

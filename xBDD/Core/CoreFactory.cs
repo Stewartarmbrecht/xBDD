@@ -25,12 +25,12 @@ namespace xBDD.Core
             {
                 Name = name,
                 TestRunStats = new OutcomeStats(),
-                AreaStats = new OutcomeStats(),
+                CapabilityStats = new OutcomeStats(),
                 FeatureStats = new OutcomeStats(),
                 ScenarioStats = new OutcomeStats(),
                 StepStats = new OutcomeStats(),
                 TestRunReasonStats = new Dictionary<string, int>(),
-                AreaReasonStats = new Dictionary<string, int>(),
+                CapabilityReasonStats = new Dictionary<string, int>(),
                 FeatureReasonStats = new Dictionary<string, int>(),
                 ScenarioReasonStats = new Dictionary<string, int>(),
             };
@@ -41,19 +41,19 @@ namespace xBDD.Core
             return new TestRun()
             {
                 Name = name,
-                AreaStats = new OutcomeStats(),
+                CapabilityStats = new OutcomeStats(),
                 FeatureStats = new OutcomeStats(),
                 ScenarioStats = new OutcomeStats(),
                 StepStats = new OutcomeStats(),
-                AreaReasonStats = new Dictionary<string, int>(),
+                CapabilityReasonStats = new Dictionary<string, int>(),
                 FeatureReasonStats = new Dictionary<string, int>(),
                 ScenarioReasonStats = new Dictionary<string, int>(),
             };
         }
 
-        internal Area CreateArea(string name, TestRun testRun)
+        internal Capability CreateCapability(string name, TestRun testRun)
         {
-            var area = new Area()
+            var capability = new Capability()
             {
                 Name = name,
                 TestRun = testRun,
@@ -63,20 +63,20 @@ namespace xBDD.Core
                 FeatureReasonStats = new Dictionary<string, int>(),
                 ScenarioReasonStats = new Dictionary<string, int>(),
             };
-            testRun.Areas.Add(area);
-            return area;
+            testRun.Capabilities.Add(capability);
+            return capability;
         }
-        internal Feature CreateFeature(string name, Area area)
+        internal Feature CreateFeature(string name, Capability capability)
         {
             var feature = new Feature()
             {
                 Name = name, 
-                Area = area,
+                Capability = capability,
                 ScenarioStats = new OutcomeStats(),
                 StepStats = new OutcomeStats(),
                 ScenarioReasonStats = new Dictionary<string, int>(),
             };
-            area.Features.Add(feature);
+            capability.Features.Add(feature);
             return feature;
         }
 
@@ -155,9 +155,9 @@ namespace xBDD.Core
             return new ScenarioBuilder(scenarioName, feature, this, methodName, explanation, explanationFormat, assignments, tags, sortOrder);
         }
 
-        internal AreaCache CreateAreaCache()
+        internal CapabilityCache CreateCapabilityCache()
         {
-            return new AreaCache(this);
+            return new CapabilityCache(this);
         }
 
         internal FeatureCache CreateFeatureCache()

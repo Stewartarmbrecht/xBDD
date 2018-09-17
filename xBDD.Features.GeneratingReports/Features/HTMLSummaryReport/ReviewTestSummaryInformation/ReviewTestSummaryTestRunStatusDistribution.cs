@@ -54,7 +54,7 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.ReviewTestSummaryInf
 		}
 
 		[TestMethod]
-		public async Task WithNoAreas()
+		public async Task WithNoCapabilities()
 		{
 			await xB.AddScenario(this, 7000)
 				.Skip("Committed", Assert.Inconclusive);

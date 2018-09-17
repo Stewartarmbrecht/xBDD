@@ -7,17 +7,17 @@ namespace xBDD
 	/// Should be set on the test class that executes the test methods which are the scenarios.
 	/// </summary>
 	[System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple = false)]
-	public class Generated_YouCanAttribute : System.Attribute
+	public class Generated_SoThatAttribute : System.Attribute
 	{
-		string benefitStatement;
+		string soThatStatement;
 			
 		/// <summary>
 		/// Sets the reason for a feature.
 		/// </summary>
-		/// <param name="benefitStatement">The </param>
-		public Generated_YouCanAttribute(string benefitStatement)
+		/// <param name="soThatStatement">The </param>
+		public Generated_SoThatAttribute(string soThatStatement)
 		{
-			this.benefitStatement = benefitStatement;
+			this.soThatStatement = soThatStatement;
 		}
 	
 		/// <summary>
@@ -25,9 +25,9 @@ namespace xBDD
 		/// of the feature.
 		/// </summary>
 		/// <returns>Benefit statement.</returns>
-		public string GetBenefitStatement()
+		public string GetSoThatStatement()
 		{
-			return benefitStatement;
+			return soThatStatement;
 		}
 	}
 }

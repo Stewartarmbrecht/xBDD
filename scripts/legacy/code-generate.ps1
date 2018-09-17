@@ -21,7 +21,7 @@ dotnet xbdd convert `
 --destination-format code `
 --root-namespace "$ProjectRoot.Features.$ProjectNamespace" `
 --features-only False `
---area-name-skip "$ProjectRootName - Features - $ProjectName - " `
+--capability-name-skip "$ProjectRootName - Features - $ProjectName - " `
 --testrun-name "$ProjectRootName $ProjectName"
 
 dotnet test

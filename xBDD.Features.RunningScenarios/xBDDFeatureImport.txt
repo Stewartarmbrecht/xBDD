@@ -2,7 +2,7 @@ Initial Setup
 	Running MSTest Project Scenarios
 		Running all scenarios #R-Untested
 		Running scenarios filtered by MSTest test cateogry #R-Untested
-		Running scenarios filtered by area name #R-Untested
+		Running scenarios filtered by capability name #R-Untested
 		Running scenarios filtered by feature name #R-Untested
 		Running scenarios filtered by scenario name #R-Untested
 		Running scenarios filtered by assignment #R-Defining

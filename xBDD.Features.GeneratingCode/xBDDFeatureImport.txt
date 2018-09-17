@@ -18,10 +18,10 @@
       - 5. **xBDDFeatureBase.xbdd.cs** - This is the base class you should use for creating features. It is not required but if you inherit from this class you will not need to implement the iFeature interface or manually inject an iOutputWriter into each scenario.  The output writer is used by xBDD to write output to the testing framework during execution.  This helps with printing out scenario and exception details when a step fails.  When scenarios run in a test class that implements the iFeature interface, the output writer is automatically injected into the scenario when it is run.  Without implementing the iFeature interface, you need to explicity set the output writer for each scenario.  The xBDDFeatureBase class implements both the iFeature and iOutputWriter interface so that all you need to do is inherit from this class and all scenarios will automatically log details to the underlying testing framework (MSTest).
       - 6. **xBDDFeatureSort.cs** - This class is used to create a sorted list of features names that can be passed to a test run object to sort the scenarios prior to running a report.  This class is only written once by the framework.  If it already exists it will not be overwritten.
       - 7. **xBDDFeatureSort.xbdd.cs** - This class is a duplicate of the `xBDDFeatureSort.cs` class and is recreated each time you generate code.  It is created so that you can copy missing features into the `xBDDFeatureSort.cs` class. 
-      - 8. **xBDDReasonSort.cs** - This class is used to cascade the reasons up from scenarios, to features, to areas, to the test run.  The sort order controls the order of precedence from least to most.  For example if two features have reasons A and B and the ReasonSort places A before B then the parent area for both features will have a reason of B.
+      - 8. **xBDDReasonSort.cs** - This class is used to cascade the reasons up from scenarios, to features, to capabilities, to the test run.  The sort order controls the order of precedence from least to most.  For example if two features have reasons A and B and the ReasonSort places A before B then the parent capability for both features will have a reason of B.
       - 9. **xBDDReasonSort.xbdd.cs** - This class is a duplicate of the `xBDDReasonSort.cs` class and is recreated each time you generate code.  It is created so that you can copy missing reasons into the `xBDDFeatureSort.cs` class. 
-      - 10. **xBDDFeatureImport.txt** - A text document that you can use to outline the areas, features, scenarios, and steps to import into the project.  This document can use either tabs or spaces for indentation as long as it is consistent.  You can also paste the text format for Workflowy outlines into this file and the dashes will be automatically removed.
-      - 11. **Features/MySampleArea/MySampleFeature.cs** - A sample feature for the project to execute.
+      - 10. **xBDDFeatureImport.txt** - A text document that you can use to outline the capabilities, features, scenarios, and steps to import into the project.  This document can use either tabs or spaces for indentation as long as it is consistent.  You can also paste the text format for Workflowy outlines into this file and the dashes will be automatically removed.
+      - 11. **Features/MySampleCapability/MySampleFeature.cs** - A sample feature for the project to execute.
       - 
       - ## Standard Reports
       - 
@@ -53,7 +53,7 @@
       - .And(you.WillFindAFile(at.MySample_Generated.xBddReasonSort_cs.FilePath, thatMatches.MySample_Generated.xBddReasonSort_cs.Template)
       - .And(you.WillFindAFile(at.MySample_Generated.xBddReasonSort_xbdd_cs.FilePath, thatMatches.MySample_Generated.xBddReasonSort_xbdd_cs.Template)
       - .And(you.WillFindAFile(at.MySample_Generated.xBddBacklog_txt.FilePath, thatMatches.MySample_Generated.xBddBacklog_txt.Template)
-      - .And(you.WillFindAFile(at.MySample_Generated.Features.MySampleArea.MySampleFeature_xbdd_cs.FilePath, thatMatches.MySample_Generated.Features.MySampleArea.MySampleFeature_xbdd_cs.Template)
+      - .And(you.WillFindAFile(at.MySample_Generated.Features.MySampleCapability.MySampleFeature_xbdd_cs.FilePath, thatMatches.MySample_Generated.Features.MySampleCapability.MySampleFeature_xbdd_cs.Template)
       - .And(you.WillFindTheProjectExecutesTests())
         - Explanation
           - Run the tests by executing the `dotnet test` command.
@@ -94,15 +94,15 @@
           - dotnet xbdd project generate MSTest --testrun-name "My Sample Test Run"
       - .Then(you.WillFindAFile(at.MySample_Generated.xBddConfig_json.FilePath, thatMatches.MySample_Generated.xBddConfigWithTestRunName.template)
       - .And(you.WillFindAFile(at.MySample_Generated.xBddConfig_xbdd_json.FilePath, thatMatches.MySample_Generated.xBddConfigWithTestRunName.template)
-    - With Area Name Clipping #R-Committed @Stewart
+    - With Capability Name Clipping #R-Committed @Stewart
       - Explanation
-        - You can specify the value of 'remove from area name' setting in the `xBDDConfig.json` file through a `--remove-from-area-name` option for the xbdd command.  The default value is the name of the project folder with '.' replaced by ' - '.
+        - You can specify the value of 'remove from capability name' setting in the `xBDDConfig.json` file through a `--remove-from-capability-name` option for the xbdd command.  The default value is the name of the project folder with '.' replaced by ' - '.
       - .Given(you.HaveAnEmptyProjectDirectory())
       - .When(you.RunTheCommand())
         - Input
-          - dotnet xbdd project generate MSTest --remove-from-area-name "My Sample - Generated - Features - "
-      - .Then(you.WillFindAFile(at.MySample_Generated.xBddConfig_json, thatMatches.MySampleGeneratedProject.xBddConfigWithRemoveFromAreaName.template)
-      - .Then(you.WillFindAFile(at.MySample_Generated.xBddConfig_xbdd_json, thatMatches.MySampleGeneratedProject.xBddConfigWithRemoveFromAreaName.template)
+          - dotnet xbdd project generate MSTest --remove-from-capability-name "My Sample - Generated - Features - "
+      - .Then(you.WillFindAFile(at.MySample_Generated.xBddConfig_json, thatMatches.MySampleGeneratedProject.xBddConfigWithRemoveFromCapabilityName.template)
+      - .Then(you.WillFindAFile(at.MySample_Generated.xBddConfig_xbdd_json, thatMatches.MySampleGeneratedProject.xBddConfigWithRemoveFromCapabilityName.template)
 - Generating Feature Files
   - Generate MS Test Feature Files From A Valid Feature Import File
     - With An Empty Scenario #Defining
@@ -121,12 +121,12 @@
     - With An Existing Feature #Defining
     - With A Feature Explanation #Defining
     - With A Feature With Trailing Spaces #Defining
-    - With An Area With Trailing Spaces #Defining
+    - With An Capability With Trailing Spaces #Defining
     - With Ignored Feature Tags #Defining
-    - With Ignored Area Tags #Defining
+    - With Ignored Capability Tags #Defining
     - With a Workflowy Text Export #Defining
   - Generate MS Test Feature Files From An Invalid Feature Import File
-    - With No Areas AKA Empty #Defining
+    - With No Capabilities AKA Empty #Defining
     - With No Features #Defining
     - With No Scenarios #Defining
     - With A Step With No Name #Defining
@@ -138,9 +138,9 @@
     - With A Feature With No Name #Defining
     - With A Feature With Invalid Characters In The Name #Defining
     - With A Feature With An Invalid Child Line #Defining
-    - With An Area With No Name #Defining
-    - With An Area With Invalid Characters In The Name #Defining
-    - With An Area With An Invalid Child Line #Defining
+    - With An Capability With No Name #Defining
+    - With An Capability With Invalid Characters In The Name #Defining
+    - With An Capability With An Invalid Child Line #Defining
     - With A Duplicate Feature #Defining
     - With A Duplicate Scenario #Defining
 - Generating Solution Files
@@ -157,8 +157,8 @@
       - .And(you.WillFindStandardProjectFiles(at.TestRun4SkippedReady))
       - .And(you.WillFindStandardProjectFiles(at.TestRun5SkippedDefining))
       - .And(you.WillFindStandardProjectFiles(at.TestRun6Failed))
-      - .And(you.WillFindAFeatureFile(for.TestRun6Failed.Area6.Feature6Failed.FilePath, thatMatches.TestRun6Failed.Area6Failed.Feature6Failed.FileContent)
-      - .And(you.WillNotFindAFeatureFile(for.TestRun2SkippedCommitted.Area1.Feature1Passed.File))
+      - .And(you.WillFindAFeatureFile(for.TestRun6Failed.Capability6.Feature6Failed.FilePath, thatMatches.TestRun6Failed.Capability6Failed.Feature6Failed.FileContent)
+      - .And(you.WillNotFindAFeatureFile(for.TestRun2SkippedCommitted.Capability1.Feature1Passed.File))
     - With No Projects #Defining
       - .Given(you.HaveAnEmptySolutionFolder())
       - .And(you.CopyInABacklog(that.HasNoProjects))

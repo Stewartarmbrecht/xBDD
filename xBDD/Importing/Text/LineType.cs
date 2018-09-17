@@ -5,7 +5,7 @@ namespace xBDD.Importing.Text
         Unknown,
         LastLine,
         Empty,
-        Area,
+        Capability,
         Feature,
         Scenario,
         Step,
@@ -17,8 +17,8 @@ namespace xBDD.Importing.Text
 		FeatureExplanation,
 		StepExplanationHeader,
 		StepExplanation,
-		AreaExplanationHeader,
-		AreaExplanation,
+		CapabilityExplanationHeader,
+		CapabilityExplanation,
         StepInputHeader,
         StepInput
     }

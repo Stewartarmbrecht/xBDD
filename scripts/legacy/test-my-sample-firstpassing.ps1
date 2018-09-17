@@ -1,4 +1,4 @@
-$Env:xBDD:HtmlReport:RemoveFromAreaNameStart="My Sample - Features - "
+$Env:xBDD:HtmlReport:RemoveFromCapabilityNameStart="My Sample - Features - "
 $Env:xBDD:SortTestRun="true"
 $Env:xBDD:FullySortTestRun="false"
 $Env:xBDD:HtmlReport:FileName="MySample.Features.Results.FirstPassing.html"

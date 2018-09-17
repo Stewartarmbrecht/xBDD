@@ -59,21 +59,21 @@ namespace xBDD.Test
             xB.CurrentRun.TestRun.UpdateParentReasonsAndStats(reasons);
             var statsOverrides = new Dictionary<string, Dictionary<string, int>>();
 
-            statsOverrides.Add("Testrun-areas", new Dictionary<string, int>() {
+            statsOverrides.Add("Testrun-capabilities", new Dictionary<string, int>() {
                 {"Defining",1},{"Ready",1}});
             statsOverrides.Add("Testrun-features", new Dictionary<string, int>() {
                 {"Building",1},{"Untested",2},{"Ready",2},{"Defining",1}});
             statsOverrides.Add("Testrun-scenarios", new Dictionary<string, int>() {
                 {"Building",2},{"Untested",3},{"Ready",3},{"Defining",1}});
 
-            statsOverrides.Add("Area 01-features", new Dictionary<string, int>() {
+            statsOverrides.Add("Capability 01-features", new Dictionary<string, int>() {
                 {"Untested",1},{"Ready",1},{"Defining",1}});
-            statsOverrides.Add("Area 01-scenarios", new Dictionary<string, int>() {
+            statsOverrides.Add("Capability 01-scenarios", new Dictionary<string, int>() {
                 {"Building",1},{"Untested",2},{"Ready",2},{"Defining",1}});
 
-            statsOverrides.Add("Area 02-features", new Dictionary<string, int>() {
+            statsOverrides.Add("Capability 02-features", new Dictionary<string, int>() {
                 {"Building",1},{"Untested",1},{"Ready",1}});
-            statsOverrides.Add("Area 02-scenarios", new Dictionary<string, int>() {
+            statsOverrides.Add("Capability 02-scenarios", new Dictionary<string, int>() {
                 {"Building",1},{"Untested",1},{"Ready",1}});
 
             statsOverrides.Add("Feature 0101-scenarios", new Dictionary<string, int>() {
@@ -92,8 +92,8 @@ namespace xBDD.Test
 
             var outcomeOverrides = new Dictionary<string, string>();
             outcomeOverrides.Add("Testrun", "Defining");
-            outcomeOverrides.Add("Area 01", "Defining");
-            outcomeOverrides.Add("Area 02", "Ready");
+            outcomeOverrides.Add("Capability 01", "Defining");
+            outcomeOverrides.Add("Capability 02", "Ready");
             outcomeOverrides.Add("Feature 0101", "Untested");
             outcomeOverrides.Add("Feature 0102", "Ready");
             outcomeOverrides.Add("Feature 0103", "Defining");
@@ -139,11 +139,11 @@ namespace xBDD.Test
             }
             Assert.AreEqual(tr.Reason, testRunReason);
             
-            var testRunAreaStats = new Dictionary<string, int>();
-            if(statsOverrides.ContainsKey("Testrun-areas")) {
-                testRunAreaStats = statsOverrides["Testrun-areas"];
+            var testRunCapabilityStats = new Dictionary<string, int>();
+            if(statsOverrides.ContainsKey("Testrun-capabilities")) {
+                testRunCapabilityStats = statsOverrides["Testrun-capabilities"];
             }
-            this.ValidateStats(tr.AreaReasonStats, testRunAreaStats);
+            this.ValidateStats(tr.CapabilityReasonStats, testRunCapabilityStats);
             
             var testRunFeatureStats = new Dictionary<string, int>();
             if(statsOverrides.ContainsKey("Testrun-features")) {
@@ -157,32 +157,32 @@ namespace xBDD.Test
             }
             this.ValidateStats(tr.ScenarioReasonStats, testRunScenarioStats);
             
-            tr.Areas.ForEach(area => {
-                this.ValidateArea(area, statsOverrides, reasonOverrides);
+            tr.Capabilities.ForEach(capability => {
+                this.ValidateCapability(capability, statsOverrides, reasonOverrides);
             });
         }
 
-        public void ValidateArea(Area area, Dictionary<string, Dictionary<string, int>> statsOverrides, Dictionary<string, string> reasonOverrides)
+        public void ValidateCapability(Capability capability, Dictionary<string, Dictionary<string, int>> statsOverrides, Dictionary<string, string> reasonOverrides)
         {
-            string areaReason = null;
-            if(reasonOverrides.ContainsKey(area.Name)) {
-                areaReason = reasonOverrides[area.Name];
+            string capabilityReason = null;
+            if(reasonOverrides.ContainsKey(capability.Name)) {
+                capabilityReason = reasonOverrides[capability.Name];
             }
-            Assert.AreEqual(area.Reason, areaReason);
+            Assert.AreEqual(capability.Reason, capabilityReason);
 
-            var areaFeatureStats = new Dictionary<string, int>();
-            if(statsOverrides.ContainsKey($"{area.Name}-features")) {
-                areaFeatureStats = statsOverrides[$"{area.Name}-features"];
+            var capabilityFeatureStats = new Dictionary<string, int>();
+            if(statsOverrides.ContainsKey($"{capability.Name}-features")) {
+                capabilityFeatureStats = statsOverrides[$"{capability.Name}-features"];
             }
-            this.ValidateStats(area.FeatureReasonStats, areaFeatureStats);
+            this.ValidateStats(capability.FeatureReasonStats, capabilityFeatureStats);
             
-            var areaScenarioStats = new Dictionary<string, int>();
-            if(statsOverrides.ContainsKey($"{area.Name}-scenarios")) {
-                areaScenarioStats = statsOverrides[$"{area.Name}-scenarios"];
+            var capabilityScenarioStats = new Dictionary<string, int>();
+            if(statsOverrides.ContainsKey($"{capability.Name}-scenarios")) {
+                capabilityScenarioStats = statsOverrides[$"{capability.Name}-scenarios"];
             }
-            this.ValidateStats(area.ScenarioReasonStats, areaScenarioStats);
+            this.ValidateStats(capability.ScenarioReasonStats, capabilityScenarioStats);
             
-            area.Features.ForEach(feature => {
+            capability.Features.ForEach(feature => {
                 this.ValidateFeature(feature, statsOverrides, reasonOverrides);
             });
         }

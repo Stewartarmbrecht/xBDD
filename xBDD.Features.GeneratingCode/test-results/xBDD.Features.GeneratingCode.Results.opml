@@ -69,7 +69,7 @@
 				<outline text="			"Watch": "false"" />
 				<outline text="		}," />
 				<outline text="		"HtmlReport": {" />
-				<outline text="			"RemoveFromAreaNameStart": "My Generated Sample - Features - "," />
+				<outline text="			"RemoveFromCapabilityNameStart": "My Generated Sample - Features - "," />
 				<outline text="			"FailuresOnly": "false"" />
 				<outline text="		}" />
 				<outline text="	}" />
@@ -95,7 +95,7 @@
 				<outline text="}" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template:">
-				<outline text="MyImportedArea1" />
+				<outline text="MyImportedCapability1" />
 				<outline text="	MyImportedFeature" />
 				<outline text="		MyImportedScenario #R-Ready" />
 				<outline text="			Given you have the xbdd tools installed" />
@@ -140,7 +140,7 @@
 				<outline text="	{" />
 				<outline text="		public List<string> GetSortedFeatureNames() {" />
 				<outline text="			return new List<string>() {" />
-				<outline text="				typeof(MyGeneratedSample.Features.MyArea.MyFeature).FullName," />
+				<outline text="				typeof(MyGeneratedSample.Features.MyCapability.MyFeature).FullName," />
 				<outline text="			};" />
 				<outline text="		}" />
 				<outline text="		public List<string> GetSortedReasons() {" />
@@ -166,7 +166,7 @@
 				<outline text="	{" />
 				<outline text="		public List<string> GetGeneratedSortedFeatureNames() {" />
 				<outline text="			return new List<string>() {" />
-				<outline text="				typeof(MyGeneratedSample.Features.MyArea.MyFeature).FullName," />
+				<outline text="				typeof(MyGeneratedSample.Features.MyCapability.MyFeature).FullName," />
 				<outline text="			};" />
 				<outline text="		}" />
 				<outline text="		public List<string> GetGeneratedReasons() {" />
@@ -181,8 +181,8 @@
 				<outline text="	}" />
 				<outline text="}" />
 			</outline>
-			<outline text="And you will find a file at './MyGeneratedSample.Features/Features/MyArea/MyFeature.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea" />
+			<outline text="And you will find a file at './MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -192,8 +192,8 @@
 				<outline text="" />
 				<outline text="	[TestClass]" />
 				<outline text="	[AsA("sample user")]" />
-				<outline text="	[YouCan("have my feature value")]" />
-				<outline text="	[By("execute my feature")]" />
+				<outline text="	[YouCan("execute my feature")]" />
+				<outline text="	[SoThat("you have my feature value")]" />
 				<outline text="	[Explanation(@"" />
 				<outline text="		# My Explanation" />
 				<outline text="		This is a" />
@@ -279,7 +279,7 @@
 				<outline text="MyGeneratedSample.Features/xBddConfig.json," />
 				<outline text="MyGeneratedSample.Features/xBddFeatureImport.txt," />
 				<outline text="MyGeneratedSample.Features/xBddInitializeAndComplete.cs," />
-				<outline text="MyGeneratedSample.Features/Features/MyArea/MyFeature.cs" />
+				<outline text="MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs" />
 			</outline>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
@@ -293,7 +293,7 @@
 				<outline text="MyGeneratedSample.Features/xBddConfig.json," />
 				<outline text="MyGeneratedSample.Features/xBddFeatureImport.txt," />
 				<outline text="MyGeneratedSample.Features/xBddInitializeAndComplete.cs," />
-				<outline text="MyGeneratedSample.Features/Features/MyArea/MyFeature.cs" />
+				<outline text="MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs" />
 			</outline>
 			<outline text="And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten">
 				<outline text="MyGeneratedSample.Features/MyGeneratedSample.Features.csproj," />
@@ -304,7 +304,7 @@
 				<outline text="MyGeneratedSample.Features/xBddConfig.json," />
 				<outline text="MyGeneratedSample.Features/xBddFeatureImport.txt," />
 				<outline text="MyGeneratedSample.Features/xBddInitializeAndComplete.cs," />
-				<outline text="MyGeneratedSample.Features/Features/MyArea/MyFeature.cs" />
+				<outline text="MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs" />
 			</outline>
 			<outline text="And you will find the sample feature file is not modified because the xbdd backlog file already exists">
 				<outline text="MyGeneratedSample.Features/MyGeneratedSample.Features.csproj," />
@@ -315,7 +315,7 @@
 				<outline text="MyGeneratedSample.Features/xBddConfig.json," />
 				<outline text="MyGeneratedSample.Features/xBddFeatureImport.txt," />
 				<outline text="MyGeneratedSample.Features/xBddInitializeAndComplete.cs," />
-				<outline text="MyGeneratedSample.Features/Features/MyArea/MyFeature.cs" />
+				<outline text="MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs" />
 			</outline>
 			<outline text="And you will find the project execute tests with the 'dotnet test' command">
 				<outline text="dotnet test" />
@@ -349,17 +349,17 @@
 				<outline text="			"Watch": "false"" />
 				<outline text="		}," />
 				<outline text="		"HtmlReport": {" />
-				<outline text="			"RemoveFromAreaNameStart": "My Generated Sample - Features - "," />
+				<outline text="			"RemoveFromCapabilityNameStart": "My Generated Sample - Features - "," />
 				<outline text="			"FailuresOnly": "false"" />
 				<outline text="		}" />
 				<outline text="	}" />
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Area Name Clipping [Passed]">
+		<outline text="With Capability Name Clipping [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="When you run the command:">
-				<outline text="dotnet xbdd project generate MSTest --remove-from-area-name Modified" />
+				<outline text="dotnet xbdd project generate MSTest --remove-from-capability-name Modified" />
 			</outline>
 			<outline text="And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:">
 				<outline text="{" />
@@ -369,7 +369,7 @@
 				<outline text="			"Watch": "false"" />
 				<outline text="		}," />
 				<outline text="		"HtmlReport": {" />
-				<outline text="			"RemoveFromAreaNameStart": "Modified"," />
+				<outline text="			"RemoveFromCapabilityNameStart": "Modified"," />
 				<outline text="			"FailuresOnly": "false"" />
 				<outline text="		}" />
 				<outline text="	}" />
@@ -378,12 +378,12 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Passed]">
+<outline text="xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Failed]">
 	<outline text="With An Invalid Outline [Passed]">
-		<outline text="With Invalid Characters In Area Name [Passed]">
+		<outline text="With Invalid Characters In Capability Name [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My $%^& Sub Area 1" />
+				<outline text="My Capability 1 - My $%^& Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -391,8 +391,8 @@
 				<outline text="	My Feature 1 #R-Committed @Stewart #T-LoveIT" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -417,9 +417,9 @@
 			</outline>
 			<outline text="Then you will see output matching the following template:">
 				<outline text="{{.*}}/rl" />
-				<outline text="Error: An area is defined with invalid characters in the name." />
-				<outline text="Line 1: 'My Area 1 - My $%^& Sub Area 1'" />
-				<outline text="Explanation: An area name must start with a letter and can only contain" />
+				<outline text="Error: An capability is defined with invalid characters in the name." />
+				<outline text="Line 1: 'My Capability 1 - My $%^& Sub Capability 1'" />
+				<outline text="Explanation: An capability name must start with a letter and can only contain" />
 				<outline text="             letters, numbers, spaces, underscores, and ' - '." />
 				<outline text="             The ' - ' string is converted to '.' to define the features " />
 				<outline text="             namespace in the test project." />
@@ -428,7 +428,7 @@
 		<outline text="With Invalid Characters In Feature Name [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -436,8 +436,8 @@
 				<outline text="	My $%^& Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -471,7 +471,7 @@
 		<outline text="With Invalid Characters In Scenario Name [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -479,8 +479,8 @@
 				<outline text="	My Feature 1 #R-Committed @Stewart #T-LoveIT" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -514,7 +514,7 @@
 		<outline text="With Empty Feature Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -522,8 +522,8 @@
 				<outline text="	" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -554,7 +554,7 @@
 		<outline text="With Empty Scenario Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -562,8 +562,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -594,7 +594,7 @@
 		<outline text="With Empty Step Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -602,8 +602,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -634,7 +634,7 @@
 		<outline text="With Step Input Header On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -642,8 +642,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -671,7 +671,7 @@
 		<outline text="With Step Explanation Header On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -679,8 +679,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -706,7 +706,7 @@
 		<outline text="With Scenario Explanation Header On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -714,8 +714,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -737,7 +737,7 @@
 		<outline text="With Feature Explanation On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -745,8 +745,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -765,7 +765,7 @@
 		<outline text="With Feature Explanation Header On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -773,8 +773,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 			</outline>
 			<outline text="When you run the command:">
@@ -791,7 +791,7 @@
 		<outline text="With Feature Statement On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -799,8 +799,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 			</outline>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
@@ -816,7 +816,7 @@
 		<outline text="With Feature Statement Header On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -838,7 +838,7 @@
 		<outline text="With Feature On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -856,10 +856,10 @@
 				<outline text="             'Explanation' header or indented 'Statement' header." />
 			</outline>
 		</outline>
-		<outline text="With Area Explanation On Last Line [Passed]">
+		<outline text="With Capability Explanation On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -869,16 +869,16 @@
 			</outline>
 			<outline text="Then you will see output matching the following template:">
 				<outline text="{{.*}}/rl" />
-				<outline text="Error: An invalid line of type 'No Line' is following an area explanation line." />
+				<outline text="Error: An invalid line of type 'No Line' is following an capability explanation line." />
 				<outline text="Line 4: ''" />
-				<outline text="Explanation: An area explanation line can only be followed by another explanation line " />
+				<outline text="Explanation: An capability explanation line can only be followed by another explanation line " />
 				<outline text="             or an outdented (2x) feature line." />
 			</outline>
 		</outline>
-		<outline text="With Area Explanation Header On Last Line [Passed]">
+		<outline text="With Capability Explanation Header On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 			</outline>
 			<outline text="When you run the command:">
@@ -886,25 +886,25 @@
 			</outline>
 			<outline text="Then you will see output matching the following template:">
 				<outline text="{{.*}}/rl" />
-				<outline text="Error: An invalid line of type 'No Line' is following an area explanation header line." />
+				<outline text="Error: An invalid line of type 'No Line' is following an capability explanation header line." />
 				<outline text="Line 2: ''" />
-				<outline text="Explanation: An area explanation header line can only be followed by an indented " />
+				<outline text="Explanation: An capability explanation header line can only be followed by an indented " />
 				<outline text="             explanation line." />
 			</outline>
 		</outline>
-		<outline text="With Area On Last Line [Passed]">
+		<outline text="With Capability On Last Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 			</outline>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
 			<outline text="Then you will see output matching the following template:">
 				<outline text="{{.*}}/rl" />
-				<outline text="Error: An invalid line of type 'No Line' is following an area line." />
+				<outline text="Error: An invalid line of type 'No Line' is following an capability line." />
 				<outline text="Line 1: ''" />
-				<outline text="Explanation: An area line can only be followed by an indented 'Explanation' header or " />
+				<outline text="Explanation: An capability line can only be followed by an indented 'Explanation' header or " />
 				<outline text="             indented Feature line." />
 			</outline>
 		</outline>
@@ -922,7 +922,7 @@
 		<outline text="With Invalid Line After Step Input Header [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -930,8 +930,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -962,7 +962,7 @@
 		<outline text="With Invalid Line After Step Explanation Header [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -970,8 +970,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -1003,7 +1003,7 @@
 		<outline text="With Invalid Line After Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -1011,8 +1011,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -1036,13 +1036,13 @@
 				<outline text="Line 20: '				Invalid Line'" />
 				<outline text="Explanation: A step line can only be followed by another step line or an indented " />
 				<outline text="             'Explanation' or 'Input' header line, or outdented scenario, feature, or " />
-				<outline text="             area." />
+				<outline text="             capability." />
 			</outline>
 		</outline>
 		<outline text="With Invalid Step Line After Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -1050,8 +1050,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -1080,7 +1080,7 @@
 		<outline text="With Invalid Line After Scenario Explanation Header [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -1088,8 +1088,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -1114,7 +1114,7 @@
 		<outline text="With Invalid Line After Scenario [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -1122,8 +1122,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -1149,7 +1149,7 @@
 		<outline text="With Invalid Indented Step Line After Scenario [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -1157,8 +1157,8 @@
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
 				<outline text="			feature explanation" />
@@ -1177,21 +1177,21 @@
 				<outline text="Line 16: '				Given step 1'" />
 				<outline text="Explanation: A scenario line can only be followed by another scenario line, an indented" />
 				<outline text="             'Explanation' header or indented step line, or an outdented feature or " />
-				<outline text="             area line." />
+				<outline text="             capability line." />
 			</outline>
 		</outline>
 		<outline text="With Invalid Line After Feature Explanation Header [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
 				<outline text="	My Feature 1" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can get some value" />
-				<outline text="			By doing something" />
+				<outline text="			So that you get some value" />
+				<outline text="			You can do something" />
 				<outline text="		Explanation" />
 				<outline text="		My Scenario 1" />
 			</outline>
@@ -1209,7 +1209,7 @@
 		<outline text="With Invalid Line After Feature Statement Header [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -1231,7 +1231,7 @@
 		<outline text="With Invalid Line After Feature [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="		Here is " />
 				<outline text="		my explanation" />
@@ -1250,10 +1250,10 @@
 				<outline text="             'Explanation' header or indented 'Statement' header." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Line After Area Explanation Header [Passed]">
+		<outline text="With Invalid Line After Capability Explanation Header [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	Explanation" />
 				<outline text="	My Feature 1" />
 			</outline>
@@ -1262,33 +1262,33 @@
 			</outline>
 			<outline text="Then you will see output matching the following template:">
 				<outline text="{{.*}}/rl" />
-				<outline text="Error: An invalid line of type 'Feature' is following an area explanation header line." />
+				<outline text="Error: An invalid line of type 'Feature' is following an capability explanation header line." />
 				<outline text="Line 3: '	My Feature 1'" />
-				<outline text="Explanation: An area explanation header line can only be followed by an indented " />
+				<outline text="Explanation: An capability explanation header line can only be followed by an indented " />
 				<outline text="             explanation line." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Line After Area [Passed]">
+		<outline text="With Invalid Line After Capability [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
-				<outline text="My Area 1 - My Sub Area 2" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
+				<outline text="My Capability 1 - My Sub Capability 2" />
 			</outline>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
 			<outline text="Then you will see output matching the following template:">
 				<outline text="{{.*}}/rl" />
-				<outline text="Error: An invalid line of type 'Area' is following an area line." />
-				<outline text="Line 2: 'My Area 1 - My Sub Area 2'" />
-				<outline text="Explanation: An area line can only be followed by an indented 'Explanation' header or " />
+				<outline text="Error: An invalid line of type 'Capability' is following an capability line." />
+				<outline text="Line 2: 'My Capability 1 - My Sub Capability 2'" />
+				<outline text="Explanation: An capability line can only be followed by an indented 'Explanation' header or " />
 				<outline text="             indented Feature line." />
 			</outline>
 		</outline>
-		<outline text="With Invalid Indented Line After Area [Passed]">
+		<outline text="With Invalid Indented Line After Capability [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="		Invalid Line" />
 			</outline>
 			<outline text="When you run the command:">
@@ -1296,26 +1296,26 @@
 			</outline>
 			<outline text="Then you will see output matching the following template:">
 				<outline text="{{.*}}/rl" />
-				<outline text="Error: An invalid line of type 'Scenario' is following an area line." />
+				<outline text="Error: An invalid line of type 'Scenario' is following an capability line." />
 				<outline text="Line 2: '		Invalid Line'" />
-				<outline text="Explanation: An area line can only be followed by an indented 'Explanation' header or " />
+				<outline text="Explanation: An capability line can only be followed by an indented 'Explanation' header or " />
 				<outline text="             indented Feature line." />
 			</outline>
 		</outline>
 	</outline>
-	<outline text="For An MS Test Project [Passed]">
+	<outline text="For An MS Test Project [Failed]">
 		<outline text="With An Empty Scenario [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 			</outline>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1341,7 +1341,7 @@
 		<outline text="With A Given Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1349,8 +1349,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1380,7 +1380,7 @@
 		<outline text="With A Given Step With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given "My" Step 1" />
@@ -1388,8 +1388,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1419,7 +1419,7 @@
 		<outline text="With A When Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1428,8 +1428,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1463,7 +1463,7 @@
 		<outline text="With A Then Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1473,8 +1473,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1512,7 +1512,7 @@
 		<outline text="With An And Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1523,8 +1523,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1566,7 +1566,7 @@
 		<outline text="With A Code Step [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1578,8 +1578,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1622,7 +1622,7 @@
 		<outline text="With A Step Input [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1633,8 +1633,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1668,7 +1668,7 @@
 		<outline text="With A Step Input With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1679,8 +1679,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1714,7 +1714,7 @@
 		<outline text="With A Step Input Single Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1724,8 +1724,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1757,7 +1757,7 @@
 		<outline text="With A Step Input Single Line With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1767,8 +1767,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1800,7 +1800,7 @@
 		<outline text="With A Step Explanation [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1811,8 +1811,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1847,7 +1847,7 @@
 		<outline text="With A Step Explanation With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1858,8 +1858,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1894,7 +1894,7 @@
 		<outline text="With A Step Explanation Single Line [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1904,8 +1904,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1938,7 +1938,7 @@
 		<outline text="With A Step Explanation Single Line With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -1948,8 +1948,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -1982,7 +1982,7 @@
 		<outline text="With A Step With Trailing Spaces [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1           " />
@@ -1990,8 +1990,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2021,7 +2021,7 @@
 		<outline text="With A Scenario Explanation [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Explanation" />
@@ -2033,8 +2033,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2068,7 +2068,7 @@
 		<outline text="With A Scenario Explanation With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Explanation" />
@@ -2080,8 +2080,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2115,7 +2115,7 @@
 		<outline text="With A Scenario With Trailing Spaces [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1          " />
 				<outline text="			Given Step 1" />
@@ -2123,8 +2123,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2154,7 +2154,7 @@
 		<outline text="With Scenario Reason Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1 #R-MyReason" />
 				<outline text="			Given Step 1" />
@@ -2162,8 +2162,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2193,7 +2193,7 @@
 		<outline text="With Duplicate Scenario Reason Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1 #R-MyReason1 #R-MyReason2" />
 				<outline text="			Given Step 1" />
@@ -2201,8 +2201,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2232,7 +2232,7 @@
 		<outline text="With Scenario Owner Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1 @MyOwner1 @MyOwner2" />
 				<outline text="			Given Step 1" />
@@ -2240,8 +2240,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2272,7 +2272,7 @@
 		<outline text="With Scenario General Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1 #T-MyTag1 #T-MyTag2" />
 				<outline text="			Given Step 1" />
@@ -2280,8 +2280,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2312,7 +2312,7 @@
 		<outline text="With An Existing Feature [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -2323,8 +2323,8 @@
 			<outline text="And you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2350,8 +2350,8 @@
 				<outline text="	}" />
 				<outline text="}" />
 			</outline>
-			<outline text="And you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.xbdd.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="And you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.xbdd.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2381,7 +2381,7 @@
 		<outline text="With A Feature Explanation [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
@@ -2393,8 +2393,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2428,7 +2428,7 @@
 		<outline text="With A Feature Explanation With Quotes [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		Explanation" />
 				<outline text="			Here is "my" " />
@@ -2440,8 +2440,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2472,10 +2472,10 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Feature Statement [Passed]">
+		<outline text="With A Feature Statement [Failed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		Explanation" />
 				<outline text="			Here is my " />
@@ -2483,16 +2483,16 @@
 				<outline text="			explanation" />
 				<outline text="		Statement" />
 				<outline text="			As a user" />
-				<outline text="			You can derive some value" />
-				<outline text="			By performing some action with the product" />
+				<outline text="			So that you derive some value" />
+				<outline text="			You can performing some action with the product" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
 			</outline>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2502,7 +2502,7 @@
 				<outline text="" />
 				<outline text="	[TestClass]" />
 				<outline text="	[AsA("user")]" />
-				<outline text="	[YouCan("derive some value")]" />
+				<outline text="	[SoThat("you can derive some value")]" />
 				<outline text="	[By("performing some action with the product")]" />
 				<outline text="	[Explanation(@"" />
 				<outline text="		Here is my " />
@@ -2529,7 +2529,7 @@
 		<outline text="With A Feature With Trailing Spaces [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1     " />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -2537,8 +2537,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2565,10 +2565,10 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With An Area With Trailing Spaces [Passed]">
+		<outline text="With A Capability With Trailing Spaces [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1     " />
+				<outline text="My Capability 1 - My Sub Capability 1     " />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -2576,8 +2576,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2607,7 +2607,7 @@
 		<outline text="With Ignored Feature Reason Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1 #R-IgnoredReasonTag" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -2615,8 +2615,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2646,7 +2646,7 @@
 		<outline text="With Feature General Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1 #T-MyFeatureTag #T-MyFeatureTag2" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -2654,8 +2654,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2686,7 +2686,7 @@
 		<outline text="With Feature Owner Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1 @MyFeatureOwner1 @MyFeatureOwner2" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -2694,8 +2694,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2723,10 +2723,10 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Ignored Area Tags [Passed]">
+		<outline text="With Ignored Capability Tags [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1 #R-Ignored #T-Ignored @Ignored" />
+				<outline text="My Capability 1 - My Sub Capability 1 #R-Ignored #T-Ignored @Ignored" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
@@ -2734,8 +2734,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2765,7 +2765,7 @@
 		<outline text="With A Workflowy Text Export [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="- My Area 1 - My Sub Area 1" />
+				<outline text="- My Capability 1 - My Sub Capability 1" />
 				<outline text="  - My Feature 1" />
 				<outline text="    - My Scenario 1" />
 				<outline text="      - Given Step 1" />
@@ -2773,8 +2773,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2801,13 +2801,13 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Duplicate Area And Feature [Passed]">
+		<outline text="With Duplicate Capability And Feature [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 2" />
 				<outline text="			Given Step 1" />
@@ -2815,8 +2815,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2850,16 +2850,16 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Duplicate Area And Feature Nonconsecutive [Passed]">
+		<outline text="With Duplicate Capability And Feature Nonconsecutive [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
-				<outline text="My Area 2 - My Sub Area 1" />
+				<outline text="My Capability 2 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 2" />
 				<outline text="			Given Step 1" />
@@ -2867,8 +2867,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2902,13 +2902,13 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With Duplicate Area [Passed]">
+		<outline text="With Duplicate Capability [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 0" />
 				<outline text="		My Scenario 1" />
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 2" />
 				<outline text="			Given Step 1" />
@@ -2916,8 +2916,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2947,7 +2947,7 @@
 		<outline text="With Duplicate Feature [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="	My Feature 1" />
@@ -2957,8 +2957,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -2995,7 +2995,7 @@
 		<outline text="With Duplicate Feature Nonconsecutive [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="	My Feature 2" />
@@ -3007,8 +3007,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -3045,7 +3045,7 @@
 		<outline text="With Duplicate Scenario [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="		My Scenario 1" />
@@ -3054,8 +3054,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -3092,7 +3092,7 @@
 		<outline text="With Duplicate Scenario Nonconsecutive [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="My Area 1 - My Sub Area 1" />
+				<outline text="My Capability 1 - My Sub Capability 1" />
 				<outline text="	My Feature 1" />
 				<outline text="		My Scenario 1" />
 				<outline text="		My Scenario 2" />
@@ -3102,8 +3102,8 @@
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd project generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyArea1/MySubArea1/MyFeature1.cs' that matches the template:">
-				<outline text="namespace MyGeneratedSample.Features.MyArea1.MySubArea1" />
+			<outline text="Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:">
+				<outline text="namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1" />
 				<outline text="{" />
 				<outline text="	using Microsoft.VisualStudio.TestTools.UnitTesting;" />
 				<outline text="	using System;" />
@@ -3149,25 +3149,25 @@
 		<outline text="With A Valid Solution Definition [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
-				<outline text="Project: MyGeneratedSample.Features.Area1" />
-				<outline text="	My Area A - My Sub Area B" />
+				<outline text="Project: MyGeneratedSample.Features.Capability1" />
+				<outline text="	My Capability A - My Sub Capability B" />
 				<outline text="		My Feature C" />
 				<outline text="			My Scenario D " />
-				<outline text="Project: MyGeneratedSample.Features.Area2" />
-				<outline text="	My Area E - My Sub Area F" />
+				<outline text="Project: MyGeneratedSample.Features.Capability2" />
+				<outline text="	My Capability E - My Sub Capability F" />
 				<outline text="		My Feature G" />
 				<outline text="			My Scenario H" />
 			</outline>
 			<outline text="When you run the command:">
 				<outline text="dotnet xbdd solution generate MSTest" />
 			</outline>
-			<outline text="Then you will find a file at './MyGeneratedSample/MyGeneratedSample.Features.Area1/xBddFeatureImport.txt' that matches the template:">
-				<outline text="My Area A - My Sub Area B" />
+			<outline text="Then you will find a file at './MyGeneratedSample/MyGeneratedSample.Features.Capability1/xBddFeatureImport.txt' that matches the template:">
+				<outline text="My Capability A - My Sub Capability B" />
 				<outline text="	My Feature C" />
 				<outline text="		My Scenario D " />
 			</outline>
-			<outline text="And you will find a file at './MyGeneratedSample/MyGeneratedSample.Features.Area2/xBddFeatureImport.txt' that matches the template:">
-				<outline text="My Area E - My Sub Area F" />
+			<outline text="And you will find a file at './MyGeneratedSample/MyGeneratedSample.Features.Capability2/xBddFeatureImport.txt' that matches the template:">
+				<outline text="My Capability E - My Sub Capability F" />
 				<outline text="	My Feature G" />
 				<outline text="		My Scenario H" />
 			</outline>

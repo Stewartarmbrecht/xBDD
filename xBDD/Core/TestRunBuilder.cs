@@ -15,7 +15,7 @@ namespace xBDD.Core
     public class TestRunBuilder
     {
         CoreFactory factory;
-        AreaCache areaCache;
+        CapabilityCache capabilityCache;
         FeatureCache featureCache;
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace xBDD.Core
         internal TestRunBuilder(CoreFactory factory, TestRun testRun)
         {
             this.factory = factory;
-            this.areaCache = factory.CreateAreaCache();
+            this.capabilityCache = factory.CreateCapabilityCache();
             this.featureCache = factory.CreateFeatureCache();
             this.TestRun = testRun;
         }
@@ -144,23 +144,23 @@ namespace xBDD.Core
         /// The name of the feature to create.  Use this to override the class 
         /// name from becoming the feature name.
         /// </param>
-        /// <param name="areaPath">
-        /// The name of the area to add the feature to.  Use this to override the namespace 
-        /// from becoming the area name.
+        /// <param name="capabilityPath">
+        /// The name of the capability to add the feature to.  Use this to override the namespace 
+        /// from becoming the capability name.
         /// </param>
         /// <param name="sortOrder">Optional. Used by the test run when sorting the results
         /// if you call SortTestRunResults on the test run. Default value is 1,000,000.</param>
         /// <returns>The scenario build for a fluent syntax.</returns>
-        public ScenarioBuilder AddScenario(string scenarioName, string featureName, string areaPath, int sortOrder = 1000000)
+        public ScenarioBuilder AddScenario(string scenarioName, string featureName, string capabilityPath, int sortOrder = 1000000)
         {
-            return AddScenario(null, scenarioName, featureName, areaPath, sortOrder);
+            return AddScenario(null, scenarioName, featureName, capabilityPath, sortOrder);
         }
 
         internal ScenarioBuilder AddScenario(
 			CodeDetails codeDetails, 
 			string scenarioName, 
 			string featureName, 
-			string areaName, 
+			string capabilityName, 
 			int sortOrder)
         {
 
@@ -170,8 +170,8 @@ namespace xBDD.Core
             if (featureName == null && codeDetails != null)
                 featureName = codeDetails.GetClassName().AddSpacesToSentence();
 
-            if (areaName == null && codeDetails != null)
-                areaName = codeDetails.GetNameSpace().AddSpacesToSentence();
+            if (capabilityName == null && codeDetails != null)
+                capabilityName = codeDetails.GetNameSpace().AddSpacesToSentence();
             
             var methodName = scenarioName;
             if(codeDetails != null)
@@ -193,8 +193,8 @@ namespace xBDD.Core
 			if(codeDetails != null)
 				scenarioTags = codeDetails.GetScenarioTags();
 
-            var area = areaCache.GetOrCreate(TestRun, areaName);
-            var feature = featureCache.GetOrCreate(area, featureName, codeDetails);
+            var capability = capabilityCache.GetOrCreate(TestRun, capabilityName);
+            var feature = featureCache.GetOrCreate(capability, featureName, codeDetails);
             return factory.CreateScenarioBuilder(
 				scenarioName, 
 				feature, 

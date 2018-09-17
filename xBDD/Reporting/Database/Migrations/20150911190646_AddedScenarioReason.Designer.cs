@@ -30,7 +30,7 @@
 //                    b.Property<int>("Id")
 //                        .ValueGeneratedOnAdd();
 
-//                    b.Property<string>("AreaPath");
+//                    b.Property<string>("CapabilityPath");
 
 //                    b.Property<DateTime>("EndTime");
 

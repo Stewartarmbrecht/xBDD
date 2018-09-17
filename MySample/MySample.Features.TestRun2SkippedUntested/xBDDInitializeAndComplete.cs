@@ -18,9 +18,9 @@ namespace MySample.Features.TestRun2SkippedUntested
 		public static void TestRunComplete()
 		{
 			var features = new List<string>() {
-				typeof(MySample.Features.TestRun2SkippedUntested.Area1Passing.Feature1Passing).FullName,
-				typeof(MySample.Features.TestRun2SkippedUntested.Area2SkippedUntested.Feature1Passing).FullName,
-				typeof(MySample.Features.TestRun2SkippedUntested.Area2SkippedUntested.Feature2SkippedUntested).FullName,
+				typeof(MySample.Features.TestRun2SkippedUntested.Capability1Passing.Feature1Passing).FullName,
+				typeof(MySample.Features.TestRun2SkippedUntested.Capability2SkippedUntested.Feature1Passing).FullName,
+				typeof(MySample.Features.TestRun2SkippedUntested.Capability2SkippedUntested.Feature2SkippedUntested).FullName,
 			};
 			xB.Complete("xBDDConfig.json", features, (message) => { Logger.LogMessage(message); });
 		}

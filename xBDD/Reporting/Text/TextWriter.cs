@@ -27,7 +27,7 @@ namespace xBDD.Reporting.Text
             sb.AppendLine(testRun.Name);
             sb.AppendLine();
             Scenario lastScenario = null;
-            var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Area.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
+            var sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Capability.Name).ThenBy(x => x.Feature.Name).ThenBy(x => x.Name);
             if(testRun.Sorted)
                 sortedScenarios = testRun.Scenarios.OrderBy(x => x.Feature.Sort).ThenBy(x => x.Sort);
             foreach(var scenario in sortedScenarios)
@@ -40,12 +40,12 @@ namespace xBDD.Reporting.Text
 
         private void WriteScenario(Scenario lastScenario, Scenario scenario, StringBuilder sb)
         {
-            if(lastScenario == null || (lastScenario != null && lastScenario.Feature.Area.Name != scenario.Feature.Area.Name))
+            if(lastScenario == null || (lastScenario != null && lastScenario.Feature.Capability.Name != scenario.Feature.Capability.Name))
             {
-                sb.Append(scenario.Feature.Area.Name);
-                if (scenario.Feature.Area.Reason != null)
+                sb.Append(scenario.Feature.Capability.Name);
+                if (scenario.Feature.Capability.Reason != null)
                 {
-                    sb.AppendLine($" [{scenario.Feature.Area.Reason}]");
+                    sb.AppendLine($" [{scenario.Feature.Capability.Reason}]");
                 }
                 else
                     sb.AppendLine();

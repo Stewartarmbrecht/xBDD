@@ -25,12 +25,12 @@
     {
         /// <summary>
         /// Calculates the start and end time for the test run, 
-        /// areas, and features.
+        /// capabilities, and features.
         /// </summary>
         /// <param name="testrun">The test run to set the start and end times for.</param>
         public static void CalculateStartAndEndTimes(this xBDD.Model.TestRun testrun)
         {
-			testrun.Areas.SelectMany(x => x.Features).SelectMany(x => x.Scenarios).ToList()
+			testrun.Capabilities.SelectMany(x => x.Features).SelectMany(x => x.Scenarios).ToList()
 				.ForEach(scenario => {
 				if(scenario.Steps.Count > 0) {
 					var earliest = scenario.Steps
@@ -47,7 +47,7 @@
 						scenario.EndTime = latest.StartTime;
 				}
 			});
-			testrun.Areas.SelectMany(x => x.Features).ToList().ForEach(feature => {
+			testrun.Capabilities.SelectMany(x => x.Features).ToList().ForEach(feature => {
 				var earliest = feature.Scenarios
 					.OrderBy(scenario => scenario.StartTime)
 					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
@@ -61,29 +61,29 @@
 				if(latest != null)
 					feature.EndTime = latest.StartTime;
 			});
-			testrun.Areas.ToList().ForEach(area => {
-				var earliest = area.Features
+			testrun.Capabilities.ToList().ForEach(capability => {
+				var earliest = capability.Features
 					.OrderBy(feature => feature.StartTime)
 					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
 					.FirstOrDefault();
 				if(earliest != null)
-					area.StartTime = earliest.StartTime;
-				var latest = area.Features
+					capability.StartTime = earliest.StartTime;
+				var latest = capability.Features
 					.OrderByDescending(feature => feature.EndTime)
 					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
 					.FirstOrDefault();
 				if(latest != null)
-					area.EndTime = latest.StartTime;
+					capability.EndTime = latest.StartTime;
 			});
-            if(testrun.Areas.Count > 0) {
-                var earliest = testrun.Areas.
-					OrderBy(area => area.StartTime)
+            if(testrun.Capabilities.Count > 0) {
+                var earliest = testrun.Capabilities.
+					OrderBy(capability => capability.StartTime)
 					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
 					.FirstOrDefault();
 				if(earliest != null)
 					testrun.StartTime = earliest.StartTime;
-                var latest = testrun.Areas
-					.OrderByDescending(area => area.EndTime)
+                var latest = testrun.Capabilities
+					.OrderByDescending(capability => capability.EndTime)
 					.Where(x => !DateTime.Equals(x.StartTime,System.DateTime.MinValue))
 					.FirstOrDefault();
 				if(latest != null)
@@ -108,13 +108,13 @@
         /// Writes an OMPL representation of a test run's test results.
         /// </summary>
         /// <param name="testRun">The test run whose results you want to write to text.</param>
-        /// <param name="areaNameClip">The part to remove from the beginning of each area name.</param>
+        /// <param name="capabilityNameClip">The part to remove from the beginning of each capability name.</param>
         /// <returns>String that is a OPML format of the test results.</returns>
-        public static string WriteToOpml(this xBDD.Model.TestRun testRun, string areaNameClip = null)
+        public static string WriteToOpml(this xBDD.Model.TestRun testRun, string capabilityNameClip = null)
         {
             ReportingFactory factory = new ReportingFactory();
             OpmlWriter saver = factory.GetOpmlWriter();
-            return saver.WriteToOpml(testRun, areaNameClip);
+            return saver.WriteToOpml(testRun, capabilityNameClip);
         }
 
         /// <summary>
@@ -126,12 +126,12 @@
         /// <param name="testRun">The test run whose results you want to write to code.</param>
         /// <param name="rootNamespace">The root namespace to use for generating the project files.</param>
         /// <param name="directory">The directory to write the files to.</param>
-        /// <param name="removeFromAreaNameStart">Sets the Remove Area Name Start setting for xBDD.</param>
-        public static void WriteToCode(this xBDD.Model.TestRun testRun, string rootNamespace, string directory, string removeFromAreaNameStart)
+        /// <param name="removeFromCapabilityNameStart">Sets the Remove Capability Name Start setting for xBDD.</param>
+        public static void WriteToCode(this xBDD.Model.TestRun testRun, string rootNamespace, string directory, string removeFromCapabilityNameStart)
         {
             ReportingFactory factory = new ReportingFactory();
             CodeWriter saver = factory.GetCodeWriter();
-            saver.WriteToCode(testRun, rootNamespace, directory, removeFromAreaNameStart);
+            saver.WriteToCode(testRun, rootNamespace, directory, removeFromCapabilityNameStart);
         }
 
         /// <summary>
@@ -217,13 +217,13 @@
         /// A parent that has both reasons will assume the reason with the highest precedent.</param>
         public static void UpdateParentReasonsAndStats(this xBDD.Model.TestRun testRun, List<string> sortedReasons)
         {
-			testRun.AreaReasonStats.Clear();
+			testRun.CapabilityReasonStats.Clear();
 			testRun.FeatureReasonStats.Clear();
 			testRun.ScenarioReasonStats.Clear();
-			testRun.Areas.ForEach(area => {
-				area.FeatureReasonStats.Clear();
-				area.ScenarioReasonStats.Clear();
-				area.Features.ForEach(feature => {
+			testRun.Capabilities.ForEach(capability => {
+				capability.FeatureReasonStats.Clear();
+				capability.ScenarioReasonStats.Clear();
+				capability.Features.ForEach(feature => {
 					feature.ScenarioReasonStats.Clear();
 				});
 			});
@@ -278,11 +278,11 @@
                         } else {
                             scenario.Feature.ScenarioReasonStats.Add(reason, 1);
                         }
-                        scenario.Feature.Area.Reason = reason;
-                        if(scenario.Feature.Area.ScenarioReasonStats.Keys.Contains(reason)) {
-                            scenario.Feature.Area.ScenarioReasonStats[reason] = scenario.Feature.Area.ScenarioReasonStats[reason] + 1;
+                        scenario.Feature.Capability.Reason = reason;
+                        if(scenario.Feature.Capability.ScenarioReasonStats.Keys.Contains(reason)) {
+                            scenario.Feature.Capability.ScenarioReasonStats[reason] = scenario.Feature.Capability.ScenarioReasonStats[reason] + 1;
                         } else {
-                            scenario.Feature.Area.ScenarioReasonStats.Add(reason, 1);
+                            scenario.Feature.Capability.ScenarioReasonStats.Add(reason, 1);
                         }
                         testRun.Reason = reason;
                         if(testRun.ScenarioReasonStats.Keys.Contains(reason)) {
@@ -301,10 +301,10 @@
 					.Distinct()
 					.ToList()
 					.ForEach(feature => {
-                        if(feature.Area.FeatureReasonStats.Keys.Contains(reason)) {
-                            feature.Area.FeatureReasonStats[reason] = feature.Area.FeatureReasonStats[reason] + 1;
+                        if(feature.Capability.FeatureReasonStats.Keys.Contains(reason)) {
+                            feature.Capability.FeatureReasonStats[reason] = feature.Capability.FeatureReasonStats[reason] + 1;
                         } else {
-                            feature.Area.FeatureReasonStats.Add(reason, 1);
+                            feature.Capability.FeatureReasonStats.Add(reason, 1);
                         }
                         if(testRun.FeatureReasonStats.Keys.Contains(reason)) {
                             testRun.FeatureReasonStats[reason] = testRun.FeatureReasonStats[reason] + 1;
@@ -316,13 +316,13 @@
             });
 
             sortedReasons.ForEach(reason => {
-                testRun.Areas
-                    .Where(area => area.Reason == reason)
-                    .ToList().ForEach(area => {
-                        if(testRun.AreaReasonStats.Keys.Contains(reason)) {
-                            testRun.AreaReasonStats[reason] = testRun.AreaReasonStats[reason] + 1;
+                testRun.Capabilities
+                    .Where(capability => capability.Reason == reason)
+                    .ToList().ForEach(capability => {
+                        if(testRun.CapabilityReasonStats.Keys.Contains(reason)) {
+                            testRun.CapabilityReasonStats[reason] = testRun.CapabilityReasonStats[reason] + 1;
                         } else {
-                            testRun.AreaReasonStats.Add(reason, 1);
+                            testRun.CapabilityReasonStats.Add(reason, 1);
                         }
                     });
                 
@@ -354,7 +354,7 @@
         }
 
         /// <summary>
-        /// Updates the feature, area, and test outcomes and stats based on the scenario outcomes.
+        /// Updates the feature, capability, and test outcomes and stats based on the scenario outcomes.
         /// </summary>
         public static void UpdateStats(this xBDD.Model.TestRun testRun)
         {
@@ -366,14 +366,14 @@
             };
             testRun.Scenarios.ToList().ForEach(scenario => {
                 scenario.Feature.Outcome = Outcome.NotRun;
-                scenario.Feature.Area.Outcome = Outcome.NotRun;
-                scenario.Feature.Area.TestRun.Outcome = Outcome.NotRun;
+                scenario.Feature.Capability.Outcome = Outcome.NotRun;
+                scenario.Feature.Capability.TestRun.Outcome = Outcome.NotRun;
                 scenario.Feature.ScenarioStats.ClearStats();
-                scenario.Feature.Area.ScenarioStats.ClearStats();
-                scenario.Feature.Area.FeatureStats.ClearStats();
-                scenario.Feature.Area.TestRun.ScenarioStats.ClearStats();
-                scenario.Feature.Area.TestRun.FeatureStats.ClearStats();
-                scenario.Feature.Area.TestRun.AreaStats.ClearStats();
+                scenario.Feature.Capability.ScenarioStats.ClearStats();
+                scenario.Feature.Capability.FeatureStats.ClearStats();
+                scenario.Feature.Capability.TestRun.ScenarioStats.ClearStats();
+                scenario.Feature.Capability.TestRun.FeatureStats.ClearStats();
+                scenario.Feature.Capability.TestRun.CapabilityStats.ClearStats();
             });
             outcomes.ForEach(outcome => {
                 testRun.Scenarios.SelectMany(x => x.Steps)
@@ -381,7 +381,7 @@
                     .ToList().ForEach(step => {
                         step.Scenario.Outcome = outcome;
                         step.Scenario.Feature.Outcome = outcome;
-                        step.Scenario.Feature.Area.Outcome = outcome;
+                        step.Scenario.Feature.Capability.Outcome = outcome;
                         testRun.Outcome = outcome;
                     });
             });
@@ -391,25 +391,25 @@
                     .Where(scenario => scenario.Outcome == outcome && scenario.Steps.Count == 0)
                     .ToList().ForEach(scenario => {
                         scenario.Feature.Outcome = outcome;
-                        scenario.Feature.Area.Outcome = outcome;
+                        scenario.Feature.Capability.Outcome = outcome;
                         testRun.Outcome = outcome;
                     });
             });
 
-			testRun.Areas.ForEach(area => {
-				area.Features.ForEach(feature => {
+			testRun.Capabilities.ForEach(capability => {
+				capability.Features.ForEach(feature => {
 					feature.Scenarios.ForEach(scenario => {
 						feature.ScenarioStats.UpdateOutcomeStats(scenario.Outcome);
 						feature.StepStats.AddStats(scenario.StepStats);
 					});
-					area.FeatureStats.UpdateOutcomeStats(feature.Outcome);
-					area.ScenarioStats.AddStats(feature.ScenarioStats);
-					area.StepStats.AddStats(feature.StepStats);
+					capability.FeatureStats.UpdateOutcomeStats(feature.Outcome);
+					capability.ScenarioStats.AddStats(feature.ScenarioStats);
+					capability.StepStats.AddStats(feature.StepStats);
 				});
-				testRun.AreaStats.UpdateOutcomeStats(area.Outcome);
-				testRun.FeatureStats.AddStats(area.FeatureStats);
-				testRun.ScenarioStats.AddStats(area.ScenarioStats);
-				testRun.StepStats.AddStats(area.StepStats);
+				testRun.CapabilityStats.UpdateOutcomeStats(capability.Outcome);
+				testRun.FeatureStats.AddStats(capability.FeatureStats);
+				testRun.ScenarioStats.AddStats(capability.ScenarioStats);
+				testRun.StepStats.AddStats(capability.StepStats);
 			});
         }
 
@@ -426,7 +426,7 @@
             var featureIndex = 0;
             sortedFeatureFullNames.ForEach(featureFullName => {
                 
-                var feature = testRun.Areas.SelectMany(x => x.Features).Where(f => f.FullClassName == featureFullName).FirstOrDefault();
+                var feature = testRun.Capabilities.SelectMany(x => x.Features).Where(f => f.FullClassName == featureFullName).FirstOrDefault();
 
                 if(feature != null)
                 {
@@ -437,7 +437,7 @@
 
             });
 
-            testRun.Areas.SelectMany(x => x.Features).Where(x => x.Sort == 0).ToList().ForEach(feature => {
+            testRun.Capabilities.SelectMany(x => x.Features).Where(x => x.Sort == 0).ToList().ForEach(feature => {
                 feature.Sort = 1000000;
             });
 

@@ -1,12 +1,12 @@
 My Sample - Test Run 4 Skipped Ready
 
-My Sample - Features - Test Run 4 Skipped Ready - Area 1 Passing [Passed]
+My Sample - Features - Test Run 4 Skipped Ready - Capability 1 Passing [Passed]
 	Feature 1 Passing [Passed]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
 			Then Step 3 Passing
-My Sample - Features - Test Run 4 Skipped Ready - Area 2 Skipped Untested [Untested]
+My Sample - Features - Test Run 4 Skipped Ready - Capability 2 Skipped Untested [Untested]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
 			When Step 2 Passing
@@ -17,7 +17,7 @@ My Sample - Features - Test Run 4 Skipped Ready - Area 2 Skipped Untested [Untes
 			When Step 2 Passing
 			Then Step 3 Passing
 		Scenario 2 Skipped Untested [Untested]
-My Sample - Features - Test Run 4 Skipped Ready - Area 3 Skipped Committed [Committed]
+My Sample - Features - Test Run 4 Skipped Ready - Capability 3 Skipped Committed [Committed]
 	Feature 1 Passing [Passed]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing
@@ -39,7 +39,7 @@ My Sample - Features - Test Run 4 Skipped Ready - Area 3 Skipped Committed [Comm
 			Given Step 1 Skipped
 			When Step 2 Skipped
 			Then Step 3 Skipped
-My Sample - Features - Test Run 4 Skipped Ready - Area 4 Skipped Ready [Ready]
+My Sample - Features - Test Run 4 Skipped Ready - Capability 4 Skipped Ready [Ready]
 	Feature 1 Passing [Passed]
 		Scenario 1 Passing [Passed]
 			Given Step 1 Passing

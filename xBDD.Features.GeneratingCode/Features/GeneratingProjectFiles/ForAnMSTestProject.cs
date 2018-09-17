@@ -12,8 +12,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 	using xBDD.Features.Common;
 	
 	[AsA("Developer")]
-	[YouCan("generate a new MS Test Project")]
-	[By("executing the 'dotnet xbdd project generate MSTest' xbddToolsCommandArgs")]
+	[SoThat("generate a new MS Test Project")]
+	[YouCan("executing the 'dotnet xbdd project generate MSTest' xbddToolsCommandArgs")]
 	[Explanation(@"
 		## xBDD Tools
 		
@@ -64,21 +64,21 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 		copy missing features into the `xBDDFeatureSort.cs` class. 
 		
 		8. **xBDDReasonSort.cs** - This class is used to cascade the reasons up from scenarios, 
-		to features, to areas, to the test run.  The sort order controls the order of 
+		to features, to capabilities, to the test run.  The sort order controls the order of 
 		precedence from least to most.  For example if two features have reasons A and B and 
-		the ReasonSort places A before B then the parent area for both features will have a reason of B.
+		the ReasonSort places A before B then the parent capability for both features will have a reason of B.
 		
 		9. **xBDDReasonSort.xbdd.cs** - This class is a duplicate of the `xBDDReasonSort.cs` 
 		class and is recreated each time you generate code.  It is created so that you can 
 		copy missing reasons into the `xBDDFeatureSort.cs` class. 
 		
-		10. **xBDDFeatureImport.txt** - A text document that you can use to outline the areas, 
+		10. **xBDDFeatureImport.txt** - A text document that you can use to outline the capabilities, 
 		features, scenarios, and steps to import into the project.  This document can use 
 		either tabs or spaces for indentation as long as it is consistent.  You can 
 		also paste the text format for Workflowy outlines into this file and the dashes 
 		will be automatically removed.
 		
-		11. **Features/MySampleArea/MySampleFeature.cs** - A sample feature for the project to execute.
+		11. **Features/MySampleCapability/MySampleFeature.cs** - A sample feature for the project to execute.
 		
 		## Standard Reports
 		
@@ -149,7 +149,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 		private (string FilePath, string Comment, TextFormat Format) initializeAndComplete =>
 			("MyGeneratedSample.Features/xBddInitializeAndComplete.cs",$"// Modified{nl}",TextFormat.cs);
 		private (string FilePath, string Comment, TextFormat Format) featureFile =>
-			("MyGeneratedSample.Features/Features/MyArea/MyFeature.cs",$"// Mmodified{nl}", TextFormat.cs);
+			("MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs",$"// Mmodified{nl}", TextFormat.cs);
 
 
 		[TestMethod]
@@ -201,7 +201,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 					TextFormat.cs
 				))
 				.And(you.WillFindAMatchingFile(
-					"./MyGeneratedSample.Features/Features/MyArea/MyFeature.cs",
+					"./MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs",
 					"./../../../Interfaces/Files/ProjectFileTemplates/MyFeature.cs.tmpl",
 					TextFormat.cs
 				))
@@ -335,19 +335,19 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 
 		[TestMethod]
 		[Explanation(@"
-			You can specify the value of 'remove from area name' setting in the `xBDDConfig.json` file through a `--remove-from-area-name` option for the xbdd xbddToolsCommandArgs.  The default value is the name of the project folder with '.' replaced by ' - '.",3)]
+			You can specify the value of 'remove from capability name' setting in the `xBDDConfig.json` file through a `--remove-from-capability-name` option for the xbdd xbddToolsCommandArgs.  The default value is the name of the project folder with '.' replaced by ' - '.",3)]
 		[Assignments("Stewart")]
-		public async Task WithAreaNameClipping() {
+		public async Task WithCapabilityNameClipping() {
 			List<string> args = new List<string>();
 			args.AddRange(this.xbddToolsCommandArgs);
-			args.Add("--remove-from-area-name");
+			args.Add("--remove-from-capability-name");
 			args.Add("Modified");
 			await xB.AddScenario(this, 1004)
 				.Given(you.HaveAnEmptyDirectory("./MyGeneratedSample.Features"))
 				.When(you.RunTheXbddToolsCommand(args.ToArray(), directory))
 				.And(you.WillFindAMatchingFile(
 					"./MyGeneratedSample.Features/xBDDConfig.json",
-					"./../../../Interfaces/Files/ProjectFileTemplates/xBDDConfigWithAreaNameClipping.json.tmpl",
+					"./../../../Interfaces/Files/ProjectFileTemplates/xBDDConfigWithCapabilityNameClipping.json.tmpl",
 					TextFormat.js
 				))
 				.Run();

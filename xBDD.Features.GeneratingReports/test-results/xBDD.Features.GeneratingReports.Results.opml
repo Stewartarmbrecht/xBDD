@@ -36,8 +36,8 @@
 				<outline text="Json Report: ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json" />
 				<outline text="Json Report: ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json" />
 			</outline>
-			<outline text="And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'.">
-				<outline text="C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html" />
+			<outline text="And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'.">
+				<outline text="/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html" />
 			</outline>
 		</outline>
 		<outline text="With No Json Files [Failed]">
@@ -53,7 +53,7 @@
 				<outline text="TestRunNameClip: My Sample - Features - " />
 				<outline text="Reasons: Untested, Committed, Ready, Defining" />
 			</outline>
-			<outline text="And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithNoJsonFiles.html' that matches the template:">
+			<outline text="And you will find a file at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithNoJsonFiles.html' that matches the template:">
 				<outline text="{{.*}}/rl" />
 				<outline text="	<title>My Sample - Features</title>" />
 				<outline text="{{.*}}/rl" />
@@ -79,7 +79,7 @@
 				<outline text="Reasons: Untested, Committed, Ready, Defining" />
 				<outline text="Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json" />
 			</outline>
-			<outline text="And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template:">
+			<outline text="And you will find a file at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template:">
 				<outline text="{{.*}}/rl" />
 				<outline text="	<title>My Sample - Features</title>" />
 				<outline text="{{.*}}/rl" />
@@ -106,8 +106,8 @@
 				<outline text="Json Report: ./Missing.json" />
 				<outline text="Error: Could not find file 'C:\Users\stearm01\source\xBDD\MySample\Missing.json'." />
 			</outline>
-			<outline text="And you will not find the html report located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'.">
-				<outline text="C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html" />
+			<outline text="And you will not find the html report located at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'.">
+				<outline text="/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html" />
 			</outline>
 		</outline>
 	</outline>
@@ -150,10 +150,10 @@
 		</outline>
 		<outline text="With All Failing [Committed]">
 		</outline>
-		<outline text="With No Areas [Committed]">
+		<outline text="With No Capabilities [Committed]">
 		</outline>
 	</outline>
-	<outline text="Review Test Summary Area Status Distribution [Committed]">
+	<outline text="Review Test Summary Capability Status Distribution [Committed]">
 		<outline text="With All Passing [Committed]">
 		</outline>
 		<outline text="With Some Skipped [Committed]">
@@ -166,7 +166,7 @@
 		</outline>
 		<outline text="With All Failing [Committed]">
 		</outline>
-		<outline text="With No Areas [Committed]">
+		<outline text="With No Capabilities [Committed]">
 		</outline>
 	</outline>
 	<outline text="Review Test Summary Feature Status Distribution [Committed]">
@@ -214,10 +214,10 @@
 		</outline>
 		<outline text="With All Failing [Committed]">
 		</outline>
-		<outline text="With No Areas [Committed]">
+		<outline text="With No Capabilities [Committed]">
 		</outline>
 	</outline>
-	<outline text="Review Test Summary Area Status Statistics [Committed]">
+	<outline text="Review Test Summary Capability Status Statistics [Committed]">
 		<outline text="With All Passing [Committed]">
 		</outline>
 		<outline text="With Some Skipped [Committed]">
@@ -230,7 +230,7 @@
 		</outline>
 		<outline text="With All Failing [Committed]">
 		</outline>
-		<outline text="With No Areas [Committed]">
+		<outline text="With No Capabilities [Committed]">
 		</outline>
 	</outline>
 	<outline text="Review Test Summary Feature Status Statistics [Committed]">
@@ -265,12 +265,12 @@
 		<outline text="With No Scenarios [Committed]">
 		</outline>
 	</outline>
-	<outline text="Review Test Summary Areas [Committed]">
-		<outline text="Expanding Areas [Committed]">
+	<outline text="Review Test Summary Capabilities [Committed]">
+		<outline text="Expanding Capabilities [Committed]">
 		</outline>
-		<outline text="Collapsing Areas [Committed]">
+		<outline text="Collapsing Capabilities [Committed]">
 		</outline>
-		<outline text="With No Areas [Committed]">
+		<outline text="With No Capabilities [Committed]">
 		</outline>
 	</outline>
 </outline>
@@ -462,7 +462,7 @@
 		<outline text="With Some Failing Status [Untested]">
 		</outline>
 	</outline>
-	<outline text="Review Test Run Area Status Distribution [Untested]">
+	<outline text="Review Test Run Capability Status Distribution [Untested]">
 		<outline text="With All Passing [Untested]">
 		</outline>
 		<outline text="With Some Skipped [Untested]">
@@ -475,7 +475,7 @@
 		</outline>
 		<outline text="With All Failing [Untested]">
 		</outline>
-		<outline text="With No Areas [Untested]">
+		<outline text="With No Capabilities [Untested]">
 		</outline>
 	</outline>
 	<outline text="Review Test Run Feature Status Distribution [Untested]">
@@ -510,7 +510,7 @@
 		<outline text="With No Scenarios [Untested]">
 		</outline>
 	</outline>
-	<outline text="Review Test Run Area Status Statistics [Untested]">
+	<outline text="Review Test Run Capability Status Statistics [Untested]">
 		<outline text="With All Passing [Untested]">
 		</outline>
 		<outline text="With Some Skipped [Untested]">
@@ -523,7 +523,7 @@
 		</outline>
 		<outline text="With All Failing [Untested]">
 		</outline>
-		<outline text="With No Areas [Untested]">
+		<outline text="With No Capabilities [Untested]">
 		</outline>
 	</outline>
 	<outline text="Review Test Run Feature Status Statistics [Untested]">
@@ -558,23 +558,23 @@
 		<outline text="With No Scenarios [Untested]">
 		</outline>
 	</outline>
-	<outline text="Review Test Run Areas [Untested]">
-		<outline text="Expanding Areas [Untested]">
+	<outline text="Review Test Run Capabilities [Untested]">
+		<outline text="Expanding Capabilities [Untested]">
 		</outline>
-		<outline text="Collapsing Areas [Untested]">
+		<outline text="Collapsing Capabilities [Untested]">
 		</outline>
-		<outline text="With No Areas [Untested]">
+		<outline text="With No Capabilities [Untested]">
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Reports - HTML Test Run Report - Review Area Information [Untested]">
-	<outline text="Review Area Name [Untested]">
+<outline text="xBDD - Features - Generating Reports - HTML Test Run Report - Review Capability Information [Untested]">
+	<outline text="Review Capability Name [Untested]">
 		<outline text="With Name [Untested]">
 		</outline>
 		<outline text="With No Name [Untested]">
 		</outline>
 	</outline>
-	<outline text="Review Area Status [Untested]">
+	<outline text="Review Capability Status [Untested]">
 		<outline text="With Passing Status [Untested]">
 		</outline>
 		<outline text="With Some Skipped Status [Untested]">
@@ -582,7 +582,7 @@
 		<outline text="With Some Failing Status [Untested]">
 		</outline>
 	</outline>
-	<outline text="Review Area Feature Status Distribution [Untested]">
+	<outline text="Review Capability Feature Status Distribution [Untested]">
 		<outline text="With All Passing [Untested]">
 		</outline>
 		<outline text="With Some Skipped [Untested]">
@@ -598,7 +598,7 @@
 		<outline text="With No Features [Untested]">
 		</outline>
 	</outline>
-	<outline text="Review Area Scenario Status Distribution [Untested]">
+	<outline text="Review Capability Scenario Status Distribution [Untested]">
 		<outline text="With All Passing [Untested]">
 		</outline>
 		<outline text="With Some Skipped [Untested]">
@@ -614,7 +614,7 @@
 		<outline text="With No Scenarios [Untested]">
 		</outline>
 	</outline>
-	<outline text="Review Area Feature Status Statistics [Untested]">
+	<outline text="Review Capability Feature Status Statistics [Untested]">
 		<outline text="Expanding [Untested]">
 		</outline>
 		<outline text="Collapsing [Untested]">
@@ -634,7 +634,7 @@
 		<outline text="With No Features [Untested]">
 		</outline>
 	</outline>
-	<outline text="Review Area Scenario Status Statistics [Untested]">
+	<outline text="Review Capability Scenario Status Statistics [Untested]">
 		<outline text="Expanding [Untested]">
 		</outline>
 		<outline text="Collapsing [Untested]">
@@ -654,7 +654,7 @@
 		<outline text="With No Scenarios [Untested]">
 		</outline>
 	</outline>
-	<outline text="Review Area Explanation [Untested]">
+	<outline text="Review Capability Explanation [Untested]">
 		<outline text="Expanding Explanation [Untested]">
 		</outline>
 		<outline text="Collapsing Explanation [Untested]">
@@ -662,7 +662,7 @@
 		<outline text="Without Explanation [Untested]">
 		</outline>
 	</outline>
-	<outline text="Review Area Features [Untested]">
+	<outline text="Review Capability Features [Untested]">
 		<outline text="Expanding Features [Untested]">
 		</outline>
 		<outline text="Collapsing Features [Untested]">
@@ -871,19 +871,19 @@
 		</outline>
 		<outline text="With Test Run Explanation Empty [Defining]">
 		</outline>
-		<outline text="With No Areas [Untested]">
+		<outline text="With No Capabilities [Untested]">
 		</outline>
-		<outline text="With Areas [Untested]">
+		<outline text="With Capabilities [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Json Report With Area Scenarios [Defining]">
-		<outline text="With Full Area [Untested]">
+	<outline text="Generate A Json Report With Capability Scenarios [Defining]">
+		<outline text="With Full Capability [Untested]">
 		</outline>
-		<outline text="With Area Name Clipping [Untested]">
+		<outline text="With Capability Name Clipping [Untested]">
 		</outline>
-		<outline text="With Area Name Empty [Untested]">
+		<outline text="With Capability Name Empty [Untested]">
 		</outline>
-		<outline text="With Area Explanation Empty [Defining]">
+		<outline text="With Capability Explanation Empty [Defining]">
 		</outline>
 		<outline text="With No Features [Untested]">
 		</outline>
@@ -953,19 +953,19 @@
 		</outline>
 		<outline text="With Test Run Explanation Empty [Defining]">
 		</outline>
-		<outline text="With No Areas [Untested]">
+		<outline text="With No Capabilities [Untested]">
 		</outline>
-		<outline text="With Areas [Untested]">
+		<outline text="With Capabilities [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate An Outline Report With Area Scenarios [Defining]">
-		<outline text="With Full Area [Untested]">
+	<outline text="Generate An Outline Report With Capability Scenarios [Defining]">
+		<outline text="With Full Capability [Untested]">
 		</outline>
-		<outline text="With Area Name Clipping [Untested]">
+		<outline text="With Capability Name Clipping [Untested]">
 		</outline>
-		<outline text="With Area Name Empty [Untested]">
+		<outline text="With Capability Name Empty [Untested]">
 		</outline>
-		<outline text="With Area Explanation Empty [Defining]">
+		<outline text="With Capability Explanation Empty [Defining]">
 		</outline>
 		<outline text="With No Features [Untested]">
 		</outline>
@@ -1035,19 +1035,19 @@
 		</outline>
 		<outline text="With Test Run Explanation Empty [Defining]">
 		</outline>
-		<outline text="With No Areas [Untested]">
+		<outline text="With No Capabilities [Untested]">
 		</outline>
-		<outline text="With Areas [Untested]">
+		<outline text="With Capabilities [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Text Report With Area Scenarios [Defining]">
-		<outline text="With Full Area [Untested]">
+	<outline text="Generate A Text Report With Capability Scenarios [Defining]">
+		<outline text="With Full Capability [Untested]">
 		</outline>
-		<outline text="With Area Name Clipping [Defining]">
+		<outline text="With Capability Name Clipping [Defining]">
 		</outline>
-		<outline text="With Area Name Empty [Untested]">
+		<outline text="With Capability Name Empty [Untested]">
 		</outline>
-		<outline text="With Area Explanation Empty [Defining]">
+		<outline text="With Capability Explanation Empty [Defining]">
 		</outline>
 		<outline text="With No Features [Untested]">
 		</outline>
@@ -1117,19 +1117,19 @@
 		</outline>
 		<outline text="With Test Run Explanation Empty [Defining]">
 		</outline>
-		<outline text="With No Areas [Untested]">
+		<outline text="With No Capabilities [Untested]">
 		</outline>
-		<outline text="With Areas [Untested]">
+		<outline text="With Capabilities [Untested]">
 		</outline>
 	</outline>
-	<outline text="Generate A Text Outline Report With Area Scenarios [Defining]">
-		<outline text="With Full Area [Untested]">
+	<outline text="Generate A Text Outline Report With Capability Scenarios [Defining]">
+		<outline text="With Full Capability [Untested]">
 		</outline>
-		<outline text="With Area Name Clipping [Untested]">
+		<outline text="With Capability Name Clipping [Untested]">
 		</outline>
-		<outline text="With Area Name Empty [Untested]">
+		<outline text="With Capability Name Empty [Untested]">
 		</outline>
-		<outline text="With Area Explanation Empty [Defining]">
+		<outline text="With Capability Explanation Empty [Defining]">
 		</outline>
 		<outline text="With No Features [Untested]">
 		</outline>

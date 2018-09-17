@@ -1,9 +1,0 @@
-{{.*}}/rl
-{{No test matches the given testcase filter \`NoMatchAtAll\` in .*}}
-
-Additionally, path to test adapters can be specified using /TestAdapterPath command. Example  /TestAdapterPath:<pathToCustomAdapters>.
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-{{.*}}/rl

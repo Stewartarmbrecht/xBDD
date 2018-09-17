@@ -68,26 +68,26 @@ namespace xBDD.Tools
 				{
                     [Option("-tn|--testrun-name", "Sets the default test run name in the xBDDConfig.json file.", CommandOptionType.SingleValue)]
                     public string TestRunName { get; }
-                    [Option("-rfan|--remove-from-area-name", "Sets the default test run name in the xBDDConfig.json file.", CommandOptionType.SingleValue)]
-                    public string RemoveFromAreaName { get; }
+                    [Option("-rfan|--remove-from-capability-name", "Sets the default test run name in the xBDDConfig.json file.", CommandOptionType.SingleValue)]
+                    public string RemoveFromCapabilityName { get; }
 					internal int OnExecute(IConsole console)
 					{
 						try {
 							var codeWriter = new xBDD.Reporting.Code.CodeWriter();
 							var directory = System.IO.Directory.GetCurrentDirectory();
 							var folderAndRootNamespace = directory.Substring(directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar) + 1, directory.Length - (directory.LastIndexOf(System.IO.Path.DirectorySeparatorChar)+1));
-							var projectName = folderAndRootNamespace.ConvertNamespaceToAreaName();
+							var projectName = folderAndRootNamespace.ConvertNamespaceToCapabilityName();
 							console.WriteLine($"Directory: {directory}");
 							console.WriteLine($"Folder: {folderAndRootNamespace}");
                             var testRunName = TestRunName;
                             if(String.IsNullOrEmpty(testRunName)) {
-                                testRunName = folderAndRootNamespace.ConvertNamespaceToAreaName();
+                                testRunName = folderAndRootNamespace.ConvertNamespaceToCapabilityName();
                             }
-                            var removeFromAreaName = RemoveFromAreaName;
-                            if(String.IsNullOrEmpty(removeFromAreaName)) {
-                                removeFromAreaName = $"{projectName} - ";
+                            var removeFromCapabilityName = RemoveFromCapabilityName;
+                            if(String.IsNullOrEmpty(removeFromCapabilityName)) {
+                                removeFromCapabilityName = $"{projectName} - ";
                             }
-							codeWriter.WriteProjectFiles(directory, folderAndRootNamespace, testRunName, removeFromAreaName);
+							codeWriter.WriteProjectFiles(directory, folderAndRootNamespace, testRunName, removeFromCapabilityName);
 							console.WriteLine($"Project initialized.");
 							return 0;
 						} catch (Exception ex) {
@@ -246,8 +246,8 @@ namespace xBDD.Tools
         //     [Option("-fo|--features-only", "Sets the code generator to only generate feature files.", CommandOptionType.SingleValue)]
         //     public bool FeaturesOnly { get; }
 
-        //     [Option("-ans|--area-name-skip", "The part of the area name so skip when writing certain reports.  Full Area names can be repetitive in a test project that covers a subset of features.", CommandOptionType.SingleValue)]
-        //     public string AreaNameSkip { get; }
+        //     [Option("-ans|--capability-name-skip", "The part of the capability name so skip when writing certain reports.  Full Capability names can be repetitive in a test project that covers a subset of features.", CommandOptionType.SingleValue)]
+        //     public string CapabilityNameSkip { get; }
 
         //     private int OnExecute(IConsole console)
         //     {
@@ -299,13 +299,13 @@ namespace xBDD.Tools
         //                         testRun.WriteFeaturesToCode(RootNamespace, Destination);
         //                     } else {
         //                         console.WriteLine($"Writing all code to: {Destination}");
-        //                         console.WriteLine($"Using area name clipping setting: {AreaNameSkip}");
-        //                         testRun.WriteToCode(RootNamespace, Destination, AreaNameSkip);
+        //                         console.WriteLine($"Using capability name clipping setting: {CapabilityNameSkip}");
+        //                         testRun.WriteToCode(RootNamespace, Destination, CapabilityNameSkip);
         //                     }
         //                 break;
         //                 case DestinationFormat.HtmlTestRunReport:
         //                     console.WriteLine($"Writing Html Test Run Report To: {Destination}");
-        //                     var htmlReport = testRun.WriteToHtmlTestRunReport(AreaNameSkip);
+        //                     var htmlReport = testRun.WriteToHtmlTestRunReport(CapabilityNameSkip);
         //                     System.IO.File.WriteAllText(Destination, htmlReport);
         //                 break;
         //                 case DestinationFormat.Text:

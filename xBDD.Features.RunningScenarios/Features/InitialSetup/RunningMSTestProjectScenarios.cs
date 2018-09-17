@@ -25,7 +25,7 @@ namespace xBDD.Features.RunningScenarios.InitialSetup
 		}
 
 		[TestMethod]
-		public async Task RunningScenariosFilteredByAreaName()
+		public async Task RunningScenariosFilteredByCapabilityName()
 		{
 			await xB.AddScenario(this, 3000)
 				.Skip("Untested", Assert.Inconclusive);
