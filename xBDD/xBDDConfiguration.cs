@@ -6,6 +6,7 @@ namespace xBDD
 	public class xBDDConfiguration
 	{
 		public List<ReportReasonConfiguration> SortedReasonConfigurations { get; set; }
+		public string SortedReasonConfigurationsFilePath { get; set;}
 		public List<string> SortedFeatureNames { get; set; }
 		public TestRunReportConfiguration TestRunReport { get; set; }
 		public TestRunGroupReportConfiguration TestRunGroupReport { get; set; }

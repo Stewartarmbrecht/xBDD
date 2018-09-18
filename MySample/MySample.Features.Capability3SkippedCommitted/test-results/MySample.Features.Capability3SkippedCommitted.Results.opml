@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+<head>
+</head>
+<body>
+
+<outline text="My Sample - Features - Capability 3 Skipped Committed - Sub Capability 1 Passing [Passed]">
+	<outline text="Feature 1 Passing [Passed]">
+		<outline text="Scenario 1 Passing [Passed]">
+			<outline text="Given Step 1 Passing"/>
+			<outline text="When Step 2 Passing"/>
+			<outline text="Then Step 3 Passing"/>
+		</outline>
+</outline>
+<outline text="My Sample - Features - Capability 3 Skipped Committed - Sub Capability 2 Skipped Untested [Untested]">
+		<outline text="Scenario 1 Passing [Passed]">
+			<outline text="Given Step 1 Passing"/>
+			<outline text="When Step 2 Passing"/>
+			<outline text="Then Step 3 Passing"/>
+		</outline>
+	</outline>
+	<outline text="Feature 2 Skipped Untested [Untested]">
+		<outline text="Scenario 1 Passing [Passed]">
+			<outline text="Given Step 1 Passing"/>
+			<outline text="When Step 2 Passing"/>
+			<outline text="Then Step 3 Passing"/>
+		</outline>
+		<outline text="Scenario 2 Skipped Untested [Untested]">
+		</outline>
+	</outline>
+</outline>
+<outline text="My Sample - Features - Capability 3 Skipped Committed - Sub Capability 3 Skipped Committed [Committed]">
+	<outline text="Feature 1 Passing [Passed]">
+		<outline text="Scenario 1 Passing [Passed]">
+			<outline text="Given Step 1 Passing"/>
+			<outline text="When Step 2 Passing"/>
+			<outline text="Then Step 3 Passing"/>
+		</outline>
+	</outline>
+	<outline text="Feature 2 Skipped Untested [Untested]">
+		<outline text="Scenario 1 Passing [Passed]">
+			<outline text="Given Step 1 Passing"/>
+			<outline text="When Step 2 Passing"/>
+			<outline text="Then Step 3 Passing"/>
+		</outline>
+		<outline text="Scenario 2 Skipped Untested [Untested]">
+		</outline>
+	</outline>
+	<outline text="Feature 3 Skipped Committed [Committed]">
+		<outline text="Scenario 1 Passing [Passed]">
+			<outline text="Given Step 1 Passing"/>
+			<outline text="When Step 2 Passing"/>
+			<outline text="Then Step 3 Passing"/>
+		</outline>
+		<outline text="Scenario 2 Skipped Untested [Untested]">
+		</outline>
+		<outline text="Scenario 3 Skipped Committed [Committed]">
+			<outline text="Given Step 1 Skipped"/>
+			<outline text="When Step 2 Skipped"/>
+			<outline text="Then Step 3 Skipped"/>
+		</outline>
+	</outline>
+</outline>
+</body>
+</opml>
