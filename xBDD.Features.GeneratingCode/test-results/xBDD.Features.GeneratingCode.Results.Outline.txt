@@ -1,7 +1,7 @@
 xBDD - Generating Code
 
-xBDD - Features - Generating Code - Generating Project Files [Failed]
-	For An MS Test Project [Failed]
+xBDD - Features - Generating Code - Generating Project Files [Passed]
+	For An MS Test Project [Passed]
 		In An Empty Directory [Passed]
 			Given you have an empty directory
 			When you run the command:
@@ -337,21 +337,30 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						"Watch": "false"
 					}
 				}
-		With Capability Name Clipping [Failed]
-			Given you have an empty directory [Passed]
-			When you run the command: [Passed]
+		With Capability Name Clipping [Passed]
+			Given you have an empty directory
+			When you run the command:
 				dotnet xbdd project generate MSTest --remove-from-capability-name Modified
-			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template: [Failed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
 				{
-					"xBDD": {
-						"TestRunName": "My Generated Sample - Features",
-						"Browser": {
-							"Watch": "false"
-						},
-						"HtmlReport": {
-							"RemoveFromCapabilityNameStart": "Modified",
-							"FailuresOnly": "false"
-						}
+					"TestRunReport": {
+						"ReportName": "My Generated Sample - Features",
+						"ReportFolder": "/../../../test-results/",
+						"FileName": "MyGeneratedSample.Features.Results",
+						"FailuresOnly": "false",
+						"RootNameSkip": "Modified"
+					},
+					"SortedReasonConfigurations": [
+						{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
+						{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
+						{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(15, 1, 26)"},
+						{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
+						{"Reason": "Ready","BackgroundColor": "rgb(101, 167, 227)","FontColor": "rgb(2, 20, 36)"},
+						{"Reason": "Defining","BackgroundColor": "rgb(146, 194, 238)","FontColor": "rgb(7, 36, 63)"},
+						{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
+					],
+					"Browser": {
+						"Watch": "false"
 					}
 				}
 xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Failed]
