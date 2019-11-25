@@ -311,84 +311,32 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
 			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
-		With A Test Run Name [Failed]
-			Given you have an empty directory [Passed]
-			When you run the command: [Passed]
+		With A Test Run Name [Passed]
+			Given you have an empty directory
+			When you run the command:
 				dotnet xbdd project generate MSTest --testrun-name My Sample Test Run
-			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template: [Failed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
 				{
-					"xBDD": {
-						"TestRunName": "My Sample Test Run",
-						"Browser": {
-							"Watch": "false"
-						},
-						"HtmlReport": {
-							"RemoveFromCapabilityNameStart": "My Generated Sample - Features - ",
-							"FailuresOnly": "false"
-						}
+					"TestRunReport": {
+						"ReportName": "My Sample Test Run",
+						"ReportFolder": "/../../../test-results/",
+						"FileName": "MyGeneratedSample.Features.Results",
+						"FailuresOnly": "false",
+						"RootNameSkip": "My Generated Sample - Features - "
+					},
+					"SortedReasonConfigurations": [
+						{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
+						{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
+						{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(15, 1, 26)"},
+						{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
+						{"Reason": "Ready","BackgroundColor": "rgb(101, 167, 227)","FontColor": "rgb(2, 20, 36)"},
+						{"Reason": "Defining","BackgroundColor": "rgb(146, 194, 238)","FontColor": "rgb(7, 36, 63)"},
+						{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
+					],
+					"Browser": {
+						"Watch": "false"
 					}
 				}
-				Error Type: TemplateValidationException
-				   Message: Line 2 did not match template line 2 (Value/Template)
-		"TestRunReport": {
-		"xBDD": {
-Line 3 did not match template line 3 (Value/Template)
-			"ReportName": "My Sample Test Run",
-			"TestRunName": "My Sample Test Run",
-Line 4 did not match template line 4 (Value/Template)
-			"ReportFolder": "/../../../test-results/",
-			"Browser": {
-Line 5 did not match template line 5 (Value/Template)
-			"FileName": "MyGeneratedSample.Features.Results",
-				"Watch": "false"
-Line 6 did not match template line 6 (Value/Template)
-			"FailuresOnly": "false",
-			},
-Line 7 did not match template line 7 (Value/Template)
-			"RootNameSkip": "My Generated Sample - Features - "
-			"HtmlReport": {
-Line 8 did not match template line 8 (Value/Template)
-		},
-				"RemoveFromCapabilityNameStart": "My Generated Sample - Features - ",
-Line 9 did not match template line 9 (Value/Template)
-		"SortedReasonConfigurations": [
-				"FailuresOnly": "false"
-Line 10 did not match template line 10 (Value/Template)
-			{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
-			}
-Line 11 did not match template line 11 (Value/Template)
-			{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
-		}
-Line 12 did not match template line 12 (Value/Template)
-			{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(15, 1, 26)"},
-	}
-Extra target line at line number 13 (Target)
-			{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
-Extra target line at line number 14 (Target)
-			{"Reason": "Ready","BackgroundColor": "rgb(101, 167, 227)","FontColor": "rgb(2, 20, 36)"},
-Extra target line at line number 15 (Target)
-			{"Reason": "Defining","BackgroundColor": "rgb(146, 194, 238)","FontColor": "rgb(7, 36, 63)"},
-Extra target line at line number 16 (Target)
-			{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
-Extra target line at line number 17 (Target)
-		],
-Extra target line at line number 18 (Target)
-		"Browser": {
-Extra target line at line number 19 (Target)
-			"Watch": "false"
-Extra target line at line number 20 (Target)
-		}
-Extra target line at line number 21 (Target)
-	}
-
-				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass4_0.<WillFindAMatchingFile>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 104
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 		With Capability Name Clipping [Failed]
 			Given you have an empty directory [Passed]
 			When you run the command: [Passed]
