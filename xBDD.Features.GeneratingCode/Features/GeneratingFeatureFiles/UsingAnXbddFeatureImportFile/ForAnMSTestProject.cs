@@ -462,7 +462,7 @@ namespace xBDD.Features.GeneratingCode.GeneratingFeatureFiles.UsingAnXbddFeature
 						Statement
 							As a user
 							So that you derive some value
-							You can performing some action with the product
+							You can perform some action with the product
 						My Scenario 1
 							Given Step 1".RemoveIndentation(4, true);
 

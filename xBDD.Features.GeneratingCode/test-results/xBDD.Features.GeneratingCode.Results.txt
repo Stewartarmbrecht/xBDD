@@ -363,7 +363,7 @@ xBDD - Features - Generating Code - Generating Project Files [Passed]
 						"Watch": "false"
 					}
 				}
-xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Failed]
+xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Passed]
 	With An Invalid Outline [Passed]
 		With Invalid Characters In Capability Name [Passed]
 			Given you have an empty directory
@@ -1164,7 +1164,7 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				Line 2: '		Invalid Line'
 				Explanation: An capability line can only be followed by an indented 'Explanation' header or 
 				             indented Feature line.
-	For An MS Test Project [Failed]
+	For An MS Test Project [Passed]
 		With An Empty Scenario [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:
@@ -2227,9 +2227,9 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-		With A Feature Statement [Failed]
-			Given you have an empty directory [Passed]
-			And add a scenario outline file with the following content: [Passed]
+		With A Feature Statement [Passed]
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
 				My Capability 1 - My Sub Capability 1
 					My Feature 1
 						Explanation
@@ -2239,12 +2239,12 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 						Statement
 							As a user
 							So that you derive some value
-							You can performing some action with the product
+							You can perform some action with the product
 						My Scenario 1
 							Given Step 1
-			When you run the command: [Passed]
+			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template: [Failed]
+			Then you will find a file at './MyGeneratedSample.Features/Features/MyCapability1/MySubCapability1/MyFeature1.cs' that matches the template:
 				namespace MyGeneratedSample.Features.MyCapability1.MySubCapability1
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -2255,8 +2255,8 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					[TestClass]
 					[AsA("user")]
-					[SoThat("you can derive some value")]
-					[By("performing some action with the product")]
+					[YouCan("perform some action with the product")]
+					[SoThat("you derive some value")]
 					[Explanation(@"
 						Here is my 
 						multiline feature 
@@ -2277,22 +2277,6 @@ xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Fea
 				
 					}
 				}
-				Error Type: TemplateValidationException
-				   Message: Line 11 did not match template line 11 (Value/Template)
-		[YouCan(" can performing some action with the product")]
-		[SoThat("you can derive some value")]
-Line 12 did not match template line 12 (Value/Template)
-		[SoThat("you derive some value")]
-		[By("performing some action with the product")]
-
-				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass4_0.<WillFindAMatchingFile>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 104
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 		With A Feature With Trailing Spaces [Passed]
 			Given you have an empty directory
 			And add a scenario outline file with the following content:

@@ -369,7 +369,7 @@ namespace xBDD.Importing.Text
 					featureStatement = featureStatementLine.Substring(8, featureStatementLine.Length-8);
 				break;
 				case FeatureStatementType.YouCan:
-					featureStatement = featureStatementLine.Substring(3, featureStatementLine.Length-3);
+					featureStatement = featureStatementLine.Substring(8, featureStatementLine.Length-8);
 				break;
 			}
 			return featureStatement;

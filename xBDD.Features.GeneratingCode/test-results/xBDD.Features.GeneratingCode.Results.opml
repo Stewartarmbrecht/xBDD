@@ -405,7 +405,7 @@
 		</outline>
 	</outline>
 </outline>
-<outline text="xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Failed]">
+<outline text="xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Passed]">
 	<outline text="With An Invalid Outline [Passed]">
 		<outline text="With Invalid Characters In Capability Name [Passed]">
 			<outline text="Given you have an empty directory"/>
@@ -1330,7 +1330,7 @@
 			</outline>
 		</outline>
 	</outline>
-	<outline text="For An MS Test Project [Failed]">
+	<outline text="For An MS Test Project [Passed]">
 		<outline text="With An Empty Scenario [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
@@ -2499,7 +2499,7 @@
 				<outline text="}" />
 			</outline>
 		</outline>
-		<outline text="With A Feature Statement [Failed]">
+		<outline text="With A Feature Statement [Passed]">
 			<outline text="Given you have an empty directory"/>
 			<outline text="And add a scenario outline file with the following content:">
 				<outline text="My Capability 1 - My Sub Capability 1" />
@@ -2511,7 +2511,7 @@
 				<outline text="		Statement" />
 				<outline text="			As a user" />
 				<outline text="			So that you derive some value" />
-				<outline text="			You can performing some action with the product" />
+				<outline text="			You can perform some action with the product" />
 				<outline text="		My Scenario 1" />
 				<outline text="			Given Step 1" />
 			</outline>
@@ -2529,8 +2529,8 @@
 				<outline text="" />
 				<outline text="	[TestClass]" />
 				<outline text="	[AsA("user")]" />
-				<outline text="	[SoThat("you can derive some value")]" />
-				<outline text="	[By("performing some action with the product")]" />
+				<outline text="	[YouCan("perform some action with the product")]" />
+				<outline text="	[SoThat("you derive some value")]" />
 				<outline text="	[Explanation(@"" />
 				<outline text="		Here is my " />
 				<outline text="		multiline feature " />
