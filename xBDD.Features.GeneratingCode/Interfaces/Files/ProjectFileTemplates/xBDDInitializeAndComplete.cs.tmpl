@@ -16,7 +16,7 @@ namespace MyGeneratedSample.Features
 		[AssemblyCleanup()]
 		public static void TestRunComplete()
 		{
-			xB.Complete("MyGeneratedSample.Features", new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+			xB.Complete("xBDDConfig.json", new xBDDSorting().GetSortedFeatureNames(), (message) => { Logger.LogMessage(message); });
 		}
 	}
 }

@@ -2,11 +2,11 @@ xBDD - Generating Code
 
 xBDD - Features - Generating Code - Generating Project Files [Failed]
 	For An MS Test Project [Failed]
-		In An Empty Directory [Failed]
-			Given you have an empty directory [Passed]
-			When you run the command: [Passed]
+		In An Empty Directory [Passed]
+			Given you have an empty directory
+			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template: [Passed]
+			Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template:
 				<Project Sdk="Microsoft.NET.Sdk">
 				
 					<PropertyGroup>
@@ -30,7 +30,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 					</ItemGroup>
 				
 				</Project>
-			And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template:
 				<Project Sdk="Microsoft.NET.Sdk">
 				
 					<PropertyGroup>
@@ -54,20 +54,29 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 					</ItemGroup>
 				
 				</Project>
-			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
 				{
-					"xBDD": {
-						"TestRunName": "My Generated Sample - Features",
-						"Browser": {
-							"Watch": "false"
-						},
-						"HtmlReport": {
-							"RemoveFromCapabilityNameStart": "My Generated Sample - Features - ",
-							"FailuresOnly": "false"
-						}
+					"TestRunReport": {
+						"ReportName": "My Generated Sample - Features",
+						"ReportFolder": "/../../../test-results/",
+						"FileName": "MyGeneratedSample.Features.Results",
+						"FailuresOnly": "false",
+						"RootNameSkip": "My Generated Sample - Features - "
+					},
+					"SortedReasonConfigurations": [
+						{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
+						{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
+						{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(15, 1, 26)"},
+						{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
+						{"Reason": "Ready","BackgroundColor": "rgb(101, 167, 227)","FontColor": "rgb(2, 20, 36)"},
+						{"Reason": "Defining","BackgroundColor": "rgb(146, 194, 238)","FontColor": "rgb(7, 36, 63)"},
+						{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
+					],
+					"Browser": {
+						"Watch": "false"
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs' that matches the template:
 				namespace MyGeneratedSample.Features
 				{
 					using xBDD;
@@ -85,7 +94,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template:
 				MyImportedCapability1
 					MyImportedFeature
 						MyImportedScenario #R-Ready
@@ -95,7 +104,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 							Then a new feature will be defined in the project with two partial class files
 							And you can finish the import by moving the scenarios from the feature.xbdd.cs file to the feature.cs file
 							And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature
-			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template:
 				namespace MyGeneratedSample.Features
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -114,11 +123,11 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						[AssemblyCleanup()]
 						public static void TestRunComplete()
 						{
-							xB.Complete("MyGeneratedSample.Features", new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+							xB.Complete("xBDDConfig.json", new xBDDSorting().GetSortedFeatureNames(), (message) => { Logger.LogMessage(message); });
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.cs' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.cs' that matches the template:
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -143,7 +152,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.xbdd.cs' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.xbdd.cs' that matches the template:
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -168,7 +177,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs' that matches the template: [Failed]
+			And you will find a file at './MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs' that matches the template:
 				namespace MyGeneratedSample.Features.MyCapability
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -232,109 +241,81 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-				Error Type: TemplateValidationException
-				   Message: Line 12 did not match template line 12 (Value/Template)
-		[SoThat("have my feature value")]
-		[SoThat("you have my feature value")]
-
-				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass4_0.<WillFindAMatchingFile>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 104
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
-			And you will find the project execute tests with the 'dotnet test' command [Previous Error]
+			And you will find the project execute tests with the 'dotnet test' command
 				dotnet test
-			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Previous Error]
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
-			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Previous Error]
+			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
-			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'. [Previous Error]
+			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
-			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'. [Previous Error]
+			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
-			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'. [Previous Error]
+			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
-		In An Initialized XBDD [Failed]
-			Given you have an empty directory [Passed]
-			When you run the command: [Passed]
-				dotnet xbdd project generate MSTest
-			And you modify all the standard project files [Passed]
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
-				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
-				MyGeneratedSample.Features/xBddSorting.cs,
-				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
-				MyGeneratedSample.Features/xBddConfig.json,
-				MyGeneratedSample.Features/xBddFeatureImport.txt,
-				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
-			When you run the command: [Passed]
-				dotnet xbdd project generate MSTest
-			Then you will find the files ending in xbdd.[ext] or xbdd are overwritten [Passed]
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
-				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
-				MyGeneratedSample.Features/xBddSorting.cs,
-				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
-				MyGeneratedSample.Features/xBddConfig.json,
-				MyGeneratedSample.Features/xBddFeatureImport.txt,
-				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
-			And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten [Passed]
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
-				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
-				MyGeneratedSample.Features/xBddSorting.cs,
-				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
-				MyGeneratedSample.Features/xBddConfig.json,
-				MyGeneratedSample.Features/xBddFeatureImport.txt,
-				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
-			And you will find the sample feature file is not modified because the xbdd backlog file already exists [Passed]
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
-				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
-				MyGeneratedSample.Features/xBddSorting.cs,
-				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
-				MyGeneratedSample.Features/xBddConfig.json,
-				MyGeneratedSample.Features/xBddFeatureImport.txt,
-				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
-			And you will find the project execute tests with the 'dotnet test' command [Passed]
-				dotnet test
-			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Failed]
-				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
-				Error Type: DirectoryNotFoundException
-				   Message: Could not find a part of the path '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingCode/bin/Debug/netcoreapp2.1/MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
-				     Stack:    at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
-				               at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
-				               at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
-				               at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
-				               at System.IO.File.InternalReadAllText(String path, Encoding encoding)
-				               at System.IO.File.ReadAllText(String path)
-				               at xBDD.Features.Common.Developer.<>c__DisplayClass7_0.<WillFind>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 144
-				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
-				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
-				            --- End of stack trace from previous location where exception was thrown ---
-				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
-			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Previous Error]
-				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
-			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'. [Previous Error]
-				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
-			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'. [Previous Error]
-				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
-			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'. [Previous Error]
-				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
-		With A Test Run Name [Passed]
+		In An Initialized XBDD [Passed]
 			Given you have an empty directory
 			When you run the command:
+				dotnet xbdd project generate MSTest
+			And you modify all the standard project files
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+				MyGeneratedSample.Features/xBddSorting.cs,
+				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+				MyGeneratedSample.Features/xBddConfig.json,
+				MyGeneratedSample.Features/xBddFeatureImport.txt,
+				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find the files ending in xbdd.[ext] or xbdd are overwritten
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+				MyGeneratedSample.Features/xBddSorting.cs,
+				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+				MyGeneratedSample.Features/xBddConfig.json,
+				MyGeneratedSample.Features/xBddFeatureImport.txt,
+				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
+			And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+				MyGeneratedSample.Features/xBddSorting.cs,
+				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+				MyGeneratedSample.Features/xBddConfig.json,
+				MyGeneratedSample.Features/xBddFeatureImport.txt,
+				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
+			And you will find the sample feature file is not modified because the xbdd backlog file already exists
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+				MyGeneratedSample.Features/xBddSorting.cs,
+				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+				MyGeneratedSample.Features/xBddConfig.json,
+				MyGeneratedSample.Features/xBddFeatureImport.txt,
+				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
+			And you will find the project execute tests with the 'dotnet test' command
+				dotnet test
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
+			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
+			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
+			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
+			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
+		With A Test Run Name [Failed]
+			Given you have an empty directory [Passed]
+			When you run the command: [Passed]
 				dotnet xbdd project generate MSTest --testrun-name My Sample Test Run
-			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template: [Failed]
 				{
 					"xBDD": {
 						"TestRunName": "My Sample Test Run",
@@ -347,11 +328,72 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-		With Capability Name Clipping [Passed]
-			Given you have an empty directory
-			When you run the command:
+				Error Type: TemplateValidationException
+				   Message: Line 2 did not match template line 2 (Value/Template)
+		"TestRunReport": {
+		"xBDD": {
+Line 3 did not match template line 3 (Value/Template)
+			"ReportName": "My Sample Test Run",
+			"TestRunName": "My Sample Test Run",
+Line 4 did not match template line 4 (Value/Template)
+			"ReportFolder": "/../../../test-results/",
+			"Browser": {
+Line 5 did not match template line 5 (Value/Template)
+			"FileName": "MyGeneratedSample.Features.Results",
+				"Watch": "false"
+Line 6 did not match template line 6 (Value/Template)
+			"FailuresOnly": "false",
+			},
+Line 7 did not match template line 7 (Value/Template)
+			"RootNameSkip": "My Generated Sample - Features - "
+			"HtmlReport": {
+Line 8 did not match template line 8 (Value/Template)
+		},
+				"RemoveFromCapabilityNameStart": "My Generated Sample - Features - ",
+Line 9 did not match template line 9 (Value/Template)
+		"SortedReasonConfigurations": [
+				"FailuresOnly": "false"
+Line 10 did not match template line 10 (Value/Template)
+			{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
+			}
+Line 11 did not match template line 11 (Value/Template)
+			{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
+		}
+Line 12 did not match template line 12 (Value/Template)
+			{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(15, 1, 26)"},
+	}
+Extra target line at line number 13 (Target)
+			{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
+Extra target line at line number 14 (Target)
+			{"Reason": "Ready","BackgroundColor": "rgb(101, 167, 227)","FontColor": "rgb(2, 20, 36)"},
+Extra target line at line number 15 (Target)
+			{"Reason": "Defining","BackgroundColor": "rgb(146, 194, 238)","FontColor": "rgb(7, 36, 63)"},
+Extra target line at line number 16 (Target)
+			{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
+Extra target line at line number 17 (Target)
+		],
+Extra target line at line number 18 (Target)
+		"Browser": {
+Extra target line at line number 19 (Target)
+			"Watch": "false"
+Extra target line at line number 20 (Target)
+		}
+Extra target line at line number 21 (Target)
+	}
+
+				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass4_0.<WillFindAMatchingFile>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 104
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
+		With Capability Name Clipping [Failed]
+			Given you have an empty directory [Passed]
+			When you run the command: [Passed]
 				dotnet xbdd project generate MSTest --remove-from-capability-name Modified
-			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template: [Failed]
 				{
 					"xBDD": {
 						"TestRunName": "My Generated Sample - Features",
@@ -364,6 +406,67 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
+				Error Type: TemplateValidationException
+				   Message: Line 2 did not match template line 2 (Value/Template)
+		"TestRunReport": {
+		"xBDD": {
+Line 3 did not match template line 3 (Value/Template)
+			"ReportName": "My Generated Sample - Features",
+			"TestRunName": "My Generated Sample - Features",
+Line 4 did not match template line 4 (Value/Template)
+			"ReportFolder": "/../../../test-results/",
+			"Browser": {
+Line 5 did not match template line 5 (Value/Template)
+			"FileName": "MyGeneratedSample.Features.Results",
+				"Watch": "false"
+Line 6 did not match template line 6 (Value/Template)
+			"FailuresOnly": "false",
+			},
+Line 7 did not match template line 7 (Value/Template)
+			"RootNameSkip": "Modified"
+			"HtmlReport": {
+Line 8 did not match template line 8 (Value/Template)
+		},
+				"RemoveFromCapabilityNameStart": "Modified",
+Line 9 did not match template line 9 (Value/Template)
+		"SortedReasonConfigurations": [
+				"FailuresOnly": "false"
+Line 10 did not match template line 10 (Value/Template)
+			{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
+			}
+Line 11 did not match template line 11 (Value/Template)
+			{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
+		}
+Line 12 did not match template line 12 (Value/Template)
+			{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(15, 1, 26)"},
+	}
+Extra target line at line number 13 (Target)
+			{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
+Extra target line at line number 14 (Target)
+			{"Reason": "Ready","BackgroundColor": "rgb(101, 167, 227)","FontColor": "rgb(2, 20, 36)"},
+Extra target line at line number 15 (Target)
+			{"Reason": "Defining","BackgroundColor": "rgb(146, 194, 238)","FontColor": "rgb(7, 36, 63)"},
+Extra target line at line number 16 (Target)
+			{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
+Extra target line at line number 17 (Target)
+		],
+Extra target line at line number 18 (Target)
+		"Browser": {
+Extra target line at line number 19 (Target)
+			"Watch": "false"
+Extra target line at line number 20 (Target)
+		}
+Extra target line at line number 21 (Target)
+	}
+
+				     Stack:    at TemplateValidator.Extensions.ValidateToTemplate(String target, String template)
+				               at xBDD.Features.Common.Developer.<>c__DisplayClass4_0.<WillFindAMatchingFile>b__0(Step s) in /Users/stewartarmbrecht/Source/xBDD/xBDD.Features.Common/Developer.cs:line 104
+				               at xBDD.Core.StepExecutor.<>c__DisplayClass4_0.<ExecuteStepAsync>b__0() in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
+				               at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+				            --- End of stack trace from previous location where exception was thrown ---
+				               at xBDD.Core.StepExecutor.ExecuteStepAsync(Step step) in /Users/stewartarmbrecht/Source/xBDD/xBDD/Core/StepExecutor.cs:line 25
 xBDD - Features - Generating Code - Generating Feature Files - Using An Xbdd Feature Import File [Failed]
 	With An Invalid Outline [Passed]
 		With Invalid Characters In Capability Name [Passed]

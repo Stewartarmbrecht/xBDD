@@ -12,8 +12,8 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 	using xBDD.Features.Common;
 	
 	[AsA("Developer")]
-	[SoThat("generate a new MS Test Project")]
-	[YouCan("executing the 'dotnet xbdd project generate MSTest' xbddToolsCommandArgs")]
+	[SoThat("you can generate a new MS Test Project")]
+	[YouCan("execute the 'dotnet xbdd project generate MSTest' xbddToolsCommandArgs")]
 	[Explanation(@"
 		## xBDD Tools
 		

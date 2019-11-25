@@ -82,7 +82,7 @@
 		{
 			this.WriteProjectFile(directory, rootNamespace);
 			this.WriteXbddFeatureImportTxt(directory,rootNamespace);
-			this.WriteXbddConfigJson(testRunName, directory, removeFromCapabilityNameStart);
+			this.WriteXbddConfigJson(rootNamespace,testRunName, directory, removeFromCapabilityNameStart);
 			this.WriteXbddInitializeAndCompleteClass(directory, rootNamespace);
 			this.WriteXbddFeatureBaseClass(directory, rootNamespace);
 			if(sortedFeatureNames == null) {
@@ -158,10 +158,10 @@
 			}
 		}
 
-		private void WriteXbddConfigJson(string testRunName, string directory, string removeFromCapabilityNameStart)
+		private void WriteXbddConfigJson(string rootNamespace, string testRunName, string directory, string removeFromCapabilityNameStart)
 		{
 			if(!System.IO.File.Exists($"{directory}/xBDDConfig.json")) {
-				var content = this.GetXbddConfigJson(testRunName, removeFromCapabilityNameStart);
+				var content = this.GetXbddConfigJson(rootNamespace, testRunName, removeFromCapabilityNameStart);
 				System.IO.File.WriteAllText($"{directory}/xBDDConfig.json",content);
 			}
 		}
@@ -360,18 +360,27 @@
 							And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature".RemoveIndentation(4, true);
 		}
 
-		private string GetXbddConfigJson(string testRunName, string removeFromCapabilityNameStart) {
+		private string GetXbddConfigJson(string rootNamespace, string testRunName, string removeFromCapabilityNameStart) {
 			return $@"
 				{{
-					""xBDD"": {{
-						""TestRunName"": ""{testRunName}"",
-						""Browser"": {{
-							""Watch"": ""false""
-						}},
-						""HtmlReport"": {{
-							""RemoveFromCapabilityNameStart"": ""{removeFromCapabilityNameStart}"",
-							""FailuresOnly"": ""false""
-						}}
+					""TestRunReport"": {{
+						""ReportName"": ""{testRunName}"",
+						""ReportFolder"": ""/../../../test-results/"",
+						""FileName"": ""{rootNamespace}.Results"",
+						""FailuresOnly"": ""false"",
+						""RootNameSkip"": ""{removeFromCapabilityNameStart}""
+					}},
+					""SortedReasonConfigurations"": [
+						{{""Reason"": ""Removing"",""BackgroundColor"": ""rgb(124,124,124)"",""FontColor"": ""White""}},
+						{{""Reason"": ""Passed"",""BackgroundColor"": ""rgb(112,173,71)"",""FontColor"": ""White""}},
+						{{""Reason"": ""Untested"",""BackgroundColor"": ""rgb(195,155,225)"",""FontColor"": ""rgb(15, 1, 26)""}},
+						{{""Reason"": ""Committed"",""BackgroundColor"": ""rgb(46,117,182)"",""FontColor"": ""White""}},
+						{{""Reason"": ""Ready"",""BackgroundColor"": ""rgb(101, 167, 227)"",""FontColor"": ""rgb(2, 20, 36)""}},
+						{{""Reason"": ""Defining"",""BackgroundColor"": ""rgb(146, 194, 238)"",""FontColor"": ""rgb(7, 36, 63)""}},
+						{{""Reason"": ""Failed"",""BackgroundColor"": ""rgb(192,0,0)"",""FontColor"": ""White""}}
+					],
+					""Browser"": {{
+						""Watch"": ""false""
 					}}
 				}}".RemoveIndentation(4, true);			
 		}
@@ -396,7 +405,7 @@
 						[AssemblyCleanup()]
 						public static void TestRunComplete()
 						{{
-							xB.Complete(""{namespaceRoot}"", new xBDDSorting(), (message) => {{ Logger.LogMessage(message); }});
+							xB.Complete(""xBDDConfig.json"", new xBDDSorting().GetSortedFeatureNames(), (message) => {{ Logger.LogMessage(message); }});
 						}}
 					}}
 				}}".RemoveIndentation(4, true);   			
@@ -436,7 +445,7 @@
 					[TestClass]
 					[AsA(""sample user"")]
 					[YouCan(""execute my feature"")]
-					[SoThat(""have my feature value"")]
+					[SoThat(""you have my feature value"")]
 					[Explanation(@""
 						# My Explanation
 						This is a

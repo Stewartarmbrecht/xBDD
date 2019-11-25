@@ -2,11 +2,11 @@ xBDD - Generating Code
 
 xBDD - Features - Generating Code - Generating Project Files [Failed]
 	For An MS Test Project [Failed]
-		In An Empty Directory [Failed]
-			Given you have an empty directory [Passed]
-			When you run the command: [Passed]
+		In An Empty Directory [Passed]
+			Given you have an empty directory
+			When you run the command:
 				dotnet xbdd project generate MSTest
-			Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template: [Passed]
+			Then you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj' that matches the template:
 				<Project Sdk="Microsoft.NET.Sdk">
 				
 					<PropertyGroup>
@@ -30,7 +30,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 					</ItemGroup>
 				
 				</Project>
-			And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd' that matches the template:
 				<Project Sdk="Microsoft.NET.Sdk">
 				
 					<PropertyGroup>
@@ -54,20 +54,29 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 					</ItemGroup>
 				
 				</Project>
-			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
 				{
-					"xBDD": {
-						"TestRunName": "My Generated Sample - Features",
-						"Browser": {
-							"Watch": "false"
-						},
-						"HtmlReport": {
-							"RemoveFromCapabilityNameStart": "My Generated Sample - Features - ",
-							"FailuresOnly": "false"
-						}
+					"TestRunReport": {
+						"ReportName": "My Generated Sample - Features",
+						"ReportFolder": "/../../../test-results/",
+						"FileName": "MyGeneratedSample.Features.Results",
+						"FailuresOnly": "false",
+						"RootNameSkip": "My Generated Sample - Features - "
+					},
+					"SortedReasonConfigurations": [
+						{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
+						{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
+						{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(15, 1, 26)"},
+						{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
+						{"Reason": "Ready","BackgroundColor": "rgb(101, 167, 227)","FontColor": "rgb(2, 20, 36)"},
+						{"Reason": "Defining","BackgroundColor": "rgb(146, 194, 238)","FontColor": "rgb(7, 36, 63)"},
+						{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
+					],
+					"Browser": {
+						"Watch": "false"
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureBase.xbdd.cs' that matches the template:
 				namespace MyGeneratedSample.Features
 				{
 					using xBDD;
@@ -85,7 +94,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDFeatureImport.txt' that matches the template:
 				MyImportedCapability1
 					MyImportedFeature
 						MyImportedScenario #R-Ready
@@ -95,7 +104,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 							Then a new feature will be defined in the project with two partial class files
 							And you can finish the import by moving the scenarios from the feature.xbdd.cs file to the feature.cs file
 							And you can delete the .xbdd.cs file and clear out the xBDDFeatureImport.txt file of the feature
-			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDInitializeAndComplete.cs' that matches the template:
 				namespace MyGeneratedSample.Features
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -114,11 +123,11 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						[AssemblyCleanup()]
 						public static void TestRunComplete()
 						{
-							xB.Complete("MyGeneratedSample.Features", new xBDDSorting(), (message) => { Logger.LogMessage(message); });
+							xB.Complete("xBDDConfig.json", new xBDDSorting().GetSortedFeatureNames(), (message) => { Logger.LogMessage(message); });
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.cs' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.cs' that matches the template:
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -143,7 +152,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.xbdd.cs' that matches the template: [Passed]
+			And you will find a file at './MyGeneratedSample.Features/xBDDSorting.xbdd.cs' that matches the template:
 				namespace MyGeneratedSample.Features
 				{
 					using System;
@@ -168,7 +177,7 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find a file at './MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs' that matches the template: [Failed]
+			And you will find a file at './MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs' that matches the template:
 				namespace MyGeneratedSample.Features.MyCapability
 				{
 					using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -232,81 +241,81 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-			And you will find the project execute tests with the 'dotnet test' command [Previous Error]
+			And you will find the project execute tests with the 'dotnet test' command
 				dotnet test
-			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Previous Error]
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
-			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Previous Error]
+			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
-			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'. [Previous Error]
+			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
-			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'. [Previous Error]
+			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
-			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'. [Previous Error]
+			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.
 				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
-		In An Initialized XBDD [Failed]
-			Given you have an empty directory [Passed]
-			When you run the command: [Passed]
-				dotnet xbdd project generate MSTest
-			And you modify all the standard project files [Passed]
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
-				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
-				MyGeneratedSample.Features/xBddSorting.cs,
-				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
-				MyGeneratedSample.Features/xBddConfig.json,
-				MyGeneratedSample.Features/xBddFeatureImport.txt,
-				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
-			When you run the command: [Passed]
-				dotnet xbdd project generate MSTest
-			Then you will find the files ending in xbdd.[ext] or xbdd are overwritten [Passed]
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
-				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
-				MyGeneratedSample.Features/xBddSorting.cs,
-				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
-				MyGeneratedSample.Features/xBddConfig.json,
-				MyGeneratedSample.Features/xBddFeatureImport.txt,
-				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
-			And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten [Passed]
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
-				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
-				MyGeneratedSample.Features/xBddSorting.cs,
-				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
-				MyGeneratedSample.Features/xBddConfig.json,
-				MyGeneratedSample.Features/xBddFeatureImport.txt,
-				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
-			And you will find the sample feature file is not modified because the xbdd backlog file already exists [Passed]
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
-				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
-				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
-				MyGeneratedSample.Features/xBddSorting.cs,
-				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
-				MyGeneratedSample.Features/xBddConfig.json,
-				MyGeneratedSample.Features/xBddFeatureImport.txt,
-				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
-				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
-			And you will find the project execute tests with the 'dotnet test' command [Passed]
-				dotnet test
-			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'. [Failed]
-				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
-			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'. [Previous Error]
-				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
-			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'. [Previous Error]
-				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
-			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'. [Previous Error]
-				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
-			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'. [Previous Error]
-				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
-		With A Test Run Name [Passed]
+		In An Initialized XBDD [Passed]
 			Given you have an empty directory
 			When you run the command:
+				dotnet xbdd project generate MSTest
+			And you modify all the standard project files
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+				MyGeneratedSample.Features/xBddSorting.cs,
+				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+				MyGeneratedSample.Features/xBddConfig.json,
+				MyGeneratedSample.Features/xBddFeatureImport.txt,
+				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
+			When you run the command:
+				dotnet xbdd project generate MSTest
+			Then you will find the files ending in xbdd.[ext] or xbdd are overwritten
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+				MyGeneratedSample.Features/xBddSorting.cs,
+				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+				MyGeneratedSample.Features/xBddConfig.json,
+				MyGeneratedSample.Features/xBddFeatureImport.txt,
+				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
+			And you will find the files not ending in xbdd.[ext] or xbdd are not overwritten
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+				MyGeneratedSample.Features/xBddSorting.cs,
+				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+				MyGeneratedSample.Features/xBddConfig.json,
+				MyGeneratedSample.Features/xBddFeatureImport.txt,
+				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
+			And you will find the sample feature file is not modified because the xbdd backlog file already exists
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj,
+				MyGeneratedSample.Features/MyGeneratedSample.Features.csproj.xbdd,
+				MyGeneratedSample.Features/xBddFeatureBase.xbdd.cs,
+				MyGeneratedSample.Features/xBddSorting.cs,
+				MyGeneratedSample.Features/xBddSorting.xbdd.cs,
+				MyGeneratedSample.Features/xBddConfig.json,
+				MyGeneratedSample.Features/xBddFeatureImport.txt,
+				MyGeneratedSample.Features/xBddInitializeAndComplete.cs,
+				MyGeneratedSample.Features/Features/MyCapability/MyFeature.cs
+			And you will find the project execute tests with the 'dotnet test' command
+				dotnet test
+			And you will find an HTML Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html'.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.html
+			And you will find a JSON Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json'.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.json
+			And you will find a Text Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt'.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.txt
+			And you will find a Text Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt'.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.Outline.txt
+			And you will find a OPML Outline Report file located at './MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml'.
+				./MyGeneratedSample.Features/test-results/MyGeneratedSample.Features.Results.opml
+		With A Test Run Name [Failed]
+			Given you have an empty directory [Passed]
+			When you run the command: [Passed]
 				dotnet xbdd project generate MSTest --testrun-name My Sample Test Run
-			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template: [Failed]
 				{
 					"xBDD": {
 						"TestRunName": "My Sample Test Run",
@@ -319,11 +328,11 @@ xBDD - Features - Generating Code - Generating Project Files [Failed]
 						}
 					}
 				}
-		With Capability Name Clipping [Passed]
-			Given you have an empty directory
-			When you run the command:
+		With Capability Name Clipping [Failed]
+			Given you have an empty directory [Passed]
+			When you run the command: [Passed]
 				dotnet xbdd project generate MSTest --remove-from-capability-name Modified
-			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template:
+			And you will find a file at './MyGeneratedSample.Features/xBDDConfig.json' that matches the template: [Failed]
 				{
 					"xBDD": {
 						"TestRunName": "My Generated Sample - Features",
