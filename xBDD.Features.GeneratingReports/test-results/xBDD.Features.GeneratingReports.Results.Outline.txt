@@ -29,8 +29,8 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 				Json Report: ./MySample.Features.TestRun4SkippedReady/test-results/MySample.Features.TestRun4SkippedReady.Results.json
 				Json Report: ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json
 				Json Report: ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json
-			And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'. [Previous Error]
-				/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html
+			And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'. [Previous Error]
+				C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html
 		With No Json Files [Failed]
 			Given you do not have a summary report file located at './MySample.TestSummary.WithNoJsonFiles.html'. [Passed]
 				./MySample.TestSummary.WithNoJsonFiles.html
@@ -41,7 +41,7 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 				Name: My Sample - Features
 				TestRunNameClip: My Sample - Features - 
 				Reasons: Untested, Committed, Ready, Defining
-			And you will find a file at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithNoJsonFiles.html' that matches the template: [Previous Error]
+			And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithNoJsonFiles.html' that matches the template: [Previous Error]
 				{{.*}}/rl
 					<title>My Sample - Features</title>
 				{{.*}}/rl
@@ -62,7 +62,7 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 				TestRunNameClip: My Sample - Features - 
 				Reasons: Untested, Committed, Ready, Defining
 				Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json
-			And you will find a file at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template: [Previous Error]
+			And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template: [Previous Error]
 				{{.*}}/rl
 					<title>My Sample - Features</title>
 				{{.*}}/rl
@@ -84,8 +84,8 @@ xBDD - Features - Generating Reports - HTML Summary Report - Generating [Failed]
 				Reasons: Untested, Committed, Ready, Defining
 				Json Report: ./Missing.json
 				Error: Could not find file 'C:\Users\stearm01\source\xBDD\MySample\Missing.json'.
-			And you will not find the html report located at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'. [Previous Error]
-				/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html
+			And you will not find the html report located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'. [Previous Error]
+				C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html
 xBDD - Features - Generating Reports - HTML Summary Report - Review Test Summary Information [Committed]
 	Review Test Summary Name [Committed]
 		With Name [Committed]

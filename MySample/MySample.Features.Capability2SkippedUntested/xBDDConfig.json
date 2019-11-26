@@ -1,0 +1,10 @@
+{
+	"TestRunReport": {
+		"ReportName": "My Sample - Capability 2 Skipped Untested",
+		"ReportFolder": "/../../../test-results/",
+		"FileName": "MySample.Features.Capability2SkippedUntested.Results",
+		"FailuresOnly": "false",
+		"RootNameSkip": "My Sample - Features - Capability 2 Skipped Untested - "
+	},
+	"SortedReasonConfigurationsFilePath": "./../../../../SortedReasonConfigurations.json"
+}

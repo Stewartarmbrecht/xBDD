@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.TestRun1Passing", "MySample.Features.TestRun1Passing\MySample.Features.TestRun1Passing.csproj", "{EB709595-432F-412D-B724-A78BB85D7AE3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.Capability1Passing", "MySample.Features.Capability1Passing\MySample.Features.Capability1Passing.csproj", "{EB709595-432F-412D-B724-A78BB85D7AE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.TestRun2SkippedUntested", "MySample.Features.TestRun2SkippedUntested\MySample.Features.TestRun2SkippedUntested.csproj", "{D4D70231-E63C-4EC2-8201-0393D1D13A78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.Capability2SkippedUntested", "MySample.Features.Capability2SkippedUntested\MySample.Features.Capability2SkippedUntested.csproj", "{D4D70231-E63C-4EC2-8201-0393D1D13A78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.TestRun3SkippedCommitted", "MySample.Features.TestRun3SkippedCommitted\MySample.Features.TestRun3SkippedCommitted.csproj", "{2E4A82D4-290D-4766-B6AB-4512E1241089}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.Capability3SkippedCommitted", "MySample.Features.Capability3SkippedCommitted\MySample.Features.Capability3SkippedCommitted.csproj", "{2E4A82D4-290D-4766-B6AB-4512E1241089}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.TestRun4SkippedReady", "MySample.Features.TestRun4SkippedReady\MySample.Features.TestRun4SkippedReady.csproj", "{4A6FA327-569D-4E70-8BA7-549E31BA4D52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.Capability4SkippedReady", "MySample.Features.Capability4SkippedReady\MySample.Features.Capability4SkippedReady.csproj", "{4A6FA327-569D-4E70-8BA7-549E31BA4D52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.TestRun5SkippedDefining", "MySample.Features.TestRun5SkippedDefining\MySample.Features.TestRun5SkippedDefining.csproj", "{4D322AD6-ED30-4FBC-9491-C489EEF68CC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.Capability5SkippedDefining", "MySample.Features.Capability5SkippedDefining\MySample.Features.Capability5SkippedDefining.csproj", "{4D322AD6-ED30-4FBC-9491-C489EEF68CC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.TestRun6Failed", "MySample.Features.TestRun6Failed\MySample.Features.TestRun6Failed.csproj", "{EE517CFA-70D5-4C6C-ADA7-517963179BB2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySample.Features.Capability6Failed", "MySample.Features.Capability6Failed\MySample.Features.Capability6Failed.csproj", "{EE517CFA-70D5-4C6C-ADA7-517963179BB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

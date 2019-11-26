@@ -119,9 +119,9 @@ namespace xBDD.Reporting.Html
 
 							div.badge.feature-statement-link {{ position: inherit; width: 1.5rem; height: 1.5rem; vertical-align: top; }}
 
-							div.name.feature {{ margin-left: 1rem; }}
-							div.name.scenario {{ margin-left: 2rem;  }}
-							div.name.step {{ margin-left: 3rem; }}
+							div.name.feature {{ margin-left: 0rem; }}
+							div.name.scenario {{ margin-left: 0rem;  }}
+							div.name.step {{ margin-left: 0rem; }}
 
 							span.name {{ vertical-align: top; }}
 							span.name.header {{ font-size: 2rem; font-weight: 400; margin-left: .75rem; }}

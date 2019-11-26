@@ -1,0 +1,10 @@
+{
+	"TestRunReport": {
+		"ReportName": "My Sample - Capability 5 Skipped Defining",
+		"ReportFolder": "/../../../test-results/",
+		"FileName": "MySample.Features.Capability5SkippedDefining.Results",
+		"FailuresOnly": "false",
+		"RootNameSkip": "My Sample - Features - Capability 5 Skipped Defining - "
+	},
+	"SortedReasonConfigurationsFilePath": "./../../../../SortedReasonConfigurations.json"
+}

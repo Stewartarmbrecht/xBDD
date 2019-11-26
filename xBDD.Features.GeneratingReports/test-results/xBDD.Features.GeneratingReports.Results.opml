@@ -36,8 +36,8 @@
 				<outline text="Json Report: ./MySample.Features.TestRun5SkippedDefining/test-results/MySample.Features.TestRun5SkippedDefining.Results.json" />
 				<outline text="Json Report: ./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.json" />
 			</outline>
-			<outline text="And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'.">
-				<outline text="/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html" />
+			<outline text="And you will find a new HTML Report created at './MySample.TestSummary.WithFullTestRun.html' file located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html'.">
+				<outline text="C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/MySample.TestSummary.WithFullTestRun.html" />
 			</outline>
 		</outline>
 		<outline text="With No Json Files [Failed]">
@@ -53,7 +53,7 @@
 				<outline text="TestRunNameClip: My Sample - Features - " />
 				<outline text="Reasons: Untested, Committed, Ready, Defining" />
 			</outline>
-			<outline text="And you will find a file at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithNoJsonFiles.html' that matches the template:">
+			<outline text="And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithNoJsonFiles.html' that matches the template:">
 				<outline text="{{.*}}/rl" />
 				<outline text="	<title>My Sample - Features</title>" />
 				<outline text="{{.*}}/rl" />
@@ -79,7 +79,7 @@
 				<outline text="Reasons: Untested, Committed, Ready, Defining" />
 				<outline text="Json Report: ./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json" />
 			</outline>
-			<outline text="And you will find a file at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template:">
+			<outline text="And you will find a file at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample//./MySample.TestSummary.WithASingleJsonFile.html' that matches the template:">
 				<outline text="{{.*}}/rl" />
 				<outline text="	<title>My Sample - Features</title>" />
 				<outline text="{{.*}}/rl" />
@@ -106,8 +106,8 @@
 				<outline text="Json Report: ./Missing.json" />
 				<outline text="Error: Could not find file 'C:\Users\stearm01\source\xBDD\MySample\Missing.json'." />
 			</outline>
-			<outline text="And you will not find the html report located at '/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'.">
-				<outline text="/Users/stewartarmbrecht/Source/xBDD/xBDD.Features.GeneratingReports/bin/Debug/netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html" />
+			<outline text="And you will not find the html report located at 'C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html'.">
+				<outline text="C:\Users\stearm01\source\xBDD\xBDD.Features.GeneratingReports\bin\Debug\netcoreapp2.1/../../../../MySample/./MySample.TestSummary.WithAMissingJsonFile.html" />
 			</outline>
 		</outline>
 	</outline>
