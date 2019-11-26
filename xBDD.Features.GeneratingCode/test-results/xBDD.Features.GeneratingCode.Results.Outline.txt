@@ -2861,5 +2861,11 @@ xBDD - Features - Generating Code - Generating Solution Files - Using An Xbdd Fe
 				My Capability E - My Sub Capability F
 					My Feature G
 						My Scenario H
-		With No Projects [Defining]
+		With No Projects [Passed]
+			Given you have an empty directory
+			And add a scenario outline file with the following content:
+			When you run the command:
+				dotnet xbdd solution generate MSTest
+			Then you will see output matching the following template:
+				Error: The first line must define a project. Ex. 'Project: My Project'.
 		With An Existing Project That Has Modified Project Files [Defining]

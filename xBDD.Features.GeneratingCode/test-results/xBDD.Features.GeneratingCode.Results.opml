@@ -3199,7 +3199,15 @@
 				<outline text="		My Scenario H" />
 			</outline>
 		</outline>
-		<outline text="With No Projects [Defining]">
+		<outline text="With No Projects [Passed]">
+			<outline text="Given you have an empty directory"/>
+			<outline text="And add a scenario outline file with the following content:"/>
+			<outline text="When you run the command:">
+				<outline text="dotnet xbdd solution generate MSTest" />
+			</outline>
+			<outline text="Then you will see output matching the following template:">
+				<outline text="Error: The first line must define a project. Ex. 'Project: My Project'." />
+			</outline>
 		</outline>
 		<outline text="With An Existing Project That Has Modified Project Files [Defining]">
 		</outline>

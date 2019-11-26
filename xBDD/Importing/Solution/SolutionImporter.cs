@@ -22,6 +22,9 @@ namespace xBDD.Importing.Solution
 		/// <param name="indentation">The standard form of indentation for example '\t' or '  ' - two spaces.</param>
 		/// <returns>A string array of project folders that were created and where xBDDFeatureOutline.txt files were copied.</returns>
 		public string[] ImportSolution(string solutionOutline, string indentation) {
+			if(solutionOutline.StartsWith("Project:") == false) {
+				throw new Exception("The first line must define a project. Ex. 'Project: My Project'.");
+			}
 			solutionOutline = solutionOutline.Substring(9,solutionOutline.Length - 9);
 			string[] projectOutlines = solutionOutline.Split(
 				new string[] { $"{System.Environment.NewLine}Project: " }, 

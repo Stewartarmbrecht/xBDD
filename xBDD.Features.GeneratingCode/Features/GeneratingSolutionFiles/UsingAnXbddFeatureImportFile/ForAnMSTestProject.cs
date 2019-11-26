@@ -25,21 +25,29 @@ namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles.UsingAnXbddFeatur
 			string outline, 
 			string firstFeatureFilePath, 
 			string secondFeatureFilePath,
+			string outputTemplate = null,
 			[CallerMemberName]string methodName = null) 
 		{
 			var outputWrapper = new Wrapper<string>();
 			var featureOutlineTemplatePath1 = $"{templateDirectory}/xBddFeatureOutline{methodName}1.tmpl";
 			var featureOutlineTemplatePath2 = $"{templateDirectory}/xBddFeatureOutline{methodName}2.tmpl";
-			await xB.AddScenario(this, number, methodName)
+			var scenario = xB.AddScenario(this, number, methodName)
 				.Given(you.HaveAnEmptyDirectory("./MyGeneratedSample"))
 				.And($"add a scenario outline file with the following content:",
 					s => {
 						var filePath = "./MyGeneratedSample/xBDDSolutionImport.txt";
 						System.IO.File.WriteAllText(filePath, outline);
 					}, outline, TextFormat.text)
-				.When(you.RunTheXbddToolsCommand(xbddToolsCommandArgs, directory, outputWrapper))
-				.Then(you.WillFindAMatchingFile(firstFeatureFilePath, featureOutlineTemplatePath1, TextFormat.cs))
-				.And(you.WillFindAMatchingFile(secondFeatureFilePath, featureOutlineTemplatePath2, TextFormat.cs))
+				.When(you.RunTheXbddToolsCommand(xbddToolsCommandArgs, directory, outputWrapper));
+
+			if(firstFeatureFilePath != null) {
+				scenario
+					.Then(you.WillFindAMatchingFile(firstFeatureFilePath, featureOutlineTemplatePath1, TextFormat.cs))
+					.And(you.WillFindAMatchingFile(secondFeatureFilePath, featureOutlineTemplatePath2, TextFormat.cs));
+			} else {
+				scenario.Then(you.WillSeeOutput(outputTemplate, outputWrapper));
+			}
+			await scenario
 				.Run();
 		}
 
@@ -59,20 +67,20 @@ namespace xBDD.Features.GeneratingCode.GeneratingSolutionFiles.UsingAnXbddFeatur
 			var featureOutlineFilePath1 = $"{directory}/MyGeneratedSample.Features.Capability1/xBddFeatureImport.txt";
 			var featureOutlineFilePath2 = $"{directory}/MyGeneratedSample.Features.Capability2/xBddFeatureImport.txt";
 			
-			await this.ExecuteScenario(100, outline, featureOutlineFilePath1, featureOutlineFilePath2);
+			await this.ExecuteScenario(1001, outline, featureOutlineFilePath1, featureOutlineFilePath2);
 		}
 
 		[TestMethod]
 		public async Task WithNoProjects()
 		{
-			await xB.AddScenario(this, 1002)
-//				.Given(you.HaveAnEmptySolutionFolder())
-//				.And(you.CopyInABacklog(that.HasNoProjects))
-//				.When(you.RunTheBackLogImportUsingTheCommand())
-//					Input
-//						dotnet xBDD import backlog
-//				.Then(you.WillSeeOutputThatMatches(the.NoProjectOutputTemplate))
-				.Skip("Defining", Assert.Inconclusive);
+			var outline = $@"
+				".RemoveIndentation(4, true);
+			
+			var outputTemplate = $@"
+				Error: The first line must define a project. Ex. 'Project: My Project'.
+				".RemoveIndentation(4, true);
+
+			await this.ExecuteScenario(1002, outline, null, null, outputTemplate);
 		}
 
 		[TestMethod]
