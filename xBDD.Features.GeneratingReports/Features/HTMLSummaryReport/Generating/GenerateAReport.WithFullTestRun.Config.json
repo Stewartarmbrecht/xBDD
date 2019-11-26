@@ -1,0 +1,42 @@
+{
+	"TestRunGroupReport": {
+		"ReportName": "My Sample - Features",
+		"FileName": "./MySample.TestSummary.WithFullTestRun.html",
+		"RootNameSkip": "My Sample - Features - ",
+		"TestRunConfigurations": [
+			{
+				"JsonFilePath": "./MySample.Features.Capability1Passing/test-results/MySample.Features.Capability1Passing.Results.json",
+				"TestRunUrl": "./MySample.Features.Capability1Passing/test-results/MySample.Features.Capability1Passing.Results.html"
+			},
+			{
+				"JsonFilePath": "./MySample.Features.Capability2SkippedUntested/test-results/MySample.Features.Capability2SkippedUntested.Results.json",
+				"TestRunUrl": "./MySample.Features.Capability2SkippedUntested/test-results/MySample.Features.Capability2SkippedUntested.Results.html"
+			},
+			{
+				"JsonFilePath": "./MySample.Features.Capability3SkippedCommitted/test-results/MySample.Features.Capability3SkippedCommitted.Results.json",
+				"TestRunUrl": "./MySample.Features.Capability3SkippedCommitted/test-results/MySample.Features.Capability3SkippedCommitted.Results.html"
+			},
+			{
+				"JsonFilePath": "./MySample.Features.Capability4SkippedReady/test-results/MySample.Features.Capability4SkippedReady.Results.json",
+				"TestRunUrl": "./MySample.Features.Capability4SkippedReady/test-results/MySample.Features.Capability4SkippedReady.Results.html"
+			},
+			{
+				"JsonFilePath": "./MySample.Features.Capability5SkippedDefining/test-results/MySample.Features.Capability5SkippedDefining.Results.json",
+				"TestRunUrl": "./MySample.Features.Capability5SkippedDefining/test-results/MySample.Features.Capability5SkippedDefining.Results.html"
+			},
+			{
+				"JsonFilePath": "./MySample.Features.Capability6Failed/test-results/MySample.Features.Capability6Failed.Results.json",
+				"TestRunUrl": "./MySample.Features.Capability6Failed/test-results/MySample.Features.Capability6Failed.Results.html"
+			}
+		]
+	},
+	"SortedReasonConfigurations": [
+		{"Reason": "Removing","BackgroundColor": "rgb(124,124,124)","FontColor": "White"},
+		{"Reason": "Passed","BackgroundColor": "rgb(112,173,71)","FontColor": "White"},
+		{"Reason": "Untested","BackgroundColor": "rgb(195,155,225)","FontColor": "rgb(15, 1, 26)"},
+		{"Reason": "Committed","BackgroundColor": "rgb(46,117,182)","FontColor": "White"},
+		{"Reason": "Ready","BackgroundColor": "rgb(101, 167, 227)","FontColor": "rgb(2, 20, 36)"},
+		{"Reason": "Defining","BackgroundColor": "rgb(146, 194, 238)","FontColor": "rgb(7, 36, 63)"},
+		{"Reason": "Failed","BackgroundColor": "rgb(192,0,0)","FontColor": "White"}
+	]
+}

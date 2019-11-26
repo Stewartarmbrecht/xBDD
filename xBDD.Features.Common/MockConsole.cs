@@ -62,7 +62,8 @@ namespace xBDD.Features.Common
         // Summary:
         //     Resets McMaster.Extensions.CommandLineUtils.IConsole.ForegroundColor and McMaster.Extensions.CommandLineUtils.IConsole.BackgroundColor.
         public void ResetColor() {
-            throw new System.NotImplementedException();
+            // throw new System.NotImplementedException();
+            return;
         }
     }
 }

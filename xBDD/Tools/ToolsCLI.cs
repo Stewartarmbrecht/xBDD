@@ -182,6 +182,9 @@ namespace xBDD.Tools
 						console.WriteLine($"Name: {config.TestRunGroupReport.ReportName}");
 						console.WriteLine($"TestRunNameClip: {config.TestRunGroupReport.RootNameSkip}");
 						console.WriteLine($"Reasons: {reasons}");
+                        if (config.TestRunGroupReport.TestRunConfigurations == null || config.TestRunGroupReport.TestRunConfigurations.Count == 0) {
+                            throw new Exception("No test run configurations specified.");
+                        }
 						foreach(var testRunConfiguration in config.TestRunGroupReport.TestRunConfigurations) {
 							var jsonReport = testRunConfiguration.JsonFilePath;
 							var htmlReport = testRunConfiguration.TestRunUrl;

@@ -35,18 +35,15 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating
 			"./MySample.Features.TestRun6Failed/test-results/MySample.Features.TestRun6Failed.Results.html"
 		};
 		string jsonReports => string.Join($",{Environment.NewLine}", jsonReportFilePaths);
-		string[] xbddSummaryCommandStart => new[] { "solution", "summarize", 
-			"--output", summaryReportName, 
-			"--name", "My Sample - Features",
-			"--testrun-name-clip", "My Sample - Features - ", 
-			"--reason-order", "Untested, Committed, Ready, Defining"};
-		string[] xbddSummaryCommandArgs => xbddSummaryCommandStart.Concat(jsonReportFilePaths).ToArray();
-		string xbddSummaryCommand => $"dotnet xbdd {string.Join(" ", xbddSummaryCommandStart)} `{Environment.NewLine}{string.Join($" `{Environment.NewLine}", jsonReportFilePaths)}";
-
 		[TestMethod]
 		public async Task WithFullTestRun()
 		{
 			var outputTemplate = "./../../../Features/HTMLSummaryReport/Generating/GenerateAReport.WithFullTestRun.tmpl";
+			var configFile = "./../xBDD.Features.GeneratingReports/Features/HTMLSummaryReport/Generating/GenerateAReport.WithFullTestRun.Config.json";
+			string[] xbddSummaryCommandWithFullTestRun = new[] { 
+				"solution", 
+				"summarize", 
+				"--config-file", configFile};
 			Wrapper<string> output = new Wrapper<string>();
 			await xB.AddScenario(this, 1000)
 				.Given("you have the following json test run reports",
@@ -65,7 +62,7 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating
 					},
 					this.jsonReports,
 					TextFormat.text)
-				.When(you.RunTheXbddToolsCommand(this.xbddSummaryCommandArgs, directory, output))
+				.When(you.RunTheXbddToolsCommand(xbddSummaryCommandWithFullTestRun, directory, output))
 				.Then(you.WillSeeOutput(outputTemplate, output, true))
 				.And(you.WillFind($"a new HTML Report created at './{summaryReportName}'", TextFormat.htmlpreview, $"{directory}{summaryReportName}"))
 				.Run();
@@ -75,21 +72,19 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating
 		public async Task WithNoJsonFiles()
 		{
 			var outputTemplate = "./../../../Features/HTMLSummaryReport/Generating/GenerateAReport.WithNoJsonFiles.Output.tmpl";
-			var reportTemplate = "./../../../Features/HTMLSummaryReport/Generating/GenerateAReport.WithNoJsonFiles.Report.tmpl";
-			var summaryReportPath = "./MySample.TestSummary.WithNoJsonFiles.html";
+			var configFile = "./../xBDD.Features.GeneratingReports/Features/HTMLSummaryReport/Generating/GenerateAReport.WithNoJsonFiles.Config.json";
+			var summaryReportPath = "./../../../../MySample/MySample.TestSummary.WithNoJsonFiles.html";
 			string[] xbddSummaryCommandWithNoFiles = new[] { 
 				"solution", 
 				"summarize", 
-				"--output", summaryReportPath, 
-				"--name", "My Sample - Features",
-				"--testrun-name-clip", "My Sample - Features - ", 
-				"--reason-order", "Untested, Committed, Ready, Defining"};
+				"--config-file", configFile};
 			Wrapper<string> output = new Wrapper<string>();
 			await xB.AddScenario(this, 2000)
 				.Given(you.DoNotHave("a summary report file", summaryReportPath))
 				.When(you.RunTheXbddToolsCommand(xbddSummaryCommandWithNoFiles, directory, output))
 				.Then(you.WillSeeOutput(outputTemplate, output, true))
-				.And(you.WillFindAMatchingFile($"{directory}{summaryReportPath}", reportTemplate, TextFormat.html))
+				.And(you.WillNotFind("a summary report file", summaryReportPath))
+				//.And(you.WillFindAMatchingFile($"{directory}{summaryReportPath}", reportTemplate, TextFormat.html))
 				.Run();
 		}
 
@@ -98,22 +93,18 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating
 		{
 			var outputTemplate = "./../../../Features/HTMLSummaryReport/Generating/GenerateAReport.WithASingleJsonFile.Output.tmpl";
 			var reportTemplate = "./../../../Features/HTMLSummaryReport/Generating/GenerateAReport.WithASingleJsonFile.Report.tmpl";
-			var summaryReportPath = "./MySample.TestSummary.WithASingleJsonFile.html";
+			var summaryReportPath = "./../../../../MySample/MySample.TestSummary.WithASingleJsonFile.html";
+			var configFile = "./../xBDD.Features.GeneratingReports/Features/HTMLSummaryReport/Generating/GenerateAReport.WithASingleJsonFile.Config.json";
 			string[] xbddSummaryCommandWithNoFiles = new[] { 
 				"solution", 
 				"summarize", 
-				"--output", summaryReportPath, 
-				"--name", "My Sample - Features",
-				"--testrun-name-clip", "My Sample - Features - ", 
-				"--reason-order", "Untested, Committed, Ready, Defining",
-				"./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.json",
-				"./MySample.Features.TestRun1Passing/test-results/MySample.Features.TestRun1Passing.Results.html"};
+				"--config-file", configFile};
 			Wrapper<string> output = new Wrapper<string>();
 			await xB.AddScenario(this, 2000)
 				.Given(you.DoNotHave("a summary report file", summaryReportPath))
 				.When(you.RunTheXbddToolsCommand(xbddSummaryCommandWithNoFiles, directory, output))
 				.Then(you.WillSeeOutput(outputTemplate, output, true))
-				.And(you.WillFindAMatchingFile($"{directory}/{summaryReportPath}", reportTemplate, TextFormat.html))
+				.And(you.WillFindAMatchingFile(summaryReportPath, reportTemplate, TextFormat.html))
 				.Run();
 		}
 
@@ -121,22 +112,18 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.Generating
 		public async Task WithAMissingJsonFile()
 		{
 			var outputTemplate = "./../../../Features/HTMLSummaryReport/Generating/GenerateAReport.WithAMissingJsonFile.Output.tmpl";
-			var summaryReportPath = "./MySample.TestSummary.WithAMissingJsonFile.html";
+			var summaryReportPath = "./../../../../MySample/MySample.TestSummary.WithAMissingJsonFile.html";
+			var configFile = "./../xBDD.Features.GeneratingReports/Features/HTMLSummaryReport/Generating/GenerateAReport.WithAMissingJsonFile.Config.json";
 			string[] xbddSummaryCommandWithNoFiles = new[] { 
 				"solution", 
 				"summarize", 
-				"--output", summaryReportPath, 
-				"--name", "My Sample - Features",
-				"--testrun-name-clip", "My Sample - Features - ", 
-				"--reason-order", "Untested, Committed, Ready, Defining",
-				"./Missing.json",
-				"./Missing.html"};
+				"--config-file", configFile};
 			Wrapper<string> output = new Wrapper<string>();
 			await xB.AddScenario(this, 2000)
 				.Given(you.DoNotHave("a summary report file", summaryReportPath))
 				.When(you.RunTheXbddToolsCommand(xbddSummaryCommandWithNoFiles, directory, output))
 				.Then(you.WillSeeOutput(outputTemplate, output, true))
-				.And(you.WillNotFind("the html report", $"{directory}{summaryReportPath}"))
+				.And(you.WillNotFind("the html report", summaryReportPath))
 				.Run();
 		}
 
