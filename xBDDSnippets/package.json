@@ -1,0 +1,20 @@
+{
+    "name": "xBDDSnippets",
+    "displayName": "xBDD.Snippets",
+    "description": "Installs code snippets for creating features and scenarios.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.40.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "csharp",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    }
+}

@@ -7,6 +7,9 @@ namespace xBDD.Features.DefiningFeatures.AddingExplanations
 	using xBDD.Utility;
 
 	[TestClass]
+	[AsA("Developer")]
+	[YouCan("add explanations to steps")]
+	[SoThat("you can explain and document additional detail about a step beyond the name of the step")]
 	public partial class AddingAnExplanationToAStep: xBDDFeatureBase
 	{
 

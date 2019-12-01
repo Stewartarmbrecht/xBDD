@@ -32,11 +32,33 @@
 </outline>
 <outline text="xBDD - Features - Defining Features - Defining Scenarios [Defining]">
 	<outline text="Adding Scenarios [Defining]">
-		<outline text="With Steps [Untested]">
+		<outline text="Without Steps [Passed]">
+			<outline text="Given you have the following scenario defined in a test method">
+				<outline text="await xB.AddScenario(this)" />
+				<outline text="	.Run();" />
+			</outline>
+			<outline text="When you call the method"/>
+			<outline text="Then the scenario will execute successfully"/>
 		</outline>
-		<outline text="Without Steps [Untested]">
+		<outline text="With Steps [Passed]">
+			<outline text="Given you have the following scenario defined in a test method">
+				<outline text="var myValue = 0;" />
+				<outline text="await xB.AddScenario(this)" />
+				<outline text="	.Given("You have 1", s => {" />
+				<outline text="		myValue = 1;" />
+				<outline text="	})" />
+				<outline text="	.When("you add 1", s => {" />
+				<outline text="		myValue++;" />
+				<outline text="	})" />
+				<outline text="	.Then("you will have 2", s => {" />
+				<outline text="		Assert.AreEqual(2, myValue);" />
+				<outline text="	})" />
+				<outline text="	.Run();" />
+			</outline>
+			<outline text="When you call the method"/>
+			<outline text="Then the scenario will execute successfully"/>
 		</outline>
-		<outline text="Using AVS Code Snippet [Defining]">
+		<outline text="Using A Visual Studio Code Snippet [Defining]">
 		</outline>
 	</outline>
 	<outline text="Setting An Output Writer For A Scenario [Untested]">

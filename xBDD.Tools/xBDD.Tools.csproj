@@ -6,11 +6,11 @@
     <PackAsTool>true</PackAsTool>
     <AssemblyName>dotnet-xbdd</AssemblyName>
     <Description>A tool for initializing unit test projects to use xBDD.</Description>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>dotnet-xbdd</PackageId>
-    <Version>0.0.8-alpha</Version>
+    <Version>0.0.9-alpha</Version>
     <Authors>Stewart Armbrecht</Authors>
     <Company>Bound by Better</Company>
     <Description>Dotnet tools for working with xBDD.</Description>

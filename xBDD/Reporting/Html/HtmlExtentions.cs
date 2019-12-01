@@ -115,7 +115,7 @@ namespace xBDD
 				var nl = System.Environment.NewLine;
 				li.Statement = $@"
 					<strong>As a</strong> {(feature.AsA != null ? feature.AsA : "[Missing Name!]")}<br/>
-					<strong>You can </strong> {(feature.YouCan != null ? feature.YouCan : "[Missing Capability!]")}
+					<strong>You can </strong> {(feature.YouCan != null ? feature.YouCan : "[Missing Capability!]")}<br/>
 					<strong>So that </strong> {(feature.SoThat != null ? feature.SoThat : "[Missing Value!]")}<br/>".RemoveIndentation(5, true);
 			}
 			li.Explanation = feature.Explanation;

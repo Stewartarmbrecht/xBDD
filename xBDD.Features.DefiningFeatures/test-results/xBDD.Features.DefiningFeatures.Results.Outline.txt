@@ -15,9 +15,29 @@ xBDD - Features - Defining Features - Defining Steps [Untested]
 		When Executing A Step [Untested]
 xBDD - Features - Defining Features - Defining Scenarios [Defining]
 	Adding Scenarios [Defining]
-		With Steps [Untested]
-		Without Steps [Untested]
-		Using AVS Code Snippet [Defining]
+		Without Steps [Passed]
+			Given you have the following scenario defined in a test method
+				await xB.AddScenario(this)
+					.Run();
+			When you call the method
+			Then the scenario will execute successfully
+		With Steps [Passed]
+			Given you have the following scenario defined in a test method
+				var myValue = 0;
+				await xB.AddScenario(this)
+					.Given("You have 1", s => {
+						myValue = 1;
+					})
+					.When("you add 1", s => {
+						myValue++;
+					})
+					.Then("you will have 2", s => {
+						Assert.AreEqual(2, myValue);
+					})
+					.Run();
+			When you call the method
+			Then the scenario will execute successfully
+		Using A Visual Studio Code Snippet [Defining]
 	Setting An Output Writer For A Scenario [Untested]
 		When Creating A Scenario [Untested]
 		When Creating A Feature [Untested]

@@ -17,9 +17,9 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 	[Explanation(@"
 		## xBDD Tools
 		
-		You can install a xbddToolsCommandArgs line utility that will help you generate a 
+		You can install a command line utility that will help you generate a 
 		dotnet core test project with a file structure that will help you follow best 
-		practices for when building your tests.  All you need is an empty directory 
+		practices for building your tests.  All you need is an empty directory 
 		that you want to create a new project within.  The xBDD framework will create 
 		the following files in the directory:
 		
@@ -153,9 +153,10 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 
 
 		[TestMethod]
-		[Explanation(@"This is the default scenario expected for generating MS Project files.",0)]
-		[Assignments("Stewart","John")]
-		[Tags("Something","SomethingElse")]
+		[Explanation(@"
+			This is the default scenario expected for generating MS Project files.
+			You can generate a fully functioning test project that produces reports when you run ```dotnet test``` 
+			by executing the following command in an empty directory:  ```dotnet xbdd project generate MSTest```",3)]
 		public async Task InAnEmptyDirectory() {
 			await xB.AddScenario(this, 1001)
 				.Given(you.HaveAnEmptyDirectory("./MyGeneratedSample.Features"))
@@ -216,8 +217,12 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 
 		[TestMethod]
 		[Explanation(@"
-			Verifies some files are created but not overwritten when the xbddToolsCommandArgs is executed a second time.  All files that either end in xBDD.[FileType] or end in .xbdd will be overwritten each time the project is generated.  This allows teams to 'upgrade' their default files when they change due to an upgrade.  Or it allows teams to regenerate copies of certain files like the FeatureSort or ReasonSort to make it easier to identify new additions and add them to their custom versions.",3)]
-		[Assignments("Stewart")]
+			When you initialize an xBDD test project in an existing project 
+			some files are skipped and some files are overwritten.  All files that either end in xBDD.[FileType] 
+			or end in .xbdd will be overwritten each time the project is generated.  
+			This allows teams to 'upgrade' their default files when they change due to an upgrade.  
+			Or it allows teams to regenerate copies of certain files like the FeatureSort or 
+			ReasonSort to make it easier to identify new additions and add them to their custom versions.",3)]
 		public async Task InAnInitializedXBDD() {
 			var nl = System.Environment.NewLine;
 			List<(string FilePath, string Comment, TextFormat Format)> standardFilePaths = new List<(string FilePath, string Comment, TextFormat Format)>() {
@@ -315,7 +320,10 @@ namespace xBDD.Features.GeneratingCode.GeneratingProjectFiles
 
 		[TestMethod]
 		[Explanation(@"
-			You can specify the value of testrun name setting in the `xBDDConfig.json` file through a `--testrun-name` option for the xbdd xbddToolsCommandArgs.  The default value is the name of the project folder.",3)]
+			You can specify the value of testrun name setting in the `xBDDConfig.json` file 
+			through a `--testrun-name` option for the xbdd xbddToolsCommandArgs.  
+			The default value is the name of the project folder. 
+			See [Test Runs](./../../xBDD.Docs/TestRuns.html) for more information about Test Runs and Test Run names.",3)]
 		[Assignments("Stewart")]
 		public async Task WithATestRunName() {
 			List<string> args = new List<string>();

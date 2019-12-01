@@ -6,6 +6,9 @@ namespace xBDD.Features.GeneratingReports.HTMLSummaryReport.ReviewTestSummaryInf
 	using xBDD;
 	using xBDD.Utility;
 
+	[AsA("Test Results Reviewer")]
+	[YouCan("view the explanation given for a test run")]
+	[SoThat("you can understand the features included in the test run and how the solution is architected to provide the features")]
 	[TestClass]
 	[Assignments("Stewart")]
 	public partial class ReviewTestSummaryExplanation: xBDDFeatureBase
